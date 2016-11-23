@@ -1,2 +1,0 @@
-SUBDIRS = sources samples doc
-
