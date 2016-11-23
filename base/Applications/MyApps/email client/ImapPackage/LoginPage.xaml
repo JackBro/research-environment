@@ -1,0 +1,32 @@
+﻿<Page x:Class="ImapPackage.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ImapPackage"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="Login Page">
+    <Grid>
+        <StackPanel Width="500" Height="300">
+            <TextBlock Text="Login to continue" FontSize="25" />
+            <TextBlock Text="We support Google Mail at the moment, only." />
+            <Grid Height="150" Margin="0, 30, 0, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Username" Margin="0, 5, 0, 15" />
+                    <TextBlock Text="Password" />
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Name="username" Margin="0, 0, 0, 5" Padding="4" />
+                    <PasswordBox Name="password" Padding="4" />
+                </StackPanel>
+            </Grid>
+            <Button Width="150" Name="loginBtn" Click="loginBtn_Click">Login</Button>
+            <TextBlock Name="error" Margin="10" Foreground="Red" />
+        </StackPanel>
+    </Grid>
+</Page>

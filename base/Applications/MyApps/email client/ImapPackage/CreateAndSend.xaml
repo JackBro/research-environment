@@ -1,0 +1,29 @@
+﻿<Page x:Class="ImapPackage.CreateAndSend"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ImapPackage"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="CreateAndSend">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBlock Text="To" Margin="0, 5" />
+            <TextBlock Text="Subject" Margin="0, 5" />
+            <TextBlock Text="Body" Margin="0, 5" />
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBox Margin="0, 3" Padding="1" Name="to" />
+            <TextBox Margin="0, 3" Padding="1" Name="subject" />
+            <TextBox Margin="0, 3" Padding="1" Height="130" Name="body" AcceptsReturn="True"
+                     ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            <Button Width="50" Name="sendBtn" Click="sendBtn_Click">Send</Button>
+            <Button Width="50" Name="cancelBtn" Click="cancelBtn_Click" Margin="130, -20, 0, 0">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Page>
