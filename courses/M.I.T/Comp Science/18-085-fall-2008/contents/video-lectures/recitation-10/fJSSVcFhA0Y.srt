@@ -1,0 +1,3346 @@
+1
+00:00:00,000 --> 00:00:00,499
+
+
+2
+00:00:00,499 --> 00:00:02,756
+The following content is
+provided under a Creative
+
+3
+00:00:02,756 --> 00:00:03,610
+Commons license.
+
+4
+00:00:03,610 --> 00:00:05,450
+Your support will help
+MIT OpenCourseWare
+
+5
+00:00:05,450 --> 00:00:09,115
+continue to offer high-quality
+educational resources for free.
+
+6
+00:00:09,115 --> 00:00:11,240
+To make a donation, or to
+view additional materials
+
+7
+00:00:11,240 --> 00:00:15,870
+from hundreds of MIT courses,
+visit MIT OpenCourseWare
+
+8
+00:00:15,870 --> 00:00:21,990
+at ocw.mit.edu.
+
+9
+00:00:21,990 --> 00:00:24,750
+PROFESSOR STRANG: So,
+shall we start, as always,
+
+10
+00:00:24,750 --> 00:00:26,570
+just open for questions.
+
+11
+00:00:26,570 --> 00:00:29,150
+About any topic.
+
+12
+00:00:29,150 --> 00:00:34,080
+I listed again trusses,
+1-D finite elements,
+
+13
+00:00:34,080 --> 00:00:35,540
+grad, div, curl.
+
+14
+00:00:35,540 --> 00:00:39,970
+And I should have
+squeezed in x+iy too,
+
+15
+00:00:39,970 --> 00:00:46,000
+as the magic trick for finding
+solutions to Laplace's equation
+
+16
+00:00:46,000 --> 00:00:50,400
+in 2-D. So those are all
+certainly topics that are
+
+17
+00:00:50,400 --> 00:00:52,210
+in this part of the course.
+
+18
+00:00:52,210 --> 00:00:57,330
+We didn't really get to
+3-D, I'm sorry about that,
+
+19
+00:00:57,330 --> 00:00:59,160
+where the curl comes in.
+
+20
+00:00:59,160 --> 00:01:01,900
+Maybe I can say a few
+words about curl today.
+
+21
+00:01:01,900 --> 00:01:03,050
+Anyway, questions.
+
+22
+00:01:03,050 --> 00:01:03,830
+Discussion.
+
+23
+00:01:03,830 --> 00:01:04,530
+Yes, thanks.
+
+24
+00:01:04,530 --> 00:01:10,600
+AUDIENCE: [INAUDIBLE]
+
+25
+00:01:10,600 --> 00:01:12,520
+PROFESSOR STRANG:
+Ooh, let's see.
+
+26
+00:01:12,520 --> 00:01:14,070
+So A^T A for a truss.
+
+27
+00:01:14,070 --> 00:01:16,620
+That's a good question.
+
+28
+00:01:16,620 --> 00:01:27,490
+Trusses, A^T A. I guess I don't
+know any magic tricks either,
+
+29
+00:01:27,490 --> 00:01:32,420
+so one way is to construct
+A, or A transpose,
+
+30
+00:01:32,420 --> 00:01:35,420
+and then just multiply.
+
+31
+00:01:35,420 --> 00:01:43,290
+A second way to do it would be
+by the four by four bar element
+
+32
+00:01:43,290 --> 00:01:47,700
+matrices, so go bar by bar.
+
+33
+00:01:47,700 --> 00:01:54,650
+So four by four bar
+matrices, four by four.
+
+34
+00:01:54,650 --> 00:02:00,270
+So those are already in
+the A transpose A form.
+
+35
+00:02:00,270 --> 00:02:08,480
+They're little A element,
+A bar transpose A, jeez,
+
+36
+00:02:08,480 --> 00:02:13,380
+this isn't a great
+as it should be.
+
+37
+00:02:13,380 --> 00:02:20,010
+A element, but I don't
+know if that would be,
+
+38
+00:02:20,010 --> 00:02:24,150
+so and then you pop those
+into their correct places.
+
+39
+00:02:24,150 --> 00:02:28,880
+I don't think I know any
+great idea beyond that.
+
+40
+00:02:28,880 --> 00:02:34,450
+I think you should really be
+ready to construct a matrix A,
+
+41
+00:02:34,450 --> 00:02:35,890
+yeah.
+
+42
+00:02:35,890 --> 00:02:44,250
+For a reasonably small
+truss, of course.
+
+43
+00:02:44,250 --> 00:02:47,560
+And of course the
+other part of trusses,
+
+44
+00:02:47,560 --> 00:02:56,070
+the fun part is to be able to
+recognize solutions to Au=0.
+
+45
+00:02:56,070 --> 00:03:03,190
+Possibly by looking at the
+truss more than by solving Au=0.
+
+46
+00:03:03,190 --> 00:03:05,700
+Yeah, any particular example?
+
+47
+00:03:05,700 --> 00:03:10,790
+Of a truss that I should look
+at just to pin this down?
+
+48
+00:03:10,790 --> 00:03:14,530
+Any favorite trusses?
+
+49
+00:03:14,530 --> 00:03:19,150
+There was an exam question, what
+was it, a complicated truss?
+
+50
+00:03:19,150 --> 00:03:22,210
+Let's just create a truss.
+
+51
+00:03:22,210 --> 00:03:25,440
+And just think about it.
+
+52
+00:03:25,440 --> 00:03:35,160
+Maybe I won't create the whole
+matrix A. Here's a truss.
+
+53
+00:03:35,160 --> 00:03:37,650
+How's that for a truss?
+
+54
+00:03:37,650 --> 00:03:43,430
+So it's got-- And let me
+put no supports on it.
+
+55
+00:03:43,430 --> 00:03:48,260
+Just, there's a
+truss to think about.
+
+56
+00:03:48,260 --> 00:03:52,290
+Probably we won't get
+to all the gory details
+
+57
+00:03:52,290 --> 00:03:57,280
+but if you look at that
+truss, what's the shape of A?
+
+58
+00:03:57,280 --> 00:04:06,680
+Shape of the matrix A. I
+have a row for every bar.
+
+59
+00:04:06,680 --> 00:04:11,340
+So one, two, three, four, five.
+
+60
+00:04:11,340 --> 00:04:15,470
+And how many columns
+have I got, how many
+
+61
+00:04:15,470 --> 00:04:18,620
+unknown u's, unknown
+displacements have I got?
+
+62
+00:04:18,620 --> 00:04:19,740
+Eight.
+
+63
+00:04:19,740 --> 00:04:21,950
+Two four, six, eight.
+
+64
+00:04:21,950 --> 00:04:30,980
+So I would expect Au=0
+would probably have how many
+
+65
+00:04:30,980 --> 00:04:32,960
+independent solutions?
+
+66
+00:04:32,960 --> 00:04:36,540
+Three.
+
+67
+00:04:36,540 --> 00:04:41,690
+You don't know the exact
+rank, that's exactly true.
+
+68
+00:04:41,690 --> 00:04:43,880
+There could be more
+than three, right.
+
+69
+00:04:43,880 --> 00:04:46,520
+So to really pin
+it down you'd have
+
+70
+00:04:46,520 --> 00:04:51,370
+to be sure you were
+right about that.
+
+71
+00:04:51,370 --> 00:04:54,050
+So three, at least.
+
+72
+00:04:54,050 --> 00:05:01,800
+And I guess here you could tell
+me the three solutions to Au=0.
+
+73
+00:05:01,800 --> 00:05:03,640
+Three rigid motions.
+
+74
+00:05:03,640 --> 00:05:07,830
+I could translate it to the
+right, I could translate it up,
+
+75
+00:05:07,830 --> 00:05:09,790
+and you would know
+what the u is,
+
+76
+00:05:09,790 --> 00:05:16,910
+so u translating to the right
+would be [1, 0, 1, 0, 1, 0, 1,
+
+77
+00:05:16,910 --> 00:05:19,360
+0], right?
+
+78
+00:05:19,360 --> 00:05:25,370
+That's horizontal motion
+all the same, rigid motion.
+
+79
+00:05:25,370 --> 00:05:29,200
+And we should certainly
+discover that if we created A
+
+80
+00:05:29,200 --> 00:05:31,830
+for this truss,
+that Au was zero.
+
+81
+00:05:31,830 --> 00:05:36,010
+And similarly vertical motion
+and the third one would be?
+
+82
+00:05:36,010 --> 00:05:37,640
+Rotation, rotation.
+
+83
+00:05:37,640 --> 00:05:39,690
+Yeah.
+
+84
+00:05:39,690 --> 00:05:43,740
+So if I did the rotation
+around there, for example,
+
+85
+00:05:43,740 --> 00:05:49,250
+this guy would-- this u
+would also be a [1, 0] here.
+
+86
+00:05:49,250 --> 00:05:50,900
+This wouldn't move.
+
+87
+00:05:50,900 --> 00:05:55,950
+So I'm putting in the four
+pieces that would go into u.
+
+88
+00:05:55,950 --> 00:06:00,550
+This one, what would be the
+u for this, the displacement
+
+89
+00:06:00,550 --> 00:06:05,600
+of that corner of the truss?
+
+90
+00:06:05,600 --> 00:06:06,530
+In a rotation?
+
+91
+00:06:06,530 --> 00:06:12,470
+So my rotation is just swing
+this whole thing around.
+
+92
+00:06:12,470 --> 00:06:15,660
+Zero? [0, -1], I think.
+
+93
+00:06:15,660 --> 00:06:16,470
+Right.
+
+94
+00:06:16,470 --> 00:06:18,380
+Because it's not
+going to go out,
+
+95
+00:06:18,380 --> 00:06:21,430
+it's going to go
+straight down, [0, -1].
+
+96
+00:06:21,430 --> 00:06:26,520
+And what do you think this
+guy is? [1, -1], let's see.
+
+97
+00:06:26,520 --> 00:06:29,100
+It's going to go
+this way, so it's
+
+98
+00:06:29,100 --> 00:06:31,020
+going to go forward and down.
+
+99
+00:06:31,020 --> 00:06:32,570
+And I think you're right.
+
+100
+00:06:32,570 --> 00:06:35,370
+One and negative one, yeah.
+
+101
+00:06:35,370 --> 00:06:37,190
+I think that would be right.
+
+102
+00:06:37,190 --> 00:06:46,310
+Yeah, then the truss,
+we could check each bar.
+
+103
+00:06:46,310 --> 00:06:49,010
+That bar, for example,
+should not change length
+
+104
+00:06:49,010 --> 00:06:53,630
+because the movement is
+perpendicular to the bar
+
+105
+00:06:53,630 --> 00:06:55,830
+and I'm writing
+ones, but I really
+
+106
+00:06:55,830 --> 00:07:00,550
+should write some much smaller
+number like .1 everywhere,
+
+107
+00:07:00,550 --> 00:07:05,350
+or something just so that
+this isn't a very big angle.
+
+108
+00:07:05,350 --> 00:07:09,910
+And it wouldn't change
+length to first order.
+
+109
+00:07:09,910 --> 00:07:16,980
+So that that's maybe an example
+where we see the motions,
+
+110
+00:07:16,980 --> 00:07:19,380
+but we didn't actually
+create A, and we should
+
+111
+00:07:19,380 --> 00:07:23,420
+be able to create A,
+don't let me prevent you
+
+112
+00:07:23,420 --> 00:07:28,380
+from thinking about A. Yeah.
+
+113
+00:07:28,380 --> 00:07:30,929
+AUDIENCE: [INAUDIBLE]
+Should those be ones,
+
+114
+00:07:30,929 --> 00:07:32,470
+or should they be
+root two over twos?
+
+115
+00:07:32,470 --> 00:07:34,386
+PROFESSOR STRANG: Well,
+that's a good question
+
+116
+00:07:34,386 --> 00:07:39,590
+and after many years I've
+figured out that they're ones.
+
+117
+00:07:39,590 --> 00:07:41,730
+But it's a very good question.
+
+118
+00:07:41,730 --> 00:07:45,000
+Let's just see why.
+
+119
+00:07:45,000 --> 00:07:49,970
+Let's look at this bar to
+be sure it's not stretched.
+
+120
+00:07:49,970 --> 00:07:50,570
+Right?
+
+121
+00:07:50,570 --> 00:07:54,910
+So this guy is moving over
+by one, and this also by one,
+
+122
+00:07:54,910 --> 00:07:55,980
+is my claim.
+
+123
+00:07:55,980 --> 00:07:59,180
+And then this movement
+down doesn't stretch it
+
+124
+00:07:59,180 --> 00:08:00,890
+to first order, yeah.
+
+125
+00:08:00,890 --> 00:08:04,450
+So I needed to make
+those guys the same.
+
+126
+00:08:04,450 --> 00:08:07,320
+I guess what I figured out is
+that if you're rotating around
+
+127
+00:08:07,320 --> 00:08:14,340
+here, then somehow it's the
+x and y, is that-- Anyway.
+
+128
+00:08:14,340 --> 00:08:19,330
+Whatever.
+
+129
+00:08:19,330 --> 00:08:26,650
+So that gives us a chance
+to do a specific example.
+
+130
+00:08:26,650 --> 00:08:31,070
+OK, but I've dodged the
+creation of A. Yep, thanks.
+
+131
+00:08:31,070 --> 00:08:37,600
+AUDIENCE: [INAUDIBLE]
+
+132
+00:08:37,600 --> 00:08:41,040
+PROFESSOR STRANG: Sorry, the
+solution to A transpose A?
+
+133
+00:08:41,040 --> 00:08:46,424
+AUDIENCE: [INAUDIBLE]
+
+134
+00:08:46,424 --> 00:08:47,840
+PROFESSOR STRANG:
+Yeah, I see, OK.
+
+135
+00:08:47,840 --> 00:08:52,180
+So the reason I stopped
+here was that A transpose A
+
+136
+00:08:52,180 --> 00:08:53,790
+will be singular.
+
+137
+00:08:53,790 --> 00:09:00,440
+So I wouldn't, like, go ahead,
+go forward to A transpose Au=f.
+
+138
+00:09:00,440 --> 00:09:08,430
+But if I put on some supports,
+then of course now all good.
+
+139
+00:09:08,430 --> 00:09:14,840
+So now I have, what's
+now the shape of A?
+
+140
+00:09:14,840 --> 00:09:17,210
+For this one.
+
+141
+00:09:17,210 --> 00:09:22,270
+I now have this bar is
+now, forget it, right?
+
+142
+00:09:22,270 --> 00:09:24,840
+This bar is just
+between two supports.
+
+143
+00:09:24,840 --> 00:09:31,100
+So if we put it in the matrix
+it'll just be a row of zeroes.
+
+144
+00:09:31,100 --> 00:09:33,520
+Nothing will happen,
+and we're better off
+
+145
+00:09:33,520 --> 00:09:34,990
+to just knock it out.
+
+146
+00:09:34,990 --> 00:09:39,470
+So I think, now I have,
+I now have four bars.
+
+147
+00:09:39,470 --> 00:09:41,720
+And how many unknowns?
+
+148
+00:09:41,720 --> 00:09:44,420
+Four: two there and two there.
+
+149
+00:09:44,420 --> 00:09:48,340
+And, do you guess
+that it's stable?
+
+150
+00:09:48,340 --> 00:09:49,570
+That truss?
+
+151
+00:09:49,570 --> 00:09:51,780
+Yeah, that looks stable to me.
+
+152
+00:09:51,780 --> 00:09:55,550
+So the four by four
+matrix would be invertible
+
+153
+00:09:55,550 --> 00:09:58,050
+and then I could solve.
+
+154
+00:09:58,050 --> 00:09:59,750
+Good point.
+
+155
+00:09:59,750 --> 00:10:03,800
+Then, A would be four
+by four, A transpose
+
+156
+00:10:03,800 --> 00:10:07,560
+would be four by four, C would
+be four by four in between.
+
+157
+00:10:07,560 --> 00:10:11,450
+This is the case that-- I
+gave a name for this case.
+
+158
+00:10:11,450 --> 00:10:14,770
+When I have a square matrix,
+do you remember the name just
+
+159
+00:10:14,770 --> 00:10:15,900
+for the hell of it?
+
+160
+00:10:15,900 --> 00:10:17,690
+Statically determinate.
+
+161
+00:10:17,690 --> 00:10:21,520
+It's determinate because each
+step determines everything
+
+162
+00:10:21,520 --> 00:10:22,580
+completely.
+
+163
+00:10:22,580 --> 00:10:26,360
+Normally, if I have
+another bar there,
+
+164
+00:10:26,360 --> 00:10:31,090
+now it would be five
+by four, and now
+
+165
+00:10:31,090 --> 00:10:36,020
+I really have to do the A
+transpose C A to get to a four
+
+166
+00:10:36,020 --> 00:10:38,590
+by four invertible.
+
+167
+00:10:38,590 --> 00:10:43,350
+By itself, A would
+not be invertible.
+
+168
+00:10:43,350 --> 00:10:47,230
+This is the more typical
+case, where you really
+
+169
+00:10:47,230 --> 00:10:49,190
+have to put all three together.
+
+170
+00:10:49,190 --> 00:10:51,410
+Right.
+
+171
+00:10:51,410 --> 00:10:55,920
+I hope you enjoyed the trusses
+part, though, and continue
+
+172
+00:10:55,920 --> 00:11:01,050
+to enjoy them this evening.
+
+173
+00:11:01,050 --> 00:11:04,410
+OK, I'll just keep
+moving to be sure
+
+174
+00:11:04,410 --> 00:11:07,220
+that we cover any other topics.
+
+175
+00:11:07,220 --> 00:11:07,840
+Yeah, thanks.
+
+176
+00:11:07,840 --> 00:11:09,834
+AUDIENCE: [INAUDIBLE]
+
+177
+00:11:09,834 --> 00:11:11,250
+PROFESSOR STRANG:
+For this matrix?
+
+178
+00:11:11,250 --> 00:11:13,036
+AUDIENCE: [INAUDIBLE]
+
+179
+00:11:13,036 --> 00:11:14,410
+PROFESSOR STRANG:
+For that truss?
+
+180
+00:11:14,410 --> 00:11:15,960
+Oh my God.
+
+181
+00:11:15,960 --> 00:11:20,260
+OK, let me see.
+
+182
+00:11:20,260 --> 00:11:23,680
+Then can I do one row?
+
+183
+00:11:23,680 --> 00:11:27,990
+OK, of course, you guys are
+responsible for much more.
+
+184
+00:11:27,990 --> 00:11:29,310
+Alright, which row shall I do?
+
+185
+00:11:29,310 --> 00:11:32,310
+Which bar?
+
+186
+00:11:32,310 --> 00:11:33,430
+A diagonal bar?
+
+187
+00:11:33,430 --> 00:11:38,210
+I knew you'd make it like,
+you could make up quizzes
+
+188
+00:11:38,210 --> 00:11:40,180
+and I could just sit back here.
+
+189
+00:11:40,180 --> 00:11:43,860
+OK, so let's take this
+diagonal bar, alright.
+
+190
+00:11:43,860 --> 00:11:47,470
+And are we going to keep
+that supported, or not?
+
+191
+00:11:47,470 --> 00:11:49,590
+Do you want to
+keep it supported?
+
+192
+00:11:49,590 --> 00:11:53,530
+OK, so in this case then
+that end is not moving.
+
+193
+00:11:53,530 --> 00:11:55,960
+So this will be in
+this, and this bar
+
+194
+00:11:55,960 --> 00:12:01,470
+corresponds to a row of A.
+And how many non-zeroes will
+
+195
+00:12:01,470 --> 00:12:03,540
+I expect in that row?
+
+196
+00:12:03,540 --> 00:12:04,750
+Just two.
+
+197
+00:12:04,750 --> 00:12:08,410
+Normally four, but I'm not
+getting any motion down here.
+
+198
+00:12:08,410 --> 00:12:11,500
+So it'll just be two and
+if that's 45 degrees,
+
+199
+00:12:11,500 --> 00:12:16,370
+shall we say, then that
+row, I think, would be what?
+
+200
+00:12:16,370 --> 00:12:19,320
+Well, OK.
+
+201
+00:12:19,320 --> 00:12:21,680
+Where do my non-zeroes appear?
+
+202
+00:12:21,680 --> 00:12:26,080
+This is node number
+one with an H and a V.
+
+203
+00:12:26,080 --> 00:12:30,910
+So I think we have zeroes.
+
+204
+00:12:30,910 --> 00:12:37,400
+If that bar stretches-- The
+connection between displacement
+
+205
+00:12:37,400 --> 00:12:40,840
+and stretching of this bar
+does not involve this guy.
+
+206
+00:12:40,840 --> 00:12:42,800
+So I think it's
+zero and zero there.
+
+207
+00:12:42,800 --> 00:12:45,350
+And now, what else is it?
+
+208
+00:12:45,350 --> 00:12:47,200
+So now come the
+real numbers, which
+
+209
+00:12:47,200 --> 00:12:51,320
+I believe to be cosine
+and sine of that angle.
+
+210
+00:12:51,320 --> 00:12:56,400
+Because if I, how much
+does that bar stretch?
+
+211
+00:12:56,400 --> 00:12:59,865
+I know that I'm looking
+for a cosine and a sine,
+
+212
+00:12:59,865 --> 00:13:04,840
+and if this goes positively,
+then the bar does stretch.
+
+213
+00:13:04,840 --> 00:13:08,060
+If this goes positively,
+that does stretch the bar
+
+214
+00:13:08,060 --> 00:13:10,810
+so I'm expecting
+positive numbers there,
+
+215
+00:13:10,810 --> 00:13:14,270
+like the cosine, square
+root of two over two,
+
+216
+00:13:14,270 --> 00:13:20,360
+and the sine, square
+root of two over two.
+
+217
+00:13:20,360 --> 00:13:25,670
+Well, I dodged the bullet
+of getting the whole matrix,
+
+218
+00:13:25,670 --> 00:13:27,680
+but maybe that would do it.
+
+219
+00:13:27,680 --> 00:13:30,280
+Why don't we do
+this the top one?
+
+220
+00:13:30,280 --> 00:13:31,790
+Yeah.
+
+221
+00:13:31,790 --> 00:13:36,370
+Tell me the first, if
+that's bar one, what would
+
+222
+00:13:36,370 --> 00:13:38,950
+be the first row of the matrix?
+
+223
+00:13:38,950 --> 00:13:42,410
+OK, it involves
+both of these nodes.
+
+224
+00:13:42,410 --> 00:13:44,080
+But the angle is zero.
+
+225
+00:13:44,080 --> 00:13:48,620
+So that's going to
+be a little special.
+
+226
+00:13:48,620 --> 00:13:55,550
+So if this goes
+out horizontally,
+
+227
+00:13:55,550 --> 00:13:57,350
+I should really start
+with the first one.
+
+228
+00:13:57,350 --> 00:14:00,160
+Is this goes horizontally
+it compresses the bar,
+
+229
+00:14:00,160 --> 00:14:02,500
+I think we get a
+minus one there.
+
+230
+00:14:02,500 --> 00:14:05,670
+If it goes vertically,
+that doesn't do anything.
+
+231
+00:14:05,670 --> 00:14:08,430
+If this goes horizontally
+it does do something.
+
+232
+00:14:08,430 --> 00:14:11,090
+If it goes vertically
+it doesn't.
+
+233
+00:14:11,090 --> 00:14:22,370
+I'd say that would be the row of
+the matrix coming from the top.
+
+234
+00:14:22,370 --> 00:14:24,100
+That would give
+me the stretching.
+
+235
+00:14:24,100 --> 00:14:25,840
+You remember, I'm
+always going to,
+
+236
+00:14:25,840 --> 00:14:28,490
+I think of
+multiplying this by u.
+
+237
+00:14:28,490 --> 00:14:37,200
+I think of multiplying that by
+[u 1 H, u 1 V, u 2 H, u 2 V],
+
+238
+00:14:37,200 --> 00:14:41,960
+and this top row
+should give me you
+
+239
+00:14:41,960 --> 00:14:57,930
+u 2 H minus u 1 H, which
+is the stretch in bar one.
+
+240
+00:14:57,930 --> 00:15:00,470
+So that would be a
+typical one, this
+
+241
+00:15:00,470 --> 00:15:03,870
+would be at least
+typical of one where
+
+242
+00:15:03,870 --> 00:15:06,500
+I do see a cosine and a sine.
+
+243
+00:15:06,500 --> 00:15:15,270
+And let me just finally add,
+suppose this was not supported.
+
+244
+00:15:15,270 --> 00:15:17,280
+OK, suppose that's
+not supported,
+
+245
+00:15:17,280 --> 00:15:20,430
+now I've got a couple more
+columns to squeeze in.
+
+246
+00:15:20,430 --> 00:15:23,220
+Maybe I can somehow do it here.
+
+247
+00:15:23,220 --> 00:15:25,820
+Can I squeeze in the
+two more columns?
+
+248
+00:15:25,820 --> 00:15:31,240
+So can you complete the
+top row of the matrix?
+
+249
+00:15:31,240 --> 00:15:33,310
+Now I've got six columns.
+
+250
+00:15:33,310 --> 00:15:37,550
+Because here's two, here's
+two, here's two more.
+
+251
+00:15:37,550 --> 00:15:40,850
+What goes on the top
+row of a matrix now?
+
+252
+00:15:40,850 --> 00:15:44,580
+Zeroes, because this is
+not affected by bar one.
+
+253
+00:15:44,580 --> 00:15:47,920
+But it is affected by this bar.
+
+254
+00:15:47,920 --> 00:15:52,070
+So it's going to show up in this
+row, and how will it show up?
+
+255
+00:15:52,070 --> 00:15:53,290
+Two negatives, right.
+
+256
+00:15:53,290 --> 00:15:59,450
+A negative cosine and a negative
+sine. and at 45 degrees I
+
+257
+00:15:59,450 --> 00:16:02,220
+can't tell the difference.
+
+258
+00:16:02,220 --> 00:16:05,940
+Because if these move forward,
+that compresses the bar.
+
+259
+00:16:05,940 --> 00:16:07,210
+So the minus sign.
+
+260
+00:16:07,210 --> 00:16:11,430
+So again, the rows
+add up to zero,
+
+261
+00:16:11,430 --> 00:16:18,220
+as we expect when the bar
+is not touching a support.
+
+262
+00:16:18,220 --> 00:16:26,240
+This is not touching a
+support, so it adds up to zero.
+
+263
+00:16:26,240 --> 00:16:34,840
+OK, we'll have a truss
+problem this evening,
+
+264
+00:16:34,840 --> 00:16:39,500
+but not a big messy one.
+
+265
+00:16:39,500 --> 00:16:42,320
+How about finite elements?
+
+266
+00:16:42,320 --> 00:16:45,000
+You guys, do you
+like finite elements?
+
+267
+00:16:45,000 --> 00:16:49,180
+I'm sort of hoping to
+make them attractive.
+
+268
+00:16:49,180 --> 00:16:52,960
+I noticed a problem, just
+to give us some specific one
+
+269
+00:16:52,960 --> 00:16:56,850
+to work on, and I don't remember
+that it was a homework problem.
+
+270
+00:16:56,850 --> 00:17:07,590
+This is Section 3.1, number 18,
+asks about the equation u''=0.
+
+271
+00:17:07,590 --> 00:17:11,260
+Well, we've talked
+about it in class.
+
+272
+00:17:11,260 --> 00:17:19,220
+With u(0)=0 but u' of-- the
+slope equal zero at the other
+
+273
+00:17:19,220 --> 00:17:19,860
+end.
+
+274
+00:17:19,860 --> 00:17:23,130
+So what's the picture if
+I use linear elements?
+
+275
+00:17:23,130 --> 00:17:26,300
+I don't remember how many
+I used in the problem.
+
+276
+00:17:26,300 --> 00:17:34,500
+Well, it allows you to
+use N interior guys, one,
+
+277
+00:17:34,500 --> 00:17:41,060
+two, up to N, and then
+another-- This will come in.
+
+278
+00:17:41,060 --> 00:17:45,710
+Or that's the point.
+
+279
+00:17:45,710 --> 00:17:49,340
+OK, so what's the
+finite element method,
+
+280
+00:17:49,340 --> 00:17:52,030
+finite element
+matrix K for this--
+
+281
+00:17:52,030 --> 00:18:01,360
+So I want to do linear elements
+and I want to construct K.
+
+282
+00:18:01,360 --> 00:18:03,880
+And, yeah, I guess.
+
+283
+00:18:03,880 --> 00:18:07,580
+Oh, I haven't
+actually made anything
+
+284
+00:18:07,580 --> 00:18:09,370
+happen to this problem.
+
+285
+00:18:09,370 --> 00:18:12,970
+All zeroes is kind
+of slow going.
+
+286
+00:18:12,970 --> 00:18:16,840
+u will be, the solution
+will certainly be zero.
+
+287
+00:18:16,840 --> 00:18:24,800
+So maybe I'd better put in a
+load here to get some action.
+
+288
+00:18:24,800 --> 00:18:32,350
+OK, well, yeah.
+
+289
+00:18:32,350 --> 00:18:36,430
+So I proposed this question
+but now, is this a question
+
+290
+00:18:36,430 --> 00:18:38,610
+to think about?
+
+291
+00:18:38,610 --> 00:18:41,490
+I think that's a
+reasonable example to do.
+
+292
+00:18:41,490 --> 00:18:43,990
+It's got the two types
+of boundary conditions.
+
+293
+00:18:43,990 --> 00:18:46,100
+It's got the
+right-hand side f, it's
+
+294
+00:18:46,100 --> 00:18:51,440
+got linear elements which means
+it's kind of doable by hand.
+
+295
+00:18:51,440 --> 00:19:00,760
+And we kind of know what
+matrix to expect out of it.
+
+296
+00:19:00,760 --> 00:19:05,280
+What matrix do we expect?
+
+297
+00:19:05,280 --> 00:19:08,370
+What do I expect out
+of linear elements,
+
+298
+00:19:08,370 --> 00:19:11,690
+do you remember the point about
+linear elements on equally
+
+299
+00:19:11,690 --> 00:19:13,300
+spaced meshes?
+
+300
+00:19:13,300 --> 00:19:17,510
+That just brought back our
+regular difference matrices.
+
+301
+00:19:17,510 --> 00:19:21,300
+So I'm expecting
+this stiffness matrix
+
+302
+00:19:21,300 --> 00:19:22,620
+to be a difference matrix.
+
+303
+00:19:22,620 --> 00:19:24,890
+Anyway, the point
+of this question
+
+304
+00:19:24,890 --> 00:19:28,290
+is, OK, I have a hat function,
+I have a hat function,
+
+305
+00:19:28,290 --> 00:19:34,940
+I've a hat function, a hat
+function, and is that the end?
+
+306
+00:19:34,940 --> 00:19:38,560
+Is that the complete list
+of my trial functions?
+
+307
+00:19:38,560 --> 00:19:40,660
+One more, right?
+
+308
+00:19:40,660 --> 00:19:48,530
+Because this condition is, all
+my trial and test functions
+
+309
+00:19:48,530 --> 00:19:51,330
+don't have to satisfy this.
+
+310
+00:19:51,330 --> 00:19:55,580
+So I'm allowed, and should
+have, another guy there.
+
+311
+00:19:55,580 --> 00:19:58,530
+A half hat for that one.
+
+312
+00:19:58,530 --> 00:20:06,350
+You may say, don't let that
+clown into the finite element
+
+313
+00:20:06,350 --> 00:20:09,080
+space but I think it should be.
+
+314
+00:20:09,080 --> 00:20:13,900
+The solution won't
+use much of it.
+
+315
+00:20:13,900 --> 00:20:18,450
+Because the solution is
+going to aim for zero slope.
+
+316
+00:20:18,450 --> 00:20:20,850
+But it's going to need a
+little-- You see why it needs
+
+317
+00:20:20,850 --> 00:20:22,360
+a little bit, something here?
+
+318
+00:20:22,360 --> 00:20:26,150
+Because this thing
+has slope down.
+
+319
+00:20:26,150 --> 00:20:29,140
+So if there's some
+of that in there,
+
+320
+00:20:29,140 --> 00:20:35,390
+there better be somebody
+else to cancel it.
+
+321
+00:20:35,390 --> 00:20:39,580
+If our approximation is going
+to have about zero slope.
+
+322
+00:20:39,580 --> 00:20:41,340
+OK, so then.
+
+323
+00:20:41,340 --> 00:20:44,000
+Can you construct a matrix K?
+
+324
+00:20:44,000 --> 00:20:48,110
+Let's see, what's
+the (2,3) entry?
+
+325
+00:20:48,110 --> 00:20:52,487
+So if I call this number
+one, this number two,
+
+326
+00:20:52,487 --> 00:20:53,570
+oh, I've already numbered.
+
+327
+00:20:53,570 --> 00:20:57,730
+So number two and number
+three, so that trial
+
+328
+00:20:57,730 --> 00:20:59,790
+function against that one.
+
+329
+00:20:59,790 --> 00:21:00,450
+What do I?
+
+330
+00:21:00,450 --> 00:21:05,340
+What's my formula for the (2,3)
+entry of the stiffness matrix?
+
+331
+00:21:05,340 --> 00:21:08,690
+It's some integral, right?
+
+332
+00:21:08,690 --> 00:21:10,920
+And what do I integrate?
+
+333
+00:21:10,920 --> 00:21:12,830
+I integrate, yeah.
+
+334
+00:21:12,830 --> 00:21:15,560
+And I've got to
+have to remember.
+
+335
+00:21:15,560 --> 00:21:22,470
+So I do, yeah, my weak form--
+I've integrated by parts,
+
+336
+00:21:22,470 --> 00:21:28,670
+so my weak form is the integral
+of u'*v'*dx equals the integral
+
+337
+00:21:28,670 --> 00:21:33,010
+of f times. v dx.
+
+338
+00:21:33,010 --> 00:21:34,120
+That's my weak form.
+
+339
+00:21:34,120 --> 00:21:41,070
+I did two integrations by
+parts and the integrated term
+
+340
+00:21:41,070 --> 00:21:41,870
+will go away.
+
+341
+00:21:41,870 --> 00:21:43,430
+Because of those zeroes.
+
+342
+00:21:43,430 --> 00:21:52,020
+OK, so K_(2,3) will come from
+this side when I'm using phi_2
+
+343
+00:21:52,020 --> 00:21:55,380
+and phi_3, because
+I'm taking the phis,
+
+344
+00:21:55,380 --> 00:22:00,460
+the phis and the V's both
+the same hat function.
+
+345
+00:22:00,460 --> 00:22:08,270
+OK, so what do I get
+for that? phi_2' is?
+
+346
+00:22:08,270 --> 00:22:12,030
+So this is it, and
+it overlaps this one.
+
+347
+00:22:12,030 --> 00:22:15,290
+So when it overlaps this
+phi_2 is coming down
+
+348
+00:22:15,290 --> 00:22:17,480
+and phi_3 is going up.
+
+349
+00:22:17,480 --> 00:22:23,210
+And the slope is 1/h, let's say.
+
+350
+00:22:23,210 --> 00:22:30,240
+So I think I'm integrating us a
+negative slope, is that right?
+
+351
+00:22:30,240 --> 00:22:32,840
+Times a positive slope.
+
+352
+00:22:32,840 --> 00:22:38,960
+And I'm really only integrating
+over one h interval.
+
+353
+00:22:38,960 --> 00:22:44,550
+The two overlap only here,
+where this one's coming down
+
+354
+00:22:44,550 --> 00:22:46,020
+and that one's going up.
+
+355
+00:22:46,020 --> 00:22:49,920
+So I think-- dx.
+
+356
+00:22:49,920 --> 00:22:52,170
+And the great thing is, of
+course, we have a constant.
+
+357
+00:22:52,170 --> 00:22:54,880
+So I have minus one
+over h squared times h,
+
+358
+00:22:54,880 --> 00:22:58,230
+I think minus one over h.
+
+359
+00:22:58,230 --> 00:23:00,990
+That would be K_(2,3).
+
+360
+00:23:00,990 --> 00:23:08,070
+That's a simple example.
+
+361
+00:23:08,070 --> 00:23:19,050
+And then at the end we will
+see it, we'll see this one,
+
+362
+00:23:19,050 --> 00:23:21,850
+I think we'll get some matrix.
+
+363
+00:23:21,850 --> 00:23:24,340
+We'll have this 1/h
+outside, I think
+
+364
+00:23:24,340 --> 00:23:27,980
+we'll have something like two,
+minus one; two, minus one;
+
+365
+00:23:27,980 --> 00:23:31,330
+minus one and then only
+a one from the half-hat.
+
+366
+00:23:31,330 --> 00:23:39,190
+I think it would be that matrix
+that would be K. I think.
+
+367
+00:23:39,190 --> 00:23:42,440
+Maybe with more,
+greater size if we
+
+368
+00:23:42,440 --> 00:23:43,920
+have a whole bunch of elements.
+
+369
+00:23:43,920 --> 00:23:47,590
+But that pattern.
+
+370
+00:23:47,590 --> 00:23:49,260
+You're pretty much into this?
+
+371
+00:23:49,260 --> 00:23:54,420
+Yeah, I mean we're doing
+a lot in this course.
+
+372
+00:23:54,420 --> 00:23:59,090
+I'm really grateful
+you guys stay with it,
+
+373
+00:23:59,090 --> 00:24:06,770
+and kept to these new ideas,
+through doing exercises
+
+374
+00:24:06,770 --> 00:24:07,420
+and so on.
+
+375
+00:24:07,420 --> 00:24:11,510
+Because there's a lot here.
+
+376
+00:24:11,510 --> 00:24:13,440
+Well, I thought I'd
+put an example up,
+
+377
+00:24:13,440 --> 00:24:16,650
+to open up, just
+to remind you what
+
+378
+00:24:16,650 --> 00:24:18,360
+that language is about there.
+
+379
+00:24:18,360 --> 00:24:23,340
+And to be ready for any
+question in that topic.
+
+380
+00:24:23,340 --> 00:24:26,600
+Or any question whatever.
+
+381
+00:24:26,600 --> 00:24:28,990
+So I jumped in with
+finite elements,
+
+382
+00:24:28,990 --> 00:24:37,320
+but I'm ready also to talk
+about that area of the course.
+
+383
+00:24:37,320 --> 00:24:38,470
+AUDIENCE: [INAUDIBLE]
+
+384
+00:24:38,470 --> 00:24:44,630
+PROFESSOR STRANG:
+Yeah. x+iy stuff, OK.
+
+385
+00:24:44,630 --> 00:24:47,940
+Basically, any
+function of x+iy, yeah.
+
+386
+00:24:47,940 --> 00:24:49,570
+Any function.
+
+387
+00:24:49,570 --> 00:24:53,630
+So strictly, yeah, I mean a
+mathematician would say what,
+
+388
+00:24:53,630 --> 00:24:54,640
+any function?
+
+389
+00:24:54,640 --> 00:25:02,200
+That's, you've opened the door
+to crazy things saying that.
+
+390
+00:25:02,200 --> 00:25:07,700
+So what I really mean is, we
+have these powers of x+iy,
+
+391
+00:25:07,700 --> 00:25:09,840
+and then we have
+combinations of them.
+
+392
+00:25:09,840 --> 00:25:12,430
+So the only requirement
+would be that if I
+
+393
+00:25:12,430 --> 00:25:14,760
+want to take an
+infinite combination
+
+394
+00:25:14,760 --> 00:25:19,170
+it should, the series
+should, add up to something.
+
+395
+00:25:19,170 --> 00:25:23,180
+If it has a nice
+Taylor series then
+
+396
+00:25:23,180 --> 00:25:25,450
+those are the best
+functions there are.
+
+397
+00:25:25,450 --> 00:25:27,730
+Functions with
+nice Taylor series.
+
+398
+00:25:27,730 --> 00:25:29,290
+I'll just say it.
+
+399
+00:25:29,290 --> 00:25:30,880
+Having used those words.
+
+400
+00:25:30,880 --> 00:25:37,130
+Suppose I take that function.
+
+401
+00:25:37,130 --> 00:25:39,850
+There's a function, that's
+a function-- z is x+iy.
+
+402
+00:25:39,850 --> 00:25:46,270
+
+
+403
+00:25:46,270 --> 00:25:50,160
+But z is shorter to write.
+
+404
+00:25:50,160 --> 00:25:52,640
+So it's not a
+polynomial, obviously.
+
+405
+00:25:52,640 --> 00:25:54,770
+But it is a function of x+iy.
+
+406
+00:25:54,770 --> 00:26:00,620
+
+
+407
+00:26:00,620 --> 00:26:02,180
+Well, tell me this.
+
+408
+00:26:02,180 --> 00:26:05,510
+Where does that
+function go wrong?
+
+409
+00:26:05,510 --> 00:26:10,820
+So e^z is a function that
+never goes wrong, right? e^z,
+
+410
+00:26:10,820 --> 00:26:14,270
+that series always converges.
+
+411
+00:26:14,270 --> 00:26:18,600
+Can you tell me the series, if
+I expand that into a series,
+
+412
+00:26:18,600 --> 00:26:22,960
+what series am I looking at?
+
+413
+00:26:22,960 --> 00:26:28,900
+This is not on the
+exam, so to speak.
+
+414
+00:26:28,900 --> 00:26:32,130
+Do you know one over
+one plus something,
+
+415
+00:26:32,130 --> 00:26:39,730
+what's the series for that?
+
+416
+00:26:39,730 --> 00:26:43,370
+Well the constant term, when
+z is zero is certainly a one.
+
+417
+00:26:43,370 --> 00:26:47,330
+I think the trick, it's
+this is geometric series,
+
+418
+00:26:47,330 --> 00:26:51,500
+and because it's a
+z squared it's that.
+
+419
+00:26:51,500 --> 00:26:56,160
+That would be the
+geometric series.
+
+420
+00:26:56,160 --> 00:26:58,630
+With constant ratio z squared.
+
+421
+00:26:58,630 --> 00:27:02,350
+If I multiply that
+by that, 1 plus z
+
+422
+00:27:02,350 --> 00:27:04,330
+squared times that,
+everything will cancel
+
+423
+00:27:04,330 --> 00:27:05,840
+and I'll get the one.
+
+424
+00:27:05,840 --> 00:27:08,800
+That's it.
+
+425
+00:27:08,800 --> 00:27:14,550
+So there is a Taylor
+series for this function.
+
+426
+00:27:14,550 --> 00:27:19,780
+Now, the reason I chose that
+example is, you could tell me,
+
+427
+00:27:19,780 --> 00:27:23,490
+it doesn't converge if
+z is too large, right?
+
+428
+00:27:23,490 --> 00:27:28,040
+Is this an analytic function?
+
+429
+00:27:28,040 --> 00:27:30,840
+Where is this a good
+function and where does it
+
+430
+00:27:30,840 --> 00:27:33,030
+have problems?
+
+431
+00:27:33,030 --> 00:27:38,540
+If z is less than one, and I
+really mean magnitude of z,
+
+432
+00:27:38,540 --> 00:27:40,810
+so let me draw the z-plane.
+
+433
+00:27:40,810 --> 00:27:44,910
+Here's the real part of z
+that you usually call x,
+
+434
+00:27:44,910 --> 00:27:49,370
+and the imaginary part of
+z that you usually call y,
+
+435
+00:27:49,370 --> 00:27:55,190
+because z is x+iy, and where
+will this series converge?
+
+436
+00:27:55,190 --> 00:28:01,840
+It'll converge out as
+far as this circle.
+
+437
+00:28:01,840 --> 00:28:05,210
+This is the Taylor
+series around zero.
+
+438
+00:28:05,210 --> 00:28:05,710
+Right?
+
+439
+00:28:05,710 --> 00:28:10,640
+The constant term
+I found at z=0.
+
+440
+00:28:10,640 --> 00:28:15,550
+Then that series, this
+function, is great.
+
+441
+00:28:15,550 --> 00:28:18,860
+It's an analytic
+function, everything,
+
+442
+00:28:18,860 --> 00:28:22,480
+it gives us a solution to
+Laplace's-- This'll be,
+
+443
+00:28:22,480 --> 00:28:26,530
+the real and imaginary parts
+of that will be the u and the s
+
+444
+00:28:26,530 --> 00:28:28,930
+that solve Laplace's equation.
+
+445
+00:28:28,930 --> 00:28:33,450
+Out to, at least in this circle.
+
+446
+00:28:33,450 --> 00:28:38,180
+But something, there's a problem
+at the edge of the circle.
+
+447
+00:28:38,180 --> 00:28:42,400
+Now, here's my point.
+
+448
+00:28:42,400 --> 00:28:47,550
+If I think of one over
+one plus x squared,
+
+449
+00:28:47,550 --> 00:28:49,310
+look at that for a minute.
+
+450
+00:28:49,310 --> 00:28:51,930
+That function has no
+problems at all, right?
+
+451
+00:28:51,930 --> 00:28:55,500
+One over one plus x squared,
+you can let x be anything?
+
+452
+00:28:55,500 --> 00:28:58,880
+It's no trouble.
+
+453
+00:28:58,880 --> 00:29:00,840
+But one over one
+plus z squared, when
+
+454
+00:29:00,840 --> 00:29:04,190
+we look in the complex
+plane, ah, we find a problem.
+
+455
+00:29:04,190 --> 00:29:07,740
+And where is the problem
+with this function?
+
+456
+00:29:07,740 --> 00:29:12,530
+At z equals, so everybody's
+looking at this guy.
+
+457
+00:29:12,530 --> 00:29:16,730
+There's a problem with
+that function at z=i.
+
+458
+00:29:16,730 --> 00:29:20,200
+And it happens to
+be not an accident,
+
+459
+00:29:20,200 --> 00:29:22,430
+it's right there on the circle.
+
+460
+00:29:22,430 --> 00:29:26,820
+It's hiding in the complex--
+it's not on the real axis.
+
+461
+00:29:26,820 --> 00:29:29,630
+So the real person
+didn't notice it.
+
+462
+00:29:29,630 --> 00:29:33,280
+But the complex person said
+ah, that's the problem.
+
+463
+00:29:33,280 --> 00:29:37,310
+There's a singularity there, and
+of course it's called a pole,
+
+464
+00:29:37,310 --> 00:29:42,840
+and people in so many parts of
+science are interested in that.
+
+465
+00:29:42,840 --> 00:29:46,500
+Is there any other place
+that there's a problem?
+
+466
+00:29:46,500 --> 00:29:47,990
+At minus i.
+
+467
+00:29:47,990 --> 00:29:50,870
+When z is minus i we'll
+also get a problem.
+
+468
+00:29:50,870 --> 00:29:56,760
+So this is a function with
+two poles, those two poles
+
+469
+00:29:56,760 --> 00:30:05,510
+and they're the reason that
+the series couldn't make it.
+
+470
+00:30:05,510 --> 00:30:09,330
+Going out this way the series
+doesn't meet any problems.
+
+471
+00:30:09,330 --> 00:30:14,170
+But the series always
+goes out in a circle,
+
+472
+00:30:14,170 --> 00:30:18,150
+and the first circle, the first
+guy, the first problem it hits,
+
+473
+00:30:18,150 --> 00:30:21,480
+the series stops converging.
+
+474
+00:30:21,480 --> 00:30:24,400
+By the way, let me
+ask you a question.
+
+475
+00:30:24,400 --> 00:30:29,760
+Suppose I instead did the
+Taylor series around this point?
+
+476
+00:30:29,760 --> 00:30:31,680
+Now, what do I mean by that?
+
+477
+00:30:31,680 --> 00:30:33,630
+That's the point one, let's say.
+
+478
+00:30:33,630 --> 00:30:36,620
+What do I mean by that, the
+Taylor series around one?
+
+479
+00:30:36,620 --> 00:30:41,820
+I'll rewrite the function as one
+plus, well now, what do I do?
+
+480
+00:30:41,820 --> 00:30:46,680
+I want it in z
+minus one squared.
+
+481
+00:30:46,680 --> 00:30:47,720
+Oh, gosh.
+
+482
+00:30:47,720 --> 00:30:54,660
+I'm getting beyond what
+you will care about.
+
+483
+00:30:54,660 --> 00:31:00,820
+Again, if I expanded, if I wrote
+the power series in powers of z
+
+484
+00:31:00,820 --> 00:31:05,490
+minus one, what
+would it work in?
+
+485
+00:31:05,490 --> 00:31:07,900
+And then I'll stop
+with this example.
+
+486
+00:31:07,900 --> 00:31:12,950
+The circle would reach
+out until it hit a pole.
+
+487
+00:31:12,950 --> 00:31:14,700
+And it can't make
+it past that pole.
+
+488
+00:31:14,700 --> 00:31:18,630
+So it would be a circle of
+radius square root of two,
+
+489
+00:31:18,630 --> 00:31:20,700
+there would be a circle there.
+
+490
+00:31:20,700 --> 00:31:24,690
+If we were going to
+discuss, and this is really
+
+491
+00:31:24,690 --> 00:31:26,050
+Chapter 5 of the book.
+
+492
+00:31:26,050 --> 00:31:34,030
+I mention it, because you've
+got a book that explains this.
+
+493
+00:31:34,030 --> 00:31:36,690
+If I thought the center
+of the universe was there,
+
+494
+00:31:36,690 --> 00:31:39,470
+and then the poles
+are still here,
+
+495
+00:31:39,470 --> 00:31:42,370
+the circle will make
+it out to those poles.
+
+496
+00:31:42,370 --> 00:31:46,870
+So I can do Taylor series, I
+can sort of hook together Taylor
+
+497
+00:31:46,870 --> 00:31:49,200
+series all over the place.
+
+498
+00:31:49,200 --> 00:31:52,470
+And they'll all quit
+when they reach a pole,
+
+499
+00:31:52,470 --> 00:31:54,380
+but when I put all
+those circles together
+
+500
+00:31:54,380 --> 00:31:57,990
+I can get all the
+rest of the plane.
+
+501
+00:31:57,990 --> 00:32:01,750
+OK, so that's something
+about, I don't
+
+502
+00:32:01,750 --> 00:32:06,220
+know how I got onto that
+department, but it's amazing.
+
+503
+00:32:06,220 --> 00:32:10,580
+This, so the real and imaginary
+parts of that would be a flow,
+
+504
+00:32:10,580 --> 00:32:12,080
+would give me a flow.
+
+505
+00:32:12,080 --> 00:32:15,390
+I don't know if it'd be
+easy to compute it or not,
+
+506
+00:32:15,390 --> 00:32:18,310
+maybe I won't tackle that here.
+
+507
+00:32:18,310 --> 00:32:21,240
+But we could find
+the real part of that
+
+508
+00:32:21,240 --> 00:32:24,280
+and the imaginary part
+of that, and we would
+
+509
+00:32:24,280 --> 00:32:30,420
+have a genuine flow field.
+
+510
+00:32:30,420 --> 00:32:34,060
+Satisfying Laplace's equation
+with the two orthogonal,
+
+511
+00:32:34,060 --> 00:32:38,550
+the streamlines orthogonal
+to the equipotentials.
+
+512
+00:32:38,550 --> 00:32:41,840
+We could totally
+do that example.
+
+513
+00:32:41,840 --> 00:32:43,480
+OK, let me, yeah, thanks.
+
+514
+00:32:43,480 --> 00:32:48,378
+AUDIENCE: You say one test
+question is based on x+iy?
+
+515
+00:32:48,378 --> 00:32:49,336
+PROFESSOR STRANG: Yeah.
+
+516
+00:32:49,336 --> 00:32:50,377
+Well, this sort of stuff.
+
+517
+00:32:50,377 --> 00:32:55,180
+But, so u would be
+the, yeah that's right.
+
+518
+00:32:55,180 --> 00:33:01,480
+Yeah, so a test question
+would be something like,
+
+519
+00:33:01,480 --> 00:33:06,630
+one way or another, you would
+end up with a u, and an s,
+
+520
+00:33:06,630 --> 00:33:10,200
+and the u+is, if
+they're a good pair,
+
+521
+00:33:10,200 --> 00:33:14,370
+would be some function
+of this magic z.
+
+522
+00:33:14,370 --> 00:33:16,609
+Yeah, yeah.
+
+523
+00:33:16,609 --> 00:33:17,150
+That's right.
+
+524
+00:33:17,150 --> 00:33:23,140
+So whatever.
+
+525
+00:33:23,140 --> 00:33:25,670
+We know examples, of course.
+
+526
+00:33:25,670 --> 00:33:30,050
+For example, this could be
+x squared minus y squared.
+
+527
+00:33:30,050 --> 00:33:33,840
+And the s that goes
+with that is 2xy,
+
+528
+00:33:33,840 --> 00:33:38,550
+and the function that's involved
+there when I throw in the i
+
+529
+00:33:38,550 --> 00:33:43,020
+is simply z squared.
+
+530
+00:33:43,020 --> 00:33:45,750
+OK, that would be
+an example where
+
+531
+00:33:45,750 --> 00:33:50,640
+the real and imaginary parts
+of this give us the good u,
+
+532
+00:33:50,640 --> 00:33:55,810
+its good friend
+s, and the picture
+
+533
+00:33:55,810 --> 00:33:59,880
+of streamlines
+and equipotentials
+
+534
+00:33:59,880 --> 00:34:01,820
+meeting at right angles.
+
+535
+00:34:01,820 --> 00:34:06,880
+Just, a beautiful picture, all
+coming out of this function.
+
+536
+00:34:06,880 --> 00:34:11,990
+So probably the quiz will
+have some other function.
+
+537
+00:34:11,990 --> 00:34:20,250
+But you'll still have a u and
+an s and a function of x+iy.
+
+538
+00:34:20,250 --> 00:34:23,750
+So if it's not this one,
+which I don't think it is.
+
+539
+00:34:23,750 --> 00:34:26,480
+It won't be be this one.
+
+540
+00:34:26,480 --> 00:34:29,034
+AUDIENCE: [INAUDIBLE]
+
+541
+00:34:29,034 --> 00:34:29,950
+PROFESSOR STRANG: Yes.
+
+542
+00:34:29,950 --> 00:34:35,800
+Because first of all, I wouldn't
+have mentioned it if I was.
+
+543
+00:34:35,800 --> 00:34:39,010
+And secondly, that's
+a little too messy,
+
+544
+00:34:39,010 --> 00:34:43,220
+I think, to get
+a good handle of,
+
+545
+00:34:43,220 --> 00:34:45,360
+to take the real and
+imaginary parts of that.
+
+546
+00:34:45,360 --> 00:34:47,400
+It's not impossible, of course.
+
+547
+00:34:47,400 --> 00:34:49,210
+We could completely do it.
+
+548
+00:34:49,210 --> 00:34:57,120
+There'd be some ratio
+of two polynomials.
+
+549
+00:34:57,120 --> 00:35:02,380
+Here we have just
+simple polynomials.
+
+550
+00:35:02,380 --> 00:35:04,620
+OK, does that help
+with that question?
+
+551
+00:35:04,620 --> 00:35:05,500
+Yeah.
+
+552
+00:35:05,500 --> 00:35:11,040
+What else is on your mind?
+
+553
+00:35:11,040 --> 00:35:12,380
+Any thoughts?
+
+554
+00:35:12,380 --> 00:35:14,100
+Yeah, thanks.
+
+555
+00:35:14,100 --> 00:35:15,490
+Curl, OK.
+
+556
+00:35:15,490 --> 00:35:21,520
+Well, so I didn't really
+do three dimensions.
+
+557
+00:35:21,520 --> 00:35:26,940
+But curl is important.
+
+558
+00:35:26,940 --> 00:35:31,770
+And we did see, in two
+dimensions the key fact
+
+559
+00:35:31,770 --> 00:35:35,410
+that all this
+stuff-- Let me just
+
+560
+00:35:35,410 --> 00:35:39,120
+write down what the great
+connections are between these.
+
+561
+00:35:39,120 --> 00:35:41,850
+Because I can't let
+the whole semester go
+
+562
+00:35:41,850 --> 00:35:46,870
+without writing down that,
+what is it, the grad--
+
+563
+00:35:46,870 --> 00:35:51,920
+Is it the curl of a gradient?
+
+564
+00:35:51,920 --> 00:36:00,010
+The curl of any gradient
+of u is always zero.
+
+565
+00:36:00,010 --> 00:36:01,820
+Whatever it is.
+
+566
+00:36:01,820 --> 00:36:03,470
+Whatever u is.
+
+567
+00:36:03,470 --> 00:36:09,550
+And this comes from, let
+me put the other one down
+
+568
+00:36:09,550 --> 00:36:14,070
+and then I'll just say why.
+
+569
+00:36:14,070 --> 00:36:17,070
+The other one is like the
+transpose of this one.
+
+570
+00:36:17,070 --> 00:36:20,070
+So if I transpose, so
+this is the zero operator.
+
+571
+00:36:20,070 --> 00:36:22,970
+Curl times gradient
+gives the zero.
+
+572
+00:36:22,970 --> 00:36:25,670
+So if I just transpose
+I still have zero.
+
+573
+00:36:25,670 --> 00:36:27,190
+So if it's a
+transposed gradient,
+
+574
+00:36:27,190 --> 00:36:31,190
+I have minus divergence, and
+actually if I transpose curl
+
+575
+00:36:31,190 --> 00:36:33,310
+I get curl again.
+
+576
+00:36:33,310 --> 00:36:39,240
+Of any, now I should put in,
+what should the curl act on?
+
+577
+00:36:39,240 --> 00:36:42,550
+It acts on a w, I guess is.
+
+578
+00:36:42,550 --> 00:36:49,760
+No, divergence w, it
+acts on an S, sorry.
+
+579
+00:36:49,760 --> 00:36:54,227
+OK, and the minus
+sign, of course,
+
+580
+00:36:54,227 --> 00:36:55,810
+isn't going to matter
+because I've got
+
+581
+00:36:55,810 --> 00:36:57,870
+a zero on the right-hand side.
+
+582
+00:36:57,870 --> 00:37:04,500
+So S. Yeah, so if I take any
+field-- I mean this is like,
+
+583
+00:37:04,500 --> 00:37:08,030
+real proper vector calculus.
+
+584
+00:37:08,030 --> 00:37:13,100
+To check these, I call them
+identities and maybe sometimes
+
+585
+00:37:13,100 --> 00:37:16,670
+people indicate an identity
+meaning it's always
+
+586
+00:37:16,670 --> 00:37:19,470
+true for every u,
+or for every S.
+
+587
+00:37:19,470 --> 00:37:21,640
+They'll use the
+triple equals sign.
+
+588
+00:37:21,640 --> 00:37:24,070
+Just to say they're
+really equal.
+
+589
+00:37:24,070 --> 00:37:34,580
+OK, so we could define the curl,
+but you've met it elsewhere
+
+590
+00:37:34,580 --> 00:37:39,220
+and maybe this isn't
+the time to do that.
+
+591
+00:37:39,220 --> 00:37:42,990
+What's the key fact, the
+key little math business
+
+592
+00:37:42,990 --> 00:37:45,550
+that makes all these true?
+
+593
+00:37:45,550 --> 00:37:52,200
+So there's sort of a formal
+math fact that makes them true.
+
+594
+00:37:52,200 --> 00:37:55,330
+And then there's the
+physical understanding
+
+595
+00:37:55,330 --> 00:38:03,030
+of gradients being directions
+out with no rotation.
+
+596
+00:38:03,030 --> 00:38:05,240
+So the physical
+understanding of that.
+
+597
+00:38:05,240 --> 00:38:08,100
+But the math, the
+formal math fact
+
+598
+00:38:08,100 --> 00:38:11,640
+is the fact that the second
+derivative of u with respect
+
+599
+00:38:11,640 --> 00:38:16,660
+to x and y is equal to what?
+
+600
+00:38:16,660 --> 00:38:21,000
+It's equal to second derivative
+with respect to y and x, yep.
+
+601
+00:38:21,000 --> 00:38:25,160
+So you would find if you
+wrote out all the terms here,
+
+602
+00:38:25,160 --> 00:38:28,270
+or all the terms here,
+you would find that
+
+603
+00:38:28,270 --> 00:38:32,920
+just by using that fact,
+they all cancel each other.
+
+604
+00:38:32,920 --> 00:38:34,870
+And the book, of
+course, does that.
+
+605
+00:38:34,870 --> 00:38:42,740
+So we simply didn't do 3-D in
+the vector calculus section.
+
+606
+00:38:42,740 --> 00:38:45,870
+So I'll stop there with
+that, because it's really
+
+607
+00:38:45,870 --> 00:38:50,280
+saying that the curl is
+tremendously important.
+
+608
+00:38:50,280 --> 00:38:59,450
+It measures vorticity and flow,
+and it's-- Being able to-- You
+
+609
+00:38:59,450 --> 00:39:02,710
+know that like, you take
+the Navier-Stokes equations?
+
+610
+00:39:02,710 --> 00:39:09,460
+Well, the pressure and
+the velocity are the,
+
+611
+00:39:09,460 --> 00:39:13,260
+I'd say primary variables
+or the natural quantities
+
+612
+00:39:13,260 --> 00:39:17,160
+to measure, pressure and
+velocity for a fluid flow.
+
+613
+00:39:17,160 --> 00:39:22,410
+But you could also use
+these identities to set up
+
+614
+00:39:22,410 --> 00:39:25,590
+in terms of other variables.
+
+615
+00:39:25,590 --> 00:39:32,890
+Just rewrite the equation
+and you get other things.
+
+616
+00:39:32,890 --> 00:39:39,950
+Mentioning Navier-Stokes and
+fluid flow reminds me to say,
+
+617
+00:39:39,950 --> 00:39:44,180
+we keep using the example
+of Laplace's equation.
+
+618
+00:39:44,180 --> 00:39:48,120
+And a person could say wait
+a minute, get beyond that.
+
+619
+00:39:48,120 --> 00:39:49,610
+Right?
+
+620
+00:39:49,610 --> 00:39:54,050
+So why are you always, when
+you teach finite elements,
+
+621
+00:39:54,050 --> 00:39:56,600
+why do you always start
+with Laplace's equation?
+
+622
+00:39:56,600 --> 00:40:00,930
+OK, well the main reason
+is it's the simplest one.
+
+623
+00:40:00,930 --> 00:40:03,890
+It's the one where you can
+really see what's happening.
+
+624
+00:40:03,890 --> 00:40:06,160
+More complicated
+equations would be for,
+
+625
+00:40:06,160 --> 00:40:10,300
+like, elasticity, plane
+elasticity, or 3-D elasticity
+
+626
+00:40:10,300 --> 00:40:17,040
+or other boundary value
+problems could be quite messy.
+
+627
+00:40:17,040 --> 00:40:23,240
+But Laplace's equation is
+not totally a waste of time.
+
+628
+00:40:23,240 --> 00:40:26,510
+First, it comes up when you
+have these scalar unknowns.
+
+629
+00:40:26,510 --> 00:40:31,370
+And then it also comes
+up in numerical methods
+
+630
+00:40:31,370 --> 00:40:33,760
+for Navier-Stokes.
+
+631
+00:40:33,760 --> 00:40:36,500
+So the standard numerical
+method for Navier-Stokes,
+
+632
+00:40:36,500 --> 00:40:42,020
+which would come
+in 18.086, ends up
+
+633
+00:40:42,020 --> 00:40:45,600
+with Laplace's equation
+for the pressure.
+
+634
+00:40:45,600 --> 00:40:51,910
+So to have a fast Laplace
+solver, as in today's lecture,
+
+635
+00:40:51,910 --> 00:40:53,870
+pays off.
+
+636
+00:40:53,870 --> 00:40:56,400
+So I'm just saying
+Laplace's equation
+
+637
+00:40:56,400 --> 00:41:00,020
+is important in itself,
+it has the great advantage
+
+638
+00:41:00,020 --> 00:41:02,820
+of being the simplest example
+we could possibly think of.
+
+639
+00:41:02,820 --> 00:41:06,460
+It's the example where
+an x+iy trick works.
+
+640
+00:41:06,460 --> 00:41:11,960
+And it actually comes up in
+serious big computations,
+
+641
+00:41:11,960 --> 00:41:15,040
+because the equation
+for the pressure
+
+642
+00:41:15,040 --> 00:41:20,690
+comes out to be a Laplace
+or a Poisson equation.
+
+643
+00:41:20,690 --> 00:41:21,290
+Now.
+
+644
+00:41:21,290 --> 00:41:23,000
+I kept going there.
+
+645
+00:41:23,000 --> 00:41:23,690
+Yeah, thank you.
+
+646
+00:41:23,690 --> 00:41:28,970
+AUDIENCE: [INAUDIBLE]
+
+647
+00:41:28,970 --> 00:41:31,140
+PROFESSOR STRANG: We
+did, as a MATLAB problem.
+
+648
+00:41:31,140 --> 00:41:32,390
+AUDIENCE: [INAUDIBLE]
+
+649
+00:41:32,390 --> 00:41:34,560
+PROFESSOR STRANG: Sorry?
+
+650
+00:41:34,560 --> 00:41:35,730
+And a first order, right.
+
+651
+00:41:35,730 --> 00:41:38,560
+AUDIENCE: [INAUDIBLE]
+
+652
+00:41:38,560 --> 00:41:39,810
+PROFESSOR STRANG: Huh.
+
+653
+00:41:39,810 --> 00:41:41,580
+Yeah.
+
+654
+00:41:41,580 --> 00:41:44,351
+I would do it the same way
+but it wouldn't be symmetric,
+
+655
+00:41:44,351 --> 00:41:44,850
+of course.
+
+656
+00:41:44,850 --> 00:41:48,070
+That was the point about
+that convection term,
+
+657
+00:41:48,070 --> 00:41:50,650
+is-- The diffusion term would
+be just what we've done, right?
+
+658
+00:41:50,650 --> 00:41:53,220
+The diffusion term was
+that second derivative.
+
+659
+00:41:53,220 --> 00:41:56,980
+And what would it
+look like in, as long
+
+660
+00:41:56,980 --> 00:42:01,340
+as we're close to, what would
+convection-diffusion in 2-D
+
+661
+00:42:01,340 --> 00:42:05,230
+look like?
+
+662
+00:42:05,230 --> 00:42:08,000
+Just, I mean part
+of your interest
+
+663
+00:42:08,000 --> 00:42:12,730
+is pass 18.085 and
+get rid of it, right?
+
+664
+00:42:12,730 --> 00:42:16,590
+But another part is
+like, these are problems
+
+665
+00:42:16,590 --> 00:42:22,197
+that if you're in Course
+16, Course 2, others,
+
+666
+00:42:22,197 --> 00:42:23,280
+you're going to meet this.
+
+667
+00:42:23,280 --> 00:42:27,430
+So the diffusion
+part is going to be,
+
+668
+00:42:27,430 --> 00:42:32,370
+again in 2-D I'll have
+some minus u, well,
+
+669
+00:42:32,370 --> 00:42:36,970
+I made it simple because
+I took c(x) to be one.
+
+670
+00:42:36,970 --> 00:42:39,460
+It could have a c(x) in there.
+
+671
+00:42:39,460 --> 00:42:42,360
+And what would the
+convection term look like?
+
+672
+00:42:42,360 --> 00:42:49,210
+I'd have a velocity, in
+the x direction, say a V_x.
+
+673
+00:42:49,210 --> 00:42:52,820
+And a velocity in
+the y direction, V_y.
+
+674
+00:42:52,820 --> 00:42:56,340
+V_y times-- That's
+just a number.
+
+675
+00:42:56,340 --> 00:43:01,030
+In the simplest case that
+would be my river is traveling,
+
+676
+00:43:01,030 --> 00:43:09,675
+or my flow is traveling
+along, and equals zero.
+
+677
+00:43:09,675 --> 00:43:10,550
+AUDIENCE: [INAUDIBLE]
+
+678
+00:43:10,550 --> 00:43:12,400
+PROFESSOR STRANG: Sorry?
+
+679
+00:43:12,400 --> 00:43:16,870
+Yeah I don't know which way the
+river's traveling, actually.
+
+680
+00:43:16,870 --> 00:43:19,970
+So those are just constants.
+
+681
+00:43:19,970 --> 00:43:23,070
+They could have positive
+or negative signs.
+
+682
+00:43:23,070 --> 00:43:27,800
+The V_x and V_y is the
+constant flow that's carrying,
+
+683
+00:43:27,800 --> 00:43:29,050
+what am I doing here?
+
+684
+00:43:29,050 --> 00:43:32,990
+The flow is flowing along,
+and if those are constants
+
+685
+00:43:32,990 --> 00:43:36,300
+it's just flowing
+steady, steady flow.
+
+686
+00:43:36,300 --> 00:43:39,840
+But it's diffusing
+at the same time.
+
+687
+00:43:39,840 --> 00:43:43,640
+And this would bring in
+that same difficulties
+
+688
+00:43:43,640 --> 00:43:47,370
+that we met in the MATLAB 1-D.
+So the MATLAB 1-D problem just
+
+689
+00:43:47,370 --> 00:43:50,480
+didn't have a y.
+
+690
+00:43:50,480 --> 00:43:53,260
+I don't care, yeah the
+sign I'm not worried about,
+
+691
+00:43:53,260 --> 00:43:56,490
+it's just is that
+there, now I'm in 2-D.
+
+692
+00:43:56,490 --> 00:43:58,380
+And what would I expect to see?
+
+693
+00:43:58,380 --> 00:44:01,810
+I'd expect to see some
+trouble when V is large.
+
+694
+00:44:01,810 --> 00:44:06,960
+When V is large, convection,
+this is convection down here.
+
+695
+00:44:06,960 --> 00:44:09,390
+This is the convection part.
+
+696
+00:44:09,390 --> 00:44:15,800
+And if V is large, then so that
+this should be a lower order
+
+697
+00:44:15,800 --> 00:44:19,590
+term, is really fighting
+against this higher order term.
+
+698
+00:44:19,590 --> 00:44:24,090
+I expect numerical difficulties,
+just the way we met.
+
+699
+00:44:24,090 --> 00:44:30,190
+So anyway, if I did a MATLAB
+example, stretched it to 2-D
+
+700
+00:44:30,190 --> 00:44:34,120
+we see a whole lot
+of interesting stuff.
+
+701
+00:44:34,120 --> 00:44:37,820
+We'd see flow in,
+flow out, yeah.
+
+702
+00:44:37,820 --> 00:44:40,180
+But I just can't do everything.
+
+703
+00:44:40,180 --> 00:44:42,910
+But that would have a weak
+form, but your question
+
+704
+00:44:42,910 --> 00:44:45,150
+about weak forms,
+weak form, when
+
+705
+00:44:45,150 --> 00:44:48,380
+you have this
+anti-symmetric term
+
+706
+00:44:48,380 --> 00:44:52,870
+for odd number of derivatives,
+is not quite as beautiful.
+
+707
+00:44:52,870 --> 00:44:55,050
+But you have to deal
+with it, of course.
+
+708
+00:44:55,050 --> 00:44:56,860
+Yep.
+
+709
+00:44:56,860 --> 00:45:01,810
+OK, Ready for whatever.
+
+710
+00:45:01,810 --> 00:45:02,980
+Any thoughts?
+
+711
+00:45:02,980 --> 00:45:05,360
+Let's see, just
+have a look again
+
+712
+00:45:05,360 --> 00:45:11,540
+at the list of problem topics.
+
+713
+00:45:11,540 --> 00:45:14,130
+To see if anything
+occurs to you.
+
+714
+00:45:14,130 --> 00:45:16,480
+I mean, not that it should.
+
+715
+00:45:16,480 --> 00:45:23,210
+You know we're OK.
+
+716
+00:45:23,210 --> 00:45:27,290
+I'm happy to call
+it a day on that,
+
+717
+00:45:27,290 --> 00:45:32,720
+and time for dinner for
+everybody and see you at 7:30.

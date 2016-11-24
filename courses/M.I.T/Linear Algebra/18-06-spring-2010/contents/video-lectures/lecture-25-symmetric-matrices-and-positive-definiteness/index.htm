@@ -1,0 +1,1198 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 25: Symmetric matrices and positive definiteness | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 25: Symmetric matrices and positive definiteness" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 25: Symmetric matrices and positive definiteness" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 25: Symmetric matrices and positive definiteness
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 25: Symmetric matrices and positive definiteness
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/umt6BB1nJ4w.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/25.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/umt6BB1nJ4w', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness', 'https://img.youtube.com/vi/umt6BB1nJ4w/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/umt6BB1nJ4w.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703580, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a target="_blank" href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a target="_blank" href="http://math.mit.edu/linearalgebra/"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a target="_blank" href="http://www.wellesleycambridge.com/">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/umt6BB1nJ4w.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="8000">-- one and -- the lecture on symmetric matrixes.</span> </p>
+<p><span m="12000">So that's the most important class of matrixes,</span> <span m="17000">symmetric matrixes.</span> </p>
+<p><span m="19000">A equals A transpose.</span> </p>
+<p><span m="21000">So the first points, the main points of the lecture</span> <span m="26000">I'll tell you right away.</span> </p>
+<p><span m="28000">What's special about the eigenvalues?</span> </p>
+<p><span m="33400">What's special about the eigenvectors?</span> </p>
+<p><span m="36000">This is -- the way we now look at a matrix.</span> </p>
+<p><span m="39000">We want to know about its eigenvalues and eigenvectors and</span> <span m="43000">if we have a special type of matrix, that should tell us</span> <span m="48000">something about eigenvalues and eigenvectors.</span> </p>
+<p><span m="52400">Like Markov matrixes, they have an eigenvalue equal</span> </p>
+<p><span m="56000">one. Now symmetric matrixes, can I just tell you right off</span> <span m="60000">what the main facts -- the two main facts are?</span> </p>
+<p><span m="64000">The eigenvalues of a symmetric matrix, real -- this is a real</span> <span m="68000">symmetric matrix, we -- talking mostly about real</span> <span m="73000">matrixes.</span> </p>
+<p><span m="74000">The eigenvalues are also real.</span> </p>
+<p><span m="76000">So our examples of rotation matrixes, where -- where we got</span> <span m="82000">E- eigenvalues that were complex, that won't happen now.</span> </p>
+<p><span m="87000">For symmetric matrixes, the eigenvalues are real and</span> <span m="92000">the eigenvectors are also very special.</span> </p>
+<p><span m="97200">The eigenvectors are perpendicular,</span> <span m="101289">orthogonal, so which do you prefer?</span> </p>
+<p><span m="105380">I'll say perpendicular.</span> </p>
+<p><span m="108000">Perp- well, they're both long words.</span> </p>
+<p><span m="112000">Okay, right.</span> </p>
+<p><span m="113000">So -- I have a -- you should say "why?" and I'll at least</span> <span m="120000">answer why for case one, maybe case two,</span> <span m="126000">the checking the Eigen -- that the eigenvectors are</span> <span m="131320">perpendicular, I'll leave to,</span> <span m="134150">the -- to the book.</span> </p>
+<p><span m="136000">But let's just realize what -- well, first I have to say,</span> <span m="141000">it -- it could happen, like for the identity matrix --</span> <span m="148000">there's a symmetric matrix.</span> </p>
+<p><span m="150000">Its eigenvalues are certainly all real, they're all one for</span> <span m="154000">the identity matrix.</span> </p>
+<p><span m="156000">What about the eigenvectors?</span> </p>
+<p><span m="158820">Well, for the identity, every vector is an eigenvector.</span> </p>
+<p><span m="163000">So how can I say they're perpendicular?</span> </p>
+<p><span m="166000">What I really mean is the -- they -- this word are should</span> <span m="171000">really be written can be chosen perpendicular.</span> </p>
+<p><span m="175000">That is, if we have -- it's the usual case.</span> </p>
+<p><span m="179000">If the eigenvalues are all different, then each eigenvalue</span> <span m="185000">has one line of eigenvectors and those lines are perpendicular</span> <span m="190000">here.</span> </p>
+<p><span m="192000">But if an eigenvalue's repeated, then there's a whole</span> <span m="195000">plane of eigenvectors and all I'm saying is that in that</span> <span m="200000">plain, we can choose perpendicular ones.</span> </p>
+<p><span m="202000">So that's why it's a can be chosen part, is -- this is in</span> <span m="207000">the case of a repeated eigenvalue where there's some</span> <span m="210000">real, substantial freedom.</span> </p>
+<p><span m="213000">But the typical case is different eigenvalues,</span> <span m="218000">all real, one dimensional eigenvector space,</span> <span m="222000">Eigen spaces, and all perpendicular.</span> </p>
+<p><span m="226000">So, just -- let's just see the conclusion.</span> </p>
+<p><span m="230000">If we accept those as correct, what happens -- and I also mean</span> <span m="236000">that there's a full set of them.</span> <span m="238000">so forgive me for doing such a thing, but, I'll look at the</span> </p>
+<p><span m="240000">I -- so that's part of this picture here,</span> <span m="244000">that there -- there's a complete set of eigenvectors,</span> <span m="248000">perpendicular ones.</span> </p>
+<p><span m="250000">So, having a complete set of eigenvectors means -- so normal</span> <span m="255000">-- so the usual -- maybe I put the -- usually -- usual --</span> <span m="260600">usual case is that the matrix A we can write in terms of its</span> <span m="267000">eigenvalue matrix and its eigenvector matrix this way,</span> <span m="272000">right?</span> </p>
+<p><span m="273630">We can do that in the usual case, but now what's special</span> <span m="279000">when the matrix is symmetric?</span> </p>
+<p><span m="282000">So this is the usual case, and now let me go to the</span> <span m="288000">symmetric case.</span> </p>
+<p><span m="291300">So in the symmetric case, A, this -- this should become</span> <span m="295000">somehow a little special.</span> </p>
+<p><span m="297000">Well, the lambdas on the diagonal are still on the</span> </p>
+<p><span m="302000">diagonal. They're -- they're real, but that's where they are.</span> </p>
+<p><span m="307000">What about the eigenvector matrix?</span> </p>
+<p><span m="309000">So what can I do now special about</span> <span m="313550">the eigenvector matrix when -- when the A itself is symmetric,</span> <span m="318000">that says something good about the eigenvector matrix,</span> <span m="322000">so what is this -- what does this lead to?</span> </p>
+<p><span m="325000">This -- these perpendicular eigenvectors,</span> <span m="328000">I can not only -- I can not only guarantee they're</span> <span m="332000">perpendicular, I could also make them unit</span> <span m="336000">vectors, no problem, just s- scale their length to</span> </p>
+<p><span m="342000">one. So what do I have?</span> </p>
+<p><span m="344000">I have orthonormal eigenvectors.</span> </p>
+<p><span m="347000">And what does that tell me about the eigenvector matrix?</span> </p>
+<p><span m="353000">What -- what letter should I now use in place of S --</span> </p>
+<p><span m="357000">I've got -- those two equations are identical,1</span> <span m="359000">remember S has the eigenvectors in its</span> <span m="364000">columns, but now those columns are orthonormal,</span> <span m="368000">so the right letter to use is Q.</span> </p>
+<p><span m="371000">So that's where -- so we've got the letter all set up,</span> <span m="374000">book.</span> <span m="376000">so this should be Q lambda Q inverse.</span> </p>
+<p><span m="380000">Q standing in our minds always for this matrix -- in this case</span> </p>
+<p><span m="386000">it's square, it's -- so these are the Okay.</span> <span m="391000">columns of Q, of course.</span> </p>
+<p><span m="393000">And one more thing.</span> </p>
+<p><span m="396000">What's Q inverse?</span> </p>
+<p><span m="397000">For a matrix that has these orthonormal columns,</span> </p>
+<p><span m="398490">So I took the dot product -- ye, somehow, it didn't -- I</span> <span m="403000">we know that the inverse is the same as the transpose.</span> </p>
+<p><span m="409000">So here is the beautiful -- there is the -- the great</span> <span m="412000">haven't learned anything.</span> <span m="416000">description, the factorization of a</span> <span m="419000">symmetric matrix.</span> </p>
+<p><span m="421000">And this is, like, one of the famous</span> <span m="424000">theorems of linear algebra, that if I have a symmetric</span> <span m="429000">matrix, it can be factored in this form.</span> </p>
+<p><span m="432000">An orthogonal matrix times diagonal times the transpose of</span> <span m="438000">that orthogonal matrix.</span> </p>
+<p><span m="439000">And, of course, everybody immediately says yes,</span> <span m="443000">and if this is possible, then that's clearly symmetric,</span> <span m="447000">right?</span> </p>
+<p><span m="448000">That -- take -- we've looked at products of three guys like that</span> <span m="453000">and taken their transpose and we got</span> <span m="456560">it back again.</span> </p>
+<p><span m="457000">So do you -- do you see the beauty of this -- of this</span> <span m="462000">factorization, then?</span> </p>
+<p><span m="463000">It -- it completely displays the eigenvalues and eigenvectors</span> <span m="468000">the symmetry of the -- of the whole thing, because -- that</span> <span m="473000">product, Q times lambda times Q transpose,</span> <span m="477000">if I transpose it, it -- this comes in this</span> <span m="480000">position and we get that matrix back again.</span> </p>
+<p><span m="484000">So that's -- in mathematics, that's called the spectral</span> </p>
+<p><span m="488000">Spectrum is the set of eigenvalues of a matrix.</span> <span m="488040">theorem.</span> </p>
+<p><span m="492000">Spec- it somehow comes from the idea</span> <span m="495000">of the spectrum of light as a combination of pure things --</span> <span m="501000">where our matrix is broken down into pure eigenvalues and</span> <span m="507000">eigenvectors -- in mechanics it's often called the principle</span> <span m="513000">axis theorem.</span> </p>
+<p><span m="514000">It's very useful.</span> </p>
+<p><span m="516000">It means that if you have -- we'll see it geometrically.</span> </p>
+<p><span m="522000">It means that if I have some material -- if I look at the</span> <span m="527370">right axis, it becomes diagonal, it becomes -- the -- the</span> </p>
+<p><span m="528000">I- I've done something dumb, because I've got the -- I should've taken the dot product of this guy here with -- that's</span> <span m="531840">directions don't couple together.</span> </p>
+<p><span m="534000">Okay. So that's -- that -- that's what to remember from -- from</span> <span m="539000">this lecture.</span> </p>
+<p><span m="541100">Now, I would like to say why are the eigenvalues real?</span> </p>
+<p><span m="546000">Can I do that?</span> </p>
+<p><span m="548000">So -- so -- because that -- something useful comes out.</span> </p>
+<p><span m="554000">So I'll just come back -- come to that question why real</span> <span m="560000">eigenvalues?</span> </p>
+<p><span m="561000">Okay.</span> </p>
+<p><span m="562000">So I have to start from the only thing we know,</span> <span m="568000">Ax equal lambda x.</span> </p>
+<p><span m="569890">Okay.</span> </p>
+<p><span m="570000">But as far as I know at this moment, lambda could be complex.</span> </p>
+<p><span m="576490">I'm going to prove it's not -- and x could be complex.</span> </p>
+<p><span m="581000">In fact, for the moment, even A could be -- we could</span> <span m="587050">even think, well, what</span> <span m="590000">happens if A is complex?</span> </p>
+<p><span m="592000">Well, one thing we can always do -- this is -- this is like</span> <span m="596970">always -- always okay -- I can -- if I have an equation,</span> <span m="601000">I can take the complex conjugate of everything.</span> </p>
+<p><span m="605000">That's -- no -- no -- so A conjugate x conjugate equal</span> <span m="609000">lambda conjugate x conjugate,</span> <span m="612000">it just means that everywhere over here that there was a -- an</span> <span m="613000">equals x bar transpose lambda bar x bar.</span> <span m="618000">i, then here I changed it to a-i.</span> </p>
+<p><span m="621000">That's -- that -- you know that that step -- that conjugate</span> <span m="626000">business, that a+ib, if I conjugate it it's a-ib.</span> </p>
+<p><span m="632000">That's the meaning of conjugate -- and products behave right,</span> <span m="637000">I can conjugate every factor.</span> </p>
+<p><span m="640410">So I haven't done anything yet except to say what would be true</span> <span m="646060">if, x -- in any case, even if x and lambda were</span> <span m="650000">complex.</span> </p>
+<p><span m="650980">Of course, our -- we're speaking about real matrixes A,</span> <span m="655000">so I can take that out.</span> </p>
+<p><span m="659000">Actually, this already tells me something about real matrixes.</span> </p>
+<p><span m="664000">I haven't used any assumption of A -- A transpose yet.</span> </p>
+<p><span m="669000">Symmetry is waiting in the wings to be used.</span> </p>
+<p><span m="673000">This tells me that if a real matrix has an eigenvalue lambda</span> <span m="674000">what I was going to do.</span> <span m="678000">and an eigenvector x, it also has -- another of its</span> <span m="683000">eigenvalues is lambda bar with eigenvector x bar.</span> </p>
+<p><span m="687000">Real matrixes, the eigenvalues come in lambda,</span> <span m="691000">lambda bar -- the complex eigenvalues come in lambda and</span> <span m="695000">lambda bar pairs.</span> </p>
+<p><span m="696000">But, of course, I'm aiming to show that they're</span> <span m="700000">not complex at all,</span> <span m="702810">here, by getting symmetry in.</span> </p>
+<p><span m="705000">So how I going to use symmetry?</span> </p>
+<p><span m="708000">I'm going to transpose this equation to x bar transpose A</span> <span m="714000">transpose equals x bar transpose lambda bar.</span> </p>
+<p><span m="718000">That's just a number, so I don't mind wear I put that</span> <span m="723000">number.</span> </p>
+<p><span m="724000">This is -- this is -- this is a -- then</span> </p>
+<p><span m="728000">again okay. Ax equals lambda x bar transpose x, right?</span> </p>
+<p><span m="729000">But now I'm ready to use symmetry.</span> </p>
+<p><span m="733000">I'm ready -- so this was all just mechanics.</span> </p>
+<p><span m="737000">Now -- now comes the moment to say, okay, if the matrix is</span> <span m="741000">this from the right with x bar, I get x bar transpose Ax bar</span> <span m="742000">symmetric, then this A transpose is the same as A.</span> </p>
+<p><span m="747000">You see, at that moment I used the</span> <span m="751000">assumption.</span> </p>
+<p><span m="752000">Now let me finish the discussion.</span> </p>
+<p><span m="755860">Here -- here's the way I finish.</span> </p>
+<p><span m="758000">I look at this original equation and I take the inner</span> <span m="763000">product.</span> </p>
+<p><span m="764000">I multiply both sides by -- oh, maybe I'll do it with this one.</span> </p>
+<p><span m="770000">I take -- I multiply both sides by x bar transpose.</span> </p>
+<p><span m="776000">x bar transpose Ax bar equals lambda bar x bar transpose x</span> <span m="783000">bar.</span> </p>
+<p><span m="784000">Okay, fine.</span> </p>
+<p><span m="785000">All right, now what's the other one?</span> </p>
+<p><span m="790000">Oh, for the other one I'll probably use this guy.</span> </p>
+<p><span m="796000">A- I happy about this?</span> </p>
+<p><span m="799000">No. For some reason I'm not.</span> </p>
+<p><span m="803000">I'm -- I want to -- if I take the inner product of</span> </p>
+<p><span m="825000">Okay.</span> </p>
+<p><span m="865000">So that -- that was -- that's fine.</span> </p>
+<p><span m="869000">That comes directly from that, multiplying both sides by x bar</span> <span m="874000">transpose, but now I'd like to get -- why do I have x bars over</span> <span m="880000">there?</span> </p>
+<p><span m="881000">Oh, yes.</span> </p>
+<p><span m="882000">Forget this.</span> </p>
+<p><span m="883000">Okay. On this one -- right.</span> </p>
+<p><span m="885000">On this one, I took it like that,</span> <span m="890000">I multiply on the right by x.</span> </p>
+<p><span m="893460">That's the idea.</span> </p>
+<p><span m="895000">Okay. Now why I happier with this situation now?</span> </p>
+<p><span m="900000">A proof is coming here.</span> </p>
+<p><span m="902000">Because I compare this guy with this one.</span> </p>
+<p><span m="907000">And they have the same left hand side.</span> </p>
+<p><span m="911000">So they have the same right hand side.</span> </p>
+<p><span m="916000">So comparing those two, can -- I'll raise the board to</span> <span m="922000">do this comparison -- this thing, lambda x bar transpose x</span> <span m="928000">is equal to lambda bar x bar transpose x.</span> </p>
+<p><span m="933000">Okay.</span> </p>
+<p><span m="934000">And the conclusion I'm going to reach -- I -- I</span> <span m="940000">on the right track here?</span> </p>
+<p><span m="943000">The conclusion I'm going to reach is lambda equal lambda</span> <span m="948000">bar.</span> </p>
+<p><span m="949000">I would have to track down the other possibility that this --</span> <span m="955000">this thing is zero, but let me -- oh -- oh,</span> <span m="959750">yes, that's important.</span> </p>
+<p><span m="962000">It's not zero.</span> </p>
+<p><span m="963000">So once I know that this isn't zero, I just cancel it and I</span> <span m="970000">learn that lambda equals lambda bar.</span> </p>
+<p><span m="973000">And so what can you -- do you -- have you got the reasoning</span> <span m="979590">altogether?</span> </p>
+<p><span m="980000">What does this tell us?</span> </p>
+<p><span m="982000">Lambda's an eigenvalue of this symmetric matrix.</span> </p>
+<p><span m="987000">We've just proved that it equaled lambda bar,</span> <span m="992000">so we have just proved that lambda is real,</span> </p>
+<p><span m="997000">right? If, if a number is equal to its own complex conjugate,</span> <span m="1002000">then there's no imaginary part at all.</span> </p>
+<p><span m="1006000">The number is real.</span> </p>
+<p><span m="1008000">So lambda is real.</span> </p>
+<p><span m="1010000">Good. Good.</span> </p>
+<p><span m="1011000">Now, what -- but it depended on this little</span> <span m="1016500">expression, on knowing that that wasn't zero,</span> <span m="1021000">so that I could cancel it out -- so can we just take a second</span> <span m="1027000">on that one?</span> </p>
+<p><span m="1028599">Because it's an important quantity.</span> </p>
+<p><span m="1032000">x bar transpose x.</span> </p>
+<p><span m="1034000">Okay, now remember, as far as we know,</span> <span m="1037000">x is complex.</span> </p>
+<p><span m="1039000">So this is -- here -- x is complex,</span> <span m="1044000">x has these components, x1, x2 down to xn.</span> </p>
+<p><span m="1048000">And x bar transpose, well, it's transposed and it's</span> <span m="1053000">conjugated, so that's x1 conjugated x2 conjugated up to</span> <span m="1059000">xn conjugated.</span> </p>
+<p><span m="1060920">I'm -- I'm -- I'm really reminding you of crucial</span> <span m="1067000">facts about complex numbers that are going to come into the</span> <span m="1071000">next lecture as well as this one.</span> </p>
+<p><span m="1074000">So w- what can you tell me about that product -- I -- I</span> <span m="1079000">guess what I'm trying to say is, if I had a complex vector,</span> <span m="1084000">this would be the quantity I would -- I would like.</span> </p>
+<p><span m="1089000">This is the quantity I like.</span> </p>
+<p><span m="1090000">I would take the vector times its transpose -- now what --</span> <span m="1094000">what happens usually if I take a vector -- a -- a -- x transpose</span> </p>
+<p><span m="1098000">x? I mean, that's a quantity we see all the time,</span> <span m="1101000">x transpose x.</span> </p>
+<p><span m="1102000">That's the length of x squared, right?</span> </p>
+<p><span m="1105000">That's this positive length squared,</span> <span m="1108000">it's Pythagoras, it's x1 squared plus x2 squared</span> <span m="1112000">and so on.</span> </p>
+<p><span m="1113000">Now our vector's complex, and you see the effect?</span> </p>
+<p><span m="1118000">I'm conjugating one of these guys.</span> </p>
+<p><span m="1121000">So now when I do this multiplication,</span> <span m="1124000">I have x1 bar times x1 and x2 bar times x2 and so on.</span> </p>
+<p><span m="1130000">So this is an -- this is sum a+ib.</span> </p>
+<p><span m="1134000">And this is sum a-ib.</span> </p>
+<p><span m="1136000">I mean, what's the point here?</span> </p>
+<p><span m="1139000">What's the point -- when I multiply a number by its</span> <span m="1144000">conjugate, a complex number by its conjugate,</span> <span m="1149000">what do I get?</span> </p>
+<p><span m="1150000">I get a n- the -- the imaginary part is gone.</span> </p>
+<p><span m="1156000">When I multiply a+ib by its conjugate, what's -- what's the</span> <span m="1161000">result of that -- of each of those separate little</span> <span m="1165000">multiplications?</span> </p>
+<p><span m="1166000">There's an a squared and -- and what -- how many -- what's -- b</span> <span m="1171000">squared comes in with a plus or a minus?</span> </p>
+<p><span m="1175000">A plus. i times minus i is a plus b</span> <span m="1179000">squared.</span> </p>
+<p><span m="1180000">And what about the imaginary part?</span> </p>
+<p><span m="1184000">Gone, right?</span> </p>
+<p><span m="1186000">An iab and a minus iab.</span> </p>
+<p><span m="1189000">So this -- this is the right thing to do.</span> </p>
+<p><span m="1194000">If you want a decent answer, then multiply numbers by their</span> <span m="1201000">conjugates.</span> </p>
+<p><span m="1204000">Multiply vectors by the conjugates of x transpose.</span> </p>
+<p><span m="1208000">So this quantity is positive, this quantity is positive --</span> <span m="1213000">the whole thing is positive except for the zero vector and</span> <span m="1218000">that allows me to know that this is a positive number,</span> <span m="1223000">which I safely cancel out and I reach the conclusion.</span> </p>
+<p><span m="1229000">So actually, in this discussion here,</span> <span m="1232000">I've done two things.</span> </p>
+<p><span m="1234000">If I reached the conclusion that lambda's real,</span> <span m="1238000">which I wanted to do.</span> </p>
+<p><span m="1240000">But at the same time, we sort of saw what to do if</span> <span m="1244000">things were complex.</span> </p>
+<p><span m="1246000">If a vector is complex, then it's x bar transpose x,</span> <span m="1252000">this is its length squared.</span> </p>
+<p><span m="1254730">And as I said, the next lecture Monday,</span> <span m="1258000">we'll -- we'll repeat that this is the right thing and then do</span> <span m="1264000">the right thing for matrixes and all other -- all other,</span> <span m="1269000">complex possibilities.</span> </p>
+<p><span m="1272000">Okay. But the main point, then, is that the eigenvalues</span> <span m="1276000">of a symmetric matrix, it just -- do you -- do --</span> <span m="1281000">where did we use symmetry, by the way?</span> </p>
+<p><span m="1284000">We used it here, right?</span> </p>
+<p><span m="1286000">Let -- can I just -- let -- suppose A was a complex.</span> </p>
+<p><span m="1291000">Suppose A had been a complex number.</span> </p>
+<p><span m="1295700">Could -- could I have made all this work?</span> </p>
+<p><span m="1298000">If A was a complex number -- complex matrix,</span> <span m="1302000">then here I should have written A bar.</span> </p>
+<p><span m="1305000">I erased the bar because I assumed A was real.</span> </p>
+<p><span m="1308000">But now let's suppose for a moment it's not.</span> </p>
+<p><span m="1311000">Then when I took this step, what should I have?</span> </p>
+<p><span m="1315000">What did I do on that step?</span> </p>
+<p><span m="1318000">I transposed.</span> </p>
+<p><span m="1319000">So I should have A bar transpose.</span> </p>
+<p><span m="1322000">In the symmetric case, that was A, and that's what</span> <span m="1326000">made everything work, right?</span> </p>
+<p><span m="1329000">This -- this led immediately to that.</span> </p>
+<p><span m="1332000">This one led immediately to this when the matrix was real,</span> <span m="1337000">so that didn't matter, and it was</span> <span m="1341000">symmetric, so that didn't matter.</span> </p>
+<p><span m="1345000">Then I got A.</span> </p>
+<p><span m="1347000">But -- so now I just get to ask you.</span> </p>
+<p><span m="1352000">Suppose the matrix had been complex.</span> </p>
+<p><span m="1356000">What's the right equivalent of sym- symmetry?</span> </p>
+<p><span m="1362530">So the good matrix -- so here, let me say -- good matrixes --</span> <span m="1370000">by good I mean real lambdas and perpendicular x-s.</span> </p>
+<p><span m="1377000">And tell me now, which matrixes are good?</span> </p>
+<p><span m="1381000">If they're -- If they're real matrixes, the good ones are</span> <span m="1386000">symmetric, because then everything went through.</span> </p>
+<p><span m="1391000">The -- so the good -- I'm saying now</span> <span m="1395000">what's good.</span> </p>
+<p><span m="1396000">This is -- this is -- these are the good matrixes.</span> </p>
+<p><span m="1400000">They have real eigenvalues, perpendicular eigenvectors --</span> <span m="1405000">good means A equal A transpose if real.</span> </p>
+<p><span m="1408000">Then -- then that was what -- our proof worked.</span> </p>
+<p><span m="1412000">But if A is complex, all -- our proof will still</span> <span m="1416000">work provided A bar transpose is A.</span> </p>
+<p><span m="1420000">Do you see what I'm saying?</span> </p>
+<p><span m="1423000">I'm saying if we have complex matrixes and we want to say are</span> <span m="1429000">they -- are they as good as symmetric matrixes,</span> <span m="1433000">then we should not only transpose the thing,</span> <span m="1438000">but conjugate it.</span> </p>
+<p><span m="1439000">Those are good matrixes.</span> </p>
+<p><span m="1442000">And of course, the most important s- the most</span> <span m="1447000">important case is when they're real, this part doesn't matter</span> <span m="1451000">and I just have A equal A transpose symmetric.</span> </p>
+<p><span m="1455000">Do you -- I -- I'll just repeat that.</span> </p>
+<p><span m="1458000">The good matrixes, if complex, are these.</span> </p>
+<p><span m="1461000">If real, that doesn't make any difference so I'm just saying</span> <span m="1467000">symmetric.</span> </p>
+<p><span m="1468000">And of course, 99% of examples and</span> <span m="1471000">applications to the matrixes are real and we don't have that and</span> <span m="1477500">then symmetric is the key property.</span> </p>
+<p><span m="1480000">Okay.</span> </p>
+<p><span m="1481000">So that -- that's, these main facts and now</span> <span m="1486000">let me just -- let me just -- so that's this x bar transpose</span> <span m="1493000">x, okay.</span> </p>
+<p><span m="1494000">So I'll just, write it once more in this</span> <span m="1498000">form.</span> </p>
+<p><span m="1499000">So perpendicular orthonormal eigenvectors,</span> <span m="1503000">real eigenvalues, transposes of orthonormal</span> <span m="1508000">eigenvectors.</span> </p>
+<p><span m="1511000">That's the symmetric case, A equal A transpose.</span> </p>
+<p><span m="1516000">Okay.</span> </p>
+<p><span m="1517000">Good. Actually, I'll even take one more step here.</span> </p>
+<p><span m="1523000">Suppose -- I -- I can break this down to show you really</span> <span m="1529000">what that says about a symmetric matrix.</span> </p>
+<p><span m="1534000">I can break that down.</span> </p>
+<p><span m="1538000">Let me here -- here go these eigenvectors.</span> </p>
+<p><span m="1542000">I -- here go these eigenvalues, lambda one, lambda two and so</span> </p>
+<p><span m="1549000">on. Here go these eigenvectors transposed.</span> </p>
+<p><span m="1554000">And what happens if I actually do out that multiplication?</span> </p>
+<p><span m="1560540">Do you see what will happen?</span> </p>
+<p><span m="1563000">There's lambda one times q1 transpose.</span> </p>
+<p><span m="1569000">So the first row here is just lambda one q1 transpose.</span> </p>
+<p><span m="1574000">If I multiply column times row -- you remember I could do that?</span> </p>
+<p><span m="1581000">When I multiply matrixes, I can multiply columns times</span> <span m="1587000">rows?</span> </p>
+<p><span m="1588000">So when I do that, I get lambda one and then the</span> <span m="1593000">column and then the row and then</span> <span m="1598000">lambda two and then the column and the row.</span> </p>
+<p><span m="1603000">Every symmetric matrix breaks up into these pieces.</span> </p>
+<p><span m="1608950">So these pieces have real lambdas and they have these</span> <span m="1615000">Eigen -- these orthonormal eigenvectors.</span> </p>
+<p><span m="1619000">And, maybe you even could tell me what kind of a matrix have I</span> <span m="1626000">got there?</span> </p>
+<p><span m="1629400">Suppose I take a unit vector times its transpose?</span> </p>
+<p><span m="1633000">So column times row, I'm getting a matrix.</span> </p>
+<p><span m="1637000">That's a matrix with a special name.</span> </p>
+<p><span m="1640000">What's it's -- what kind of a matrix is it?</span> </p>
+<p><span m="1644000">We've seen those matrixes, now, in chapter four.</span> </p>
+<p><span m="1648000">It's -- is A A transpose with a unit vector,</span> <span m="1653000">so I don't have to divide by A transpose A.</span> </p>
+<p><span m="1657000">That matrix is a projection matrix.</span> </p>
+<p><span m="1660000">That's a projection matrix.</span> </p>
+<p><span m="1663000">It's symmetric and if I square it there'll be another --</span> <span m="1668000">there'll be a q1 transpose q1, which is one.</span> </p>
+<p><span m="1671990">So I'll get that matrix back again.</span> </p>
+<p><span m="1676200">Every -- so every symmetric matrix -- every symmetric matrix</span> <span m="1683000">is a combination of -- of mutually perpendicular -- so</span> <span m="1690000">perpendicular projection matrixes.</span> </p>
+<p><span m="1694000">Projection matrixes.</span> </p>
+<p><span m="1697000">Okay. That's another way that people like to think of the spectral</span> <span m="1705000">theorem, that every symmetric matrix can be</span> <span m="1712000">broken up that way.</span> </p>
+<p><span m="1713000">That -- I guess at this moment -- first I haven't done an</span> <span m="1717000">example.</span> </p>
+<p><span m="1718000">I could create a symmetric matrix, check that it's -- find</span> <span m="1722000">its eigenvalues, they would come out real,</span> <span m="1725000">find its eigenvectors, they would come out</span> <span m="1728000">perpendicular and you would see it</span> <span m="1731920">in numbers, but maybe I'll leave it here for the moment in</span> <span m="1736000">letters.</span> </p>
+<p><span m="1737000">Oh, I -- maybe I will do it with numbers,</span> <span m="1741000">for this reason.</span> </p>
+<p><span m="1742000">Because there's one more remarkable fact.</span> </p>
+<p><span m="1746000">Can I just put this further great fact about symmetric</span> <span m="1750000">matrixes on the board?</span> </p>
+<p><span m="1753900">When I have symmetric matrixes, I know their eigenvalues are</span> </p>
+<p><span m="1758000">So then I can get interested in the question are they positive</span> <span m="1758130">real.</span> <span m="1762000">or negative?</span> </p>
+<p><span m="1763000">And you remember why that's important.</span> </p>
+<p><span m="1766000">For differential equations, that decides between</span> <span m="1769000">instability and stability.</span> </p>
+<p><span m="1772400">So I'm -- after I know they're real, then the next question is</span> <span m="1778000">are they positive, are they negative?</span> </p>
+<p><span m="1781000">And I hate to have to compute those eigenvalues to answer that</span> <span m="1787000">question, right?</span> </p>
+<p><span m="1788000">Because computing the eigenvalues of a symmetric</span> <span m="1793000">matrix of order let's say 50 -- compute its 50 eigenvalues -- is</span> <span m="1799000">a job.</span> </p>
+<p><span m="1801000">I mean, by pencil and paper it's a lifetime's job.</span> </p>
+<p><span m="1806000">I mean, which -- and in fact, a few years ago -- well,</span> <span m="1811460">say, 20 years ago, or 30, nobody really knew how</span> <span m="1816000">to do it.</span> </p>
+<p><span m="1817000">I mean, so, like, science was stuck on this</span> <span m="1821000">problem.</span> </p>
+<p><span m="1822000">If you have a matrix of order 50 or</span> <span m="1826000">100, how do you find its eigenvalues?</span> </p>
+<p><span m="1830000">Numerically, now, I'm just saying,</span> <span m="1833000">because pencil and paper is -- we're going to run out of time</span> <span m="1838000">or paper or something before we get it.</span> </p>
+<p><span m="1842000">Well -- and you might think, okay, get</span> <span m="1846000">Matlab to compute the determinant of lambda minus A,</span> <span m="1851490">A minus lambda I, this polynomial of 50th degree,</span> <span m="1855000">and then find the roots.</span> </p>
+<p><span m="1858000">Matlab will do it, but it will complain,</span> <span m="1861000">because it's a very bad way to find the eigenvalues.</span> </p>
+<p><span m="1866000">I'm sorry to be saying this, because it's the way I</span> <span m="1871000">taught you to do it, right?</span> </p>
+<p><span m="1872000">I taught you to find the eigenvalues by doing that</span> <span m="1875000">determinant and taking the roots of that polynomial.</span> </p>
+<p><span m="1879000">But now I'm saying, okay, I really meant that for</span> <span m="1882000">two by twos and three by threes but I didn't mean you to do it</span> <span m="1886000">on a 50 by 50 and you're not too unhappy,</span> <span m="1889000">probably, because you didn't want to do it.</span> </p>
+<p><span m="1893000">But -- good, because it would be a very</span> <span m="1896000">unstable way -- the 50 answers that would come out would be</span> <span m="1901000">highly unreliable.</span> </p>
+<p><span m="1902560">So, new ways are -- are much better to find those 50</span> <span m="1907000">eigenvalues.</span> </p>
+<p><span m="1908000">That's a -- that's a part of numerical linear algebra.</span> </p>
+<p><span m="1913000">But here's the remarkable fact -- that Matlab would quite</span> <span m="1918000">happily find the 50 pivots, right?</span> </p>
+<p><span m="1921000">Now the pivots are not the same as the eigenvalues.</span> </p>
+<p><span m="1926000">But here's the great thing.</span> </p>
+<p><span m="1929500">If I had a real matrix, I could find those 50 pivots</span> <span m="1933000">and I could see maybe 28 of them are positive and 22 are negative</span> </p>
+<p><span m="1938000">pivots. And I can compute those safely and quickly.</span> </p>
+<p><span m="1941000">And the great fact is that 28 of the eigenvalues would be</span> <span m="1945000">positive and 22 would be negative --</span> <span m="1949000">that the sines of the pivots -- so this is, like -- I hope you</span> <span m="1954000">think this -- this is kind of a nice thing, that the sines of</span> <span m="1960000">the pivots -- for symmetric, I'm always talking about</span> <span m="1964000">symmetric matrixes -- so I'm really,</span> <span m="1968720">like, trying to convince you that symmetric matrixes are</span> <span m="1975000">better than the rest.</span> </p>
+<p><span m="1978000">So the sines of the pivots are same as the sines of the</span> <span m="1985000">eigenvalues.</span> </p>
+<p><span m="1986000">The same number.</span> </p>
+<p><span m="1988000">The number of pivots greater than zero, the number of</span> <span m="1995000">positive pivots is equal to the number of positive eigenvalues.</span> </p>
+<p><span m="2004000">So that, actually, is a very useful -- that gives</span> <span m="2008000">you a g- a good start on a decent way to compute</span> <span m="2011000">eigenvalues, because you can narrow them down,</span> <span m="2015000">you can find out how many are positive, how many are negative.</span> </p>
+<p><span m="2020000">Then you could shift the matrix by seven times the identity.</span> </p>
+<p><span m="2025000">That would shift all the eigenvalues by seven.</span> </p>
+<p><span m="2028000">Then you could take the pivots of that matrix and you would</span> <span m="2033000">know how many eigenvalues of the original were above seven and</span> </p>
+<p><span m="2038000">below seven. So this -- this neat little theorem, that,</span> <span m="2042000">symmetric matrixes have this connection</span> <span m="2045000">between the -- nobody's mixing up and thinking the pivots are</span> <span m="2050000">the eigenvalues -- I mean, the only thing I can think of</span> <span m="2054000">is the product of the pivots equals the product of the</span> <span m="2058000">eigenvalues, why is that?</span> </p>
+<p><span m="2060000">So if I asked you for the reason on that,</span> <span m="2063000">why is the product of the pivots for a symmetric</span> <span m="2067000">matrix the same as the product of the eigenvalues?</span> </p>
+<p><span m="2071000">Because they both equal the determinant.</span> </p>
+<p><span m="2074000">Right.</span> </p>
+<p><span m="2075000">The product of the pivots gives the determinant if no row</span> <span m="2079000">exchanges, the product of the eigenvalues always gives the</span> <span m="2084000">determinant.</span> </p>
+<p><span m="2085000">So -- so the products -- but that doesn't tell you</span> <span m="2090000">anything about the 50 individual ones, which this does.</span> </p>
+<p><span m="2096000">Okay. So that's -- those are essential facts about symmetric</span> <span m="2101000">matrixes.</span> </p>
+<p><span m="2102000">Okay.</span> </p>
+<p><span m="2103000">Now I -- I said in the -- in the lecture description that I</span> <span m="2109000">would take the last minutes to start on positive definite</span> <span m="2117000">matrixes, because we're right there, we're ready to say what's</span> <span m="2127000">a positive definite matrix?</span> </p>
+<p><span m="2131000">It's symmetric, first of all.</span> </p>
+<p><span m="2135000">On -- always I will mean symmetric.</span> </p>
+<p><span m="2140000">So this is the -- this is the next section of the</span> <span m="2147000">book.</span> </p>
+<p><span m="2148000">It's about this -- if symmetric matrixes are good,</span> <span m="2153000">which was, like, the point of my lecture so far,</span> <span m="2158000">then positive, definite matrixes are -- a</span> <span m="2162000">subclass that are excellent, okay.</span> </p>
+<p><span m="2165000">Just the greatest. so what are they?</span> </p>
+<p><span m="2170000">They're matrixes -- they're symmetric matrixes,</span> <span m="2175000">so all their eigenvalues are real.</span> </p>
+<p><span m="2179000">You can guess what they are.</span> </p>
+<p><span m="2182000">These are symmetric matrixes with all -- the eigenvalues are</span> <span m="2188000">-- okay, tell me what to write.</span> </p>
+<p><span m="2192000">What -- well, it -- it's hinted,</span> <span m="2196000">of course, by the name for these things.</span> </p>
+<p><span m="2200000">All the eigenvalues are positive.</span> </p>
+<p><span m="2204000">Okay. Tell me about the pivots.</span> </p>
+<p><span m="2207000">We can check the eigenvalues or we can check the pivots.</span> </p>
+<p><span m="2213000">All the pivots are what?</span> </p>
+<p><span m="2216000">And then I'll -- then I'll finally give an example.</span> </p>
+<p><span m="2221000">I feel awful that I have got to this</span> <span m="2226000">point in the lecture and I haven't given you a single</span> </p>
+<p><span m="2232000">example. So let me give you one.</span> </p>
+<p><span m="2235000">Five three two two.</span> </p>
+<p><span m="2237000">That's symmetric, fine.</span> </p>
+<p><span m="2239000">It's eigenvalues are real, for sure.</span> </p>
+<p><span m="2243000">But more than that, I know the sines of those</span> <span m="2247000">eigenvalues.</span> </p>
+<p><span m="2248000">And also I know the sines of those</span> <span m="2253000">pivots, so what's the deal with the pivots?</span> </p>
+<p><span m="2257000">The Ei- if the eigenvalues are all positive and if this little</span> <span m="2262000">fact is true that the pivots and eigenvalues have the same sines,</span> <span m="2268000">then this must be true -- all the pivots are positive.</span> </p>
+<p><span m="2273000">And that's the good way to test.</span> </p>
+<p><span m="2276000">This is the good test, because I can -- what are the</span> <span m="2282000">pivots for that matrix?</span> </p>
+<p><span m="2284000">The pivots for that matrix are five.</span> </p>
+<p><span m="2287000">So pivots are five and what's the second pivot?</span> </p>
+<p><span m="2291000">Have we, like, noticed the formula for the</span> <span m="2295000">second pivot in a matrix?</span> </p>
+<p><span m="2297850">It doesn't necessarily -- you know, it may come out a fraction</span> <span m="2304550">for sure, but what is that fraction?</span> </p>
+<p><span m="2307000">Can you tell me?</span> </p>
+<p><span m="2309000">Well, here, the product of the pivots is the determinant.</span> </p>
+<p><span m="2315000">What's the determinant of this matrix?</span> </p>
+<p><span m="2318000">Eleven?</span> </p>
+<p><span m="2319000">So the second pivot must be eleven over five,</span> <span m="2323000">so that the product is eleven.</span> </p>
+<p><span m="2327000">They're both positive.</span> </p>
+<p><span m="2329000">Then I know that the eigenvalues of that matrix are</span> <span m="2333000">both positive.</span> </p>
+<p><span m="2334000">What are the eigenvalues?</span> </p>
+<p><span m="2335000">Well, I've got to take the roots of -- you know,</span> <span m="2339000">do I put in a minus lambda?</span> </p>
+<p><span m="2341000">You mentally do this -- lambda squared minus how many lambdas?</span> </p>
+<p><span m="2346800">Eight?</span> </p>
+<p><span m="2347000">Right. Five and three, the trace comes in there,</span> <span m="2351000">plus what number comes here?</span> </p>
+<p><span m="2354000">The determinant, the eleven, so I set that to</span> </p>
+<p><span m="2359000">zero. So the eigenvalues are -- let's see, half of that is four,</span> <span m="2365000">look at that positive number, plus or minus the square root</span> <span m="2370000">of sixteen minus eleven,</span> <span m="2374000">I think five.</span> </p>
+<p><span m="2375460">The eigenvalues -- well, two by two they're not so</span> <span m="2379000">terrible, but they're not so perfect.</span> </p>
+<p><span m="2383000">Pivots are really simple.</span> </p>
+<p><span m="2385000">And this is a -- this is the family of matrixes that you</span> <span m="2390000">really want in differential equations, because you know the</span> <span m="2396000">sines of the eigenvalues, so you know the stability or</span> <span m="2401000">not.</span> </p>
+<p><span m="2402000">Okay. There's one other related fact I can pop in here in -- in the</span> <span m="2408000">time available for positive definite matrixes.</span> </p>
+<p><span m="2412000">The related fact is to ask you about determinants.</span> </p>
+<p><span m="2418300">So what's the determinant?</span> </p>
+<p><span m="2421000">What can you tell me if I -- remember, positive definite</span> <span m="2427000">means all eigenvalues are positive, all pivots are</span> <span m="2433000">positive, so what can you tell me about the determinant?</span> </p>
+<p><span m="2439000">It's positive, too.</span> </p>
+<p><span m="2441000">But somehow that -- that's not quite enough.</span> </p>
+<p><span m="2446000">Here -- here's a matrix minus one</span> <span m="2451000">minus three, what's the determinant of that</span> <span m="2454000">guy?</span> </p>
+<p><span m="2455000">It's positive, right?</span> </p>
+<p><span m="2456000">Is this a positive, definite matrix?</span> </p>
+<p><span m="2459000">Are the pivots -- what are the pivots?</span> </p>
+<p><span m="2462000">Well, negative.</span> </p>
+<p><span m="2463000">What are the eigenvalues?</span> </p>
+<p><span m="2465000">Well, they're also the same.</span> </p>
+<p><span m="2469000">So somehow I don't just want the determinant of the whole</span> </p>
+<p><span m="2474000">matrix. Here is eleven, that's great.</span> </p>
+<p><span m="2477000">Here the determinant of the whole matrix is three,</span> <span m="2481000">that's positive.</span> </p>
+<p><span m="2482000">I also -- I've got to check, like, little sub-determinants,</span> <span m="2487000">say maybe coming down from the left.</span> </p>
+<p><span m="2490000">So the one by one and the two by two</span> <span m="2494900">have to be positive.</span> </p>
+<p><span m="2496000">So there -- that's where I get the all.</span> </p>
+<p><span m="2500000">All -- can I call them sub-determinants -- are -- see,</span> <span m="2505000">I have to -- I need to make the thing plural.</span> </p>
+<p><span m="2509230">I need to test n things, not just the big determinant.</span> </p>
+<p><span m="2514130">All sub-determinants are positive.</span> </p>
+<p><span m="2518000">Then I'm okay.</span> </p>
+<p><span m="2519000">Then I'm okay.</span> </p>
+<p><span m="2521000">This passes the test.</span> </p>
+<p><span m="2523000">Five is positive and eleven is positive.</span> </p>
+<p><span m="2527000">This fails the test because that minus one there is</span> <span m="2533000">negative.</span> </p>
+<p><span m="2534000">And then the big determinant is positive three.</span> </p>
+<p><span m="2539000">So t- this -- these -- this fact -- you see</span> <span m="2544670">that actually the course, like, coming together.</span> </p>
+<p><span m="2548000">And that's really my point now.</span> </p>
+<p><span m="2551000">In the next -- in this lecture and particularly next Wednesday</span> <span m="2557000">and Friday, the course comes together.</span> </p>
+<p><span m="2560000">These pivots that we met in the first week, these determinants</span> <span m="2567000">that we met in the middle of the course, these eigenvalues</span> <span m="2572000">that we met most recently -- all matrixes are square here,</span> <span m="2576000">so coming together for square matrixes means these three</span> <span m="2581000">pieces come together and they come together in that beautiful</span> <span m="2586000">fact, that if -- that all the -- that if I have one of these,</span> <span m="2592000">I have the others.</span> </p>
+<p><span m="2594000">That if I -- but for symmetric matrixes.</span> </p>
+<p><span m="2597000">So that -- this will be the positive definite section and</span> <span m="2602000">then the real climax of the course is to make everything</span> <span m="2606000">come together for n by n matrixes,</span> <span m="2610000">not necessarily symmetric -- bring everything together there</span> <span m="2615000">and that will be the final thing.</span> </p>
+<p><span m="2617000">Okay.</span> </p>
+<p><span m="2618000">So have a great weekend and don't forget symmetric matrixes.</span> </p>
+<p><span m="2623000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 94MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/25.mp4">MP4 - 175MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/umt6BB1nJ4w.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

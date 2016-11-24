@@ -1,0 +1,2034 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     77200,       2025]
+NotebookOptionsPosition[     75360,       1954]
+NotebookOutlinePosition[     75738,       1971]
+CellTagsIndexPosition[     75695,       1968]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["The plots below demonstrate the band edge wavefunctoins for the \
+dirac barrier lattice as a function of the strength of the barriers.\n\tThe \
+slider at the top left controls the strength of the barriers.\n\nThe first \
+plot presents the band edge energies as horizontal lines, filling in the \
+bands corresponding to allowed states with a rainbow of colors.\n\tNote: \
+MMatica\[CloseCurlyQuote]s algorithm for filing barfs when the bands are \
+narrow -- improving that slows things down, so let\[CloseCurlyQuote]s not \
+bother.\n\nThe next three plots present ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", "\[Psi]", 
+    SuperscriptBox["|", "2"]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" for the bottom of the band in the first three bands (blue lines) \
+over two wells in the lattice.  \n\tObserve that the weak-barrier state has a \
+maximum at the deltas (x=-1,0,1,...), but develops kinks at the deltas for \
+finite strength, which kinks become nodes at strong coupling.\n\tThe barriers \
+are indicated by the black lines; the opacity of the lines reflects the \
+strength, ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["g", "o"], TraditionalForm]],
+  FontSize->16],
+ StyleBox[", of the barriers.\n\nThe last three plots show a single \
+barrier+well\[CloseCurlyQuote]s worth of the probability density ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", "\[Psi]", 
+    SuperscriptBox["|", "2"]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox["\n\tNote: Included are ",
+  FontSize->16],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", "\[Psi]", 
+    SuperscriptBox["|", "2"]}], TraditionalForm]],
+  FontSize->16],
+ StyleBox[" for the free wavefunctions corresponding to the top (yellow) and \
+bottom(red)  of the bands.  \n\tNote: the bottom of the band (blue) \
+interpolates between them as you sweep go.  Why?\n\nFor stupid technical \
+reasons, you must move the slider very, very slowly or the code will panic \
+and plot crazy things.  \n\tIf the plots freak out, run the command again and \
+try more slowly.  \n\tDO NOT REMOVE THE ko=0.01; LINE!  It is necessary \
+initialization.\n\nFinally, if you\[CloseCurlyQuote]d like to see ten wells \
+worth of wavefunctions, comment out the PlotBandEdges and uncomment the \
+PlotBandEdgeWFs command, then run again.\n\tDO NOT REMOVE THE ko=0.01; LINE!  \
+It is again necessary initialization.\n\t",
+  FontSize->16]
+}], "Text",
+ CellChangeTimes->{{3.545404200930173*^9, 3.545404689314774*^9}, {
+  3.545419359526442*^9, 3.545419363773897*^9}, {3.545494229496813*^9, 
+  3.545495017915428*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Code: Run the entire notebook to initialize",
+ FontSize->16]], "Text",
+ CellChangeTimes->{{3.545404159885172*^9, 3.5454041608747253`*^9}, {
+  3.545494208258535*^9, 3.5454946086152077`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Analytics: Solve the eigenvalue equation and determine the form of the \
+wavefunction and band equation.\
+\>", "Text",
+ CellChangeTimes->{{3.54548683779558*^9, 3.5454869375329437`*^9}, {
+  3.5454923666159763`*^9, 3.545492370407102*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Input the equations we derived in lecture determining the boundary conditions \
+at the delta function at the origin:\
+\>", "Text",
+ CellChangeTimes->{{3.545486946868277*^9, 3.5454869762662163`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EQs", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"A", "+", "B"}], " ", "\[Equal]", "  ", 
+       RowBox[{
+        RowBox[{"A", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"k", "-", "q"}], ")"}], " ", "L"}]]}], "+", " ", 
+        RowBox[{"B", " ", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{
+           RowBox[{"-", "\[ImaginaryI]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"k", "+", "q"}], ")"}], " ", "L"}]]}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"\[ImaginaryI]", " ", "k", 
+         RowBox[{"(", 
+          RowBox[{"A", "-", "B"}], " ", ")"}]}], "-", " ", 
+        RowBox[{"\[ImaginaryI]", " ", "k", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"A", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{"\[ImaginaryI]", " ", 
+              RowBox[{"(", 
+               RowBox[{"k", "-", "q"}], ")"}], " ", "L"}]]}], "-", " ", 
+           RowBox[{"B", " ", 
+            SuperscriptBox["\[ExponentialE]", 
+             RowBox[{
+              RowBox[{"-", "\[ImaginaryI]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"k", "+", "q"}], ")"}], " ", "L"}]]}]}], ")"}]}]}], 
+       "\[Equal]", 
+       RowBox[{
+        FractionBox["go", "L"], 
+        RowBox[{"(", 
+         RowBox[{"A", "+", "B"}], ")"}]}]}]}], "}"}], "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"L", "\[Rule]", "1"}], ",", 
+      RowBox[{"A", "\[Rule]", "1"}]}], "}"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5454869842707376`*^9, 3.545487659489826*^9}, {
+  3.545488439079146*^9, 3.545488816030427*^9}}]
+}, Closed]],
+
+Cell[TextData[{
+ "Note that we set ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"L", "=", "1."}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "  This is equivalent to measuring all lengths in units of L and momenta in \
+units of ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["1", "L"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  We also set ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "=", "1"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " to simplify algebra and normalization.\nWe\[CloseCurlyQuote]re also \
+setting \[HBar] and m to 1, corresponding to measuring all energies and \
+momenta in terms of dimensionless variables divided by suitable powers of \
+\[HBar] and m. "
+}], "Text",
+ CellChangeTimes->{{3.54548683779558*^9, 3.545487099330309*^9}, {
+  3.5454877356427727`*^9, 3.545487798455306*^9}, {3.545488447507427*^9, 
+  3.545488811083559*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Use the first equation to solve for ",
+ Cell[BoxData[
+  FormBox["B", TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  This lets us write the wavefunction in closed form."
+}], "Text",
+ CellChangeTimes->{{3.545487804366935*^9, 3.54548782729534*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BRule", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Solve", "[", 
+     RowBox[{
+      RowBox[{"EQs", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", 
+      RowBox[{"{", "B", "}"}]}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}], "//", "Simplify"}]}]], "Input",
+ CellChangeTimes->{{3.5454870843275843`*^9, 3.545487666918229*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"B", "\[Rule]", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", "k"}]], "-", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{"k", "+", "q"}], ")"}]}]]}], 
+    RowBox[{
+     RowBox[{"-", "1"}], "+", 
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{"k", "+", "q"}], ")"}]}]]}]]}], "}"}]], "Output",
+ CellChangeTimes->{{3.545487204721341*^9, 3.545487675379244*^9}, {
+   3.5454885124944687`*^9, 3.54548881901703*^9}, 3.545493005730678*^9, {
+   3.5454946153797207`*^9, 3.54549480871089*^9}, {3.57694619771094*^9, 
+   3.576946203245181*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Plug this into the second equation, then solve for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Cos", "[", "q", "]"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " to get the band energy condition:"
+}], "Text",
+ CellChangeTimes->{{3.545487090830545*^9, 3.545487514643297*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EnergyEQ", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Cos", "[", "q", "]"}], "\[Equal]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Cos", "[", "q", "]"}], "/.", 
+      RowBox[{
+       RowBox[{"Solve", "[", "  ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"EQs", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "/.", "BRule"}], " ", "//", 
+          "FullSimplify"}], "  ", ",", 
+         RowBox[{"Cos", "[", "q", "]"}]}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}], "//", 
+   "Simplify"}]}]], "Input",
+ CellChangeTimes->{{3.545487172334236*^9, 3.545487671871619*^9}, {
+  3.545488412158567*^9, 3.545488414686027*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Cos", "[", "q", "]"}], "\[Equal]", 
+  RowBox[{
+   RowBox[{"Cos", "[", "k", "]"}], "+", 
+   FractionBox[
+    RowBox[{"go", " ", 
+     RowBox[{"Sin", "[", "k", "]"}]}], 
+    RowBox[{"2", " ", "k"}]]}]}]], "Output",
+ CellChangeTimes->{{3.5454872084783688`*^9, 3.545487677013462*^9}, {
+   3.545488416225452*^9, 3.5454888204969997`*^9}, 3.5454930070701637`*^9, {
+   3.5454946164722548`*^9, 3.545494809465626*^9}, {3.576946198204487*^9, 
+   3.5769462032828093`*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Now let\[CloseCurlyQuote]s build the wavefunction at energy ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"E", "=", 
+    RowBox[{
+     SuperscriptBox["\[HBar]", "2"], 
+     SuperscriptBox["k", "2"]}]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " and crystal momentum ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[HBar]", " ", "q"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.5454876998180227`*^9, 3.545487861936398*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Psi]bot", "[", 
+     RowBox[{"k_", ",", "q_"}], "]"}], "[", "x_", "]"}], ":=", 
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[ImaginaryI]", " ", "q", " ", 
+      RowBox[{"Floor", "[", "x", "]"}]}]], 
+    FractionBox["1", "2"], 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"\[ImaginaryI]", " ", "k", " ", 
+        RowBox[{"Mod", "[", 
+         RowBox[{"x", ",", "1"}], "]"}]}]], "+", 
+      RowBox[{
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"2", " ", "\[ImaginaryI]", " ", "k"}]], "-", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"k", "+", "q"}], ")"}]}]]}], 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", 
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"k", "+", "q"}], ")"}]}]]}]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], " ", "k", " ", 
+         RowBox[{"Mod", "[", 
+          RowBox[{"x", ",", "1"}], "]"}]}]]}]}], ")"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.54548787454305*^9, 3.54548787678188*^9}}],
+
+Cell[TextData[{
+ "Here, Floor[x] counts the integer part of x, and thus determines how many \
+lattice sites we are away from the origin, while Mod[x,1] is the position \
+within the given well.\nThe overall phase ",
+ Cell[BoxData[
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"\[ImaginaryI]", " ", "q", " ", 
+    RowBox[{"Floor", "[", "x", "]"}]}]]],
+  CellChangeTimes->{{3.54548787454305*^9, 3.54548787678188*^9}}],
+ " thus takes care of the Bloch periodicity condition."
+}], "Text",
+ CellChangeTimes->{{3.545487880893989*^9, 3.545488029973064*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "We\[CloseCurlyQuote]ll also need the even and odd free-particle \
+wavefunctions corresponding to the resonant wavelengths ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["k", "n"], " ", "=", " ", 
+    FractionBox["n", "\[Pi]"]}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ".  Since the top of the band corresponds to q = 0, \[Pi], 0, \[Pi], 0,... \
+in alternating sequence, we need to keep track of the phase."
+}], "Text",
+ CellChangeTimes->{{3.545488033409195*^9, 3.5454882970351677`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Psi]top", "[", "n_", "]"}], "[", "x_", "]"}], ":=", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"\[ImaginaryI]", " ", "n", " ", "\[Pi]", " ", "x"}]], "+", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], "n"], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], " ", "n", " ", "\[Pi]", " ", 
+         "x"}]]}]}], ")"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{3.545488301271925*^9}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Similarly, the state that would have been at the bottom of the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["n", "th"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " band is the even/odd compliment of the top of the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"n", "-", "1"}], ")"}], "th"], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ " band:"
+}], "Text",
+ CellChangeTimes->{{3.545488305010099*^9, 3.5454883582465*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Psi]topm", "[", "n_", "]"}], "[", "x_", "]"}], ":=", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"\[ImaginaryI]", " ", "n", " ", "\[Pi]", " ", "x"}]], "+", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], 
+        RowBox[{"n", "+", "1"}]], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "\[ImaginaryI]"}], " ", "n", " ", "\[Pi]", " ", 
+         "x"}]]}]}], ")"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5454869793061657`*^9, 3.5454870826488523`*^9}, {
+  3.5454878694972343`*^9, 3.545488376856913*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell["\<\
+Numerics: Plotting the energies and eigenfunctions\
+\>", "Text",
+ CellChangeTimes->{{3.545492403056909*^9, 3.5454924164701443`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+First, let\[CloseCurlyQuote]s set some parameters that we\[CloseCurlyQuote]ll \
+need later:\
+\>", "Text",
+ CellChangeTimes->{{3.545492422899329*^9, 3.545492440882284*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"AR", " ", "=", " ", "8"}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"aspect", " ", "ratio", " ", "of", " ", "many"}], "-", 
+    RowBox[{"well", " ", "wavefunction", " ", "plots"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dpi", "=", "52"}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "good", " ", "for", " ", "a", " ", "projector", " ", "at", " ", "1024", 
+    "x768"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dpi", "=", "72"}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"good", " ", "for", " ", "a", " ", "big", " ", "display"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gmin", "=", "0.01"}], ";", 
+  RowBox[{"gmax", "=", "5.5"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.545492449070177*^9, 3.545492460042411*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+PlotBandEdges : A macro to plot the band edge energies and eigenfunctions as \
+a function of barrier strength\
+\>", "Text",
+ CellChangeTimes->{{3.545492472288*^9, 3.545492514749275*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"TwoWells", ":=", 
+   RowBox[{"Line", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "1.2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1.2"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1.2"}], "}"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"TwoWellOptions", ":=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+      RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+      RowBox[{"ImageSize", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"dpi", "*", "3", "*", "GoldenRatio"}], ",", 
+         RowBox[{"dpi", "*", "3"}]}], "}"}]}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PlotBandEdges", ":=", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"First", ",", " ", 
+               RowBox[{"find", " ", "the", " ", "energies", " ", 
+                RowBox[{
+                 SubscriptBox["E", "go"], "~", 
+                 SuperscriptBox["k", "2"]}], " ", "for", " ", "a", " ", 
+                "given", " ", "barrier", " ", 
+                RowBox[{
+                "height", ".", " ", "\[IndentingNewLine]", " ", "Several"}], 
+                " ", "things", " ", "to", " ", 
+                RowBox[{"note", ":", "\[IndentingNewLine]", "a"}]}]}], ")"}], 
+             " ", "the", " ", "manipulated", " ", "variable", " ", "is", " ", 
+             
+             RowBox[{"go", ".", "  ", "\[IndentingNewLine]", "this"}], " ", 
+             "means", " ", "the", " ", "slider", " ", "controls", " ", "go", 
+             " ", 
+             RowBox[{"linearly", ".", "\[IndentingNewLine]", "this"}], " ", 
+             "is", " ", "annoying"}], ",", " ", 
+            RowBox[{
+             RowBox[{
+             "since", " ", "we", " ", "want", " ", "to", " ", "spend", " ", 
+              "more", " ", "time", " ", "loooking", " ", "at", " ", "the", 
+              " ", "small"}], "-", 
+             RowBox[{
+             "go", " ", "behavior", "\[IndentingNewLine]", "but", " ", 
+              "still", " ", "see", " ", "the", " ", "results", " ", "for", 
+              " ", "very", " ", "large", " ", 
+              RowBox[{"go", ".", "\[IndentingNewLine]", "we"}], " ", "thus", 
+              " ", "replace", " ", 
+              FractionBox["go", "2"], " ", "with", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["go", "2"], "+", 
+                SuperscriptBox["go", "3"]}], ")"}], " ", "instead", " ", "of",
+               "  ", "to", "  ", "the", " ", "manipulated", " ", "variable", 
+              " ", 
+              RowBox[{"go", ".", "\[IndentingNewLine]", "b"}]}]}]}], ")"}], 
+          " ", "note", " ", "that", " ", 
+          RowBox[{"Cos", "[", "qL", "]"}]}], "=", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"-", "1"}], ")"}], "n"], " ", "at", " ", "the", " ", 
+          "bottom", " ", "of", " ", "the", " ", 
+          SuperscriptBox["n", "th"], " ", 
+          RowBox[{"band", ".", "\[IndentingNewLine]", "c"}]}]}], ")"}], " ", 
+       "finally"}], ",", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"note", " ", "that", " ", "find"}], "-", 
+        RowBox[{"root", " ", "requires", " ", "an", " ", "initial", " ", 
+         RowBox[{"guess", ".", "  ", "this"}], " ", "makes", " ", 
+         RowBox[{"sense", ":", " ", 
+          RowBox[{"there", " ", "are", " ", "many", " ", "roots"}]}]}]}], ";",
+        " ", 
+       RowBox[{
+        RowBox[{
+        "the", " ", "\[IndentingNewLine]", "initial", " ", "guess", " ", 
+         "should", " ", "help", " ", "find"}], "-", 
+        RowBox[{"root", " ", "find", " ", "the", " ", "desired", " ", 
+         RowBox[{"root", ".", "  ", "we"}], " ", "thus", " ", "need", " ", 
+         "good", " ", 
+         RowBox[{"guesses", ".", "  ", "our"}], "\[IndentingNewLine]", 
+         "first", " ", "guess", " ", "comes", " ", "from", " ", "an", " ", 
+         "input", " ", "value", " ", "of", " ", "ko"}]}]}], ",", " ", 
+      RowBox[{
+      "plus", " ", "n\[Pi]", " ", "for", " ", "the", " ", "nth", " ", "band", 
+       " ", 
+       RowBox[{"minimum", ".", "\[IndentingNewLine]", "thereafter"}]}], ",", 
+      " ", 
+      RowBox[{"the", " ", "previous", " ", "value", " ", "of", " ", "ko"}], 
+      ",", " ", 
+      RowBox[{"again", " ", "plus", " ", "n\[Pi]"}], ",", " ", 
+      RowBox[{"is", " ", 
+       RowBox[{"used", ".", "  ", "\[IndentingNewLine]", "working"}], " ", 
+       "through", " ", "why", " ", "these", " ", "are", " ", "good", " ", 
+       "guesses", " ", "is", " ", "a", " ", "good", " ", "check", " ", "on", 
+       " ", "your", " ", 
+       RowBox[{"understanding", "."}]}]}], "\[IndentingNewLine]", "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ko", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", "1"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", "ko"}], "}"}]}], "]"}]}]}], ";", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", "0"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"k1", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", 
+           RowBox[{"-", "1"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", 
+            RowBox[{"\[Pi]", "+", "ko"}]}], "}"}]}], "]"}]}]}], ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", "\[Pi]"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"k2", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", "1"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", 
+            RowBox[{
+             RowBox[{"2", "*", "\[Pi]"}], "+", "ko"}]}], "}"}]}], "]"}]}]}], 
+      ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", 
+        RowBox[{"2", 
+         RowBox[{"\[Pi]", " ", "~", " ", "0"}]}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"k3", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", 
+           RowBox[{"-", "1"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", 
+            RowBox[{
+             RowBox[{"3", "*", "\[Pi]"}], "+", "ko"}]}], "}"}]}], "]"}]}]}], 
+      ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", 
+        RowBox[{"3", 
+         RowBox[{"\[Pi]", " ", "~", " ", "\[Pi]"}]}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "Now", " ", "that", " ", "we", " ", "have", " ", "the", " ", 
+         "roots"}], ",", " ", 
+        RowBox[{
+         RowBox[{"let", "'"}], "s", " ", "plot", " ", "the", " ", "energies", 
+         " ", "and", " ", "wavefunctions", " ", "in", " ", "a", " ", "big", 
+         " ", 
+         RowBox[{"list", ":"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"(*", " ", "\[IndentingNewLine]", 
+        RowBox[{"First", ",", " ", 
+         RowBox[{
+          RowBox[{"let", "'"}], "s", " ", "plot", " ", "the", " ", "energies",
+           " ", "of", " ", "the", " ", "band", " ", "bottoms"}], ",", " ", 
+         RowBox[{"the", " ", "band", " ", "tops"}], ",", " ", 
+         RowBox[{
+         "and", " ", "shade", " ", "in", " ", "the", " ", "bands", " ", 
+          "between", " ", 
+          RowBox[{"them", "."}]}]}], " ", "\[IndentingNewLine]", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              SuperscriptBox["ko", "2"], ",", 
+              SuperscriptBox["k1", "2"], ",", 
+              SuperscriptBox["k2", "2"], ",", 
+              SuperscriptBox["k3", "2"], ",", "0", ",", 
+              SuperscriptBox["\[Pi]", "2"], ",", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "*", "\[Pi]"}], ")"}], "2"], ",", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"3", "*", "\[Pi]"}], ")"}], "2"], ",", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"4", "*", "\[Pi]"}], ")"}], "2"]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "1"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"RegionPlot", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              SuperscriptBox["ko", "2"], "<", "y", "<", 
+              SuperscriptBox["\[Pi]", "2"]}], "||", 
+             RowBox[{
+              SuperscriptBox["k1", "2"], "\[LessEqual]", "y", "\[LessEqual]", 
+              
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "*", "\[Pi]"}], ")"}], "2"]}], "||", 
+             RowBox[{
+              SuperscriptBox["k2", "2"], "\[LessEqual]", "y", "\[LessEqual]", 
+              
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"3", "*", "\[Pi]"}], ")"}], "2"]}], "||", 
+             RowBox[{
+              SuperscriptBox["k3", "2"], "\[LessEqual]", "y", "\[LessEqual]", 
+              
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"4", "*", "\[Pi]"}], ")"}], "2"]}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"y", ",", 
+              RowBox[{"-", "0.1"}], ",", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"4", "*", "\[Pi]"}], ")"}], "2"], "+", "0.1"}]}], 
+             "}"}], ",", 
+            RowBox[{"Mesh", "\[Rule]", "None"}], ",", 
+            RowBox[{"BoundaryStyle", "\[Rule]", "None"}], ",", 
+            RowBox[{"ColorFunction", "\[Rule]", "\"\<Rainbow\>\""}], ",", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"Opacity", "[", "0.2", "]"}]}], ",", 
+            RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Quality\>\""}]}], 
+           "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"dpi", "*", "3", "*", "GoldenRatio"}], ",", 
+             RowBox[{"dpi", "*", "3"}]}], "}"}]}]}], "\[IndentingNewLine]", 
+         "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{" ", "\[IndentingNewLine]", 
+               RowBox[{"Now", " ", 
+                RowBox[{"let", "'"}], "s", " ", "plot", " ", "the", " ", 
+                "wavefunctions", " ", "of", " ", "the", " ", "states", " ", 
+                "at", " ", "the", " ", "bottom", " ", "of", " ", "the", " ", 
+                RowBox[{"wells", ".", "  ", "Things"}], " ", "to", " ", 
+                RowBox[{"note", ":", " ", "\[IndentingNewLine]", "1"}]}], 
+               ")"}], " ", "the", " ", "wavefunction", " ", "as", " ", 
+              "written", "\[IndentingNewLine]", "above", " ", "is", " ", 
+              "not", " ", "pure", " ", 
+              RowBox[{"real", " ", "--"}], " ", "it", " ", "has", " ", "an", 
+              " ", "overall", " ", "phase", " ", "which", " ", "is", " ", 
+              "constant", " ", "in", " ", "space", " ", 
+              RowBox[{"(", 
+               RowBox[{"independent", " ", "of", " ", "x"}], ")"}]}], ",", 
+             " ", 
+             RowBox[{"but", " ", "depends", " ", "on", " ", 
+              RowBox[{"k", ".", "  ", "rather"}], " ", "than", " ", "adjust", 
+              " ", "the", " ", "wavefunction", " ", "to", " ", "be", " ", 
+              "pure", " ", "real"}], ",", " ", 
+             RowBox[{
+             "we", " ", "can", " ", "just", " ", "remove", " ", "the", " ", 
+              "overall", " ", "phase", " ", 
+              RowBox[{"explicitly", ".", " ", "hence"}], " ", "the", " ", 
+              "factors", " ", "of", " ", 
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                RowBox[{"Arg", "[", 
+                 RowBox[{
+                  RowBox[{"\[Psi]bot", "[", 
+                   RowBox[{"ko", ",", "0"}], "]"}], "[", "0", "]"}], "]"}]}]],
+               " ", "in", " ", "each", " ", 
+              RowBox[{"Plot", "[", "]"}], " ", 
+              RowBox[{"below", ".", "\[IndentingNewLine]", "2"}]}]}], ")"}], 
+           " ", 
+           RowBox[{"We", "'"}], "re", " ", "also", " ", "plotting", " ", 
+           "the", " ", "potential"}], ",", " ", 
+          RowBox[{
+          "with", " ", "opacity", " ", "fixed", " ", "by", " ", "the", " ", 
+           RowBox[{"(", 
+            RowBox[{"square", " ", "root", " ", "of", " ", "the"}], ")"}], 
+           " ", "strength", " ", "of", " ", "the", " ", 
+           RowBox[{"potential", "."}]}]}], "\[IndentingNewLine]", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                RowBox[{"Arg", "[", 
+                 RowBox[{
+                  RowBox[{"\[Psi]bot", "[", 
+                   RowBox[{"ko", ",", "0"}], "]"}], "[", "0", "]"}], "]"}]}]], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"ko", ",", "0"}], "]"}], "[", "x", "]"}]}], "]"}], 
+            ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"Opacity", "[", "1", "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TwoWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "TwoWellOptions"}], "\[IndentingNewLine]", "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                 RowBox[{"Arg", "[", 
+                  RowBox[{
+                   RowBox[{"\[Psi]bot", "[", 
+                    RowBox[{"k1", ",", "\[Pi]"}], "]"}], "[", "0", "]"}], 
+                  "]"}]}]]}], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"k1", ",", "\[Pi]"}], "]"}], "[", "x", "]"}]}], "]"}],
+             ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"Opacity", "[", "1", "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TwoWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "TwoWellOptions"}], "\[IndentingNewLine]", "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                RowBox[{"Arg", "[", 
+                 RowBox[{
+                  RowBox[{"\[Psi]bot", "[", 
+                   RowBox[{"k2", ",", "0"}], "]"}], "[", "0", "]"}], "]"}]}]], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"k2", ",", "0"}], "]"}], "[", "x", "]"}]}], "]"}], 
+            ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"Opacity", "[", "1", "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TwoWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "TwoWellOptions"}], "\[IndentingNewLine]", "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                 RowBox[{"Arg", "[", 
+                  RowBox[{
+                   RowBox[{"\[Psi]bot", "[", 
+                    RowBox[{"k3", ",", "\[Pi]"}], "]"}], "[", "0", "]"}], 
+                  "]"}]}]]}], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"k3", ",", "\[Pi]"}], "]"}], "[", "x", "]"}]}], "]"}],
+             ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"Opacity", "[", "1", "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TwoWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "TwoWellOptions"}], "\[IndentingNewLine]", "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Now", " ", 
+           RowBox[{"let", "'"}], "s", " ", "plot", " ", "the", " ", 
+           "probability", " ", "density", " ", "of", " ", "the", " ", "state",
+            " ", "at", " ", "the", " ", "bottom", " ", "of", " ", "the", " ", 
+           "first", " ", "few", " ", "bands"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+          "including", " ", "the", " ", "prob", " ", "density", " ", "of", 
+           " ", "the", " ", "top", " ", "of", " ", "the", " ", "band", " ", 
+           "and", " ", "of", " ", "the", " ", "top", " ", "of", " ", "the", 
+           " ", "prev", " ", "band"}], ",", " ", "too"}], " ", 
+         "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Abs", "[", 
+               RowBox[{
+                RowBox[{"\[Psi]bot", "[", 
+                 RowBox[{"ko", ",", "0"}], "]"}], "[", "x", "]"}], "]"}], ",",
+               "1", ",", 
+              RowBox[{"Abs", "[", 
+               RowBox[{
+                RowBox[{"\[Psi]top", "[", "1", "]"}], "[", "x", "]"}], 
+               "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", 
+               FractionBox["1", "2"]}], ",", 
+              FractionBox["1", "2"]}], "}"}], ",", 
+            RowBox[{"ImageSize", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"dpi", "*", "3", "*", "GoldenRatio"}], ",", 
+               RowBox[{"dpi", "*", "3"}]}], "}"}]}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox["1", "2"]}], ",", 
+                 FractionBox["1", "2"]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "0.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+            RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"Opacity", "[", "1", "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "1"}], "/", "2"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"1", "/", "2"}], ",", "0"}], "}"}]}], "}"}], "]"}], 
+             ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1.2"}], "}"}]}], "}"}], "]"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Abs", "[", 
+               RowBox[{
+                RowBox[{"\[Psi]bot", "[", 
+                 RowBox[{"k1", ",", "\[Pi]"}], "]"}], "[", "x", "]"}], "]"}], 
+              ",", 
+              RowBox[{"Abs", "[", 
+               RowBox[{
+                RowBox[{"\[Psi]topm", "[", "1", "]"}], "[", "x", "]"}], "]"}],
+               ",", 
+              RowBox[{"Abs", "[", 
+               RowBox[{
+                RowBox[{"\[Psi]topm", "[", "2", "]"}], "[", "x", "]"}], 
+               "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", 
+              RowBox[{"-", 
+               FractionBox["1", "2"]}], ",", 
+              FractionBox["1", "2"]}], "}"}], ",", 
+            RowBox[{"ImageSize", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"dpi", "*", "3", "*", "GoldenRatio"}], ",", 
+               RowBox[{"dpi", "*", "3"}]}], "}"}]}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox["1", "2"]}], ",", 
+                 FractionBox["1", "2"]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "0.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+            RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"Opacity", "[", "1", "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", "1"}], "/", "2"}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"1", "/", "2"}], ",", "0"}], "}"}]}], "}"}], "]"}], 
+             ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "1.2"}], "}"}]}], "}"}], "]"}], ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Show", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Plot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Abs", "[", 
+                RowBox[{
+                 RowBox[{"\[Psi]bot", "[", 
+                  RowBox[{"k2", ",", "0"}], "]"}], "[", "x", "]"}], "]"}], 
+               ",", 
+               RowBox[{"Abs", "[", 
+                RowBox[{
+                 RowBox[{"\[Psi]top", "[", "2", "]"}], "[", "x", "]"}], "]"}],
+                ",", 
+               RowBox[{"Abs", "[", 
+                RowBox[{
+                 RowBox[{"\[Psi]top", "[", "3", "]"}], "[", "x", "]"}], 
+                "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", 
+               RowBox[{"-", 
+                FractionBox["1", "2"]}], ",", 
+               FractionBox["1", "2"]}], "}"}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"dpi", "*", "3", "*", "GoldenRatio"}], ",", 
+                RowBox[{"dpi", "*", "3"}]}], "}"}]}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   FractionBox["1", "2"]}], ",", 
+                  FractionBox["1", "2"]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "0.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+             RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", 
+             RowBox[{"Black", ",", 
+              RowBox[{"Opacity", "[", "1", "]"}], ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"1", "/", "2"}], ",", "0"}], "}"}]}], "}"}], "]"}],
+               ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Opacity", "[", 
+               RowBox[{
+                SqrtBox[
+                 FractionBox["go", "gmax"]], "-", 
+                SqrtBox[
+                 FractionBox["gmin", "gmax"]]}], "]"}], ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "1.2"}], "}"}]}], "}"}], "]"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+         RowBox[{"Show", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Plot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Abs", "[", 
+                RowBox[{
+                 RowBox[{"\[Psi]bot", "[", 
+                  RowBox[{"k3", ",", "\[Pi]"}], "]"}], "[", "x", "]"}], "]"}],
+                ",", 
+               RowBox[{"Abs", "[", 
+                RowBox[{
+                 RowBox[{"\[Psi]topm", "[", "3", "]"}], "[", "x", "]"}], 
+                "]"}], ",", 
+               RowBox[{"Abs", "[", 
+                RowBox[{
+                 RowBox[{"\[Psi]topm", "[", "4", "]"}], "[", "x", "]"}], 
+                "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", 
+               RowBox[{"-", 
+                FractionBox["1", "2"]}], ",", 
+               FractionBox["1", "2"]}], "}"}], ",", 
+             RowBox[{"ImageSize", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"dpi", "*", "3", "*", "GoldenRatio"}], ",", 
+                RowBox[{"dpi", "*", "3"}]}], "}"}]}], ",", 
+             RowBox[{"PlotRange", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   FractionBox["1", "2"]}], ",", 
+                  FractionBox["1", "2"]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "0.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+             RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", 
+             RowBox[{"Black", ",", 
+              RowBox[{"Opacity", "[", "1", "]"}], ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"1", "/", "2"}], ",", "0"}], "}"}]}], "}"}], "]"}],
+               ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Opacity", "[", 
+               RowBox[{
+                SqrtBox[
+                 FractionBox["go", "gmax"]], "-", 
+                SqrtBox[
+                 FractionBox["gmin", "gmax"]]}], "]"}], ",", 
+              RowBox[{"Line", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "1.2"}], "}"}]}], "}"}], "]"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "}"}]}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"go", ",", "gmin", ",", "gmax"}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.5454925395076313`*^9, 3.545492593714232*^9}, {
+  3.545493225835277*^9, 3.545494141730762*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+PlotBandEdgeWFs : A macro to plot the band edge eigenfunctions over 10 wells \
+as a function of barrier strength\
+\>", "Text",
+ CellChangeTimes->{{3.545492472288*^9, 3.545492680052476*^9}}],
+
+Cell["\<\
+Note that both PlotBandEdges and PlotBandEdgeWFs use the same global vaiable, \
+so only run one at once!!!!!!\
+\>", "Text",
+ CellChangeTimes->{{3.545492707543898*^9, 3.545492731398505*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"TenWells", "=", 
+    RowBox[{"Line", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "1.2"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"3", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"7", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"7", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"7", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"9", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"9", ",", "1.2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"9", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"10", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"10", ",", "1.2"}], "}"}]}], "}"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"TenWellOptions", " ", ":=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "10"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1.2"}], ",", "1.2"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"dpi", "*", "2", "*", "AR"}], ",", 
+        RowBox[{"dpi", "*", "2"}]}], "}"}]}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", 
+      FractionBox["1", "AR"]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PlotBandEdgeWFs", ":=", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"First", ",", " ", 
+      RowBox[{"find", " ", "the"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ko", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", "1"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", "ko"}], "}"}]}], "]"}]}]}], ";", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", "0"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"k1", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", 
+           RowBox[{"-", "1"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", 
+            RowBox[{"\[Pi]", "+", "ko"}]}], "}"}]}], "]"}]}]}], ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", "\[Pi]"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"k2", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", "1"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", 
+            RowBox[{
+             RowBox[{"2", "*", "\[Pi]"}], "+", "ko"}]}], "}"}]}], "]"}]}]}], 
+      ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", 
+        RowBox[{"2", 
+         RowBox[{"\[Pi]", " ", "~", " ", "0"}]}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"k3", "=", 
+       RowBox[{"k", "/.", 
+        RowBox[{"FindRoot", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", "k", "]"}], "+", 
+            RowBox[{
+             FractionBox[
+              RowBox[{
+               SuperscriptBox["go", "2"], "+", 
+               SuperscriptBox["go", "3"]}], "k"], 
+             RowBox[{"Sin", "[", "k", "]"}]}]}], "\[Equal]", 
+           RowBox[{"-", "1"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"k", ",", 
+            RowBox[{
+             RowBox[{"3", "*", "\[Pi]"}], "+", "ko"}]}], "}"}]}], "]"}]}]}], 
+      ";", 
+      RowBox[{"(*", " ", 
+       RowBox[{"qL", " ", "=", " ", 
+        RowBox[{"3", 
+         RowBox[{"\[Pi]", " ", "~", " ", "\[Pi]"}]}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                RowBox[{"Arg", "[", 
+                 RowBox[{
+                  RowBox[{"\[Psi]bot", "[", 
+                   RowBox[{"ko", ",", "0"}], "]"}], "[", "0", "]"}], "]"}]}]], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"ko", ",", "0"}], "]"}], "[", "x", "]"}]}], "]"}], 
+            ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TenWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", "TenWellOptions"}], "\[IndentingNewLine]", 
+         "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                 RowBox[{"Arg", "[", 
+                  RowBox[{
+                   RowBox[{"\[Psi]bot", "[", 
+                    RowBox[{"k1", ",", "\[Pi]"}], "]"}], "[", "0", "]"}], 
+                  "]"}]}]]}], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"k1", ",", "\[Pi]"}], "]"}], "[", "x", "]"}]}], "]"}],
+             ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TenWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", "TenWellOptions"}], "\[IndentingNewLine]", 
+         "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              SuperscriptBox["\[ExponentialE]", 
+               RowBox[{
+                RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                RowBox[{"Arg", "[", 
+                 RowBox[{
+                  RowBox[{"\[Psi]bot", "[", 
+                   RowBox[{"k2", ",", "0"}], "]"}], "[", "0", "]"}], "]"}]}]], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"k2", ",", "0"}], "]"}], "[", "x", "]"}]}], "]"}], 
+            ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TenWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", "TenWellOptions"}], "\[IndentingNewLine]", 
+         "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Plot", "[", 
+           RowBox[{
+            RowBox[{"Re", "[", 
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox["\[ExponentialE]", 
+                RowBox[{
+                 RowBox[{"-", "\[ImaginaryI]"}], " ", 
+                 RowBox[{"Arg", "[", 
+                  RowBox[{
+                   RowBox[{"\[Psi]bot", "[", 
+                    RowBox[{"k3", ",", "\[Pi]"}], "]"}], "[", "0", "]"}], 
+                  "]"}]}]]}], 
+              RowBox[{
+               RowBox[{"\[Psi]bot", "[", 
+                RowBox[{"k3", ",", "\[Pi]"}], "]"}], "[", "x", "]"}]}], "]"}],
+             ",", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "10"}], "}"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Opacity", "[", 
+              RowBox[{
+               SqrtBox[
+                FractionBox["go", "gmax"]], "-", 
+               SqrtBox[
+                FractionBox["gmin", "gmax"]]}], "]"}], ",", "TenWells", ",", 
+             RowBox[{"PlotStyle", "\[Rule]", "Thick"}]}], "}"}], "]"}], ",", 
+          "\[IndentingNewLine]", "TenWellOptions"}], "\[IndentingNewLine]", 
+         "]"}]}], "}"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"go", ",", "0.01", ",", "5.5"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.545393587210682*^9, 3.54539363908514*^9}, {
+  3.5453966238449078`*^9, 3.545400445230919*^9}, {3.545401125002735*^9, 
+  3.545401125756958*^9}, {3.545401776083907*^9, 3.5454046441391363`*^9}, {
+  3.545414491686523*^9, 3.545414727933552*^9}, {3.545416525532116*^9, 
+  3.545420628899375*^9}, {3.5454308876053677`*^9, 3.5454333978473673`*^9}, {
+  3.545435101423726*^9, 3.545436847453623*^9}, {3.5454709400914516`*^9, 
+  3.545472096388927*^9}, {3.545473270595255*^9, 3.545473407077774*^9}, {
+  3.54548644273904*^9, 3.5454868138987226`*^9}, {3.545488553212225*^9, 
+  3.54549317078722*^9}}]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ko", "=", "0.01"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"PlotBandEdges", "\[IndentingNewLine]", 
+  RowBox[{"(*", "PlotBandEdgeWFs", "*)"}]}], "\[IndentingNewLine]"}], "Input",\
+
+ CellChangeTimes->{{3.545472103604476*^9, 3.54547210373073*^9}, {
+  3.545473418660109*^9, 3.545473433194652*^9}, {3.545479632629017*^9, 
+  3.5454797513378477`*^9}, {3.5454861862908697`*^9, 3.545486206606558*^9}, {
+  3.545491178004167*^9, 3.5454911788345213`*^9}, {3.545492175082775*^9, 
+  3.5454921751742563`*^9}, {3.545492819962962*^9, 3.545493334839575*^9}, {
+  3.545494554947557*^9, 3.5454945557183027`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`go$$ = 0.01, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`go$$], 0.01, 5.5}}, Typeset`size$$ = {
+    1083.701171875, {586., 110.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`go$9357$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`go$$ = 0.01}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`go$$, $CellContext`go$9357$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`ko = ReplaceAll[$CellContext`k, 
+          FindRoot[
+          Cos[$CellContext`k] + (($CellContext`go$$^2 + \
+$CellContext`go$$^3)/$CellContext`k) Sin[$CellContext`k] == 
+           1, {$CellContext`k, $CellContext`ko}]]; $CellContext`k1 = 
+        ReplaceAll[$CellContext`k, 
+          FindRoot[
+          Cos[$CellContext`k] + (($CellContext`go$$^2 + \
+$CellContext`go$$^3)/$CellContext`k) 
+             Sin[$CellContext`k] == -1, {$CellContext`k, 
+            Pi + $CellContext`ko}]]; $CellContext`k2 = 
+        ReplaceAll[$CellContext`k, 
+          FindRoot[
+          Cos[$CellContext`k] + (($CellContext`go$$^2 + \
+$CellContext`go$$^3)/$CellContext`k) Sin[$CellContext`k] == 
+           1, {$CellContext`k, 2 Pi + $CellContext`ko}]]; $CellContext`k3 = 
+        ReplaceAll[$CellContext`k, 
+          FindRoot[
+          Cos[$CellContext`k] + (($CellContext`go$$^2 + \
+$CellContext`go$$^3)/$CellContext`k) 
+             Sin[$CellContext`k] == -1, {$CellContext`k, 
+            3 Pi + $CellContext`ko}]]; {
+         Show[
+          
+          Plot[{$CellContext`ko^2, $CellContext`k1^2, $CellContext`k2^2, \
+$CellContext`k3^2, 0, Pi^2, (2 Pi)^2, (3 Pi)^2, (4 Pi)^2}, {$CellContext`x, 0,
+             1}], 
+          RegionPlot[
+           
+           Or[$CellContext`ko^2 < $CellContext`y < 
+            Pi^2, $CellContext`k1^2 <= $CellContext`y <= (2 
+              Pi)^2, $CellContext`k2^2 <= $CellContext`y <= (3 
+              Pi)^2, $CellContext`k3^2 <= $CellContext`y <= (4 
+              Pi)^2], {$CellContext`x, 0, 1}, {$CellContext`y, -0.1, (4 Pi)^2 + 
+            0.1}, Mesh -> None, BoundaryStyle -> None, ColorFunction -> 
+           "Rainbow", PlotStyle -> Opacity[0.2], PerformanceGoal -> 
+           "Quality"], Axes -> False, Frame -> True, 
+          ImageSize -> {$CellContext`dpi 3 GoldenRatio, $CellContext`dpi 3}], 
+         
+         Show[
+          Plot[
+           Re[E^((-I) Arg[
+                $CellContext`\[Psi]bot[$CellContext`ko, 0][
+                0]]) $CellContext`\[Psi]bot[$CellContext`ko, 
+              0][$CellContext`x]], {$CellContext`x, -1, 1}], 
+          Graphics[{Black, 
+            Opacity[1], 
+            Line[{{-1, 0}, {1, 0}}], PlotStyle -> Thick}], 
+          Graphics[{
+            
+            Opacity[($CellContext`go$$/$CellContext`gmax)^
+              Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+             Rational[1, 2]], $CellContext`TwoWells, PlotStyle -> 
+            Thick}], $CellContext`TwoWellOptions], 
+         Show[
+          Plot[
+           Re[(-E^((-I) Arg[
+                 $CellContext`\[Psi]bot[$CellContext`k1, Pi][
+                 0]])) $CellContext`\[Psi]bot[$CellContext`k1, 
+              Pi][$CellContext`x]], {$CellContext`x, -1, 1}], 
+          Graphics[{Black, 
+            Opacity[1], 
+            Line[{{-1, 0}, {1, 0}}], PlotStyle -> Thick}], 
+          Graphics[{
+            
+            Opacity[($CellContext`go$$/$CellContext`gmax)^
+              Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+             Rational[1, 2]], $CellContext`TwoWells, PlotStyle -> 
+            Thick}], $CellContext`TwoWellOptions], 
+         Show[
+          Plot[
+           Re[E^((-I) Arg[
+                $CellContext`\[Psi]bot[$CellContext`k2, 0][
+                0]]) $CellContext`\[Psi]bot[$CellContext`k2, 
+              0][$CellContext`x]], {$CellContext`x, -1, 1}], 
+          Graphics[{Black, 
+            Opacity[1], 
+            Line[{{-1, 0}, {1, 0}}], PlotStyle -> Thick}], 
+          Graphics[{
+            
+            Opacity[($CellContext`go$$/$CellContext`gmax)^
+              Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+             Rational[1, 2]], $CellContext`TwoWells, PlotStyle -> 
+            Thick}], $CellContext`TwoWellOptions], 
+         Show[
+          Plot[
+           Re[(-E^((-I) Arg[
+                 $CellContext`\[Psi]bot[$CellContext`k3, Pi][
+                 0]])) $CellContext`\[Psi]bot[$CellContext`k3, 
+              Pi][$CellContext`x]], {$CellContext`x, -1, 1}], 
+          Graphics[{Black, 
+            Opacity[1], 
+            Line[{{-1, 0}, {1, 0}}], PlotStyle -> Thick}], 
+          Graphics[{
+            
+            Opacity[($CellContext`go$$/$CellContext`gmax)^
+              Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+             Rational[1, 2]], $CellContext`TwoWells, PlotStyle -> 
+            Thick}], $CellContext`TwoWellOptions], 
+         Show[
+          Plot[{
+            Abs[
+             $CellContext`\[Psi]bot[$CellContext`ko, 0][$CellContext`x]], 1, 
+            Abs[
+             $CellContext`\[Psi]top[1][$CellContext`x]]}, {$CellContext`x, -(
+             1/2), 1/2}, 
+           ImageSize -> {$CellContext`dpi 3 GoldenRatio, $CellContext`dpi 3}, 
+           PlotRange -> {{-(1/2), 1/2}, {-0.2, 1.2}}, Axes -> False, Frame -> 
+           True], 
+          Graphics[{Black, 
+            Opacity[1], 
+            Line[{{(-1)/2, 0}, {1/2, 0}}], PlotStyle -> Thick}], 
+          Graphics[{
+            
+            Opacity[($CellContext`go$$/$CellContext`gmax)^
+              Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+             Rational[1, 2]], 
+            Line[{{0, 0}, {0, 1.2}}], PlotStyle -> Thick}]], 
+         Show[
+          Plot[{
+            Abs[
+             $CellContext`\[Psi]bot[$CellContext`k1, Pi][$CellContext`x]], 
+            Abs[
+             $CellContext`\[Psi]topm[1][$CellContext`x]], 
+            Abs[
+             $CellContext`\[Psi]topm[2][$CellContext`x]]}, {$CellContext`x, -(
+             1/2), 1/2}, 
+           ImageSize -> {$CellContext`dpi 3 GoldenRatio, $CellContext`dpi 3}, 
+           PlotRange -> {{-(1/2), 1/2}, {-0.2, 1.2}}, Axes -> False, Frame -> 
+           True], 
+          Graphics[{Black, 
+            Opacity[1], 
+            Line[{{(-1)/2, 0}, {1/2, 0}}], PlotStyle -> Thick}], 
+          Graphics[{
+            
+            Opacity[($CellContext`go$$/$CellContext`gmax)^
+              Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+             Rational[1, 2]], 
+            Line[{{0, 0}, {0, 1.2}}], PlotStyle -> Thick}]], Show[
+           Plot[{
+             Abs[
+              $CellContext`\[Psi]bot[$CellContext`k2, 0][$CellContext`x]], 
+             Abs[
+              $CellContext`\[Psi]top[2][$CellContext`x]], 
+             Abs[
+              $CellContext`\[Psi]top[3][$CellContext`x]]}, {$CellContext`x, -(
+              1/2), 1/2}, 
+            ImageSize -> {$CellContext`dpi 3 GoldenRatio, $CellContext`dpi 3},
+             PlotRange -> {{-(1/2), 1/2}, {-0.2, 1.2}}, Axes -> False, Frame -> 
+            True], 
+           Graphics[{Black, 
+             Opacity[1], 
+             Line[{{(-1)/2, 0}, {1/2, 0}}], PlotStyle -> Thick}], 
+           Graphics[{
+             
+             Opacity[($CellContext`go$$/$CellContext`gmax)^
+               Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+              Rational[1, 2]], 
+             Line[{{0, 0}, {0, 1.2}}], PlotStyle -> Thick}]] Show[
+           Plot[{
+             Abs[
+              $CellContext`\[Psi]bot[$CellContext`k3, Pi][$CellContext`x]], 
+             Abs[
+              $CellContext`\[Psi]topm[3][$CellContext`x]], 
+             Abs[
+              $CellContext`\[Psi]topm[
+              4][$CellContext`x]]}, {$CellContext`x, -(1/2), 1/2}, 
+            ImageSize -> {$CellContext`dpi 3 GoldenRatio, $CellContext`dpi 3},
+             PlotRange -> {{-(1/2), 1/2}, {-0.2, 1.2}}, Axes -> False, Frame -> 
+            True], 
+           Graphics[{Black, 
+             Opacity[1], 
+             Line[{{(-1)/2, 0}, {1/2, 0}}], PlotStyle -> Thick}], 
+           Graphics[{
+             
+             Opacity[($CellContext`go$$/$CellContext`gmax)^
+               Rational[1, 2] - ($CellContext`gmin/$CellContext`gmax)^
+              Rational[1, 2]], 
+             Line[{{0, 0}, {0, 1.2}}], PlotStyle -> Thick}]]}), 
+      "Specifications" :> {{$CellContext`go$$, 0.01, 5.5}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1127., {388., 394.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.545472104631514*^9, 3.545472210549323*^9}, {
+   3.545473366373353*^9, 3.5454734570097637`*^9}, {3.545479633517982*^9, 
+   3.5454797518485613`*^9}, {3.5454903674601192`*^9, 3.545493941120429*^9}, {
+   3.545494616712104*^9, 3.545494809738585*^9}, 3.576946207395503*^9}]
+}, Open  ]]
+},
+CellGrouping->Manual,
+WindowSize->{1412, 821},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 23, \
+2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 2612, 55, 425, "Text"],
+Cell[CellGroupData[{
+Cell[3194, 79, 213, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[3432, 86, 246, 5, 26, "Text"],
+Cell[CellGroupData[{
+Cell[3703, 95, 208, 4, 26, "Text"],
+Cell[3914, 101, 1779, 50, 70, "Input"]
+}, Closed]],
+Cell[5708, 154, 885, 24, 49, "Text"],
+Cell[CellGroupData[{
+Cell[6618, 182, 274, 7, 26, "Text"],
+Cell[CellGroupData[{
+Cell[6917, 193, 365, 10, 27, "Input"],
+Cell[7285, 205, 775, 20, 70, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8109, 231, 301, 8, 23, "Text"],
+Cell[CellGroupData[{
+Cell[8435, 243, 696, 20, 27, "Input"],
+Cell[9134, 265, 495, 12, 70, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9678, 283, 492, 16, 26, "Text"],
+Cell[10173, 301, 1335, 37, 51, "Input"],
+Cell[11511, 340, 552, 11, 44, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12100, 356, 530, 12, 32, "Text"],
+Cell[12633, 370, 631, 19, 46, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[13301, 394, 494, 15, 26, "Text"],
+Cell[13798, 411, 740, 21, 46, "Input"]
+}, Closed]]
+}, Closed]],
+Cell[14565, 436, 142, 3, 23, "Text"],
+Cell[CellGroupData[{
+Cell[14732, 443, 181, 4, 26, "Text"],
+Cell[14916, 449, 885, 25, 88, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[15838, 479, 196, 4, 23, "Text"],
+Cell[16037, 485, 36221, 889, 2208, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[52295, 1379, 199, 4, 23, "Text"],
+Cell[52497, 1385, 199, 4, 26, "Text"],
+Cell[52699, 1391, 12351, 328, 922, "Input"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[65099, 1725, 629, 11, 67, "Input"],
+Cell[65731, 1738, 9613, 213, 799, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

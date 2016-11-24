@@ -1,0 +1,3248 @@
+1
+00:00:00,000 --> 00:00:05,000
+OK, when the camera says,
+we'll start.
+
+2
+00:00:05,000 --> 00:00:08,930
+You want to give me a signal?
+
+3
+00:00:08,930 --> 00:00:14,000
+OK, this is lecture eight in
+linear algebra,
+
+4
+00:00:14,000 --> 00:00:21,000
+and this is the lecture where
+we completely solve linear
+
+5
+00:00:21,000 --> 00:00:23,000
+equations.
+
+6
+00:00:23,000 --> 00:00:24,000
+So Ax=b.
+
+7
+00:00:24,000 --> 00:00:26,510
+That's our goal.
+
+8
+00:00:26,510 --> 00:00:30,000
+If it has a solution.
+
+9
+00:00:30,000 --> 00:00:34,000
+It certainly can happen that
+there is no solution.
+
+10
+00:00:34,000 --> 00:00:38,860
+We have to identify that
+possibility by elimination.
+
+11
+00:00:38,860 --> 00:00:43,000
+And then if there is a solution
+we want to find out is there
+
+12
+00:00:43,000 --> 00:00:47,000
+only one solution or are -- is
+there a whole family of
+
+13
+00:00:47,000 --> 00:00:50,000
+solutions, and then find them
+all.
+
+14
+00:00:50,000 --> 00:00:51,720
+OK.
+
+15
+00:00:51,720 --> 00:00:58,730
+Can I use as an example the
+same matrix that I had last time
+
+16
+00:00:58,730 --> 00:01:03,000
+when we were looking for the
+null space.
+
+17
+00:01:03,000 --> 00:01:08,000
+So the, the matrix has rows 1 2
+2 2, 2 4 6 8,
+
+18
+00:01:08,000 --> 00:01:15,000
+and the third row -- you
+remember the main point was the
+
+19
+00:01:15,000 --> 00:01:21,070
+third row, 3 6 8 10,
+is the sum of row one plus row
+
+20
+00:01:21,070 --> 00:01:22,000
+two.
+
+21
+00:01:22,000 --> 00:01:26,000
+In other words,
+if I add those left-hand sides,
+
+22
+00:01:26,000 --> 00:01:29,180
+I get the third left-hand side.
+
+23
+00:01:29,180 --> 00:01:33,000
+So you can tell me right away
+what elimination is going to
+
+24
+00:01:33,000 --> 00:01:36,740
+discover about the right-hand
+sides.
+
+25
+00:01:36,740 --> 00:01:41,000
+What's -- there is a condition
+on b1, b2, and b3 for this
+
+26
+00:01:41,000 --> 00:01:43,000
+system to have a solution.
+
+27
+00:01:43,000 --> 00:01:48,000
+Most cases -- if I took these
+numbers to be one --
+
+28
+00:01:48,000 --> 00:01:52,000
+5, and 17, there would not be a
+solution.
+
+29
+00:01:52,000 --> 00:01:58,000
+In fact, if I took those first
+numbers to be 1 and 5,
+
+30
+00:01:58,000 --> 00:02:01,000
+what is the only b3 that would
+be OK?
+
+31
+00:02:01,000 --> 00:02:02,000
+Six.
+
+32
+00:02:02,000 --> 00:02:08,000
+If the left-hand -- if these
+left-hand sides add up to that,
+
+33
+00:02:08,000 --> 00:02:12,000
+then B --
+I need b1 plus b2 to equal b3.
+
+34
+00:02:12,000 --> 00:02:15,000
+Let's just see how elimination
+discovers that.
+
+35
+00:02:15,000 --> 00:02:18,000
+But we can see it coming,
+right?
+
+36
+00:02:18,000 --> 00:02:21,000
+That if -- let me say it in
+other words.
+
+37
+00:02:21,000 --> 00:02:25,000
+If some combination on the
+left-hand side gives all 0s then
+
+38
+00:02:25,000 --> 00:02:30,000
+the same combination on the
+right-hand side must give 0.
+
+39
+00:02:30,000 --> 00:02:30,000
+OK.
+So let me take that example and
+write down instead of copying
+
+40
+00:02:37,000 --> 00:02:43,000
+out all the plus signs,
+let me write down the matrix.
+
+41
+00:02:43,000 --> 00:02:47,000
+1 2 2 2, 2 4 6 8,
+and that 6 3 8 10,
+
+42
+00:02:47,000 --> 00:02:54,000
+where the third row is the sum
+of the first two rows.
+
+43
+00:02:54,000 --> 00:02:58,000
+Now how do we deal with the
+right-hand side?
+
+44
+00:02:58,000 --> 00:03:03,000
+That's -- we want to do the
+same thing to the right-hand
+
+45
+00:03:03,000 --> 00:03:08,000
+side that we're doing to these
+rows on the left side,
+
+46
+00:03:08,000 --> 00:03:12,000
+so we just tack on the
+right-hand side as another
+
+47
+00:03:12,000 --> 00:03:15,000
+vector, another column.
+
+48
+00:03:15,000 --> 00:03:19,000
+So this is the augmented
+matrix.
+
+49
+00:03:19,000 --> 00:03:26,000
+It's, it's the matrix A with
+the vector b tacked on.
+
+50
+00:03:26,000 --> 00:03:32,670
+In Matlab, that's all you would
+need to type.
+
+51
+00:03:32,670 --> 00:03:33,000
+OK.
+
+52
+00:03:33,000 --> 00:03:36,000
+So we do elimination on that.
+
+53
+00:03:36,000 --> 00:03:42,000
+Can we just do elimination
+quickly?
+
+54
+00:03:42,000 --> 00:03:48,000
+The first pivot is fine,
+I subtract two of this away
+
+55
+00:03:48,000 --> 00:03:55,000
+from this, three of this away
+from this, so I have 1 2 2 2 b1.
+
+56
+00:03:55,000 --> 00:04:01,700
+Two of those away will give me
+0 0 2 and 4, and that was b2
+
+57
+00:04:01,700 --> 00:04:03,000
+minus two b1.
+
+58
+00:04:03,000 --> 00:04:08,000
+I, I have to do the same thing
+to that third,
+
+59
+00:04:08,000 --> 00:04:11,000
+that last column.
+
+60
+00:04:11,000 --> 00:04:16,000
+And then three of these away
+from this gave me 0 0 2 4 b3
+
+61
+00:04:16,000 --> 00:04:17,000
+minus three b1s.
+
+62
+00:04:17,000 --> 00:04:21,000
+So that's the,
+that's elimination with the
+
+63
+00:04:21,000 --> 00:04:23,000
+first column completed.
+
+64
+00:04:23,000 --> 00:04:24,000
+We move on.
+
+65
+00:04:24,000 --> 00:04:27,000
+There's the first pivot still.
+
+66
+00:04:27,000 --> 00:04:29,000
+Here is the second pivot.
+
+67
+00:04:29,000 --> 00:04:34,000
+We're always remembering,
+now, these are then going to be
+
+68
+00:04:34,000 --> 00:04:37,000
+the pivot columns.
+
+69
+00:04:37,000 --> 00:04:44,000
+And let me get the final result
+-- well, let me -- can I do it
+
+70
+00:04:44,000 --> 00:04:45,000
+by eraser?
+
+71
+00:04:45,000 --> 00:04:52,000
+We're capable of subtracting
+this row from this row,
+
+72
+00:04:52,000 --> 00:04:59,000
+just by -- that'll knock this
+out completely and give me the
+
+73
+00:04:59,000 --> 00:05:07,000
+row of 0s, and on the right-hand
+side, when I subtract this away
+
+74
+00:05:07,000 --> 00:05:11,000
+from this, what do I have?
+
+75
+00:05:11,000 --> 00:05:18,000
+I think I have b3 minus a b2,
+and I had minus three b1s.
+
+76
+00:05:18,000 --> 00:05:25,000
+This is going to,
+it's going to be a minus a b1.
+
+77
+00:05:25,000 --> 00:05:29,000
+Oh yeah that's exactly what I
+expect.
+
+78
+00:05:29,000 --> 00:05:35,680
+So now the -- what's the last
+equation?
+
+79
+00:05:35,680 --> 00:05:38,000
+The last equation,
+this represented by this zero
+
+80
+00:05:38,000 --> 00:05:42,000
+row, that last equation is,
+says 0 equals b3 minus b2 minus
+
+81
+00:05:42,000 --> 00:05:42,000
+b1.
+So that's the condition for
+solvability.
+
+82
+00:05:45,000 --> 00:05:48,580
+That's the condition on the
+right-hand side that we
+
+83
+00:05:48,580 --> 00:05:49,000
+expected.
+
+84
+00:05:49,000 --> 00:05:53,000
+It says that b1+b2 has to match
+b3, and if our numbers happen to
+
+85
+00:05:53,000 --> 00:05:55,000
+have been 1, 5,
+and 6 -- so let me take,
+
+86
+00:05:55,000 --> 00:05:58,000
+suppose b is 1 5 6.
+
+87
+00:05:58,000 --> 00:06:00,000
+That's an OK b.
+
+88
+00:06:00,000 --> 00:06:08,000
+And when I do this elimination,
+what will I have?
+
+89
+00:06:08,000 --> 00:06:15,000
+The b1 will still be a 1.
+b2 would be 5 minus 2,
+
+90
+00:06:15,000 --> 00:06:22,000
+this would be a 3.
+5 -- my 6 minus 5 minus 1,
+
+91
+00:06:22,000 --> 00:06:27,000
+this will be -- this is the
+main point -- this will be a 0,
+
+92
+00:06:27,000 --> 00:06:28,000
+thanks.
+
+93
+00:06:28,000 --> 00:06:28,000
+OK.
+So the last equation is OK now.
+
+94
+00:06:31,000 --> 00:06:37,000
+And I can proceed to solve the
+two equations that are really
+
+95
+00:06:37,000 --> 00:06:40,000
+there with four unknowns.
+
+96
+00:06:40,000 --> 00:06:45,000
+OK, I, I, I want to do that,
+so this, this b is OK.
+
+97
+00:06:45,000 --> 00:06:48,000
+It allows a solution.
+
+98
+00:06:48,000 --> 00:06:54,000
+We're going to be,
+naturally, interested to keep
+
+99
+00:06:54,000 --> 00:07:01,000
+track what are the conditions on
+b that make the equation
+
+100
+00:07:01,000 --> 00:07:02,210
+solvable.
+
+101
+00:07:02,210 --> 00:07:09,000
+So let me write down what we
+already see before I continue to
+
+102
+00:07:09,000 --> 00:07:11,000
+solve it.
+
+103
+00:07:11,000 --> 00:07:18,000
+Let me first -- solvability,
+solvability.
+
+104
+00:07:18,000 --> 00:07:26,000
+So which -- so this is the
+condition on the right-hand
+
+105
+00:07:26,000 --> 00:07:27,000
+sides.
+
+106
+00:07:27,000 --> 00:07:32,000
+And what is that condition?
+
+107
+00:07:32,000 --> 00:07:37,000
+This is solvability always of
+Ax=b.
+
+108
+00:07:37,000 --> 00:07:44,000
+So Ax=b is solvable --
+well, actually,
+
+109
+00:07:44,000 --> 00:07:49,000
+we had an answer in the
+language of the column space.
+
+110
+00:07:49,000 --> 00:07:53,000
+Can you remind me what that
+answer is?
+
+111
+00:07:53,000 --> 00:07:58,000
+That, that was like our answer
+from earlier lecture.
+
+112
+00:07:58,000 --> 00:08:02,000
+b had to be in the column
+space.
+
+113
+00:08:02,000 --> 00:08:08,000
+Solvable if -- when -- exactly
+when b is in the column space of
+
+114
+00:08:08,000 --> 00:08:09,000
+A.
+
+115
+00:08:09,000 --> 00:08:10,000
+Right?
+
+116
+00:08:10,000 --> 00:08:16,630
+That just says that b has to be
+a combination of the columns,
+
+117
+00:08:16,630 --> 00:08:22,000
+and of course that's exactly
+what the equation is looking
+
+118
+00:08:22,000 --> 00:08:22,000
+for.
+So that -- now I want to answer
+it -- the same answer but in
+
+119
+00:08:28,000 --> 00:08:30,000
+different language.
+
+120
+00:08:30,000 --> 00:08:38,000
+Another way to answer this --
+if a combination of the rows of
+
+121
+00:08:38,000 --> 00:08:44,000
+A gives the zero row,
+and this was an example where
+
+122
+00:08:44,000 --> 00:08:52,000
+it happened, some combination of
+the rows of A produced the zero
+
+123
+00:08:52,000 --> 00:08:57,000
+row -- then what's the
+requirement on b?
+
+124
+00:08:57,000 --> 00:09:05,000
+Since we're going to do the
+same thing to both sides of all
+
+125
+00:09:05,000 --> 00:09:11,000
+equations --
+the same combination of the
+
+126
+00:09:11,000 --> 00:09:14,790
+components of b has to give 0.
+
+127
+00:09:14,790 --> 00:09:15,000
+Right?
+
+128
+00:09:15,000 --> 00:09:21,000
+That's -- so if there's a
+combination of the rows that
+
+129
+00:09:21,000 --> 00:09:27,000
+gives the zero row,
+then the same combination of
+
+130
+00:09:27,000 --> 00:09:31,000
+the entries of b must give 0.
+
+131
+00:09:31,000 --> 00:09:38,490
+And this isn't the zero row,
+that's the zero number.
+
+132
+00:09:38,490 --> 00:09:38,000
+OK.
+
+133
+00:09:38,000 --> 00:09:44,000
+Tthis is another way of saying
+-- and it is not immediate,
+
+134
+00:09:44,000 --> 00:09:49,000
+right, that these two
+statements are equivalent.
+
+135
+00:09:49,000 --> 00:09:55,000
+But somehow they must be,
+because they're both equivalent
+
+136
+00:09:55,000 --> 00:09:58,000
+to the solvability of the
+system.
+
+137
+00:09:58,000 --> 00:09:59,000
+OK.
+
+138
+00:09:59,000 --> 00:10:03,000
+So we've got this,
+this sort of -- like question
+
+139
+00:10:03,000 --> 00:10:07,000
+zero is, does the system have a
+solution?
+
+140
+00:10:07,000 --> 00:10:11,000
+OK, I'll come back to discuss
+that further.
+
+141
+00:10:11,000 --> 00:10:13,000
+Let's go forward when it does.
+
+142
+00:10:13,000 --> 00:10:15,000
+When there is a solution.
+
+143
+00:10:15,000 --> 00:10:18,000
+And so what's our job now?
+
+144
+00:10:18,000 --> 00:10:23,000
+Abstractly we sit back and we
+say, OK, there's a solution,
+
+145
+00:10:23,000 --> 00:10:25,000
+finished.
+
+146
+00:10:25,000 --> 00:10:25,000
+It exists.
+But we want to construct it.
+
+147
+00:10:28,000 --> 00:10:32,000
+So what's the algorithm,
+the sequence of steps to find
+
+148
+00:10:32,000 --> 00:10:33,320
+the solution?
+
+149
+00:10:33,320 --> 00:10:37,000
+That's what I -- and of course
+the quiz and the final,
+
+150
+00:10:37,000 --> 00:10:42,000
+I'm going to give you a system
+Ax=b and I'm going to ask you
+
+151
+00:10:42,000 --> 00:10:45,000
+for the solution,
+if there is one.
+
+152
+00:10:45,000 --> 00:10:53,000
+And so this algorithm that you
+want to follow.
+
+153
+00:10:53,000 --> 00:10:55,000
+OK, let's see.
+
+154
+00:10:55,000 --> 00:11:05,000
+So what's the -- so now to find
+the complete solution to Ax=b.
+
+155
+00:11:05,000 --> 00:11:05,000
+OK.
+Let me start by finding one
+solution, one particular
+
+156
+00:11:14,000 --> 00:11:16,000
+solution.
+
+157
+00:11:16,000 --> 00:11:22,000
+I'm expecting that I can,
+because my system of equations
+
+158
+00:11:22,000 --> 00:11:28,000
+now, that last equation is zero
+equals zero, so that's all fine.
+
+159
+00:11:28,000 --> 00:11:34,890
+I really have two equations --
+actually I've got four unknowns,
+
+160
+00:11:34,890 --> 00:11:40,000
+so I'm expecting to find not
+only a solution but a whole
+
+161
+00:11:40,000 --> 00:11:41,000
+bunch of them.
+
+162
+00:11:41,000 --> 00:11:45,000
+But let's just find one.
+
+163
+00:11:45,000 --> 00:11:48,000
+So step one,
+a particular solution,
+
+164
+00:11:48,000 --> 00:11:49,000
+x particular.
+
+165
+00:11:49,000 --> 00:11:52,000
+How do I find one particular
+solution?
+
+166
+00:11:52,000 --> 00:11:55,870
+Well, let me tell you how I,
+how I find it.
+
+167
+00:11:55,870 --> 00:11:59,000
+So this is -- since there are
+lots of solutions,
+
+168
+00:11:59,000 --> 00:12:05,230
+you could have your own way to
+find a particular one.
+
+169
+00:12:05,230 --> 00:12:09,000
+But this is a pretty natural
+way.
+
+170
+00:12:09,000 --> 00:12:14,000
+Set all free variables to zero.
+
+171
+00:12:14,000 --> 00:12:23,000
+Since those free variables are
+the guys that can be anything,
+
+172
+00:12:23,000 --> 00:12:28,000
+the most convenient choice is
+zero.
+
+173
+00:12:28,000 --> 00:12:34,000
+And then solve Ax=b for the
+pivot variables.
+
+174
+00:12:34,000 --> 00:12:41,000
+So what does that mean in this
+example?
+
+175
+00:12:41,000 --> 00:12:44,020
+Which are the free variables?
+
+176
+00:12:44,020 --> 00:12:48,000
+Which, which are the variables
+that we can assign freely and
+
+177
+00:12:48,000 --> 00:12:54,020
+then there's one and only one
+way to find the pivot variables?
+
+178
+00:12:54,020 --> 00:12:58,000
+They're x2 and -- so x2 is
+zero, because that's in a column
+
+179
+00:12:58,000 --> 00:13:03,520
+without a pivot,
+the second column has no pivot.
+
+180
+00:13:03,520 --> 00:13:06,000
+And the -- what's the other
+one?
+
+181
+00:13:06,000 --> 00:13:08,000
+The fourth, x4 is zero.
+
+182
+00:13:08,000 --> 00:13:11,000
+Because that,
+those are the,
+
+183
+00:13:11,000 --> 00:13:12,000
+the free ones.
+
+184
+00:13:12,000 --> 00:13:16,000
+Those are in the columns with
+no pivots.
+
+185
+00:13:16,000 --> 00:13:21,000
+So you see what my -- so when I
+knock -- when x2 and x4 are
+
+186
+00:13:21,000 --> 00:13:27,570
+zero, I'm left with the -- what
+I left with here?
+
+187
+00:13:27,570 --> 00:13:32,000
+I'm just left with -- see,
+now I'm not using the two free
+
+188
+00:13:32,000 --> 00:13:32,000
+columns.
+I'm only using the pivot
+columns.
+
+189
+00:13:35,000 --> 00:13:40,350
+So I'm really left with x1 --
+the first equation is just x1
+
+190
+00:13:40,350 --> 00:13:43,000
+and two x3s should be the
+right-hand side,
+
+191
+00:13:43,000 --> 00:13:46,000
+which we picked to be a one.
+
+192
+00:13:46,000 --> 00:13:50,000
+And the second equation is two
+x3s, as it happened,
+
+193
+00:13:50,000 --> 00:13:53,000
+turned out to be,
+three.
+
+194
+00:13:53,000 --> 00:13:59,000
+I just write it again here with
+the x2 and the x4 knocked out,
+
+195
+00:13:59,000 --> 00:14:02,840
+since we're set them to zero.
+
+196
+00:14:02,840 --> 00:14:09,000
+And you see that we're back in
+the normal case of having back
+
+197
+00:14:09,000 --> 00:14:13,000
+-- where back substitution will
+do it.
+
+198
+00:14:13,000 --> 00:14:18,000
+So x3 is three halves,
+and then we go back up and x1
+
+199
+00:14:18,000 --> 00:14:21,000
+is one minus two x3.
+
+200
+00:14:21,000 --> 00:14:25,000
+That's probably minus two.
+
+201
+00:14:25,000 --> 00:14:26,000
+Good.
+
+202
+00:14:26,000 --> 00:14:33,000
+So now we have the solution,
+x particular is the vector
+
+203
+00:14:33,000 --> 00:14:38,000
+minus two zero three halves
+zero.
+
+204
+00:14:38,000 --> 00:14:39,000
+OK, good.
+
+205
+00:14:39,000 --> 00:14:48,000
+That's one particular solution,
+and we should and could plug it
+
+206
+00:14:48,000 --> 00:14:53,000
+into the original system.
+
+207
+00:14:53,000 --> 00:14:58,000
+Really if -- on the quiz,
+please, it's a good thing to
+
+208
+00:14:58,000 --> 00:14:58,680
+do.
+
+209
+00:14:58,680 --> 00:15:02,000
+So we did all this,
+these, row operations,
+
+210
+00:15:02,000 --> 00:15:07,000
+but this is supposed to solve
+the original system,
+
+211
+00:15:07,000 --> 00:15:09,000
+and I think it does.
+
+212
+00:15:09,000 --> 00:15:09,000
+OK.
+So that's x particular which
+we've got.
+
+213
+00:15:13,000 --> 00:15:16,000
+So that's like what's new
+today.
+
+214
+00:15:16,000 --> 00:15:20,000
+The particular solution comes
+-- first you check that you have
+
+215
+00:15:20,000 --> 00:15:23,000
+zero equals zero,
+so you're OK on the last
+
+216
+00:15:23,000 --> 00:15:23,000
+equations.
+And then you set the free
+variables to zero,
+
+217
+00:15:26,000 --> 00:15:30,760
+solve for the pivot variables,
+and you've got a particular
+
+218
+00:15:30,760 --> 00:15:34,000
+solution, the particular
+solution that has zero free
+
+219
+00:15:34,000 --> 00:15:35,000
+variables.
+
+220
+00:15:35,000 --> 00:15:36,000
+OK.
+
+221
+00:15:36,000 --> 00:15:43,000
+Now -- but that's only one
+solution, and now I'm looking
+
+222
+00:15:43,000 --> 00:15:44,000
+for all.
+
+223
+00:15:44,000 --> 00:15:47,750
+So how do I find the rest?
+
+224
+00:15:47,750 --> 00:15:55,000
+The point is I can add on x --
+anything out of the null space.
+
+225
+00:15:55,000 --> 00:16:03,000
+We know how to find the vectors
+in the null space --
+
+226
+00:16:03,000 --> 00:16:08,000
+because we did it last time,
+but I'll remind you what we
+
+227
+00:16:08,000 --> 00:16:08,000
+got.
+And then I'll add.
+
+228
+00:16:10,000 --> 00:16:15,000
+So the final result will be
+that the complete solution --
+
+229
+00:16:15,000 --> 00:16:20,000
+this is now the complete guy --
+the complete solution is this
+
+230
+00:16:20,000 --> 00:16:24,700
+one particular solution plus
+any, any vector,
+
+231
+00:16:24,700 --> 00:16:29,000
+all different vectors out of
+the null space.
+
+232
+00:16:29,000 --> 00:16:30,000
+xn, OK.
+
+233
+00:16:30,000 --> 00:16:36,000
+Well why, why this pattern,
+because this pattern shows up
+
+234
+00:16:36,000 --> 00:16:43,000
+through all of mathematics,
+because it shows up everywhere
+
+235
+00:16:43,000 --> 00:16:45,000
+we have linear equations.
+
+236
+00:16:45,000 --> 00:16:50,000
+Let me just put here the,
+the reason.
+
+237
+00:16:50,000 --> 00:16:58,000
+A xp, so that's x particular,
+so what does Ax particular
+
+238
+00:16:58,000 --> 00:16:59,000
+give?
+
+239
+00:16:59,000 --> 00:17:04,839
+That gives the correct
+right-hand side b.
+
+240
+00:17:04,839 --> 00:17:11,000
+And what does A times an x in
+the null space give?
+
+241
+00:17:11,000 --> 00:17:12,000
+Zero.
+
+242
+00:17:12,000 --> 00:17:17,089
+So I add, and I put in
+parentheses.
+
+243
+00:17:17,089 --> 00:17:24,000
+So xp plus xn is b plus zero,
+which is b.
+
+244
+00:17:24,000 --> 00:17:26,000
+So -- oh, what I saying?
+
+245
+00:17:26,000 --> 00:17:29,000
+Let me just say it in words.
+
+246
+00:17:29,000 --> 00:17:33,000
+If I have one solution,
+I can add on anything in the
+
+247
+00:17:33,000 --> 00:17:38,000
+null space, because anything in
+the null space has a zero
+
+248
+00:17:38,000 --> 00:17:42,000
+right-hand side,
+and I still have the correct
+
+249
+00:17:42,000 --> 00:17:44,000
+right-hand side B.
+
+250
+00:17:44,000 --> 00:17:47,000
+So that's my system.
+
+251
+00:17:47,000 --> 00:17:50,000
+That's my complete solution.
+
+252
+00:17:50,000 --> 00:17:56,000
+Now let me write out what that
+will be for this example.
+
+253
+00:17:56,000 --> 00:18:00,000
+So in this example,
+x general, x complete,
+
+254
+00:18:00,000 --> 00:18:04,600
+the complete solution,
+is x particular,
+
+255
+00:18:04,600 --> 00:18:10,000
+which is minus two zero three
+halves zero, with those zeroes
+
+256
+00:18:10,000 --> 00:18:15,000
+in the free variable,
+plus --
+
+257
+00:18:15,000 --> 00:18:19,000
+you remember there were the
+special solutions in the null
+
+258
+00:18:19,000 --> 00:18:24,000
+space that had a one in the free
+variables -- or one and zero in
+
+259
+00:18:24,000 --> 00:18:28,070
+the free variables,
+and then we filled in to find
+
+260
+00:18:28,070 --> 00:18:28,000
+the others?
+
+261
+00:18:28,000 --> 00:18:33,000
+I've forgotten what they were,
+but maybe it was that.
+
+262
+00:18:33,000 --> 00:18:37,000
+That was a special solution,
+and then there was another
+
+263
+00:18:37,000 --> 00:18:42,000
+special solution that had that
+free variable zero and this free
+
+264
+00:18:42,000 --> 00:18:46,000
+variable equal one,
+and I have to fill those in.
+
+265
+00:18:46,000 --> 00:18:49,000
+Let's see, can I remember how
+those fill in?
+
+266
+00:18:49,000 --> 00:18:53,000
+Maybe this was a minus two and
+this was a two,
+
+267
+00:18:53,000 --> 00:18:53,000
+possibly?
+I think probably that's right.
+
+268
+00:18:56,000 --> 00:18:58,000
+I'm not -- yeah.
+
+269
+00:18:58,000 --> 00:19:00,000
+Does that look write to you?
+
+270
+00:19:00,000 --> 00:19:04,000
+I would have to remember what
+are my equations.
+
+271
+00:19:04,000 --> 00:19:08,000
+Can I, rather than go way back
+to that board,
+
+272
+00:19:08,000 --> 00:19:12,000
+let me remember the first
+equation was two x3 plus two x4
+
+273
+00:19:12,000 --> 00:19:16,000
+equaling zero now,
+because I'm looking for the
+
+274
+00:19:16,000 --> 00:19:19,000
+guys in the null space.
+
+275
+00:19:19,000 --> 00:19:23,000
+So I set x4 to be one and the
+second equation,
+
+276
+00:19:23,000 --> 00:19:29,000
+that I didn't copy again,
+gave me minus two for this and
+
+277
+00:19:29,000 --> 00:19:32,000
+then -- yeah,
+so I think that's right.
+
+278
+00:19:32,000 --> 00:19:36,000
+Two minus four and two gives
+zero, check.
+
+279
+00:19:36,000 --> 00:19:37,000
+OK.
+
+280
+00:19:37,000 --> 00:19:40,000
+Those were the special
+solutions.
+
+281
+00:19:40,000 --> 00:19:45,000
+What do we do to get the
+complete solution?
+
+282
+00:19:45,000 --> 00:19:49,000
+How do I get the complete
+solution now?
+
+283
+00:19:49,000 --> 00:19:54,000
+I multiply this by anything,
+c1, say, and I multiply this by
+
+284
+00:19:54,000 --> 00:19:58,000
+anything -- I take any
+combination.
+
+285
+00:19:58,000 --> 00:20:02,000
+Remember that's how we
+described the null space?
+
+286
+00:20:02,000 --> 00:20:08,000
+The null space consists of all
+combinations of --
+
+287
+00:20:08,000 --> 00:20:12,000
+so this is xn -- all
+combinations of the special
+
+288
+00:20:12,000 --> 00:20:13,000
+solutions.
+
+289
+00:20:13,000 --> 00:20:18,000
+There were two special
+solutions because there were two
+
+290
+00:20:18,000 --> 00:20:19,000
+free variables.
+
+291
+00:20:19,000 --> 00:20:23,000
+And we want to make that count
+-- carefully now.
+
+292
+00:20:23,000 --> 00:20:25,000
+Just while I'm up here.
+
+293
+00:20:25,000 --> 00:20:30,000
+So there's, that's what the --
+that's the kind of answer I'm
+
+294
+00:20:30,000 --> 00:20:31,000
+looking for.
+
+295
+00:20:31,000 --> 00:20:34,000
+Is there a constant multiplying
+this guy?
+
+296
+00:20:34,000 --> 00:20:38,500
+Is there a free constant that
+multiplies x particular?
+
+297
+00:20:38,500 --> 00:20:39,000
+No way.
+
+298
+00:20:39,000 --> 00:20:41,000
+Right?
+x particular solves A xp=b.
+
+299
+00:20:41,000 --> 00:20:45,000
+I'm not allowed to multiply
+that by three.
+
+300
+00:20:45,000 --> 00:20:49,000
+But Axn, I'm allowed to
+multiply xn by three,
+
+301
+00:20:49,000 --> 00:20:54,000
+or add to another xn,
+because I keep getting zero on
+
+302
+00:20:54,000 --> 00:20:56,000
+the right.
+
+303
+00:20:56,000 --> 00:20:56,000
+OK.
+So, so again,
+xp is one particular guy.
+
+304
+00:21:00,000 --> 00:21:03,000
+xn is a whole subspace.
+
+305
+00:21:03,000 --> 00:21:04,000
+Right?
+
+306
+00:21:04,000 --> 00:21:10,000
+It's one guy plus,
+plus anything from a subspace.
+
+307
+00:21:10,000 --> 00:21:12,000
+Let me draw it.
+
+308
+00:21:12,000 --> 00:21:15,340
+Let me try to -- oh.
+
+309
+00:21:15,340 --> 00:21:21,000
+I want to draw,
+I want to graph all this -- I
+
+310
+00:21:21,000 --> 00:21:26,000
+want to, I want to plot all
+solutions.
+
+311
+00:21:26,000 --> 00:21:28,000
+Now x.
+
+312
+00:21:28,000 --> 00:21:30,520
+So what dimension I in?
+
+313
+00:21:30,520 --> 00:21:33,000
+This is a unfortunate point.
+
+314
+00:21:33,000 --> 00:21:36,000
+How many components does x
+have?
+
+315
+00:21:36,000 --> 00:21:37,000
+Four.
+
+316
+00:21:37,000 --> 00:21:39,000
+There are four unknowns.
+
+317
+00:21:39,000 --> 00:21:45,000
+So I have to draw a four
+dimensional picture on this MIT
+
+318
+00:21:45,000 --> 00:21:47,000
+cheap blackboard.
+
+319
+00:21:47,000 --> 00:21:47,000
+OK.
+So here we go.
+x1 -- Einstein could do it,
+
+320
+00:21:53,000 --> 00:22:01,000
+but, this, this is -- those are
+four perpendicular axes in --
+
+321
+00:22:01,000 --> 00:22:05,000
+representing four dimensional
+space.
+
+322
+00:22:05,000 --> 00:22:05,000
+OK.
+Where are my solutions?
+
+323
+00:22:08,000 --> 00:22:12,000
+Do my solutions form a
+subspace?
+
+324
+00:22:12,000 --> 00:22:18,000
+Does the set of solutions to
+Ax=b form a subspace?
+
+325
+00:22:18,000 --> 00:22:20,000
+No way.
+
+326
+00:22:20,000 --> 00:22:24,000
+What does it actually look
+like, though?
+
+327
+00:22:24,000 --> 00:22:26,000
+A subspace is in this picture.
+
+328
+00:22:26,000 --> 00:22:28,000
+This part is a subspace,
+right?
+
+329
+00:22:28,000 --> 00:22:32,120
+That part is some,
+like, two dimensional,
+
+330
+00:22:32,120 --> 00:22:35,830
+because I've got two
+parameters, so it's -- I'm
+
+331
+00:22:35,830 --> 00:22:40,000
+thinking of this null space as a
+two dimensional subspace inside
+
+332
+00:22:40,000 --> 00:22:42,200
+R^4.
+
+333
+00:22:42,200 --> 00:22:45,000
+Now I have to tell you and will
+tell you next time,
+
+334
+00:22:45,000 --> 00:22:49,000
+what does it mean to say a
+subspace, what's the dimension
+
+335
+00:22:49,000 --> 00:22:49,000
+of a subspace.
+But you see what it's going to
+be.
+
+336
+00:22:52,050 --> 00:22:55,000
+It's the number of free
+independent constants that we
+
+337
+00:22:55,000 --> 00:22:56,000
+can choose.
+
+338
+00:22:56,000 --> 00:22:59,000
+So somehow there'll be a two
+dimensional subspace,
+
+339
+00:22:59,000 --> 00:23:02,000
+not a line, and not a three
+dimensional plane,
+
+340
+00:23:02,000 --> 00:23:05,000
+but only a two dimensional guy.
+
+341
+00:23:05,000 --> 00:23:11,000
+But it's doesn't go through the
+origin because it goes through
+
+342
+00:23:11,000 --> 00:23:12,000
+this point.
+
+343
+00:23:12,000 --> 00:23:18,000
+So there's x particular.
+x particular is somewhere here.
+
+344
+00:23:18,000 --> 00:23:20,000
+x particular.
+
+345
+00:23:20,000 --> 00:23:27,000
+So it's somehow a subspace --
+can I try to draw it that way?
+
+346
+00:23:27,000 --> 00:23:35,000
+It's a two dimensional subspace
+that goes through x particular
+
+347
+00:23:35,000 --> 00:23:40,000
+and then onwards by -- so
+there's x particular,
+
+348
+00:23:40,000 --> 00:23:44,000
+and I added on xn,
+and there's x.
+
+349
+00:23:44,000 --> 00:23:46,740
+There's x=xp+xn.
+
+350
+00:23:46,740 --> 00:23:54,000
+But the xn was anywhere in this
+subspace, so that filled out a
+
+351
+00:23:54,000 --> 00:23:56,000
+plane.
+
+352
+00:23:56,000 --> 00:24:00,000
+It's a subspace -- it's not a
+subspace, what I saying?
+
+353
+00:24:00,000 --> 00:24:04,000
+It's like a flat thing,
+it's like a subspace,
+
+354
+00:24:04,000 --> 00:24:08,000
+but it's been shifted,
+away from the origin.
+
+355
+00:24:08,000 --> 00:24:10,460
+It doesn't contain zero.
+
+356
+00:24:10,460 --> 00:24:10,000
+OK.
+
+357
+00:24:10,000 --> 00:24:12,000
+Thanks.
+
+358
+00:24:12,000 --> 00:24:15,000
+That's the picture,
+and that's the algorithm.
+
+359
+00:24:15,000 --> 00:24:20,390
+So the algorithm is just go
+through elimination and,
+
+360
+00:24:20,390 --> 00:24:25,000
+find the particular solution,
+and then find those special
+
+361
+00:24:25,000 --> 00:24:26,000
+solutions.
+
+362
+00:24:26,000 --> 00:24:27,550
+You can do that.
+
+363
+00:24:27,550 --> 00:24:31,000
+Let me take our time here in
+the lecture to think,
+
+364
+00:24:31,000 --> 00:24:34,000
+about the bigger picture.
+
+365
+00:24:34,000 --> 00:24:42,000
+So let me think about -- so
+this is my pattern.
+
+366
+00:24:42,000 --> 00:24:52,030
+Now I want to think -- I want
+to ask you about a question -- I
+
+367
+00:24:52,030 --> 00:24:56,000
+want to ask you some questions.
+
+368
+00:24:56,000 --> 00:25:06,000
+So when I mean think bigger,
+I mean I'll think about an m by
+
+369
+00:25:06,000 --> 00:25:11,000
+n matrix A of rank r.
+
+370
+00:25:11,000 --> 00:25:11,000
+OK.
+What's our definition of rank?
+
+371
+00:25:14,000 --> 00:25:19,000
+Our current definition of rank
+is number of pivots.
+
+372
+00:25:19,000 --> 00:25:19,000
+OK.
+First of all,
+how are these numbers related?
+
+373
+00:25:23,000 --> 00:25:27,000
+Can you tell me a relation
+between r and m?
+
+374
+00:25:27,000 --> 00:25:32,000
+If I have m rows in the matrix
+and R pivots,
+
+375
+00:25:32,000 --> 00:25:35,000
+--
+then I certainly know,
+
+376
+00:25:35,000 --> 00:25:41,000
+always -- what relation do I
+know between r and m?
+
+377
+00:25:41,000 --> 00:25:44,000
+r is less or equal,
+right?
+
+378
+00:25:44,000 --> 00:25:49,000
+Because I've got m rows,
+I can't have more than m
+
+379
+00:25:49,000 --> 00:25:54,000
+pivots, I might have m and I
+might have fewer.
+
+380
+00:25:54,000 --> 00:25:57,000
+Also, I've got n columns.
+
+381
+00:25:57,000 --> 00:26:02,000
+So what's the relation between
+r and n?
+
+382
+00:26:02,000 --> 00:26:04,810
+It's the same,
+less or equal,
+
+383
+00:26:04,810 --> 00:26:08,000
+because a column can't have
+more than one pivot.
+
+384
+00:26:08,000 --> 00:26:12,000
+So I can't have more than n
+pivots altogether.
+
+385
+00:26:12,000 --> 00:26:13,000
+OK, OK.
+
+386
+00:26:13,000 --> 00:26:15,000
+So I have an m by n matrix of
+rank r.
+
+387
+00:26:15,000 --> 00:26:19,000
+And I always know r less than
+or equal to m,
+
+388
+00:26:19,000 --> 00:26:22,000
+r less than or equal to n.
+
+389
+00:26:22,000 --> 00:26:28,000
+Now I'm specially interested in
+the case of full rank,
+
+390
+00:26:28,000 --> 00:26:32,000
+when the rank r is as big as it
+can be.
+
+391
+00:26:32,000 --> 00:26:38,000
+Well, I guess I've got two
+separate possibilities here,
+
+392
+00:26:38,000 --> 00:26:43,000
+depending on what these numbers
+m and n are.
+
+393
+00:26:43,000 --> 00:26:50,000
+So let me talk about the case
+of full column rank.
+
+394
+00:26:50,000 --> 00:26:53,000
+And by that I mean r=n.
+
+395
+00:26:53,000 --> 00:27:00,000
+And I want to ask you,
+what does that imply about our
+
+396
+00:27:00,000 --> 00:27:02,160
+solutions?
+
+397
+00:27:02,160 --> 00:27:08,000
+What does that tell us about
+the null space?
+
+398
+00:27:08,000 --> 00:27:16,000
+What does that tell us about,
+the complete solution?
+
+399
+00:27:16,000 --> 00:27:19,000
+OK, so what does that mean?
+
+400
+00:27:19,000 --> 00:27:26,000
+So I want to ask you,
+well, OK, if the rank is n,
+
+401
+00:27:26,000 --> 00:27:28,000
+what does that mean?
+
+402
+00:27:28,000 --> 00:27:34,000
+That means there's a pivot in
+every column.
+
+403
+00:27:34,000 --> 00:27:39,000
+So how many pivot variables are
+there?
+
+404
+00:27:39,000 --> 00:27:40,000
+n.
+
+405
+00:27:40,000 --> 00:27:43,620
+All the columns have pivots in
+this case.
+
+406
+00:27:43,620 --> 00:27:46,000
+So how many free variables are
+there?
+
+407
+00:27:46,000 --> 00:27:47,000
+None at all.
+
+408
+00:27:47,000 --> 00:27:51,000
+So no free variables.
+r=n, no free variables.
+
+409
+00:27:51,000 --> 00:27:57,000
+So what does that tell us about
+what's going to happen then in
+
+410
+00:27:57,000 --> 00:28:00,000
+our, in our little algorithms?
+
+411
+00:28:00,000 --> 00:28:05,000
+What will be in the null space?
+
+412
+00:28:05,000 --> 00:28:10,000
+The null space of A has got
+what in it?
+
+413
+00:28:10,000 --> 00:28:13,000
+Only the zero vector.
+
+414
+00:28:13,000 --> 00:28:21,000
+There are no free variables to
+give other values to.
+
+415
+00:28:21,000 --> 00:28:28,000
+So the null space is only the
+zero vector.
+
+416
+00:28:28,000 --> 00:28:32,000
+And what about our solution to
+Ax=b?
+
+417
+00:28:32,000 --> 00:28:34,000
+Solution to Ax=b?
+
+418
+00:28:34,000 --> 00:28:38,000
+What, what's the story on that
+one?
+
+419
+00:28:38,000 --> 00:28:43,000
+So now that's coming from
+today's lecture.
+
+420
+00:28:43,000 --> 00:28:49,000
+The solution x is -- what's the
+complete solution?
+
+421
+00:28:49,000 --> 00:28:53,000
+It's just x particular,
+right?
+
+422
+00:28:53,000 --> 00:29:00,000
+If, if, if there is an x,
+if there is a solution.
+
+423
+00:29:00,000 --> 00:29:03,000
+It's x equal x particular.
+
+424
+00:29:03,000 --> 00:29:10,000
+There's nothing -- you know,
+there's just one solution.
+
+425
+00:29:10,000 --> 00:29:13,000
+If there's one at all.
+
+426
+00:29:13,000 --> 00:29:20,860
+So it's unique solution --
+unique means only one -- unique
+
+427
+00:29:20,860 --> 00:29:26,000
+solution if it exists,
+if it exists.
+
+428
+00:29:26,000 --> 00:29:32,000
+In other words,
+I would say -- let me put it a
+
+429
+00:29:32,000 --> 00:29:33,000
+different way.
+
+430
+00:29:33,000 --> 00:29:38,000
+There're either zero or one
+solutions.
+
+431
+00:29:38,000 --> 00:29:42,000
+This is all in this case r=n.
+
+432
+00:29:42,000 --> 00:29:49,000
+So I'm -- because many,
+many applications in reality,
+
+433
+00:29:49,000 --> 00:29:57,000
+the columns will be what I'll
+later call independent.
+
+434
+00:29:57,000 --> 00:30:01,000
+And we'll have,
+nothing to look for in the null
+
+435
+00:30:01,000 --> 00:30:06,000
+space, and we'll only have
+particular solutions.
+
+436
+00:30:06,000 --> 00:30:07,000
+OK.
+
+437
+00:30:07,000 --> 00:30:10,000
+Everybody see that possibility?
+
+438
+00:30:10,000 --> 00:30:13,000
+But I need an example,
+right?
+
+439
+00:30:13,000 --> 00:30:16,000
+So let me create an example.
+
+440
+00:30:16,000 --> 00:30:22,000
+What sort of a matrix --
+what's the shape of a matrix
+
+441
+00:30:22,000 --> 00:30:25,000
+that has full column rank?
+
+442
+00:30:25,000 --> 00:30:29,470
+So can I squeeze in an,
+an example here?
+
+443
+00:30:29,470 --> 00:30:30,000
+If it exists.
+
+444
+00:30:30,000 --> 00:30:36,000
+Let me put in an example,
+and it's just the right space
+
+445
+00:30:36,000 --> 00:30:38,000
+to put in an example.
+
+446
+00:30:38,000 --> 00:30:44,000
+Because the example will be
+like tall and thin.
+
+447
+00:30:44,000 --> 00:30:50,000
+It will have -- well,
+I mean, here's an example,
+
+448
+00:30:50,000 --> 00:30:54,000
+one two six five,
+three one one one.
+
+449
+00:30:54,000 --> 00:30:56,000
+Brilliant example.
+
+450
+00:30:56,000 --> 00:30:57,000
+OK.
+
+451
+00:30:57,000 --> 00:31:02,000
+So there's a matrix A,
+and what's its rank?
+
+452
+00:31:02,000 --> 00:31:05,000
+What's the rank of that matrix?
+
+453
+00:31:05,000 --> 00:31:13,000
+How many pivots will I find if
+I do elimination?
+
+454
+00:31:13,000 --> 00:31:14,070
+Two, right?
+
+455
+00:31:14,070 --> 00:31:14,410
+Two.
+
+456
+00:31:14,410 --> 00:31:19,000
+I see a pivot there -- oh
+certainly those two columns are
+
+457
+00:31:19,000 --> 00:31:22,000
+headed off in different
+directions.
+
+458
+00:31:22,000 --> 00:31:26,000
+When I do elimination,
+I'll certainly get another
+
+459
+00:31:26,000 --> 00:31:30,000
+pivot here, fine,
+and I can use those to clean
+
+460
+00:31:30,000 --> 00:31:32,000
+out below and above.
+
+461
+00:31:32,000 --> 00:31:37,000
+So the -- actually,
+tell me what its row reduced
+
+462
+00:31:37,000 --> 00:31:40,000
+row echelon form would be.
+
+463
+00:31:40,000 --> 00:31:46,000
+Can you carry that,
+that elimination process to the
+
+464
+00:31:46,000 --> 00:31:47,000
+bitter end?
+
+465
+00:31:47,000 --> 00:31:50,000
+So what do, what does that
+mean?
+
+466
+00:31:50,000 --> 00:31:57,000
+I subtract a multiple of this
+row from these rows.
+
+467
+00:31:57,000 --> 00:31:59,000
+So I clean up,
+all zeros there.
+
+468
+00:31:59,000 --> 00:32:01,000
+Then I've got some pivot here.
+
+469
+00:32:01,000 --> 00:32:03,000
+What do I do with that?
+
+470
+00:32:03,000 --> 00:32:06,000
+I go subtract it below and
+above, and then I divide
+
+471
+00:32:06,000 --> 00:32:09,000
+through, and what's R for that
+example?
+
+472
+00:32:09,000 --> 00:32:13,000
+Maybe I can -- you'll allow me
+to put that just here in the
+
+473
+00:32:13,000 --> 00:32:15,000
+next board.
+
+474
+00:32:15,000 --> 00:32:20,000
+What's the row reduced echelon
+form, just out of practice,
+
+475
+00:32:20,000 --> 00:32:22,330
+for that matrix?
+
+476
+00:32:22,330 --> 00:32:25,000
+It's got ones in the pivots.
+
+477
+00:32:25,000 --> 00:32:30,000
+It's got the identity matrix,
+a little two by two identity
+
+478
+00:32:30,000 --> 00:32:33,000
+matrix, and below it all zeros.
+
+479
+00:32:33,000 --> 00:32:38,000
+That's a matrix that really has
+two independent rows,
+
+480
+00:32:38,000 --> 00:32:42,000
+and they're the first two,
+actually.
+
+481
+00:32:42,000 --> 00:32:45,000
+The first two rows are
+independent.
+
+482
+00:32:45,000 --> 00:32:48,000
+They're not in the same
+direction.
+
+483
+00:32:48,000 --> 00:32:52,000
+But the other rows are
+combinations of the first two,
+
+484
+00:32:52,000 --> 00:32:55,000
+so -- is there always a
+solution to Ax=b?
+
+485
+00:32:55,000 --> 00:32:58,370
+Tell me what's the picture
+here?
+
+486
+00:32:58,370 --> 00:33:02,000
+For this matrix A,
+this is a case of full column
+
+487
+00:33:02,000 --> 00:33:03,000
+rank.
+
+488
+00:33:03,000 --> 00:33:07,000
+The two columns are -- give two
+pivots.
+
+489
+00:33:07,000 --> 00:33:09,000
+There's nothing in the null
+space.
+
+490
+00:33:09,000 --> 00:33:15,000
+There's no combination of those
+columns that gives the zero
+
+491
+00:33:15,000 --> 00:33:18,000
+column except the zero zero
+combination.
+
+492
+00:33:18,000 --> 00:33:21,000
+So there's nothing in the null
+space.
+
+493
+00:33:21,000 --> 00:33:26,000
+But is there always a solution
+to A X equal B?
+
+494
+00:33:26,000 --> 00:33:29,340
+What's up with A X equal B?
+
+495
+00:33:29,340 --> 00:33:32,000
+I've got four,
+four equations here,
+
+496
+00:33:32,000 --> 00:33:34,000
+and only two Xs.
+
+497
+00:33:34,000 --> 00:33:37,000
+So the answer is certainly no.
+
+498
+00:33:37,000 --> 00:33:40,000
+There's not always a solution.
+
+499
+00:33:40,000 --> 00:33:45,000
+I may have zero solutions,
+and if I make a random choice,
+
+500
+00:33:45,000 --> 00:33:49,000
+I'll have zero solutions.
+
+501
+00:33:49,000 --> 00:33:53,000
+Or if I make a great particular
+choice of the right-hand side,
+
+502
+00:33:53,000 --> 00:33:58,000
+which just happens to be a
+combination of those two guys --
+
+503
+00:33:58,000 --> 00:34:02,000
+like tell me one right-hand side
+that would have a solution.
+
+504
+00:34:02,000 --> 00:34:07,040
+Tell me a right-hand side that
+would have a solution.
+
+505
+00:34:07,040 --> 00:34:09,150
+Well, 0 0 0 0,
+OK.
+
+506
+00:34:09,150 --> 00:34:11,000
+No prize for that one.
+
+507
+00:34:11,000 --> 00:34:12,000
+Tell me another one.
+
+508
+00:34:12,000 --> 00:34:17,000
+Another right-hand side that
+has a solution would be 4 3 7 6.
+
+509
+00:34:17,000 --> 00:34:20,130
+I could add the two columns.
+
+510
+00:34:20,130 --> 00:34:20,000
+Right?
+
+511
+00:34:20,000 --> 00:34:24,000
+What would be the total
+complete solution if the
+
+512
+00:34:24,000 --> 00:34:27,000
+right-hand side was 4 3 7 6?
+
+513
+00:34:27,000 --> 00:34:31,000
+There would be the particular
+solution one one,
+
+514
+00:34:31,000 --> 00:34:36,000
+one of that column plus one of
+that, and that would be the only
+
+515
+00:34:36,000 --> 00:34:36,000
+solution.
+So there would be -- x
+particular would be one one in
+
+516
+00:34:40,000 --> 00:34:45,000
+the case when the right side is
+the sum of those two columns,
+
+517
+00:34:45,000 --> 00:34:47,000
+and that's it.
+
+518
+00:34:47,000 --> 00:34:52,000
+So that would be a case with
+one solution.
+
+519
+00:34:52,000 --> 00:34:53,000
+OK.
+
+520
+00:34:53,000 --> 00:35:00,000
+That, this is the typical setup
+with full column rank.
+
+521
+00:35:00,000 --> 00:35:03,000
+Now I go to full row rank.
+
+522
+00:35:03,000 --> 00:35:11,000
+You see the sort of natural
+symmetry of this discussion.
+
+523
+00:35:11,000 --> 00:35:14,000
+Full row rank means r=m.
+
+524
+00:35:14,000 --> 00:35:21,000
+So this is what I'm interested
+in now, r=m.
+
+525
+00:35:21,000 --> 00:35:25,000
+OK, what's up with that?
+
+526
+00:35:25,000 --> 00:35:27,000
+How many pivots?
+m.
+
+527
+00:35:27,000 --> 00:35:35,000
+So what happens when we do
+elimination in that case?
+
+528
+00:35:35,000 --> 00:35:39,000
+I'm going to get m pivots.
+
+529
+00:35:39,000 --> 00:35:43,000
+So every row has a pivot,
+right?
+
+530
+00:35:43,000 --> 00:35:46,000
+Every row has a pivot.
+
+531
+00:35:46,000 --> 00:35:50,000
+Then what about solvability?
+
+532
+00:35:50,000 --> 00:36:00,000
+What about this business of --
+for which right-hand sides can
+
+533
+00:36:00,000 --> 00:36:02,280
+I solve it?
+
+534
+00:36:02,280 --> 00:36:05,200
+So that's my question.
+
+535
+00:36:05,200 --> 00:36:10,000
+I can solve Ax=b for which
+right-hand sides?
+
+536
+00:36:10,000 --> 00:36:14,000
+Do you see what's coming?
+
+537
+00:36:14,000 --> 00:36:19,000
+I do elimination,
+I don't get any zero rows.
+
+538
+00:36:19,000 --> 00:36:26,000
+So there aren't any
+requirements on b.
+
+539
+00:36:26,000 --> 00:36:30,000
+I can solve Ax=b for every b.
+
+540
+00:36:30,000 --> 00:36:36,000
+I can solve Ax=b for every
+right-hand side.
+
+541
+00:36:36,000 --> 00:36:42,000
+So this is the existence,
+exists a solution.
+
+542
+00:36:42,000 --> 00:36:49,000
+Now tell me,
+so the, u- u- so every row has
+
+543
+00:36:49,000 --> 00:36:51,000
+a pivot in it.
+
+544
+00:36:51,000 --> 00:36:57,000
+So how many free variables are
+there?
+
+545
+00:36:57,000 --> 00:37:04,000
+How many free variables in this
+case?
+
+546
+00:37:04,000 --> 00:37:15,000
+If I had n variables to start
+with, how many are used up by
+
+547
+00:37:15,000 --> 00:37:20,610
+pivot variables?
+r, which is m.
+
+548
+00:37:20,610 --> 00:37:29,000
+So I'm left with,
+left with n-r free variables.
+
+549
+00:37:29,000 --> 00:37:31,000
+OK.
+
+550
+00:37:31,000 --> 00:37:35,000
+So this case of full row rank I
+can always solve,
+
+551
+00:37:35,000 --> 00:37:40,000
+and then this tells me how many
+variables are free,
+
+552
+00:37:40,000 --> 00:37:43,370
+and this is of course n-m.
+
+553
+00:37:43,370 --> 00:37:46,000
+This is n-m free variables.
+
+554
+00:37:46,000 --> 00:37:47,000
+Can I do an example?
+
+555
+00:37:47,000 --> 00:37:53,460
+You know, the best way for me
+to do an example is just to
+
+556
+00:37:53,460 --> 00:37:56,000
+transpose that example.
+
+557
+00:37:56,000 --> 00:38:00,000
+So let me take,
+let me take that matrix that
+
+558
+00:38:00,000 --> 00:38:05,000
+had column one two six five and
+make it a row.
+
+559
+00:38:05,000 --> 00:38:10,000
+And let me take three one one
+one as the second row.
+
+560
+00:38:10,000 --> 00:38:14,060
+And let me ask you,
+this is my matrix A,
+
+561
+00:38:14,060 --> 00:38:15,000
+what's its rank?
+
+562
+00:38:15,000 --> 00:38:19,000
+What's the rank of that matrix?
+
+563
+00:38:19,000 --> 00:38:22,400
+Sorry to ask,
+but not sorry really,
+
+564
+00:38:22,400 --> 00:38:25,000
+because we're just getting the
+idea of rank.
+
+565
+00:38:25,000 --> 00:38:28,000
+What's the rank of that matrix?
+
+566
+00:38:28,000 --> 00:38:29,000
+Two, exactly,
+two.
+
+567
+00:38:29,000 --> 00:38:31,000
+There will be two pivots.
+
+568
+00:38:31,000 --> 00:38:35,000
+What will the row reduced
+echelon form be?
+
+569
+00:38:35,000 --> 00:38:37,000
+Anybody know that one?
+
+570
+00:38:37,000 --> 00:38:41,000
+Actually, tell me not only --
+you have to tell me not only
+
+571
+00:38:41,000 --> 00:38:45,000
+the, there'll be two pivots but
+which will be the pivot columns.
+
+572
+00:38:45,000 --> 00:38:48,000
+Which columns of this matrix
+will be pivot columns?
+
+573
+00:38:48,000 --> 00:38:52,000
+So the first column is fine,
+and then I go on to the next
+
+574
+00:38:52,000 --> 00:38:53,840
+column, and what do I get?
+
+575
+00:38:53,840 --> 00:38:56,000
+Do I get a second pivot out of
+--
+
+576
+00:38:56,000 --> 00:39:01,000
+will I get a second pivot in
+this position?
+
+577
+00:39:01,000 --> 00:39:01,000
+Yes.
+So the pivots,
+when I get all the way to R,
+
+578
+00:39:06,000 --> 00:39:07,650
+will be there.
+
+579
+00:39:07,650 --> 00:39:10,000
+And here will be some numbers.
+
+580
+00:39:10,000 --> 00:39:15,590
+This is the part that I
+previously called F.
+
+581
+00:39:15,590 --> 00:39:22,400
+This is the part that --
+the pivot columns in R will be
+
+582
+00:39:22,400 --> 00:39:24,000
+the identity matrix.
+
+583
+00:39:24,000 --> 00:39:28,000
+There are no zero rows,
+no zero rows,
+
+584
+00:39:28,000 --> 00:39:30,000
+because the rank is two.
+
+585
+00:39:30,000 --> 00:39:33,000
+But there'll be stuff over
+here.
+
+586
+00:39:33,000 --> 00:39:38,000
+And that will,
+enter the special solutions and
+
+587
+00:39:38,000 --> 00:39:41,000
+the null space.
+
+588
+00:39:41,000 --> 00:39:41,000
+OK.
+So this is a typical matrix
+with r=m smaller than n.
+
+589
+00:39:48,000 --> 00:39:53,000
+Now finally I've got a space
+here for r=m=n.
+
+590
+00:39:53,000 --> 00:40:01,000
+I'm off in the corner here with
+the most important case of all.
+
+591
+00:40:01,000 --> 00:40:05,000
+So what's up with this matrix?
+
+592
+00:40:05,000 --> 00:40:08,000
+So let me give an example.
+
+593
+00:40:08,000 --> 00:40:14,000
+OK, brilliant example,
+1 2 3 1.
+
+594
+00:40:14,000 --> 00:40:20,000
+Tell me what -- how do I
+describe a matrix that has rank
+
+595
+00:40:20,000 --> 00:40:21,000
+r=m=n?
+
+596
+00:40:21,000 --> 00:40:26,000
+So the matrix is square,
+right, it's a square matrix.
+
+597
+00:40:26,000 --> 00:40:31,830
+And if I know its rank is --
+it's full rank,
+
+598
+00:40:31,830 --> 00:40:32,000
+now.
+
+599
+00:40:32,000 --> 00:40:39,690
+I don't have to say full column
+rank or full row rank --
+
+600
+00:40:39,690 --> 00:40:43,000
+I just say full rank,
+because the count,
+
+601
+00:40:43,000 --> 00:40:47,000
+column count and the row count
+are the same,
+
+602
+00:40:47,000 --> 00:40:50,000
+and the rank is as big as it
+can be.
+
+603
+00:40:50,000 --> 00:40:54,000
+And what kind of a matrix have
+I got?
+
+604
+00:40:54,000 --> 00:40:55,570
+It's invertible.
+
+605
+00:40:55,570 --> 00:40:59,000
+So that's exactly the
+invertible matrices.
+
+606
+00:40:59,000 --> 00:41:05,000
+r=m=n means the --
+what's the row echelon form,
+
+607
+00:41:05,000 --> 00:41:10,000
+the reduced row echelon form,
+for an invertible matrix?
+
+608
+00:41:10,000 --> 00:41:13,000
+For a square,
+nice, square,
+
+609
+00:41:13,000 --> 00:41:15,000
+invertible matrix?
+
+610
+00:41:15,000 --> 00:41:16,000
+It's I.
+
+611
+00:41:16,000 --> 00:41:16,000
+Right.
+So you see that the,
+the good matrices are the ones
+
+612
+00:41:22,000 --> 00:41:27,360
+that kind of come out trivially
+in R.
+
+613
+00:41:27,360 --> 00:41:31,660
+You reduce them all the way to
+the identity matrix.
+
+614
+00:41:31,660 --> 00:41:35,000
+What's the null space for this,
+for this matrix?
+
+615
+00:41:35,000 --> 00:41:38,000
+Can I just hammer away with
+questions?
+
+616
+00:41:38,000 --> 00:41:42,000
+What's the null space for this
+matrix?
+
+617
+00:41:42,000 --> 00:41:47,000
+The null space of that matrix
+is the zero vector only.
+
+618
+00:41:47,000 --> 00:41:50,000
+The zero vector only.
+
+619
+00:41:50,000 --> 00:41:55,030
+What are the conditions to
+solve Ax=b?
+
+620
+00:41:55,030 --> 00:41:59,000
+Which right-hand sides b are
+OK?
+
+621
+00:41:59,000 --> 00:42:04,000
+If I want to solve Ax=b for
+this example,
+
+622
+00:42:04,000 --> 00:42:09,080
+so A is this,
+b is b1 b2, what are the
+
+623
+00:42:09,080 --> 00:42:13,000
+conditions on b1 and b2?
+
+624
+00:42:13,000 --> 00:42:15,000
+None at all,
+right.
+
+625
+00:42:15,000 --> 00:42:19,000
+So this is the case,
+this is the case where I can
+
+626
+00:42:19,000 --> 00:42:24,000
+solve -- so I've coming back
+here, I can -- since the rank
+
+627
+00:42:24,000 --> 00:42:27,000
+equals m, I can solve for every
+b.
+
+628
+00:42:27,000 --> 00:42:32,000
+And since the rank is also n,
+there's a unique solution.
+
+629
+00:42:32,000 --> 00:42:37,000
+Let me summarize the whole
+picture here.
+
+630
+00:42:37,000 --> 00:42:39,000
+Here's the whole picture.
+
+631
+00:42:39,000 --> 00:42:42,000
+I could have r=m=n.
+
+632
+00:42:42,000 --> 00:42:47,860
+This is the case where this is
+the identity matrix.
+
+633
+00:42:47,860 --> 00:42:53,000
+And this is the case where
+there is one solution.
+
+634
+00:42:53,000 --> 00:42:58,590
+That's the square invertible
+chapter two case.
+
+635
+00:42:58,590 --> 00:43:01,000
+Now we're into chapter three.
+
+636
+00:43:01,000 --> 00:43:06,000
+We could have r=m smaller than
+n.
+
+637
+00:43:06,000 --> 00:43:14,000
+Now that's what we had over
+there, and the row echelon form
+
+638
+00:43:14,000 --> 00:43:20,000
+looked like the identity with
+some zero rows.
+
+639
+00:43:20,000 --> 00:43:28,680
+And that was the case where
+there are zero or one solution.
+
+640
+00:43:28,680 --> 00:43:33,000
+When I say solution I mean to
+Ax=b.
+
+641
+00:43:33,000 --> 00:43:39,000
+So this case,
+there's always one.
+
+642
+00:43:39,000 --> 00:43:43,000
+This case there's zero or one.
+
+643
+00:43:43,000 --> 00:43:50,000
+And now let me take the case of
+full column rank,
+
+644
+00:43:50,000 --> 00:43:53,000
+but some, extra rows.
+
+645
+00:43:53,000 --> 00:44:00,950
+So now R has -- well,
+the identity -- I'm almost
+
+646
+00:44:00,950 --> 00:44:08,000
+tempted to write the identity
+matrix and then F,
+
+647
+00:44:08,000 --> 00:44:12,000
+but that isn't necessarily
+right.
+
+648
+00:44:12,000 --> 00:44:18,000
+I have -- is that right?
+
+649
+00:44:18,000 --> 00:44:20,000
+Am I getting this correct here?
+
+650
+00:44:20,000 --> 00:44:21,000
+Oh, I'm not!
+
+651
+00:44:21,000 --> 00:44:22,000
+My God!
+
+652
+00:44:22,000 --> 00:44:25,000
+This is the case R equals n,
+the columns,
+
+653
+00:44:25,000 --> 00:44:27,000
+the columns are,
+are OK.
+
+654
+00:44:27,000 --> 00:44:31,000
+That's the case that was on
+that board, r=n,
+
+655
+00:44:31,000 --> 00:44:33,000
+full column rank.
+
+656
+00:44:33,000 --> 00:44:37,000
+Now I want the case where m is
+smaller than n and I've got
+
+657
+00:44:37,000 --> 00:44:40,000
+extra columns.
+
+658
+00:44:40,000 --> 00:44:40,000
+OK.
+There we go.
+
+659
+00:44:43,000 --> 00:44:54,000
+So this is now the case of full
+row rank, and it looks like I F
+
+660
+00:44:54,000 --> 00:45:06,000
+except that I can't be sure that
+the pivot columns are the first
+
+661
+00:45:06,000 --> 00:45:09,000
+columns.
+
+662
+00:45:09,000 --> 00:45:14,000
+So the I and the F,
+could be partly mixed into the
+
+663
+00:45:14,000 --> 00:45:14,000
+I.
+Can I write that with just like
+that?
+
+664
+00:45:17,000 --> 00:45:22,000
+So the F could be sort of
+partly into the I if the first
+
+665
+00:45:22,000 --> 00:45:26,000
+columns weren't the pivot
+columns.
+
+666
+00:45:26,000 --> 00:45:30,530
+Now how many solutions in this
+case?
+
+667
+00:45:30,530 --> 00:45:32,000
+There's always a solution.
+
+668
+00:45:32,000 --> 00:45:34,000
+This is the existence case.
+
+669
+00:45:34,000 --> 00:45:37,180
+There's always a solution.
+
+670
+00:45:37,180 --> 00:45:39,000
+We're not getting any zero
+rows.
+
+671
+00:45:39,000 --> 00:45:42,000
+There are no zero rows here.
+
+672
+00:45:42,000 --> 00:45:46,000
+So there's always either one or
+infinitely many solutions.
+
+673
+00:45:46,000 --> 00:45:47,000
+OK.
+
+674
+00:45:47,000 --> 00:45:51,490
+Actually, I guess there's
+always an infinite number,
+
+675
+00:45:51,490 --> 00:45:56,000
+because we always have some
+null space to deal with.
+
+676
+00:45:56,000 --> 00:46:04,000
+Then the final case is where r
+is smaller than m and smaller
+
+677
+00:46:04,000 --> 00:46:05,000
+than n.
+
+678
+00:46:05,000 --> 00:46:05,000
+OK.
+Now that's the case where R is
+the identity with some free
+
+679
+00:46:13,000 --> 00:46:17,000
+stuff but with some zero rows
+too.
+
+680
+00:46:17,000 --> 00:46:25,000
+And that's the case where
+there's either no solution --
+
+681
+00:46:25,000 --> 00:46:31,000
+because we didn't get a zero
+equals zero for some bs,
+
+682
+00:46:31,000 --> 00:46:34,000
+or infinitely many solutions.
+
+683
+00:46:34,000 --> 00:46:35,000
+OK.
+
+684
+00:46:35,000 --> 00:46:41,000
+Do you -- this board really
+summarizes the lecture,
+
+685
+00:46:41,000 --> 00:46:45,000
+and this sentence summarizes
+the lecture.
+
+686
+00:46:45,000 --> 00:46:53,000
+The rank tells you everything
+about the number of solutions.
+
+687
+00:46:53,000 --> 00:46:58,000
+That number,
+the rank r, tells you all the
+
+688
+00:46:58,000 --> 00:47:04,000
+information except the exact
+entries in the solutions.
+
+689
+00:47:04,000 --> 00:47:08,000
+For that you go to the matrix.
+
+690
+00:47:08,000 --> 00:47:09,000
+OK, good.
+
+691
+00:47:09,000 --> 00:47:12,000
+Have a great weekend,
+and I'll see you on Monday.

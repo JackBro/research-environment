@@ -1,0 +1,1187 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 29: Singular value decomposition | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 29: Singular value decomposition" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 29: Singular value decomposition" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-29-singular-value-decomposition">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 29: Singular value decomposition
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 29: Singular value decomposition
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-29-singular-value-decomposition/Nx0lRBaXoz4.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/29.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/Nx0lRBaXoz4', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-29-singular-value-decomposition', 'https://img.youtube.com/vi/Nx0lRBaXoz4/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-29-singular-value-decomposition/Nx0lRBaXoz4.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703583, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/Nx0lRBaXoz4.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="11000">Okay.</span> </p>
+<p><span m="12000">This is the lecture on the singular value decomposition.</span> </p>
+<p><span m="19000">But everybody calls it the SVD.</span> </p>
+<p><span m="23000">So this is the final and best factorization of a matrix.</span> </p>
+<p><span m="31000">Let me tell you what's coming.</span> </p>
+<p><span m="35000">The factors will be, orthogonal matrix,</span> <span m="40000">diagonal matrix, orthogonal matrix.</span> </p>
+<p><span m="46000">So it's things that we've seen before, these special good</span> <span m="50000">matrices, orthogonal diagonal.</span> </p>
+<p><span m="52000">The new point is that we need two orthogonal matrices.</span> </p>
+<p><span m="55000">A can be any matrix whatsoever.</span> </p>
+<p><span m="57000">Any matrix whatsoever has this singular value decomposition,</span> <span m="61000">so a diagonal one in the middle, but I need two different</span> <span m="65480">-- probably different orthogonal matrices to be able to do this.</span> </p>
+<p><span m="70000">Okay. And this factorization has jumped into importance and is</span> <span m="76000">properly, I think, maybe the bringing together of</span> <span m="81100">everything in this course.</span> </p>
+<p><span m="83650">One thing we'll bring together is the very good family of</span> <span m="89000">matrices that we just studied, symmetric, positive,</span> <span m="94000">definite.</span> </p>
+<p><span m="96000">Do you remember the stories with those guys?</span> </p>
+<p><span m="99000">Because they were symmetric, their eigenvectors were</span> <span m="104000">orthogonal, so I could produce an orthogonal matrix -- this is</span> <span m="110370">my usual one.</span> </p>
+<p><span m="111000">My usual one is the eigenvectors and eigenvalues</span> <span m="116000">In the symmetric case, the eigenvectors are</span> <span m="120000">orthogonal, so I've got the good -- my ordinary s has become an</span> <span m="127000">especially good Q.</span> </p>
+<p><span m="128000">And positive definite, my ordinary lambda has become a</span> <span m="134000">positive lambda.</span> </p>
+<p><span m="136000">So that's the singular value decomposition in case our matrix</span> <span m="141960">is symmetric positive definite -- in that case,</span> <span m="146000">I don't need two -- U and a V -- one orthogonal matrix will do</span> <span m="151000">for both sides.</span> </p>
+<p><span m="153000">So this would be no good in general, because usually the</span> <span m="160000">eigenvector matrix isn't orthogonal.</span> </p>
+<p><span m="164000">So that's not what I'm after.</span> </p>
+<p><span m="167660">I'm looking for orthogonal times diagonal times orthogonal.</span> </p>
+<p><span m="175000">And let me show you what that means and where it comes from.</span> </p>
+<p><span m="181000">Okay.</span> </p>
+<p><span m="182000">What does it mean?</span> </p>
+<p><span m="183000">You remember the picture of any linear transformation.</span> </p>
+<p><span m="189000">This was, like, the most important figure in</span> <span m="194000">And what I looking for now?</span> </p>
+<p><span m="197000">A typical vector in the row space</span> <span m="201000">-- typical vector, let me call it v1,</span> <span m="207350">gets taken over to some vector in the column space,</span> <span m="214000">say u1.</span> </p>
+<p><span m="215000">So u1 is Av1.</span> </p>
+<p><span m="217000">Okay.</span> </p>
+<p><span m="218000">Now, another vector gets taken over here somewhere.</span> </p>
+<p><span m="226000">What I looking for?</span> </p>
+<p><span m="230000">In this SVD, this singular value</span> <span m="233000">decomposition, what I'm looking for is an</span> <span m="237660">orthogonal basis here that gets knocked over into an orthogonal</span> <span m="243000">basis over there.</span> </p>
+<p><span m="245000">See that's pretty special, to have an orthogonal basis in</span> <span m="250000">the row space that goes over into an orthogonal basis --</span> <span m="257350">so this is like a right angle and this is a right angle --</span> <span m="261000">into an orthogonal basis in the column space.</span> </p>
+<p><span m="265000">So that's our goal, is to find -- do you see how</span> <span m="268000">things are coming together?</span> </p>
+<p><span m="271000">First of all, can I find an orthogonal basis</span> <span m="274000">for this row space?</span> </p>
+<p><span m="276750">Of course.</span> </p>
+<p><span m="277000">No big deal to find an orthogonal basis.</span> </p>
+<p><span m="279000">Graham Schmidt tells me how to do it.</span> </p>
+<p><span m="282000">Start with any old basis and grind through Graham Schmidt,</span> <span m="285000">out comes an orthogonal basis.</span> </p>
+<p><span m="287000">But then, if I just take any old orthogonal basis,</span> <span m="290610">then when I multiply by A, there's no reason why it should</span> <span m="294000">be orthogonal over here.</span> </p>
+<p><span m="296000">So I'm looking for this special set up where A takes these basis</span> <span m="304000">vectors into orthogonal vectors over there.</span> </p>
+<p><span m="310000">Now, you might have noticed that the null space I didn't</span> <span m="317000">include.</span> </p>
+<p><span m="318000">Why don't I stick that in?</span> </p>
+<p><span m="322000">You remember our usual figure had a little null space and a</span> <span m="327000">little null space.</span> </p>
+<p><span m="329000">And those are no problems.</span> </p>
+<p><span m="331000">Those null spaces are going to show up as zeroes on the</span> <span m="336000">diagonal of sigma, so that doesn't present any</span> <span m="340000">difficulty.</span> </p>
+<p><span m="341000">Our difficulty is to find these.</span> </p>
+<p><span m="344000">So do you see what this will mean?</span> </p>
+<p><span m="348640">This will mean that A times these v-s, v1,</span> <span m="353000">v2, up to -- what's the dimension of this row space?</span> </p>
+<p><span m="359000">Vr. Sorry, make that V a little smaller -- up to vr.</span> </p>
+<p><span m="364000">So that's -- Av1 is going to be the first column,</span> <span m="370000">so here's what I'm achieving.</span> </p>
+<p><span m="375000">Oh, I'm not only going to make these orthogonal,</span> <span m="380000">but why not make them orthonormal?</span> </p>
+<p><span m="384410">Make them unit vectors.</span> </p>
+<p><span m="387000">So maybe the unit vector is here, is the u1,</span> <span m="392000">and this might be a multiple of it.</span> </p>
+<p><span m="397000">So really, what's happening is Av1 is some multiple of u1,</span> </p>
+<p><span m="402000">right? These guys will be unit vectors and they'll go over into</span> <span m="407000">multiples of unit vectors and the multiple I'm not going to</span> <span m="413000">call lambda anymore.</span> </p>
+<p><span m="415000">I'm calling it sigma.</span> </p>
+<p><span m="417000">So that's the number -- the stretching number.</span> </p>
+<p><span m="421000">And similarly, Av2 is sigma two u2.</span> </p>
+<p><span m="425000">This is my goal.</span> </p>
+<p><span m="426000">And now I want to express that goal in matrix language.</span> </p>
+<p><span m="431000">That's the usual step.</span> </p>
+<p><span m="434000">Think of what you want and then express it as a matrix</span> <span m="440000">multiplication.</span> </p>
+<p><span m="441000">So Av1 is sigma one u1 -- actually, here we go.</span> </p>
+<p><span m="446000">Let me pull out these -- u1, u2 to ur and then a matrix with</span> <span m="452000">the sigmas.</span> </p>
+<p><span m="453970">Everything now is going to be in that little part of the</span> <span m="459000">blackboard.</span> </p>
+<p><span m="462000">Do you see that this equation says what I'm trying to do with</span> <span m="470020">my figure.</span> </p>
+<p><span m="471000">A times the first basis vector should be sigma one times the</span> <span m="479000">other basis -- the other first basis vector.</span> </p>
+<p><span m="485000">These are the basis vectors in the row space,</span> <span m="489000">these are the basis vectors in the column space and these are</span> <span m="494000">the multiplying factors.</span> </p>
+<p><span m="496000">So Av2 is sigma two times u2, Avr is sigma r times ur.</span> </p>
+<p><span m="501000">And then we've got a whole lot of zeroes and maybe some zeroes</span> <span m="506000">at the end, but that's the heart of it.</span> </p>
+<p><span m="510000">And now if I express that in -- as matrices, because you knew</span> <span m="516000">that was coming -- that's what I have.</span> </p>
+<p><span m="520000">So, this is my goal, to find an orthogonal basis in</span> <span m="525000">the orthonormal, even -- basis in the row space</span> <span m="530000">and an orthonormal basis in the column space so that I've sort</span> <span m="536000">of diagonalized the matrix.</span> </p>
+<p><span m="540000">The matrix A is, like, getting converted to this</span> <span m="543000">diagonal matrix sigma.</span> </p>
+<p><span m="544000">And you notice that usually I have to allow myself two</span> <span m="548000">different bases.</span> </p>
+<p><span m="549000">My little comment about symmetric positive definite was</span> <span m="553000">the one case where it's A Q equal Q sigma,</span> <span m="555000">where V and U are the same Q.</span> </p>
+<p><span m="558000">But mostly, you know, I'm going to take a matrix like</span> <span m="565000">-- oh, let me take a matrix like four four minus three three.</span> </p>
+<p><span m="573000">Okay.</span> </p>
+<p><span m="574000">There's a two by two matrix.</span> </p>
+<p><span m="578360">It's invertible, so it has rank two.</span> </p>
+<p><span m="584000">So I'm going to look for two vectors, v1 and v2 in the row</span> <span m="589000">space, and U -- so I'm going to look for v1, v2 in the row</span> <span m="594000">space, which of course is R^2.</span> </p>
+<p><span m="596000">And I'm going to look for u1, u2 in the column space,</span> <span m="601000">which of course is also R^2, and I'm going to look for</span> <span m="606000">numbers sigma one and sigma two so that it all comes out right.</span> </p>
+<p><span m="612000">So these guys are orthonormal, these guys are orthonormal and</span> <span m="620000">these are the scaling factors.</span> </p>
+<p><span m="623000">So I'll do that example as soon as I get the matrix picture</span> <span m="630000">straight.</span> </p>
+<p><span m="631000">Okay.</span> </p>
+<p><span m="632000">Do you see that this expresses what I want?</span> </p>
+<p><span m="638000">Can I just say two words about null spaces?</span> </p>
+<p><span m="643000">If there's some null space, then we want to stick in a</span> <span m="648000">basis for those, for that.</span> </p>
+<p><span m="650000">So here comes a basis for the null space, v(r+1) down to vm.</span> </p>
+<p><span m="656000">So if we only had an r dimensional row space and the</span> <span m="661000">other n-r dimensions were in the null space --</span> <span m="667000">okay, we'll take an orthogonal -- orthonormal basis there.</span> </p>
+<p><span m="672000">No problem. And then we'll just get zeroes.</span> </p>
+<p><span m="675000">So, actually, w- those zeroes will come out</span> <span m="679000">on the diagonal matrix.</span> </p>
+<p><span m="681000">So I'll complete that to an orthonormal basis for the whole</span> <span m="686000">space, R^m.</span> </p>
+<p><span m="688000">I complete this to an orthonormal basis for the whole</span> <span m="692000">space R^n and I complete that with zeroes.</span> </p>
+<p><span m="695000">Null spaces are no problem here.</span> </p>
+<p><span m="698000">So really the true problem is in a matrix like that,</span> <span m="702660">which isn't symmetric, so I can't use its</span> <span m="705980">eigenvectors, they're not orthogonal -- but</span> <span m="709000">somehow I have to get these orthogonal --</span> <span m="713000">in fact, orthonormal guys that make it work.</span> </p>
+<p><span m="720000">I have to find these orthonormal guys,</span> <span m="726000">these orthonormal guys and I want Av1 to be sigma one u1 and</span> <span m="734000">Av2 to be sigma two u2.</span> </p>
+<p><span m="739000">Okay. That's my goal.</span> </p>
+<p><span m="741310">Here's the matrices that are going to get me there.</span> </p>
+<p><span m="746000">Now these are orthogonal matrices.</span> </p>
+<p><span m="749170">I can put that -- if I multiply on both sides by V inverse,</span> <span m="754000">I have A equals U sigma V inverse, and of course you know</span> <span m="759000">the other way I can write V inverse.</span> </p>
+<p><span m="764000">This is one of those square orthogonal matrices,</span> <span m="772000">so it's the same as U sigma V transpose.</span> </p>
+<p><span m="778000">Okay.</span> </p>
+<p><span m="779000">Here's my problem.</span> </p>
+<p><span m="782000">I've got two orthogonal matrices here.</span> </p>
+<p><span m="788000">And I don't want to find them both at once.</span> </p>
+<p><span m="796000">So I want to cook up some expression that will make the Us</span> <span m="801000">disappear.</span> </p>
+<p><span m="802000">I would like to make the Us disappear and leave me only with</span> <span m="807000">the Vs.</span> </p>
+<p><span m="808000">And here's how to do it.</span> </p>
+<p><span m="810000">It's the same combination that keeps showing up whenever we</span> <span m="815000">have a general rectangular matrix, then it's A transpose A,</span> <span m="820000">that's the great matrix.</span> </p>
+<p><span m="823000">That's the great matrix.</span> </p>
+<p><span m="825000">That's the matrix that's symmetric, and in fact positive</span> <span m="829000">definite or at least positive semi-definite.</span> </p>
+<p><span m="832920">This is the matrix with nice properties, so let's see what</span> </p>
+<p><span m="837000">will it be? So if I took the transpose, then, I would have -- A</span> <span m="841000">transpose A will be what?</span> </p>
+<p><span m="844280">What do I have?</span> </p>
+<p><span m="845000">If I transpose that I have V sigma transpose U transpose,</span> <span m="851000">that's the A transpose.</span> </p>
+<p><span m="853000">Now the A -- and what have I got?</span> </p>
+<p><span m="857050">Looks like worse, because it's got six things now</span> <span m="861000">together, but it's going to collapse into something good.</span> </p>
+<p><span m="867590">What does U transpose U collapse into?</span> </p>
+<p><span m="872000">I, the identity.</span> </p>
+<p><span m="873000">So that's the key point.</span> </p>
+<p><span m="875000">This is the identity and we don't have U anymore.</span> </p>
+<p><span m="878000">And sigma transpose times sigma, those are diagonal</span> <span m="882000">matrixes, so their product is just going to have sigma</span> <span m="885000">squareds on the diagonal.</span> </p>
+<p><span m="887000">So do you see what we've got here?</span> </p>
+<p><span m="889000">This is V times this easy matrix sigma one squared sigma</span> <span m="893000">two squared times V transpose.</span> </p>
+<p><span m="896000">This is the A transpose A.</span> </p>
+<p><span m="900000">This is -- let me copy down -- A transpose A is that.</span> </p>
+<p><span m="907000">Us are out of the picture, now.</span> </p>
+<p><span m="911000">I'm only having to choose the Vs, and what are these Vs?</span> </p>
+<p><span m="918000">And what are these sigmas?</span> </p>
+<p><span m="923000">Do you know what the Vs are?</span> </p>
+<p><span m="925600">They're the eigenvectors that -- see, this is a perfect</span> <span m="930000">eigenvector, eigenvalue, Q lambda Q transpose for the</span> <span m="935320">matrix A transpose A.</span> </p>
+<p><span m="937000">A itself is nothing special.</span> </p>
+<p><span m="939000">But A transpose A will be special.</span> </p>
+<p><span m="942000">It'll be symmetric positive definite, so this will be its</span> <span m="947000">eigenvectors and this'll be its eigenvalues.</span> </p>
+<p><span m="953000">And the eigenvalues'll be positive because this thing's</span> <span m="958000">positive definite.</span> </p>
+<p><span m="960000">So this is my method.</span> </p>
+<p><span m="962000">This tells me what the Vs are.</span> </p>
+<p><span m="965000">And how I going to find the Us?</span> </p>
+<p><span m="969000">Well, one way would be to look at A A transpose.</span> </p>
+<p><span m="973000">Multiply A by A transpose in the opposite order.</span> </p>
+<p><span m="979000">That will stick the Vs in the middle, knock them out,</span> <span m="984480">and leave me with the Us.</span> </p>
+<p><span m="986000">So here's the overall picture, then.</span> </p>
+<p><span m="989000">The Vs are the eigenvectors of A transpose A.</span> </p>
+<p><span m="993000">The Us are the eigenvectors of A A transpose,</span> <span m="997000">which are different.</span> </p>
+<p><span m="1000000">And the sigmas are the square roots of these and the positive</span> <span m="1007090">square roots, so we have positive sigmas.</span> </p>
+<p><span m="1011000">Let me do it for that example.</span> </p>
+<p><span m="1014000">This is really what you should know and be able to do for the</span> <span m="1021000">SVD.</span> </p>
+<p><span m="1021570">Okay.</span> </p>
+<p><span m="1022110">Let me take that matrix.</span> </p>
+<p><span m="1024000">So what's my first step?</span> </p>
+<p><span m="1028000">Compute A transpose A, because I want its</span> <span m="1032000">eigenvectors.</span> </p>
+<p><span m="1033000">Okay. So I have to compute A transpose A.</span> </p>
+<p><span m="1036000">So A transpose is four four minus three three,</span> <span m="1040000">and A is four four minus three three, and I do that</span> <span m="1045000">multiplication and I get sixteen -- I get twenty five -- I get</span> <span m="1050000">sixteen minus nine -- is that seven?</span> </p>
+<p><span m="1055000">And it better come out symmetric.</span> </p>
+<p><span m="1058000">And -- oh, okay, and then it comes out 25.</span> </p>
+<p><span m="1062000">Okay. So, I want its eigenvectors and its eigenvalues.</span> </p>
+<p><span m="1067000">Its eigenvectors will be the Vs, its eigenvalues will be the</span> <span m="1073000">squares of the sigmas.</span> </p>
+<p><span m="1075000">Okay. What are the eigenvalues and eigenvectors of this guy?</span> </p>
+<p><span m="1082000">Have you seen that two by two example enough to recognize that</span> <span m="1089000">the eigenvectors are -- that one one is an eigenvector?</span> </p>
+<p><span m="1096000">So this here is A transpose A.</span> </p>
+<p><span m="1099000">I'm looking for its eigenvectors.</span> </p>
+<p><span m="1104000">So its eigenvectors, I think, are one one and one</span> <span m="1109000">minus one, because if I multiply that matrix by one one,</span> <span m="1114000">what do I get?</span> </p>
+<p><span m="1116000">If I multiply that matrix by one one, I get 32 32,</span> <span m="1121000">which is 32 of one one.</span> </p>
+<p><span m="1123000">So there's the first eigenvector, and there's the</span> <span m="1128000">eigenvalue for A transpose A.</span> </p>
+<p><span m="1132000">So I'm going to take its square root for sigma.</span> </p>
+<p><span m="1136000">Okay.</span> </p>
+<p><span m="1137000">What's the eigenvector that goes -- eigenvalue that goes</span> <span m="1142000">with this one?</span> </p>
+<p><span m="1144000">If I do that multiplication, what do I get?</span> </p>
+<p><span m="1148000">I get some multiple of one minus one, and what is that</span> <span m="1153000">multiple?</span> </p>
+<p><span m="1154000">Looks like 18.</span> </p>
+<p><span m="1156000">Okay.</span> </p>
+<p><span m="1157000">So those are the two eigenvectors,</span> <span m="1161000">but -- oh, just a moment, I didn't normalize them.</span> </p>
+<p><span m="1166000">To make everything absolutely right, I ought to normalize</span> <span m="1173000">these eigenvectors, divide by their length,</span> <span m="1177000">square root of two.</span> </p>
+<p><span m="1180000">So all these guys should be true unit vectors and,</span> <span m="1186000">of course, that normalization didn't change the 32 and the 18.</span> </p>
+<p><span m="1193000">Okay.</span> </p>
+<p><span m="1194000">So I'm happy with the Vs.</span> </p>
+<p><span m="1197000">Here are the Vs.</span> </p>
+<p><span m="1199000">So now let me put together the pieces here.</span> </p>
+<p><span m="1204000">Here's my A.</span> </p>
+<p><span m="1205000">Here's my A.</span> </p>
+<p><span m="1206000">Let me write down A again.</span> </p>
+<p><span m="1211000">If life is right, we should get U,</span> <span m="1214000">which I don't yet know -- U I don't yet know,</span> <span m="1218000">sigma I do now know.</span> </p>
+<p><span m="1220000">What's sigma?</span> </p>
+<p><span m="1221000">So I'm looking for a U sigma V transpose.</span> </p>
+<p><span m="1225350">U, the diagonal guy and V transpose.</span> </p>
+<p><span m="1228000">Okay.</span> </p>
+<p><span m="1229000">Let's just see that come out right.</span> </p>
+<p><span m="1232000">So what are the sigmas?</span> </p>
+<p><span m="1235000">They're the square roots of these things.</span> </p>
+<p><span m="1240000">So square root of 32 and square root of 18.</span> </p>
+<p><span m="1245000">Zero zero.</span> </p>
+<p><span m="1246000">Okay.</span> </p>
+<p><span m="1247000">What are the Vs?</span> </p>
+<p><span m="1249000">They're these two.</span> </p>
+<p><span m="1251000">And I have to transpose -- maybe that just leaves me with</span> <span m="1258120">ones -- with one over square root of</span> <span m="1262000">two in that row and the other one is one over square root of</span> <span m="1266000">two minus one over square root of two.</span> </p>
+<p><span m="1269000">Now finally, I've got to know the Us.</span> </p>
+<p><span m="1271000">Well, actually, one way to do -- since I now</span> <span m="1274000">know all the other pieces, I could put those together and</span> <span m="1278000">figure out what the Us are.</span> </p>
+<p><span m="1281000">But let me do it the A A transpose way.</span> </p>
+<p><span m="1286000">Okay. Find the Us now. u1 and u2.</span> </p>
+<p><span m="1290110">And what are they?</span> </p>
+<p><span m="1292000">I look at A A transpose -- so A is supposed to be U sigma V</span> <span m="1299000">transpose, and then when I transpose that I get V sigma</span> <span m="1306000">transpose U transpose.</span> </p>
+<p><span m="1310000">So I'm just doing it in the opposite order,</span> <span m="1315000">A times A transpose, and what's the good part here?</span> </p>
+<p><span m="1320000">That in the middle, V transpose V is going to be</span> <span m="1325000">the identity.</span> </p>
+<p><span m="1327000">So this is just U sigma sigma transpose, that's some diagonal</span> <span m="1333000">matrix with sigma squareds and U transpose.</span> </p>
+<p><span m="1339000">So what I seeing here?</span> </p>
+<p><span m="1341000">I'm seeing here, again, a symmetric positive</span> <span m="1345010">definite or at least semi-definite matrix and I'm</span> <span m="1349000">seeing its eigenvectors and its eigenvalues.</span> </p>
+<p><span m="1353000">So if I compute A A transpose, its eigenvectors will be the</span> <span m="1358000">things that go into U.</span> </p>
+<p><span m="1361000">Okay, so I need to compute A A transpose.</span> </p>
+<p><span m="1366000">I guess I'm going to have to go -- can I move that up just a</span> <span m="1373000">little?</span> </p>
+<p><span m="1374000">Maybe a little more and do A A transpose.</span> </p>
+<p><span m="1379000">So what's A?</span> </p>
+<p><span m="1380000">Four four minus three and three.</span> </p>
+<p><span m="1385000">And what's A transpose?</span> </p>
+<p><span m="1388000">Four four minus three and three.</span> </p>
+<p><span m="1392000">And when I do that multiplication,</span> <span m="1396000">what do I get?</span> </p>
+<p><span m="1397000">Sixteen and sixteen, thirty two.</span> </p>
+<p><span m="1401610">Uh, that one comes out zero.</span> </p>
+<p><span m="1405000">Oh, so this is a lucky case and that one comes out 18.</span> </p>
+<p><span m="1412000">So this is an accident that A A transpose happens to come out</span> <span m="1418000">diagonal, so we know easily its eigenvectors and eigenvalues.</span> </p>
+<p><span m="1423000">So its eigenvectors -- what's the first eigenvector for this A</span> <span m="1428000">A transpose matrix?</span> </p>
+<p><span m="1430000">It's just one zero, and when I do that</span> <span m="1433000">multiplication, I get 32 times one zero.</span> </p>
+<p><span m="1437000">And the other eigenvector is just zero one and when I</span> <span m="1443000">multiply by that I get 18.</span> </p>
+<p><span m="1446000">So this is A A transpose.</span> </p>
+<p><span m="1449000">Multiplying that gives me the 32 A A transpose.</span> </p>
+<p><span m="1453000">Multiplying this guy gives me</span> <span m="1457000">First of all, I got 32 and 18 again.</span> </p>
+<p><span m="1461200">Am I surprised?</span> </p>
+<p><span m="1462000">You know, it's clearly not an accident.</span> </p>
+<p><span m="1468300">The eigenvalues of A A transpose were exactly the same</span> <span m="1472000">as the eigenvalues of -- this one was A transpose A.</span> </p>
+<p><span m="1476000">That's no surprise at all.</span> </p>
+<p><span m="1479000">The eigenvalues of A B are the same as the eigenvalues of B A.</span> </p>
+<p><span m="1484100">That's a very nice fact, that eigenvalues stay the same</span> <span m="1488000">if I switch the order of multiplication.</span> </p>
+<p><span m="1492000">So no surprise to see 32 and</span> <span m="1495000">What I learned -- first the check that things were</span> <span m="1500000">numerically correct, but now I've learned these</span> <span m="1504000">eigenvectors, and actually they're about as</span> <span m="1508000">nice as can be.</span> </p>
+<p><span m="1509770">They're the best orthogonal matrix, just the identity.</span> </p>
+<p><span m="1515000">Okay.</span> </p>
+<p><span m="1516000">So my claim is that it ought to all fit together,</span> <span m="1522000">that these numbers should come out right.</span> </p>
+<p><span m="1527000">The numbers should come out right because the matrix</span> <span m="1534000">multiplications use the properties that we want.</span> </p>
+<p><span m="1540000">Okay. Shall we just check that?</span> </p>
+<p><span m="1545440">Here's the identity, so not doing anything -- square</span> <span m="1548000">root of 32 is multiplying that row, so that square root of 32</span> <span m="1552850">divided by square root of two means square root of 16,</span> <span m="1556000">four, correct?</span> </p>
+<p><span m="1557000">And square root of 18 is divided by square root of two,</span> <span m="1560000">so that leaves me square root of 9, which is three,</span> <span m="1564000">but -- well, Professor Strang,</span> <span m="1568000">you see the problem?</span> </p>
+<p><span m="1571000">Why is that -- okay.</span> </p>
+<p><span m="1574660">Why I getting minus three three here and here I'm getting three</span> <span m="1583000">minus three?</span> </p>
+<p><span m="1585000">Phooey.</span> </p>
+<p><span m="1586000">I don't know why.</span> </p>
+<p><span m="1588000">It shouldn't have happened, but it did.</span> </p>
+<p><span m="1595000">Now, okay, you could say, well, just -- the eigenvector</span> <span m="1600000">there could have -- I could have had the minus sign here for that</span> <span m="1606000">eigenvector, but I'm not happy about that.</span> </p>
+<p><span m="1610000">Hmm.</span> </p>
+<p><span m="1611000">Okay. So I realize there's a little catch here somewhere and I may</span> <span m="1616000">not see it until Wednesday.</span> </p>
+<p><span m="1620000">Which then gives you a very important reason to come back on</span> <span m="1626000">Wednesday, to catch that sine difference.</span> </p>
+<p><span m="1630000">So what did I do illegally?</span> </p>
+<p><span m="1633000">I think I put the eigenvectors in that matrix V transpose --</span> <span m="1638000">okay, I'm going to have to think.</span> </p>
+<p><span m="1642000">Why did that come out with with the opposite sines?</span> </p>
+<p><span m="1648000">So you see -- I mean, if I had a minus there,</span> <span m="1653000">I would be all right, but I don't want that.</span> </p>
+<p><span m="1659000">I want positive entries down the diagonal of sigma squared.</span> </p>
+<p><span m="1666000">Okay.</span> </p>
+<p><span m="1667000">It'll come to me, but, I'm going to leave this</span> <span m="1673000">example to finish.</span> </p>
+<p><span m="1676000">Okay.</span> </p>
+<p><span m="1677000">And the beauty of, these sliding boards is I can</span> <span m="1683000">make that go away.</span> </p>
+<p><span m="1685000">Can I,-- let me not do it, though, yet.</span> </p>
+<p><span m="1690000">Let me take a second example.</span> </p>
+<p><span m="1694000">Let me take a second example where the matrix is singular.</span> </p>
+<p><span m="1702000">So rank one.</span> </p>
+<p><span m="1704000">Okay, so let me take as an example two, where my matrix A</span> <span m="1713000">is going to be rectangular again -- let me just make it four</span> <span m="1721000">three eight six.</span> </p>
+<p><span m="1723000">Okay.</span> </p>
+<p><span m="1724000">That's a rank one matrix.</span> </p>
+<p><span m="1728000">So that has a null space and only a one dimensional row space</span> <span m="1736000">and column space.</span> </p>
+<p><span m="1740000">So actually, my picture becomes easy for</span> <span m="1744000">this matrix, because what's my row space for this one?</span> </p>
+<p><span m="1750000">So this is two by two.</span> </p>
+<p><span m="1752000">So my pictures are both two dimensional.</span> </p>
+<p><span m="1756000">My row space is all multiples of that vector four three.</span> </p>
+<p><span m="1762000">So the whole -- the row space is just a line,</span> <span m="1767000">right?</span> </p>
+<p><span m="1768000">That's the row space.</span> </p>
+<p><span m="1770000">And the null space, of course, is the perpendicular</span> <span m="1775000">line.</span> </p>
+<p><span m="1776000">So the row space for this matrix is multiples of four</span> <span m="1781000">three.</span> </p>
+<p><span m="1782000">Typical row.</span> </p>
+<p><span m="1783000">Okay.</span> </p>
+<p><span m="1783970">What's the column space?</span> </p>
+<p><span m="1786000">The columns are all multiples of four eight,</span> <span m="1790980">three six, one two.</span> </p>
+<p><span m="1794000">The column space, then, goes in,</span> <span m="1798000">like, this direction.</span> </p>
+<p><span m="1800000">So the column space -- when I look at those columns,</span> <span m="1805000">the column space -- so it's only one dimensional,</span> <span m="1811060">because the rank is one.</span> </p>
+<p><span m="1813670">It's multiples of four eight.</span> </p>
+<p><span m="1817000">Okay.</span> </p>
+<p><span m="1818000">And what's the null space of A transpose?</span> </p>
+<p><span m="1823000">It's the perpendicular guy.</span> </p>
+<p><span m="1826000">So this was the null space of A and this is the null space of A</span> <span m="1833000">transpose.</span> </p>
+<p><span m="1834000">Okay.</span> </p>
+<p><span m="1835000">What I want to say here is that choosing these orthogonal bases</span> <span m="1842000">for the row space and the column space is, like,</span> <span m="1847000">no problem.</span> </p>
+<p><span m="1850000">They're only one dimensional.</span> </p>
+<p><span m="1853000">So what should V be?</span> </p>
+<p><span m="1855000">V should be -- v1, but -- yes, v1,</span> <span m="1858840">rather -- v1 is supposed to be a unit vector.</span> </p>
+<p><span m="1863000">There's only one v1 to choose here, only one dimension in the</span> <span m="1869000">row space.</span> </p>
+<p><span m="1871000">I just want to make it a unit vector.</span> </p>
+<p><span m="1875000">So v1 will be -- it'll be this vector, but made into a unit</span> <span m="1882000">vector, so four -- point eight point six.</span> </p>
+<p><span m="1887000">Four fifths, three fifths.</span> </p>
+<p><span m="1890000">And what will be u1? u1 will be the unit vector</span> <span m="1895460">there.</span> </p>
+<p><span m="1897000">So I want to turn four eight or one two into a unit vector,</span> <span m="1901950">so u1 will be -- let's see, if it's one two,</span> <span m="1905000">then what multiple of one two do I want?</span> </p>
+<p><span m="1908000">That has length square root of five, so I have to divide by</span> <span m="1912000">square root of five.</span> </p>
+<p><span m="1914000">Let me complete the singular value decomposition for this</span> <span m="1918000">matrix.</span> </p>
+<p><span m="1920000">So this matrix, four three eight six,</span> <span m="1925000">is -- so I know what u1 -- here's A and I want to get U the</span> <span m="1935000">basis in the column space.</span> </p>
+<p><span m="1939000">And it has to start with this guy, one over square root of</span> <span m="1948000">five two over square root of five.</span> </p>
+<p><span m="1955000">Then I want the sigma.</span> </p>
+<p><span m="1958000">Okay. What are we expecting now for sigma?</span> </p>
+<p><span m="1963000">This is only a rank one matrix.</span> </p>
+<p><span m="1967000">We're only expecting a sigma one, which I have to find,</span> <span m="1974000">but zeroes here.</span> </p>
+<p><span m="1976000">Okay.</span> </p>
+<p><span m="1977000">So what's sigma one?</span> </p>
+<p><span m="1979000">It should be the -- where did these sigmas come from?</span> </p>
+<p><span m="1987000">They came from A transpose A, so I -- can I do that little</span> <span m="1994220">calculation over here?</span> </p>
+<p><span m="1996000">A transpose A is four three -- four three eight six times four</span> <span m="2003000">three eight six.</span> </p>
+<p><span m="2005000">This had better -- this is a rank one matrix,</span> <span m="2010000">this is going to be -- the whole thing will have rank</span> <span m="2016000">one, that's 16 and 64 is 80, 12 and 48 is 60,</span> <span m="2021000">12 and 48 is 60, 9 and 36 is 45.</span> </p>
+<p><span m="2024000">Okay.</span> </p>
+<p><span m="2025000">It's a rank one matrix.</span> </p>
+<p><span m="2027000">Of course.</span> </p>
+<p><span m="2028000">Every row is a multiple of four three.</span> </p>
+<p><span m="2032000">And what's the eigen -- what are the eigenvalues of that</span> <span m="2038000">matrix?</span> </p>
+<p><span m="2040000">So this is the calculation -- this is like practicing,</span> </p>
+<p><span m="2044000">now. What are the eigenvalues of this rank one matrix?</span> </p>
+<p><span m="2047000">Well, tell me one eigenvalue, since the rank is only one,</span> <span m="2051000">one eigenvalue is going to be zero.</span> </p>
+<p><span m="2054000">And then you know that the other eigenvalue is going to be</span> <span m="2058179">a hundred and twenty five.</span> </p>
+<p><span m="2060000">So that's sigma squared, right, in A transpose A.</span> </p>
+<p><span m="2066000">So this will be the square root of a hundred and twenty five.</span> </p>
+<p><span m="2074000">And then finally, the V transpose -- the Vs will</span> <span m="2080000">be -- there's v1, and what's v2?</span> </p>
+<p><span m="2084000">What's v2 in the -- how do I make this into an orthonormal</span> <span m="2091090">basis?</span> </p>
+<p><span m="2093000">Well, v2 is, in the null space direction.</span> </p>
+<p><span m="2096000">It's perpendicular to that, so point six and minus point</span> </p>
+<p><span m="2102000">eight. So those are the Vs that go in here.</span> </p>
+<p><span m="2106000">Point eight, point six and point six minus</span> <span m="2109990">point eight.</span> </p>
+<p><span m="2111000">Okay. And I guess I better finish this guy.</span> </p>
+<p><span m="2115000">So this guy, all I want is to complete the</span> <span m="2118000">orthonormal basis -- it'll be coming from there.</span> </p>
+<p><span m="2124000">It'll be a two over square root of five and a minus one over</span> <span m="2130000">square root of five.</span> </p>
+<p><span m="2132000">Let me take square root of five out of that matrix to make it</span> <span m="2138000">look better.</span> </p>
+<p><span m="2139000">So one over square root of five times one two two minus one.</span> </p>
+<p><span m="2145000">Okay.</span> </p>
+<p><span m="2146000">So there I have -- including the square root of five --</span> <span m="2152000">that's an orthogonal matrix, that's an orthogonal matrix,</span> <span m="2158000">that's a diagonal matrix and its rank is only one.</span> </p>
+<p><span m="2163000">And now if I do that multiplication,</span> <span m="2167000">I pray that it comes out right.</span> </p>
+<p><span m="2171000">The square root of five will cancel into that square root of</span> <span m="2177000">one twenty five and leave me with the square root of 25,</span> <span m="2182000">which is five, and five will multiply these</span> <span m="2186000">numbers and I'll get whole numbers and out will come A.</span> </p>
+<p><span m="2191000">Okay.</span> </p>
+<p><span m="2192000">That's like a second example showing how the null space guy</span> <span m="2199000">-- so this -- this vector and this one were multiplied by this</span> <span m="2206000">zero.</span> </p>
+<p><span m="2207000">So they were easy to deal with.</span> </p>
+<p><span m="2210000">Tthe key ones are the ones in the column space and the row</span> <span m="2217000">space.</span> </p>
+<p><span m="2219000">Do you see how I'm getting columns here,</span> <span m="2223000">diagonal here, rows here, coming together to</span> <span m="2228000">produce A.</span> </p>
+<p><span m="2229000">Okay, that's the singular value decomposition.</span> </p>
+<p><span m="2233000">So, let me think what I want to add to complete this topic.</span> </p>
+<p><span m="2239000">So that's two examples.</span> </p>
+<p><span m="2242000">And now let's think what we're really doing.</span> </p>
+<p><span m="2248130">We're choosing the right basis for the four subspaces of linear</span> <span m="2261000">algebra.</span> </p>
+<p><span m="2263000">Let me write this down.</span> </p>
+<p><span m="2268000">So v1 up to vr is an orthonormal basis for the row</span> <span m="2279000">space. u1 up to ur is an orthonormal</span> <span m="2286000">basis for the column space.</span> </p>
+<p><span m="2294000">And then I just finish those out by v(r+1),</span> <span m="2300000">the rest up to vn is an orthonormal basis for the null</span> <span m="2308000">space.</span> </p>
+<p><span m="2309000">And finally, u(r+1) up to is an orthonormal</span> <span m="2315000">basis for the null space of A transpose.</span> </p>
+<p><span m="2321000">Do you see that we finally got the bases right?</span> </p>
+<p><span m="2329000">They're right because they're orthonormal, and also -- again,</span> <span m="2335000">Graham Schmidt would have done this in chapter four.</span> </p>
+<p><span m="2341000">Here we needed eigenvalues, because these bases make the</span> <span m="2347000">matrix diagonal.</span> </p>
+<p><span m="2348000">A times V I is a multiple of U I.</span> </p>
+<p><span m="2352000">So I'll put "and" -- the matrix has been made diagonal.</span> </p>
+<p><span m="2359000">When we choose these bases, there's no coupling between Vs</span> <span m="2364000">and no coupling between Us.</span> </p>
+<p><span m="2366800">Each A -- A times each V is in the direction of the</span> <span m="2371000">corresponding U.</span> </p>
+<p><span m="2372000">So it's exactly the right basis for the four fundamental</span> <span m="2377760">subspaces.</span> </p>
+<p><span m="2378000">And of course, their dimensions are what we</span> <span m="2382470">know.</span> </p>
+<p><span m="2384010">The dimension of the row space is the rank r,</span> <span m="2387650">and so is the dimension of the column space.</span> </p>
+<p><span m="2391000">The dimension of the null space is n-r, that's how many vectors</span> <span m="2396000">we need, and m-r basis vectors for the left null space,</span> <span m="2400000">the null space of A transpose.</span> </p>
+<p><span m="2404000">Okay. I'm going to stop there.</span> </p>
+<p><span m="2406000">I could develop further from the SVD, but we'll see it again</span> <span m="2411390">in the very last lectures of the course.</span> </p>
+<p><span m="2414000">So there's the SVD.</span> </p>
+<p><span m="2416000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 87MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/29.mp4">MP4 - 162MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/Nx0lRBaXoz4.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

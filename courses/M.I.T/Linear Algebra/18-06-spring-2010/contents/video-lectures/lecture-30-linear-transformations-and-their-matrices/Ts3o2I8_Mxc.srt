@@ -1,0 +1,3361 @@
+1
+00:00:08,000 --> 00:00:13,130
+OK, this is the lecture on
+linear transformations.
+
+2
+00:00:13,130 --> 00:00:18,000
+Actually, linear algebra
+courses used to begin with this
+
+3
+00:00:18,000 --> 00:00:24,000
+lecture, so you could say I'm
+beginning this course again by
+
+4
+00:00:24,000 --> 00:00:27,000
+talking about linear
+transformations.
+
+5
+00:00:27,000 --> 00:00:31,000
+In a lot of courses,
+those come first before
+
+6
+00:00:31,000 --> 00:00:33,000
+matrices.
+
+7
+00:00:33,000 --> 00:00:37,000
+The idea of a linear
+transformation makes sense
+
+8
+00:00:37,000 --> 00:00:42,000
+without a matrix,
+and physicists and other --
+
+9
+00:00:42,000 --> 00:00:45,000
+some people like it better that
+way.
+
+10
+00:00:45,000 --> 00:00:48,000
+They don't like coordinates.
+
+11
+00:00:48,000 --> 00:00:51,000
+They don't want those numbers.
+
+12
+00:00:51,000 --> 00:00:57,000
+They want to see what's going
+on with the whole space.
+
+13
+00:00:57,000 --> 00:01:01,000
+But, for most of us,
+in the end, if we're going to
+
+14
+00:01:01,000 --> 00:01:04,349
+compute anything,
+we introduce coordinates,
+
+15
+00:01:04,349 --> 00:01:08,000
+and then every linear
+transformation will lead us to a
+
+16
+00:01:08,000 --> 00:01:08,000
+matrix.
+And then, to all the things
+that we've done about null space
+
+17
+00:01:13,000 --> 00:01:15,000
+and row space,
+and determinant,
+
+18
+00:01:15,000 --> 00:01:19,000
+and eigenvalues -- all will
+come from the matrix.
+
+19
+00:01:19,000 --> 00:01:28,000
+But, behind it -- in other
+words, behind this is the idea
+
+20
+00:01:28,000 --> 00:01:32,000
+of a linear transformation.
+
+21
+00:01:32,000 --> 00:01:40,000
+Let me give an example of a
+linear transformation.
+
+22
+00:01:40,000 --> 00:01:42,000
+So, example.
+
+23
+00:01:42,000 --> 00:01:43,000
+Example one.
+
+24
+00:01:43,000 --> 00:01:47,190
+A projection.
+
+25
+00:01:47,190 --> 00:01:53,000
+I can describe a projection
+without telling you any matrix,
+
+26
+00:01:53,000 --> 00:01:55,000
+anything about any matrix.
+
+27
+00:01:55,000 --> 00:02:01,000
+I can describe a projection,
+say, this will be a linear
+
+28
+00:02:01,000 --> 00:02:05,000
+transformation that takes,
+say, all of R^2,
+
+29
+00:02:05,000 --> 00:02:11,000
+every vector in the plane,
+into a vector in the plane.
+
+30
+00:02:11,000 --> 00:02:17,030
+And this is the way people
+describe, a mapping.
+
+31
+00:02:17,030 --> 00:02:21,000
+It takes every vector,
+and so, by what rule?
+
+32
+00:02:21,000 --> 00:02:26,000
+So, what's the rule,
+is, I take a -- so here's the
+
+33
+00:02:26,000 --> 00:02:32,500
+plane, this is going to be my
+line, my line through my line,
+
+34
+00:02:32,500 --> 00:02:37,000
+and I'm going to project every
+vector onto that line.
+
+35
+00:02:37,000 --> 00:02:45,060
+So if I take a vector like b --
+or let me call the vector v for
+
+36
+00:02:45,060 --> 00:02:51,000
+the moment -- the projection --
+the linear transformation is
+
+37
+00:02:51,000 --> 00:02:54,000
+going to produce this vector as
+T(v).
+
+38
+00:02:54,000 --> 00:02:57,000
+So T -- it's like a function.
+
+39
+00:02:57,000 --> 00:03:00,000
+Exactly like a function.
+
+40
+00:03:00,000 --> 00:03:05,000
+You give me an input,
+the transformation produces the
+
+41
+00:03:05,000 --> 00:03:07,000
+output.
+
+42
+00:03:07,000 --> 00:03:10,000
+So transformation,
+sometimes the word map,
+
+43
+00:03:10,000 --> 00:03:11,980
+or mapping is used.
+
+44
+00:03:11,980 --> 00:03:14,000
+A map between inputs and
+outputs.
+
+45
+00:03:14,000 --> 00:03:18,000
+So this is one particular map,
+this is one example,
+
+46
+00:03:18,000 --> 00:03:22,000
+a projection that takes every
+vector -- here,
+
+47
+00:03:22,000 --> 00:03:26,000
+let me do another vector v,
+or let me do this vector w,
+
+48
+00:03:26,000 --> 00:03:27,000
+what is T(w)?
+
+49
+00:03:27,000 --> 00:03:28,000
+You see?
+
+50
+00:03:28,000 --> 00:03:32,000
+There are no coordinates here.
+
+51
+00:03:32,000 --> 00:03:36,000
+I've drawn those axes,
+but I'm sorry I drew them,
+
+52
+00:03:36,000 --> 00:03:41,000
+I'm going to remove them,
+that's the whole point,
+
+53
+00:03:41,000 --> 00:03:46,000
+is that we don't need axes,
+we just need -- so guts -- get
+
+54
+00:03:46,000 --> 00:03:49,000
+it out of there,
+I'm not a physicist,
+
+55
+00:03:49,000 --> 00:03:52,000
+so I draw those axes.
+
+56
+00:03:52,000 --> 00:03:55,000
+So the input is w,
+the output of the projection
+
+57
+00:03:55,000 --> 00:03:58,000
+is, project on that line,
+T(w).
+
+58
+00:03:58,000 --> 00:03:58,000
+OK.
+Now, I could think of a lot of
+transformations T.
+
+59
+00:04:02,000 --> 00:04:06,000
+But, in this linear algebra
+course, I want it to be a linear
+
+60
+00:04:06,000 --> 00:04:07,000
+transformation.
+
+61
+00:04:07,000 --> 00:04:12,000
+So here are the rules for a
+linear transformation.
+
+62
+00:04:12,000 --> 00:04:16,000
+Here, see, exactly,
+the two operations that we can
+
+63
+00:04:16,000 --> 00:04:19,000
+do on vectors,
+adding and multiplying by
+
+64
+00:04:19,000 --> 00:04:25,000
+scalars, the transformation does
+something special with respect
+
+65
+00:04:25,000 --> 00:04:27,000
+to those operations.
+
+66
+00:04:27,000 --> 00:04:30,000
+So, for example,
+the projection is a linear
+
+67
+00:04:30,000 --> 00:04:34,000
+transformation because --
+for example,
+
+68
+00:04:34,000 --> 00:04:40,000
+if I wanted to check that one,
+if I took v to be twice as
+
+69
+00:04:40,000 --> 00:04:44,000
+long, the projection would be
+twice as long.
+
+70
+00:04:44,000 --> 00:04:50,000
+If I took v to be minus -- if I
+changed from v to minus v,
+
+71
+00:04:50,000 --> 00:04:53,000
+the projection would change to
+a minus.
+
+72
+00:04:53,000 --> 00:04:57,000
+So c equal to two,
+c equal minus one,
+
+73
+00:04:57,000 --> 00:04:59,000
+any c is OK.
+
+74
+00:04:59,000 --> 00:05:04,000
+So you see that actually,
+those combine,
+
+75
+00:05:04,000 --> 00:05:08,000
+I can combine those into one
+statement.
+
+76
+00:05:08,000 --> 00:05:14,000
+What the transformation does to
+any linear combination,
+
+77
+00:05:14,000 --> 00:05:20,000
+it must produce the same
+combination of T(v) and T(w).
+
+78
+00:05:20,000 --> 00:05:26,000
+Let's think about some --
+I mean, it's like,
+
+79
+00:05:26,000 --> 00:05:33,000
+not hard to decide,
+is a transformation linear or
+
+80
+00:05:33,000 --> 00:05:35,000
+is it not.
+
+81
+00:05:35,000 --> 00:05:43,250
+Let me give you an example so
+you can tell me the answer.
+
+82
+00:05:43,250 --> 00:05:52,000
+Suppose my transformation is --
+here's another example two.
+
+83
+00:05:52,000 --> 00:05:55,000
+Shift the whole plane.
+
+84
+00:05:55,000 --> 00:06:03,000
+So here are all my vectors,
+my plane, and every vector v in
+
+85
+00:06:03,000 --> 00:06:11,000
+the plane, I shift it over by,
+let's say, three by some vector
+
+86
+00:06:11,000 --> 00:06:12,000
+v0.
+
+87
+00:06:12,000 --> 00:06:15,000
+Shift whole plane by v0.
+
+88
+00:06:15,000 --> 00:06:24,000
+So every vector in the plane --
+this was v, T(v) will be v+v0.
+
+89
+00:06:24,000 --> 00:06:26,000
+There's T(v).
+
+90
+00:06:26,000 --> 00:06:27,000
+Here's v0.
+
+91
+00:06:27,000 --> 00:06:29,000
+There's the typical v.
+
+92
+00:06:29,000 --> 00:06:31,000
+And there's T(v).
+
+93
+00:06:31,000 --> 00:06:34,000
+You see what this
+transformation does?
+
+94
+00:06:34,000 --> 00:06:37,000
+Takes this vector and adds to
+it.
+
+95
+00:06:37,000 --> 00:06:40,000
+Adds a fixed vector to it.
+
+96
+00:06:40,000 --> 00:06:45,000
+Well, that seems like a pretty
+reasonable, simple
+
+97
+00:06:45,000 --> 00:06:49,000
+transformation,
+but is it linear?
+
+98
+00:06:49,000 --> 00:06:53,000
+The answer is no,
+it's not linear.
+
+99
+00:06:53,000 --> 00:06:56,540
+Which law is broken?
+
+100
+00:06:56,540 --> 00:06:59,000
+Maybe both laws are broken.
+
+101
+00:06:59,000 --> 00:07:01,000
+Let's see.
+
+102
+00:07:01,000 --> 00:07:08,820
+If I double the length of v,
+does the transformation produce
+
+103
+00:07:08,820 --> 00:07:13,000
+something double -- do I double
+T(v)?
+
+104
+00:07:13,000 --> 00:07:15,000
+No.
+
+105
+00:07:15,000 --> 00:07:18,000
+If I double the length of v,
+in this transformation,
+
+106
+00:07:18,000 --> 00:07:22,000
+I'm just adding on the same one
+-- same v0, not two v0s,
+
+107
+00:07:22,000 --> 00:07:26,000
+but only one v0 for every
+vector, so I don't get two times
+
+108
+00:07:26,000 --> 00:07:27,000
+the transform.
+
+109
+00:07:27,000 --> 00:07:29,230
+Do you see what I'm saying?
+
+110
+00:07:29,230 --> 00:07:32,000
+That if I double this,
+then the transformation starts
+
+111
+00:07:32,000 --> 00:07:37,409
+there and only goes one v0 out
+and doesn't double T(v).
+
+112
+00:07:37,409 --> 00:07:43,000
+In fact, a linear
+transformation -- what is T of
+
+113
+00:07:43,000 --> 00:07:43,000
+zero?
+That's just like a special
+case, but really worth noticing.
+
+114
+00:07:50,000 --> 00:07:56,000
+The zero vector in a linear
+transformation must get
+
+115
+00:07:56,000 --> 00:07:59,000
+transformed to zero.
+
+116
+00:07:59,000 --> 00:08:04,000
+It can't move,
+because, take any vector V here
+
+117
+00:08:04,000 --> 00:08:10,000
+--
+well, so you can see why T of
+
+118
+00:08:10,000 --> 00:08:12,000
+zero is zero.
+
+119
+00:08:12,000 --> 00:08:19,000
+Take v to be the zero vector,
+take c to be three.
+
+120
+00:08:19,000 --> 00:08:27,000
+Then we'd have T of zero vector
+equaling three T of zero vector,
+
+121
+00:08:27,000 --> 00:08:32,000
+the T of zero has to be zero.
+
+122
+00:08:32,000 --> 00:08:32,000
+OK.
+So, this example is really a
+non-example.
+
+123
+00:08:39,000 --> 00:08:45,000
+Shifting the whole plane is not
+a linear transformation.
+
+124
+00:08:45,000 --> 00:08:51,000
+Or if I cooked up some formula
+that involved squaring,
+
+125
+00:08:51,000 --> 00:08:56,000
+or the transformation that,
+also non-example,
+
+126
+00:08:56,000 --> 00:09:03,000
+how about the transformation
+that, takes any vector and
+
+127
+00:09:03,000 --> 00:09:06,000
+produces its length?
+
+128
+00:09:06,000 --> 00:09:10,000
+So there's a transformation
+that takes any vector,
+
+129
+00:09:10,000 --> 00:09:15,000
+say, any vector in R^3,
+let me just -- I'll just get a
+
+130
+00:09:15,000 --> 00:09:18,000
+chance to use this notation
+again.
+
+131
+00:09:18,000 --> 00:09:23,000
+Suppose I think of the
+transformation that takes any
+
+132
+00:09:23,000 --> 00:09:27,000
+vector in R^3 and produces this
+number.
+
+133
+00:09:27,000 --> 00:09:30,000
+So that, I could say,
+is a member of R^1,
+
+134
+00:09:30,000 --> 00:09:34,000
+for example,
+if I wanted.
+
+135
+00:09:34,000 --> 00:09:36,000
+Or just real numbers.
+
+136
+00:09:36,000 --> 00:09:39,000
+That's certainly not linear.
+
+137
+00:09:39,000 --> 00:09:44,000
+It's true that the zero vector
+goes to zero.
+
+138
+00:09:44,000 --> 00:09:49,000
+But if I double a vector,
+it does double the length,
+
+139
+00:09:49,000 --> 00:09:51,000
+that's true.
+
+140
+00:09:51,000 --> 00:09:56,000
+But suppose I multiply a vector
+by minus two.
+
+141
+00:09:56,000 --> 00:10:00,000
+What happens to its length?
+
+142
+00:10:00,000 --> 00:10:01,000
+It just doubles.
+
+143
+00:10:01,000 --> 00:10:04,590
+It doesn't get multiplied by
+minus two.
+
+144
+00:10:04,590 --> 00:10:09,000
+So when c is minus two in my
+requirement, I'm not satisfying
+
+145
+00:10:09,000 --> 00:10:10,000
+that requirement.
+
+146
+00:10:10,000 --> 00:10:15,000
+So T of minus v is not minus v
+-- minus, the length,
+
+147
+00:10:15,000 --> 00:10:16,000
+it's just the length.
+
+148
+00:10:16,000 --> 00:10:19,000
+OK, so that's another
+non-example.
+
+149
+00:10:19,000 --> 00:10:23,000
+Projection was an example,
+let me give you another
+
+150
+00:10:23,000 --> 00:10:25,000
+example.
+
+151
+00:10:25,000 --> 00:10:36,000
+I can stay here and have a --
+this will be an example that is
+
+152
+00:10:36,000 --> 00:10:43,000
+a linear transformation,
+a rotation.
+
+153
+00:10:43,000 --> 00:10:48,000
+Rotation by -- what shall we
+say?
+
+154
+00:10:48,000 --> 00:10:51,000
+By 45 degrees.
+
+155
+00:10:51,000 --> 00:10:53,000
+OK?
+
+156
+00:10:53,000 --> 00:10:57,320
+So again, let me choose this,
+this will be a mapping,
+
+157
+00:10:57,320 --> 00:11:01,000
+from the whole plane of
+vectors, into the whole plane of
+
+158
+00:11:01,000 --> 00:11:05,000
+vectors, and it just -- here is
+the input vector v,
+
+159
+00:11:05,000 --> 00:11:09,000
+and the output vector foam this
+45 degree rotation is just
+
+160
+00:11:09,000 --> 00:11:12,000
+rotate that thing by 45 degrees,
+T(v).
+
+161
+00:11:12,000 --> 00:11:14,000
+So every vector got rotated.
+
+162
+00:11:14,000 --> 00:11:19,000
+You see that I can describe
+this without any coordinates.
+
+163
+00:11:19,000 --> 00:11:22,000
+And see that it's linear.
+
+164
+00:11:22,000 --> 00:11:28,000
+If I doubled v,
+the rotation would just be
+
+165
+00:11:28,000 --> 00:11:30,000
+twice as far out.
+
+166
+00:11:30,000 --> 00:11:35,000
+If I had v+w,
+and if I rotated each of them
+
+167
+00:11:35,000 --> 00:11:44,000
+and added, the answer's the same
+as if I add and then rotate.
+
+168
+00:11:44,000 --> 00:11:49,000
+That's what the linear
+transformation is.
+
+169
+00:11:49,000 --> 00:11:52,000
+OK, so those are two examples.
+
+170
+00:11:52,000 --> 00:11:57,000
+Two examples,
+projection and rotation,
+
+171
+00:11:57,000 --> 00:12:04,000
+and I could invent more that
+are linear transformations where
+
+172
+00:12:04,000 --> 00:12:08,000
+I haven't told you a matrix yet.
+
+173
+00:12:08,000 --> 00:12:13,250
+Actually, the book has a
+picture of the action of linear
+
+174
+00:12:13,250 --> 00:12:17,000
+transformations -- actually,
+the cover of the book has it.
+
+175
+00:12:17,000 --> 00:12:22,100
+So, in this section seven point
+one, we can think of a --
+
+176
+00:12:22,100 --> 00:12:26,000
+actually, here let's take this
+linear transformation,
+
+177
+00:12:26,000 --> 00:12:30,000
+rotation, suppose I have,
+as the cover of the book has,
+
+178
+00:12:30,000 --> 00:12:32,000
+a house in R^2.
+
+179
+00:12:32,000 --> 00:12:37,000
+So instead of this,
+let me take a small house in
+
+180
+00:12:37,000 --> 00:12:37,000
+R^2.
+So that's a whole lot of
+points.
+
+181
+00:12:41,000 --> 00:12:44,400
+The idea is,
+with this linear
+
+182
+00:12:44,400 --> 00:12:49,000
+transformation,
+that I can see what it does to
+
+183
+00:12:49,000 --> 00:12:52,000
+everything at once.
+
+184
+00:12:52,000 --> 00:12:58,000
+I don't have to just take one
+vector at a time and see what T
+
+185
+00:12:58,000 --> 00:13:03,000
+of V is, I can take all the
+vectors on the outline of the
+
+186
+00:13:03,000 --> 00:13:06,000
+house, and see where they all
+go.
+
+187
+00:13:06,000 --> 00:13:12,000
+In fact, that will show me
+where the whole house goes.
+
+188
+00:13:12,000 --> 00:13:18,000
+So what will happen with this
+particular linear
+
+189
+00:13:18,000 --> 00:13:19,000
+transformation?
+
+190
+00:13:19,000 --> 00:13:24,000
+The whole house will rotate,
+so the result,
+
+191
+00:13:24,000 --> 00:13:29,000
+if I can draw it,
+will be, the house will be
+
+192
+00:13:29,000 --> 00:13:30,000
+sitting there.
+
+193
+00:13:30,000 --> 00:13:31,000
+OK.
+
+194
+00:13:31,000 --> 00:13:37,000
+And, but suppose I give some
+other examples.
+
+195
+00:13:37,000 --> 00:13:44,000
+Oh, let me give some examples
+that involve a matrix.
+
+196
+00:13:44,000 --> 00:13:51,000
+Example three -- and this is
+important -- coming from a
+
+197
+00:13:51,000 --> 00:13:55,000
+matrix at -- we always call A.
+
+198
+00:13:55,000 --> 00:14:00,000
+So the transformation will be,
+multiply by A.
+
+199
+00:14:00,000 --> 00:14:06,220
+There is a linear
+transformation.
+
+200
+00:14:06,220 --> 00:14:11,000
+And a whole family of them,
+because every matrix produces a
+
+201
+00:14:11,000 --> 00:14:16,000
+transformation by this simple
+rule, just multiply every vector
+
+202
+00:14:16,000 --> 00:14:19,000
+by that matrix,
+and it's linear,
+
+203
+00:14:19,000 --> 00:14:19,000
+right?
+Linear, I have to check that
+A(v) -- A times v plus w equals
+
+204
+00:14:24,000 --> 00:14:29,000
+Av plus A w, which is fine,
+and I have to check that A
+
+205
+00:14:29,000 --> 00:14:32,000
+times vc equals c A(v).
+
+206
+00:14:32,000 --> 00:14:32,810
+Check.
+
+207
+00:14:32,810 --> 00:14:34,000
+Those are fine.
+
+208
+00:14:34,000 --> 00:14:38,290
+So there is a linear
+transformation.
+
+209
+00:14:38,290 --> 00:14:44,000
+And if I take my favorite
+matrix A, and I apply it to all
+
+210
+00:14:44,000 --> 00:14:49,000
+vectors in the plane,
+it will produce a bunch of
+
+211
+00:14:49,000 --> 00:14:50,000
+outputs.
+
+212
+00:14:50,000 --> 00:14:55,000
+See, the idea is now worth
+thinking of, like,
+
+213
+00:14:55,000 --> 00:14:58,000
+the big picture.
+
+214
+00:14:58,000 --> 00:15:01,000
+The whole plane is transformed
+by matrix multiplication.
+
+215
+00:15:01,000 --> 00:15:04,000
+Every vector in the plane gets
+multiplied by A.
+
+216
+00:15:04,000 --> 00:15:07,000
+Let's take an example,
+and see what happens to the
+
+217
+00:15:07,000 --> 00:15:08,000
+vectors of the house.
+
+218
+00:15:08,000 --> 00:15:11,030
+So this is still a
+transformation from plane to
+
+219
+00:15:11,030 --> 00:15:14,070
+plane, and let me take a
+particular matrix A -- well,
+
+220
+00:15:14,070 --> 00:15:17,000
+if I cooked up a rotation
+matrix, this would be the right
+
+221
+00:15:17,000 --> 00:15:18,000
+picture.
+
+222
+00:15:18,000 --> 00:15:24,000
+If I cooked up a projection
+matrix, the projection would be
+
+223
+00:15:24,000 --> 00:15:25,260
+the picture.
+
+224
+00:15:25,260 --> 00:15:28,480
+Let me just take some other
+matrix.
+
+225
+00:15:28,480 --> 00:15:32,000
+Let me take the matrix one zero
+zero minus one.
+
+226
+00:15:32,000 --> 00:15:36,000
+What happens to the house,
+to all vectors,
+
+227
+00:15:36,000 --> 00:15:41,000
+and in particular,
+we can sort of visualize it if
+
+228
+00:15:41,000 --> 00:15:48,000
+we look at the house --
+so the house is not rotated any
+
+229
+00:15:48,000 --> 00:15:51,000
+more, what do I get?
+
+230
+00:15:51,000 --> 00:15:59,000
+What happens to all the vectors
+if I do this transformation?
+
+231
+00:15:59,000 --> 00:16:03,000
+I multiply by this matrix.
+
+232
+00:16:03,000 --> 00:16:08,000
+Well, of course,
+it's an easy matrix,
+
+233
+00:16:08,000 --> 00:16:11,000
+it's diagonal.
+
+234
+00:16:11,000 --> 00:16:16,000
+The x component stays the same,
+the y component reverses sign,
+
+235
+00:16:16,000 --> 00:16:19,000
+so that like the roof of that
+house, the point,
+
+236
+00:16:19,000 --> 00:16:23,000
+the tip of the roof,
+has an x component which stays
+
+237
+00:16:23,000 --> 00:16:27,000
+the same, but its y component
+reverses, and it's down here.
+
+238
+00:16:27,000 --> 00:16:30,170
+And, of course,
+what we get is,
+
+239
+00:16:30,170 --> 00:16:33,000
+the house is,
+like, upside down.
+
+240
+00:16:33,000 --> 00:16:37,000
+Now, I have to put -- where
+does the door go?
+
+241
+00:16:37,000 --> 00:16:42,000
+I guess the door goes upside
+down there, right?
+
+242
+00:16:42,000 --> 00:16:46,000
+So here's the input,
+here's the input house,
+
+243
+00:16:46,000 --> 00:16:48,000
+and this is the output.
+
+244
+00:16:48,000 --> 00:16:49,000
+OK.
+
+245
+00:16:49,000 --> 00:16:54,000
+This idea of a linear
+transformation is like kind of
+
+246
+00:16:54,000 --> 00:17:00,000
+the abstract description of
+matrix multiplication.
+
+247
+00:17:00,000 --> 00:17:03,000
+And what's our goal here?
+
+248
+00:17:03,000 --> 00:17:09,000
+Our goal is to understand
+linear transformations,
+
+249
+00:17:09,000 --> 00:17:16,000
+and the way to understand them
+is to find the matrix that lies
+
+250
+00:17:16,000 --> 00:17:17,000
+behind them.
+
+251
+00:17:17,000 --> 00:17:20,000
+That's really the idea.
+
+252
+00:17:20,000 --> 00:17:26,000
+Find the matrix that lies
+behind them.
+
+253
+00:17:26,000 --> 00:17:30,000
+Um, and to do that,
+we have to bring in
+
+254
+00:17:30,000 --> 00:17:31,000
+coordinates.
+
+255
+00:17:31,000 --> 00:17:34,000
+We have to choose a basis.
+
+256
+00:17:34,000 --> 00:17:40,000
+So let me point out what's the
+story -- if we have a linear
+
+257
+00:17:40,000 --> 00:17:44,000
+transformation -- so start with
+-- start.
+
+258
+00:17:44,000 --> 00:17:49,000
+Suppose we have a linear
+transformation.
+
+259
+00:17:49,000 --> 00:17:53,030
+Let -- from now on,
+let T stand for linear
+
+260
+00:17:53,030 --> 00:17:54,000
+transformations.
+
+261
+00:17:54,000 --> 00:17:58,000
+I won't be interested in the
+nonlinear ones.
+
+262
+00:17:58,000 --> 00:18:02,000
+Only linear transformations I'm
+interested in.
+
+263
+00:18:02,000 --> 00:18:02,970
+OK.
+
+264
+00:18:02,970 --> 00:18:06,000
+I start with a linear
+transformation T.
+
+265
+00:18:06,000 --> 00:18:11,000
+Let's suppose its inputs are
+vectors in R^3.
+
+266
+00:18:11,000 --> 00:18:11,000
+OK?
+And suppose its outputs are
+vectors in R^2,
+
+267
+00:18:16,000 --> 00:18:17,000
+for example.
+
+268
+00:18:17,000 --> 00:18:17,000
+OK.
+What's an example of such a
+transformation,
+
+269
+00:18:22,000 --> 00:18:25,000
+just before I go any further?
+
+270
+00:18:25,000 --> 00:18:29,000
+Any matrix of the right size
+will do this.
+
+271
+00:18:29,000 --> 00:18:35,000
+So what would be the right
+shape of a matrix?
+
+272
+00:18:35,000 --> 00:18:42,000
+So, for example -- I'm wanting
+to give you an example,
+
+273
+00:18:42,000 --> 00:18:46,000
+just because,
+here, I'm thinking of
+
+274
+00:18:46,000 --> 00:18:53,000
+transformations that take
+three-dimensional space to
+
+275
+00:18:53,000 --> 00:18:57,740
+two-dimensional space.
+
+276
+00:18:57,740 --> 00:19:03,000
+And I want them to be linear,
+and the easy way to invent them
+
+277
+00:19:03,000 --> 00:19:06,000
+is a matrix multiplication.
+
+278
+00:19:06,000 --> 00:19:10,000
+So example, T of v should be
+any A v.
+
+279
+00:19:10,000 --> 00:19:15,000
+Those transformations are
+linear, that's what 18.06 is
+
+280
+00:19:15,000 --> 00:19:16,180
+about.
+
+281
+00:19:16,180 --> 00:19:21,550
+And A should be what size,
+what shape of matrix should
+
+282
+00:19:21,550 --> 00:19:23,000
+that be?
+
+283
+00:19:23,000 --> 00:19:30,000
+I want V to have three
+components, because this is what
+
+284
+00:19:30,000 --> 00:19:36,000
+the inputs have -- so here's the
+input in R^3,
+
+285
+00:19:36,000 --> 00:19:40,000
+and here's the output in R^2.
+
+286
+00:19:40,000 --> 00:19:43,000
+So what shape of matrix?
+
+287
+00:19:43,000 --> 00:19:49,000
+So this should be,
+I guess, a two by three matrix?
+
+288
+00:19:49,000 --> 00:19:50,000
+Right?
+
+289
+00:19:50,000 --> 00:19:54,000
+A two by three matrix.
+
+290
+00:19:54,000 --> 00:19:59,000
+A two by three matrix,
+we'll multiply a vector in R^3
+
+291
+00:19:59,000 --> 00:20:04,000
+-- you see I'm moving to
+coordinates so quickly,
+
+292
+00:20:04,000 --> 00:20:07,260
+I'm not a true physicist here.
+
+293
+00:20:07,260 --> 00:20:12,000
+A two by three matrix,
+we'll multiply a vector in R^3
+
+294
+00:20:12,000 --> 00:20:17,000
+an produce an output in R^2,
+and it will be a linear
+
+295
+00:20:17,000 --> 00:20:20,000
+transformation,
+and OK.
+
+296
+00:20:20,000 --> 00:20:24,000
+So there's a whole lot of
+examples, every two by three
+
+297
+00:20:24,000 --> 00:20:27,000
+matrix give me an example,
+and basically,
+
+298
+00:20:27,000 --> 00:20:31,000
+I want to show you that there
+are no other examples.
+
+299
+00:20:31,000 --> 00:20:35,000
+Every linear transformation is
+associated with a matrix.
+
+300
+00:20:35,000 --> 00:20:40,000
+Now, let me come back to the
+idea of linear transformation.
+
+301
+00:20:40,000 --> 00:20:47,000
+Suppose I've got this linear
+transformation in my mind,
+
+302
+00:20:47,000 --> 00:20:51,000
+and I want to tell you what it
+is.
+
+303
+00:20:51,000 --> 00:20:58,000
+Suppose I tell you what the
+transformation does to one
+
+304
+00:20:58,000 --> 00:21:00,000
+vector.
+
+305
+00:21:00,000 --> 00:21:00,000
+OK.
+You know one thing,
+then.
+
+306
+00:21:03,810 --> 00:21:05,000
+All right.
+
+307
+00:21:05,000 --> 00:21:12,000
+So this is like the -- what I'm
+speaking about now is,
+
+308
+00:21:12,000 --> 00:21:20,590
+how much information is needed
+to know the transformation?
+
+309
+00:21:20,590 --> 00:21:26,000
+By knowing T,
+I -- to know T of v for all v.
+
+310
+00:21:26,000 --> 00:21:29,000
+All inputs.
+
+311
+00:21:29,000 --> 00:21:35,000
+How much information do I have
+to give you so that you know
+
+312
+00:21:35,000 --> 00:21:39,000
+what the transformation does to
+every vector?
+
+313
+00:21:39,000 --> 00:21:44,000
+OK, I could tell you what the
+transformation -- so I could
+
+314
+00:21:44,000 --> 00:21:48,000
+take a vector v1,
+one particular vector,
+
+315
+00:21:48,000 --> 00:21:52,000
+tell you what the
+transformation does to it --
+
+316
+00:21:52,000 --> 00:21:54,000
+fine.
+
+317
+00:21:54,000 --> 00:21:59,000
+But now you only know what the
+transformation does to one
+
+318
+00:21:59,000 --> 00:21:59,000
+vector.
+So you say, OK,
+that's not enough,
+
+319
+00:22:02,000 --> 00:22:06,000
+tell me what it does to another
+vector.
+
+320
+00:22:06,000 --> 00:22:08,000
+So I say, OK,
+give me a vector,
+
+321
+00:22:08,000 --> 00:22:13,000
+you give me a vector v2,
+and we see, what does the
+
+322
+00:22:13,000 --> 00:22:16,000
+transformation do to v2?
+
+323
+00:22:16,000 --> 00:22:20,000
+Now, you only know -- or do you
+only know what the
+
+324
+00:22:20,000 --> 00:22:22,000
+transformation does to two
+vectors?
+
+325
+00:22:22,000 --> 00:22:27,000
+Have I got to ask you -- answer
+you about every vector in the
+
+326
+00:22:27,000 --> 00:22:30,000
+whole input space,
+or can you, knowing what it
+
+327
+00:22:30,000 --> 00:22:34,000
+does to v1 and v2,
+how much do you now know about
+
+328
+00:22:34,000 --> 00:22:36,980
+the transformation?
+
+329
+00:22:36,980 --> 00:22:42,000
+You know what the
+transformation does to a larger
+
+330
+00:22:42,000 --> 00:22:49,000
+bunch of vectors than just these
+two, because you know what it
+
+331
+00:22:49,000 --> 00:22:53,570
+does to every linear
+combination.
+
+332
+00:22:53,570 --> 00:22:59,000
+You know what it does,
+now, to the whole plane of
+
+333
+00:22:59,000 --> 00:23:03,000
+vectors, with bases v1 and v2.
+
+334
+00:23:03,000 --> 00:23:07,000
+I'm assuming v1 and v2 were
+independent.
+
+335
+00:23:07,000 --> 00:23:11,000
+If they were dependent,
+if v2 was six times v1,
+
+336
+00:23:11,000 --> 00:23:16,000
+then I didn't give you any new
+information in T of v2,
+
+337
+00:23:16,000 --> 00:23:20,480
+you already knew it would be
+six times T of v1.
+
+338
+00:23:20,480 --> 00:23:24,000
+So you can see what I'd headed
+for.
+
+339
+00:23:24,000 --> 00:23:30,000
+If I know what the
+transformation does to every
+
+340
+00:23:30,000 --> 00:23:34,000
+vector in a basis,
+then I know everything.
+
+341
+00:23:34,000 --> 00:23:42,000
+So the information needed to
+know T of v for all inputs is T
+
+342
+00:23:42,000 --> 00:23:45,000
+of v1, T of v2,
+up to T of vm,
+
+343
+00:23:45,000 --> 00:23:51,000
+let's say, or vn,
+for any basis -- for a basis v1
+
+344
+00:23:51,000 --> 00:23:53,730
+up to vn.
+
+345
+00:23:53,730 --> 00:24:05,000
+This is a base for any -- can I
+call it an input basis?
+
+346
+00:24:05,000 --> 00:24:12,000
+It's a basis for the space of
+inputs.
+
+347
+00:24:12,000 --> 00:24:20,000
+The things that T is acting on.
+
+348
+00:24:20,000 --> 00:24:25,000
+You see this point,
+that if I have a basis for the
+
+349
+00:24:25,000 --> 00:24:32,000
+input space, and I tell you what
+the transformation does to every
+
+350
+00:24:32,000 --> 00:24:38,000
+one of those basis vectors,
+that is all I'm allowed to tell
+
+351
+00:24:38,000 --> 00:24:43,000
+you, and it's enough to know T
+of v for all v-s,
+
+352
+00:24:43,000 --> 00:24:46,000
+because why?
+
+353
+00:24:46,000 --> 00:24:51,530
+Because every v is some
+combination of these basis
+
+354
+00:24:51,530 --> 00:24:56,650
+vectors, c1v1+...+cnvn,
+that's what a basis is,
+
+355
+00:24:56,650 --> 00:24:57,000
+right?
+
+356
+00:24:57,000 --> 00:24:59,000
+It spans the space.
+
+357
+00:24:59,000 --> 00:25:05,000
+And if I know what T does to
+this, and what T does to v2,
+
+358
+00:25:05,000 --> 00:25:11,000
+and what T does to vn,
+then I know what T does to V.
+
+359
+00:25:11,000 --> 00:25:16,000
+By this linearity,
+it has to be c1 T of v1 plus O
+
+360
+00:25:16,000 --> 00:25:20,000
+one plus cn T of vn.
+
+361
+00:25:20,000 --> 00:25:22,000
+There's no choice.
+
+362
+00:25:22,000 --> 00:25:29,000
+So, the point of this comment
+is that if I know what T does to
+
+363
+00:25:29,000 --> 00:25:36,000
+a basis, to each vector in a
+basis, then I know the linear
+
+364
+00:25:36,000 --> 00:25:37,000
+transformation.
+
+365
+00:25:37,000 --> 00:25:45,000
+The property of linearity tells
+me all the other vectors.
+
+366
+00:25:45,000 --> 00:25:47,000
+All the other outputs.
+
+367
+00:25:47,000 --> 00:25:47,000
+OK.
+So now, we got -- so that light
+we now see, what do we really
+
+368
+00:25:52,000 --> 00:25:57,000
+need in a linear transformation,
+and we're ready to go to a
+
+369
+00:25:57,000 --> 00:25:57,000
+matrix.
+OK.
+
+370
+00:25:58,000 --> 00:26:03,000
+What's the step now that takes
+us from a linear transformation
+
+371
+00:26:03,000 --> 00:26:08,000
+that's free of coordinates to a
+matrix that's been created with
+
+372
+00:26:08,000 --> 00:26:11,000
+respect to coordinates?
+
+373
+00:26:11,000 --> 00:26:17,000
+The matrix is going to come
+from the coordinate system.
+
+374
+00:26:17,000 --> 00:26:20,000
+These are the coordinates.
+
+375
+00:26:20,000 --> 00:26:23,000
+Coordinates mean a basis is
+decided.
+
+376
+00:26:23,000 --> 00:26:30,000
+Once you decide on a basis --
+this is where coordinates come
+
+377
+00:26:30,000 --> 00:26:30,000
+from.
+You decide on a basis,
+then every vector,
+
+378
+00:26:35,000 --> 00:26:40,500
+these are the coordinates in
+that basis.
+
+379
+00:26:40,500 --> 00:26:47,000
+There is one and only one way
+to express v as a combination of
+
+380
+00:26:47,000 --> 00:26:53,000
+the basis vectors,
+and the numbers you need in
+
+381
+00:26:53,000 --> 00:26:57,000
+that combination are the
+coordinates.
+
+382
+00:26:57,000 --> 00:27:00,000
+Let me write that down.
+
+383
+00:27:00,000 --> 00:27:03,000
+So what are coordinates?
+
+384
+00:27:03,000 --> 00:27:06,000
+Coordinates come from a basis.
+
+385
+00:27:06,000 --> 00:27:11,000
+Coordinates come from a basis.
+
+386
+00:27:11,000 --> 00:27:18,000
+The coordinates of v,
+the coordinates of v are these
+
+387
+00:27:18,000 --> 00:27:25,000
+numbers that tell you how much
+of each basis vector is in v.
+
+388
+00:27:25,000 --> 00:27:31,000
+If I change the basis,
+I change the coordinates,
+
+389
+00:27:31,000 --> 00:27:32,000
+right?
+
+390
+00:27:32,000 --> 00:27:39,000
+Now, we have always been
+assuming that were working with
+
+391
+00:27:39,000 --> 00:27:43,000
+a standard basis,
+right?
+
+392
+00:27:43,000 --> 00:27:46,000
+The basis we don't even think
+about this stuff,
+
+393
+00:27:46,000 --> 00:27:51,000
+because if I give you the
+vector v equals three two four,
+
+394
+00:27:51,000 --> 00:27:55,000
+you have been assuming
+completely -- and probably
+
+395
+00:27:55,000 --> 00:27:59,000
+rightly -- that I had in mind
+the standard basis,
+
+396
+00:27:59,000 --> 00:28:03,000
+that this vector was three
+times the first coordinate
+
+397
+00:28:03,000 --> 00:28:07,000
+vector, and two times the
+second, and four times the
+
+398
+00:28:07,000 --> 00:28:08,000
+third.
+
+399
+00:28:08,000 --> 00:28:17,000
+But you're not entitled -- I
+might have had some other basis
+
+400
+00:28:17,000 --> 00:28:19,000
+in mind.
+
+401
+00:28:19,000 --> 00:28:23,830
+This is like the standard
+basis.
+
+402
+00:28:23,830 --> 00:28:32,000
+And then the coordinates are
+sitting right there in the
+
+403
+00:28:32,000 --> 00:28:34,000
+vector.
+
+404
+00:28:34,000 --> 00:28:37,000
+But I could have chosen a
+different basis,
+
+405
+00:28:37,000 --> 00:28:41,000
+like I might have had
+eigenvectors of a matrix,
+
+406
+00:28:41,000 --> 00:28:45,420
+and I might have said,
+OK, that's a great basis,
+
+407
+00:28:45,420 --> 00:28:50,000
+I'll use the eigenvectors of
+this matrix as my basis vectors.
+
+408
+00:28:50,000 --> 00:28:56,000
+Which are not necessarily these
+three, but some other basis.
+
+409
+00:28:56,000 --> 00:29:00,000
+So that was an example,
+this is the real thing,
+
+410
+00:29:00,000 --> 00:29:05,000
+the coordinates are these
+numbers, I'll circle them again,
+
+411
+00:29:05,000 --> 00:29:07,000
+the amounts of each basis.
+
+412
+00:29:07,000 --> 00:29:08,000
+OK.
+
+413
+00:29:08,000 --> 00:29:13,000
+So, if I want to create a
+matrix that describes a linear
+
+414
+00:29:13,000 --> 00:29:17,910
+transformation,
+now I'm ready to do that.
+
+415
+00:29:17,910 --> 00:29:19,000
+OK, OK.
+
+416
+00:29:19,000 --> 00:29:28,000
+So now what I plan to do is
+construct the matrix A that
+
+417
+00:29:28,000 --> 00:29:37,000
+represents, or tells me about,
+a linear transformation,
+
+418
+00:29:37,000 --> 00:29:42,000
+linear transformation T.
+
+419
+00:29:42,000 --> 00:29:42,000
+OK.
+So I really start with the
+transformation --
+
+420
+00:29:51,000 --> 00:29:57,970
+whether it's a projection or a
+rotation, or some strange
+
+421
+00:29:57,970 --> 00:30:04,000
+movement of this house in the
+plane, or some transformation
+
+422
+00:30:04,000 --> 00:30:10,850
+from n-dimensional space to --
+or m-dimensional space to
+
+423
+00:30:10,850 --> 00:30:15,000
+n-dimensional space.
+n to m, I guess.
+
+424
+00:30:15,000 --> 00:30:19,000
+Usually, we'll have T,
+we'll somehow transform
+
+425
+00:30:19,000 --> 00:30:22,000
+n-dimensional space to
+m-dimensional space,
+
+426
+00:30:22,000 --> 00:30:26,000
+and the whole point is that if
+I have a basis for n-dimensional
+
+427
+00:30:26,000 --> 00:30:29,480
+space -- I guess I need two
+bases, really.
+
+428
+00:30:29,480 --> 00:30:32,000
+I need an input basis to
+describe the inputs,
+
+429
+00:30:32,000 --> 00:30:36,000
+and I need an output basis to
+give me coordinates -- to give
+
+430
+00:30:36,000 --> 00:30:40,000
+me some numbers for the output.
+
+431
+00:30:40,000 --> 00:30:43,000
+So I've got to choose two
+bases.
+
+432
+00:30:43,000 --> 00:30:50,000
+Choose a basis v1 up to vn for
+the inputs, for the inputs in --
+
+433
+00:30:50,000 --> 00:30:53,170
+they came from R^n.
+
+434
+00:30:53,170 --> 00:31:00,000
+So the transformation is taking
+every n-dimensional vector into
+
+435
+00:31:00,000 --> 00:31:03,000
+some m-dimensional vector.
+
+436
+00:31:03,000 --> 00:31:10,000
+And I have to choose a basis,
+and I'll call them w1 up to wn,
+
+437
+00:31:10,000 --> 00:31:13,000
+for the outputs.
+
+438
+00:31:13,000 --> 00:31:16,000
+Those are guys in R^m.
+
+439
+00:31:16,000 --> 00:31:23,000
+Once I've chosen the basis,
+that settles the matrix -- I
+
+440
+00:31:23,000 --> 00:31:27,000
+now working with coordinates.
+
+441
+00:31:27,000 --> 00:31:33,000
+Every vector in R^n,
+every input vector has some
+
+442
+00:31:33,000 --> 00:31:34,000
+coordinates.
+
+443
+00:31:34,000 --> 00:31:39,000
+So here's what I do,
+here's what I do.
+
+444
+00:31:39,000 --> 00:31:43,000
+Can I say it in words?
+
+445
+00:31:43,000 --> 00:31:45,000
+I take a vector v.
+
+446
+00:31:45,000 --> 00:31:48,000
+I express it in its basis,
+in the basis,
+
+447
+00:31:48,000 --> 00:31:50,000
+so I get its coordinates.
+
+448
+00:31:50,000 --> 00:31:55,000
+Then I'm going to multiply
+those coordinates by the right
+
+449
+00:31:55,000 --> 00:32:00,000
+matrix A, and that will give me
+the coordinates of the output in
+
+450
+00:32:00,000 --> 00:32:02,000
+the output basis.
+
+451
+00:32:02,000 --> 00:32:07,000
+I'd better write that down,
+that was a mouthful.
+
+452
+00:32:07,000 --> 00:32:15,000
+What I want -- I want a matrix
+A that does what the linear
+
+453
+00:32:15,000 --> 00:32:18,000
+transformation does.
+
+454
+00:32:18,000 --> 00:32:25,000
+And it does it with respecting
+these bases.
+
+455
+00:32:25,000 --> 00:32:33,000
+So I want the matrix to be --
+well, let's suppose -- look,
+
+456
+00:32:33,000 --> 00:32:38,500
+let me take an example.
+
+457
+00:32:38,500 --> 00:32:41,000
+Let me take the projection
+example.
+
+458
+00:32:41,000 --> 00:32:44,000
+The projection example.
+
+459
+00:32:44,000 --> 00:32:49,000
+Suppose I take -- because we've
+got that -- we've got that
+
+460
+00:32:49,000 --> 00:32:53,000
+projection in mind -- I can fit
+in here.
+
+461
+00:32:53,000 --> 00:32:56,000
+Here's the projection example.
+
+462
+00:32:56,000 --> 00:33:02,000
+So the projection example,
+I'm thinking of n and m as two.
+
+463
+00:33:02,000 --> 00:33:08,000
+The transformation takes the
+plane, takes every vector in the
+
+464
+00:33:08,000 --> 00:33:13,000
+plane, and, let me draw the
+plane, just so we remember it's
+
+465
+00:33:13,000 --> 00:33:18,000
+a plane -- and there's the thing
+that I'm projecting onto,
+
+466
+00:33:18,000 --> 00:33:23,000
+that's the line I'm projecting
+onto -- so the transformation
+
+467
+00:33:23,000 --> 00:33:30,160
+takes every vector in the plane
+and projects it onto that line.
+
+468
+00:33:30,160 --> 00:33:34,000
+So this is projection,
+so I'm going to do projection.
+
+469
+00:33:34,000 --> 00:33:34,000
+OK.
+But, I'm going to choose a
+basis that I like better than
+
+470
+00:33:39,000 --> 00:33:41,220
+the standard basis.
+
+471
+00:33:41,220 --> 00:33:45,000
+My basis -- in fact,
+I'll choose the same basis for
+
+472
+00:33:45,000 --> 00:33:49,000
+inputs and for outputs,
+and the basis will be -- my
+
+473
+00:33:49,000 --> 00:33:53,000
+first basis vector will be right
+on the line.
+
+474
+00:33:53,000 --> 00:33:57,000
+There's my first basis vector.
+
+475
+00:33:57,000 --> 00:33:59,000
+Say, a unit vector,
+on the line.
+
+476
+00:33:59,000 --> 00:34:03,000
+And my second basis vector will
+be a unit vector perpendicular
+
+477
+00:34:03,000 --> 00:34:04,000
+to that line.
+
+478
+00:34:04,000 --> 00:34:08,000
+And I'm going to choose that as
+the output basis,
+
+479
+00:34:08,000 --> 00:34:08,000
+also.
+And I'm going to ask you,
+what's the matrix?
+
+480
+00:34:11,000 --> 00:34:13,000
+What's the matrix?
+
+481
+00:34:13,000 --> 00:34:16,000
+How do I describe this
+transformation of projection
+
+482
+00:34:16,000 --> 00:34:19,000
+with respect to this basis?
+
+483
+00:34:19,000 --> 00:34:20,000
+OK?
+
+484
+00:34:20,000 --> 00:34:22,000
+So what's the rule?
+
+485
+00:34:22,000 --> 00:34:28,530
+I take any vector v,
+it's some combination of the
+
+486
+00:34:28,530 --> 00:34:34,000
+first basis ve- vector,
+and the second basis vector.
+
+487
+00:34:34,000 --> 00:34:37,000
+Now, what is T of v?
+
+488
+00:34:37,000 --> 00:34:43,000
+Suppose the input is -- well,
+suppose the input is v1.
+
+489
+00:34:43,000 --> 00:34:48,000
+What's the output?
+v1, right?
+
+490
+00:34:48,000 --> 00:34:51,000
+The projection leaves this one
+alone.
+
+491
+00:34:51,000 --> 00:34:57,000
+So we know what the projection
+does to this first basis vector,
+
+492
+00:34:57,000 --> 00:34:59,000
+this guy, it leaves it.
+
+493
+00:34:59,000 --> 00:35:04,000
+What does the projection do to
+the second basis vector?
+
+494
+00:35:04,000 --> 00:35:07,000
+It kills it,
+sends it to zero.
+
+495
+00:35:07,000 --> 00:35:11,000
+So what does the projection do
+to a combination?
+
+496
+00:35:11,000 --> 00:35:14,000
+It kills this part,
+and this part,
+
+497
+00:35:14,000 --> 00:35:17,000
+it leaves alone.
+
+498
+00:35:17,000 --> 00:35:23,000
+Now, all I want to do is find
+the matrix.
+
+499
+00:35:23,000 --> 00:35:30,000
+I now want to find the matrix
+that takes an input,
+
+500
+00:35:30,000 --> 00:35:37,000
+c1 c2, the coordinates,
+and gives me the output,
+
+501
+00:35:37,000 --> 00:35:39,000
+c1 0.
+
+502
+00:35:39,000 --> 00:35:44,000
+You see that in this basis,
+the coordinates of the input
+
+503
+00:35:44,000 --> 00:35:49,330
+were c1, c2, and the coordinates
+of the output are c1,
+
+504
+00:35:49,330 --> 00:00:00,000
+
+
+505
+00:00:00,000 --> 00:35:49,000
+
+
+506
+00:35:49,000 --> 00:35:53,000
+And of course,
+not hard to find a matrix that
+
+507
+00:35:53,000 --> 00:35:54,000
+will do that.
+
+508
+00:35:54,000 --> 00:35:58,000
+The matrix that will do that is
+the matrix one,
+
+509
+00:35:58,000 --> 00:36:01,000
+zero, zero, zero.
+
+510
+00:36:01,000 --> 00:36:09,000
+Because if I multiply input by
+that matrix A -- this is A times
+
+511
+00:36:09,000 --> 00:36:16,000
+input coordinates -- and I'm
+hoping to get the output
+
+512
+00:36:16,000 --> 00:36:18,000
+coordinates.
+
+513
+00:36:18,000 --> 00:36:23,000
+And what do I get from that
+multiplication?
+
+514
+00:36:23,000 --> 00:36:28,370
+I get the right answer,
+c1 and zero.
+
+515
+00:36:28,370 --> 00:36:32,000
+So what's the point?
+
+516
+00:36:32,000 --> 00:36:35,000
+So the first point is,
+there's a matrix that does the
+
+517
+00:36:35,000 --> 00:36:36,000
+job.
+
+518
+00:36:36,000 --> 00:36:39,000
+If there's a linear
+transformation out there,
+
+519
+00:36:39,000 --> 00:36:41,000
+coordinate-free,
+no coordinates,
+
+520
+00:36:41,000 --> 00:36:45,000
+and then I choose a basis for
+the inputs, and I choose a basis
+
+521
+00:36:45,000 --> 00:36:48,440
+for the outputs,
+then there's a matrix that does
+
+522
+00:36:48,440 --> 00:36:48,000
+the job.
+
+523
+00:36:48,000 --> 00:36:50,000
+And what's the job?
+
+524
+00:36:50,000 --> 00:36:53,000
+It multiplies the input
+coordinates and produces the
+
+525
+00:36:53,000 --> 00:36:56,000
+output coordinates.
+
+526
+00:36:56,000 --> 00:37:01,000
+Now, in this example -- let me
+repeat, I chose the input basis
+
+527
+00:37:01,000 --> 00:37:04,000
+was the same as the output
+basis.
+
+528
+00:37:04,000 --> 00:37:08,000
+The input basis and output
+basis were both along the line,
+
+529
+00:37:08,000 --> 00:37:11,000
+and perpendicular to the line.
+
+530
+00:37:11,000 --> 00:37:16,000
+They're actually the
+eigenvectors of the projection.
+
+531
+00:37:16,000 --> 00:37:22,000
+And, as a result,
+the matrix came out diagonal.
+
+532
+00:37:22,000 --> 00:37:27,000
+In fact, it came out to be
+lambda.
+
+533
+00:37:27,000 --> 00:37:31,000
+This is like,
+the good basis.
+
+534
+00:37:31,000 --> 00:37:38,000
+So the good -- the eigenvector
+basis is the good basis,
+
+535
+00:37:38,000 --> 00:37:45,000
+it leads to the matrix --
+the diagonal matrix of
+
+536
+00:37:45,000 --> 00:37:50,000
+eigenvalues lambda,
+and just as in this example,
+
+537
+00:37:50,000 --> 00:37:56,000
+the eigenvectors and
+eigenvalues of this linear
+
+538
+00:37:56,000 --> 00:38:01,000
+transformation were along the
+line, and perpendicular.
+
+539
+00:38:01,000 --> 00:38:08,000
+The eigenvalues were one and
+zero, and that's the matrix that
+
+540
+00:38:08,000 --> 00:38:09,000
+we got.
+
+541
+00:38:09,000 --> 00:38:10,000
+OK.
+
+542
+00:38:10,000 --> 00:38:13,000
+So that's a,
+like, the great choice of
+
+543
+00:38:13,000 --> 00:38:17,000
+matrix, that's the choice a
+physicist would do when he had
+
+544
+00:38:17,000 --> 00:38:21,000
+to finally -- he or she had to
+finally bring coordinates in
+
+545
+00:38:21,000 --> 00:38:25,000
+unwillingly, the coordinates to
+be chosen, the good coordinates
+
+546
+00:38:25,000 --> 00:38:28,000
+are the eigenvectors,
+because, if I did this
+
+547
+00:38:28,000 --> 00:38:32,000
+projection in the standard basis
+-- which I could do,
+
+548
+00:38:32,000 --> 00:38:33,000
+right?
+
+549
+00:38:33,000 --> 00:38:40,460
+I could do the whole thing in
+the standard basis -- I better
+
+550
+00:38:40,460 --> 00:38:43,000
+try, if I can do that.
+
+551
+00:38:43,000 --> 00:38:50,000
+What are we calling -- so I'll
+have to tell you now which line
+
+552
+00:38:50,000 --> 00:38:53,000
+we're projecting on.
+
+553
+00:38:53,000 --> 00:38:56,000
+Say, the 45 degree line.
+
+554
+00:38:56,000 --> 00:39:03,000
+So say we're projecting onto 45
+degree line, and we use not the
+
+555
+00:39:03,000 --> 00:39:08,000
+eigenvector basis,
+but the standard basis.
+
+556
+00:39:08,000 --> 00:39:12,000
+The standard basis,
+v1, is one, zero,
+
+557
+00:39:12,000 --> 00:39:15,000
+and v2 is zero,
+one.
+
+558
+00:39:15,000 --> 00:39:22,000
+And again, I'll use the same
+basis for the outputs.
+
+559
+00:39:22,000 --> 00:39:26,000
+Then I have to do this -- I can
+find a matrix,
+
+560
+00:39:26,000 --> 00:39:30,000
+it will be the matrix that we
+would always think of,
+
+561
+00:39:30,000 --> 00:39:33,000
+it would be the projection
+matrix.
+
+562
+00:39:33,000 --> 00:39:37,000
+It will be, actually,
+it's the matrix that we learned
+
+563
+00:39:37,000 --> 00:39:41,000
+about in chapter four,
+it's what I call the matrix --
+
+564
+00:39:41,000 --> 00:39:45,520
+do you remember,
+P was A, A transpose over A
+
+565
+00:39:45,520 --> 00:39:47,000
+transpose A?
+
+566
+00:39:47,000 --> 00:39:51,000
+And I think,
+in this example,
+
+567
+00:39:51,000 --> 00:39:55,000
+it will come out,
+one-half, one-half,
+
+568
+00:39:55,000 --> 00:39:57,760
+one-half, one-half.
+
+569
+00:39:57,760 --> 00:40:04,000
+I believe that's the matrix
+that comes from our formula.
+
+570
+00:40:04,000 --> 00:40:10,000
+And that's the matrix that will
+do the job.
+
+571
+00:40:10,000 --> 00:40:17,000
+If I give you this input,
+one, zero, what's the output?
+
+572
+00:40:17,000 --> 00:40:21,000
+The output is one-half,
+one-half.
+
+573
+00:40:21,000 --> 00:40:26,000
+And that should be the right
+projection.
+
+574
+00:40:26,000 --> 00:40:33,330
+And if I give you the input
+zero, one, the output is,
+
+575
+00:40:33,330 --> 00:40:40,000
+again, one-half,
+one-half, again the projection.
+
+576
+00:40:40,000 --> 00:40:44,000
+So that's the matrix,
+but not diagonal of course,
+
+577
+00:40:44,000 --> 00:40:49,000
+because we didn't choose a
+great basis, we just chose the
+
+578
+00:40:49,000 --> 00:40:50,000
+handiest basis.
+
+579
+00:40:50,000 --> 00:40:54,000
+Well, so the course has
+practically been about the
+
+580
+00:40:54,000 --> 00:40:57,000
+handiest basis,
+and just dealing with the
+
+581
+00:40:57,000 --> 00:41:00,000
+matrix that we got.
+
+582
+00:41:00,000 --> 00:41:03,000
+And it's not that bad a matrix,
+it's symmetric,
+
+583
+00:41:03,000 --> 00:41:08,000
+and it has this P squared equal
+P property, all those things are
+
+584
+00:41:08,000 --> 00:41:09,000
+good.
+
+585
+00:41:09,000 --> 00:41:13,000
+But in the best basis,
+it's easy to see that P squared
+
+586
+00:41:13,000 --> 00:41:17,000
+equals P, and it's symmetric,
+and it's diagonal.
+
+587
+00:41:17,000 --> 00:41:21,000
+So that's the idea then,
+is, do you see now how I'm
+
+588
+00:41:21,000 --> 00:41:25,000
+associating a matrix to the
+transformation?
+
+589
+00:41:25,000 --> 00:41:31,000
+I'd better write the rule down,
+I'd better write the rule down.
+
+590
+00:41:31,000 --> 00:41:34,000
+The rule to find the matrix A.
+
+591
+00:41:34,000 --> 00:41:36,000
+All right, first column.
+
+592
+00:41:36,000 --> 00:41:40,000
+So, a rule to find A,
+we're given the bases.
+
+593
+00:41:40,000 --> 00:41:45,000
+Of course, we don't -- because
+there's no way we could
+
+594
+00:41:45,000 --> 00:41:51,000
+construct the matrix until we're
+told what the bases are.
+
+595
+00:41:51,000 --> 00:41:58,340
+So we're given the input basis,
+and the output basis,
+
+596
+00:41:58,340 --> 00:42:00,000
+v1 to vn, w1 to wm.
+
+597
+00:42:00,000 --> 00:42:02,000
+Those are given.
+
+598
+00:42:02,000 --> 00:42:10,000
+Now, in the first column of A,
+how do I find that column?
+
+599
+00:42:10,000 --> 00:42:15,000
+The first column of the matrix.
+
+600
+00:42:15,000 --> 00:42:21,000
+So that should tell me what
+happens to the first basis
+
+601
+00:42:21,000 --> 00:42:22,000
+vector.
+
+602
+00:42:22,000 --> 00:42:27,000
+So the rule is,
+apply the linear transformation
+
+603
+00:42:27,000 --> 00:42:28,000
+to v1.
+
+604
+00:42:28,000 --> 00:42:31,000
+To the first basis vector.
+
+605
+00:42:31,000 --> 00:42:37,000
+And then, I'll write it -- so
+that's the output,
+
+606
+00:42:37,000 --> 00:42:38,000
+right?
+
+607
+00:42:38,000 --> 00:42:43,460
+The input is v1,
+what's the output?
+
+608
+00:42:43,460 --> 00:42:48,550
+The output is in the output
+space, it's some combination of
+
+609
+00:42:48,550 --> 00:42:53,000
+these guys, and it's that
+combination that goes into the
+
+610
+00:42:53,000 --> 00:42:57,000
+first column -- so,
+let me -- I'll put this word --
+
+611
+00:42:57,000 --> 00:43:00,000
+right, I'll say it in words
+again.
+
+612
+00:43:00,000 --> 00:43:02,770
+How to find this matrix.
+
+613
+00:43:02,770 --> 00:43:06,000
+Take the first basis vector.
+
+614
+00:43:06,000 --> 00:43:11,000
+Apply the transformation,
+then it's in the output space,
+
+615
+00:43:11,000 --> 00:43:16,000
+T of v1, so it's some
+combination of these outputs,
+
+616
+00:43:16,000 --> 00:43:17,000
+this output basis.
+
+617
+00:43:17,000 --> 00:43:21,000
+So that combination,
+the coefficients in that
+
+618
+00:43:21,000 --> 00:43:26,000
+combination will be the first
+column -- so a1,
+
+619
+00:43:26,000 --> 00:43:28,000
+a row 2, column 1,
+w2, am1, wm.
+
+620
+00:43:28,000 --> 00:43:35,000
+There are the numbers in the
+first column of the matrix.
+
+621
+00:43:35,000 --> 00:43:41,000
+Let me make the point by doing
+the second column.
+
+622
+00:43:41,000 --> 00:43:44,000
+Second column of A.
+
+623
+00:43:44,000 --> 00:43:47,000
+What's the idea,
+now?
+
+624
+00:43:47,000 --> 00:43:55,000
+I take the second basis vector,
+I apply the transformation to
+
+625
+00:43:55,000 --> 00:44:03,000
+it, that's in -- now I get an
+output, so it's some combination
+
+626
+00:44:03,000 --> 00:44:11,000
+in the output basis --
+and that combination is the
+
+627
+00:44:11,000 --> 00:44:17,000
+bunch of numbers that should go
+in the second column of the
+
+628
+00:44:17,000 --> 00:44:18,000
+matrix.
+
+629
+00:44:18,000 --> 00:44:18,000
+OK.
+And so forth.
+
+630
+00:44:20,000 --> 00:44:25,000
+So I get a matrix,
+and the matrix I get does the
+
+631
+00:44:25,000 --> 00:44:26,430
+right job.
+
+632
+00:44:26,430 --> 00:44:32,000
+Now, the matrix constructed
+that way, and following the
+
+633
+00:44:32,000 --> 00:44:37,000
+rules of matrix multiplication.
+
+634
+00:44:37,000 --> 00:44:43,000
+The result will be that if I
+give you the input coordinates,
+
+635
+00:44:43,000 --> 00:44:49,000
+and I multiply by the matrix,
+so the outcome of all this is A
+
+636
+00:44:49,000 --> 00:44:56,000
+times the input coordinates
+correctly reproduces the output
+
+637
+00:44:56,000 --> 00:44:57,000
+coordinates.
+
+638
+00:44:57,000 --> 00:44:59,000
+Why is this right?
+
+639
+00:44:59,000 --> 00:45:02,000
+Let me just check the first
+column.
+
+640
+00:45:02,000 --> 00:45:09,000
+Suppose the input coordinates
+are one and all zeros.
+
+641
+00:45:09,000 --> 00:45:11,000
+What does that mean?
+
+642
+00:45:11,000 --> 00:45:12,000
+What's the input?
+
+643
+00:45:12,000 --> 00:45:16,000
+If the input coordinates are
+one and other -- and the rest
+
+644
+00:45:16,000 --> 00:45:19,000
+zeros, then the input is v1,
+right?
+
+645
+00:45:19,000 --> 00:45:23,000
+That's the vector that has
+coordinates one and all zeros.
+
+646
+00:45:23,000 --> 00:45:24,000
+OK?
+
+647
+00:45:24,000 --> 00:45:27,000
+When I multiply A by the one
+and all zeros,
+
+648
+00:45:27,000 --> 00:45:32,000
+I'll get the first column of A,
+I'll get these numbers.
+
+649
+00:45:32,000 --> 00:45:35,000
+And, sure enough,
+those are the output
+
+650
+00:45:35,000 --> 00:45:37,190
+coordinates for T of v1.
+
+651
+00:45:37,190 --> 00:45:40,000
+So we made it right on the
+first column,
+
+652
+00:45:40,000 --> 00:45:44,000
+we made it right on the second
+column, we made it right on all
+
+653
+00:45:44,000 --> 00:45:48,000
+the basis vectors,
+and then it has to be right on
+
+654
+00:45:48,000 --> 00:45:49,420
+every vector.
+
+655
+00:45:49,420 --> 00:45:49,000
+OK.
+
+656
+00:45:49,000 --> 00:45:53,000
+So there is a picture of the
+matrix for a linear
+
+657
+00:45:53,000 --> 00:45:55,000
+transformation.
+
+658
+00:45:55,000 --> 00:46:01,970
+Finally, let me give you
+another -- a different linear
+
+659
+00:46:01,970 --> 00:46:03,000
+transformation.
+
+660
+00:46:03,000 --> 00:46:10,000
+The linear transformation that
+takes the derivative.
+
+661
+00:46:10,000 --> 00:46:13,000
+That's a linear transformation.
+
+662
+00:46:13,000 --> 00:46:21,000
+Suppose the input space is all
+combination c1 plus c2x plus c3
+
+663
+00:46:21,000 --> 00:46:23,000
+x squared.
+
+664
+00:46:23,000 --> 00:46:27,000
+So the basis is these simple
+functions.
+
+665
+00:46:27,000 --> 00:46:30,000
+Then what's the output?
+
+666
+00:46:30,000 --> 00:46:32,000
+Is the derivative.
+
+667
+00:46:32,000 --> 00:46:38,000
+The output is the derivative,
+so the output is c2+2c3 x.
+
+668
+00:46:38,000 --> 00:46:44,000
+And let's take as output basis,
+the vectors one and x.
+
+669
+00:46:44,000 --> 00:46:49,000
+So we're going from a
+three-dimensional space of
+
+670
+00:46:49,000 --> 00:46:54,000
+inputs to a two-dimensional
+space of outputs by the
+
+671
+00:46:54,000 --> 00:46:57,000
+derivative.
+
+672
+00:46:57,000 --> 00:47:07,560
+And I don't know if you ever
+thought that the derivative is
+
+673
+00:47:07,560 --> 00:47:08,000
+linear.
+
+674
+00:47:08,000 --> 00:47:18,000
+But if it weren't linear,
+taking derivatives would take
+
+675
+00:47:18,000 --> 00:47:21,000
+forever, right?
+
+676
+00:47:21,000 --> 00:47:25,000
+We are able to compute
+derivatives of functions exactly
+
+677
+00:47:25,000 --> 00:47:27,000
+because we know it's a linear
+transformation,
+
+678
+00:47:27,000 --> 00:47:31,000
+so that if we learn the
+derivatives of a few functions,
+
+679
+00:47:31,000 --> 00:47:34,000
+like sine x and cos x and e to
+the x, and another little short
+
+680
+00:47:34,000 --> 00:47:38,000
+list, then we can take all their
+combinations and we can do all
+
+681
+00:47:38,000 --> 00:47:40,000
+the derivatives.
+
+682
+00:47:40,000 --> 00:47:42,000
+OK, now what's the matrix?
+
+683
+00:47:42,000 --> 00:47:44,000
+What's the matrix?
+
+684
+00:47:44,000 --> 00:47:49,000
+So I want the matrix to
+multiply these input vectors --
+
+685
+00:47:49,000 --> 00:47:53,000
+input coordinates,
+and give these output
+
+686
+00:47:53,000 --> 00:47:54,000
+coordinates.
+
+687
+00:47:54,000 --> 00:47:58,000
+So I just think,
+OK, what's the matrix that does
+
+688
+00:47:58,000 --> 00:47:59,000
+it?
+
+689
+00:47:59,000 --> 00:48:02,500
+I can follow my rule of
+construction,
+
+690
+00:48:02,500 --> 00:48:06,000
+or I can see what the matrix
+is.
+
+691
+00:48:06,000 --> 00:48:10,000
+It should be a two by three
+matrix, right?
+
+692
+00:48:10,000 --> 00:48:13,000
+And the matrix -- so I'm just
+figuring out,
+
+693
+00:48:13,000 --> 00:48:15,000
+what do I want?
+
+694
+00:48:15,000 --> 00:48:17,750
+No, I'll -- let me write it
+here.
+
+695
+00:48:17,750 --> 00:48:20,000
+What do I want from my matrix?
+
+696
+00:48:20,000 --> 00:48:22,000
+What should that matrix do?
+
+697
+00:48:22,000 --> 00:48:26,140
+Well, I want to get c2 in the
+first output,
+
+698
+00:48:26,140 --> 00:48:29,000
+so zero, one,
+zero will do it.
+
+699
+00:48:29,000 --> 00:48:32,000
+I want to get two c3,
+so zero, zero,
+
+700
+00:48:32,000 --> 00:48:33,210
+two will do it.
+
+701
+00:48:33,210 --> 00:48:37,000
+That's the matrix for this
+linear transformation with those
+
+702
+00:48:37,000 --> 00:48:39,000
+bases and those coordinates.
+
+703
+00:48:39,000 --> 00:48:43,000
+You see, it just clicks,
+and the whole point is that the
+
+704
+00:48:43,000 --> 00:48:47,000
+inverse matrix gives the inverse
+to the linear transformation,
+
+705
+00:48:47,000 --> 00:48:51,000
+that the product of two
+matrices gives the right matrix
+
+706
+00:48:51,000 --> 00:48:54,000
+for the product of two
+transformations --
+
+707
+00:48:54,000 --> 00:49:03,000
+matrix multiplication really
+came from linear
+
+708
+00:49:03,000 --> 00:49:06,000
+transformations.
+
+709
+00:49:06,000 --> 00:49:17,000
+I'd better pick up on that
+theme Monday after Thanksgiving.
+
+710
+00:49:17,000 --> 00:49:24,000
+And I hope you have a great
+holiday.
+
+711
+00:49:24,000 --> 00:49:30,000
+I hope Indian summer keeps
+going.
+
+712
+00:49:30,000 --> 00:49:33,000
+OK, see you on Monday.

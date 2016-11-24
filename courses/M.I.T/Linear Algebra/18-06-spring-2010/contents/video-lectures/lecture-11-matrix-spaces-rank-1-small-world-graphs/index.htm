@@ -1,0 +1,1254 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 11: Matrix spaces; rank 1; small world graphs | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 11: Matrix spaces; rank 1; small world graphs" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 11: Matrix spaces; rank 1; small world graphs" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 11: Matrix spaces; rank 1; small world graphs
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 11: Matrix spaces; rank 1; small world graphs
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/2IdtqGM6KWU.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/11.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/2IdtqGM6KWU', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs', 'https://img.youtube.com/vi/2IdtqGM6KWU/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/2IdtqGM6KWU.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703565, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/2IdtqGM6KWU.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="0">OK. This is linear algebra lecture eleven.</span> </p>
+<p><span m="6000">And at the end of lecture ten, I was talking about some vector</span> <span m="17000">spaces, but they're -- the things in those vector spaces</span> <span m="26000">were not what we usually call vectors.</span> </p>
+<p><span m="34000">Nevertheless, you could add them and you</span> <span m="37450">could multiply by numbers, so we can call them vectors.</span> </p>
+<p><span m="41000">I think the example I was working with they were matrices.</span> </p>
+<p><span m="45770">So the -- so we had like a matrix space,</span> <span m="48000">the space of all three by three matrices.</span> </p>
+<p><span m="51000">And I'd like to just pick up on that, because --</span> <span m="56000">we've been so specific about n dimensional space here,</span> <span m="62000">and you really want to see that the same ideas work as long as</span> <span m="70000">you can add and multiply by scalars.</span> </p>
+<p><span m="74000">So these new, new vector spaces,</span> <span m="78000">the example I took was the space M of all three by three</span> <span m="85000">matrices.</span> </p>
+<p><span m="87000">OK.</span> </p>
+<p><span m="88000">I can add them, I can multiply by scalars.</span> </p>
+<p><span m="92000">I can multiply two of them together, but I don't do that.</span> </p>
+<p><span m="97000">That's not part of the vector space picture.</span> </p>
+<p><span m="100000">The vector space part is just adding the matrices and</span> <span m="105000">multiplying by numbers.</span> </p>
+<p><span m="108180">And that's fine, we stay within this space of</span> <span m="112000">three by three matrices.</span> </p>
+<p><span m="114000">And I had some subspaces that were interesting,</span> <span m="118740">like the symmetric, the subspace of symmetric</span> <span m="122000">matrices, symmetric three by threes.</span> </p>
+<p><span m="126000">Or the subspace of upper triangular three by threes.</span> </p>
+<p><span m="130000">Now I, I use the word subspace because it follows the rule.</span> </p>
+<p><span m="137360">If I add two symmetric matrices, I'm still symmetric.</span> </p>
+<p><span m="142000">If I multiply two symmetric matrices, is the product</span> <span m="147000">automatically symmetric?</span> </p>
+<p><span m="149000">No.</span> </p>
+<p><span m="150000">But I'm not multiplying matrices.</span> </p>
+<p><span m="153000">I'm just adding.</span> </p>
+<p><span m="154860">So I'm fine.</span> </p>
+<p><span m="157000">This is a subspace.</span> </p>
+<p><span m="158000">Similarly, if I add two upper triangular matrices,</span> <span m="163000">I'm still upper triangular.</span> </p>
+<p><span m="165420">And, that's a subspace.</span> </p>
+<p><span m="167000">Now I just want to take these as example and ask,</span> <span m="171000">well, what's a basis for that subspace?</span> </p>
+<p><span m="175000">What's the dimension of that subspace?</span> </p>
+<p><span m="181000">And what's bd- dimension of the whole space?</span> </p>
+<p><span m="187000">So, there's a natural basis for all three by three matrices,</span> <span m="195000">and why don't we just write it down.</span> </p>
+<p><span m="200000">So, so M, a basis for M.</span> </p>
+<p><span m="204000">Again, all three by threes.</span> </p>
+<p><span m="208000">OK.</span> </p>
+<p><span m="210000">And then I'll just count how many members are in that basis</span> <span m="215400">and I'll know the dimension.</span> </p>
+<p><span m="217000">And OK, it's going to take me a little time.</span> </p>
+<p><span m="221000">In fact, what is the dimension?</span> </p>
+<p><span m="224610">Any idea of what I'm coming up with next?</span> </p>
+<p><span m="228000">How many numbers does it take to specify that three by three</span> <span m="233000">matrix?</span> </p>
+<p><span m="235000">Nine. Nine is the, is the dimension I'm going to</span> <span m="240000">find.</span> </p>
+<p><span m="241000">And the most obvious basis would be the matrix that's that</span> <span m="248000">matrix and then this matrix with a one there and that's two of</span> <span m="256000">them, shall I put in the third one, and then onwards,</span> <span m="262000">and the last one maybe would end with the one.</span> </p>
+<p><span m="270000">OK. That's like the standard basis.</span> </p>
+<p><span m="273000">In fact, our space is practically the same as nine</span> <span m="279190">dimensional space.</span> </p>
+<p><span m="281000">It's just the nine numbers are written in a square instead of</span> <span m="287000">in a column.</span> </p>
+<p><span m="288000">But somehow it's different and, and ought to be thought of as</span> <span m="295000">-- natural for itself.</span> </p>
+<p><span m="299000">Because now what about the symmetric three by threes?</span> </p>
+<p><span m="304000">So that's a subspace.</span> </p>
+<p><span m="306000">Just let's just think, what's the dimension of that</span> <span m="310000">subspace and what's a basis for that subspace.</span> </p>
+<p><span m="315000">OK. And I guess this question occurs to me.</span> </p>
+<p><span m="319000">If I look at this subspace of symmetric three by threes,</span> <span m="325000">well, how many of these original basis members belong to</span> <span m="330480">the subspace?</span> </p>
+<p><span m="331000">I think only three of them do.</span> </p>
+<p><span m="334000">This one is symmetric.</span> </p>
+<p><span m="336000">This last one is symmetric.</span> </p>
+<p><span m="339350">And the one in the middle with a, with a one in that position</span> <span m="345000">-- in the two two position,</span> <span m="348000">would be symmetric.</span> </p>
+<p><span m="350659">But so I've got three of these original nine are symmetric,</span> <span m="356000">but, so this is an example where -- but that's,</span> <span m="360000">that's not all, right?</span> </p>
+<p><span m="363000">What's the dimension?</span> </p>
+<p><span m="365000">Let's put the dimensions down.</span> </p>
+<p><span m="369000">Dimension of the, of M, was nine.</span> </p>
+<p><span m="372000">What's the dimension of -- shall we call this S -- is what?</span> </p>
+<p><span m="378090">What's the dimension of this?</span> </p>
+<p><span m="380000">I'm sort of taking simple examples where we can,</span> <span m="385000">we can, spot the answer to these questions.</span> </p>
+<p><span m="389000">So how many -- if I have a symmetric --</span> <span m="394000">think of all symmetric matrices as a subspace,</span> <span m="398000">how many parameters do I choose in three by three symmetric</span> <span m="403000">matrices?</span> </p>
+<p><span m="404000">Six, right.</span> </p>
+<p><span m="405000">If I choose the diagonal that's three, and the three entries</span> <span m="410000">above the diagonal, then I know what the three</span> <span m="414000">entries below.</span> </p>
+<p><span m="416000">So the dimension is six.</span> </p>
+<p><span m="418000">I guess what's the dimension of this here?</span> </p>
+<p><span m="422000">Let's call this space U for upper triangular.</span> </p>
+<p><span m="427000">So what's the dimension of that space of all upper triangular</span> <span m="433000">three by threes?</span> </p>
+<p><span m="434000">Again six.</span> </p>
+<p><span m="435000">Again six.</span> </p>
+<p><span m="437000">And, but we haven't got a -- we haven't seen -- well,</span> <span m="442000">actually, maybe we have got a basis here for,</span> <span m="446000">the upper triangulars.</span> </p>
+<p><span m="448000">I guess six of these guys, one, two, three,</span> <span m="451000">four, and a, and a couple more,</span> <span m="454000">would be upper triangular.</span> </p>
+<p><span m="456570">So there's a accidental case where the big basis contains in</span> <span m="461000">it a basis for the subspace.</span> </p>
+<p><span m="465000">But with the symmetric guy, it didn't have.</span> </p>
+<p><span m="468720">The symmetric guy the, basis -- so you see -- a basis</span> <span m="472000">is the basis for the big space, we generally need to think it</span> <span m="477870">all over again to get a basis for the subspace.</span> </p>
+<p><span m="481000">And then how do I get other subspaces?</span> </p>
+<p><span m="485000">Well, we spoke before about, the subspace the symmetric</span> <span m="495000">matrices and the upper triangular.</span> </p>
+<p><span m="501290">This is symmetric and upper triangular.</span> </p>
+<p><span m="508000">What's the, what's the dimension of that space?</span> </p>
+<p><span m="508200">OK.</span> </p>
+<p><span m="518000">Well, what's in that space?</span> </p>
+<p><span m="521000">So what's -- if a matrix is symmetric and also upper</span> <span m="527000">triangular, that makes it diagonal.</span> </p>
+<p><span m="531000">So this is the same as the diagonal matrices,</span> <span m="536820">diagonal three by threes.</span> </p>
+<p><span m="539000">And the dimension of this, of S intersect U,</span> <span m="544000">right -- you're OK with that symbol?</span> </p>
+<p><span m="550000">That's, that's the vectors that are in both S and U,</span> <span m="555000">and that's D.</span> </p>
+<p><span m="556600">So S intersect U is the diagonals.</span> </p>
+<p><span m="559930">And the dimension of the diagonal matrices is three.</span> </p>
+<p><span m="565000">And we've got a basis, no problem.</span> </p>
+<p><span m="568000">OK, as I write that, I think, OK,</span> <span m="571000">what about putting -- so this is like, this intersection --</span> <span m="578000">is taking all the vectors that are in both, that are symmetric</span> <span m="584000">and also upper triangular.</span> </p>
+<p><span m="587000">Now we looked at the union.</span> </p>
+<p><span m="590000">Suppose I take the matrices that are symmetric or upper</span> <span m="595000">triangular.</span> </p>
+<p><span m="596000">What -- why was that no good?</span> </p>
+<p><span m="599000">So why is it no -- why I not interested in the union,</span> <span m="605000">putting together those two subspaces?</span> </p>
+<p><span m="610080">So this, these are matrices that are in S or in U,</span> <span m="615000">or possibly both, so they, the diagonals</span> <span m="619000">included.</span> </p>
+<p><span m="620000">But what's bad about this?</span> </p>
+<p><span m="623000">It's not a subspace.</span> </p>
+<p><span m="625000">It's like having, taking, you know,</span> <span m="628000">a couple of lines in the plane and stopping there.</span> </p>
+<p><span m="635000">A line -- this is -- so there's a three dimensional subspace of</span> <span m="639000">a nine dimensional space, there's -- ooh,</span> <span m="641000">sorry, six.</span> </p>
+<p><span m="642000">There's a six dimensional subspace of a nine dimensional</span> <span m="646000">space.</span> </p>
+<p><span m="646510">There's another one.</span> </p>
+<p><span m="647790">But they, they're headed in different directions,</span> <span m="650000">so we, we can't just put them together.</span> </p>
+<p><span m="654000">We have to fill in.</span> </p>
+<p><span m="656000">So that's what we do.</span> </p>
+<p><span m="658000">To get this bigger space that I'll write with a plus sign,</span> <span m="665570">this is combinations of things in S and things in U.</span> </p>
+<p><span m="671000">OK.</span> </p>
+<p><span m="672000">So that's the final space I'm going to introduce.</span> </p>
+<p><span m="677000">I have a couple of subspaces.</span> </p>
+<p><span m="679000">I can take their intersection.</span> </p>
+<p><span m="682000">And now I'm interested in not their union but their sum.</span> </p>
+<p><span m="687000">So this would be the, this is the intersection,</span> <span m="692000">and this will be their sum.</span> </p>
+<p><span m="695000">So what do I need for a subspace here?</span> </p>
+<p><span m="700000">I take anything in S plus anything in U.</span> </p>
+<p><span m="705000">I don't just take things that are in S and pop in also,</span> <span m="712000">separately, things that are in U.</span> </p>
+<p><span m="716000">This is the sum of any element of S, that is,</span> <span m="722000">any symmetric matrix, plus any in U,</span> <span m="726000">any element of U.</span> </p>
+<p><span m="730000">OK. Now as long as we've got an example here,</span> <span m="734000">tell me what we get.</span> </p>
+<p><span m="735000">If I take every symmetric matrix, take all symmetric</span> <span m="739000">matrices, and add them to all upper triangular matrices,</span> <span m="744420">then I've got a whole lot of matrices and it is a subspace.</span> </p>
+<p><span m="749000">And what's -- it's a vector space,</span> <span m="752000">and what vector space would I then have?</span> </p>
+<p><span m="757000">Any idea what, what matrices can I get out of</span> <span m="762000">a symmetric plus an upper triangular?</span> </p>
+<p><span m="766000">I can get anything.</span> </p>
+<p><span m="768000">I get all matrices.</span> </p>
+<p><span m="771000">I get all three by threes.</span> </p>
+<p><span m="774220">It's worth thinking about that.</span> </p>
+<p><span m="779000">It's just like stretch your mind a little,</span> <span m="782000">just a little, to, to think of these subspaces</span> <span m="786000">and what their intersection is and what their sum is.</span> </p>
+<p><span m="791000">And now can I give you a little -- oh, well, let's figure out</span> <span m="796000">the dimension.</span> </p>
+<p><span m="797000">So what's the dimension of S plus U?</span> </p>
+<p><span m="801000">In this example is nine, because we got all three by</span> <span m="805000">threes.</span> </p>
+<p><span m="807000">So the original spaces had, the original symmetric space</span> <span m="813000">had dimension six and the original upper triangular space</span> <span m="819000">had dimension six.</span> </p>
+<p><span m="821000">And actually I'm seeing here a nice formula.</span> </p>
+<p><span m="826000">That the dimension of S plus the dimension of U -- if I have</span> <span m="832000">two subspaces, the dimension of one plus the</span> <span m="837000">dimension of the other -- equals the dimension of their</span> <span m="844000">intersection plus the dimension of their sum.</span> </p>
+<p><span m="849000">Six plus six is three plus nine.</span> </p>
+<p><span m="852000">That's kind of satisfying, that these natural operations</span> <span m="858000">-- and we've -- this is it, actually, this is the set of</span> <span m="864000">natural things to do with, with subspaces.</span> </p>
+<p><span m="869000">That, the dimensions come out in a good way.</span> </p>
+<p><span m="876000">OK. Maybe I'll take just one more example of a vector space that</span> <span m="885000">doesn't have vectors in it.</span> </p>
+<p><span m="889000">It's come from differential equations.</span> </p>
+<p><span m="896000">So this is a one more new vector space that we'll give</span> <span m="902000">just a few minutes to.</span> </p>
+<p><span m="904490">Suppose I have a differential equation like d^2y/dx^2+ y=0.</span> </p>
+<p><span m="910000">OK.</span> </p>
+<p><span m="911000">I look at the solutions to that equation.</span> </p>
+<p><span m="915000">So what are the solutions to that equation?</span> </p>
+<p><span m="920000">y=cos(x) is a solution. y=sin(x) is a solution.</span> </p>
+<p><span m="927000">y equals -- well, e to the (ix) is a solution,</span> <span m="933000">if you want, if you allow me to put that in.</span> </p>
+<p><span m="940000">But why should I put that in?</span> </p>
+<p><span m="944000">It's already there.</span> </p>
+<p><span m="948000">You see, I'm really looking at a null space here.</span> </p>
+<p><span m="952000">I'm looking at the null space of a differential equation.</span> </p>
+<p><span m="956000">That's the solution space.</span> </p>
+<p><span m="958000">And describe the solution space, all solutions to this</span> <span m="963000">differential equation.</span> </p>
+<p><span m="965000">So the equation is y''+y=0.</span> </p>
+<p><span m="968000">Cosine's, cosine's a solution, sine is a solution.</span> </p>
+<p><span m="975000">Now tell me all the solutions.</span> </p>
+<p><span m="980000">They're -- so I don't need e^(ix).</span> </p>
+<p><span m="985000">Forget that.</span> </p>
+<p><span m="987000">What are all the complete solutions?</span> </p>
+<p><span m="992000">Is what?</span> </p>
+<p><span m="995000">A combination of these.</span> </p>
+<p><span m="997410">The complete solution is y equals some multiple of the</span> <span m="1002000">cosine plus some multiple of the sine.</span> </p>
+<p><span m="1005000">That's a vector space.</span> </p>
+<p><span m="1007000">That's a vector space.</span> </p>
+<p><span m="1009000">What's the dimension of that space?</span> </p>
+<p><span m="1012000">What's a basis for that space?</span> </p>
+<p><span m="1014720">OK, let me ask you a basis first.</span> </p>
+<p><span m="1017000">If I take the set of solutions to that second order</span> <span m="1021000">differential equation -- there it is,</span> <span m="1026000">those are the solutions.</span> </p>
+<p><span m="1028000">What's a basis for that space?</span> </p>
+<p><span m="1032000">Now remember, what's the, what question I</span> </p>
+<p><span m="1036000">asking? Because if you know the question I'm asking,</span> <span m="1041000">you'll see the answer.</span> </p>
+<p><span m="1044000">A basis means all the guys in the space are combinations of</span> <span m="1051000">these basis vectors.</span> </p>
+<p><span m="1053000">Well, this is a basis. sin x, cos x there is a basis.</span> </p>
+<p><span m="1059000">Those two -- they're like the special solutions,</span> <span m="1064560">right?</span> </p>
+<p><span m="1065000">We had special solutions to Ax=b.</span> </p>
+<p><span m="1070000">Now we've got special solutions to differential equations.</span> </p>
+<p><span m="1075000">Sorry, we had special solutions to Ax=0, I misspoke.</span> </p>
+<p><span m="1080000">The special solutions were for the null space just as here</span> <span m="1086000">we're talking about the null space.</span> </p>
+<p><span m="1090000">Do you see that here is a -- those two -- and what's the</span> <span m="1095000">dimension of the solution space?</span> </p>
+<p><span m="1099980">How many vectors in this basis?</span> </p>
+<p><span m="1103000">Two, the sine and cosine.</span> </p>
+<p><span m="1105000">Are those the only basis for this space?</span> </p>
+<p><span m="1110000">By no means. e^(ix) and e^(-ix) would be</span> <span m="1114000">another basis.</span> </p>
+<p><span m="1115000">Lots of bases.</span> </p>
+<p><span m="1117000">But do you see that really what a course in differential --</span> <span m="1124000">in linear differential equations is about is finding a</span> <span m="1129000">basis for the solution space.</span> </p>
+<p><span m="1132000">The dimension of the solution space will always be -- will be</span> <span m="1138000">two, because we have a second order equation.</span> </p>
+<p><span m="1143000">So that's, like there's 18.03 in --</span> <span m="1147000">five minutes of 18.06 is enough to, to take care of 18.03.</span> </p>
+<p><span m="1153000">So there's a -- that's one more example.</span> </p>
+<p><span m="1153200">OK.</span> </p>
+<p><span m="1157510">And of course the point of the example is these things don't</span> <span m="1163000">look like vectors.</span> </p>
+<p><span m="1165000">They look like functions.</span> </p>
+<p><span m="1168000">But we can call them vectors, because we can add them and we</span> <span m="1174000">can multiply by constants, so we can take linear</span> <span m="1178000">combinations.</span> </p>
+<p><span m="1179000">That's all we have to be allowed to do.</span> </p>
+<p><span m="1183000">So that's really why this idea of linear algebra and basis and</span> <span m="1188920">dimension and so on plays a wider role than --</span> <span m="1194000">our constant discussions of m by n matrices.</span> </p>
+<p><span m="1198000">OK.</span> </p>
+<p><span m="1199000">That's what I wanted to say about that topic.</span> </p>
+<p><span m="1203000">Now of course the key, number associated with</span> <span m="1208000">matrices, to go back to that number, is the rank.</span> </p>
+<p><span m="1214000">And the rank, what do we know about the rank?</span> </p>
+<p><span m="1220000">Well, we know it's not bigger than m and it's not bigger than</span> <span m="1226000">n.</span> </p>
+<p><span m="1226380">So but I'd like to have a little discussion on the rank.</span> </p>
+<p><span m="1231000">Maybe I'll put that here.</span> </p>
+<p><span m="1234000">So I'm picking up this topic of rank one matrices.</span> </p>
+<p><span m="1239000">And the reason I'm interested in rank one matrices is that</span> <span m="1244920">they ought to be simple.</span> </p>
+<p><span m="1248000">If the rank is only one, the matrix can't get away from</span> </p>
+<p><span m="1256000">us. So for example, let me take -- let me create a</span> <span m="1263000">rank one matrix.</span> </p>
+<p><span m="1265000">OK. Suppose it's three -- suppose it's two by three.</span> </p>
+<p><span m="1272780">And let me give you the first row.</span> </p>
+<p><span m="1279000">What can the second row be?</span> </p>
+<p><span m="1282000">Tell me a possible second row here, for, for this matrix to</span> <span m="1290000">have rank one.</span> </p>
+<p><span m="1291000">A possible second row is?</span> </p>
+<p><span m="1295140">Two eight ten.</span> </p>
+<p><span m="1296000">The second row is a multiple of the first row.</span> </p>
+<p><span m="1302000">It's not independent.</span> </p>
+<p><span m="1306000">So tell me a basis for the -- oh yeah, sorry to keep bringing</span> <span m="1311000">up these same questions.</span> </p>
+<p><span m="1313000">After the quiz I'll stop, but for now,</span> <span m="1316000">tell me a basis for the row space.</span> </p>
+<p><span m="1319000">A basis for the row space of that matrix is the first row,</span> </p>
+<p><span m="1324000">right? The first row, one four five.</span> </p>
+<p><span m="1327200">A basis for the column space of this matrix is?</span> </p>
+<p><span m="1332000">What's the dimension of the column space?</span> </p>
+<p><span m="1335000">The dimension of the column space is also one,</span> </p>
+<p><span m="1339000">right? Because it's also the rank.</span> </p>
+<p><span m="1341000">The dimension -- you remember the dimension of the column</span> <span m="1346000">space equals the rank equals the dimension of the column space of</span> <span m="1351000">the transpose, which is the row space of A.</span> </p>
+<p><span m="1356000">OK, and in this case it's one, r is one.</span> </p>
+<p><span m="1360000">And sure enough, all the columns are -- all the</span> <span m="1366000">other columns are multiples of that column.</span> </p>
+<p><span m="1370000">Now there's -- there ought to be a nice way to see that,</span> <span m="1377410">and here it is.</span> </p>
+<p><span m="1380000">I can write that matrix as its pivot column,</span> <span m="1384000">one two, times its -- times one four five.</span> </p>
+<p><span m="1388950">A column times a row, one column times one row gives</span> <span m="1394000">me a matrix, right?</span> </p>
+<p><span m="1396000">If I multiply a column by a row, that, g- that's a two by</span> <span m="1402000">one matrix times a one by three matrix, and the result of the</span> <span m="1408000">multiplication is two by three.</span> </p>
+<p><span m="1412000">And it comes out right.</span> </p>
+<p><span m="1416000">So what I want to -- my point is the rank one matrices that</span> <span m="1425000">every rank one matrix has the form some column times some row.</span> </p>
+<p><span m="1434000">So U is a column vector, V is a column vector --</span> <span m="1442000">but I make it into a row by putting in V transpose.</span> </p>
+<p><span m="1446000">So that's the -- complete picture of rank one matrices.</span> </p>
+<p><span m="1450000">We'll be interested in rank one matrices.</span> </p>
+<p><span m="1453000">Later we'll find, oh, their determinant,</span> <span m="1456000">that'll be easy, their eigenvalues,</span> <span m="1459310">that'll be interesting.</span> </p>
+<p><span m="1461000">Rank one matrices are like the building blocks for all</span> <span m="1470000">matrices.</span> </p>
+<p><span m="1471000">And actually maybe you can guess.</span> </p>
+<p><span m="1476000">If I took any matrix, a five by seventeen matrix of</span> <span m="1484000">rank four, then it seems pretty likely --</span> <span m="1492500">and it's true, that I could break that five by</span> <span m="1496000">seventeen matrix down as a combination of rank one</span> <span m="1501000">matrices.</span> </p>
+<p><span m="1502000">And probably how many of those would I need?</span> </p>
+<p><span m="1506310">If I have a five by seventeen matrix of rank four,</span> <span m="1510000">I'll need four of them, right.</span> </p>
+<p><span m="1513000">Four rank one matrices.</span> </p>
+<p><span m="1517000">So the rank one matrices are the, are the building blocks.</span> </p>
+<p><span m="1521000">And out -- I can produce every, I can produce every five by --</span> <span m="1526000">every rank four matrix out of four rank one matrices.</span> </p>
+<p><span m="1531000">That brings me to a question, of course.</span> </p>
+<p><span m="1531400">OK.</span> </p>
+<p><span m="1534000">Would the rank four matrices form a subspace?</span> </p>
+<p><span m="1539000">Let me take all five by seventeen matrices and think</span> <span m="1544000">about rank four -- the subset of rank four matrices.</span> </p>
+<p><span m="1550000">Let me -- I'll write this down.</span> </p>
+<p><span m="1553000">You seem I'm reviewing for the quiz, because I'm asking the</span> <span m="1559230">kind of questions that are short enough but --</span> <span m="1564000">that bring out do you know what these words mean.</span> </p>
+<p><span m="1572000">So I take -- my matrix space M now is all five by seventeen</span> <span m="1581000">matrices.</span> </p>
+<p><span m="1582000">And now the question I ask is the subset of,</span> <span m="1589240">of rank four matrices, is that a subspace?</span> </p>
+<p><span m="1595000">If I add a matrix of -- so if I multiply a matrix of</span> <span m="1603000">rank four by -- of rank four or less, let's say,</span> <span m="1607000">because I have to let the zero matrix in if it's going to be a</span> <span m="1612480">subspace.</span> </p>
+<p><span m="1613260">But, but that doesn't just because the zero matrix got in</span> <span m="1618000">there doesn't mean I have a subspace.</span> </p>
+<p><span m="1621230">So if I -- so the, the question really comes down</span> <span m="1625000">to -- if I add two rank four</span> <span m="1629000">matrices, is the sum rank four?</span> </p>
+<p><span m="1632000">What do you think?</span> </p>
+<p><span m="1634000">If -- no, not usually.</span> </p>
+<p><span m="1636000">Not usually.</span> </p>
+<p><span m="1637000">If I add two rank four matrices, the sum is probably --</span> <span m="1643000">what could I say about the sum?</span> </p>
+<p><span m="1646000">Well, actually, well, the rank could be five.</span> </p>
+<p><span m="1652000">It's a general fact, actually, that the rank of A</span> <span m="1655000">plus B can't be more than rank of A plus the rank of B.</span> </p>
+<p><span m="1659000">So this would say if I added two of those,</span> <span m="1662820">the rank couldn't be larger than eight, but I know actually</span> <span m="1667000">the rank couldn't be as large as eight anyway.</span> </p>
+<p><span m="1671000">What -- how big could the rank be, for, for the rank of a</span> <span m="1675000">matrix in M?</span> </p>
+<p><span m="1676800">Could be as large as five, right, right.</span> </p>
+<p><span m="1680000">So they're all sort of natural ideas.</span> </p>
+<p><span m="1683000">So it's rank four matrices or rank one matrices -- let me,</span> <span m="1687000">let me change that to rank one.</span> </p>
+<p><span m="1691000">Let me take the subset of rank one matrices.</span> </p>
+<p><span m="1696170">Is that a vector space?</span> </p>
+<p><span m="1698000">If I add a rank one matrix to a rank one matrix?</span> </p>
+<p><span m="1703000">No.</span> </p>
+<p><span m="1704000">It's most likely going to have rank two.</span> </p>
+<p><span m="1708000">So this is -- So I'll just make that point.</span> </p>
+<p><span m="1713000">Not a subspace.</span> </p>
+<p><span m="1716000">OK. OK. Those are topics that I wanted to, just fill out the,</span> <span m="1723000">the previous lectures.</span> </p>
+<p><span m="1725000">The I'll ask one more subspace question, a, a more,</span> <span m="1732000">a more, likely example.</span> </p>
+<p><span m="1734000">Suppose I'm in -- let me put, put this example on a new</span> <span m="1741000">board.</span> </p>
+<p><span m="1743000">Suppose I'm in R, in R^4.</span> </p>
+<p><span m="1747000">So my typical vector in R^4 has four components,</span> <span m="1755000">v1, v2, v3, and v4.</span> </p>
+<p><span m="1758000">Suppose I take the subspace of vectors whose components add to</span> <span m="1769000">zero.</span> </p>
+<p><span m="1770000">So I let S be all v, all vectors v in four</span> <span m="1776000">dimensional space with v1+v2+v3+v4=0.</span> </p>
+<p><span m="1785000">So I just want to consider that bunch of vectors.</span> </p>
+<p><span m="1790000">Is it a subspace, first of all?</span> </p>
+<p><span m="1793000">It is a subspace.</span> </p>
+<p><span m="1795230">It is a subspace.</span> </p>
+<p><span m="1797000">What's -- how do we see that?</span> </p>
+<p><span m="1800000">It is a subspace.</span> </p>
+<p><span m="1801000">I -- formally I should check.</span> </p>
+<p><span m="1805000">If I have one vector that with whose components add to zero and</span> <span m="1811000">I multiply that vector by six -- the components still add to</span> <span m="1818000">zero, just six times as -- six times zero.</span> </p>
+<p><span m="1821000">If I have a couple of v and a w and I add them,</span> <span m="1824000">the, the components still add to zero.</span> </p>
+<p><span m="1827000">OK, it's a subspace.</span> </p>
+<p><span m="1828000">What's the dimension of that space and what's a basis for</span> <span m="1832000">that space?</span> </p>
+<p><span m="1833000">So you see how I can just describe a space and we --</span> <span m="1838000">we can ask for the dimension -- ask for the basis first and the</span> <span m="1843000">dimension.</span> </p>
+<p><span m="1844000">Of course, the dimension's the one that's easy to tell me in a</span> <span m="1850000">single word.</span> </p>
+<p><span m="1851000">What's the dimension of our subspace S here?</span> </p>
+<p><span m="1855000">And a basis tell me -- some vectors in it.</span> </p>
+<p><span m="1860000">Well, I'm going to make ask you again to guess the dimension.</span> </p>
+<p><span m="1868000">Again I think I heard it.</span> </p>
+<p><span m="1871000">The dimension is three.</span> </p>
+<p><span m="1871110">Three.</span> </p>
+<p><span m="1874000">Now how does this connect to our Ax=0?</span> </p>
+<p><span m="1879180">Is this the null space of something?</span> </p>
+<p><span m="1883000">Is that the null space of a matrix?</span> </p>
+<p><span m="1888000">And then we can look at the matrix and, and we know</span> <span m="1897000">everything about those subspaces.</span> </p>
+<p><span m="1902000">This is the null space of what matrix?</span> </p>
+<p><span m="1908000">What's the matrix where the null space is then Ab=0.</span> </p>
+<p><span m="1916000">So I want this equation to be Ab=0.</span> </p>
+<p><span m="1921940">b is now the vector.</span> </p>
+<p><span m="1926000">And what's the matrix that, that we're seeing there?</span> </p>
+<p><span m="1932000">It's the matrix of four ones.</span> </p>
+<p><span m="1935000">Do you see that that's -- that if I look at Ab=0 for this</span> <span m="1942000">matrix A, I multiply by b and I get this requirement,</span> <span m="1948000">that the components add to zero.</span> </p>
+<p><span m="1951000">So I'm really when I speak about S --</span> <span m="1956000">I'm speaking about the null space of that matrix.</span> </p>
+<p><span m="1962000">OK.</span> </p>
+<p><span m="1963000">Let's just say we've got a matrix now, we want its null</span> <span m="1969000">space.</span> </p>
+<p><span m="1970000">Well, we -- tell me its rank first.</span> </p>
+<p><span m="1974000">The rank of that matrix is one, thanks.</span> </p>
+<p><span m="1978000">So r is one.</span> </p>
+<p><span m="1981500">What's the general formula for the dimension of the null space?</span> </p>
+<p><span m="1989000">The dimension of the null space of a matrix is -- in general,</span> <span m="1997000">an m by n matrix of rank r?</span> </p>
+<p><span m="2000000">How many independent guys in the null space?</span> </p>
+<p><span m="2006000">n-r, right? n-r.</span> </p>
+<p><span m="2009000">In this case, n is four, four columns.</span> </p>
+<p><span m="2012000">The rank is one, so the null space is three</span> <span m="2016000">dimensions.</span> </p>
+<p><span m="2017000">So of course y- you could see it in this case,</span> <span m="2022000">but you can also see it here in our systematic way of dealing</span> <span m="2028000">with the four fundamental subspaces of a matrix.</span> </p>
+<p><span m="2033000">So what actually what, what are all four subspaces</span> </p>
+<p><span m="2039000">then? The row space is clear.</span> </p>
+<p><span m="2042340">The row space is in R^4.</span> </p>
+<p><span m="2045000">Yeah, can we take the four fundamental subspaces of this</span> <span m="2051000">matrix?</span> </p>
+<p><span m="2052000">Let's just kill this example.</span> </p>
+<p><span m="2055000">The row space is one dimensional.</span> </p>
+<p><span m="2060000">It's all multiples of that, of that row.</span> </p>
+<p><span m="2063000">The null space is three dimensional.</span> </p>
+<p><span m="2065000">Oh, you better give me a basis for the null space.</span> </p>
+<p><span m="2069000">So what's a basis for the null space?</span> </p>
+<p><span m="2072050">The special solutions.</span> </p>
+<p><span m="2073000">To find the special solutions, I look for the free variables.</span> </p>
+<p><span m="2079000">The free variables here are -- there's the pivot.</span> </p>
+<p><span m="2084000">The free variables are two, three, and four.</span> </p>
+<p><span m="2089000">So the basis, basis for S,</span> <span m="2093000">for S will be -- I'm expecting three vectors,</span> <span m="2098000">three special solutions.</span> </p>
+<p><span m="2101000">I give the value one to that free variable,</span> <span m="2106000">and what's the pivot variable if the --</span> <span m="2112000">this is going to be a vector in S?</span> </p>
+<p><span m="2115000">Minus one.</span> </p>
+<p><span m="2116000">Now they're always added to -- the entries add to zero.</span> </p>
+<p><span m="2120000">The second special solution has a one in the second free</span> <span m="2125000">variable, and again a minus one makes it right.</span> </p>
+<p><span m="2128000">The third one has a one in the third free variable,</span> <span m="2133000">and again a minus one makes it right.</span> </p>
+<p><span m="2137000">That's my answer.</span> </p>
+<p><span m="2138000">That's the answer I would be looking for.</span> </p>
+<p><span m="2142110">The -- a basis for this subspace S, you would just list</span> <span m="2146750">three vectors, and those would be the natural</span> <span m="2150000">three to list.</span> </p>
+<p><span m="2151000">Not the only possible three, but those are the special</span> <span m="2156000">three.</span> </p>
+<p><span m="2157750">OK, tell me about the column space, What's the column space</span> <span m="2164000">of this matrix A?</span> </p>
+<p><span m="2166000">So the column space is a subspace of R^1,</span> <span m="2170000">because m is only one.</span> </p>
+<p><span m="2173000">The columns only have one component.</span> </p>
+<p><span m="2177000">So the column space of S, the column space of A is</span> <span m="2183000">somewhere in the space R^1, because we only have --</span> <span m="2190000">these columns are short.</span> </p>
+<p><span m="2193000">And what is the column space actually?</span> </p>
+<p><span m="2198000">I just, it's just talking with these words is what I'm doing.</span> </p>
+<p><span m="2206000">The column space for that matrix is R^1.</span> </p>
+<p><span m="2211000">The column space for that matrix is all multiples of that</span> <span m="2218000">column.</span> </p>
+<p><span m="2220000">And all multiples give you all of R^1.</span> </p>
+<p><span m="2226000">And what's the, the remaining fourth space,</span> <span m="2233000">the null space of A transpose is what?</span> </p>
+<p><span m="2238000">So we transpose A.</span> </p>
+<p><span m="2241000">We look for combinations of the columns now that give zero for A</span> <span m="2251000">transpose.</span> </p>
+<p><span m="2254000">And there aren't any.</span> </p>
+<p><span m="2256000">The only thing, the only combination of these</span> <span m="2261680">rows to give the zero row is the zero combination.</span> </p>
+<p><span m="2267000">OK. So let's just check dimensions.</span> </p>
+<p><span m="2270000">The null space has dimension three.</span> </p>
+<p><span m="2274000">The row space has dimension one.</span> </p>
+<p><span m="2278160">Three plus one is four.</span> </p>
+<p><span m="2282000">The column space has dimension one, and what's the dimension of</span> <span m="2287000">this, like, smallest possible space?</span> </p>
+<p><span m="2290270">What's the dimension of the zero space?</span> </p>
+<p><span m="2293000">It's a subspace.</span> </p>
+<p><span m="2294000">Zero.</span> </p>
+<p><span m="2295000">What else could it be?</span> </p>
+<p><span m="2297000">I mean, let's -- we have to take a reasonable answer --</span> <span m="2302000">and the only reasonable answer is zero.</span> </p>
+<p><span m="2305000">So one plus zero gives -- this was n, the number of columns,</span> <span m="2310000">and this is m, the number of rows.</span> </p>
+<p><span m="2313000">And let's just, let me just say again then the,</span> <span m="2317000">the, the subspace that has only that one point,</span> <span m="2321000">that point is zero dimensional, of course.</span> </p>
+<p><span m="2325000">And the basis is empty, because if the dimension is</span> <span m="2330000">zero, there shouldn't be anybody in the basis.</span> </p>
+<p><span m="2334000">So the basis of that smallest subspace is the empty set.</span> </p>
+<p><span m="2338000">And the number of members in the empty set is zero,</span> <span m="2343000">so that's the dimension.</span> </p>
+<p><span m="2346000">OK. Good.</span> </p>
+<p><span m="2347000">Now I have just five minutes to tell you about -- well,</span> <span m="2353000">actually, about some, some, some, this is now,</span> <span m="2359000">this last topic of small world graphs, and leads into,</span> <span m="2365000">a lecture about graphs and linear algebra.</span> </p>
+<p><span m="2372000">But let me tell you -- in these last minutes the graph that I</span> <span m="2379000">interested in.</span> </p>
+<p><span m="2380000">It's the graph where -- so what is a graph?</span> </p>
+<p><span m="2385000">Better tell you that first.</span> </p>
+<p><span m="2388000">OK.</span> </p>
+<p><span m="2389000">What's a graph?</span> </p>
+<p><span m="2390000">OK.</span> </p>
+<p><span m="2391000">This isn't calculus.</span> </p>
+<p><span m="2394000">We're not, I'm not thinking of, like, some sine curve.</span> </p>
+<p><span m="2400170">The word graph is used in a completely different way.</span> </p>
+<p><span m="2405000">It's a set of, a bunch of nodes and edges,</span> <span m="2409000">edges connecting the nodes.</span> </p>
+<p><span m="2412000">So I have nodes like five nodes and edges -- I'll put in some</span> <span m="2418000">edges, I could put, include them all.</span> </p>
+<p><span m="2422000">There's -- well, let me put in a couple more.</span> </p>
+<p><span m="2427000">There's a graph with five nodes and one two three four five six</span> <span m="2432000">edges.</span> </p>
+<p><span m="2433000">And some five by six matrix is going to tell us everything</span> <span m="2438000">about that graph.</span> </p>
+<p><span m="2440000">Let me leave that matrix to next time and tell you about the</span> <span m="2446000">question I'm interested in.</span> </p>
+<p><span m="2449000">Suppose, suppose the graph isn't just, just doesn't have</span> <span m="2456000">just five nodes, but suppose every,</span> <span m="2460000">suppose every person in this room is a node.</span> </p>
+<p><span m="2465000">And suppose there's an edge between two nodes if those two</span> <span m="2472000">people are friends.</span> </p>
+<p><span m="2474000">So have I described a graph?</span> </p>
+<p><span m="2479000">It's a pretty big graph, hundred, hundred nodes.</span> </p>
+<p><span m="2483000">And I don't know how many edges are in there.</span> </p>
+<p><span m="2487050">There's an edge if you're friends.</span> </p>
+<p><span m="2489000">So that's the graph for this class.</span> </p>
+<p><span m="2492000">A, a similar graph you could take for the whole country,</span> <span m="2497000">so two hundred and sixty million nodes.</span> </p>
+<p><span m="2501000">And edges between friends.</span> </p>
+<p><span m="2505030">And the question for that graph is how many steps does it take</span> <span m="2512000">to get from anybody to anybody?</span> </p>
+<p><span m="2516000">What two people are furthest apart in this friendship graph,</span> <span m="2523000">say for the US?</span> </p>
+<p><span m="2524000">By furthest apart, I mean the distance from --</span> <span m="2531000">well, I'll tell you my distance to Clinton.</span> </p>
+<p><span m="2535000">It's two.</span> </p>
+<p><span m="2536000">I happened to go to college with somebody who knows Clinton.</span> </p>
+<p><span m="2541000">I don't know him.</span> </p>
+<p><span m="2542000">So my distance to Clinton is not one, because I don't,</span> <span m="2547000">happily or not, don't know him.</span> </p>
+<p><span m="2551000">But I know somebody who does.</span> </p>
+<p><span m="2553000">He's a Senator and so I presume he knows him.</span> </p>
+<p><span m="2557000">OK.</span> </p>
+<p><span m="2558000">I don't know what your -- well, what's your distance to</span> <span m="2562000">Clinton?</span> </p>
+<p><span m="2563000">Well, not more than three, right.</span> </p>
+<p><span m="2566000">Actually, true.</span> </p>
+<p><span m="2567000">You know me.</span> </p>
+<p><span m="2569000">I take credit for reducing your Clinton distance to three --</span> <span m="2576000">what's your distance to Monica.</span> </p>
+<p><span m="2580000">Not, anybody below -- below four is in trouble here.</span> </p>
+<p><span m="2586990">Or maybe three, but, right.</span> </p>
+<p><span m="2590000">So -- and what's Hillary's distance to Monica?</span> </p>
+<p><span m="2596000">I don't think we'd better put that on tape here.</span> </p>
+<p><span m="2602000">That's one or two, I guess.</span> </p>
+<p><span m="2605000">Is that right?</span> </p>
+<p><span m="2606000">I don't -- well, we won't, think more about</span> <span m="2611790">that.</span> </p>
+<p><span m="2612000">So actually, the, the real question is what</span> <span m="2617000">are large distances?</span> </p>
+<p><span m="2620860">How, how far apart could people be separated?</span> </p>
+<p><span m="2624000">And roughly this number six degrees of separation has kind</span> <span m="2630300">of appeared as the movie title, as the book title,</span> <span m="2634880">and it's with this meaning.</span> </p>
+<p><span m="2637000">That roughly speaking -- six might be a fairly -- not</span> <span m="2642000">too many people.</span> </p>
+<p><span m="2643000">If you sit next to somebody on an airplane, you get talking to</span> <span m="2648000">them.</span> </p>
+<p><span m="2648930">You begin to discuss mutual friends to sort of find out,</span> <span m="2653000">OK, what connections do you have, and very often you'll find</span> <span m="2657000">you're connected in, like, two or three or four</span> <span m="2661000">steps.</span> </p>
+<p><span m="2662000">And you remark, it's a small world,</span> <span m="2665000">and that's how this expression small world came up.</span> </p>
+<p><span m="2668000">But six, I don't know if you could find -- if it took six,</span> <span m="2672500">I don't know if you would successfully discover those six</span> <span m="2676000">in a, in an airplane conversation.</span> </p>
+<p><span m="2679000">But here's the math question, and I'll leave it for next,</span> <span m="2684000">for lecture twelve, and do a lot of linear algebra</span> <span m="2689000">in lecture twelve.</span> </p>
+<p><span m="2691000">But the interesting point is that with a few shortcuts,</span> <span m="2696350">the distances come down dramatically.</span> </p>
+<p><span m="2700000">That, I mean, all your distances to Clinton</span> <span m="2704000">immediately drop to three by taking linear algebra.</span> </p>
+<p><span m="2709000">That's, like, an extra bonus for taking</span> <span m="2713000">linear algebra.</span> </p>
+<p><span m="2714000">And to understand mathematically what it is about</span> <span m="2719000">these graphs -- or like the graphs of the World</span> <span m="2724000">Wide Web.</span> </p>
+<p><span m="2725000">There's a fantastic graph.</span> </p>
+<p><span m="2727000">So many people would like to understand and model the web.</span> </p>
+<p><span m="2733000">What the -- where the edges are links and the nodes are,</span> <span m="2738000">sites, websites.</span> </p>
+<p><span m="2740000">I'll leave you with that graph, and I'll see you --</span> <span m="2745000">have a good weekend, and see you on Monday.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 101MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/11.mp4">MP4 - 185MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/2IdtqGM6KWU.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

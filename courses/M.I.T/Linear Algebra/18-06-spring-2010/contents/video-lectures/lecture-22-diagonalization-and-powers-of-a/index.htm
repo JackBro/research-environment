@@ -1,0 +1,1343 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 22: Diagonalization and powers of A | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 22: Diagonalization and powers of A" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 22: Diagonalization and powers of A" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-22-diagonalization-and-powers-of-a">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 22: Diagonalization and powers of A
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 22: Diagonalization and powers of A
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-22-diagonalization-and-powers-of-a/13r9QY6cmjc.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/22.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/13r9QY6cmjc', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-22-diagonalization-and-powers-of-a', 'https://img.youtube.com/vi/13r9QY6cmjc/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-22-diagonalization-and-powers-of-a/13r9QY6cmjc.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703576, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p style="margin-bottom: 20px;"><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/13r9QY6cmjc.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="12000">OK. Shall we start?</span> </p>
+<p><span m="14000">This is the second lecture on eigenvalues.</span> </p>
+<p><span m="18000">So the first lecture was -- reached the key equation,</span> <span m="24590">A x equal lambda x. x is the eigenvector and</span> <span m="29000">lambda's the eigenvalue.</span> </p>
+<p><span m="31000">Now to use that.</span> </p>
+<p><span m="33000">And the, the good way to, after we've found -- so,</span> <span m="39000">so job one is to find the eigenvalues and find the</span> <span m="43000">eigenvectors.</span> </p>
+<p><span m="44000">Now after we've found them, what do we do with them?</span> </p>
+<p><span m="48990">Well, the good way to see that is diagonalize the matrix.</span> </p>
+<p><span m="53000">So the matrix is A.</span> </p>
+<p><span m="55000">And I want to show -- first of all, this is like</span> <span m="59000">the basic fact.</span> </p>
+<p><span m="61000">This, this formula.</span> </p>
+<p><span m="63000">That's, that's the key to today's lecture.</span> </p>
+<p><span m="66000">This matrix A, I put its eigenvectors in the</span> <span m="70000">columns of a matrix S.</span> </p>
+<p><span m="72000">So S will be the eigenvector matrix.</span> </p>
+<p><span m="76000">And I want to look at this magic combination S inverse A S.</span> </p>
+<p><span m="81000">So can I show you how that -- what happens there?</span> </p>
+<p><span m="87000">And notice, there's an S inverse.</span> </p>
+<p><span m="92000">We have to be able to invert this eigenvector matrix S.</span> </p>
+<p><span m="99000">So for that, we need n independent</span> <span m="104000">eigenvectors.</span> </p>
+<p><span m="106000">So that's the, that's the case.</span> </p>
+<p><span m="110000">OK. So suppose we have n linearly independent eigenvectors</span> </p>
+<p><span m="120000">of A. Put them in the columns of this matrix S.</span> </p>
+<p><span m="125000">So I'm naturally going to call that the eigenvector matrix,</span> <span m="132000">because it's got the eigenvectors in its columns.</span> </p>
+<p><span m="138000">And all I want to do is show you what happens when you</span> <span m="145000">multiply A times S.</span> </p>
+<p><span m="147000">So A times S.</span> </p>
+<p><span m="148000">So this is A times the matrix with</span> <span m="154000">the first eigenvector in its first column,</span> <span m="158000">the second eigenvector in its second column,</span> <span m="161000">the n-th eigenvector in its n-th column.</span> </p>
+<p><span m="165000">And how I going to do this matrix multiplication?</span> </p>
+<p><span m="169000">Well, certainly I'll do it a column at a time.</span> </p>
+<p><span m="173000">And what do I get.</span> </p>
+<p><span m="176000">A times the first column gives me the first column of the</span> <span m="180000">answer, but what is it?</span> </p>
+<p><span m="182000">That's an eigenvector.</span> </p>
+<p><span m="184000">A times x1 is equal to the lambda times the x1.</span> </p>
+<p><span m="188000">And that lambda's we're -- we'll call lambda one,</span> </p>
+<p><span m="192000">of course. So that's the first column.</span> </p>
+<p><span m="195000">Ax1 is the same as lambda one x1.</span> </p>
+<p><span m="198000">A x2 is lambda two x2.</span> </p>
+<p><span m="200000">So on, along to in the n-th column we now how lambda n xn.</span> </p>
+<p><span m="206000">Looking good, but the next step is even</span> </p>
+<p><span m="210000">better. So for the next step, I want to separate out those</span> <span m="215000">eigenvalues, those, those multiplying numbers,</span> <span m="219000">from the x-s.</span> </p>
+<p><span m="222000">So then I'll have just what I want.</span> </p>
+<p><span m="225000">OK. So how, how I going to separate out?</span> </p>
+<p><span m="228000">So that, that number lambda one is multiplying the first column.</span> </p>
+<p><span m="233000">So if I want to factor it out of the first column,</span> <span m="237000">I better put -- here is going to be x1, and that's going to</span> <span m="242000">multiply this matrix lambda one in the first</span> <span m="246000">entry and all zeros.</span> </p>
+<p><span m="247000">Do you see that that, that's going to come out right</span> <span m="251000">for the first column?</span> </p>
+<p><span m="253000">Because w- we remember how -- how we're going back to that</span> <span m="257000">original punchline.</span> </p>
+<p><span m="259000">That if I want a number to multiply x1 then I can do it by</span> <span m="263000">putting x1 in that column, in the first column,</span> <span m="267000">and putting that number there.</span> </p>
+<p><span m="270000">Th- u- what I going to have here?</span> </p>
+<p><span m="273130">I'm going to have lambda -- I'm going to have x1,</span> <span m="277000">x2, ... ,xn.</span> </p>
+<p><span m="278000">These are going to be my columns again.</span> </p>
+<p><span m="281000">I'm getting S back again.</span> </p>
+<p><span m="283000">I'm getting S back again.</span> </p>
+<p><span m="285000">But now what's it multiplied by,</span> <span m="289000">on the right it's multiplied by?</span> </p>
+<p><span m="291000">If I want lambda n xn in the last column, how do I do it?</span> </p>
+<p><span m="296000">Well, the last column here will be -- I'll take the last column,</span> <span m="302000">use these coefficients, put the lambda n down there,</span> <span m="307000">and it will multiply that n-th column and give me lambda n xn.</span> </p>
+<p><span m="313000">There, there you see matrix multiplication just working for</span> <span m="318000">us.</span> </p>
+<p><span m="319000">So I started with A S.</span> </p>
+<p><span m="321000">I wrote down what it meant, A times each eigenvector.</span> </p>
+<p><span m="325000">That gave me lambda time the eigenvector.</span> </p>
+<p><span m="329000">And then when I peeled off the lambdas, they were on the</span> <span m="333000">right-hand side, so I've got S,</span> <span m="336000">my matrix, back again.</span> </p>
+<p><span m="339480">And this matrix, this diagonal matrix,</span> <span m="342000">the eigenvalue matrix, and I call it capital lambda.</span> </p>
+<p><span m="347000">Using capital letters for matrices and lambda to prompt me</span> <span m="352000">that it's, that it's eigenvalues that are in there.</span> </p>
+<p><span m="357000">So you see that the eigenvalues are just sitting down that</span> <span m="362000">diagonal?</span> </p>
+<p><span m="363000">If I had a column x2 here, I</span> <span m="367000">would want the lambda two in the two two position,</span> <span m="372000">in the diagonal position, to multiply that x2 and give me</span> <span m="378000">the lambda two x2.</span> </p>
+<p><span m="380000">That's my formula.</span> </p>
+<p><span m="381000">A S is S lambda.</span> </p>
+<p><span m="383000">OK. That's the -- you see, it's just a calculation.</span> </p>
+<p><span m="388000">Now -- I mentioned, and I</span> <span m="392000">have to mention again, this business about n</span> <span m="396000">independent eigenvectors.</span> </p>
+<p><span m="398000">As it stands, this is all fine,</span> <span m="401000">whether -- I mean, I could be repeating the same</span> <span m="405000">eigenvector, but -- I'm not interested in that.</span> </p>
+<p><span m="409000">I want to be able to invert S, and that's where this comes in.</span> </p>
+<p><span m="416000">This n independent eigenvectors business comes in to tell me</span> <span m="422540">that that matrix is invertible.</span> </p>
+<p><span m="425000">So let me, on the next board, write down what I've got.</span> </p>
+<p><span m="431000">A S equals S lambda.</span> </p>
+<p><span m="433000">And now I'm, I can multiply on the left by S</span> <span m="437000">inverse.</span> </p>
+<p><span m="438000">So this is really -- I can do that,</span> <span m="442000">provided S is invertible.</span> </p>
+<p><span m="444000">Provided my assumption of n independent eigenvectors is</span> </p>
+<p><span m="449000">satisfied. And I mentioned at the end of last time, and I'll say again,</span> <span m="454000">that there's a small number of matrices for -- that don't have</span> <span m="460000">n independent eigenvectors.</span> </p>
+<p><span m="463000">So I've got to discuss that, that technical point.</span> </p>
+<p><span m="467320">But the great -- the most matrices that we see have n di-</span> <span m="472000">n independent eigenvectors, and we can diagonalize.</span> </p>
+<p><span m="476000">This is diagonalization.</span> </p>
+<p><span m="478000">I could also write it, and I often will,</span> <span m="482000">the other way round.</span> </p>
+<p><span m="483000">If I multiply on the right by S inverse, if I took this equation</span> <span m="488000">at the top and multiplied on the right by S inverse,</span> <span m="492000">I could -- I would have A left here.</span> </p>
+<p><span m="495000">Now S inverse is coming from the right.</span> </p>
+<p><span m="498000">So can you keep those two straight?</span> </p>
+<p><span m="501000">A multiplies its eigenvectors, that's how I keep them</span> </p>
+<p><span m="506000">straight. So A multiplies S.</span> </p>
+<p><span m="508000">A multiplies S.</span> </p>
+<p><span m="509000">And then this S inverse makes the whole thing diagonal.</span> </p>
+<p><span m="513000">And this is another way of saying the same thing,</span> <span m="517000">putting the Ss on the other side of the equation.</span> </p>
+<p><span m="520840">A is S lambda S inverse.</span> </p>
+<p><span m="522659">So that's the, that's the new</span> <span m="525000">factorization.</span> </p>
+<p><span m="526000">That's the replacement for L U from elimination or Q R for --</span> <span m="532000">from Gram-Schmidt.</span> </p>
+<p><span m="533000">And notice that the matrix -- so it's, it's a matrix times a</span> <span m="538000">diagonal matrix times the inverse of the first one.</span> </p>
+<p><span m="543000">It's, that's the combination that we'll see throughout this</span> <span m="548000">chapter.</span> </p>
+<p><span m="549000">This combination with an S and an S inverse.</span> </p>
+<p><span m="553000">OK. Can I just begin to use that?</span> </p>
+<p><span m="556000">For example, what about A squared?</span> </p>
+<p><span m="559000">What are the eigenvalues and eigenvectors of A squared?</span> </p>
+<p><span m="563000">That's a straightforward question with a,</span> <span m="567000">with an absolutely clean answer.</span> </p>
+<p><span m="569000">So let me, let me consider A squared.</span> </p>
+<p><span m="573000">So I start with A x equal lambda x.</span> </p>
+<p><span m="576000">And I'm headed for A squared.</span> </p>
+<p><span m="579370">So let me multiply both sides by A.</span> </p>
+<p><span m="582320">That's one way to get A squared on the left.</span> </p>
+<p><span m="586000">So -- I should write these if-s in here.</span> </p>
+<p><span m="589000">If A x equals lambda x, then I multiply by A,</span> <span m="593000">so I get A squared x equals -- well,</span> <span m="597000">I'm multiplying by A, so that's lambda A x.</span> </p>
+<p><span m="600000">That lambda was a number, so I just put it on the left.</span> </p>
+<p><span m="605000">And what do I -- tell me how to make that look better.</span> </p>
+<p><span m="609000">What have I got here for if, if A has the eigenvalue lambda</span> <span m="614840">and eigenvector x, what's</span> <span m="617000">up with A squared?</span> </p>
+<p><span m="619000">A squared x, I just multiplied by A,</span> <span m="623000">but now for Ax I'm going to substitute lambda x.</span> </p>
+<p><span m="627000">So I've got lambda squared x.</span> </p>
+<p><span m="630000">So from that simple calculation, I -- my conclusion</span> <span m="635000">is that the eigenvalues of A squared are lambda squared.</span> </p>
+<p><span m="642000">And the eigenvectors -- I always think about both of</span> </p>
+<p><span m="646000">those. What can I say about the eigenvalues?</span> </p>
+<p><span m="649000">They're squared.</span> </p>
+<p><span m="651060">What can I say about the eigenvectors?</span> </p>
+<p><span m="654000">They're the same.</span> </p>
+<p><span m="655430">The same x as in -- as for A.</span> </p>
+<p><span m="657000">Now let me see that also from this formula.</span> </p>
+<p><span m="662000">How can I see what A squared is looking like from this formula?</span> </p>
+<p><span m="669000">So let me -- that was one way to do it.</span> </p>
+<p><span m="673000">Let me do it by just taking A squared from that.</span> </p>
+<p><span m="678000">A squared is S lambda S inverse -- that's A -- times S lambda S</span> <span m="684000">inverse -- that's A, which is?</span> </p>
+<p><span m="689000">This is the beauty of eigenvalues, eigenvectors.</span> </p>
+<p><span m="693000">Having that S inverse and S is the identity,</span> <span m="697000">so I've got S lambda squared S inverse.</span> </p>
+<p><span m="701000">Do you see what that's telling me?</span> </p>
+<p><span m="704000">It's, it's telling me the same thing that I just learned here,</span> <span m="710000">but in the -- in a matrix form.</span> </p>
+<p><span m="714000">It's telling me that the S is the same, the eigenvectors are</span> <span m="718000">the same, but the eigenvalues are squared.</span> </p>
+<p><span m="721000">Because this is -- what's lambda squared?</span> </p>
+<p><span m="724000">That's still diagonal.</span> </p>
+<p><span m="725000">It's got little lambda one squared, lambda two squared,</span> <span m="729000">down to lambda n squared o- on that diagonal.</span> </p>
+<p><span m="733000">Those are the eigenvalues, as we just learned,</span> <span m="736000">of A squared.</span> </p>
+<p><span m="738000">OK. So -- somehow those eigenvalues and eigenvectors are really</span> <span m="745000">giving you a way to -- see what's going on inside a matrix.</span> </p>
+<p><span m="751000">Of course I can continue that for -- to the K-th power,</span> <span m="757000">A to the K-th power.</span> </p>
+<p><span m="759000">If I multiply, if I have K of these together,</span> <span m="764000">do you see how S inverse S will keep canceling in the,</span> <span m="769000">in the inside?</span> </p>
+<p><span m="770000">I'll have the S outside at the far left, and lambda will be in</span> <span m="776190">there K times, and S inverse.</span> </p>
+<p><span m="778000">So what's that telling me?</span> </p>
+<p><span m="781000">That's telling me that the eigenvalues of A,</span> <span m="785000">of A to the K-th power are the K-th powers.</span> </p>
+<p><span m="789000">The eigenvalues of A cubed are the cubes of the eigenvalues of</span> </p>
+<p><span m="795000">A. And the eigenvectors are the same, the same.</span> </p>
+<p><span m="799000">OK. In other words, eigenvalues and eigenvectors</span> <span m="803000">give a great way to understand the powers of a matrix.</span> </p>
+<p><span m="808000">If I take the square of a matrix,</span> <span m="812000">or the hundredth power of a matrix, the pivots are all over</span> <span m="817000">the place.</span> </p>
+<p><span m="818000">L U, if I multiply L U times L U times L U times L U a hundred</span> <span m="823000">times, I've got a hundred L Us.</span> </p>
+<p><span m="826480">I can't do anything with them.</span> </p>
+<p><span m="829000">But when I multiply S lambda S inverse by itself,</span> <span m="833000">when I look at the eigenvector picture a hundred times,</span> <span m="838000">I get a hundred or ninety-nine of these guys canceling out</span> <span m="843000">inside, and I get A to the hundredth is S lambda to the</span> <span m="848000">hundredth S inverse.</span> </p>
+<p><span m="850000">I mean, eigenvalues tell you about powers of a matrix in a</span> <span m="855450">way that we had no way to approach previously.</span> </p>
+<p><span m="860000">For example, when does -- when do the powers</span> <span m="864000">of a matrix go to zero?</span> </p>
+<p><span m="867000">I would call that matrix stable, maybe.</span> </p>
+<p><span m="871000">So I could write down a theorem.</span> </p>
+<p><span m="874000">I'll write it as a theorem just to use that word to emphasize</span> <span m="881000">that here I'm getting this great fact from</span> <span m="886000">this eigenvalue picture.</span> </p>
+<p><span m="888000">OK. A to the K approaches zero as K goes, as K gets bigger if what?</span> </p>
+<p><span m="894000">What's the w- how can I tell, for a matrix A,</span> <span m="898000">if its powers go to zero?</span> </p>
+<p><span m="901000">What's -- somewhere inside that matrix is that information.</span> </p>
+<p><span m="906000">That information is not present in</span> <span m="910000">the pivots.</span> </p>
+<p><span m="911000">It's present in the eigenvalues.</span> </p>
+<p><span m="914000">What do I need for the -- to know that if I take higher and</span> <span m="919000">higher powers of A, that this matrix gets smaller</span> <span m="923000">and smaller?</span> </p>
+<p><span m="925000">Well, S and S inverse are not moving.</span> </p>
+<p><span m="928000">So it's this guy that has to get small.</span> </p>
+<p><span m="931000">And that's easy to -- to understand.</span> </p>
+<p><span m="935730">The requirement is all eigenvalues -- so what is the</span> <span m="939000">requirement?</span> </p>
+<p><span m="940000">The eigenvalues have to be less than one.</span> </p>
+<p><span m="944000">Now I have to wrote that absolute value,</span> <span m="947000">because those eigenvalues could be negative, they could be</span> <span m="952000">complex numbers.</span> </p>
+<p><span m="953000">So I'm taking the absolute value.</span> </p>
+<p><span m="956000">If all of those are below one.</span> </p>
+<p><span m="960000">That's, in fact, we practically see why.</span> </p>
+<p><span m="965000">And let me just say that I'm operating on one assumption</span> <span m="972000">here, and I got to keep remembering that that assumption</span> <span m="978000">is still present.</span> </p>
+<p><span m="980000">That assumption was that I had a</span> <span m="985000">full set of, of n independent eigenvectors.</span> </p>
+<p><span m="990000">If I don't have that, then this approach is not</span> <span m="994000">working.</span> </p>
+<p><span m="995000">So again, a pure eigenvalue approach, eigenvector approach,</span> <span m="1000000">needs n independent eigenvectors.</span> </p>
+<p><span m="1004000">If we don't have n independent eigenvectors,</span> <span m="1009000">we can't diagonalize the matrix.</span> </p>
+<p><span m="1012000">We can't get to a diagonal matrix.</span> </p>
+<p><span m="1015000">This diagonalization is only possible if S inverse makes</span> <span m="1020000">sense.</span> </p>
+<p><span m="1021000">OK. Can I, can I follow up on that point now?</span> </p>
+<p><span m="1025210">So you see why -- what we get and, and why we want it,</span> <span m="1030000">because we get information about the</span> <span m="1034000">powers of a matrix just immediately from the</span> <span m="1039000">eigenvalues.</span> </p>
+<p><span m="1040000">OK.</span> </p>
+<p><span m="1041000">Now let me follow up on this, business of which matrices are</span> <span m="1047000">diagonalizable.</span> </p>
+<p><span m="1049000">Sorry about that long word.</span> </p>
+<p><span m="1052000">So a matrix is, is sure -- so here's,</span> <span m="1056000">here's the main point.</span> </p>
+<p><span m="1058000">A is sure to be -- to have N independent eigenvectors</span> <span m="1066000">and, and be -- now here comes that word -- diagonalizable if,</span> <span m="1078000">if -- so we might as well get the nice case out in the open.</span> </p>
+<p><span m="1089000">The nice case is when -- if all the lambdas are different.</span> </p>
+<p><span m="1101000">That means, that means no repeated eigenvalues.</span> </p>
+<p><span m="1111740">OK.</span> </p>
+<p><span m="1112000">That's the nice case.</span> </p>
+<p><span m="1115000">If my matrix, and most -- if I do a random</span> <span m="1120000">matrix in Matlab and compute its eigenvalues -- so if I computed</span> <span m="1129000">if I took eig of rand of ten ten, gave, gave that Matlab</span> <span m="1137000">command, the -- we'd get a random ten by ten matrix,</span> <span m="1145690">we would get a list of its ten eigenvalues, and they would be</span> <span m="1150000">different.</span> </p>
+<p><span m="1151000">They would be distinct is the best word.</span> </p>
+<p><span m="1154000">I would have -- a random matrix will have ten distinct -- a ten</span> <span m="1158950">by ten matrix will have ten distinct eigenvalues.</span> </p>
+<p><span m="1162000">And if it does, the eigenvectors</span> <span m="1165930">are automatically independent.</span> </p>
+<p><span m="1168000">So that's a nice fact.</span> </p>
+<p><span m="1170000">I'll refer you to the text for the proof.</span> </p>
+<p><span m="1174000">That, that A is sure to have n independent eigenvectors if the</span> <span m="1179000">eigenvalues are different, if.</span> </p>
+<p><span m="1182000">If all the, if all eigenvalues are different.</span> </p>
+<p><span m="1186000">It's just if some lambdas are repeated, then I have to look</span> <span m="1191000">more closely.</span> </p>
+<p><span m="1193000">If an eigenvalue is repeated, I have to look,</span> <span m="1198000">I have to count, I have to check.</span> </p>
+<p><span m="1201000">Has it got -- say it's repeated three times.</span> </p>
+<p><span m="1206000">So what's a possibility for the -- so here is the,</span> <span m="1211000">here is the repeated possibility.</span> </p>
+<p><span m="1214000">And, and let me emphasize the conclusion.</span> </p>
+<p><span m="1220000">That if I have repeated eigenvalues, I may or may not,</span> <span m="1226000">I may or may not have, have n independent</span> <span m="1231000">eigenvectors.</span> </p>
+<p><span m="1233000">I might.</span> </p>
+<p><span m="1234000">I, I, you know, this isn't a completely</span> <span m="1238000">negative case.</span> </p>
+<p><span m="1240000">The identity matrix -- suppose I take the ten by ten identity</span> <span m="1247000">matrix.</span> </p>
+<p><span m="1248000">What are the eigenvalues of that</span> <span m="1253000">matrix?</span> </p>
+<p><span m="1254000">So just, just take the easiest matrix, the identity.</span> </p>
+<p><span m="1257000">If I look for its eigenvalues, they're all ones.</span> </p>
+<p><span m="1261000">So that eigenvalue one is repeated ten times.</span> </p>
+<p><span m="1264000">But there's no shortage of eigenvectors for the identity</span> <span m="1268000">matrix.</span> </p>
+<p><span m="1269000">In fact, every vector is an eigenvector.</span> </p>
+<p><span m="1273000">So I can take ten independent vectors.</span> </p>
+<p><span m="1276000">Oh, well, what happens to everything -- if A is the</span> <span m="1280000">identity matrix, let's just think that one</span> <span m="1284000">through in our head.</span> </p>
+<p><span m="1286000">If A is the identity matrix, then it's got plenty of</span> <span m="1290000">eigenvectors.</span> </p>
+<p><span m="1293000">I choose ten independent vectors.</span> </p>
+<p><span m="1295000">They're the columns of S.</span> </p>
+<p><span m="1297000">And, and what do I get from S inverse A S?</span> </p>
+<p><span m="1300000">I get I again, right?</span> </p>
+<p><span m="1302000">If A is the identity -- and of course that's the correct</span> <span m="1306000">lambda.</span> </p>
+<p><span m="1307000">The matrix was already diagonal.</span> </p>
+<p><span m="1309890">So if the matrix is already diagonal, then the,</span> <span m="1314000">the lambda is the same as the matrix.</span> </p>
+<p><span m="1318000">A diagonal matrix has got its eigenvalues sitting right there</span> <span m="1323000">in front of you.</span> </p>
+<p><span m="1325000">Now if it's triangular, the eigenvalues are still</span> <span m="1330000">sitting there, but so let's take a case where</span> <span m="1334000">it's triangular.</span> </p>
+<p><span m="1335000">Suppose A is like, two one two zero.</span> </p>
+<p><span m="1339000">So there's a case that's going to be trouble.</span> </p>
+<p><span m="1343000">There's a case that's going to be trouble.</span> </p>
+<p><span m="1346000">First of all, what are the -- I mean,</span> <span m="1349000">we just -- if we start with a matrix, the first thing we do,</span> <span m="1353000">practically without thinking is compute the eigenvalues and</span> <span m="1359000">eigenvectors.</span> </p>
+<p><span m="1360000">OK. So what are the eigenvalues?</span> </p>
+<p><span m="1363000">You can tell me right away what they are.</span> </p>
+<p><span m="1366000">They're two and two, right.</span> </p>
+<p><span m="1368000">It's a triangular matrix, so when I do this determinant,</span> <span m="1373000">shall I do this determinant of A minus lambda I?</span> </p>
+<p><span m="1377000">I'll get this two minus lambda one zero two minus lambda,</span> <span m="1383000">right?</span> </p>
+<p><span m="1384000">I take that determinant, so I make those into vertical</span> <span m="1389000">bars to mean determinant.</span> </p>
+<p><span m="1391000">And what's the determinant?</span> </p>
+<p><span m="1394000">It's two minus lambda squared.</span> </p>
+<p><span m="1396890">What are the roots?</span> </p>
+<p><span m="1398000">Lambda equal two twice.</span> </p>
+<p><span m="1400000">So the eigenvalues are lambda equals two and two.</span> </p>
+<p><span m="1406280">OK, fine.</span> </p>
+<p><span m="1407000">Now the next step, find the eigenvectors.</span> </p>
+<p><span m="1410000">So I look for eigenvectors, and what do I find for this</span> <span m="1415670">guy?</span> </p>
+<p><span m="1416000">Eigenvectors for this guy, when I subtract two minus the</span> <span m="1421000">identity, so A minus two I has zeros here.</span> </p>
+<p><span m="1424000">And I'm looking for the null space.</span> </p>
+<p><span m="1427000">What's, what are the eigenvectors?</span> </p>
+<p><span m="1430000">They're the -- the null space of A minus</span> <span m="1436000">lambda I.</span> </p>
+<p><span m="1437290">The null space is only one dimensional.</span> </p>
+<p><span m="1441000">This is a case where I don't have enough eigenvectors.</span> </p>
+<p><span m="1447000">My algebraic multiplicity is two.</span> </p>
+<p><span m="1450000">I would say, when I see, when I count how</span> <span m="1455000">often the eigenvalue is repeated, that's</span> <span m="1460910">the algebraic multiplicity.</span> </p>
+<p><span m="1463000">That's the multiplicity, how many times is it the root</span> <span m="1467000">of the polynomial?</span> </p>
+<p><span m="1468000">My polynomial is two minus lambda squared.</span> </p>
+<p><span m="1472000">It's a double root.</span> </p>
+<p><span m="1473000">So my algebraic multiplicity is two.</span> </p>
+<p><span m="1476000">But the geometric multiplicity, which looks for vectors,</span> <span m="1480000">looks for eigenvectors, and -- which means the null</span> <span m="1485000">space of this thing, and the only eigenvector is one</span> </p>
+<p><span m="1490000">zero. That's in the null space.</span> </p>
+<p><span m="1492000">Zero one is not in the null space.</span> </p>
+<p><span m="1495000">The null space is only one dimensional.</span> </p>
+<p><span m="1498000">So there's a matrix, my -- this A or the original A,</span> <span m="1502000">that are not diagonalizable.</span> </p>
+<p><span m="1504610">I can't find two independent eigenvectors.</span> </p>
+<p><span m="1509130">There's only one.</span> </p>
+<p><span m="1510000">OK. So that's the case that I'm -- that's a case that I'm not</span> <span m="1516000">really handling.</span> </p>
+<p><span m="1517000">For example, when I wrote down up here that</span> <span m="1521000">the powers went to zero if the eigenvalues were below one,</span> <span m="1526000">I didn't really handle that case of repeated eigenvalues,</span> <span m="1533000">because my reasoning was based on this formula.</span> </p>
+<p><span m="1537290">And this formula is based on n independent eigenvectors.</span> </p>
+<p><span m="1542000">OK. Just to say then, there are some matrices that</span> <span m="1546000">we're, that, that we don't cover through diagonalization,</span> <span m="1551000">but the great majority we do.</span> </p>
+<p><span m="1555000">OK. And we, we're always OK if we have different distinct</span> <span m="1560000">eigenvalues.</span> </p>
+<p><span m="1561000">OK, that's the, like, the typical case.</span> </p>
+<p><span m="1564320">Because for each eigenvalue there's at least one</span> <span m="1568000">eigenvector.</span> </p>
+<p><span m="1569000">The algebraic multiplicity here is one for every eigenvalue and</span> <span m="1574000">the geometric multiplicity is one.</span> </p>
+<p><span m="1578180">There's one eigenvector.</span> </p>
+<p><span m="1581000">And they are independent.</span> </p>
+<p><span m="1585000">OK. OK. Now let me come back to the important case,</span> <span m="1591000">when, when we're OK.</span> </p>
+<p><span m="1594000">The important case, when we are diagonalizable.</span> </p>
+<p><span m="1601000">Let me, look at -- so -- let me solve</span> <span m="1607790">this equation.</span> </p>
+<p><span m="1609000">The equation will be each -- I start with some -- start with a</span> <span m="1619000">given vector u0.</span> </p>
+<p><span m="1621000">And then my equation is at every step, I multiply what I</span> <span m="1629000">have by A.</span> </p>
+<p><span m="1631000">That, that equation ought to be simple to handle.</span> </p>
+<p><span m="1638000">And I'd like to be able to solve it.</span> </p>
+<p><span m="1645000">How would I find -- if I start with a vector u0 and I multiply</span> <span m="1651000">by A a hundred times, what have I got?</span> </p>
+<p><span m="1655000">Well, I could certainly write down a formula for the answer,</span> <span m="1662380">so what, what -- so u1 is A u0.</span> </p>
+<p><span m="1665000">And u2 is -- what's u2 then? u2, I multiply -- u2 I get</span> <span m="1672000">from u1 by another multiplying by A, so I've got A twice.</span> </p>
+<p><span m="1678000">And my formula is uk, after k steps,</span> <span m="1682000">I've multiplied by A k times the original u0.</span> </p>
+<p><span m="1687760">You see what I'm doing?</span> </p>
+<p><span m="1690000">The next section is going to solve systems of differential</span> <span m="1696000">equations.</span> </p>
+<p><span m="1697870">I'm going to have derivatives.</span> </p>
+<p><span m="1701240">This section is the nice one.</span> </p>
+<p><span m="1705000">It solves difference equations.</span> </p>
+<p><span m="1708000">I would call that a difference equation.</span> </p>
+<p><span m="1712000">It's -- at first order, I would call that a first-order</span> <span m="1717000">system, because it connects only -- it only goes up one level.</span> </p>
+<p><span m="1722000">And I -- it's a system because these are vectors and that's a</span> <span m="1728000">matrix.</span> </p>
+<p><span m="1729000">And the solution is just that.</span> </p>
+<p><span m="1732000">OK.</span> </p>
+<p><span m="1733000">But, that's a nice formula.</span> </p>
+<p><span m="1735000">That's the, like, the most compact formula I</span> <span m="1740000">could ever get. u100 would be A to the one</span> <span m="1744000">hundred u0.</span> </p>
+<p><span m="1745860">But how would I actually find u100?</span> </p>
+<p><span m="1749000">How would I find -- how would I discover what u100 is?</span> </p>
+<p><span m="1754000">Let me, let me show you how.</span> </p>
+<p><span m="1759000">Here's the idea.</span> </p>
+<p><span m="1761000">If -- so to solve, to really solve -- shall I say,</span> <span m="1767000">to really solve -- to really solve it, I would take this</span> <span m="1773000">initial vector u0 and I would write it as a combination of</span> <span m="1780000">eigenvectors.</span> </p>
+<p><span m="1782000">To really solve, write u</span> <span m="1786000">nought as a combination, say certain amount of the first</span> <span m="1792000">eigenvector plus a certain amount of the second eigenvector</span> <span m="1798000">plus a certain amount of the last eigenvector.</span> </p>
+<p><span m="1803000">Now multiply by A.</span> </p>
+<p><span m="1805000">You want to -- you got to see the magic of eigenvectors</span> <span m="1811000">working here.</span> </p>
+<p><span m="1813000">Multiply by A.</span> </p>
+<p><span m="1814000">So Au0 is what?</span> </p>
+<p><span m="1817000">So A times that.</span> </p>
+<p><span m="1818000">A times -- so what's A -- I can separate it out into n separate</span> <span m="1823000">pieces, and that's the whole point.</span> </p>
+<p><span m="1826000">That each of those pieces is going in its own merry way.</span> </p>
+<p><span m="1831000">Each of those pieces is an eigenvector, and when I multiply</span> <span m="1835810">by A, what does this piece become?</span> </p>
+<p><span m="1839000">So that's some amount of the first -- let's suppose the</span> <span m="1845000">eigenvectors are normalized to be unit vectors.</span> </p>
+<p><span m="1849000">So that says what the eigenvector is.</span> </p>
+<p><span m="1853000">It's a -- And I need some multiple of it to produce u0.</span> </p>
+<p><span m="1858000">OK.</span> </p>
+<p><span m="1860000">Now when I multiply by A, what do I get?</span> </p>
+<p><span m="1864000">I get c1, which is just a factor, times Ax1,</span> <span m="1869000">but Ax1 is lambda one x1.</span> </p>
+<p><span m="1872000">When I multiply this by A, I get c2 lambda two x2.</span> </p>
+<p><span m="1877610">And here I get cn lambda n xn.</span> </p>
+<p><span m="1880960">And suppose I multiply by A to the hundredth power now.</span> </p>
+<p><span m="1886000">Can we, having done it, multiplied by A,</span> <span m="1892000">let's multiply by A to the hundredth.</span> </p>
+<p><span m="1895000">What happens to this first term when I multiply by A to the one</span> <span m="1901000">hundredth?</span> </p>
+<p><span m="1902000">It's got that factor lambda to the hundredth.</span> </p>
+<p><span m="1906000">That's the key.</span> </p>
+<p><span m="1908000">That -- that's what I mean by going its own merry way.</span> </p>
+<p><span m="1914000">It, it is pure eigenvector.</span> </p>
+<p><span m="1916000">It's exactly in a direction where multiplication by A just</span> <span m="1920000">brings in a scalar factor, lambda one.</span> </p>
+<p><span m="1923500">So a hundred times brings in this a hundred times.</span> </p>
+<p><span m="1927000">Hundred times lambda two, hundred times lambda n.</span> </p>
+<p><span m="1930000">Actually, we're -- what are we seeing here?</span> </p>
+<p><span m="1935000">We're seeing, this same, lambda capital</span> <span m="1938000">lambda to the hundredth as in the, as in the diagonalization.</span> </p>
+<p><span m="1944000">And we're seeing the S matrix, the, the matrix S of</span> <span m="1948000">eigenvectors.</span> </p>
+<p><span m="1950000">That's what this has got to -- this has got to amount to.</span> </p>
+<p><span m="1955000">A lambda to the hundredth power times an S times this</span> <span m="1961000">vector c that's telling us how much of each one is in the</span> <span m="1966000">original thing.</span> </p>
+<p><span m="1967000">So if, if I had to really find the hundredth power,</span> <span m="1972000">I would take u0, I would expand it as a</span> <span m="1975000">combination of eigenvectors -- this is really S,</span> <span m="1979000">the eigenvector matrix, times c, the,</span> <span m="1984000">the coefficient vector.</span> </p>
+<p><span m="1987000">And then I would immediately then, by inserting these</span> <span m="1993000">hundredth powers of eigenvalues, I'd have the answer.</span> </p>
+<p><span m="1999000">So -- huh, there must be -- oh, let's see, OK.</span> </p>
+<p><span m="2004380">It's -- so, yeah.</span> </p>
+<p><span m="2007000">So if u100 is A to the hundredth times u0,</span> <span m="2011000">and u0 is S c -- then you see this formula is just this</span> <span m="2017000">formula, which is the way I would actually get hold of this,</span> <span m="2024000">of this u100, which is -- let me put it here.</span> </p>
+<p><span m="2029000">u100. The way I would actually get hold of</span> <span m="2034000">that, see what, what the solution is after a</span> <span m="2038000">hundred steps, would be -- expand the initial</span> <span m="2042430">vector into eigenvectors and let each eigenvector go its own way,</span> <span m="2048000">multiplying by a hundred at -- by lambda at every step,</span> <span m="2053000">and therefore by lambda to the hundredth</span> <span m="2057000">power after a hundred steps.</span> </p>
+<p><span m="2061000">Can I do an example?</span> </p>
+<p><span m="2063000">So that's the formulas.</span> </p>
+<p><span m="2066780">Now let me take an example.</span> </p>
+<p><span m="2070000">I'll use the Fibonacci sequence as an example.</span> </p>
+<p><span m="2075000">So, so Fibonacci example.</span> </p>
+<p><span m="2078000">You remember the Fibonacci numbers?</span> </p>
+<p><span m="2083000">If we start with one and one as F0 -- oh, I think I start with</span> <span m="2090000">zero, maybe.</span> </p>
+<p><span m="2091000">Let zero and one be the first ones.</span> </p>
+<p><span m="2094000">So there's F0 and F1, the first two Fibonacci</span> <span m="2098850">numbers.</span> </p>
+<p><span m="2099000">Then what's the rule for Fibonacci numbers?</span> </p>
+<p><span m="2103000">Ah, they're the sum.</span> </p>
+<p><span m="2105000">The next one is the sum of those,</span> <span m="2108000">so it's one.</span> </p>
+<p><span m="2109000">The next one is the sum of those, so it's two.</span> </p>
+<p><span m="2113000">The next one is the sum of those, so it's three.</span> </p>
+<p><span m="2117000">Well, it looks like one two three four five,</span> <span m="2120000">but somehow it's not going to do that way.</span> </p>
+<p><span m="2124000">The next one is five, right.</span> </p>
+<p><span m="2126480">Two and three makes five.</span> </p>
+<p><span m="2129000">The next one is eight.</span> </p>
+<p><span m="2131000">The next one is thirteen.</span> </p>
+<p><span m="2133000">And the one hundredth Fibonacci number is what?</span> </p>
+<p><span m="2138000">That's my question.</span> </p>
+<p><span m="2139770">How could I get a formula for the hundredth number?</span> </p>
+<p><span m="2144000">And, for example, how could I answer the</span> <span m="2147000">question, how fast are they growing?</span> </p>
+<p><span m="2151000">How fast are those Fibonacci numbers</span> <span m="2155000">growing?</span> </p>
+<p><span m="2156200">They're certainly growing.</span> </p>
+<p><span m="2158000">It's not a stable case.</span> </p>
+<p><span m="2160000">Whatever the eigenvalues of whatever matrix it is,</span> <span m="2164000">they're not smaller than one.</span> </p>
+<p><span m="2166000">These numbers are growing.</span> </p>
+<p><span m="2168000">But how fast are they growing?</span> </p>
+<p><span m="2170830">The answer lies in the eigenvalue.</span> </p>
+<p><span m="2173000">So I've got to find the matrix, so let me write down the</span> <span m="2179000">Fibonacci rule.</span> </p>
+<p><span m="2181000">F(k+2) = F(k+1)+F k, right?</span> </p>
+<p><span m="2184000">Now that's not in my -- I want to write that as uk plus one and</span> <span m="2191000">Auk.</span> </p>
+<p><span m="2192000">But right now what I've got is a single equation,</span> <span m="2197610">not a system, and it's second-order.</span> </p>
+<p><span m="2201000">It's like having a second-order differential equation with</span> <span m="2209120">second derivatives.</span> </p>
+<p><span m="2210000">I want to get first derivatives.</span> </p>
+<p><span m="2213000">Here I want to get first differences.</span> </p>
+<p><span m="2217000">So the way, the way to do it is to introduce uk will be a vector</span> <span m="2223000">-- see, a small trick.</span> </p>
+<p><span m="2225000">Let uk be a vector, F(k+1)</span> <span m="2228000">and Fk.</span> </p>
+<p><span m="2229000">So I'm going to get a two by two system, first order,</span> <span m="2234000">instead of a one -- instead of a scalar system,</span> <span m="2239000">second order, by a simple trick.</span> </p>
+<p><span m="2243140">I'm just going to add in an equation F(k+1) equals F(k+1).</span> </p>
+<p><span m="2249000">That will be my second equation.</span> </p>
+<p><span m="2252000">Then this is my system, this is my unknown,</span> <span m="2258000">and what's my one step equation?</span> </p>
+<p><span m="2261400">So, so now u(k+1), that's -- so u(k+1) is the left</span> <span m="2266450">side, and what have I got here on the right side?</span> </p>
+<p><span m="2271000">I've got some matrix multiplying uk.</span> </p>
+<p><span m="2275000">Can you, do -- can you see that all right?</span> </p>
+<p><span m="2280000">if you can see it, then you can tell me what the</span> <span m="2283000">matrix is.</span> </p>
+<p><span m="2284000">Do you see that I'm taking my system here.</span> </p>
+<p><span m="2287000">I artificially made it into a system.</span> </p>
+<p><span m="2290000">I artificially made the unknown into a vector.</span> </p>
+<p><span m="2293000">And now I'm ready to look at and see what the matrix</span> </p>
+<p><span m="2298000">is. So do you see the left side, u(k+1) is F(k+2) F(k+1),</span> <span m="2304000">that's just what I want.</span> </p>
+<p><span m="2306000">On the right side, this remember,</span> <span m="2309000">this uk here -- let me for the moment put it as F(k+1) Fk.</span> </p>
+<p><span m="2315000">So what's the matrix?</span> </p>
+<p><span m="2317000">Well, that has a one and a one, and that has a one and a zero.</span> </p>
+<p><span m="2325000">There's the matrix.</span> </p>
+<p><span m="2327000">Do you see that that gives me the right-hand side?</span> </p>
+<p><span m="2332000">So there's the matrix A.</span> </p>
+<p><span m="2335000">And this is our friend uk.</span> </p>
+<p><span m="2338000">So we've got -- so that simple trick -- changed the</span> <span m="2343000">second-order scalar problem to a first-order system.</span> </p>
+<p><span m="2349000">Two b- u- with two unknowns.</span> </p>
+<p><span m="2352300">With a matrix.</span> </p>
+<p><span m="2354000">And now what do I do?</span> </p>
+<p><span m="2356000">Well, before I even think, I find its eigenvalues and</span> <span m="2360000">eigenvectors.</span> </p>
+<p><span m="2362000">So what are the eigenvalues and eigenvectors of that matrix?</span> </p>
+<p><span m="2367000">Let's see.</span> </p>
+<p><span m="2368000">I always -- first let me just, like, think for a minute.</span> </p>
+<p><span m="2372000">It's two by two, so this shouldn't be impossible</span> <span m="2376000">to do.</span> </p>
+<p><span m="2378000">Let's do it.</span> </p>
+<p><span m="2379000">OK.</span> </p>
+<p><span m="2380000">So my matrix, again, is one one one zero.</span> </p>
+<p><span m="2385000">It's symmetric, by the way.</span> </p>
+<p><span m="2388000">So what I will eventually know about symmetric matrices is that</span> <span m="2395590">the eigenvalues will come out real.</span> </p>
+<p><span m="2399670">I won't get any complex numbers here.</span> </p>
+<p><span m="2403000">And the eigenvectors, once I get those,</span> <span m="2409000">actually will be orthogonal.</span> </p>
+<p><span m="2412000">But two by two, I'm more interested in what the</span> <span m="2416000">actual numbers are.</span> </p>
+<p><span m="2418000">What do I know about the two numbers?</span> </p>
+<p><span m="2421440">Well, should do you want me to find this determinant of A minus</span> </p>
+<p><span m="2427000">lambda I? Sure.</span> </p>
+<p><span m="2429000">So it's the determinant of one minus lambda one one zero,</span> </p>
+<p><span m="2435000">right? Minus lambda, yes.</span> </p>
+<p><span m="2437000">God. OK.</span> </p>
+<p><span m="2438000">OK.</span> </p>
+<p><span m="2438320">There'll be two eigenvalues.</span> </p>
+<p><span m="2441000">What will -- tell me again what I know about the two eigenvalues</span> <span m="2447000">before I go any further.</span> </p>
+<p><span m="2449000">Tell me something about these two eigenvalues.</span> </p>
+<p><span m="2455000">What do they add up to?</span> </p>
+<p><span m="2457000">Lambda one plus lambda two is?</span> </p>
+<p><span m="2459000">Is the same as the trace down the diagonal of the matrix.</span> </p>
+<p><span m="2463000">One and zero is one.</span> </p>
+<p><span m="2465000">So lambda one plus lambda two should come out to be one.</span> </p>
+<p><span m="2469000">And lambda one times lambda one times lambda two should come out</span> <span m="2473000">to be the determinant, which is minus one.</span> </p>
+<p><span m="2476000">So I'm expecting the eigenvalues to</span> <span m="2480000">add to one and to multiply to minus one.</span> </p>
+<p><span m="2484000">But let's just see it happen here.</span> </p>
+<p><span m="2487000">If I multiply this out, I get -- that times that'll be</span> <span m="2492000">a lambda squared minus lambda minus one.</span> </p>
+<p><span m="2496000">Good. Lambda squared minus lambda minus one.</span> </p>
+<p><span m="2500000">Actually, I -- you see the b- compare that with the</span> <span m="2506000">original equation that I started with.</span> </p>
+<p><span m="2510000">F(k+2) - F(k+1)-Fk is zero.</span> </p>
+<p><span m="2513000">The recursion that -- that the Fibonacci numbers satisfy is</span> <span m="2520000">somehow showing up directly here for the eigenvalues when we set</span> <span m="2527000">that to zero.</span> </p>
+<p><span m="2530000">WK. Let's solve.</span> </p>
+<p><span m="2531000">Well, I would like to be able to factor that,</span> <span m="2536000">that quadratic, but I'm better off to use the</span> <span m="2540000">quadratic formula.</span> </p>
+<p><span m="2542810">Lambda is -- let's see.</span> </p>
+<p><span m="2545000">Minus b is one plus or minus the square root of b squared,</span> <span m="2551000">which is one, minus four times that times</span> <span m="2555000">that, which is plus four, over two.</span> </p>
+<p><span m="2560000">So that's the square root of five.</span> </p>
+<p><span m="2563000">So the eigenvalues are lambda one is one half of one plus</span> <span m="2570000">square root of five, and lambda two is one half of</span> <span m="2575000">one minus square root of five.</span> </p>
+<p><span m="2579000">And sure enough, they -- those add up to one and</span> <span m="2584000">they multiply to give minus one.</span> </p>
+<p><span m="2589000">OK. Those are the two eigenvalues.</span> </p>
+<p><span m="2592000">How -- what are those numbers approximately?</span> </p>
+<p><span m="2596000">Square root of five, well, it's more than two but</span> <span m="2600000">less than three.</span> </p>
+<p><span m="2602000">Hmm. It'd be nice to know these numbers.</span> </p>
+<p><span m="2605590">I think, I think that -- so that number comes out bigger</span> <span m="2610000">than one, right?</span> </p>
+<p><span m="2613360">That's right.</span> </p>
+<p><span m="2614000">This number comes out bigger than one.</span> </p>
+<p><span m="2619000">It's about one point six one eight or something.</span> </p>
+<p><span m="2624000">Not exactly, but.</span> </p>
+<p><span m="2626000">And suppose it's one point six.</span> </p>
+<p><span m="2630000">Just, like, I think so.</span> </p>
+<p><span m="2632000">Then what's lambda two?</span> </p>
+<p><span m="2635000">Is, is lambda two positive or negative?</span> </p>
+<p><span m="2641000">Negative, right, because I'm -- it's,</span> <span m="2644000">obviously negative, and I knew that the -- so it's</span> <span m="2648000">minus -- and they add up to one, so minus point six one eight,</span> <span m="2653000">I guess.</span> </p>
+<p><span m="2654000">OK. A- and some more.</span> </p>
+<p><span m="2656000">Those are the two eigenvalues.</span> </p>
+<p><span m="2658000">One eigenvalue bigger than one, one eigenvalue smaller than</span> </p>
+<p><span m="2664000">one. Actually, that's a great situation to be in.</span> </p>
+<p><span m="2667000">Of course, the eigenvalues are different, so there's no doubt</span> <span m="2671000">whatever -- is this matrix diagonalizable?</span> </p>
+<p><span m="2674000">Is this matrix diagonalizable, that original matrix A?</span> </p>
+<p><span m="2678000">Sure.</span> </p>
+<p><span m="2679000">We've got two distinct eigenvalues and we can find the</span> <span m="2682000">eigenvectors in a moment.</span> </p>
+<p><span m="2685000">But they'll be independent, we'll be diagonalizable.</span> </p>
+<p><span m="2690000">And now, you, you can already answer my very</span> <span m="2695000">first question.</span> </p>
+<p><span m="2696940">How fast are those Fibonacci numbers increasing?</span> </p>
+<p><span m="2701000">How -- those -- they're increasing,</span> </p>
+<p><span m="2706000">right? They're not doubling at every step.</span> </p>
+<p><span m="2709000">Let me -- let's look again at these numbers.</span> </p>
+<p><span m="2712000">Five, eight, thirteen, it's not obvious.</span> </p>
+<p><span m="2715000">The next one would be twenty-one, thirty-four.</span> </p>
+<p><span m="2719000">So to get some idea of what F one hundred is,</span> <span m="2723960">can you give me any -- I mean the crucial number -- so it --</span> <span m="2730000">these -- it's approximately -- what's controlling the growth of</span> <span m="2737000">these Fibonacci numbers?</span> </p>
+<p><span m="2740000">It's the eigenvalues.</span> </p>
+<p><span m="2742000">And which eigenvalue is controlling that growth?</span> </p>
+<p><span m="2749000">The big one.</span> </p>
+<p><span m="2750000">So F100 will be approximately some constant,</span> <span m="2754000">c1 I guess, times this lambda one, this one plus square root</span> <span m="2759000">of five over two, to the hundredth power.</span> </p>
+<p><span m="2762000">And the two hundredth F -- in other words, the eigenvalue --</span> <span m="2768000">the Fibonacci numbers are growing by about that factor.</span> </p>
+<p><span m="2773000">Do you see that we, we've got precise information</span> <span m="2778000">about the, about the Fibonacci numbers out of the eigenvalues?</span> </p>
+<p><span m="2783000">OK. And again, why is that true?</span> </p>
+<p><span m="2786000">Let me go over to this board and s- show what I'm doing here.</span> </p>
+<p><span m="2791000">The -- the original initial value is</span> <span m="2795000">some combination of eigenvectors.</span> </p>
+<p><span m="2798000">And then when we start -- when we start going out the theories</span> <span m="2803000">of Fibonacci numbers, when we start multiplying by A</span> <span m="2807000">a hundred times, it's this lambda one to the</span> <span m="2811000">hundredth.</span> </p>
+<p><span m="2812000">This term is, is the one that's taking over.</span> </p>
+<p><span m="2816000">It's -- I mean, that's big, like one point six</span> <span m="2819000">to the hundredth power.</span> </p>
+<p><span m="2821000">The second term is practically nothing, right?</span> </p>
+<p><span m="2824000">The point six, or minus point six,</span> <span m="2826000">to the hundredth power is an extremely small,</span> <span m="2830000">extremely small number.</span> </p>
+<p><span m="2832000">So this is -- there're only two terms, because we're two by two.</span> </p>
+<p><span m="2837000">This number is -- this piece of it is there, but it's,</span> <span m="2840710">it's disappearing, where this piece is there and</span> <span m="2843000">it's growing and controlling everything.</span> </p>
+<p><span m="2846000">So, so really the -- we're doing, like, problems that are</span> <span m="2850000">evolving.</span> </p>
+<p><span m="2852030">We're doing dynamic u- instead of Ax=b, that's a static</span> <span m="2857000">problem.</span> </p>
+<p><span m="2858000">We're now we're doing dynamics.</span> </p>
+<p><span m="2862000">A, A squared, A cubed, things are evolving in</span> </p>
+<p><span m="2867000">time. And the eigenvalues are the crucial, numbers.</span> </p>
+<p><span m="2872000">OK. I guess to complete this, I better write down the</span> <span m="2878800">eigenvectors.</span> </p>
+<p><span m="2879000">So we should complete the, the whole process by finding</span> <span m="2884000">the eigenvectors.</span> </p>
+<p><span m="2886000">OK, well, I have to -- up in the corner, then,</span> <span m="2890000">I have to look at A minus lambda I.</span> </p>
+<p><span m="2893000">So A minus lambda I is this one minus lambda one one and minus</span> <span m="2899000">lambda.</span> </p>
+<p><span m="2900940">And now can we spot an eigenvector out of that?</span> </p>
+<p><span m="2904000">That's, that's, for these two lambdas,</span> <span m="2907000">this matrix is singular.</span> </p>
+<p><span m="2909000">I guess the eigenvector -- two by two ought to be,</span> <span m="2913000">I mean, easy.</span> </p>
+<p><span m="2914000">So if I know that this matrix is singular, then u- seems to me</span> <span m="2920000">the eigenvector has to be lambda and one,</span> <span m="2922000">because that multiplication will give me the zero.</span> </p>
+<p><span m="2926000">And this multiplication gives me -- better give me also zero.</span> </p>
+<p><span m="2930000">Do you see why it does?</span> </p>
+<p><span m="2932000">This is the minus lambda squared plus lambda plus one.</span> </p>
+<p><span m="2936000">It's the thing that's zero because these lambdas</span> <span m="2940000">are special.</span> </p>
+<p><span m="2941000">There's the eigenvector. x1 is lambda one one,</span> <span m="2946000">and x2 is lambda two one.</span> </p>
+<p><span m="2949000">I did that as a little trick that was available in the two by</span> <span m="2955000">two case.</span> </p>
+<p><span m="2956000">So now I finally have to -- oh, I have to take the initial u0</span> </p>
+<p><span m="2963000">now. So to complete this example entirely, I have to say,</span> <span m="2971170">OK, what was u0? u0 was F1 F0.</span> </p>
+<p><span m="2974000">So u0, the starting vector is F1 F0, and those were one and</span> </p>
+<p><span m="2982000">zero. So I have to use that vector.</span> </p>
+<p><span m="2986000">So I have to look for, for a multiple of the first</span> <span m="2992000">eigenvector and the second to produce u0, the one zero</span> </p>
+<p><span m="3000000">vector. This is what will find c1 and c2, and then I'm done.</span> </p>
+<p><span m="3006000">Do you -- so let me instead of, in the last five seconds,</span> <span m="3012000">grinding out a formula, let me repeat the idea.</span> </p>
+<p><span m="3018000">Because I'd really -- it's the idea that's central.</span> </p>
+<p><span m="3022000">When things are evolving in time -- let me come back to this</span> <span m="3027000">board, because the ideas are here.</span> </p>
+<p><span m="3030000">When things are evolving in time by a first-order system,</span> <span m="3035000">starting from an original u0, the key is find the eigenvalues</span> <span m="3040000">and eigenvectors of A.</span> </p>
+<p><span m="3043000">That will tell -- those eigenvectors -- the eigenvalues</span> <span m="3047000">will already tell you what's happening.</span> </p>
+<p><span m="3050000">Is the solution blowing up, is it going to zero,</span> <span m="3054000">what's it doing.</span> </p>
+<p><span m="3055000">And then to, to find out exactly a formula,</span> <span m="3059000">you have to take your u0 and write it as a combination of</span> <span m="3064000">eigenvectors and then follow each eigenvector separately.</span> </p>
+<p><span m="3069930">And that's really what this formula, the formula for,</span> <span m="3074000">-- that's what the formula for A to the K is doing.</span> </p>
+<p><span m="3079000">So remember that formula for A to the K is S lambda to the K S</span> <span m="3084000">inverse.</span> </p>
+<p><span m="3085000">OK. That's, that's difference equations.</span> </p>
+<p><span m="3089000">And you just have to -- so the, the homework will give some</span> <span m="3094000">examples, different from Fibonacci, to follow through.</span> </p>
+<p><span m="3099000">And next time will be differential equations.</span> </p>
+<p><span m="3103000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 111MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/22.mp4">MP4 - 207MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/13r9QY6cmjc.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

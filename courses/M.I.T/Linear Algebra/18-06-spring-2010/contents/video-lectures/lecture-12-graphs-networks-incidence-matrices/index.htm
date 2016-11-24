@@ -1,0 +1,1325 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 12: Graphs, networks, incidence matrices | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 12: Graphs, networks, incidence matrices" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 12: Graphs, networks, incidence matrices" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 12: Graphs, networks, incidence matrices
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 12: Graphs, networks, incidence matrices
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices/6-wh6yvk6uc.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/12.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/6-wh6yvk6uc', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices', 'https://img.youtube.com/vi/6-wh6yvk6uc/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-12-graphs-networks-incidence-matrices/6-wh6yvk6uc.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703566, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/6-wh6yvk6uc.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="0">This is lecture twelve.</span> <span m="300">OK.</span> </p>
+<p><span m="3000">We've reached twelve lectures.</span> </p>
+<p><span m="7000">And this one is more than the others about applications of</span> <span m="14000">linear algebra.</span> </p>
+<p><span m="16000">And I'll confess.</span> </p>
+<p><span m="19000">When I'm giving you examples of the null space and the row</span> <span m="26460">space, I create a little matrix.</span> </p>
+<p><span m="31900">You probably see that I just invent that matrix as I'm going.</span> </p>
+<p><span m="37000">And I feel a little guilty about it, because the truth is</span> <span m="42000">that real linear algebra uses matrices that come from</span> <span m="47000">somewhere.</span> </p>
+<p><span m="48340">They're not just, like, randomly invented by the</span> <span m="52000">instructor.</span> </p>
+<p><span m="53000">They come from applications.</span> </p>
+<p><span m="57300">They have a definite structure.</span> </p>
+<p><span m="60000">And anybody who works with them gets, uses that structure.</span> </p>
+<p><span m="66000">I'll just report, like, this weekend I was at an</span> <span m="70650">event with chemistry professors.</span> </p>
+<p><span m="73000">OK, those guys are row reducing matrices, and what matrices are</span> <span m="79000">they working with?</span> </p>
+<p><span m="82000">Well, their little matrices tell them how much of each</span> <span m="86000">element goes into the -- or each molecule, how many molecules of</span> <span m="91000">each go into a reaction and what comes out.</span> </p>
+<p><span m="94000">And by row reduction they get a clearer picture of a complicated</span> <span m="98000">reaction.</span> </p>
+<p><span m="99000">And this weekend I'm going to -- to a sort of birthday party</span> <span m="103000">at Mathworks.</span> </p>
+<p><span m="105700">So Mathworks is out Route 9 in Natick.</span> </p>
+<p><span m="109000">That's where Matlab is created.</span> </p>
+<p><span m="113000">It's a very, very successful,</span> <span m="116000">software, tremendously successful.</span> </p>
+<p><span m="120000">And the conference will be about how linear algebra is</span> <span m="126000">used.</span> </p>
+<p><span m="127900">And so I feel better today to talk about what I think is the</span> <span m="133000">most important model in applied math.</span> </p>
+<p><span m="137000">And the discrete version is a graph.</span> </p>
+<p><span m="140950">So can I draw a graph?</span> </p>
+<p><span m="143000">Write down the matrix that's associated with it,</span> <span m="147000">and that's a great source of matrices.</span> </p>
+<p><span m="151000">You'll see.</span> </p>
+<p><span m="153900">So a graph is just, so a graph -- to repeat -- has</span> <span m="159000">nodes and edges.</span> </p>
+<p><span m="160000">OK.</span> </p>
+<p><span m="161000">And I'm going to write down the graph, a graph,</span> <span m="166000">so I'm just creating a small graph here.</span> </p>
+<p><span m="170000">As I mentioned last time, we would be very interested in</span> <span m="176000">the graph of all, websites.</span> </p>
+<p><span m="180000">Or the graph of all telephones.</span> </p>
+<p><span m="183000">I mean -- or the graph of all people in the world.</span> </p>
+<p><span m="188000">Here let me take just, maybe nodes one two three --</span> <span m="194000">well, I better put in an -- I'll put in that edge and maybe an</span> <span m="200000">edge to, to a node four, and another edge to node four.</span> </p>
+<p><span m="207300">How's that?</span> </p>
+<p><span m="208000">So there's a graph with four nodes.</span> </p>
+<p><span m="212000">So n will be four in my -- n equal four nodes.</span> </p>
+<p><span m="217000">And the matrix will have m equal the number -- there'll be</span> <span m="223000">a row for every edge, so I've got one two three four</span> <span m="228000">five edges.</span> </p>
+<p><span m="230000">So that will be the number of rows.</span> </p>
+<p><span m="235000">And I have to to write down the matrix that I want to,</span> <span m="239170">I want to study, I need to give a direction to</span> <span m="242540">every edge, so I know a plus and a minus direction.</span> </p>
+<p><span m="246000">So I'll just do that with an arrow.</span> </p>
+<p><span m="248000">Say from one to two, one to three,</span> <span m="251000">two to three, one to four,</span> <span m="253000">three to four.</span> </p>
+<p><span m="255000">That just tells me, if I have current flowing on</span> <span m="259000">these edges then I know whether it's -- to count it as positive</span> <span m="265000">or negative according as whether it's with the arrow or against</span> <span m="271000">the arrow.</span> </p>
+<p><span m="272000">But I just drew those arrows arbitrarily.</span> </p>
+<p><span m="276000">OK. Because I -- my example is going to come --</span> <span m="281000">the example I'll -- the words that I will use will be words</span> <span m="287000">like potential, potential difference,</span> <span m="290330">currents.</span> </p>
+<p><span m="291000">In other words, I'm thinking of an electrical</span> </p>
+<p><span m="295000">network. But that's just one possibility.</span> </p>
+<p><span m="299000">My applied math class builds on this example.</span> </p>
+<p><span m="303000">It could be a hydraulic network, so we could be doing,</span> <span m="309000">flow of water, flow of oil.</span> </p>
+<p><span m="311000">Other examples, this could be a structure.</span> </p>
+<p><span m="315000">Like the -- a design for a bridge or a design for a</span> <span m="320390">Buckminster Fuller dome.</span> </p>
+<p><span m="323000">Or many other possibilities, so many.</span> </p>
+<p><span m="327000">So l- but let's take potentials and currents as,</span> <span m="331000">as a basic example, and let me create the matrix</span> <span m="336000">that tells you exactly what the graph tells you.</span> <span m="337000">That's --, that's it.</span> </p>
+<p><span m="340000">So now I'll call it the incidence matrix,</span> <span m="344000">incidence matrix.</span> </p>
+<p><span m="347000">So let me write it down, and you'll see,</span> </p>
+<p><span m="347100">OK.</span> <span m="351000">what its properties are.</span> </p>
+<p><span m="354000">So every row corresponds to an edge.</span> </p>
+<p><span m="358000">I have five rows from five edges, and let me write down</span> <span m="364000">again what this graph looks like.</span> </p>
+<p><span m="367000">OK, the first edge, edge one, goes from node one to</span> <span m="373000">two.</span> </p>
+<p><span m="375250">So I'm going to put in a minus one and a plus one in th- this</span> </p>
+<p><span m="381000">corresponds to node one two three and four, That's a basis for the null space.</span> <span m="385510">the four columns.</span> </p>
+<p><span m="387220">The five rows correspond -- the first row corresponds to edge</span> </p>
+<p><span m="393000">one. Edge one leaves node one and goes into node two,</span> <span m="398000">and that -- and it doesn't touch three and</span> <span m="402000">four.</span> </p>
+<p><span m="403000">Edge two, edge two goes -- oh, I haven't numbered these edges.</span> </p>
+<p><span m="407000">I just figured that was probably edge one,</span> <span m="410000">but I didn't say so.</span> </p>
+<p><span m="412000">Let me take that to be edge one.</span> </p>
+<p><span m="414000">Let me take this to be edge two.</span> </p>
+<p><span m="417000">Let me take this to be edge three.</span> </p>
+<p><span m="419000">This is edge four.</span> </p>
+<p><span m="422100">Ho, I'm discovering -- no, wait a minute.</span> </p>
+<p><span m="425000">Did I number that twice?</span> </p>
+<p><span m="426000">Here's edge four.</span> </p>
+<p><span m="428120">And here's edge five.</span> </p>
+<p><span m="429000">All right.</span> </p>
+<p><span m="429680">OK?</span> </p>
+<p><span m="430000">So, so edge one, as I said, goes from node one</span> <span m="433000">to two.</span> </p>
+<p><span m="434000">Edge two goes from two to three, node two to three,</span> <span m="438000">so minus one and one in the second and third columns.</span> </p>
+<p><span m="443000">Edge three goes from one to three.</span> </p>
+<p><span m="447000">I'm, I'm tempted to stop for a moment with those three edges.</span> </p>
+<p><span m="451000">The null space is actually one dimensional, and it's the line</span> </p>
+<p><span m="454000">Edges one two three, those form what would we,</span> </p>
+<p><span m="458000">A basis for the null space will be just that.1</span> <span m="459000">what do you call the, the little, the little,</span> <span m="464000">the subgraph formed by edges one, two, and three?</span> </p>
+<p><span m="471000">That's a loop.</span> </p>
+<p><span m="472000">And the number of loops and the position of the loops will be</span> <span m="478320">crucial.</span> </p>
+<p><span m="479000">OK. Actually, here's a interesting point about loops.</span> </p>
+<p><span m="483000">If I look at those rows, corresponding to edges one two</span> <span m="488000">three, and these guys made a loop.</span> </p>
+<p><span m="492000">You want to tell me -- if I just looked at that much of the</span> <span m="498000">matrix it would be natural for me to ask, are those rows</span> <span m="502000">independent?</span> </p>
+<p><span m="503000">Are the rows independent?</span> </p>
+<p><span m="506000">And can you tell from looking at that if they are or are not</span> <span m="511000">independent?</span> </p>
+<p><span m="512490">Do you see a, a relation between those three</span> <span m="516000">rows?</span> </p>
+<p><span m="517000">Yes.</span> </p>
+<p><span m="518000">If I add that row to that row, I get this row.</span> </p>
+<p><span m="523000">So, so that's like a hint here that loops correspond to</span> <span m="529000">dependent, linearly dependent column -- linearly dependent</span> <span m="532000">give me a basis for the null space.</span> </p>
+<p><span m="536000">rows. OK, let me complete the incidence matrix.</span> </p>
+<p><span m="542000">Number four, edge four is going from node</span> <span m="546000">one to node four.</span> </p>
+<p><span m="548000">And the fifth edge is going from node three to node four.</span> </p>
+<p><span m="554000">OK. There's my matrix.</span> </p>
+<p><span m="556000">It came from the five edges and the four nodes.</span> </p>
+<p><span m="561000">And if I had a big graph, I'd have a big matrix.</span> </p>
+<p><span m="567000">And what questions do I ask about matrices?</span> </p>
+<p><span m="571000">Can I ask -- here's the review now.</span> </p>
+<p><span m="575000">There's a matrix that comes from somewhere.</span> <span m="578000">of all vectors through that one.</span> </p>
+<p><span m="580000">If, if it was a big graph, it would be a large matrix,</span> <span m="585000">but a lot of zeros, right?</span> </p>
+<p><span m="589000">Because every row only has two non-zeros.</span> </p>
+<p><span m="592000">So the number of -- it's a very sparse matrix.</span> </p>
+<p><span m="596000">The number of non-zeros is exactly two times five,</span> <span m="600150">it's two m.</span> </p>
+<p><span m="601000">Every row only has two non-zeros.</span> </p>
+<p><span m="603000">And that's with a lot of structure.</span> </p>
+<p><span m="606000">And -- that was the point I wanted to begin with,</span> <span m="609000">that graphs, that real graphs from real --</span> <span m="614000">real matrices from genuine problems have structure.</span> </p>
+<p><span m="619000">OK. We can ask, and because of the structure, we can answer,</span> </p>
+<p><span m="621000">If it -- yeah, let me ask you just always,</span> <span m="625000">the, the main questions about matrices.</span> </p>
+<p><span m="629000">So first question, what about the null space?</span> </p>
+<p><span m="635000">So what I asking if I ask you for the null space of that</span> </p>
+<p><span m="640000">matrix? I'm asking you if I'm looking at the columns of the matrix,</span> </p>
+<p><span m="646000">four columns, and I'm asking you, So there's a basis for it, and here is the whole null</span> <span m="649000">are those columns independent?</span> </p>
+<p><span m="651000">If the columns are independent, then what's in the null space?</span> </p>
+<p><span m="658600">Only the zero vector, right?</span> </p>
+<p><span m="661000">The null space contains -- tells us what combinations of</span> <span m="667000">the columns -- it tells us how to combine columns to get zero.</span> </p>
+<p><span m="673000">Can -- and is there anything in the null space of this matrix</span> <span m="680000">other than just the zero vector?</span> </p>
+<p><span m="684000">In other words, are those four columns</span> </p>
+<p><span m="688000">independent or dependent? What else is in the null space?</span> </p>
+<p><span m="690960">OK.</span> </p>
+<p><span m="691000">That's our question.</span> </p>
+<p><span m="693000">Let me, I don't know if you see the answer.</span> </p>
+<p><span m="697000">Whether there's -- so let's see.</span> </p>
+<p><span m="700000">I guess we could do it properly.</span> <span m="701000">space.</span> </p>
+<p><span m="704600">We could solve Ax=0.</span> </p>
+<p><span m="707000">So let me solve Ax=0 to find the null space.</span> </p>
+<p><span m="713000">OK. What's Ax?</span> </p>
+<p><span m="715000">Can I put x in here in, in little letters?</span> </p>
+<p><span m="720000">x1, x2, x3, x4, that's -- it's got four</span> <span m="725000">columns.</span> </p>
+<p><span m="726000">Ax now is that matrix times x.</span> </p>
+<p><span m="732600">And what do I get for Ax?</span> </p>
+<p><span m="735000">If the camera can keep that matrix multiplication there,</span> <span m="741000">I'll put the answer here.</span> </p>
+<p><span m="743000">Ax equal -- what's the first component of Ax?</span> </p>
+<p><span m="748470">Can you take that first row, minus one one zero zero,</span> <span m="754000">and multiply by the x, and of course you get x2-x1.</span> <span m="756000">space.</span> </p>
+<p><span m="760000">The second row, I get x3-x2.</span> </p>
+<p><span m="764000">From the third row, I get x3-x1.</span> </p>
+<p><span m="768000">Any multiple of one one one one, it's the whole line in four</span> </p>
+<p><span m="769000">From the fourth row, I get x4-x1.</span> </p>
+<p><span m="774000">And from the fifth row, I get x4-x3.</span> </p>
+<p><span m="780000">And I want to know when is the thing zero.</span> </p>
+<p><span m="788000">This is my equation, Ax=0.</span> </p>
+<p><span m="790000">Notice what that matrix A is doing, what we've created a</span> <span m="796000">matrix that computes the differences across every edge,</span> <span m="801000">the differences in potential. differences are zero, and that x is in the null</span> </p>
+<p><span m="804000">Let me even begin to give this interpretation.</span> </p>
+<p><span m="810000">I'm going to think of this vector x, which is x1 x2 x3 x4,</span> <span m="818120">as the potentials at the nodes.</span> </p>
+<p><span m="822000">So I'm introducing a word, potentials at the nodes.</span> </p>
+<p><span m="829000">And now if I multiply by A, I get these -- I get these five</span> <span m="837000">components, x2-x1, et cetera.</span> </p>
+<p><span m="841000">And what are they?</span> </p>
+<p><span m="845000">They're potential differences.</span> </p>
+<p><span m="848000">That's what A computes.</span> </p>
+<p><span m="851000">If I have potentials at the nodes and I multiply by A,</span> <span m="856000">it gives me the potential differences, the differences in</span> <span m="861000">potential, across the edges.</span> </p>
+<p><span m="864000">OK. When are those differences all zero?</span> </p>
+<p><span m="869100">So I'm looking for the null space.</span> </p>
+<p><span m="871000">Of course, if all the (x)s are zero then I get zero.</span> </p>
+<p><span m="876000">That, that just tells me, of course, the zero vector is</span> <span m="880000">in the null space.</span> </p>
+<p><span m="882000">But w- there's more in the null space.</span> </p>
+<p><span m="885000">Those columns are -- of A are dependent, right --</span> <span m="890000">because I can find solutions to that equation.</span> <span m="893000">dimensional space.</span> </p>
+<p><span m="894000">Tell me -- the null space.</span> </p>
+<p><span m="897000">Tell me one vector in the null space, so tell me an x,</span> <span m="903040">it's got four components, and it makes that thing zero.</span> </p>
+<p><span m="908000">So what's a good x to do that?</span> </p>
+<p><span m="911000">One one one one, constant potential.</span> </p>
+<p><span m="916000">If the potentials are constant, then all the potential</span> </p>
+<p><span m="957000">Do you see that that's the null space?</span> </p>
+<p><span m="961000">So the, so the dimension of the null space of A is one.</span> </p>
+<p><span m="967000">And there's a basis for it, and there's everything that's</span> <span m="973000">in it.</span> </p>
+<p><span m="974000">Good. And what does that mean physically?</span> </p>
+<p><span m="979600">I mean, what does that mean in the application?</span> </p>
+<p><span m="984000">That guy in the null space.</span> </p>
+<p><span m="987000">It means that the potentials can only be determined up to a</span> <span m="994000">constant.</span> </p>
+<p><span m="995000">Potential differences are what make current flow.</span> </p>
+<p><span m="1001000">That's what makes things happen.</span> </p>
+<p><span m="1005000">It's these potential differences that will make</span> <span m="1008000">something move in the, in our network,</span> <span m="1010000">between x2- between node two and node one.</span> </p>
+<p><span m="1012000">Nothing will move if all potentials are the same.</span> </p>
+<p><span m="1015000">If all potentials are c, c, c, and c,</span> <span m="1017000">then nothing will move.</span> </p>
+<p><span m="1019190">So we're, we have this one parameter, this arbitrary</span> <span m="1022000">constant that raises or drops all the potentials.</span> </p>
+<p><span m="1025000">It's like ranking football teams, whatever.</span> </p>
+<p><span m="1029000">We have a, there's a, there's a constant -- or</span> <span m="1034000">looking at temperatures, you know, there's a flow of</span> <span m="1039000">heat from higher temperature to lower temperature.</span> </p>
+<p><span m="1044900">If temperatures are equal there's no flow,</span> <span m="1048000">and therefore we can measure -- we can measure temperatures by,</span> <span m="1054000">Celsius or we can start at absolute zero.</span> </p>
+<p><span m="1058000">And that arbitrary -- it's the same arbitrary constant that,</span> <span m="1064000">that was there in calculus.</span> </p>
+<p><span m="1067000">In calculus, right, when you took the</span> <span m="1070000">integral, the indefinite integral, there was a plus c,</span> <span m="1075000">and you had to set a starting point to know what that c was.</span> </p>
+<p><span m="1080000">So here what often happens is we fix one of the potentials,</span> <span m="1086180">like the last one.</span> </p>
+<p><span m="1088000">So a typical thing would be to ground that node.</span> </p>
+<p><span m="1093000">To set its potential at zero.</span> </p>
+<p><span m="1095000">And if we do that, if we fix that potential so</span> <span m="1099960">it's not unknown anymore, then that column disappears and</span> <span m="1105000">we have three columns, and those three columns are</span> <span m="1109000">independent.</span> </p>
+<p><span m="1111000">So I'll leave the column in there, but we'll remember that</span> <span m="1116000">grounding a node is the way to get it out.</span> </p>
+<p><span m="1119000">And grounding a node is the way to -- setting a node -- setting</span> <span m="1123000">a potential to zero tells us the, the base for all</span> <span m="1127000">potentials.</span> </p>
+<p><span m="1128000">Then we can compute the others.</span> </p>
+<p><span m="1130000">But what's the -- now I've talked enough to ask</span> </p>
+<p><span m="1130460">OK.</span> <span m="1135000">what the rank of the matrix is?</span> </p>
+<p><span m="1138000">What's the rank then?</span> </p>
+<p><span m="1139000">The rank of the matrix.</span> </p>
+<p><span m="1141000">So we have a five by four matrix.</span> </p>
+<p><span m="1144000">We've located its null space, one dimensional.</span> </p>
+<p><span m="1148000">How many independent columns do we have?</span> </p>
+<p><span m="1152000">What's the rank?</span> </p>
+<p><span m="1154400">It's three.</span> </p>
+<p><span m="1155000">And the first three columns, or actually any three columns,</span> <span m="1161000">will be independent.</span> </p>
+<p><span m="1163000">Any three potentials are independent, good variables.</span> </p>
+<p><span m="1168000">The fourth potential is not, we need to set,</span> <span m="1173000">and typically we ground that node.</span> </p>
+<p><span m="1176000">OK.</span> </p>
+<p><span m="1178000">Rank is three.</span> </p>
+<p><span m="1179320">Rank equals three.</span> </p>
+<p><span m="1180000">OK.</span> </p>
+<p><span m="1181150">Let's see, do I want to ask you about the column space?</span> </p>
+<p><span m="1185000">The column space is all combinations of those columns.</span> </p>
+<p><span m="1190000">I could say more about it and I will.</span> </p>
+<p><span m="1194400">Let me go to the null space of A transpose, because the</span> <span m="1200000">equation A transpose y equals zero is probably the most</span> <span m="1206000">fundamental equation of applied mathematics.</span> </p>
+<p><span m="1211000">All right, let's talk about that.</span> </p>
+<p><span m="1215000">That deserves our attention.</span> </p>
+<p><span m="1218600">A transpose y equals zero.</span> </p>
+<p><span m="1221000">Let's -- let me put it on here.</span> </p>
+<p><span m="1226000">So A transpose y equals zero.</span> </p>
+<p><span m="1226400">OK.</span> </p>
+<p><span m="1229000">So now I'm finding the null space of A transpose.</span> </p>
+<p><span m="1234000">Oh, and if I ask you its dimension, you could tell me</span> <span m="1239000">what it is.</span> </p>
+<p><span m="1240000">What's the dimension of the null space of A transpose?</span> </p>
+<p><span m="1245000">We now know enough to answer that question.</span> </p>
+<p><span m="1251000">What's the general formula for the dimension of the null space</span> <span m="1257000">of A transpose?</span> </p>
+<p><span m="1258000">A transpose, let me even write out A</span> <span m="1262000">transpose.</span> </p>
+<p><span m="1263000">This A transpose will be n by m, right?</span> </p>
+<p><span m="1267000">In this case, it'll be four by five.</span> </p>
+<p><span m="1267260">n by m.</span> </p>
+<p><span m="1271000">Those columns will become rows.</span> </p>
+<p><span m="1275900">Minus one zero minus one minus one zero is now the first row.</span> </p>
+<p><span m="1283000">The second row of the matrix, one minus one and three zeros.</span> </p>
+<p><span m="1290000">The third column now becomes the third row,</span> <span m="1295000">zero one one zero minus one.</span> </p>
+<p><span m="1298400">And the fourth column becomes the fourth row.</span> </p>
+<p><span m="1303000">OK, good.</span> </p>
+<p><span m="1305900">There's A transpose.</span> </p>
+<p><span m="1308000">That multiplies y, y1 y2 y3 y4 and y5.</span> </p>
+<p><span m="1312000">OK. Now you've had time to think about this question.</span> </p>
+<p><span m="1317000">What's the dimension of the null space, if I set all those</span> </p>
+<p><span m="1324000">-- wow. Usually -- sometime during this semester, I'll drop one of these</span> <span m="1331000">erasers behind there.</span> </p>
+<p><span m="1335000">That's a great moment.</span> </p>
+<p><span m="1338000">There's no recovery.</span> </p>
+<p><span m="1342000">There's -- centuries of erasers are back there.</span> </p>
+<p><span m="1349000">OK.</span> </p>
+<p><span m="1350380">OK, what's the dimension of the null space?</span> </p>
+<p><span m="1358500">Give me the general formula first in terms of r and m and n.</span> </p>
+<p><span m="1365000">This is like crucial, you -- we struggled to,</span> <span m="1371000">to decide what dimension meant, and then we figured out what it</span> <span m="1379000">equaled for an m by n matrix of rank r, and the answer was m-r,</span> <span m="1386000">right?</span> </p>
+<p><span m="1388750">There are m=5 components, m=5 columns of A transpose.</span> </p>
+<p><span m="1394000">And r of those columns are pivot columns,</span> <span m="1399000">because it'll have r pivots.</span> </p>
+<p><span m="1402000">It has rank r.</span> </p>
+<p><span m="1404000">And m-r are the free ones now for A transpose,</span> <span m="1409000">so that's five minus three, so that's two.</span> </p>
+<p><span m="1415900">And I would like to find this null space.</span> </p>
+<p><span m="1419000">I know its dimension.</span> </p>
+<p><span m="1421000">Now I want to find out a basis for it.</span> </p>
+<p><span m="1424000">And I want to understand what this equation is.</span> </p>
+<p><span m="1428000">So let me say what A transpose y actually represents,</span> <span m="1432000">why I'm interested in that equation.</span> </p>
+<p><span m="1436000">I'll put it down with those old erasers and continue this.</span> </p>
+<p><span m="1442000">Here's the great picture of applied mathematics.</span> </p>
+<p><span m="1447000">So let me complete that.</span> </p>
+<p><span m="1449000">There's a matrix that I'll call C that connects potential</span> <span m="1455000">differences to currents.</span> </p>
+<p><span m="1457000">So I'll call these -- these are currents on the</span> <span m="1463720">edges, y1 y2 y3 y4 and y5.</span> </p>
+<p><span m="1467070">Those are currents on the edges.</span> </p>
+<p><span m="1471000">And this relation between current and potential difference</span> <span m="1478000">is Ohm's Law.</span> </p>
+<p><span m="1480000">This here is Ohm's Law.</span> </p>
+<p><span m="1483000">Ohm's Law says that the current on an edge is some number times</span> <span m="1491000">the potential drop.</span> </p>
+<p><span m="1494900">That's -- and that number is the conductance of the edge,</span> <span m="1499000">one over the resistance.</span> </p>
+<p><span m="1501000">This is the old current is, is, the relation of current,</span> <span m="1506000">resistance, and change in potential.</span> </p>
+<p><span m="1509000">So it's a change in potential that makes some current happen,</span> <span m="1514000">and it's Ohm's Law that says how much current happens.</span> </p>
+<p><span m="1519000">OK. And then the final step of this framework is the equation A</span> <span m="1528060">transpose y equals zero.</span> </p>
+<p><span m="1531000">And that's -- what is that saying?</span> </p>
+<p><span m="1536000">It has a famous name.</span> </p>
+<p><span m="1539000">It's Kirchoff's Current Law, KCL, Kirchoff's Current Law,</span> <span m="1547000">A transpose y equals zero.</span> </p>
+<p><span m="1552200">So that when I'm solving, and when I go back up with this</span> <span m="1556000">blackboard and solve A transpose y equals zero,</span> <span m="1560000">it's this pattern of -- that I want you to see.</span> </p>
+<p><span m="1564000">That we had rectangular matrices, but -- and real</span> <span m="1568000">applications, but in those real applications</span> <span m="1572000">comes A and A transpose.</span> </p>
+<p><span m="1575000">So our four subspaces are exactly the right things to know</span> <span m="1581000">about.</span> </p>
+<p><span m="1582000">All right.</span> </p>
+<p><span m="1583000">Let's know about that null space of A transpose.</span> </p>
+<p><span m="1588000">Wait a minute, where'd it go?</span> </p>
+<p><span m="1591000">There it is.</span> </p>
+<p><span m="1592000">OK.</span> </p>
+<p><span m="1593000">OK. Null space of A transpose.</span> </p>
+<p><span m="1597000">We know what its dimension should be.</span> </p>
+<p><span m="1600000">Let's find out -- tell me a vector in it.</span> </p>
+<p><span m="1604000">Tell me -- now, so what I asking you?</span> </p>
+<p><span m="1607000">I'm asking you for five currents that satisfy Kirchoff's</span> <span m="1613000">Current Law.</span> </p>
+<p><span m="1614000">So we better understand what that law says.</span> </p>
+<p><span m="1619000">That, that law, A transpose y equals zero,</span> <span m="1623000">what does that say, say in the first row of A</span> <span m="1628000">transpose?</span> </p>
+<p><span m="1629000">That says -- the so the first row of A transpose says minus y1</span> <span m="1635000">minus y3 minus y4 is zero.</span> </p>
+<p><span m="1638000">Where did that equation come from?</span> </p>
+<p><span m="1642000">Let me -- I'll redraw the graph.</span> </p>
+<p><span m="1646700">Can I redraw the graph here, so that we -- maybe here,</span> <span m="1651000">so that we see again -- there was node one,</span> <span m="1655000">node two, node three, node four was off here.</span> </p>
+<p><span m="1660020">That was, that was our graph.</span> </p>
+<p><span m="1662000">We had currents on those.</span> </p>
+<p><span m="1665000">We had a current y1 going there.</span> </p>
+<p><span m="1668000">We had a current y -- what were the other,</span> <span m="1673000">what are those edge numbers? y4 here and y3 here.</span> </p>
+<p><span m="1678000">And then a y2 and a y5.</span> </p>
+<p><span m="1680000">I'm, I'm just copying what was on the other board so it's ea-</span> <span m="1686000">convenient to see it.</span> </p>
+<p><span m="1688000">What is this equation telling me, this first equation of</span> <span m="1694000">Kirchoff's Current Law?</span> </p>
+<p><span m="1697000">What does that mean for that graph?</span> </p>
+<p><span m="1700000">Well, I see y1, y3, and y4 as the currents</span> <span m="1704000">leaving node one.</span> </p>
+<p><span m="1705570">So sure enough, the first equation refers to</span> <span m="1709000">node one, and what does it say?</span> </p>
+<p><span m="1711000">It says that the net flow is zero.</span> </p>
+<p><span m="1714000">That, that equation A transpose y, Kirchoff's Current Law,</span> <span m="1719420">is a balance equation, a conservation law.</span> </p>
+<p><span m="1724000">Physicists, be overjoyed, right, by this stuff.</span> </p>
+<p><span m="1728000">It, it says that in equals out.</span> </p>
+<p><span m="1732000">And in this case, the three arrows are all going</span> <span m="1736000">out, so it says y1, y3, and y4 add to zero.</span> </p>
+<p><span m="1741000">Let's take the next one.</span> </p>
+<p><span m="1743000">The second row is y1-y2, and that's all that's in that</span> <span m="1749000">row.</span> </p>
+<p><span m="1750950">And that must have something to do with node two.</span> </p>
+<p><span m="1756000">And sure enough, it says y1=y2,</span> <span m="1760000">current in equals current out.</span> </p>
+<p><span m="1764310">The third one, y2 plus y3 minus y5 equals</span> </p>
+<p><span m="1769000">zero. That certainly will be what's up at the third node.</span> </p>
+<p><span m="1777000">y2 coming in, y3 coming in,</span> <span m="1780000">y5 going out has to balance.</span> </p>
+<p><span m="1783000">And finally, y4 plus y5 equals zero says</span> <span m="1787000">that at this node, y4 plus y5, the total flow,</span> </p>
+<p><span m="1793000">We don't -- you know, charge doesn't accumulate at</span> <span m="1793080">is zero.</span> <span m="1799000">the nodes.</span> </p>
+<p><span m="1802000">It travels around.</span> </p>
+<p><span m="1804000">OK. Now give me -- I come back now to the linear algebra question.</span> </p>
+<p><span m="1811000">What's a vector y that solves these equations?</span> </p>
+<p><span m="1816000">Can I figure out what the null space is for this matrix,</span> <span m="1822000">A transpose, by looking at the graph?</span> </p>
+<p><span m="1827700">I'm happy if I don't have to do elimination.</span> </p>
+<p><span m="1831420">I can do elimination, we know how to do,</span> <span m="1834000">we know how to find the null space basis.</span> </p>
+<p><span m="1838000">We can do elimination on this matrix, and we'll get it into a</span> <span m="1843000">good reduced row echelon form, and the special solutions will</span> <span m="1848000">pop right out.</span> </p>
+<p><span m="1850000">But I would like to -- even to do it without that.</span> </p>
+<p><span m="1855000">Let me just ask you first, if I did elimination on that,</span> <span m="1860000">on that, matrix, what would the last row become?</span> </p>
+<p><span m="1864000">What would the last row -- if I do elimination on that matrix,</span> <span m="1870000">the last row of R will be all zeros, right?</span> </p>
+<p><span m="1875000">Why? Because the rank is three.</span> </p>
+<p><span m="1878000">We only going to have three pivots.</span> </p>
+<p><span m="1880000">And the fourth row will be all zeros when we eliminate.</span> </p>
+<p><span m="1885000">So elimination will tell us what, what we spotted earlier,</span> <span m="1889000">what's the null space -- all the, all the information,</span> <span m="1894000">what are the dependencies.</span> </p>
+<p><span m="1897400">We'll find those by elimination, but here in a real</span> <span m="1902000">example, we can find them by thinking.</span> </p>
+<p><span m="1906000">OK. Again, my question is, what is a solution y?</span> </p>
+<p><span m="1911000">How could current travel around this network without collecting</span> <span m="1917000">any charge at the nodes?</span> </p>
+<p><span m="1921500">Tell me a y.</span> </p>
+<p><span m="1922000">OK.</span> </p>
+<p><span m="1923000">So a basis for the null space of A transpose.</span> </p>
+<p><span m="1928000">How many vectors I looking for?</span> </p>
+<p><span m="1931000">Two.</span> </p>
+<p><span m="1932000">It's a two dimensional space.</span> </p>
+<p><span m="1935480">My basis should have two vectors in it.</span> </p>
+<p><span m="1939000">Give me one.</span> </p>
+<p><span m="1942000">One set of currents.</span> </p>
+<p><span m="1944000">Suppose, let me start it.</span> </p>
+<p><span m="1947000">Let me start with y1 as one.</span> </p>
+<p><span m="1951000">OK. So one unit of -- one amp travels on edge one with the</span> <span m="1958000">arrow.</span> </p>
+<p><span m="1959000">OK, then what?</span> </p>
+<p><span m="1961000">What is y2?</span> </p>
+<p><span m="1962000">It's one also, right?</span> </p>
+<p><span m="1966000">And of course what you did was solve Kirchoff's Current Law</span> <span m="1971000">quickly in the second equation.</span> </p>
+<p><span m="1973000">OK.</span> </p>
+<p><span m="1974000">Now we've got one amp leaving node one, coming around to node</span> </p>
+<p><span m="1979000">three. What shall we do now?</span> </p>
+<p><span m="1981000">Well, what shall I take for y3 in other words?</span> </p>
+<p><span m="1986000">Oh, I've got a choice, but why not make it what you</span> <span m="1990000">said, negative one.</span> </p>
+<p><span m="1992000">So I have just sent current, one amp, around that loop.</span> </p>
+<p><span m="1997000">What shall y4 and y5 be in this case?</span> </p>
+<p><span m="2000000">We could take them to be zero.</span> </p>
+<p><span m="2003000">This satisfies Kirchoff's Current Law.</span> </p>
+<p><span m="2006680">We could check it patiently, that minus y1 minus y3 gives</span> <span m="2011000">zero.</span> </p>
+<p><span m="2013000">We know y1 is y2.</span> </p>
+<p><span m="2015000">The others, y4 plus y5 is certainly zero.</span> </p>
+<p><span m="2019000">Any current around a loop satisfies -- satisfies the</span> <span m="2025000">Current Law.</span> </p>
+<p><span m="2026000">Now you know how to get another one.</span> </p>
+<p><span m="2026390">OK.</span> </p>
+<p><span m="2030000">Take current around this loop.</span> </p>
+<p><span m="2034900">So now let y3 be one, y5 be one, and y4 be minus one.</span> </p>
+<p><span m="2040000">And so, so we have the first basis vector sent current around</span> <span m="2046000">that loop, the second basis vector sends current around that</span> </p>
+<p><span m="2052000">loop. And I've -- and those are independent, and I've got two</span> <span m="2058000">solutions -- two vectors in the null space</span> <span m="2063000">of A transpose, two solutions to Kirchoff's</span> <span m="2067000">Current Law.</span> </p>
+<p><span m="2068000">Of course you would say what about sending current around the</span> <span m="2074000">big loop.</span> </p>
+<p><span m="2075000">What about that vector?</span> </p>
+<p><span m="2077000">One for y1, one for y2, nothing f- on y3,</span> <span m="2081000">one for y5, and minus one for y4.</span> </p>
+<p><span m="2086300">What about that?</span> </p>
+<p><span m="2087000">Is that, is that in the null space of A transpose?</span> </p>
+<p><span m="2092000">Sure. So why don't we now have a third vector in the basis?</span> </p>
+<p><span m="2097000">Because it's not independent, right?</span> </p>
+<p><span m="2101000">It's not independent.</span> </p>
+<p><span m="2103000">This vector is the sum of those two.</span> </p>
+<p><span m="2106000">If I send current around that and around that --</span> <span m="2112400">then on this edge y3 it's going to cancel out and I'll have</span> <span m="2117000">altogether current around the whole, the outside loop.</span> </p>
+<p><span m="2122000">That's what this one is, but it's a combination of those</span> <span m="2127000">two.</span> </p>
+<p><span m="2128000">Do you see that I've now, I've identified the null space</span> <span m="2133000">of A transpose -- but more than that,</span> <span m="2137000">we've solved Kirchoff's Current Law.</span> </p>
+<p><span m="2141000">And understood it in terms of the network.</span> </p>
+<p><span m="2145000">OK. So that's the null space of A transpose.</span> </p>
+<p><span m="2148000">I guess I -- there's always one more space to ask you about.</span> </p>
+<p><span m="2155500">Let's see, I guess I need the row space of A,</span> <span m="2161000">the column space of A transpose.</span> </p>
+<p><span m="2165000">So what's N, what's its dimension?</span> </p>
+<p><span m="2170000">Yup?</span> </p>
+<p><span m="2170960">What's the dimension of the row space of A?</span> </p>
+<p><span m="2178000">If I look at the original A, it had five rows.</span> </p>
+<p><span m="2181000">How many were independent?</span> </p>
+<p><span m="2183000">Oh, I guess I'm asking you the rank again, right?</span> </p>
+<p><span m="2187000">And the answer is three, right?</span> </p>
+<p><span m="2189000">Three independent rows.</span> </p>
+<p><span m="2191360">When I transpose it, there's three independent</span> <span m="2194000">columns.</span> </p>
+<p><span m="2195000">Are those columns independent, those three?</span> </p>
+<p><span m="2199750">The first three columns, are they the pivot columns of</span> <span m="2205000">the matrix?</span> </p>
+<p><span m="2206000">No. Those three columns are not independent.</span> </p>
+<p><span m="2210000">There's a in fact, this tells me a relation</span> <span m="2214000">between them.</span> </p>
+<p><span m="2217250">There's a vector in the null space that says the first column</span> <span m="2221000">plus the second column equals the third column.</span> </p>
+<p><span m="2224000">They're not independent because they come from a loop.</span> </p>
+<p><span m="2228780">So the pivot columns, the pivot columns of this</span> <span m="2232000">matrix will be the first, the second, not the third,</span> <span m="2235000">but the fourth.</span> </p>
+<p><span m="2237000">One, columns one, two, and four are OK.</span> </p>
+<p><span m="2242000">Where are they -- those are the columns of A transpose,</span> <span m="2249000">those correspond to edges.</span> </p>
+<p><span m="2252000">So there's edge one, there's edge two,</span> <span m="2257000">and there's edge four.</span> </p>
+<p><span m="2260000">So there's a -- that's like -- is a,</span> <span m="2265000">smaller graph.</span> </p>
+<p><span m="2266000">If I just look at the part of the graph that I've,</span> <span m="2271000">that I've, thick -- used with thick edges, it has the same</span> <span m="2277660">four nodes.</span> </p>
+<p><span m="2278000">It only has three edges.</span> </p>
+<p><span m="2281000">And the, those edges correspond to the independent guys.</span> </p>
+<p><span m="2287800">And in the graph there -- those three edges have no loop,</span> <span m="2292000">right?</span> </p>
+<p><span m="2293000">The independent ones are the ones that don't have a loop.</span> </p>
+<p><span m="2298000">All the -- dependencies came from loops.</span> </p>
+<p><span m="2301000">They were the things in the null space of A transpose.</span> </p>
+<p><span m="2307420">If I take three pivot columns, there are no dependencies among</span> <span m="2311000">them, and they form a graph without a loop,</span> <span m="2314000">and I just want to ask you what's the name for a graph</span> <span m="2318000">without a loop?</span> </p>
+<p><span m="2319000">So a graph without a loop is -- has got not very many edges,</span> <span m="2323000">right?</span> </p>
+<p><span m="2324000">I've got four nodes and it only has three edges,</span> <span m="2327000">and if I put another edge in, I would have a loop.</span> </p>
+<p><span m="2331900">So it's this graph with no loops, and it's the one where</span> <span m="2338000">the rows of A are independent.</span> </p>
+<p><span m="2342000">And what's a graph called that has no loops?</span> </p>
+<p><span m="2348000">It's called a tree.</span> </p>
+<p><span m="2350000">So a tree is the name for a graph with no loops.</span> </p>
+<p><span m="2356720">And just to take one last step here.</span> </p>
+<p><span m="2361000">Using our formula for dimension.</span> </p>
+<p><span m="2366000">Using our formula for dimension, let's look -- once at</span> <span m="2376000">this formula.</span> </p>
+<p><span m="2378000">The dimension of the null space of A transpose is m-r.</span> </p>
+<p><span m="2387000">OK.</span> </p>
+<p><span m="2388520">This is the number of loops, number of independent loops.</span> </p>
+<p><span m="2398000">m is the number of edges.</span> </p>
+<p><span m="2403000">And what is r?</span> </p>
+<p><span m="2407300">What is r for our -- we'll have to remember way back.</span> </p>
+<p><span m="2411000">The rank came -- from looking at the columns of our matrix.</span> </p>
+<p><span m="2417000">So what's the rank?</span> </p>
+<p><span m="2418880">Let's just remember.</span> </p>
+<p><span m="2420000">Rank was -- you remember there was one -- we had a one</span> <span m="2425000">dimensional -- rank was n minus one,</span> <span m="2429000">that's what I'm struggling to say.</span> </p>
+<p><span m="2432000">Because there were n columns coming from the n nodes,</span> <span m="2438000">so it's minus, the number of nodes minus one,</span> <span m="2442000">because of that C, that one one one one vector in</span> <span m="2447000">the null space.</span> </p>
+<p><span m="2449000">The columns were not independent.</span> </p>
+<p><span m="2453000">There was one dependency, so we needed n minus one.</span> </p>
+<p><span m="2459000">This is a great formula.</span> </p>
+<p><span m="2462000">This is like the first shall I, -- write it slightly</span> <span m="2469000">differently?</span> </p>
+<p><span m="2470000">The number of edges -- let me put things -- have I got it</span> <span m="2477400">right?</span> </p>
+<p><span m="2479250">Number of edges is m, the number -- r- is m-r,</span> <span m="2484360">OK.</span> </p>
+<p><span m="2484700">So, so I'm getting -- let me put the number of nodes on the</span> <span m="2491000">other side.</span> </p>
+<p><span m="2492000">So I -- the number of nodes -- I'll move that to the other side</span> <span m="2499000">-- minus the number of edges plus the number of loops is -- I</span> <span m="2506390">have minus, minus one is one.</span> </p>
+<p><span m="2510000">The number of nodes minus the number of edges plus the number</span> <span m="2515000">of loops is one.</span> </p>
+<p><span m="2516000">These are like zero dimensional guys.</span> </p>
+<p><span m="2518000">They're the points on the graph.</span> </p>
+<p><span m="2520000">The edges are like one dimensional things,</span> <span m="2523000">they're, they connect nodes.</span> </p>
+<p><span m="2525770">The loops are like two dimensional things.</span> </p>
+<p><span m="2528640">They have, like, an area.</span> </p>
+<p><span m="2531300">And this count works for every graph.</span> </p>
+<p><span m="2535000">And it's known as Euler's Formula.</span> </p>
+<p><span m="2539000">We see Euler again, that guy never stopped.</span> </p>
+<p><span m="2544000">OK. And can we just check -- so what I saying?</span> </p>
+<p><span m="2549000">I'm saying that linear algebra proves Euler's Formula.</span> </p>
+<p><span m="2556500">Euler's Formula is this great topology fact about any graph.</span> </p>
+<p><span m="2561000">I'll draw, let me draw another graph, let me draw a graph with</span> <span m="2566730">more edges and loops.</span> </p>
+<p><span m="2568520">Let me put in lots of -- OK.</span> </p>
+<p><span m="2570000">I just drew a graph there.</span> </p>
+<p><span m="2573000">So what are the, what are the quantities in that</span> <span m="2577000">formula?</span> </p>
+<p><span m="2578000">How many nodes have I got?</span> </p>
+<p><span m="2581000">Looks like five.</span> </p>
+<p><span m="2582000">How many edges have I got?</span> </p>
+<p><span m="2585000">One two three four five six seven.</span> </p>
+<p><span m="2588000">How many loops have I got?</span> </p>
+<p><span m="2590000">One two three.</span> </p>
+<p><span m="2592000">And Euler's right, I always get one.</span> </p>
+<p><span m="2595000">That, this formula, is extremely useful in</span> <span m="2599000">understanding the relation of these quantities --</span> <span m="2605000">the number of nodes, the number of edges,</span> <span m="2610000">and the number of loops.</span> </p>
+<p><span m="2614000">OK. Just complete this lecture by completing this picture,</span> <span m="2622000">this cycle.</span> </p>
+<p><span m="2624000">So let me come to the -- so this expresses the equations of</span> <span m="2632000">applied math.</span> </p>
+<p><span m="2635800">This, let me call these potential differences,</span> </p>
+<p><span m="2640000">say, E. So E is A x.</span> </p>
+<p><span m="2641000">That's the equation for this step.</span> </p>
+<p><span m="2645000">The currents come from the potential differences.</span> </p>
+<p><span m="2649590">y is C E.</span> </p>
+<p><span m="2650000">The potential -- the currents satisfy Kirchoff's Current Law.</span> </p>
+<p><span m="2657000">Those are the equations of -- with no source terms.</span> </p>
+<p><span m="2661000">Those are the equations of electrical circuits of many --</span> <span m="2666000">those are like the, the most basic three equations.</span> </p>
+<p><span m="2670000">Applied math comes in this structure.</span> </p>
+<p><span m="2673000">The only thing I haven't got yet in the picture is an outside</span> <span m="2678000">source to make something happen.</span> </p>
+<p><span m="2682000">I could add a current source here, I could,</span> <span m="2686000">I could add external currents going in and out of nodes.</span> </p>
+<p><span m="2692000">I could add batteries in the edges.</span> </p>
+<p><span m="2695000">Those are two ways.</span> </p>
+<p><span m="2697000">If I add batteries in the edges, they, they come into</span> <span m="2702000">here.</span> </p>
+<p><span m="2703000">Let me add current sources.</span> </p>
+<p><span m="2707000">If I add current sources, those come in here.</span> </p>
+<p><span m="2711000">So there's a, there's where current sources</span> <span m="2715000">go, because the F is a like a current coming from outside.</span> </p>
+<p><span m="2720000">So we have our edges, we have our graph,</span> <span m="2724000">and then I send one amp into this node and out of this node</span> <span m="2729000">-- and that gives me,</span> <span m="2732000">a right-hand side in Kirchoff's Current Law.</span> </p>
+<p><span m="2735000">And can I -- to complete the lecture, I'm just going to put</span> <span m="2740000">these three equations together.</span> </p>
+<p><span m="2743000">So I start with x, my unknown.</span> </p>
+<p><span m="2746000">I multiply by A.</span> </p>
+<p><span m="2747000">That gives me the potential differences.</span> </p>
+<p><span m="2751000">That was our matrix A that the whole thing started with.</span> </p>
+<p><span m="2758000">I multiply by C.</span> </p>
+<p><span m="2759000">Those are the physical constants in Ohm's Law.</span> </p>
+<p><span m="2765000">Now I have y.</span> </p>
+<p><span m="2766000">I multiply y by A transpose, and now I have F.</span> </p>
+<p><span m="2771000">So there is the whole thing.</span> </p>
+<p><span m="2776000">There's the basic equation of applied math.</span> </p>
+<p><span m="2779000">Coming from these three steps, in which the last step is this</span> <span m="2784000">balance equation.</span> </p>
+<p><span m="2785000">There's always a balance equation to look for.</span> </p>
+<p><span m="2789000">These are the -- when I say the most basic equations of applied</span> <span m="2793000">mathematics -- I should say,</span> <span m="2796000">in equilibrium.</span> </p>
+<p><span m="2797000">Time isn't in this problem.</span> </p>
+<p><span m="2800070">I'm not -- and Newton's Law isn't acting here.</span> </p>
+<p><span m="2803000">I'm, I'm looking at the -- equations when everything has</span> <span m="2807000">settled down, how do the currents distribute</span> <span m="2811000">in the network.</span> </p>
+<p><span m="2813000">And of course there are big codes to solve the -- this is</span> <span m="2818000">the basic problem of numerical linear algebra for systems of</span> <span m="2824000">equations, because that's how they come.</span> </p>
+<p><span m="2828850">And my final question.</span> </p>
+<p><span m="2831000">What can you tell me about this matrix A transpose C A?</span> </p>
+<p><span m="2837500">Or even A transpose A?</span> </p>
+<p><span m="2839000">I'll just close with that question.</span> </p>
+<p><span m="2843000">What do you know about the matrix A transpose A?</span> </p>
+<p><span m="2848000">It is always symmetric, right.</span> </p>
+<p><span m="2851000">OK, thank.</span> </p>
+<p><span m="2852000">So I'll see you Wednesday for a full review of these chapters,</span> <span m="2858000">and Friday you get to tell me.</span> </p>
+<p><span m="2861000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 103MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/12.mp4">MP4 - 191MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/6-wh6yvk6uc.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

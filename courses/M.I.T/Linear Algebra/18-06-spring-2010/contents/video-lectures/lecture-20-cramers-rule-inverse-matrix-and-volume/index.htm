@@ -1,0 +1,1323 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 20: Cramer's rule, inverse matrix, and volume | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 20: Cramer's rule, inverse matrix, and volume" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 20: Cramer's rule, inverse matrix, and volume" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 20: Cramer's rule, inverse matrix, and volume
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 20: Cramer's rule, inverse matrix, and volume
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/QNpj-gOXW9M.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/20.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/QNpj-gOXW9M', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume', 'https://img.youtube.com/vi/QNpj-gOXW9M/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/QNpj-gOXW9M.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703574, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a target="_blank" href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a target="_blank" href="http://math.mit.edu/linearalgebra/"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a target="_blank" href="http://www.wellesleycambridge.com/">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p style="margin-bottom: 20px;"><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/QNpj-gOXW9M.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="6000">OK, this is lecture twenty.</span> </p>
+<p><span m="8000">And this is the final lecture on determinants.</span> </p>
+<p><span m="13000">And it's about the applications.</span> </p>
+<p><span m="16000">So we worked hard in the last two lectures to get a formula</span> <span m="21000">for the determinant and the properties of the determinant.</span> </p>
+<p><span m="26000">Now to use the determinant and, and always this determinant</span> <span m="32000">packs all this information into a</span> <span m="36000">single number.</span> </p>
+<p><span m="38000">And that number can give us formulas for all sorts of,</span> <span m="44000">things that we've been calculating already without</span> <span m="49000">formulas.</span> </p>
+<p><span m="50000">Now what was A inverse?</span> </p>
+<p><span m="52000">So, so I'm beginning with the formula for A inverse.</span> </p>
+<p><span m="58420">Two, two by two formula we know,</span> </p>
+<p><span m="63000">right? The two by two formula for A inverse, the inverse of a b c d</span> <span m="70000">inverse is one over the determinant times d a -b -c.</span> </p>
+<p><span m="77000">Somehow I want to see what's going on for three by three and</span> <span m="84000">n by n.</span> </p>
+<p><span m="85000">And actually maybe you can see what's going on from this two by</span> <span m="92000">two case.</span> </p>
+<p><span m="93000">So there's a formula for the inverse,</span> <span m="99000">and what did I divide by?</span> </p>
+<p><span m="101000">The determinant.</span> </p>
+<p><span m="103000">So what I'm looking for is a formula where it has one over</span> <span m="108000">the determinant and, and you remember why that makes</span> <span m="113000">good sense, because then that's perfect as long as the</span> <span m="118000">determinant isn't zero, and that's exactly when there</span> <span m="123000">is an inverse.</span> </p>
+<p><span m="125000">But now I have to ask can we recognize any of this stuff?</span> </p>
+<p><span m="130000">Do you recognize what that number d is from the past?</span> </p>
+<p><span m="134900">From last, from the last lecture?</span> </p>
+<p><span m="137000">My hint is think cofactors.</span> </p>
+<p><span m="139000">Because my formula is going to be, my formula for the inverse</span> <span m="144000">is going to be one over the determinant times</span> <span m="149000">a matrix of cofactors.</span> </p>
+<p><span m="151000">So you remember that D?</span> </p>
+<p><span m="153000">What's that the cofactor of?</span> </p>
+<p><span m="156000">Remember cofactors?</span> </p>
+<p><span m="158000">If -- that's the one one cofactor, because if I strike</span> <span m="163000">out row and column one, I'm left with d.</span> </p>
+<p><span m="167000">And what's minus b?</span> </p>
+<p><span m="169000">OK. Which cofactor is that one?</span> </p>
+<p><span m="172000">Oh, minus b is the cofactor of c,</span> <span m="176650">right?</span> </p>
+<p><span m="177000">If I strike out the c, I'm left with a b there.</span> </p>
+<p><span m="182000">And why the minus sign?</span> </p>
+<p><span m="184000">Because this c was in a two one position, and two plus one is</span> </p>
+<p><span m="191000">odd. So there was a minus went into the cofactor,</span> <span m="196000">and that's it.</span> </p>
+<p><span m="197000">OK. I'll write down next what my formula is.</span> </p>
+<p><span m="203000">Here's the big formula for the A -- for A inverse.</span> </p>
+<p><span m="208000">It's one over the determinant of A and then some matrix.</span> </p>
+<p><span m="214000">And that matrix is the matrix of cofactors,</span> </p>
+<p><span m="219000">c. Only one thing, it turns -- you'll see,</span> <span m="223000">I have to, I transpose.</span> </p>
+<p><span m="225000">So this is the matrix of cofactors,</span> <span m="230000">the -- what I'll just -- but why don't we just call it the</span> <span m="235000">cofactor matrix.</span> </p>
+<p><span m="237000">So the one one entry of, of c is the cof- is the one one</span> <span m="241000">cofactor, the thing that we get by throwing away row and column</span> </p>
+<p><span m="247000">one. It's the d.</span> </p>
+<p><span m="248000">And, because of the transpose, what I see up here is the</span> <span m="254000">cofactor of this guy down here, right?</span> </p>
+<p><span m="257000">That's where the transpose came in.</span> </p>
+<p><span m="260000">What I see here, this is the cofactor not of</span> <span m="263000">this one, because I've transposed.</span> </p>
+<p><span m="266000">This is the cofactor of the b.</span> </p>
+<p><span m="268000">When I throw away the b, the b row and the b column,</span> <span m="274000">I'm left with c, and then I have that minus sign</span> </p>
+<p><span m="278000">again. And of course the two two entry is the cofactor of d,</span> <span m="283000">and that's this a.</span> </p>
+<p><span m="284000">So there's the formula.</span> </p>
+<p><span m="284590">OK.</span> </p>
+<p><span m="286000">But we got to think why.</span> </p>
+<p><span m="288000">I mean, it worked in this two by two case, but a lot of other</span> <span m="293000">formulas would have worked just as well.</span> </p>
+<p><span m="298000">We, we have to see why that's true.</span> </p>
+<p><span m="301000">In other words, why is it -- so this is what I</span> <span m="305000">aim to find.</span> </p>
+<p><span m="306000">And, and let's just sort of look to see what is that telling</span> </p>
+<p><span m="312000">us. That tells us that the -- the expression for A inverse --</span> <span m="318000">let's look at a three by three.</span> </p>
+<p><span m="320730">Can I just write down a a b c d e f g h i?</span> </p>
+<p><span m="324000">And I'm looking for its inverse.</span> </p>
+<p><span m="326000">And what kind of a formula -- do I see there?</span> </p>
+<p><span m="330000">I mean, what -- the determinant is a bunch of products of three</span> <span m="335000">factors, right?</span> </p>
+<p><span m="337010">The determinant of this matrix'll</span> <span m="340000">involve a e i, and b f times g,</span> <span m="343000">and c times d times h, and minus c e g,</span> <span m="347860">and so on.</span> </p>
+<p><span m="348000">So things with three factors go in here.</span> </p>
+<p><span m="352000">Things with how many factors do things in the cofactor matrix</span> </p>
+<p><span m="359000">have? What's a typical cofactor?</span> </p>
+<p><span m="362000">What's the cofactor of a?</span> </p>
+<p><span m="365000">The cofactor of a, the one one entry up here in</span> <span m="370000">the inverse is?</span> </p>
+<p><span m="371000">I throw away the row and column containing a and I take the</span> <span m="377000">determinant of what's left, that's the cofactor.</span> </p>
+<p><span m="382120">And that's e i minus f h.</span> </p>
+<p><span m="384000">Products of two things.</span> </p>
+<p><span m="386000">Now, I'm just making the observation</span> <span m="391000">that the determinant of A involves products of n entries.</span> </p>
+<p><span m="398000">And the cofactor matrix involves products of n minus 1</span> <span m="404000">entries.</span> </p>
+<p><span m="405000">And, like, we never noticed any of this stuff when we were</span> <span m="412000">computing the inverse by the Gauss-Jordan method or whatever.</span> </p>
+<p><span m="420000">You remember how we did it?</span> </p>
+<p><span m="422580">We took the matrix A, we tucked the identity next to</span> <span m="426000">it, we did elimination till A became the identity.</span> </p>
+<p><span m="429000">And then that, the identity suddenly was A</span> <span m="432000">inverse.</span> </p>
+<p><span m="433000">Well, that was great numerically.</span> </p>
+<p><span m="435000">But we never knew what was going on, basically.</span> </p>
+<p><span m="439000">And now we see what the formula is</span> <span m="442000">in terms of letters, what's the algebra instead of</span> <span m="447000">the algorithm.</span> </p>
+<p><span m="448000">OK. But I have to say why this is right, right?</span> </p>
+<p><span m="452000">I still -- that's a pretty magic formula.</span> </p>
+<p><span m="456000">Where does it come from?</span> </p>
+<p><span m="458000">Well, I'll just check it.</span> </p>
+<p><span m="460000">Having, having got it up there,</span> <span m="464000">let me -- I'll say, how can we check -- what do I</span> <span m="467000">want to check?</span> </p>
+<p><span m="468000">I want to check that A times its inverse gives the identity.</span> </p>
+<p><span m="473000">So I want, I want to check that A times this thing,</span> <span m="477000">A times this -- now I'm going to write in the inverse -- gives</span> <span m="481000">the identity.</span> </p>
+<p><span m="483000">So I check that A times C transpose -- let me bring the</span> <span m="488000">determinant up here.</span> </p>
+<p><span m="490000">Determinant of A times the identity.</span> </p>
+<p><span m="494000">That's my job.</span> </p>
+<p><span m="495000">That's it, that if this is true, and it is,</span> <span m="500020">then, then I've correctly identified A inverse as C</span> <span m="505000">transpose divided by the determinant.</span> </p>
+<p><span m="509000">OK.</span> </p>
+<p><span m="510000">But why is this true?</span> </p>
+<p><span m="512000">Why is that true?</span> </p>
+<p><span m="513000">Let me, let me put down what I'm doing here.</span> </p>
+<p><span m="517000">I have A -- here, here's A, here's a11 -- I'm</span> <span m="522000">doing this multiplication -- along to a1n.</span> </p>
+<p><span m="525000">And then down in this last row will be an an1 along to ann.</span> </p>
+<p><span m="531000">And I'm multiplying by the cofactor matrix transposed.</span> </p>
+<p><span m="537000">So when I transpose, it'll be c11 c12 down to c1n.</span> </p>
+<p><span m="542000">Notice usually that one coming first would mean I'm in row one,</span> <span m="548000">but I've transposed, so that's, those are the</span> <span m="553000">cofactors.</span> </p>
+<p><span m="554000">This first column are the cofactors from row one.</span> </p>
+<p><span m="558000">And then the last column would be the cofactors from row n.</span> </p>
+<p><span m="565000">And why should that come out to be anything good?</span> </p>
+<p><span m="570000">In fact, why should it come out to be as good as this?</span> </p>
+<p><span m="575000">Well, you can tell me what the one one entry in the product is.</span> </p>
+<p><span m="581000">This is like you're seeing the main point if you just tell me</span> <span m="587000">one entry.</span> </p>
+<p><span m="588000">What do I get up there in the one</span> <span m="592000">one entry when I do this row of this row from A times this</span> <span m="598000">column of cofactors?</span> </p>
+<p><span m="600000">What, what will I get there?</span> </p>
+<p><span m="603000">Because we have seen this.</span> </p>
+<p><span m="606000">I mean, we're, right, building exactly on what</span> <span m="610000">the last lecture reached.</span> </p>
+<p><span m="613000">So this is a11 times c11, a12 times c12,</span> <span m="618000">a1n times c1n.</span> </p>
+<p><span m="619760">What does that what does that sum up to?</span> </p>
+<p><span m="624000">That's the cofactor formula for the determinant.</span> </p>
+<p><span m="629340">That's the, this cofactor formula, which I wrote,</span> <span m="634000">which we got last time.</span> </p>
+<p><span m="637000">The determinant of A is, if I use row one,</span> <span m="641000">let, let I equal one,</span> <span m="645000">then I have a11 times its cofactor, a12 times its</span> <span m="649000">cofactor, and so on.</span> </p>
+<p><span m="651000">And that gives me the determinant.</span> </p>
+<p><span m="655000">And it worked in this, in this case.</span> </p>
+<p><span m="658000">This row times this thing is, sure enough,</span> <span m="662000">ad minus bc.</span> </p>
+<p><span m="663000">But this formula says it always works.</span> </p>
+<p><span m="668000">So up here in this, in this position,</span> <span m="671000">I'm getting determinant of A.</span> </p>
+<p><span m="674000">What about in the two two position?</span> </p>
+<p><span m="677000">Row two times column two there, what, what is that?</span> </p>
+<p><span m="681000">That's just the cofactors, that's just row two times its</span> <span m="685000">cofactors.</span> </p>
+<p><span m="686000">So of course I get the determinant</span> <span m="690000">again.</span> </p>
+<p><span m="691180">And in the last here, this is the last row times its</span> <span m="695900">cofactors.</span> </p>
+<p><span m="696000">It's exactly -- you see, we're realizing that the</span> <span m="701000">cofactor formula is just this sum of products,</span> <span m="705000">so of course we think, hey, we've got a matrix</span> <span m="709000">multiplication there.</span> </p>
+<p><span m="712000">And we get determinant of A.</span> </p>
+<p><span m="715000">But there's one more idea here, right?</span> </p>
+<p><span m="715060">Great.</span> </p>
+<p><span m="718000">What else, what have I not -- so I haven't got that formula</span> <span m="724000">completely proved yet, because I've still got to do</span> <span m="728000">all the off-diagonal stuff, which I want to be zero,</span> </p>
+<p><span m="733000">right? I just want this to be determinant of A times the</span> <span m="739000">identity, and then I'm, I'm a happy person.</span> </p>
+<p><span m="742000">So why should that be?</span> </p>
+<p><span m="744000">Why should it be that one row times the cofactors from a</span> <span m="749000">different row, which become a column because I</span> <span m="753000">transpose, give zero?</span> </p>
+<p><span m="755000">In other words, the cofactor formula gives the</span> <span m="759000">determinant if the row and the,</span> <span m="763000">and the cofactors -- you know, if the entries of A and the</span> <span m="768000">cofactors are for the same row.</span> </p>
+<p><span m="771000">But for some reason, if I take the cofactors from</span> <span m="775000">the -- entries from the first row and the cofactors from the</span> <span m="780000">second row, for some reason I automatically</span> </p>
+<p><span m="785000">get zero. And it's sort of like interesting to say,</span> <span m="789000">why does that happen?</span> </p>
+<p><span m="790000">And can I just check that -- of course, we know it happens,</span> <span m="795000">in this case.</span> </p>
+<p><span m="796000">Here are the numbers from row one and here are the cofactors</span> <span m="801000">from row two, right?</span> </p>
+<p><span m="803000">Those are the numbers in row one.</span> </p>
+<p><span m="806000">And th- these are the cofactors from row two,</span> <span m="809000">because the cofactor of c is minus b and the cofactor of d is</span> </p>
+<p><span m="814000">a. And sure enough, that row times this column</span> <span m="818000">gives -- please say it.</span> </p>
+<p><span m="819000">Zero, right.</span> </p>
+<p><span m="820000">OK.</span> </p>
+<p><span m="821000">So now how come?</span> </p>
+<p><span m="822000">How come?</span> </p>
+<p><span m="823000">Can we even see it in this two by two case?</span> </p>
+<p><span m="827000">Why did -- well, I mean, I guess we,</span> <span m="830000">you know, in one way we certainly do see it,</span> <span m="833000">because it's right here.</span> </p>
+<p><span m="835000">I mean, do we just do it, and then we get zero.</span> </p>
+<p><span m="838000">But we want to think of some reason why the answer's zero,</span> <span m="843000">some reason that we can use in the n by n case.</span> </p>
+<p><span m="847000">So let -- here, here is my thinking.</span> </p>
+<p><span m="850000">We must be, if we're getting the answer's zero,</span> <span m="854000">we suspect that what we're doing somehow,</span> <span m="858000">we're taking the determinant of some matrix that has two equal</span> <span m="863000">rows.</span> </p>
+<p><span m="864000">So I believe that if we multiply these by the cofactors</span> <span m="869000">from some other row, we're taking the determinant --</span> <span m="874000">ye, what matrix are we taking the determinant of?</span> </p>
+<p><span m="878000">Here it's, this is it.</span> </p>
+<p><span m="880000">We're, when we do that times this, we're really taking -- can</span> <span m="885000">I put this in little letters down here?</span> </p>
+<p><span m="889000">I'm taking -- let me look at the matrix a b a b.</span> </p>
+<p><span m="894470">Let me call that matrix AS, A screwed up.</span> </p>
+<p><span m="898000">OK. All right.</span> </p>
+<p><span m="899000">So now that matrix is certainly singular.</span> </p>
+<p><span m="903000">So if we find its determinant, we're going to get zero.</span> </p>
+<p><span m="908000">But I claim that if we find its determinant by the cofactor</span> <span m="914000">rule, go along the first row,</span> <span m="918000">we would take a times the cofactor of a.</span> </p>
+<p><span m="922000">And what is the -- see, how -- oh no -- let me go along</span> <span m="928000">the second row.</span> </p>
+<p><span m="929000">OK.</span> </p>
+<p><span m="930050">So let's see, which -- if I take -- I know</span> <span m="934000">I've got a singular matrix here.</span> </p>
+<p><span m="937000">And I believe that when I do this multiplication,</span> <span m="943000">what I'm doing is using the cofactor formula for the</span> <span m="948000">determinant.</span> </p>
+<p><span m="949000">And I know I'm going to get zero.</span> </p>
+<p><span m="952000">Let me try this again.</span> </p>
+<p><span m="955000">So the cofactor formula for the determinant says I should take a</span> <span m="961070">times its cofactor, which is this b,</span> <span m="964400">plus b times its cofactor, which is this minus a.</span> </p>
+<p><span m="970000">OK. That's what we're doing, apart from a sign here.</span> </p>
+<p><span m="974000">Oh yeah, so you know, there might be a minus</span> <span m="978000">multiplying everything.</span> </p>
+<p><span m="980000">So if I take this determinant, it's A -- the determinant of</span> <span m="985000">this, the determinant of A screwed up is a times its</span> <span m="989000">cofactor, which is b, plus the second guy</span> <span m="993000">times its cofactor, which is minus a.</span> </p>
+<p><span m="997000">And of course I get the answer zero, and this is exactly what's</span> <span m="1003000">happening in that, in that, row times this wrong</span> <span m="1007930">column.</span> </p>
+<p><span m="1008000">OK. That's the two by two picture, and it's just the same here.</span> </p>
+<p><span m="1014470">That the reason I get a zero up in there</span> <span m="1019000">is, the reason I get a zero is that when I multiply the first</span> <span m="1024000">row of A and the last row of the cofactor matrix,</span> <span m="1029000">it's as if I'm taking the determinant of this screwed up</span> <span m="1034000">matrix that has first and last rows identical.</span> </p>
+<p><span m="1038000">The book pins this down more specific -- and more carefully</span> <span m="1044000">than I can do in the lecture.</span> </p>
+<p><span m="1047000">I hope you're seeing the point.</span> </p>
+<p><span m="1050000">That this is an identity.</span> </p>
+<p><span m="1052000">That it's a beautiful identity and it tells us what the inverse</span> <span m="1056000">of the matrix is.</span> </p>
+<p><span m="1058000">So it gives us the inverse, the formula for the inverse.</span> </p>
+<p><span m="1062000">OK. So that's the first goal of my lecture, was to find this</span> </p>
+<p><span m="1067000">formula. It's done.</span> </p>
+<p><span m="1068000">OK.</span> </p>
+<p><span m="1068760">And of course I could invert,</span> <span m="1072000">now, I can, I sort of like I can see what -- I can answer</span> <span m="1077000">questions like this.</span> </p>
+<p><span m="1079000">Suppose I have a matrix, and let me move the one one</span> </p>
+<p><span m="1084000">entry. What happens to the inverse?</span> </p>
+<p><span m="1087000">Just, just think about that question.</span> </p>
+<p><span m="1091000">Suppose I have some matrix, I just write down some</span> <span m="1096000">nice, non-singular matrix that's got an inverse,</span> <span m="1100000">and then I move the one one entry a little bit.</span> </p>
+<p><span m="1103000">I add one to it, for example.</span> </p>
+<p><span m="1105000">What happens to the inverse matrix?</span> </p>
+<p><span m="1108000">Well, this formula should tell me.</span> </p>
+<p><span m="1111000">I have to look to see what happens</span> <span m="1114000">to the determinant and what happens to all the cofactors.</span> </p>
+<p><span m="1120000">And, the picture, it's all there.</span> </p>
+<p><span m="1124000">It's all there.</span> </p>
+<p><span m="1125000">We can really understand how the inverse changes when the</span> <span m="1131000">matrix changes.</span> </p>
+<p><span m="1133000">OK.</span> </p>
+<p><span m="1133370">Now my second application is to -- let me put that over here --</span> <span m="1139000">is to Ax=b.</span> </p>
+<p><span m="1142000">Well, the -- course, the solution is A inverse b.</span> </p>
+<p><span m="1147000">But now I have a formula for A inverse.</span> </p>
+<p><span m="1151000">A inverse is one over the determinant times this C</span> <span m="1156000">transpose times B.</span> </p>
+<p><span m="1158760">I now know what A inverse is.</span> </p>
+<p><span m="1161000">So now I just have to say, what have I got here?</span> </p>
+<p><span m="1166000">Is there any way to, to make this formula,</span> <span m="1172000">this answer, which is the one and only</span> <span m="1175000">answer -- it's the very same answer we got on the first day</span> <span m="1181000">of the class by elimination.</span> </p>
+<p><span m="1183000">Now I'm -- now I've got a formula for the answer.</span> </p>
+<p><span m="1188000">Can I play with it further to see what's going on?</span> </p>
+<p><span m="1192000">And Cramer's, this Cramer's Rule is</span> <span m="1197000">exactly, that -- a way of looking at this formula.</span> </p>
+<p><span m="1202000">OK. So this is a formula for x.</span> </p>
+<p><span m="1205080">Here's my formula.</span> </p>
+<p><span m="1206000">Well, of course.</span> </p>
+<p><span m="1208000">The first thing I see from the formula is that the answer x</span> <span m="1214000">always has that in the determinant.</span> </p>
+<p><span m="1217000">I'm not surprised.</span> </p>
+<p><span m="1219000">There's a division by the determinant.</span> </p>
+<p><span m="1224000">But then I have to say a little more carefully what's going on</span> </p>
+<p><span m="1228000">And let me tell you what Cramer's Rule is.</span> <span m="1228220">up here.</span> </p>
+<p><span m="1231000">Let, let me take x1, the first component.</span> </p>
+<p><span m="1234000">So this is the first component of the answer.</span> </p>
+<p><span m="1236000">Then there'll be a second component and a,</span> <span m="1240000">all the other components.</span> </p>
+<p><span m="1242000">Can I take just the first component of this formula?</span> </p>
+<p><span m="1247000">Well, I certainly have determinant of A down under.</span> </p>
+<p><span m="1252000">And what the heck is the first -- so what do I get in C</span> <span m="1257000">transpose b?</span> </p>
+<p><span m="1258000">What's the first entry of C transpose b?</span> </p>
+<p><span m="1262000">That's what I have to answer myself.</span> </p>
+<p><span m="1266000">Well, what's the first entry of C transpose b?</span> </p>
+<p><span m="1271000">This B is -- let me tell you what it is.</span> </p>
+<p><span m="1271420">OK.</span> </p>
+<p><span m="1275000">Somehow I'm multiplying cofactors by the entries of B,</span> <span m="1281070">right, in this product.</span> </p>
+<p><span m="1283000">Cofactors from the matrix times entries of b.</span> </p>
+<p><span m="1288000">So any time I'm multiplying cofactors by numbers,</span> <span m="1293000">I think, I'm getting the determinant of something.</span> </p>
+<p><span m="1297000">And let me call that something B1.</span> </p>
+<p><span m="1300000">So this is a matrix, the matrix whose determinant is</span> <span m="1304000">coming out of that.</span> </p>
+<p><span m="1306000">And we'll, we'll see what it is.</span> </p>
+<p><span m="1309000">x2 will be the determinant of some other matrix B2,</span> <span m="1314000">also divided by determinant of A.</span> </p>
+<p><span m="1317000">So now I just -- Cramer just had a good idea.</span> </p>
+<p><span m="1321000">He realized what matrix it was, what these B1 and B2 and B3 and</span> <span m="1326000">so on matrices were.</span> </p>
+<p><span m="1328000">Let me write them on the board underneath.</span> </p>
+<p><span m="1333000">OK. So what is this B1?</span> </p>
+<p><span m="1336000">This B1 is the matrix that has b in its first column and</span> <span m="1344000">otherwise the rest of it is A.</span> </p>
+<p><span m="1348000">So it otherwise it has the rest, the, the n-1 columns of A.</span> </p>
+<p><span m="1357000">It's the matrix with -- it's just the matrix A with column</span> <span m="1365000">one replaced by the right-hand side,</span> <span m="1371000">by the right-hand side b.</span> </p>
+<p><span m="1374000">Because somehow when I take the determinant of this guy,</span> <span m="1380000">it's giving me this matrix multiplication.</span> </p>
+<p><span m="1384000">Well, how could that be?</span> </p>
+<p><span m="1387000">How could -- so what's, what's the determinant formula</span> <span m="1393000">I'll use here?</span> </p>
+<p><span m="1394750">I'll use cofactors, of course.</span> </p>
+<p><span m="1399000">And I might as well use cofactors down column one.</span> </p>
+<p><span m="1403000">So when I use cofactors down column one, I'm taking the first</span> <span m="1409000">entry of b times what?</span> </p>
+<p><span m="1411000">Times the cofactor c11.</span> </p>
+<p><span m="1413000">Do you see that?</span> </p>
+<p><span m="1415000">When I, when I use cofactors here, I take the first entry</span> <span m="1420000">here, B one let's call it,</span> <span m="1423000">times the cofactor there.</span> </p>
+<p><span m="1425000">But what's the cofactor in -- my little hand-waving is meant</span> <span m="1430590">to indicate that it's a matrix of one size smaller,</span> <span m="1434000">the cofactor.</span> </p>
+<p><span m="1435000">And it's exactly c11.</span> </p>
+<p><span m="1437000">Well, that's just what we wanted.</span> </p>
+<p><span m="1439000">This first entry is c11 times b1.</span> </p>
+<p><span m="1443000">And then the next entry is whatever, is c21 times b2,</span> <span m="1448240">and so on.</span> </p>
+<p><span m="1449000">And sure enough, if I look here,</span> <span m="1452030">when I'm, when I do the cofactor expansion,</span> <span m="1455000">b2 is getting multiplied by the right thing, and so on.</span> </p>
+<p><span m="1460000">So there's Cramer's Rule.</span> </p>
+<p><span m="1463000">And the book gives another kind of</span> <span m="1467470">cute proof without, without building so much on,</span> <span m="1474000">on cofactors.</span> </p>
+<p><span m="1476000">But here we've got cofactors, so I thought I'd just give you</span> <span m="1484000">this proof.</span> </p>
+<p><span m="1486000">So what is B -- in general, what is Bj?</span> </p>
+<p><span m="1492000">This is the, this is A with column j</span> <span m="1497000">replaced by, by b.</span> </p>
+<p><span m="1501000">So that's -- the determinant of that matrix that you divide by</span> <span m="1507000">determinant of A to get xj.</span> </p>
+<p><span m="1510000">So x -- let me change this general formula.</span> </p>
+<p><span m="1515000">xj, the j-th one, is the determinant of Bj</span> <span m="1519000">divided by the determinant of A.</span> </p>
+<p><span m="1522000">And now we've said what Bj is.</span> </p>
+<p><span m="1526640">Well, so Cramer found a rule.</span> </p>
+<p><span m="1529000">And we could ask him, OK, great, good work,</span> <span m="1533000">Cramer.</span> </p>
+<p><span m="1534000">But is your rule any good in practice?</span> </p>
+<p><span m="1538000">So he says, well, you couldn't ask about a rule</span> <span m="1542000">in mine, right, because it's just -- all you</span> <span m="1547000">have to do is find the determinant of A and these other</span> <span m="1554000">determinants, so I guess -- oh,</span> <span m="1557000">he just says, well, all you have to do is</span> <span m="1562000">find n+1 determinants, the, the n Bs and the A.</span> </p>
+<p><span m="1567000">And actually, I remember reading -- there was</span> <span m="1572000">a book, popular book that, that kids interested in math</span> <span m="1580000">read when I was a kid interested in math called</span> <span m="1584000">Mathematics for the Million or something, by a guy named Bell.</span> </p>
+<p><span m="1589000">And it had a little page about linear algebra.</span> </p>
+<p><span m="1592000">And it said,-- so it explained elimination in a very</span> <span m="1597000">complicated way.</span> </p>
+<p><span m="1598510">I certainly didn't understand it.</span> </p>
+<p><span m="1601000">And, and it made it, you know, it</span> <span m="1604000">sort of said, well, there is this formula for</span> <span m="1608000">elimination, but look at this great formula,</span> <span m="1612000">Cramer's Rule.</span> </p>
+<p><span m="1613000">So it certainly said Cramer's Rule was the way to go.</span> </p>
+<p><span m="1618000">But actually, Cramer's Rule is a disastrous</span> <span m="1622000">way to go, because to compute these</span> <span m="1625000">determinants, it takes, like,</span> <span m="1628000">approximately forever.</span> </p>
+<p><span m="1630000">So actually I now think of that book title as being Mathematics</span> <span m="1635000">for the Millionaire, because you'd have to be able</span> <span m="1639000">to pay for, a hopelessly long calculation</span> <span m="1644000">where elimination, of course, produced the x-s,</span> <span m="1647000">in an instant.</span> </p>
+<p><span m="1648000">But having a formula allows you to, with, with letters,</span> <span m="1653000">you know, allows you to do algebra instead of,</span> <span m="1656000">algorithms.</span> </p>
+<p><span m="1657000">So the, there's some value in the Cramer's Rule formula for x</span> <span m="1662000">and in the explicit formula for, for A inverse.</span> </p>
+<p><span m="1667000">They're nice formulas, but I just don't want you to</span> <span m="1672420">use them.</span> </p>
+<p><span m="1673390">That'ss what it comes to.</span> </p>
+<p><span m="1676000">If you had to -- and Matlab would never, never do it.</span> </p>
+<p><span m="1681000">I mean, it would use elimination.</span> </p>
+<p><span m="1686000">OK. Now I'm ready for number three in today's list of amazing</span> <span m="1691000">connections coming through the determinant.</span> </p>
+<p><span m="1696000">And that number three is the fact that the determinant gives</span> </p>
+<p><span m="1702000">a volume. OK.</span> </p>
+<p><span m="1703000">So now -- so that's my final topic for -- among these --</span> <span m="1709000">this my number three application, that the</span> <span m="1713000">determinant is actually equals the volume of something.</span> </p>
+<p><span m="1719000">Can I use this little space to consider a special case,</span> <span m="1724000">and then I'll use the far board to think about the general rule.</span> </p>
+<p><span m="1730000">So what I going to prove?</span> </p>
+<p><span m="1733000">Or claim.</span> </p>
+<p><span m="1734000">I claim that the determinant of the matrix is the volume of a</span> <span m="1740000">box.</span> </p>
+<p><span m="1741000">OK, and you say, which box?</span> </p>
+<p><span m="1743000">Fair enough.</span> </p>
+<p><span m="1744000">OK.</span> </p>
+<p><span m="1745000">So let's see.</span> </p>
+<p><span m="1746000">I'm in -- shall we say we're in, say three by three?</span> </p>
+<p><span m="1751000">Shall we suppose -- let's, let's say three by three.</span> </p>
+<p><span m="1758000">So, so we can really -- we're, we're talking about boxes in</span> <span m="1763000">three dimensions, and three by three matrices.</span> </p>
+<p><span m="1767000">And so all I do -- you could guess what the box is.</span> </p>
+<p><span m="1772000">Here is, here is, three dimensions.</span> </p>
+<p><span m="1775000">OK. Now I take the first row of the matrix, a11, a22,</span> <span m="1781000">A -- sorry. a11, a12, a13.</span> </p>
+<p><span m="1783000">That row is a vector.</span> </p>
+<p><span m="1784000">It goes to some point.</span> </p>
+<p><span m="1786000">That point will be -- and that edge going to it,</span> <span m="1790000">will be an edge of the box, and that point will be a corner</span> <span m="1795000">of the box.</span> </p>
+<p><span m="1796000">So here is zero zero zero, of course.</span> </p>
+<p><span m="1800000">And here's the first row of the matrix: a11, a12,</span> <span m="1805000">a13.</span> </p>
+<p><span m="1806000">So that's one edge of the box.</span> </p>
+<p><span m="1809000">Another edge of the box is to the second row of the matrix,</span> <span m="1816000">row two.</span> </p>
+<p><span m="1817000">Can I just call it there row two?</span> </p>
+<p><span m="1820930">And a third row of the box will be to -- a third row --</span> <span m="1828000">a third edge of the box will be given by row three.</span> </p>
+<p><span m="1833000">So, so there's row three.</span> </p>
+<p><span m="1835000">That, the coordinates, what are the coordinates of</span> <span m="1840000">that corner of the box? a31, a32, a33.</span> </p>
+<p><span m="1843000">So I've got that edge of the box, that edge of the box,</span> <span m="1848000">that edge of the box, and that's all I need.</span> </p>
+<p><span m="1854000">Now I just finish out the box, right?</span> </p>
+<p><span m="1858000">I just -- the proper word, of course, is parallelepiped.</span> </p>
+<p><span m="1864000">But for obvious reasons, I wrote box.</span> </p>
+<p><span m="1868000">OK.</span> </p>
+<p><span m="1869000">So, OK.</span> </p>
+<p><span m="1870000">So there's the, there's the bottom of the box.</span> </p>
+<p><span m="1876000">There're the four edge sides of the box.</span> </p>
+<p><span m="1880000">There's the top of the box.</span> </p>
+<p><span m="1883000">Cute, right?</span> </p>
+<p><span m="1884000">It's the box that has these three edges and then it's</span> <span m="1889000">completed to a, to a, each, you know,</span> <span m="1893000">each side is a, is a parallelogram.</span> </p>
+<p><span m="1897000">And it's that box whose volume is given by the determinant.</span> </p>
+<p><span m="1903000">That's -- now it's -- possible that the determinant</span> <span m="1909000">is negative.</span> </p>
+<p><span m="1910000">So we have to just say what's going on in that case.</span> </p>
+<p><span m="1915000">If the determinant is negative, then the volume,</span> <span m="1919000">we, we should take the absolute value really.</span> </p>
+<p><span m="1923000">So the volume, if we, if we think of volume as</span> <span m="1928000">positive, we should take the absolute value of the</span> <span m="1931000">determinant.</span> </p>
+<p><span m="1932000">But the, the sign, what does the sign of the</span> <span m="1934000">determinant -- it always must tell us something.</span> </p>
+<p><span m="1937000">And somehow it, it will tell us whether these</span> <span m="1940000">three is a -- whether it's a right-handed box or a</span> <span m="1943000">left-handed box.</span> </p>
+<p><span m="1944000">If we, if we reversed two of the</span> <span m="1947000">edges, we would go between a right-handed box and a</span> <span m="1951000">left-handed box.</span> </p>
+<p><span m="1953000">We wouldn't change the volume, but we would change the,</span> <span m="1958000">the cyclic, order.</span> </p>
+<p><span m="1959000">So I won't worry about that.</span> </p>
+<p><span m="1962000">And, so one special case is what?</span> </p>
+<p><span m="1965000">A equal identity matrix.</span> </p>
+<p><span m="1967000">So let's take that special case.</span> </p>
+<p><span m="1970090">A equal identity matrix.</span> </p>
+<p><span m="1972000">Is the formula determinant of identity</span> <span m="1977000">matrix, does that equal the volume of the box?</span> </p>
+<p><span m="1981000">Well, what is the box?</span> </p>
+<p><span m="1984000">What's the box?</span> </p>
+<p><span m="1985000">If A is the identity matrix, then these three rows are the</span> <span m="1991000">three coordinate vectors, and the box is -- it's a cube.</span> </p>
+<p><span m="1997250">It's the unit cube.</span> </p>
+<p><span m="2000000">So if, if A is the identity matrix, of course our formula is</span> </p>
+<p><span m="2004000">Well, actually that proves property one -- that the volume</span> <span m="2004400">right.</span> <span m="2008000">has property one.</span> </p>
+<p><span m="2010000">Actually, we could, we could, we could get this</span> <span m="2013000">thing if we -- if we can show that the box volume has the same</span> <span m="2017000">three properties that define the determinant,</span> <span m="2021000">then it must be the determinant.</span> </p>
+<p><span m="2023000">So that's like the, the, the elegant way to prove</span> <span m="2027000">this.</span> </p>
+<p><span m="2027910">To prove this amazing fact that the determinant equals the</span> <span m="2032000">volume, first we'll check it for the identity matrix.</span> </p>
+<p><span m="2036000">That's fine.</span> </p>
+<p><span m="2037000">The box is a cube and its volume is one and the</span> <span m="2040000">determinant is one and, and one agrees with one.</span> </p>
+<p><span m="2044000">Now let me take one -- let me go up one</span> <span m="2048000">level to an orthogonal matrix.</span> </p>
+<p><span m="2050000">Because I'd like to take this chance to bring in chapter --</span> <span m="2055000">the, the previous chapter.</span> </p>
+<p><span m="2058060">Suppose I have an orthogonal matrix.</span> </p>
+<p><span m="2061000">What did that mean?</span> </p>
+<p><span m="2062000">I always called those things Q.</span> </p>
+<p><span m="2065260">What was the point of -- suppose I</span> <span m="2068000">have, suppose instead of the identity matrix I'm now going to</span> <span m="2075000">take A equal Q, an orthogonal matrix.</span> </p>
+<p><span m="2079000">What was Q then?</span> </p>
+<p><span m="2081000">That was a matrix whose columns were orthonormal,</span> <span m="2087000">right?</span> </p>
+<p><span m="2087690">Those were its columns were unit vectors,</span> <span m="2092000">perpendicular unit vectors.</span> </p>
+<p><span m="2096000">So what kind of a box have we got now?</span> </p>
+<p><span m="2099000">What kind of a box comes from the rows or the columns,</span> <span m="2104000">I don't mind, because the determinant is the</span> <span m="2107000">determinant of the transpose, so I'm never worried about</span> </p>
+<p><span m="2112000">that. What kind of a box, what shape box have we got if</span> <span m="2116840">the matrix is an orthogonal matrix?</span> </p>
+<p><span m="2120000">It's another cube.</span> </p>
+<p><span m="2122000">It's a cube again.</span> </p>
+<p><span m="2124000">How is it different from the identity cube?</span> </p>
+<p><span m="2128410">It's just rotated.</span> </p>
+<p><span m="2130000">It's just the orthogonal matrix Q doesn't have to be the</span> <span m="2135000">identity matrix.</span> </p>
+<p><span m="2136000">It's just the unit cube but turned in space.</span> </p>
+<p><span m="2141000">So sure enough, it's the unit cube,</span> <span m="2145000">and its volume is one.</span> </p>
+<p><span m="2147410">Now is the determinant one?</span> </p>
+<p><span m="2149000">What's the determinant of Q?</span> </p>
+<p><span m="2152000">We believe that the determinant of Q better be one or minus one,</span> <span m="2157000">so that our formula is -- checks out in that -- if we</span> <span m="2161000">can't check it in these easy cases where we got a cube,</span> <span m="2166000">we're not going to get it in the</span> <span m="2169000">general case.</span> </p>
+<p><span m="2170000">So why is the determinant of Q equal one or minus one?</span> </p>
+<p><span m="2175000">What do we know about Q?</span> </p>
+<p><span m="2177000">What's the one matrix statement of the properties of Q?</span> </p>
+<p><span m="2182000">A matrix with orthonormal columns has -- satisfies a</span> <span m="2187000">certain equation.</span> </p>
+<p><span m="2189000">What, what is that?</span> </p>
+<p><span m="2190000">It's if we have this orthogonal matrix,</span> <span m="2195000">then the fact -- the way to say what it, what its properties are</span> <span m="2202000">is this.</span> </p>
+<p><span m="2203000">Q prime, u- u- Q transpose Q equals I.</span> </p>
+<p><span m="2207000">Right?</span> </p>
+<p><span m="2208000">That's what -- those are the matrices that get the name Q,</span> <span m="2214000">the matrices that Q transpose Q is I.</span> </p>
+<p><span m="2219000">OK.</span> </p>
+<p><span m="2220000">Now from that, tell me why is the determinant</span> <span m="2224000">one or minus one.</span> </p>
+<p><span m="2226000">How do I, out of this fact -- this may even be a homework</span> <span m="2231000">problem.</span> </p>
+<p><span m="2232000">It's there in the, in the list of exercises in the</span> <span m="2237000">book, and let's just do it.</span> </p>
+<p><span m="2240000">How do I get, how do I discover</span> <span m="2244000">that the determinant of Q is one or maybe minus one?</span> </p>
+<p><span m="2249000">I take determinants of both sides, everybody says,</span> <span m="2253000">so I won't -- I take determinants of both sides.</span> </p>
+<p><span m="2257000">On the right-hand side -- so I, when I take determinants of</span> <span m="2261000">both sides, let me just do it.</span> </p>
+<p><span m="2264000">Take the determinant of -- take determinants.</span> </p>
+<p><span m="2269000">Determinant of the identity is one.</span> </p>
+<p><span m="2272000">What's the determinant of that product?</span> </p>
+<p><span m="2275000">Rule nine is paying off now.</span> </p>
+<p><span m="2278000">The determinant of a product is the determinant of this guy --</span> <span m="2284000">maybe I'll put it, I'll use that symbol for</span> <span m="2288000">determinant.</span> </p>
+<p><span m="2289000">It's the determinant of that guy</span> <span m="2293000">times the determinant of the other guy.</span> </p>
+<p><span m="2296000">And then what's the determinant of Q transpose?</span> </p>
+<p><span m="2301000">It's the same as the determinant of Q.</span> </p>
+<p><span m="2304000">Rule ten pays off.</span> </p>
+<p><span m="2306000">So this is just this thing squared.</span> </p>
+<p><span m="2309000">So that determinant squared is one and sure enough it's one or</span> <span m="2315000">minus one.</span> </p>
+<p><span m="2316000">Great. So in these special cases of cubes,</span> <span m="2321000">we really do have determinant equals volume.</span> </p>
+<p><span m="2326000">Now can I just push that to non-cubes.</span> </p>
+<p><span m="2330000">Let me push it first to rectangles, rectangular boxes,</span> <span m="2336000">where I'm just multiplying the e- the edges are -- let me keep</span> <span m="2343000">all the ninety degree angles, because those are -- that,</span> <span m="2350000">that makes my life easy.</span> </p>
+<p><span m="2354000">And just stretch the edges.</span> </p>
+<p><span m="2356000">Suppose I stretch that first edge, suppose this first edge I</span> <span m="2361000">double.</span> </p>
+<p><span m="2362000">Suppose I double that first edge, keeping the other edges</span> <span m="2366000">the same.</span> </p>
+<p><span m="2367000">What happens to the volume?</span> </p>
+<p><span m="2369000">It doubles, right?</span> </p>
+<p><span m="2371000">We know that the volume of a cube doubles.</span> </p>
+<p><span m="2374000">In fact, because we know that the</span> <span m="2378000">new cube would sit right on top -- I mean, the new,</span> <span m="2382000">the added cube would sit right on -- would fit -- probably a</span> <span m="2386000">geometer would say congruent or something -- would go right in,</span> <span m="2391000">in the other.</span> </p>
+<p><span m="2392000">We'd have two.</span> </p>
+<p><span m="2393000">We have two identical cubes.</span> </p>
+<p><span m="2395000">Total volume is now two.</span> </p>
+<p><span m="2397000">OK.</span> </p>
+<p><span m="2398000">So I want -- if I double an edge, the volume doubles.</span> </p>
+<p><span m="2404000">What happens to the determinant?</span> </p>
+<p><span m="2407000">If I double, the first row of a matrix,</span> <span m="2411750">what ch- ch- what's the effect on the determinant?</span> </p>
+<p><span m="2417000">It also doubles, right?</span> </p>
+<p><span m="2419000">And that was rule number 3a.</span> </p>
+<p><span m="2422000">Remember rule 3a was that if I, I could, if I had a factor in,</span> <span m="2430000">in row one, T, I could factor it out.</span> </p>
+<p><span m="2434000">So if, if I have a factor two in that row one,</span> <span m="2438000">I can factor it out of the determinant.</span> </p>
+<p><span m="2442000">It agrees with the -- the volume of the box has that</span> <span m="2447000">factor two.</span> </p>
+<p><span m="2448000">So, so volume satisfies this property 3a.</span> </p>
+<p><span m="2453000">And now I really close, but I -- but to get to the very</span> <span m="2459000">end of this proof, I have to get away from right</span> </p>
+<p><span m="2464000">angles. I have to allow the possibility of, other angles.</span> </p>
+<p><span m="2469000">And -- or what's saying the same thing, I have to check that</span> <span m="2475710">the volume also satisfies 3b.</span> </p>
+<p><span m="2478000">So can I -- This is end of proof that the</span> <span m="2484000">-- so I'm -- determinant of A equals volume of box,</span> <span m="2489000">and where I right now?</span> </p>
+<p><span m="2492000">This volume has properties, properties one,</span> <span m="2497250">no problem.</span> </p>
+<p><span m="2498000">If the box is the cube, everything is -- if the box is</span> <span m="2504000">the unit cube, its volume is one.</span> </p>
+<p><span m="2509000">Property two was if I reverse two rows, but that doesn't</span> <span m="2513000">change the box.</span> </p>
+<p><span m="2515000">And it doesn't change the absolute value,</span> <span m="2518000">so no problem there.</span> </p>
+<p><span m="2519000">Property 3a was if I mul- you remember what 3a was?</span> </p>
+<p><span m="2523000">So property one was about the identity matrix.</span> </p>
+<p><span m="2527530">Property two was about a plus or minus sign that I don't care</span> <span m="2532340">about.</span> </p>
+<p><span m="2533000">Property 3a was a factor T in a row.</span> </p>
+<p><span m="2537000">But now I've got property three B to deal with.</span> </p>
+<p><span m="2542000">What was property 3b?</span> </p>
+<p><span m="2544000">This is a great way to review these, properties.</span> </p>
+<p><span m="2548000">So that 3b, the property 3b said -- let's do,</span> <span m="2553000">let's do two by two.</span> </p>
+<p><span m="2556000">So said that if I had a+a', b+b', c, d that this equaled</span> <span m="2563000">what?</span> </p>
+<p><span m="2564130">So this is property 3b.</span> </p>
+<p><span m="2567000">This is the linearity in row one by itself.</span> </p>
+<p><span m="2572000">So c d is staying the same, and I can split this into a b</span> <span m="2579000">and a' b'.</span> </p>
+<p><span m="2581000">That's property 3b, at least in the two by two</span> <span m="2586000">case.</span> </p>
+<p><span m="2589000">And what I -- I wanted now to show that the volume,</span> <span m="2594000">which two, two by two, that means area,</span> <span m="2599000">has this, has this property.</span> </p>
+<p><span m="2602000">Let me just emphasize that we have got -- we're getting --</span> <span m="2608000">this is a formula, then, for the area of a</span> <span m="2614000">parallelogram.</span> </p>
+<p><span m="2616000">The area of this parallelogram -- can I just draw it?</span> </p>
+<p><span m="2621000">OK, here's the, here's the parallelogram.</span> </p>
+<p><span m="2625000">I have the row a b.</span> </p>
+<p><span m="2627000">That's the first row.</span> </p>
+<p><span m="2629000">That's the point a b.</span> </p>
+<p><span m="2632000">And I tack on c d. c d, coming out of here.</span> </p>
+<p><span m="2636000">And I complete the parallelogram.</span> </p>
+<p><span m="2641000">So this is -- well, I better make it look right.</span> </p>
+<p><span m="2646000">It's really this one that has coordinates c d and this has</span> <span m="2652710">coordinates -- well, whatever the sum is.</span> </p>
+<p><span m="2657000">And of course starting at zero zero.</span> </p>
+<p><span m="2661000">So we all know, this is a+c,</span> <span m="2664000">b+d.</span> </p>
+<p><span m="2665000">Rather than -- I'm pausing on that proof for a minute just to</span> <span m="2671000">going back to our formula.</span> </p>
+<p><span m="2673000">Because I want you to see that unlike Cramer's Rule,</span> <span m="2678000">that I wasn't that impressed by, I'm very impressed by this</span> <span m="2684290">formula for the area of a parallelogram.</span> </p>
+<p><span m="2687000">And what's our formula?</span> </p>
+<p><span m="2690000">What, what's the area of that</span> <span m="2693460">parallelogram?</span> </p>
+<p><span m="2694000">If I had asked you that last year, you would have said OK,</span> <span m="2698000">the area of a parallelogram is the base times the height,</span> </p>
+<p><span m="2703000">right? So you would have figured out what this base,</span> <span m="2706000">the -- how long that base was.</span> </p>
+<p><span m="2709240">It's like the square root of A squared plus b squared.</span> </p>
+<p><span m="2714000">And then you would have figured out how much is this height,</span> <span m="2721000">whatever it is.</span> </p>
+<p><span m="2722000">It's horrible.</span> </p>
+<p><span m="2724000">This, I mean, we got square roots,</span> <span m="2727000">and in that height there would be other revolting stuff.</span> </p>
+<p><span m="2733700">But now what's the formula that we now know for the area?</span> </p>
+<p><span m="2740000">It's the determinant of our little matrix.</span> </p>
+<p><span m="2746000">It's just ad-bc.</span> </p>
+<p><span m="2748000">No square roots.</span> </p>
+<p><span m="2750000">Totally rememberable, because it's exactly a formula</span> <span m="2757000">that we've been studying the whole, for three lectures.</span> </p>
+<p><span m="2764000">OK.</span> </p>
+<p><span m="2765000">That's, you know, that's the most important point</span> <span m="2771000">I'm making here.</span> </p>
+<p><span m="2775000">Is that if you know the coordinates of a box,</span> <span m="2779310">of the corners, then you have a great formula</span> <span m="2783000">for the volume, area or volume,</span> <span m="2785000">that doesn't involve any lengths or any angles or any</span> <span m="2790000">heights, but just involves the coordinates that you've got.</span> </p>
+<p><span m="2796000">And similarly, what's the area of this</span> <span m="2798000">triangle?</span> </p>
+<p><span m="2799000">Suppose I chop that off and say what about -- because you might</span> <span m="2804000">often be interested in a triangle instead of a</span> <span m="2807000">parallelogram.</span> </p>
+<p><span m="2808000">What's the area of this triangle?</span> </p>
+<p><span m="2811000">Now there again, everybody would have said the</span> <span m="2814000">area of a triangle is half the base times the height.</span> </p>
+<p><span m="2819000">And in some cases, if you know the base that a,</span> <span m="2823000">that's -- and the height, that's fine.</span> </p>
+<p><span m="2826000">But here, we, what we know is the coordinates</span> <span m="2829000">of the corners.</span> </p>
+<p><span m="2831000">We know the vertices.</span> </p>
+<p><span m="2832000">And so what's the area of that triangle?</span> </p>
+<p><span m="2835000">If I know these, if I know a b,</span> <span m="2839000">c d, and zero zero, what's the area?</span> </p>
+<p><span m="2844000">It's just half, so it's just half of this.</span> </p>
+<p><span m="2848000">So this is, this is a- a b -- a d - b c for the parallelogram</span> <span m="2856000">and one half of that, one half of ad-bc for the</span> <span m="2861000">triangle.</span> </p>
+<p><span m="2862000">So I mean, this is a totally trivial</span> <span m="2867000">remark, to say, well, divide by two.</span> </p>
+<p><span m="2870000">But it's just that you more often see triangles,</span> <span m="2873000">and you feel you know the formula for the area but the</span> <span m="2878000">good formula for the area is this one.</span> </p>
+<p><span m="2881000">And I'm just going to -- I'm just going to say one more thing</span> <span m="2885970">about the area of a triangle.</span> </p>
+<p><span m="2889000">It's just because it's -- you know, it's so great to have a</span> <span m="2895000">good formula for something.</span> </p>
+<p><span m="2898000">What if our triangle did not start at zero zero?</span> </p>
+<p><span m="2902000">What if our triangle, what if we had this -- what if</span> <span m="2908000">we had -- so I'm coming back to triangles again.</span> </p>
+<p><span m="2913000">But let me, let me put this triangle somewhere,</span> <span m="2918000">it's -- I'm staying with triangles, I'm just in two</span> <span m="2924000">dimensions, but I'm going to allow you to give me any three</span> <span m="2930000">corners.</span> </p>
+<p><span m="2931000">And in -- those six numbers must determine the area.</span> </p>
+<p><span m="2937000">And what's the formula?</span> </p>
+<p><span m="2939000">The area is going to be, it's going to be,</span> <span m="2944000">there'll be that half of a parallelogram.</span> </p>
+<p><span m="2949000">I mean, basically this can't be completely new,</span> <span m="2953680">right?</span> </p>
+<p><span m="2954000">We've got the area when -- we, we know the area when this is</span> <span m="2959000">zero zero.</span> </p>
+<p><span m="2960000">Now we just want to lift our sight slightly and get the area</span> <span m="2965000">when all th- so let me write down what it,</span> <span m="2969000">what it comes out to be.</span> </p>
+<p><span m="2972000">It turns out that if you do this, x1 y1 and a 1,</span> <span m="2976000">x2 y2 and a 1, x3 y3 and a 1,</span> <span m="2979000">that that works.</span> </p>
+<p><span m="2980730">That the determinant symbol, of course.</span> </p>
+<p><span m="2984000">It's just -- if I gave you that determinant to find,</span> <span m="2989040">you might subtract this row from</span> <span m="2992000">this.</span> </p>
+<p><span m="2993000">It would kill that one.</span> </p>
+<p><span m="2995000">Subtract this row from this, it would kill that one.</span> </p>
+<p><span m="2999000">Then you'd have a simple determinant to do with</span> <span m="3003460">differences, and it would -- this little subtraction,</span> <span m="3007000">what I did was equivalent to moving the triangle to start at</span> <span m="3012000">the origin.</span> </p>
+<p><span m="3013000">I did it fast, because time is up.</span> </p>
+<p><span m="3017000">And I didn't complete that proof of 3b.</span> </p>
+<p><span m="3021000">I'll leave -- the book has a carefully drawn figure to show</span> <span m="3027000">why that works.</span> </p>
+<p><span m="3029000">But I hope you saw the main point is that for area and</span> <span m="3034000">volume, determinant gives a great formula.</span> </p>
+<p><span m="3038000">OK. And next lectures are about</span> <span m="3042000">eigenvalues, so we're really into the big stuff.</span> </p>
+<p><span m="3047000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 110MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/20.mp4">MP4 - 204MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/QNpj-gOXW9M.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

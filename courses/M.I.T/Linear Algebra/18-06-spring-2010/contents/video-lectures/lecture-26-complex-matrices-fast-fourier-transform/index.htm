@@ -1,0 +1,1201 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 26: Complex matrices; fast fourier transform | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 26: Complex matrices; fast fourier transform" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 26: Complex matrices; fast fourier transform" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-26-complex-matrices-fast-fourier-transform">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 26: Complex matrices; fast fourier transform
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 26: Complex matrices; fast fourier transform
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/M0Sa8fLOajA.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/26.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/M0Sa8fLOajA', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-26-complex-matrices-fast-fourier-transform', 'https://img.youtube.com/vi/M0Sa8fLOajA/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/M0Sa8fLOajA.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703581, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/M0Sa8fLOajA.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="7000">Okay. This is a lecture where complex numbers come in.</span> </p>
+<p><span m="12000">It's a -- complex numbers have slipped into this course because</span> <span m="18000">even a real matrix can have complex eigenvalues.</span> </p>
+<p><span m="22000">So we met complex numbers there as the eigenvalues and complex</span> <span m="27000">eigenvectors.</span> </p>
+<p><span m="29000">And we -- or -- this is probably the last -- we</span> <span m="34000">have a lot of other things to do about eigenvalues and</span> <span m="38000">eigenvectors.</span> </p>
+<p><span m="39000">And that will be mostly real.</span> </p>
+<p><span m="41000">But at one point somewhere, we have to see what you do when</span> <span m="46650">the numbers become complex numbers.</span> </p>
+<p><span m="49000">What happens when the vectors are complex, when the matrixes</span> <span m="55000">are complex, when the -- what's the inner</span> <span m="58000">product of two, the dot product of two complex</span> <span m="61000">vectors -- we just have to make the change, just see -- what is</span> <span m="66000">the change when numbers become complex?</span> </p>
+<p><span m="69000">Then, can I tell you about the most important example of</span> <span m="73000">complex matrixes?</span> </p>
+<p><span m="75000">It comes in the Fourier matrix.</span> </p>
+<p><span m="78000">So the Fourier matrix, which I'll describe,</span> <span m="81000">is a complex matrix.</span> </p>
+<p><span m="83000">It's certainly the most important complex matrix.</span> </p>
+<p><span m="87000">It's the matrix that we need in Fourier transform.</span> </p>
+<p><span m="91000">And the -- really, the special thing that I want</span> <span m="95000">to tell you about is what's called</span> <span m="99000">the fast Fourier transform, and everybody refers to it as</span> <span m="104000">the FFT and it's in all computer and it's used -- it's being used</span> <span m="109820">as we speak in a thousand places, because it has,</span> <span m="114000">like, transformed whole industries</span> <span m="117000">to be able to do the Fourier transform fast,</span> <span m="121830">which means multiplying -- how do I multiply fast by that</span> <span m="127000">matrix -- by that n by n matrix?</span> </p>
+<p><span m="130000">Normally, multiplications by an n by n matrix -- would normally</span> <span m="135000">be n squared multiplications, because I've got n squared</span> <span m="141000">entries and none of them is zero.</span> </p>
+<p><span m="144000">This is a full matrix.</span> </p>
+<p><span m="147000">And it's a matrix with orthogonal columns.</span> </p>
+<p><span m="150000">I mean, it's just, like, the best matrix.</span> </p>
+<p><span m="154000">And this fast Fourier transform idea reduces this n squared,</span> <span m="160000">which was slowing up the calculation of Fourier</span> <span m="164000">transforms down to n log(n).</span> </p>
+<p><span m="168000">n log(n), log to the base two, actually.</span> </p>
+<p><span m="172000">And it's this -- when that hit -- when that possibility hit,</span> <span m="178000">it made a big difference.</span> </p>
+<p><span m="180000">Everybody realized gradually what, -- that this simple idea</span> <span m="187000">-- you'll see it's just a simple matrix factorization -- but it</span> <span m="193960">changed everything.</span> </p>
+<p><span m="195000">Okay.</span> </p>
+<p><span m="196000">So I want to talk about complex vectors and matrixes in general,</span> <span m="201000">recap a little bit from last time, and the Fourier matrix in</span> <span m="206000">particular.</span> </p>
+<p><span m="207000">Okay.</span> </p>
+<p><span m="208000">So what's the deal?</span> </p>
+<p><span m="209000">All right.</span> </p>
+<p><span m="210000">The main point is, what about length?</span> </p>
+<p><span m="215000">I'm given a vector, I have a vector x.</span> </p>
+<p><span m="218000">Or let me call it z as a reminder that it's complex,</span> <span m="222000">for the moment.</span> </p>
+<p><span m="224000">But I can -- later I'll call the components x.</span> </p>
+<p><span m="228000">They'll be complex numbers.</span> </p>
+<p><span m="230000">But it's a vector -- z1, z2 down to zn.</span> </p>
+<p><span m="234040">So the only novelty is it's not in R^n</span> <span m="238000">anymore.</span> </p>
+<p><span m="239000">It's in complex n dimensional space.</span> </p>
+<p><span m="242000">Each of those numbers is a complex number.</span> </p>
+<p><span m="246600">So this z,z1 is in C^n, n dimensional complex space</span> <span m="251000">instead of R^n.</span> </p>
+<p><span m="252000">So just a different letter there, but now the point about</span> <span m="258000">its length is what?</span> </p>
+<p><span m="261560">The point about its length is that z transpose z is no good.</span> </p>
+<p><span m="269290">z transpose z -- if I just put down z transpose here,</span> <span m="276000">it would be z1, z2, to zn.</span> </p>
+<p><span m="279000">Doing that multiplication doesn't give me the right thing.</span> </p>
+<p><span m="286000">W-Why not?</span> </p>
+<p><span m="288000">Because the length squared should</span> <span m="293920">be positive.</span> </p>
+<p><span m="294000">And if I multiply -- suppose this is, like,</span> <span m="298000">1 and i.</span> </p>
+<p><span m="299000">What's the length of the vector with components 1 and i?</span> </p>
+<p><span m="304000">What if I do this, so n is just two.</span> </p>
+<p><span m="307000">I'm in C^2, two dimensional space, complex space with the</span> <span m="312000">vector whose components are 1 and i.</span> </p>
+<p><span m="316000">All right.</span> </p>
+<p><span m="317000">So if I took one times one and i times i and added,</span> <span m="321000">z transpose z would be zero.</span> </p>
+<p><span m="324000">But I don't -- that vector is not -- doesn't have length zero</span> <span m="330000">-- the vector with the components 1 and i -- this</span> <span m="334000">multiplication -- what I really want is z1</span> <span m="339000">conjugate z1.</span> </p>
+<p><span m="340000">You remember that z1 conjugate z1 is -- so you see that first</span> <span m="347000">step will be z1 conjugate z1, which is the magnitude of z1</span> <span m="353000">squared, which is what I want.</span> </p>
+<p><span m="356000">That's, like, three squared or five squared.</span> </p>
+<p><span m="360000">Now, if it's -- if z1 is i, then I multiplied</span> <span m="366000">by minus i gives one plus one, so the component of length --</span> <span m="373000">the component i, its modulus squared is plus</span> </p>
+<p><span m="378000">one. That's great.</span> </p>
+<p><span m="380000">So what I want to do then is do that -- I want z1 bar z1,</span> <span m="386000">z2 bar z2, zn bar zn.</span> </p>
+<p><span m="390000">And remember that -- you remember this complex conjugate.</span> </p>
+<p><span m="395000">So -- so there's the point.</span> </p>
+<p><span m="398000">Now I can erase the no good and put is good, because that now</span> <span m="403000">gives the answer zero for the zero vector, of course,</span> <span m="408000">but it gives a positive length squared for any other vector.</span> </p>
+<p><span m="414409">So it's a -- it's the right definition of</span> <span m="418000">length, and essentially the message is that we're always</span> <span m="423000">going to be taking -- when we transpose, we also take complex</span> <span m="429000">conjugate.</span> </p>
+<p><span m="430000">So let's -- let's find the length of one -- so the vector</span> <span m="435000">one i, that's z, that's that vector z.</span> </p>
+<p><span m="439000">Now I take the conjugate of one is one, the conjugate of i is</span> </p>
+<p><span m="444000">minus i. I take this vector, I get one plus one -- I get</span> </p>
+<p><span m="448000">two. So that's a vector and that's a vector of length -- square root</span> </p>
+<p><span m="454000">of two. Square root of two is the length and not the zero that we</span> <span m="459130">would have got from one minus i squared.</span> </p>
+<p><span m="463000">Okay. So the message really is whenever we transpose,</span> <span m="468810">we also take conjugates.</span> </p>
+<p><span m="471000">So here's a symbol -- one symbol to do both.</span> </p>
+<p><span m="475000">So that symbol H, it stands for a guy named</span> <span m="480000">Hermite, who didn't actually pronounce the H,</span> <span m="485000">but let's pronounce it -- so I would</span> <span m="490000">call that z Hermitian z.</span> </p>
+<p><span m="493000">I'll -- let me write that word, Herm- so his name was Hermite,</span> <span m="501000">and then we make it into an adjective, Hermitian.</span> </p>
+<p><span m="507000">So z Hermitian z. z H z.</span> </p>
+<p><span m="510000">Okay. So, that's the -- that's the, length squared.</span> </p>
+<p><span m="516490">Now what's the inner product?</span> </p>
+<p><span m="520210">Well, it should match.</span> </p>
+<p><span m="524000">The inner product of two vectors -- so inner product is</span> <span m="530000">no longer -- used to be y transpose x.</span> </p>
+<p><span m="534000">That's for real vectors.</span> </p>
+<p><span m="537000">For complex vectors, whenever we transpose,</span> <span m="542000">we also take the conjugate.</span> </p>
+<p><span m="545000">So it's y Hermitian x.</span> </p>
+<p><span m="548000">Of course it's not real anymore, usually.</span> </p>
+<p><span m="553000">That -- the inner product will usually be complex number.</span> </p>
+<p><span m="558000">But if y and x are the same, if they're the same z,</span> <span m="562000">then we have z -- z H z, we have the length squared,</span> <span m="566560">and that's what we want, the inner product of a vector</span> <span m="570000">with itself should be its length squared.</span> </p>
+<p><span m="574000">So this is, like, forced on us because this is</span> <span m="579000">forced on us.</span> </p>
+<p><span m="580000">So -- so this z -- this -- everybody's picking up what this</span> <span m="585000">equals.</span> </p>
+<p><span m="586000">This is z1 squared plus zn squared.</span> </p>
+<p><span m="589000">That's the length squared.</span> </p>
+<p><span m="591000">And that's the inner product that we have to go with.</span> </p>
+<p><span m="597000">So it could be a complex number now.</span> </p>
+<p><span m="602000">One more change.</span> </p>
+<p><span m="604000">Well, two more changes.</span> </p>
+<p><span m="607000">We've got to change the idea of a symmetric matrix.</span> </p>
+<p><span m="613000">So I'll just recap on symmetric matrixes.</span> </p>
+<p><span m="619000">Symmetric means A transpose equals A, but not -- no good if</span> <span m="626790">A is complex.</span> </p>
+<p><span m="628510">So what do we instead -- that applies</span> <span m="634000">perfectly to real matrixes.</span> </p>
+<p><span m="637000">But now if my matrixes were complex, I want to take the</span> <span m="642000">transpose and the conjugate to equal A.</span> </p>
+<p><span m="646000">So there's -- that's the -- the right complex version of</span> <span m="652000">symmetry.</span> </p>
+<p><span m="653000">The com- the symmetry now means when</span> <span m="657000">I transpose it, flip across the diagonal and</span> <span m="661000">take conjugates.</span> </p>
+<p><span m="662000">So, for example -- here would be an example.</span> </p>
+<p><span m="666000">On the diagonal, it had better be real,</span> <span m="669000">because when I flip it, the diagonal is still there and</span> <span m="673000">it has to -- and then when I take the complex conjugate it</span> <span m="679000">has to be still there, so it better be a real number,</span> <span m="683000">let me say two and five.</span> </p>
+<p><span m="685000">What about entries off the diagonal?</span> </p>
+<p><span m="688000">If this entry is, say, three plus i,</span> <span m="691000">then this entry had better be -- because I want whatever this</span> <span m="697000">-- when I transpose,</span> <span m="700000">it'll show up here and i conjugate.</span> </p>
+<p><span m="703000">So I need three minus I there.</span> </p>
+<p><span m="706840">So there's a matrix with -- that corresponds to symmetry,</span> <span m="712000">but it's complex.</span> </p>
+<p><span m="714000">And those matrixes are called Hermitian matrixes.</span> </p>
+<p><span m="719000">Hermitian matrixes.</span> </p>
+<p><span m="722000">A H equals A.</span> </p>
+<p><span m="724000">Fine. Okay, that's -- and those matrixes have real eigenvalues</span> <span m="730000">and they have perpendicular eigenvectors.</span> </p>
+<p><span m="734000">What does perpendicular mean?</span> </p>
+<p><span m="737000">Perpendicular means the inner product -- so let's go on to</span> <span m="743000">perpendicular.</span> </p>
+<p><span m="745000">Well, when I had perpendicular vectors, for example,</span> <span m="751000">they were like q1, q2 up to qn.</span> </p>
+<p><span m="754000">That's my -- q is my letter that I use for perpendicular.</span> </p>
+<p><span m="759640">Actually, I usually -- I also mean unit length.</span> </p>
+<p><span m="764000">So those are perpendicular unit vectors.</span> </p>
+<p><span m="768000">But now what does -- so it's a -- orthonormal basis,</span> <span m="773000">I'll still use those words, but how do I compute</span> <span m="778000">perpendicular?</span> </p>
+<p><span m="779370">How do I check perpendicular?</span> </p>
+<p><span m="782000">This means that the inner product of qi with qj -- but now</span> <span m="787000">I not only transpose, I must conjugate,</span> <span m="791000">right, to get zero if i is not j and one if</span> <span m="796000">i is j.</span> </p>
+<p><span m="797000">So it's a unit vector, meaning unit length,</span> <span m="802000">orthogonal -- all the angles are right angles,</span> <span m="807000">but these are angles in complex n dimensional space.</span> </p>
+<p><span m="814000">So it's q1, q on- qi bar transpose.</span> </p>
+<p><span m="818000">Or, for short, qi H qj.</span> </p>
+<p><span m="820000">So it will still be true -- so let me -- again I'll create</span> <span m="828000">a matrix out of those guys.</span> </p>
+<p><span m="831000">The matrix will have these q-s in its columns,</span> <span m="835000">q2 to qn.</span> </p>
+<p><span m="836000">And I want to turn that into matrix language,</span> <span m="840000">just like before.</span> </p>
+<p><span m="841000">What does that mean?</span> </p>
+<p><span m="843000">That means I want all these inner products,</span> <span m="847000">so I take these columns of Q, multiply by their rows -- so it</span> <span m="854000">was -- it used to be Q -- it used to be Q transpose Q equals</span> <span m="861000">I, right?</span> </p>
+<p><span m="862000">This was an orthogonal matrix.</span> </p>
+<p><span m="866000">But what's changed?</span> </p>
+<p><span m="868000">These are now complex vectors.</span> </p>
+<p><span m="871810">Their inner products are -- involve conjugating the first</span> <span m="878000">factor.</span> </p>
+<p><span m="879000">So it's not -- it's the conjugate of Q</span> <span m="883000">transpose.</span> </p>
+<p><span m="884000">It's Q bar transpose Q.</span> </p>
+<p><span m="886940">Q H.</span> </p>
+<p><span m="887000">So can I call this -- let me call it Q H Q,</span> <span m="891000">which is I.</span> </p>
+<p><span m="892000">So that's our new -- you -- you see I'm just translating,</span> <span m="897000">and the -- the book h- on one page gives a little dictionary</span> <span m="902000">of the right words in the real case, R^n, and the corresponding</span> <span m="908000">words in the complex case for the vector</span> <span m="913070">space C^n.</span> </p>
+<p><span m="914000">Of course, C^n is a vector space, the numbers we multiply</span> <span m="919000">are now complex numbers -- we're just moving into complex n</span> <span m="925000">dimensional space.</span> </p>
+<p><span m="926000">Okay.</span> </p>
+<p><span m="927000">Now -- actually, I have to say we changed the</span> <span m="931000">word symmet- symmetric to Hermitian</span> <span m="936000">for those matrixes.</span> </p>
+<p><span m="937000">People also change this word orthogonal into another word</span> <span m="943000">that happens to be unitary, as a word that applies -- that</span> <span m="948000">signals that we might be dealing with a complex matrix here.</span> </p>
+<p><span m="954000">So what's a unitary matrix?</span> </p>
+<p><span m="956000">It's a -- it's just like an orthogonal matrix.</span> </p>
+<p><span m="962000">It's a square, n by n matrix with orthonormal</span> <span m="966000">columns, perpendicular columns, unit vectors -- unit vectors</span> <span m="972000">computed by -- and perpendicularity computed by</span> <span m="977000">remembering that there's a conjugate as well as a</span> <span m="982000">transpose.</span> </p>
+<p><span m="984000">Okay.</span> </p>
+<p><span m="985190">So those are the words.</span> </p>
+<p><span m="987000">Now I'm ready to get into the substance of the lecture which</span> <span m="993000">is the most famous complex matrix, which happens to be one</span> <span m="999000">of these guys.</span> </p>
+<p><span m="1001000">It has orthogonal columns, and it's named after Fourier</span> <span m="1006000">because it comes into the Fourier transform,</span> <span m="1012000">so it's the matrix that's all around us.</span> </p>
+<p><span m="1017000">Okay. Let me tell you what it is first of all in the n by n case.</span> </p>
+<p><span m="1024000">Then often I'll let n be four because four is a good size to</span> <span m="1030950">work with.</span> </p>
+<p><span m="1032000">But here's the n by n Fourier matrix.</span> </p>
+<p><span m="1036000">Its first column is the vector of</span> <span m="1041000">ones.</span> </p>
+<p><span m="1041680">It's n by n, of course.</span> </p>
+<p><span m="1043000">Its second column is the powers, the -- actually,</span> <span m="1048450">better if I move from the math department to EE for this one</span> <span m="1054000">half hour and then, please, let me move back again.</span> </p>
+<p><span m="1058000">Okay.</span> </p>
+<p><span m="1059000">What's the difference between those two departments?</span> </p>
+<p><span m="1064000">It's just math starts counting with</span> <span m="1069050">one and electrical engineers start counting at zero.</span> </p>
+<p><span m="1073430">Actually, they're probably right.</span> </p>
+<p><span m="1076000">So anyway, we'll give them -- humor them.</span> </p>
+<p><span m="1079000">So this is really the zeroes column.</span> </p>
+<p><span m="1082000">And the first column up to the n-1, that's the one inconvenient</span> <span m="1087000">spot in electrical engineering.</span> </p>
+<p><span m="1091000">All these expressions start at zero, no problem,</span> <span m="1095840">but they end at n-1.</span> </p>
+<p><span m="1097000">Well, that's -- that's the difficulty of Course 6.</span> </p>
+<p><span m="1102140">So what's -- they're the powers of a number that I'm going to</span> <span m="1107000">call W -- W squared, W cubed, W to the -- now what</span> <span m="1112000">is the W here?</span> </p>
+<p><span m="1114000">What's the power?</span> </p>
+<p><span m="1115000">This was the zeroes power, first power,</span> <span m="1119000">second power, this will be n minus first</span> <span m="1122690">power.</span> </p>
+<p><span m="1123000">That's the column.</span> </p>
+<p><span m="1124000">What's the next column?</span> </p>
+<p><span m="1126000">It's the powers of W squared, W to the fourth,</span> <span m="1130000">W to the sixth, W to the two n-1.</span> </p>
+<p><span m="1133780">And then more columns and more columns and more columns and</span> <span m="1140000">what's the last column?</span> </p>
+<p><span m="1142000">It's the powers of -- let's see.</span> </p>
+<p><span m="1145000">We -- actually, if we look around rows,</span> <span m="1148000">w- this matrix is symmetric.</span> </p>
+<p><span m="1151000">It's symmetric in the old not quite perfect way,</span> <span m="1155000">not perfect because these numbers are complex.</span> </p>
+<p><span m="1160310">And so it's -- that first row is all ones.</span> </p>
+<p><span m="1164000">One W W squared up to W to the n-1.</span> </p>
+<p><span m="1167000">That's the last column is the powers of W to the n-1,</span> <span m="1173000">so this guy matches that, and finally we get W to</span> <span m="1177000">something here.</span> </p>
+<p><span m="1180000">I guess we could actually figure out what that something</span> <span m="1185000">is.</span> </p>
+<p><span m="1186000">What are the entries of this matrix?</span> </p>
+<p><span m="1189630">The i j entry of this matrix are -- I going to -- are you</span> <span m="1195000">going to allow me to let i go from zero to n minus one?</span> </p>
+<p><span m="1200000">So i and g go from zero to n-1.</span> </p>
+<p><span m="1205000">So the one -- the zero zero entry is a one -- it's just this</span> <span m="1211000">same W guy to the power i times j.</span> </p>
+<p><span m="1215000">Let's see.</span> </p>
+<p><span m="1216000">I'm jumping into formulas here and I have to tell you what W is</span> <span m="1223000">and then you know everything about this matrix.</span> </p>
+<p><span m="1229000">So W is the -- well, shall we finish here?</span> </p>
+<p><span m="1233000">What was this -- this is the (n-1) (n-1) entry.</span> </p>
+<p><span m="1237440">This is W to the n-1 squared.</span> </p>
+<p><span m="1240000">Everything's looking like a mess here, because we have --</span> <span m="1245000">not too bad, because all the entries are powers of W.</span> </p>
+<p><span m="1250000">There -- none of them are zero.</span> </p>
+<p><span m="1254040">This is a full matrix.</span> </p>
+<p><span m="1256000">But W is a very special number.</span> </p>
+<p><span m="1260000">W is the special number whose n-th power is one.</span> </p>
+<p><span m="1265000">In fact -- well, actually, there are n numbers</span> <span m="1270000">like that.</span> </p>
+<p><span m="1271000">One of them is one, of course.</span> </p>
+<p><span m="1274000">But the one we -- the W we want is -- the angle</span> <span m="1281000">is two pi over n.</span> </p>
+<p><span m="1283890">Is that what I mean? n over two pi.</span> </p>
+<p><span m="1288000">No, two pi over n.</span> </p>
+<p><span m="1290000">W is E to the I and the angle is two pi over n.</span> </p>
+<p><span m="1296000">Right.</span> </p>
+<p><span m="1297000">Where is this W in the complex plane?</span> </p>
+<p><span m="1301000">It's -- it's on the unit circle,</span> <span m="1307450">right?</span> </p>
+<p><span m="1308000">This is -- it's the cosine of two pi over n plus I times the</span> <span m="1314000">sine of two pi over n.</span> </p>
+<p><span m="1316000">But actually, forget this.</span> </p>
+<p><span m="1319000">It's never good to work with the real and imaginary parts,</span> <span m="1325000">the rectangular coordinates, when we're taking powers.</span> </p>
+<p><span m="1330000">To take that to the tenth power, we can't see what we're</span> <span m="1336000">doing.</span> </p>
+<p><span m="1337000">To take this form to the tenth power, we see immediately what</span> <span m="1341000">we're doing.</span> </p>
+<p><span m="1342560">It would be e to the i 20 pi over n.</span> </p>
+<p><span m="1345000">So when our matrix is full of powers -- so it's this formula,</span> <span m="1349000">and where is this on the complex plain?</span> </p>
+<p><span m="1352000">Here are the real numbers, here's the imaginary axis,</span> <span m="1357000">here's the unit circle of radius one, and this number is</span> <span m="1362000">on the unit circle at this angle, which is one n-th of the</span> <span m="1367000">full way round.</span> </p>
+<p><span m="1368000">So if I drew, for example,</span> <span m="1371000">n equals six, this would be e to the two pi,</span> <span m="1376000">two pi over six, it would be one sixth of the</span> <span m="1380000">way around, it would be 60 degrees.</span> </p>
+<p><span m="1383000">And where is W squared?</span> </p>
+<p><span m="1385000">So I -- my W is e to the two pi I over six in this case,</span> <span m="1390000">in this six by -- for the six by six Fourier transform,</span> <span m="1395000">it's totally constructed out of this</span> <span m="1399000">number and its powers.</span> </p>
+<p><span m="1401000">So what are its powers?</span> </p>
+<p><span m="1403000">Well, its powers are on the unit circle, right?</span> </p>
+<p><span m="1407000">Because when I square a number, a complex number,</span> <span m="1411000">I square its absolute value, which gives me one again.</span> </p>
+<p><span m="1415570">All the powers have -- are on the unit circle.</span> </p>
+<p><span m="1420000">And the -- the angle gets doubled to a hundred and twenty,</span> <span m="1425000">so there's W squared, there's W cubed,</span> <span m="1428000">there's W to the fourth, there's W to the fifth and</span> <span m="1432000">there is W to the sixth, as we hoped,</span> <span m="1435000">W to the sixth coming back to one.</span> </p>
+<p><span m="1438000">So those are the six -- can I say this on TV?</span> </p>
+<p><span m="1442000">The six sixth roots of one, and it's this one,</span> <span m="1447000">the primitive one we say, the first one,</span> <span m="1451000">which is W.</span> </p>
+<p><span m="1452000">Okay, so what -- let me change -- let me -- I said I would</span> <span m="1458000">probably switch to n equal four.</span> </p>
+<p><span m="1461000">What's W for that?</span> </p>
+<p><span m="1463000">It's the fourth root of one.</span> </p>
+<p><span m="1465000">W to the fourth will be one.</span> </p>
+<p><span m="1468000">W will be e to the two pi i over</span> <span m="1472890">four now.</span> </p>
+<p><span m="1474000">What's that?</span> </p>
+<p><span m="1475000">This is e to the i pi over two.</span> </p>
+<p><span m="1479000">This is a quarter of the way around the unit circle,</span> <span m="1485000">and that's exactly i, a quarter of the way around.</span> </p>
+<p><span m="1491000">And sure enough, the powers are i,</span> <span m="1495000">i squared, which is minus one, i cubed,</span> <span m="1502000">which is minus i and finally i to the fourth which is one,</span> <span m="1507000">right.</span> </p>
+<p><span m="1508000">So there's W, W squared, W cubed,</span> <span m="1511000">W to the fourth -- I'm really ready to write down this Fourier</span> <span m="1517000">matrix for the four by four case, just so we see that</span> <span m="1521000">clearly.</span> </p>
+<p><span m="1522000">Let me do it here.</span> </p>
+<p><span m="1524000">F4 is -- all right, one one one one one one one W</span> <span m="1530000">-- it's I.</span> </p>
+<p><span m="1531000">I squared.</span> </p>
+<p><span m="1532000">That's minus one. i cubed is minus i.</span> </p>
+<p><span m="1536000">I'll -- I could write i squared and i cubed.</span> </p>
+<p><span m="1541000">Why don't I, just so we see the pattern for</span> <span m="1545000">sure. i squared,</span> <span m="1548000">i cubed, i squared, i cubed, i fourth,</span> <span m="1552490">i sixth -- i fourth, i sixth and i ninth.</span> </p>
+<p><span m="1556000">You see the exponents fall in this nice -- the exponent is the</span> <span m="1562000">row number times the column number, always starting at zero.</span> </p>
+<p><span m="1568000">Okay. And now I can put in those numbers if you like -- one one</span> <span m="1574000">one one, one i minus one minus i,</span> <span m="1579000">one minus one, one minus one and one minus i</span> <span m="1585000">minus one i.</span> </p>
+<p><span m="1587000">No. Yes.</span> </p>
+<p><span m="1588000">Right.</span> </p>
+<p><span m="1589000">What's -- why do I think that matrix is so remarkable?</span> </p>
+<p><span m="1596560">It's the four by four matrix that comes into the four point</span> <span m="1604000">Fourier transform.</span> </p>
+<p><span m="1607000">When we want to find the Fourier</span> <span m="1613000">transform, the four point Fourier transform of a vector</span> <span m="1617000">with four components, we want to multiply by this F4</span> <span m="1622000">or we want to multiply by F4 inverse.</span> </p>
+<p><span m="1625000">One way we're taking the transform, one way we're taking</span> <span m="1629610">the inverse transform.</span> </p>
+<p><span m="1631000">Actually, they're so close that it's</span> <span m="1635290">easy to confuse the two.</span> </p>
+<p><span m="1637000">The inverse of this matrix will be a nice matrix also.</span> </p>
+<p><span m="1642330">So -- and that's, of course, what makes it --</span> <span m="1646000">that -- I guess Fourier knew that.</span> </p>
+<p><span m="1649000">He knew the inverse of this matrix.</span> </p>
+<p><span m="1652000">A- as you'll see, it just comes from the fact</span> <span m="1656000">that the columns are orthogonal -- from</span> <span m="1660000">the fact that the columns are orthogonal, we will quickly</span> <span m="1665000">figure out what is the inverse.</span> </p>
+<p><span m="1668000">What Fourier didn't know -- didn't notice -- I think Gauss</span> <span m="1673000">noticed it but didn't make a point of it and then</span> <span m="1678000">it turned out to be really important was the fact that this</span> <span m="1683000">matrix is so special that you can break it up into nice pieces</span> <span m="1688000">with lots of zeroes, factors that have lots of</span> <span m="1692000">zeroes and multiply by it or by its inverse very,</span> <span m="1696660">very fast.</span> </p>
+<p><span m="1697000">Okay. But how did it get into this lecture first?</span> </p>
+<p><span m="1702000">Because the columns are orthogonal.</span> </p>
+<p><span m="1706000">Can I just check that the columns of this matrix are</span> <span m="1712000">orthogonal?</span> </p>
+<p><span m="1713000">So the inner product of that column with that column is zero.</span> </p>
+<p><span m="1720000">The inner product of column one with column three is zero.</span> </p>
+<p><span m="1726000">How about the inner product of two and four?</span> </p>
+<p><span m="1731000">Can I take the inner product of column two</span> <span m="1737000">with column four?</span> </p>
+<p><span m="1739660">Or even the inner product of two with three,</span> <span m="1745000">let's -- let's see, does that -- let me do two and</span> </p>
+<p><span m="1753000">four. Okay.</span> </p>
+<p><span m="1754000">What -- oh, I see, yes, hmm.</span> </p>
+<p><span m="1758000">Hmm. Let's see, I believe that those two columns are</span> <span m="1767000">orthogonal.</span> </p>
+<p><span m="1768000">So let me take their inner product and hope to get zero.</span> </p>
+<p><span m="1772000">Okay, now if you hadn't listened to the first half of</span> <span m="1776000">this lecture, when you took the inner product</span> <span m="1779000">of that with that, you would have multiplied one</span> <span m="1782000">by one, i by minus i, and that would have given you</span> <span m="1786000">one, minus one by minus one would</span> <span m="1790000">have given you another one minus I by I would have been minus I</span> <span m="1795000">squared, that's another one.</span> </p>
+<p><span m="1797000">So do I conclude that the inner product of columns -- I said</span> <span m="1802980">columns two and four, that's because I forgot those</span> <span m="1807000">are columns one and three.</span> </p>
+<p><span m="1809000">I'm interested in their inner product and I'm hoping it's</span> <span m="1814000">zero, but it doesn't look like zero.</span> </p>
+<p><span m="1817060">Nevertheless, it is zero.</span> </p>
+<p><span m="1818000">Those columns are perpendicular.</span> </p>
+<p><span m="1820000">Why?</span> </p>
+<p><span m="1821000">Because the inner product -- we conjugate.</span> </p>
+<p><span m="1823000">Do you remember that the -- one of the vectors in the inner</span> <span m="1827000">product has to get conjugated.</span> </p>
+<p><span m="1830000">So when I conjugated, it changes that i to a minus i,</span> <span m="1835000">changes this to a plus i, changes those -- that second</span> <span m="1840760">sine and that fourth sine and I do get zero.</span> </p>
+<p><span m="1844000">So those columns are orthogonal.</span> </p>
+<p><span m="1847000">So columns are orthogonal.</span> </p>
+<p><span m="1850000">They're not quite orthonormal.</span> </p>
+<p><span m="1853000">But I could fix that easily.</span> </p>
+<p><span m="1856330">They -- all those columns have length two.</span> </p>
+<p><span m="1859000">Length squared is four, like this -- the four I had</span> <span m="1864000">there -- this length squared, one plus -- one squared one</span> <span m="1868000">squared one squared one squared is four, square root is two --</span> <span m="1874000">so if I really wanted them -- suppose I really wanted to fix</span> <span m="1880000">life perfectly, I could divide by two,</span> <span m="1884000">and now I have columns that are actually orthonormal.</span> </p>
+<p><span m="1889500">So what?</span> </p>
+<p><span m="1890000">So I can invert right away, right?</span> </p>
+<p><span m="1893000">O- orthonormal columns means -- now I'm keeping this one half in</span> <span m="1899000">here for the moment -- c- means F4</span> <span m="1904000">Hermitian, can I use that, conjugate transpose times F4 is</span> </p>
+<p><span m="1910000">i. So I see what the inverse is.</span> </p>
+<p><span m="1913000">The inverse of F4 is -- it's just like an -- an orthogonal</span> <span m="1918000">matrix.</span> </p>
+<p><span m="1919000">The inverse is the transpose -- here the inverse is the</span> <span m="1924000">conjugate transpose.</span> </p>
+<p><span m="1928000">So, fine. That -- that tells me that anything good that I learn about</span> <span m="1933000">F4 I'll know the same -- I'll know a similar fact about its</span> <span m="1939000">inverse, because its inverse is just its conjugate transpose.</span> </p>
+<p><span m="1944000">Okay, now -- so what's good?</span> </p>
+<p><span m="1947000">Well, first, the columns are orthogonal.</span> </p>
+<p><span m="1950000">That's a key fact, then.</span> </p>
+<p><span m="1952000">That's the thing that makes the inverse easy.</span> </p>
+<p><span m="1955000">But what property is it that leads to the fast Fourier</span> <span m="1959000">transform?</span> </p>
+<p><span m="1960000">So now I'm going to talk, in these last minutes,</span> <span m="1963000">about the fast Fourier transform.</span> </p>
+<p><span m="1966000">What -- here's the idea.</span> </p>
+<p><span m="1969000">F6, our six by six matrix, will c- there's a neat</span> <span m="1974000">connection to F3, half as big.</span> </p>
+<p><span m="1977000">There's a connection of F8 to F4.</span> </p>
+<p><span m="1980000">There's a connection of F(64) to F(32).</span> </p>
+<p><span m="1984000">Shall I write down what that connection is?</span> </p>
+<p><span m="1988000">What's the connection of F(64) to F(32)?</span> </p>
+<p><span m="1993000">So F(64) is a 64 by 64 matrix whose W is the 64th root of one.</span> </p>
+<p><span m="2001000">So it's one 64th of the way round in F(64).</span> </p>
+<p><span m="2006560">And it -- do- and F(32) is a 32 by 32 matrix.</span> </p>
+<p><span m="2012000">Remember, they're different sizes.</span> </p>
+<p><span m="2016000">And the W in that 32 by 32 matrix is the 32nd root of one,</span> <span m="2023000">which is twice as far -- that -- you sh- see that key</span> <span m="2030000">point -- that's the -- that's how 32 and 64 are connected in</span> <span m="2035000">the Ws.</span> </p>
+<p><span m="2036000">The W for 64 is one 64th of the way -- so all I'm saying is that</span> <span m="2042000">if I square the W -- W(64), that's what I'm using for the</span> <span m="2047000">one over -- the -- W sixty f- this Wn is either the i two pi</span> <span m="2052000">over n -- so W(64) is one 64th of the way</span> <span m="2057830">around it.</span> </p>
+<p><span m="2059000">When I square that, what do I get but W(32)?</span> </p>
+<p><span m="2064000">Right? If I square this matrix, I double the angle -- if I</span> <span m="2070000">square this number, I double the angle,</span> <span m="2075000">I get, the -- the W(32).</span> </p>
+<p><span m="2077000">So somehow there's a little hope</span> <span m="2083000">here to connect F(64) with F(32).</span> </p>
+<p><span m="2086000">And here's the connection.</span> </p>
+<p><span m="2089000">Okay. Let me -- let me go back, -- yes, let me -- I'll do it</span> <span m="2095000">here.</span> </p>
+<p><span m="2096000">Here's the connection.</span> </p>
+<p><span m="2098000">F(64).</span> </p>
+<p><span m="2099000">The 64 by 64 Fourier matrix is connected to two copies of</span> <span m="2105000">F(32).</span> </p>
+<p><span m="2106000">Let me leave a little space for the connection.</span> </p>
+<p><span m="2111000">So this is 64 by 64.</span> </p>
+<p><span m="2113000">Here's a matrix of that same size,</span> <span m="2118000">because it's got two copies of F(32) and two zero matrixes.</span> </p>
+<p><span m="2123000">Those zero matrixes are the key, because when I multiply by</span> <span m="2128000">this matrix, just as it is, regular multiplication,</span> <span m="2132000">I would take -- need 64 -- I would -- I would have 64 squared</span> <span m="2137000">little multiplications to do.</span> </p>
+<p><span m="2140000">But this matrix is half zero.</span> </p>
+<p><span m="2143000">Well, of course, the two aren't equal.</span> </p>
+<p><span m="2147000">I'm going to put an equals sign, but there has to be some</span> <span m="2152000">fix up factors -- one there and one there -- to make it true.</span> </p>
+<p><span m="2158000">The beauty is that these fix up factors will be really -- almost</span> <span m="2165000">all zeroes.</span> </p>
+<p><span m="2167000">So that as soon as we get this formula right,</span> <span m="2171000">we've got a great idea for how to get from the sixty- from the</span> <span m="2176490">64 squared calculations -- so this original -- originally we</span> <span m="2181000">have 64 squared calculations from there, but this one will</span> <span m="2186750">give us -- this is -- this will --</span> <span m="2190000">we don't need that many -- we only need two times 32 squared,</span> <span m="2195000">because we've got that twice.</span> </p>
+<p><span m="2198000">And -- plus the fix-up.</span> </p>
+<p><span m="2200000">So I have to tell you what's in this fix-up matrix.</span> </p>
+<p><span m="2205000">The one on the right is actually a permutation matrix,</span> <span m="2209000">a very simple odds and evens permutation matrix,</span> <span m="2214000">the -- ones show up -- I haven't put</span> <span m="2218530">enough ones, I really need a -- 32 of these guys at -- double</span> <span m="2224000">space and then -- you see it's -- it's a permutation matrix.</span> </p>
+<p><span m="2230000">What it does -- shall I call it P for permutation matrix?</span> </p>
+<p><span m="2236000">So what that P does when it multiplies a vector,</span> <span m="2242000">it takes the odd -- the even numbered components first and</span> <span m="2247000">then the odds.</span> </p>
+<p><span m="2249000">You see this -- this one skipping every time is going to</span> <span m="2254000">pick out x0, x2, x4, x6 and then below that will</span> <span m="2258760">come -- will pick out x1,</span> <span m="2261000">x3, x5.</span> </p>
+<p><span m="2262000">And of course, that can be hard wired in the</span> <span m="2266000">computer to be instantaneous.</span> </p>
+<p><span m="2269000">So that says -- so far, what have we said?</span> </p>
+<p><span m="2273000">We're saying that the 64 by 64 Fourier matrix is really</span> <span m="2279310">separated into -- separate your vector into the</span> <span m="2284000">odd -- into the even components and the odd components,</span> <span m="2288000">then do a 32 size Fourier transform onto those separately,</span> <span m="2293000">and then put the pieces together again.</span> </p>
+<p><span m="2296000">So the pieces -- putting them together turns them out</span> <span m="2301000">to be I and a diagonal matrix and I and a minus,</span> <span m="2306000">that same diagonal matrix.</span> </p>
+<p><span m="2308000">So the fix-up cost is really the cost of multiplying by D,</span> <span m="2314000">this diagonal matrix, because there's essentially no</span> <span m="2319000">cost in -- in the I part or in the permutation part,</span> <span m="2324110">so really it's -- the fix-up cost is</span> <span m="2328000">essentially because D is diagonal -- is 32</span> <span m="2333000">multiplications.</span> </p>
+<p><span m="2334000">That's the -- there you're seeing -- of course we didn't</span> <span m="2341000">check the formula or we didn't even say what D is yet,</span> <span m="2346000">but I will -- this diagonal matrix D is powers of W -- one W</span> <span m="2353000">W squared down to W to the 31st.</span> </p>
+<p><span m="2358000">So you see that when I -- to do a multiplication by D,</span> <span m="2362000">I need to do 32 multiplications.</span> </p>
+<p><span m="2365000">There they are.</span> </p>
+<p><span m="2366000">Then -- but the other, the more serious work is to do</span> <span m="2371000">the F(32) twice on the -- separately on the even numbered</span> <span m="2375000">and odd numbered components, so twice 32 squared.</span> </p>
+<p><span m="2380000">So 64 squared is gone now.</span> </p>
+<p><span m="2383000">And that's the new count.</span> </p>
+<p><span m="2386000">Okay, great, but what next?</span> </p>
+<p><span m="2389000">So that's -- I -- we now have the key idea -- we would have to</span> <span m="2396000">check the algebra, but it's just checking a lot of</span> <span m="2402000">sums that come out correctly.</span> </p>
+<p><span m="2405000">This is right -- the right way to see the fast</span> <span m="2411000">Fourier transform, or one right way to see it.</span> </p>
+<p><span m="2415000">Then you've got to see what's the next idea.</span> </p>
+<p><span m="2419000">The next idea is to break the 32s down.</span> </p>
+<p><span m="2422000">Break those 32s down.</span> </p>
+<p><span m="2424000">So we have this factor, and now we have the F(32),</span> <span m="2430000">but that breaks into some guy here -- F thirty- F six- F(16)</span> <span m="2435590">-- F(16).</span> </p>
+<p><span m="2436000">Each -- each F(32) is breaking into two copies of F(16),</span> <span m="2441000">and then we have a permutation and then the -- so this is a --</span> <span m="2447000">like, this was a 64 size permutation, this is a 32 size</span> <span m="2451950">permutation -- I guess I've got it twice.</span> </p>
+<p><span m="2455000">So it's -- I'm -- I'm just using the same idea</span> <span m="2460000">recursively -- recursion is the key word -- that on each of</span> <span m="2465000">those F(32)s -- so here's zero zero -- it's just -- to get</span> <span m="2471000">F(32) -- this is the odd even permutations -- so you see,</span> <span m="2476000">we're -- the combination of those permutations,</span> <span m="2481000">what's it doing?</span> </p>
+<p><span m="2482000">This guy separates into odds -- in -- into evens and odds,</span> <span m="2488000">and then this guy separates the evens into the ones -- the</span> <span m="2493000">numbers that are mult- the even evens, which means zero four</span> <span m="2499000">eight sixteen -- and even odds, which means two,</span> <span m="2503000">six, ten, fourteen -- and then odd evens and</span> <span m="2508000">odd odds.</span> </p>
+<p><span m="2509650">You see, together these permutations then break it --</span> <span m="2514000">break our vector down into x, even even and three other</span> <span m="2520000">pieces.</span> </p>
+<p><span m="2521000">Those are the four pieces that separately get multiplied by</span> <span m="2527000">F(16) -- separately fixed up by these Is and Ds and Is and minus</span> <span m="2533000">Ds -- so this count is now reduced.</span> </p>
+<p><span m="2538000">This count is now -- what's it reduced to?</span> </p>
+<p><span m="2541610">So that's going to be gone, because 32 squared -- that's --</span> <span m="2546000">that's the change I'm making, right?</span> </p>
+<p><span m="2549000">The 32 squared -- w- so -- so it's this that's now reduced.</span> </p>
+<p><span m="2554000">So I still have two times it, but now what's 32 squared?</span> </p>
+<p><span m="2559000">It's gone in favor of two sixteen squareds plus sixteen.</span> </p>
+<p><span m="2565000">That's -- and then the original 32 to fix.</span> </p>
+<p><span m="2570000">Maybe you see what's happening.</span> </p>
+<p><span m="2574000">Even easier than this formula is w- what's -- when I do the</span> <span m="2581000">recursion more and more times, I get simpler and simpler</span> <span m="2587000">factors in the middle.</span> </p>
+<p><span m="2590000">Eventually I'll be down to two point or one point Fourier</span> <span m="2595000">transforms.</span> </p>
+<p><span m="2596000">But I get more and more factors piling up on the right and left.</span> </p>
+<p><span m="2601000">On the right, I'm just getting permutation</span> </p>
+<p><span m="2604000">matrixes. On the left, I'm getting these guys,</span> <span m="2608550">these Is and Ds, so that there was a 32 there</span> <span m="2612000">and -- each one of these is costing 32.</span> </p>
+<p><span m="2616000">Each one of those is costing</span> <span m="2619400">And how many will there be?</span> </p>
+<p><span m="2621000">So you see the 32 for this original fix up,</span> <span m="2626000">because D had 32 numbers, 32 for this next fix up,</span> <span m="2630000">because D has 16 and 16 more.</span> </p>
+<p><span m="2633000">I keep going.</span> </p>
+<p><span m="2636010">So the count in the middle goes down to zip, but these fix up</span> <span m="2641000">counts are all that I'm left with, and how many factors --</span> <span m="2646000">how many fix-ups have I got -- log in -- from 64,</span> <span m="2650000">one step to 32, one step to 16,</span> <span m="2653000">one step to eight, four, two and one.</span> </p>
+<p><span m="2656000">Six steps.</span> </p>
+<p><span m="2657000">So I have six fix-up -- six fix up factors.</span> </p>
+<p><span m="2663000">Finally I get to six times the</span> <span m="2668000">That's my final count.</span> </p>
+<p><span m="2671000">Instead of 64 squared, this is log to the base two of</span> <span m="2678000">64 times 64 -- actually, half of 64.</span> </p>
+<p><span m="2683360">So actually, the final count is n log to the</span> <span m="2689330">base two of n -- that's the 32 -- a half.</span> </p>
+<p><span m="2696000">So can I put a box around that wonderful, extremely important</span> <span m="2702000">and satisfying conclusion -- that the fast Fourier transform</span> <span m="2708970">multiplies by an n by n matrix, but it does it not in n squared</span> <span m="2715000">steps, but in one half n log n steps.</span> </p>
+<p><span m="2719000">And if we just -- complete by doing a count,</span> <span m="2724000">let's suppose -- suppose -- a typical case would be two to the</span> </p>
+<p><span m="2732000">tenth. Now n squared is bigger than a million.</span> </p>
+<p><span m="2737000">So it's a thousand twenty four times a thousand twenty four.</span> </p>
+<p><span m="2744350">But what is n -- what is one half -- what is the new count,</span> <span m="2751000">done the right way?</span> </p>
+<p><span m="2754000">It's n -- the thousand twenty four times one half,</span> <span m="2759000">and what's the logarithm?</span> </p>
+<p><span m="2762000">It's ten.</span> </p>
+<p><span m="2763000">So times ten over two.</span> </p>
+<p><span m="2765000">So it's five times -- it's five times a thousand twenty four,</span> <span m="2771360">where this one was a thousand twenty four times a thousand</span> <span m="2777000">twenty four.</span> </p>
+<p><span m="2778000">We've reduced the calculation by a</span> <span m="2782000">factor of 200 just by factoring the matrix properly.</span> </p>
+<p><span m="2787000">This was a thousand times n, we're now down to five times n.</span> </p>
+<p><span m="2792000">So we can do 200 Fourier transforms, where before we</span> <span m="2797000">could do one, and in real scientific</span> <span m="2800000">calculations where Fourier transforms are happening all the</span> <span m="2805780">time, we're saving a factor of</span> <span m="2809000">in one of the major steps of modern scientific computing.</span> </p>
+<p><span m="2815000">So that's the idea of the fast Fourier transform,</span> <span m="2820070">and you see the whole thing hinged on being a special matrix</span> <span m="2825870">with orthonormal columns.</span> </p>
+<p><span m="2828000">Okay, that's actually it for complex numbers.</span> </p>
+<p><span m="2832000">I'm back next time really to -- to real numbers,</span> <span m="2837000">eigenvalues and eigenvectors and the key idea of positive</span> <span m="2842000">definite matrixes is going to show up.</span> </p>
+<p><span m="2845000">What's a positive definite matrix?</span> </p>
+<p><span m="2847000">And it's terrific that this course is going to reach</span> <span m="2851000">positive definiteness, because those are the matrixes</span> <span m="2855000">that you see the most in applications.</span> </p>
+<p><span m="2859670">Okay, see you next time.</span> </p>
+<p><span m="2861000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 102MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/26.mp4">MP4 - 191MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/M0Sa8fLOajA.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

@@ -1,0 +1,3589 @@
+1
+00:00:00,000 --> 00:00:06,000
+OK, this is the lecture on
+positive definite matrices.
+
+2
+00:00:06,000 --> 00:00:12,000
+I made a start on those briefly
+in a previous lecture.
+
+3
+00:00:12,000 --> 00:00:19,000
+One point I wanted to make was
+the way that this topic brings
+
+4
+00:00:19,000 --> 00:00:25,000
+the whole course together,
+pivots, determinants,
+
+5
+00:00:25,000 --> 00:00:29,000
+eigenvalues,
+and something new- four plot
+
+6
+00:00:29,000 --> 00:00:34,000
+instability and then something
+new
+
+7
+00:00:34,000 --> 00:00:38,000
+in this expression,
+x transpose Ax,
+
+8
+00:00:38,000 --> 00:00:43,000
+actually that's the guy to
+watch in this lecture.
+
+9
+00:00:43,000 --> 00:00:47,000
+So, so the topic is positive
+definite matrix,
+
+10
+00:00:47,000 --> 00:00:49,000
+and what's my goal?
+
+11
+00:00:49,000 --> 00:00:54,000
+First, first goal is,
+how can I tell if a matrix is
+
+12
+00:00:54,000 --> 00:00:56,000
+positive definite?
+
+13
+00:00:56,000 --> 00:01:01,000
+So I would like to have tests
+to see
+
+14
+00:01:01,000 --> 00:01:04,000
+if you give me a,
+a five by five matrix,
+
+15
+00:01:04,000 --> 00:01:07,000
+how do I tell if it's positive
+definite?
+
+16
+00:01:07,000 --> 00:01:10,000
+More important is,
+what does it mean?
+
+17
+00:01:10,000 --> 00:01:14,000
+Why are we so interested in
+this property of positive
+
+18
+00:01:14,000 --> 00:01:15,000
+definiteness?
+
+19
+00:01:15,000 --> 00:01:18,000
+And then, at the end comes some
+geometry.
+
+20
+00:01:18,000 --> 00:01:24,000
+Ellipses are connected
+with positive definite things.
+
+21
+00:01:24,000 --> 00:01:29,000
+Hyperbolas are not connected
+with positive definite things,
+
+22
+00:01:29,000 --> 00:01:32,000
+so we- it's this,
+we, there's a geometry too,
+
+23
+00:01:32,000 --> 00:01:38,000
+but mostly it's linear algebra
+and -- this application of how
+
+24
+00:01:38,000 --> 00:01:43,000
+do you recognize 'em when you
+have a minim is pretty neat.
+
+25
+00:01:43,000 --> 00:01:43,330
+OK.
+
+26
+00:01:43,330 --> 00:01:47,000
+I'm gonna begin with two by
+two.
+
+27
+00:01:47,000 --> 00:01:50,000
+All matrices are symmetric,
+right?
+
+28
+00:01:50,000 --> 00:01:54,000
+That's understood;
+the matrix is symmetric,
+
+29
+00:01:54,000 --> 00:01:59,000
+now my question is,
+is it positive definite?
+
+30
+00:01:59,000 --> 00:02:05,000
+Now, here are some -- each one
+of these is a complete test for
+
+31
+00:02:05,000 --> 00:02:07,000
+positive definiteness.
+
+32
+00:02:07,000 --> 00:02:14,000
+If I know the eigenvalues,
+my test is are they positive?
+
+33
+00:02:14,000 --> 00:02:16,000
+Are they all positive?
+
+34
+00:02:16,000 --> 00:02:21,000
+If I know these -- so,
+A is really -- I look at that
+
+35
+00:02:21,000 --> 00:02:25,000
+number A, here,
+as the, as the one by one
+
+36
+00:02:25,000 --> 00:02:30,000
+determinant, and here's the two
+by two determinant.
+
+37
+00:02:30,000 --> 00:02:34,000
+So this is the determinant
+test.
+
+38
+00:02:34,000 --> 00:02:39,110
+This is the eigenvalue test,
+this is the determinant test.
+
+39
+00:02:39,110 --> 00:02:43,000
+Are the determinants growing in
+s- of all, of all end,
+
+40
+00:02:43,000 --> 00:02:47,000
+sort of, can I call them
+leading submatrices,
+
+41
+00:02:47,000 --> 00:02:51,000
+they're the first ones the
+northwest,
+
+42
+00:02:51,000 --> 00:02:55,000
+Seattle submatrices coming down
+from from there,
+
+43
+00:02:55,000 --> 00:02:59,600
+they all, all those
+determinants have to be
+
+44
+00:02:59,600 --> 00:03:03,000
+positive, and then another test
+is the pivots.
+
+45
+00:03:03,000 --> 00:03:08,000
+The pivots of a two by two
+matrix are the number A for
+
+46
+00:03:08,000 --> 00:03:13,000
+sure, and, since the product is
+the determinant,
+
+47
+00:03:13,000 --> 00:03:18,000
+the second pivot must be the
+determinant divided by A.
+
+48
+00:03:18,000 --> 00:03:24,000
+And then in here is gonna come
+my favorite and my new idea,
+
+49
+00:03:24,000 --> 00:03:30,000
+the, the, the the one to catch,
+about x transpose Ax being
+
+50
+00:03:30,000 --> 00:03:31,000
+positive.
+
+51
+00:03:31,000 --> 00:03:34,000
+But we'll have to look at this
+guy.
+
+52
+00:03:34,000 --> 00:03:39,000
+This gets, like a star,
+because for most,
+
+53
+00:03:39,000 --> 00:03:43,000
+presentations,
+the definition of positive
+
+54
+00:03:43,000 --> 00:03:48,000
+definiteness would be this
+number four and these numbers
+
+55
+00:03:48,000 --> 00:03:51,000
+one two three would be test
+four.
+
+56
+00:03:51,000 --> 00:03:51,000
+OK.
+Maybe I'll tuck this,
+where, you know,
+
+57
+00:03:55,000 --> 00:03:55,000
+OK.
+So I'll have to look at this x
+transpose Ax.
+
+58
+00:03:59,000 --> 00:04:04,000
+Can you, can we just be sure,
+how do we know that the
+
+59
+00:04:04,000 --> 00:04:10,000
+eigenvalue
+test and the determinant test,
+
+60
+00:04:10,000 --> 00:04:18,000
+pick out the same matrices,
+and let me, let's just do a few
+
+61
+00:04:18,000 --> 00:04:19,000
+examples.
+
+62
+00:04:19,000 --> 00:04:21,000
+Some examples.
+
+63
+00:04:21,000 --> 00:04:27,000
+Let me pick the matrix two,
+six, six, tell me,
+
+64
+00:04:27,000 --> 00:04:34,820
+what number do I have to put
+there for the matrix to be
+
+65
+00:04:34,820 --> 00:04:38,000
+positive definite?
+
+66
+00:04:38,000 --> 00:04:42,000
+Tell me a sufficiently large
+number that would make it
+
+67
+00:04:42,000 --> 00:04:43,000
+positive definite?
+
+68
+00:04:43,000 --> 00:04:47,000
+Let's just practice with these
+conditions in the two by two
+
+69
+00:04:47,000 --> 00:04:48,000
+case.
+
+70
+00:04:48,000 --> 00:04:51,000
+Now, when I ask you that,
+you don't wanna find the
+
+71
+00:04:51,000 --> 00:04:55,000
+eigenvalues, you would use the
+determinant test for that,
+
+72
+00:04:55,000 --> 00:04:59,000
+so,
+the first or the pivot test,
+
+73
+00:04:59,000 --> 00:05:04,000
+that, that guy is certainly
+positive, that had to happen,
+
+74
+00:05:04,000 --> 00:05:05,000
+and it's OK.
+
+75
+00:05:05,000 --> 00:05:10,000
+How large a number here -- the
+number had better be more than
+
+76
+00:05:10,000 --> 00:05:10,000
+what?
+More than eighteen,
+right, because if it's eight --
+
+77
+00:05:15,000 --> 00:05:15,000
+no.
+More than what?
+
+78
+00:05:16,000 --> 00:05:19,000
+Nineteen, is it?
+
+79
+00:05:19,000 --> 00:05:25,000
+If I have a nineteen here,
+is that positive definite?
+
+80
+00:05:25,000 --> 00:05:30,000
+I get thirty eight minus thirty
+six, that's OK.
+
+81
+00:05:30,000 --> 00:05:36,000
+If I had an eighteen,
+let me play it really close.
+
+82
+00:05:36,000 --> 00:05:42,000
+If I have an eighteen there,
+then I positive definite?
+
+83
+00:05:42,000 --> 00:05:43,480
+Not quite.
+
+84
+00:05:43,480 --> 00:05:51,000
+I would call this guy positive,
+so it's useful just to see that
+
+85
+00:05:51,000 --> 00:05:53,000
+this the borderline.
+
+86
+00:05:53,000 --> 00:05:58,000
+That matrix is on the
+borderline, I would call that
+
+87
+00:05:58,000 --> 00:06:01,000
+matrix positive semi-definite.
+
+88
+00:06:01,000 --> 00:06:07,000
+And what are the eigenvalues of
+that matrix, just since we're
+
+89
+00:06:07,000 --> 00:06:14,000
+given eigenvalues of two by
+twos, when it's semi-definite,
+
+90
+00:06:14,000 --> 00:06:18,000
+but not definite,
+then the -- I'm squeezing this
+
+91
+00:06:18,000 --> 00:06:24,000
+eigenvalue test down,
+-- what's the eigenvalue that I
+
+92
+00:06:24,000 --> 00:06:26,000
+know this matrix has?
+
+93
+00:06:26,000 --> 00:06:30,000
+What kind of a matrix have I
+got here?
+
+94
+00:06:30,000 --> 00:06:36,000
+It's a singular matrix,
+one of its eigenvalues is zero.
+
+95
+00:06:36,000 --> 00:06:42,000
+That has an eigenvalue zero,
+and the other eigenvalue is --
+
+96
+00:06:42,000 --> 00:06:44,000
+from the trace,
+twenty.
+
+97
+00:06:44,000 --> 00:06:44,000
+OK.
+So that, that matrix has
+eigenvalues greater than or
+
+98
+00:06:49,000 --> 00:06:52,000
+equal to zero,
+and it's that "equal to" that
+
+99
+00:06:52,000 --> 00:06:55,000
+brought this word
+"semi-definite" in.
+
+100
+00:06:55,000 --> 00:07:00,470
+And, the what are the pivots of
+that matrix?
+
+101
+00:07:00,470 --> 00:07:04,000
+So the pivots,
+so the eigenvalues are zero and
+
+102
+00:07:04,000 --> 00:07:09,000
+twenty, the pivots are,
+well, the pivot is two,
+
+103
+00:07:09,000 --> 00:07:11,000
+and what's the next pivot?
+
+104
+00:07:11,000 --> 00:07:13,000
+There isn't one.
+
+105
+00:07:13,000 --> 00:07:18,000
+We got a singular matrix here,
+it'll only have one pivot.
+
+106
+00:07:18,000 --> 00:07:25,000
+You see that that's a rank one
+matrix, two six is a -- six
+
+107
+00:07:25,000 --> 00:07:32,000
+eighteen is a multiple of two
+six, the matrix is singular it
+
+108
+00:07:32,000 --> 00:07:38,210
+only has one pivot,
+so the pivot test doesn't quite
+
+109
+00:07:38,210 --> 00:07:38,000
+pass.
+
+110
+00:07:38,000 --> 00:07:42,000
+The -- let me do the x
+transpose Ax.
+
+111
+00:07:42,000 --> 00:07:46,000
+Now this is -- the novelty now.
+
+112
+00:07:46,000 --> 00:07:46,000
+OK.
+What I looking at when I
+look at this new combination,
+
+113
+00:07:54,060 --> 00:07:57,000
+x transpose Ax.
+x is any vector now,
+
+114
+00:07:57,000 --> 00:08:01,000
+so lemme compute,
+so any vector,
+
+115
+00:08:01,000 --> 00:08:06,000
+lemme call its components x1
+and x2, so that's x.
+
+116
+00:08:06,000 --> 00:08:08,000
+And I put in here A.
+
+117
+00:08:08,000 --> 00:08:15,370
+Let's, let's use this example
+two six, six eighteen,
+
+118
+00:08:15,370 --> 00:08:18,000
+and here's x transposed,
+so x1 x2.
+
+119
+00:08:18,000 --> 00:08:24,000
+We're back to real matrices,
+after that last lecture that-
+
+120
+00:08:24,000 --> 00:08:27,000
+that said what to do in the
+complex case,
+
+121
+00:08:27,000 --> 00:08:30,000
+let's come back to real
+matrices.
+
+122
+00:08:30,000 --> 00:08:36,000
+So here's x transpose Ax,
+and what I'm interested in is,
+
+123
+00:08:36,000 --> 00:08:41,000
+what do I get if I multiply
+those together?
+
+124
+00:08:41,000 --> 00:08:46,000
+I get some function of x1 and
+x2, and what is it?
+
+125
+00:08:46,000 --> 00:08:50,620
+Let's see, if I do this
+multiplication,
+
+126
+00:08:50,620 --> 00:08:55,000
+so I do it, lemme,
+just, I'll just do it slowly,
+
+127
+00:08:55,000 --> 00:09:00,000
+x1, x2, if I multiply that
+matrix, this is 2x1,
+
+128
+00:09:00,000 --> 00:09:06,000
+and 6x2s, and the next row is
+6x1s and 18x2s,
+
+129
+00:09:06,000 --> 00:09:10,000
+and now I do this final step
+and what do I have?
+
+130
+00:09:10,000 --> 00:09:15,920
+I've got 2x1 squareds,
+got 2X1 squareds is coming from
+
+131
+00:09:15,920 --> 00:09:20,000
+this two, I've got this one
+gives me eighteen,
+
+132
+00:09:20,000 --> 00:09:24,000
+well, shall I do the ones in
+the middle?
+
+133
+00:09:24,000 --> 00:09:26,000
+How many x1 x2s do I have?
+
+134
+00:09:26,000 --> 00:09:31,000
+Let's see,
+x1 times that 6x2 would be six
+
+135
+00:09:31,000 --> 00:09:36,000
+of 'em, and then x2 times this
+one will be six more,
+
+136
+00:09:36,000 --> 00:09:38,000
+I get twelve.
+
+137
+00:09:38,000 --> 00:09:42,000
+So, in here is going,
+this is the number a,
+
+138
+00:09:42,000 --> 00:09:47,000
+this is the number 2b,
+and in here is -- x2 times
+
+139
+00:09:47,000 --> 00:09:53,000
+eighteen x2 will be eighteen x2
+squareds and this
+
+140
+00:09:53,000 --> 00:09:55,000
+is the number c.
+
+141
+00:09:55,000 --> 00:09:59,000
+So it's ax1 -- it's like ax
+squared.
+
+142
+00:09:59,000 --> 00:10:01,230
+2bxy and cy squared.
+
+143
+00:10:01,230 --> 00:10:07,000
+For my first point that I
+wanted to make by just doing out
+
+144
+00:10:07,000 --> 00:10:12,000
+a multiplication is,
+that is as soon as you give me
+
+145
+00:10:12,000 --> 00:10:17,000
+the matrix, as soon as you give
+me the matrix,
+
+146
+00:10:17,000 --> 00:10:21,000
+I can --
+those are the numbers that
+
+147
+00:10:21,000 --> 00:10:25,000
+appear in -- I'll call this
+thing a quadratic,
+
+148
+00:10:25,000 --> 00:10:27,000
+you see, it's not linear
+anymore.
+
+149
+00:10:27,000 --> 00:10:31,000
+Ax is linear,
+but now I've got an x transpose
+
+150
+00:10:31,000 --> 00:10:35,000
+coming in, I'm up to degree two,
+up to degree two,
+
+151
+00:10:35,000 --> 00:10:39,000
+maybe quadratic is the -- use
+the word.
+
+152
+00:10:39,000 --> 00:10:40,000
+A quadratic form.
+
+153
+00:10:40,000 --> 00:10:44,000
+It's purely degree two,
+there's no linear part,
+
+154
+00:10:44,000 --> 00:10:49,000
+there's no constant part,
+there certainly no cubes or
+
+155
+00:10:49,000 --> 00:10:53,000
+fourth powers,
+it's all second degree.
+
+156
+00:10:53,000 --> 00:10:58,000
+And my question is -- is that
+quantity positive or not?
+
+157
+00:10:58,000 --> 00:11:04,000
+That's -- for every x1 and x2,
+that is my new definition --
+
+158
+00:11:04,000 --> 00:11:10,000
+that's my definition of a
+positive definite matrix.
+
+159
+00:11:10,000 --> 00:11:16,000
+If this quantity is positive,
+if, if, if, it's positive for
+
+160
+00:11:16,000 --> 00:11:21,000
+all x's and y's,
+all x1 x2s, then I call them --
+
+161
+00:11:21,000 --> 00:11:26,000
+then that's the matrix is
+positive definite.
+
+162
+00:11:26,000 --> 00:11:31,000
+Now, is this guy passing our
+test?
+
+163
+00:11:31,000 --> 00:11:36,000
+Well we have,
+we anticipated the answer here
+
+164
+00:11:36,000 --> 00:11:41,870
+by, by asking first about
+eigenvalues and pivots,
+
+165
+00:11:41,870 --> 00:11:43,970
+and what happened?
+
+166
+00:11:43,970 --> 00:11:45,000
+It failed.
+
+167
+00:11:45,000 --> 00:11:47,000
+It barely failed.
+
+168
+00:11:47,000 --> 00:11:52,000
+If I had made this eighteen
+down to a seven,
+
+169
+00:11:52,000 --> 00:11:55,000
+it would've totally failed.
+
+170
+00:11:55,000 --> 00:12:01,000
+I do that with the eraser,
+and then I'll put back
+
+171
+00:12:01,000 --> 00:12:06,000
+eighteen, because,
+seven is such a total disaster,
+
+172
+00:12:06,000 --> 00:12:10,000
+but if -- I'll keep seven for a
+second.
+
+173
+00:12:10,000 --> 00:12:14,000
+Is that thing in any way
+positive definite?
+
+174
+00:12:14,000 --> 00:12:16,000
+No, absolutely not.
+
+175
+00:12:16,000 --> 00:12:22,000
+I don't know its eigenvalues,
+but I know for sure one of them
+
+176
+00:12:22,000 --> 00:12:22,980
+is negative.
+
+177
+00:12:22,980 --> 00:12:26,000
+Its pivots are two and then the
+next pivot would be the
+
+178
+00:12:26,000 --> 00:12:30,000
+determinant over two,
+and the determinant is -- what,
+
+179
+00:12:30,000 --> 00:12:33,000
+what's the determinant of this
+thing?
+
+180
+00:12:33,000 --> 00:12:37,000
+Fourteen minus thirty six,
+I've got a determinant minus
+
+181
+00:12:37,000 --> 00:12:38,000
+twenty two.
+
+182
+00:12:38,000 --> 00:12:41,000
+The next pivot will be -- the
+pivots
+
+183
+00:12:41,000 --> 00:12:45,000
+now, of this thing are two and
+minus eleven or something.
+
+184
+00:12:45,000 --> 00:12:49,000
+Their product being minus
+twenty two the determinant.
+
+185
+00:12:49,000 --> 00:12:52,000
+This thing is not positive
+definite.
+
+186
+00:12:52,000 --> 00:12:56,000
+What would be -- let me look at
+the x transpose Ax for this guy.
+
+187
+00:12:56,000 --> 00:12:59,000
+What's -- if I do out this
+multiplication,
+
+188
+00:12:59,000 --> 00:13:04,500
+this eighteen is temporarily
+changing to a seven.
+
+189
+00:13:04,500 --> 00:13:10,000
+This eighteen is temporarily
+changing to a seven,
+
+190
+00:13:10,000 --> 00:13:17,000
+and I know that there's some
+numbers x1 and x2 for which that
+
+191
+00:13:17,000 --> 00:13:21,000
+thing, that function,
+is negative.
+
+192
+00:13:21,000 --> 00:13:26,000
+And I'm desperately trying to
+think what they are.
+
+193
+00:13:26,000 --> 00:13:29,000
+Maybe you can see.
+
+194
+00:13:29,000 --> 00:13:36,000
+Can you tell me a value of x1
+and x2 that makes this quantity
+
+195
+00:13:36,000 --> 00:13:37,000
+negative?
+
+196
+00:13:37,000 --> 00:13:40,000
+Oh, maybe one and minus one?
+
+197
+00:13:40,000 --> 00:13:44,000
+Yes, that's -- in this case,
+that, will work,
+
+198
+00:13:44,000 --> 00:13:49,000
+right, if I took x1 to be one,
+and x2 to be minus one,
+
+199
+00:13:49,000 --> 00:13:54,000
+then I always get something
+positive, the two,
+
+200
+00:13:54,000 --> 00:13:59,000
+and the seven minus one
+squared, but this would be
+
+201
+00:13:59,000 --> 00:14:04,000
+minus twelve and the whole thing
+would be negative;
+
+202
+00:14:04,000 --> 00:14:10,000
+I would have two minus twelve
+plus seven, a negative.
+
+203
+00:14:10,000 --> 00:14:15,000
+If I drew the graph,
+can I get the little picture in
+
+204
+00:14:15,000 --> 00:14:15,000
+here?
+If I draw the graph of this
+thing?
+
+205
+00:14:18,000 --> 00:14:23,000
+So, graphs, of the function
+f(x,y),
+
+206
+00:14:23,000 --> 00:14:31,000
+or f(x), so I say here f(x,y)
+equal this -- x transpose Ax,
+
+207
+00:14:31,000 --> 00:14:37,000
+this, this this ax squared,
+2bxy, and cy squared.
+
+208
+00:14:37,000 --> 00:14:44,000
+And, let's take the example,
+with these numbers.
+
+209
+00:14:44,000 --> 00:14:49,000
+OK, so here's the x axis,
+here's the y axis,
+
+210
+00:14:49,000 --> 00:14:54,000
+and here's -- up is the
+function.
+
+211
+00:14:54,000 --> 00:14:58,180
+z, if you like,
+or f.
+
+212
+00:14:58,180 --> 00:15:01,000
+I apologize,
+and let me, just once in my
+
+213
+00:15:01,000 --> 00:15:05,000
+life here, put an arrow over
+these, these,
+
+214
+00:15:05,000 --> 00:15:07,000
+axes so you see them.
+
+215
+00:15:07,000 --> 00:15:13,000
+That's the vector and I just,
+see, instead of x1 and x2,
+
+216
+00:15:13,000 --> 00:15:16,000
+I made them x- the components x
+and y.
+
+217
+00:15:16,000 --> 00:15:16,000
+OK.
+So, so, what's a graph of 2x
+squared,
+
+218
+00:15:21,000 --> 00:15:25,000
+twelve xy, and seven y squared?
+
+219
+00:15:25,000 --> 00:15:30,000
+I'd like to see -- I not the
+greatest artist,
+
+220
+00:15:30,000 --> 00:15:37,000
+but let's -- tell me something
+about this graph of this
+
+221
+00:15:37,000 --> 00:15:38,870
+function.
+
+222
+00:15:38,870 --> 00:15:44,000
+Whoa, tell me one point that it
+goes through.
+
+223
+00:15:44,000 --> 00:15:45,000
+The origin.
+
+224
+00:15:45,000 --> 00:15:46,000
+Right?
+
+225
+00:15:46,000 --> 00:15:52,000
+Even this artist can get this
+thing
+
+226
+00:15:52,000 --> 00:15:56,000
+to go through the origin,
+when these are zero,
+
+227
+00:15:56,000 --> 00:15:58,000
+I, I certainly get zero.
+
+228
+00:15:58,000 --> 00:15:58,000
+OK.
+Some more points.
+
+229
+00:16:00,000 --> 00:16:04,000
+If x is one and y is zero,
+then I'm going upwards,
+
+230
+00:16:04,000 --> 00:16:08,000
+so I'm going up this way,
+and I'm, I'm going up,
+
+231
+00:16:08,000 --> 00:16:13,000
+like, two x squared in that
+direction.
+
+232
+00:16:13,000 --> 00:16:16,000
+So -- that's meant to be a
+parabola.
+
+233
+00:16:16,000 --> 00:16:19,000
+And, suppose x stays zero and y
+increases.
+
+234
+00:16:19,000 --> 00:16:24,000
+Well, y could be positive or
+negative; it's seven y squared.
+
+235
+00:16:24,000 --> 00:16:27,420
+Is this function going upward?
+
+236
+00:16:27,420 --> 00:16:32,000
+In the x direction it's going
+upward, and in the y direction
+
+237
+00:16:32,000 --> 00:16:37,000
+it's going upwards,
+and if x equals y then the
+
+238
+00:16:37,000 --> 00:16:42,000
+forty-five degree direction is
+certainly going upwards;
+
+239
+00:16:42,000 --> 00:16:47,000
+because then we'd have what,
+about, everything would be
+
+240
+00:16:47,000 --> 00:16:49,000
+positive, but what?
+
+241
+00:16:49,000 --> 00:16:54,000
+This function -- what's the
+graph of this function?
+
+242
+00:16:54,000 --> 00:16:55,000
+Look like?
+
+243
+00:16:55,000 --> 00:16:59,000
+Tell me the word that
+describes the graph of this
+
+244
+00:16:59,000 --> 00:17:00,000
+function.
+
+245
+00:17:00,000 --> 00:17:03,000
+This is the non-positive
+definite here,
+
+246
+00:17:03,000 --> 00:17:06,000
+everybody's with me here,
+for some reason got started in
+
+247
+00:17:06,000 --> 00:17:10,000
+a negative direction,
+your case that isn't positive
+
+248
+00:17:10,000 --> 00:17:11,000
+definite.
+
+249
+00:17:11,000 --> 00:17:13,000
+And what's the graph look like
+that goes up,
+
+250
+00:17:13,000 --> 00:17:17,000
+but does it -- do we have a
+minimum here,
+
+251
+00:17:17,000 --> 00:17:20,000
+does it go from,
+from the origin?
+
+252
+00:17:20,000 --> 00:17:21,579
+Completely?
+
+253
+00:17:21,579 --> 00:17:25,000
+No, because we just checked
+that this thing failed.
+
+254
+00:17:25,000 --> 00:17:31,000
+It failed along the direction
+when x was minus y -- we have a
+
+255
+00:17:31,000 --> 00:17:33,000
+saddle point,
+let me put myself,
+
+256
+00:17:33,000 --> 00:17:38,000
+let me, to the least,
+tell you the word.
+
+257
+00:17:38,000 --> 00:17:46,000
+This thing, goes up in some
+directions, but down in other
+
+258
+00:17:46,000 --> 00:17:55,000
+directions, and if we actually
+knew what a saddle looked like
+
+259
+00:17:55,000 --> 00:18:02,000
+or thinks saddles do that -- the
+way your legs go is,
+
+260
+00:18:02,000 --> 00:18:07,000
+like, down, up,
+the way,
+
+261
+00:18:07,000 --> 00:18:10,000
+you, looking like,
+forward, and,
+
+262
+00:18:10,000 --> 00:18:16,000
+the, and drawing the thing is
+even worse than describing --
+
+263
+00:18:16,000 --> 00:18:22,000
+I'm just going to say in some
+directions we go up and in other
+
+264
+00:18:22,000 --> 00:18:28,000
+directions, there is,
+a saddle -- Now I'm sorry I put
+
+265
+00:18:28,000 --> 00:18:34,000
+that on the front board,
+you have no way to cover it,
+
+266
+00:18:34,000 --> 00:18:36,000
+but it's a saddle.
+
+267
+00:18:36,000 --> 00:18:36,000
+OK.
+And, and this is a saddle
+point, it's the,
+
+268
+00:18:40,480 --> 00:18:45,000
+it's the point that's at the
+maximum in some directions and
+
+269
+00:18:45,000 --> 00:18:49,000
+at the minimum in other
+directions.
+
+270
+00:18:49,000 --> 00:18:53,000
+And actually,
+the perfect directions to look
+
+271
+00:18:53,000 --> 00:18:56,000
+are the eigenvector directions.
+
+272
+00:18:56,000 --> 00:18:57,000
+We'll see that.
+
+273
+00:18:57,000 --> 00:19:03,000
+So this is,
+not a positive definite matrix.
+
+274
+00:19:03,000 --> 00:19:03,000
+OK.
+Now I'm coming back to this
+example, getting rid of this
+
+275
+00:19:08,000 --> 00:19:12,000
+seven, let's move it up to
+twenty.
+
+276
+00:19:12,000 --> 00:19:18,000
+Let's, let's let's make the
+thing really positive definite.
+
+277
+00:19:18,000 --> 00:19:18,000
+OK.
+So this is, this number's now
+twenty.
+
+278
+00:19:22,000 --> 00:19:23,000
+c is now twenty.
+
+279
+00:19:23,000 --> 00:19:24,000
+OK.
+
+280
+00:19:24,000 --> 00:19:30,000
+Now that passes the test,
+which I haven't proved,
+
+281
+00:19:30,000 --> 00:19:33,000
+of course, it passes the test
+for positive pivots.
+
+282
+00:19:33,000 --> 00:19:37,000
+It passes the test for positive
+eigenvalues.
+
+283
+00:19:37,000 --> 00:19:41,000
+How can you tell that the
+eigenvalues of that matrix are
+
+284
+00:19:41,000 --> 00:19:44,000
+positive without actually
+finding them?
+
+285
+00:19:44,000 --> 00:19:48,000
+Of course,
+two by two I could find them,
+
+286
+00:19:48,000 --> 00:19:51,000
+but can you see -- how do I
+know they're positive?
+
+287
+00:19:51,000 --> 00:19:55,000
+I know that their product is --
+I know that lambda one times
+
+288
+00:19:55,000 --> 00:19:56,000
+lambda two is positive,
+why?
+
+289
+00:19:56,000 --> 00:20:00,000
+Because that's the determinant,
+right, lambda one times lambda
+
+290
+00:20:00,000 --> 00:20:04,000
+two is the determinant,
+which is forty minus thirty-six
+
+291
+00:20:04,000 --> 00:20:05,000
+is
+four.
+
+292
+00:20:05,000 --> 00:20:08,000
+So the determinant is four.
+
+293
+00:20:08,000 --> 00:20:12,000
+And the trace,
+the sum down the diagonal,
+
+294
+00:20:12,000 --> 00:20:13,440
+is twenty-two.
+
+295
+00:20:13,440 --> 00:20:16,000
+So, they multiply to give four.
+
+296
+00:20:16,000 --> 00:20:22,000
+So that leaves the possibility
+they're either both positive or
+
+297
+00:20:22,000 --> 00:20:23,000
+both negative.
+
+298
+00:20:23,000 --> 00:20:29,080
+But if they're both negative,
+the trace couldn't be
+
+299
+00:20:29,080 --> 00:20:29,000
+twenty-two.
+
+300
+00:20:29,000 --> 00:20:31,000
+So they're both positive.
+
+301
+00:20:31,000 --> 00:20:35,000
+So both of the eigenvalues that
+are positive,
+
+302
+00:20:35,000 --> 00:20:39,730
+both of the pivots are positive
+-- the determinants are
+
+303
+00:20:39,730 --> 00:20:43,000
+positive, and I believe that
+this function is positive
+
+304
+00:20:43,000 --> 00:20:47,000
+everywhere except at zero,
+zero, of course.
+
+305
+00:20:47,000 --> 00:20:50,000
+When I write down this
+condition,
+
+306
+00:20:50,000 --> 00:20:55,000
+So I believe that x transposed,
+let me copy,
+
+307
+00:20:55,000 --> 00:21:00,000
+x transpose Ax is positive,
+except, of course,
+
+308
+00:21:00,000 --> 00:21:04,000
+at the minimum point,
+at zero, of course,
+
+309
+00:21:04,000 --> 00:21:07,000
+I don't expect miracles.
+
+310
+00:21:07,000 --> 00:21:12,000
+So what does its graph look
+like, and how do I check,
+
+311
+00:21:12,000 --> 00:21:18,000
+and how do I check that this
+really is positive?
+
+312
+00:21:18,000 --> 00:21:23,000
+So we take it's graph for a
+minute.
+
+313
+00:21:23,000 --> 00:21:28,000
+What would be the graph of that
+function -- it does not have a
+
+314
+00:21:28,000 --> 00:21:29,000
+saddle point.
+
+315
+00:21:29,000 --> 00:21:34,000
+Let me -- I'll raise the board,
+here, and stay with this
+
+316
+00:21:34,000 --> 00:21:36,000
+example for a while.
+
+317
+00:21:36,000 --> 00:21:40,000
+So I want to do the graph of --
+here's my function,
+
+318
+00:21:40,000 --> 00:21:42,000
+two x squared,
+twelve xy-s,
+
+319
+00:21:42,000 --> 00:21:48,690
+that could be positive or
+negative, and twenty y squared.
+
+320
+00:21:48,690 --> 00:21:52,620
+But my point is,
+so you're seeing the underlying
+
+321
+00:21:52,620 --> 00:21:55,000
+point is, that,
+the things are positive
+
+322
+00:21:55,000 --> 00:22:00,000
+definite when in some way,
+these, these pure squares,
+
+323
+00:22:00,000 --> 00:22:04,000
+squares we know to be positive,
+and when those kind of
+
+324
+00:22:04,000 --> 00:22:08,000
+overwhelm this guy,
+who could be m- positive or
+
+325
+00:22:08,000 --> 00:22:12,000
+negative,
+because some like or have same
+
+326
+00:22:12,000 --> 00:22:18,000
+or have same or different signs,
+when these are big enough they
+
+327
+00:22:18,000 --> 00:22:24,000
+overwhelm this guy and make the
+total thing positive,
+
+328
+00:22:24,000 --> 00:22:27,000
+and what would the graph now
+look like?
+
+329
+00:22:27,000 --> 00:22:32,000
+Let me draw the x - well,
+let me draw the x direction,
+
+330
+00:22:32,000 --> 00:22:36,000
+the y direction,
+and the origin,
+
+331
+00:22:36,000 --> 00:22:41,000
+at zero, zero,
+I'm there, where do I go as I
+
+332
+00:22:41,000 --> 00:22:44,000
+move away from the origin?
+
+333
+00:22:44,000 --> 00:22:49,000
+Where do I go as I move away
+from the origin?
+
+334
+00:22:49,000 --> 00:22:52,000
+I'm sure that I go up.
+
+335
+00:22:52,000 --> 00:22:58,000
+The origin, the center point
+here, is a minim because this
+
+336
+00:22:58,000 --> 00:23:02,000
+thing I believe,
+and we better see why,
+
+337
+00:23:02,000 --> 00:23:08,000
+it's, the graph is like a bowl,
+the
+
+338
+00:23:08,000 --> 00:23:13,000
+graph is like a bowl shape,
+it's -- here's the minimum.
+
+339
+00:23:13,000 --> 00:23:19,000
+And because we've got a pure
+quadratic, we know it sits at
+
+340
+00:23:19,000 --> 00:23:26,000
+the origin, we know it's tangent
+plane, the first derivatives are
+
+341
+00:23:26,000 --> 00:23:29,000
+zero, so, we know,
+first derivatives,
+
+342
+00:23:29,000 --> 00:23:36,000
+First derivatives are all zero,
+but that's not enough for a
+
+343
+00:23:36,000 --> 00:23:37,000
+minimum.
+
+344
+00:23:37,000 --> 00:23:40,000
+It's first derivatives were
+zero here.
+
+345
+00:23:40,000 --> 00:23:45,000
+So, the partial derivatives,
+the first derivatives,
+
+346
+00:23:45,000 --> 00:23:46,000
+are zero.
+
+347
+00:23:46,000 --> 00:23:51,000
+Again, because first
+derivatives are gonna have an x
+
+348
+00:23:51,000 --> 00:23:56,000
+or an a y, or a y in them,
+they'll be zero at the origin.
+
+349
+00:23:56,000 --> 00:24:00,000
+It's the second derivatives
+that
+
+350
+00:24:00,000 --> 00:24:02,000
+control everything.
+
+351
+00:24:02,000 --> 00:24:07,000
+It's the second derivatives
+that this matrix is telling us,
+
+352
+00:24:07,000 --> 00:24:09,000
+and somehow -- here's my point.
+
+353
+00:24:09,000 --> 00:24:13,000
+You remember in Calculus,
+how did you decide on a
+
+354
+00:24:13,000 --> 00:24:14,000
+minimum?
+
+355
+00:24:14,000 --> 00:24:18,000
+First requirement was,
+that the derivative had to be
+
+356
+00:24:18,000 --> 00:24:18,000
+zero.
+But then you didn't know if you
+had
+
+357
+00:24:22,000 --> 00:24:24,000
+a minimum or a maximum.
+
+358
+00:24:24,000 --> 00:24:28,000
+To know that you had a minimum,
+you had to look at the second
+
+359
+00:24:28,000 --> 00:24:29,670
+derivative.
+
+360
+00:24:29,670 --> 00:24:34,000
+The second derivative had to be
+positive, the slope had to be
+
+361
+00:24:34,000 --> 00:24:37,000
+increasing as you went through
+the minimum point.
+
+362
+00:24:37,000 --> 00:24:41,000
+The curvature had to go
+upwards, and that's what we're
+
+363
+00:24:41,000 --> 00:24:45,100
+doing now in
+two dimensions,
+
+364
+00:24:45,100 --> 00:24:47,000
+and in n dimensions.
+
+365
+00:24:47,000 --> 00:24:50,000
+So we're doing what we did in
+Calculus.
+
+366
+00:24:50,000 --> 00:24:56,000
+Second derivative positive,
+m- will now become that the
+
+367
+00:24:56,000 --> 00:25:00,000
+matrix of second derivatives is
+positive definite.
+
+368
+00:25:00,000 --> 00:25:05,000
+Can I just -- like a
+translation of -- this is how
+
+369
+00:25:05,000 --> 00:25:12,520
+minimum are coming in,
+ithe beginning of Calculus --
+
+370
+00:25:12,520 --> 00:25:19,000
+we had a minimum was associated
+with second derivative,
+
+371
+00:25:19,000 --> 00:25:21,000
+being positive.
+
+372
+00:25:21,000 --> 00:25:26,000
+And first derivative zero,
+of course.
+
+373
+00:25:26,000 --> 00:25:32,000
+Derivative, first derivative,
+but it was the second
+
+374
+00:25:32,000 --> 00:25:38,000
+derivative that told us we had a
+minimum.
+
+375
+00:25:38,000 --> 00:25:42,000
+And now, in 18.06,
+in linear algebra,
+
+376
+00:25:42,000 --> 00:25:47,000
+we'll have a minim for our
+function now,
+
+377
+00:25:47,000 --> 00:25:53,000
+our function will have,
+for your function be a function
+
+378
+00:25:53,000 --> 00:25:58,000
+not of just x but several
+variables, the way functions
+
+379
+00:25:58,000 --> 00:26:04,000
+really are in real life,
+the minimum will be when the
+
+380
+00:26:04,000 --> 00:26:12,000
+matrix of second derivatives,
+the matrix here was one by one,
+
+381
+00:26:12,000 --> 00:26:18,830
+there was just one second
+derivative, now we've got lots.
+
+382
+00:26:18,830 --> 00:26:21,000
+Is positive definite.
+
+383
+00:26:21,000 --> 00:26:26,490
+So positive for a number
+translates into positive
+
+384
+00:26:26,490 --> 00:26:28,000
+definite for a matrix.
+
+385
+00:26:28,000 --> 00:26:34,040
+And it this brings everything
+you check pivots,
+
+386
+00:26:34,040 --> 00:26:39,480
+you check determinants,
+you check all your values,
+
+387
+00:26:39,480 --> 00:26:44,000
+or you check this minimum
+stuff.
+
+388
+00:26:44,000 --> 00:26:44,000
+OK.
+Let me come back to this graph.
+
+389
+00:26:47,000 --> 00:26:49,000
+That graph goes upwards.
+
+390
+00:26:49,000 --> 00:26:51,000
+And I'll have to see why.
+
+391
+00:26:51,000 --> 00:26:56,810
+How do I know that this,
+that this function is always
+
+392
+00:26:56,810 --> 00:26:57,000
+positive?
+
+393
+00:26:57,000 --> 00:27:02,000
+Can you look at that and tell
+that it's always positive?
+
+394
+00:27:02,000 --> 00:27:06,000
+Maybe two by two,
+you could feel pretty sure,
+
+395
+00:27:06,000 --> 00:27:13,020
+but what's the good way to show
+that this thing is always
+
+396
+00:27:13,020 --> 00:27:13,000
+positive?
+
+397
+00:27:13,000 --> 00:27:17,000
+If we can express it,
+as, in terms of squares,
+
+398
+00:27:17,000 --> 00:27:22,000
+because that's what we know for
+any x and y, whatever,
+
+399
+00:27:22,000 --> 00:27:27,000
+if we're squaring something we
+certainly are not negative.
+
+400
+00:27:27,000 --> 00:27:31,000
+So I believe that this
+expression, this function,
+
+401
+00:27:31,000 --> 00:27:35,530
+could be written as a sum of
+squares.
+
+402
+00:27:35,530 --> 00:27:39,000
+Can you tell me -- see,
+because all the problems,
+
+403
+00:27:39,000 --> 00:27:43,000
+the headaches are coming from
+this xy term.
+
+404
+00:27:43,000 --> 00:27:48,000
+If we can get expressions -- if
+we can get that inside a square,
+
+405
+00:27:48,000 --> 00:27:52,000
+so actually,
+what we're doing is something
+
+406
+00:27:52,000 --> 00:27:57,000
+called, that you've seen called
+completing the square.
+
+407
+00:27:57,000 --> 00:28:01,000
+Let me start the
+square and you complete it.
+
+408
+00:28:01,000 --> 00:28:07,000
+OK, I think we have two of x
+plus, now I don't remember how
+
+409
+00:28:07,000 --> 00:28:11,000
+many y-s we need,
+but you'll figure it out,
+
+410
+00:28:11,000 --> 00:28:12,410
+squared.
+
+411
+00:28:12,410 --> 00:28:18,000
+How many y-s should I put in
+here, to make -- what do I want
+
+412
+00:28:18,000 --> 00:28:22,000
+to do, the two x squared-s will
+be correct, right?
+
+413
+00:28:22,000 --> 00:28:29,500
+What I want to do is put in the
+right number of y-s to get
+
+414
+00:28:29,500 --> 00:28:31,390
+the twelve xy correct.
+
+415
+00:28:31,390 --> 00:28:34,000
+And what is that number of y-s?
+
+416
+00:28:34,000 --> 00:28:39,000
+Let's see, I've got two times,
+and so I really want six xy-s
+
+417
+00:28:39,000 --> 00:28:43,000
+to come out of here,
+I think maybe if I put three
+
+418
+00:28:43,000 --> 00:28:46,000
+there, does that look right to
+you?
+
+419
+00:28:46,000 --> 00:28:49,000
+I have two- this is,
+we can mentally,
+
+420
+00:28:49,000 --> 00:28:52,000
+multiply out,
+that's X squared,
+
+421
+00:28:52,000 --> 00:28:55,000
+that's right,
+that's six X Y,
+
+422
+00:28:55,000 --> 00:29:00,000
+times the two gives from,
+right, and how many Y squareds
+
+423
+00:29:00,000 --> 00:29:01,000
+have I now got?
+
+424
+00:29:01,000 --> 00:29:05,000
+How many Y squareds have I now
+got from this term?
+
+425
+00:29:05,000 --> 00:29:06,000
+Eighteen.
+
+426
+00:29:06,000 --> 00:29:09,000
+Eighteen was the key number,
+remember?
+
+427
+00:29:09,000 --> 00:29:13,000
+Now if I want to make it
+twenty,
+
+428
+00:29:13,000 --> 00:29:16,000
+then I've got two left.
+
+429
+00:29:16,000 --> 00:29:17,000
+Two y squared-s.
+
+430
+00:29:17,000 --> 00:29:24,000
+That's completing the square,
+and it's, now I can see that
+
+431
+00:29:24,000 --> 00:29:30,000
+that function is positive,
+because it's all squares.
+
+432
+00:29:30,000 --> 00:29:34,070
+I've got two squares,
+added together,
+
+433
+00:29:34,070 --> 00:29:36,640
+I couldn't go negative.
+
+434
+00:29:36,640 --> 00:29:41,000
+What if I went back to that
+seven?
+
+435
+00:29:41,000 --> 00:29:44,000
+If instead of twenty that
+number was a seven,
+
+436
+00:29:44,000 --> 00:29:46,000
+then what would happen?
+
+437
+00:29:46,000 --> 00:29:50,000
+This would still be correct,
+I'd still have this square,
+
+438
+00:29:50,000 --> 00:29:53,000
+to get the two x squared and
+the twelve xy,
+
+439
+00:29:53,000 --> 00:29:57,000
+and I'd have eighteen y squared
+and then what would I do here?
+
+440
+00:29:57,000 --> 00:30:00,000
+I'd have to remove eleven y
+squared-s, right,
+
+441
+00:30:00,000 --> 00:30:05,000
+if I only had a seven here,
+then instead of -- when I had a
+
+442
+00:30:05,000 --> 00:30:09,000
+twenty
+I had two more to put in,
+
+443
+00:30:09,000 --> 00:30:15,000
+when I had an eighteen,
+which was the marginal case,
+
+444
+00:30:15,000 --> 00:30:18,000
+I had no more to put in.
+
+445
+00:30:18,000 --> 00:30:23,000
+When I had a seven,
+which was the case below zero,
+
+446
+00:30:23,000 --> 00:30:28,510
+the indefinite case,
+I had minus eleven.
+
+447
+00:30:28,510 --> 00:30:28,000
+OK.
+
+448
+00:30:28,000 --> 00:30:35,000
+Now, so, you can see now,
+that this thing is a bowl.
+
+449
+00:30:35,000 --> 00:30:39,000
+It's going upwards,
+if I cut it at a plane,
+
+450
+00:30:39,000 --> 00:30:42,250
+z equal to one,
+say, I would get,
+
+451
+00:30:42,250 --> 00:30:46,000
+I would get a curve,
+what would be the equation for
+
+452
+00:30:46,000 --> 00:30:47,000
+that curve?
+
+453
+00:30:47,000 --> 00:30:52,000
+If I cut it at height one,
+the equation would be this
+
+454
+00:30:52,000 --> 00:30:55,570
+thing equal to one.
+
+455
+00:30:55,570 --> 00:30:58,000
+And that curve would be an
+ellipse.
+
+456
+00:30:58,000 --> 00:31:02,000
+So actually,
+already, I've blocked into the
+
+457
+00:31:02,000 --> 00:31:07,000
+lecture, the different pieces
+that we're aiming for.
+
+458
+00:31:07,000 --> 00:31:11,000
+We're aiming for the tests,
+which this passed;
+
+459
+00:31:11,000 --> 00:31:15,000
+we're aiming for the connection
+to a minimum,
+
+460
+00:31:15,000 --> 00:31:19,640
+which this -- which we see in
+the graph,
+
+461
+00:31:19,640 --> 00:31:24,000
+and if we chop it up,
+if we set this thing equal to
+
+462
+00:31:24,000 --> 00:31:29,000
+one, if I set that thing equal
+to one, that -- what that gives
+
+463
+00:31:29,000 --> 00:31:31,000
+me is, the cross-section.
+
+464
+00:31:31,000 --> 00:31:36,000
+It gives me this,
+this curve, and its equation is
+
+465
+00:31:36,000 --> 00:31:39,000
+this thing equals one,
+and that's an ellipse.
+
+466
+00:31:39,000 --> 00:31:43,000
+Whereas if I cut through a
+saddle
+
+467
+00:31:43,000 --> 00:31:46,090
+point, I get a hyperbola.
+
+468
+00:31:46,090 --> 00:31:46,000
+OK.
+
+469
+00:31:46,000 --> 00:31:51,000
+But this minimum stuff is
+really what I'm most interested
+
+470
+00:31:51,000 --> 00:31:51,000
+in.
+OK.
+
+471
+00:31:52,000 --> 00:31:55,000
+By -- I just have to ask,
+do you recognize,
+
+472
+00:31:55,000 --> 00:32:01,000
+I mean, these numbers here,
+the two that appeared outside,
+
+473
+00:32:01,000 --> 00:32:07,000
+the three that appeared inside,
+the two that appeared there --
+
+474
+00:32:07,000 --> 00:32:12,000
+actually, those numbers come
+from elimination.
+
+475
+00:32:12,000 --> 00:32:18,000
+Completing the square is our
+good old method of Gaussian
+
+476
+00:32:18,000 --> 00:32:24,000
+elimination, in expressed in
+terms of these squares.
+
+477
+00:32:24,000 --> 00:32:27,000
+The -- let me show you what I
+mean.
+
+478
+00:32:27,000 --> 00:32:33,000
+I just think those numbers are
+no accident,
+
+479
+00:32:33,000 --> 00:32:38,000
+If I take my matrix two,
+six, six, and twenty,
+
+480
+00:32:38,000 --> 00:32:43,000
+and I do elimination,
+then the pivot is two and I
+
+481
+00:32:43,000 --> 00:32:46,000
+take three, what's the
+multiplier?
+
+482
+00:32:46,000 --> 00:32:51,410
+How much of row one do I take
+away from row two?
+
+483
+00:32:51,410 --> 00:32:52,000
+Three.
+
+484
+00:32:52,000 --> 00:32:58,000
+So what you're seeing in this,
+completing the square,
+
+485
+00:32:58,000 --> 00:33:02,000
+is the pivots outside and the
+multiplier inside.
+
+486
+00:33:02,000 --> 00:33:04,000
+Just do that again?
+
+487
+00:33:04,000 --> 00:33:07,000
+The pivot is two,
+three -- three of those away
+
+488
+00:33:07,000 --> 00:33:11,000
+from that gives me two,
+six, zero, and what's the
+
+489
+00:33:11,000 --> 00:33:12,000
+second pivot?
+
+490
+00:33:12,000 --> 00:33:17,000
+Three of this away from this,
+three sixes'll be eighteen,
+
+491
+00:33:17,000 --> 00:33:21,000
+and the second pivot will also
+be a
+
+492
+00:33:21,000 --> 00:33:21,000
+two.
+So that's the U,
+this is the A,
+
+493
+00:33:26,000 --> 00:33:34,850
+and of course the L was one,
+zero, one, and the multiplier
+
+494
+00:33:34,850 --> 00:33:36,340
+was three.
+
+495
+00:33:36,340 --> 00:33:42,000
+So, completing the square is
+elimination.
+
+496
+00:33:42,000 --> 00:33:48,000
+Why I happy to see,
+happy to see that coming
+
+497
+00:33:48,000 --> 00:33:50,000
+together?
+
+498
+00:33:50,000 --> 00:33:56,000
+Because I know about
+elimination
+
+499
+00:33:56,000 --> 00:33:58,000
+for m by m matrices.
+
+500
+00:33:58,000 --> 00:34:03,000
+I just started talking about
+completing the square,
+
+501
+00:34:03,000 --> 00:34:05,000
+here, for two by twos.
+
+502
+00:34:05,000 --> 00:34:08,000
+But now I see what's going on.
+
+503
+00:34:08,000 --> 00:34:13,000
+Completing the square really
+amounts to splitting this thing
+
+504
+00:34:13,000 --> 00:34:18,000
+into a sum of squares,
+so what's the critical thing --
+
+505
+00:34:18,000 --> 00:34:24,000
+I have a lot of squares,
+and inside those squares are
+
+506
+00:34:24,000 --> 00:34:28,000
+multipliers but they're squares,
+and the question is,
+
+507
+00:34:28,000 --> 00:34:31,370
+what's outside these squares?
+
+508
+00:34:31,370 --> 00:34:36,000
+When I complete the square,
+what are the numbers that go
+
+509
+00:34:36,000 --> 00:34:36,000
+outside?
+They're the pivots.
+
+510
+00:34:38,000 --> 00:34:43,000
+They're the pivots,
+and that's why positive pivots
+
+511
+00:34:43,000 --> 00:34:46,000
+give me sum of squares.
+
+512
+00:34:46,000 --> 00:34:49,550
+Positive pivots,
+those pivots are the numbers
+
+513
+00:34:49,550 --> 00:34:53,000
+that go outside the squares,
+so positive pivots,
+
+514
+00:34:53,000 --> 00:34:56,000
+sum of squares,
+everything positive,
+
+515
+00:34:56,000 --> 00:34:59,000
+graph goes up,
+a minimum at the origin,
+
+516
+00:34:59,000 --> 00:35:03,000
+it's all connected together;
+all connected together.
+
+517
+00:35:03,000 --> 00:35:07,000
+And in the two by two case,
+you can see those connections,
+
+518
+00:35:07,000 --> 00:35:11,000
+but linear algebra now can go
+up to
+
+519
+00:35:11,000 --> 00:35:13,000
+three by three,
+m by m.
+
+520
+00:35:13,000 --> 00:35:15,000
+Let's do that next.
+
+521
+00:35:15,000 --> 00:35:20,520
+Can I just, before I leave two
+by two, I've written this
+
+522
+00:35:20,520 --> 00:35:26,000
+expression "matrix of second
+derivatives." What's the matrix
+
+523
+00:35:26,000 --> 00:35:28,000
+of second derivatives?
+
+524
+00:35:28,000 --> 00:35:32,000
+That's one second derivative
+now, but if I'm in two
+
+525
+00:35:32,000 --> 00:35:37,000
+dimensions,
+I have a two by two matrix,
+
+526
+00:35:37,000 --> 00:35:44,040
+it's the second x derivative,
+the second x derivative goes
+
+527
+00:35:44,040 --> 00:35:48,880
+there -- shall I write it --
+fxx, if you like,
+
+528
+00:35:48,880 --> 00:35:54,000
+fxx, that means the second
+derivative of f in the x
+
+529
+00:35:54,000 --> 00:35:59,000
+direction.
+fyy, second derivative in the y
+
+530
+00:35:59,000 --> 00:36:00,000
+direction.
+
+531
+00:36:00,000 --> 00:36:05,000
+Those are the pure derivatives,
+second derivatives.
+
+532
+00:36:05,000 --> 00:36:07,000
+They have to be positive.
+
+533
+00:36:07,000 --> 00:36:09,000
+For a minimum.
+
+534
+00:36:09,000 --> 00:36:13,000
+This number has to be positive
+for a minimum.
+
+535
+00:36:13,000 --> 00:36:17,750
+That number has to be positive
+for a minimum.
+
+536
+00:36:17,750 --> 00:36:19,000
+But, that's not enough.
+
+537
+00:36:19,000 --> 00:36:26,000
+Those numbers have to somehow
+be big enough to overcome this
+
+538
+00:36:26,000 --> 00:36:30,000
+cross-derivative,
+Why is the matrix symmetric?
+
+539
+00:36:30,000 --> 00:36:35,000
+Because the second derivative f
+with respect to x and y is equal
+
+540
+00:36:35,000 --> 00:36:40,000
+to -- I can, that's the
+beautiful fact about second
+
+541
+00:36:40,000 --> 00:36:45,000
+derivatives, is I can do those
+in either order and I get the
+
+542
+00:36:45,000 --> 00:36:46,000
+same thing.
+
+543
+00:36:46,000 --> 00:36:52,000
+So this is the same as that,
+and so, that's the matrix of
+
+544
+00:36:52,000 --> 00:36:54,000
+second derivatives.
+
+545
+00:36:54,000 --> 00:36:58,000
+And the test is,
+it has to be positive definite.
+
+546
+00:36:58,000 --> 00:37:02,720
+You might remember,
+from, tucked in somewhere near
+
+547
+00:37:02,720 --> 00:37:07,000
+the end of eighteen o' two or at
+least in the book,
+
+548
+00:37:07,000 --> 00:37:12,000
+was the condition for a
+minimum, For a function of two
+
+549
+00:37:12,000 --> 00:37:13,900
+variables.
+
+550
+00:37:13,900 --> 00:37:16,000
+Let's -- when do you have a
+minimum?
+
+551
+00:37:16,000 --> 00:37:20,000
+For a function of two
+variables, believe me,
+
+552
+00:37:20,000 --> 00:37:22,000
+that's what Calculus is for.
+
+553
+00:37:22,000 --> 00:37:26,000
+The condition is first
+derivatives have to be zero.
+
+554
+00:37:26,000 --> 00:37:30,000
+And the matrix of second
+derivatives has to be positive
+
+555
+00:37:30,000 --> 00:37:31,000
+definite.
+
+556
+00:37:31,000 --> 00:37:36,000
+So you maybe remember there was
+an fxx times an fyy
+
+557
+00:37:36,000 --> 00:37:40,000
+that had to be bigger than an
+an fxy squared,
+
+558
+00:37:40,000 --> 00:37:44,000
+that's just our determinant,
+two by two.
+
+559
+00:37:44,000 --> 00:37:49,000
+But now, we now know the answer
+for three by three,
+
+560
+00:37:49,000 --> 00:37:55,000
+m by m, because we can do
+elimination by m by m matrices,
+
+561
+00:37:55,000 --> 00:38:00,000
+we can connect eigenvalues of m
+by m matrices,
+
+562
+00:38:00,000 --> 00:38:08,000
+we can do sum of squares,
+sum of m squares instead of
+
+563
+00:38:08,000 --> 00:38:15,000
+only two squares;
+and so let's take a,
+
+564
+00:38:15,000 --> 00:38:24,000
+let me go over here to do a
+three by three example.
+
+565
+00:38:24,000 --> 00:38:29,000
+So, three by three example.
+
+566
+00:38:29,000 --> 00:38:29,000
+OK.
+Oh, let me -- shall I use my
+favorite matrix?
+
+567
+00:38:37,000 --> 00:38:45,000
+You've seen this matrix before.
+
+568
+00:38:45,000 --> 00:38:50,000
+Yes, let's use the good matrix,
+four by one,
+
+569
+00:38:50,000 --> 00:38:51,000
+oops, open.
+
+570
+00:38:51,000 --> 00:38:54,000
+Is that matrix positive
+definite?
+
+571
+00:38:54,000 --> 00:39:01,000
+What's -- so I'm going to ask
+questions about this matrix,
+
+572
+00:39:01,000 --> 00:39:05,000
+is it positive definite,
+first of all?
+
+573
+00:39:05,000 --> 00:39:10,000
+What's the function associated
+with that matrix,
+
+574
+00:39:10,000 --> 00:39:14,000
+what's the x transpose Ax?
+
+575
+00:39:14,000 --> 00:39:18,000
+Is -- do we have a minimum for
+that function,
+
+576
+00:39:18,000 --> 00:39:18,000
+at zero?
+And then even what's the
+geometry?
+
+577
+00:39:21,000 --> 00:39:21,000
+OK.
+First of all,
+is the matrix positive
+
+578
+00:39:24,000 --> 00:39:29,000
+definite, now I've given you the
+numbers there so you can take
+
+579
+00:39:29,000 --> 00:39:32,000
+the determinants,
+maybe that's the quickest,
+
+580
+00:39:32,000 --> 00:39:36,000
+is that what you would do
+mentally,
+
+581
+00:39:36,000 --> 00:39:40,000
+if I give you all a matrix on a
+quiz and say is it positive
+
+582
+00:39:40,000 --> 00:39:42,020
+definite or not?
+
+583
+00:39:42,020 --> 00:39:46,000
+I would take that determinant
+and I'd give the answer two.
+
+584
+00:39:46,000 --> 00:39:50,000
+I would take that determinant
+and I would give the answer for
+
+585
+00:39:50,000 --> 00:39:55,000
+that two by two determinant,
+I'd give the answer three,
+
+586
+00:39:55,000 --> 00:39:58,000
+and anybody remember the answer
+for
+
+587
+00:39:58,000 --> 00:40:01,000
+the three by three determinant?
+
+588
+00:40:01,000 --> 00:40:06,000
+It was four,
+you remember for these special
+
+589
+00:40:06,000 --> 00:40:10,040
+matrices, when we do
+determinants,
+
+590
+00:40:10,040 --> 00:40:13,000
+they went up two,
+three, four,
+
+591
+00:40:13,000 --> 00:40:17,000
+five, six, they just went up
+linearly.
+
+592
+00:40:17,000 --> 00:40:22,000
+So that matrix has -- the
+determinants are two,
+
+593
+00:40:22,000 --> 00:40:24,000
+three, and four.
+
+594
+00:40:24,000 --> 00:40:26,000
+Pivots.
+
+595
+00:40:26,000 --> 00:40:28,000
+What are the pivots for that
+matrix?
+
+596
+00:40:28,000 --> 00:40:32,000
+I'll tell you,
+they're -- the first pivot is
+
+597
+00:40:32,000 --> 00:40:37,000
+two, the next pivot is three
+over two, the next pivot is four
+
+598
+00:40:37,000 --> 00:40:38,000
+over three.
+
+599
+00:40:38,000 --> 00:40:42,000
+Because, the product of the
+pivots has to give me those
+
+600
+00:40:42,000 --> 00:40:43,000
+determinants.
+
+601
+00:40:43,000 --> 00:40:47,000
+The product of these two pivots
+gives me that determinant;
+
+602
+00:40:47,000 --> 00:40:53,000
+the
+product of all the pivots gives
+
+603
+00:40:53,000 --> 00:40:55,000
+me that determinant.
+
+604
+00:40:55,000 --> 00:40:59,000
+What are the eigenvalues?
+
+605
+00:40:59,000 --> 00:41:01,000
+Oh, I don't know.
+
+606
+00:41:01,000 --> 00:41:09,000
+The eigenvalues I've got,
+what do I have a cubic equation
+
+607
+00:41:09,000 --> 00:41:12,000
+-- a degree three equation?
+
+608
+00:41:12,000 --> 00:41:17,000
+There are three eigenvalues to
+find.
+
+609
+00:41:17,000 --> 00:41:24,000
+If I believe what I've said
+today, what do I know about
+
+610
+00:41:24,000 --> 00:41:27,910
+these
+eigenvalues,
+
+611
+00:41:27,910 --> 00:41:31,000
+even though I don't know the
+exact numbers.
+
+612
+00:41:31,000 --> 00:41:34,000
+I -- I remember the numbers.
+
+613
+00:41:34,000 --> 00:41:39,000
+Because these matrices are so
+important that people figure
+
+614
+00:41:39,000 --> 00:41:40,000
+them.
+
+615
+00:41:40,000 --> 00:41:45,000
+But -- what do you believe to
+be true about these three
+
+616
+00:41:45,000 --> 00:41:51,000
+eigenvalues -- you believe that
+they are all positive.
+
+617
+00:41:51,000 --> 00:41:52,000
+They're all positive.
+
+618
+00:41:52,000 --> 00:41:56,000
+I think that they are two minus
+square root of two,
+
+619
+00:41:56,000 --> 00:41:59,000
+two, and two plus the square
+root of two.
+
+620
+00:41:59,000 --> 00:42:00,000
+I think.
+
+621
+00:42:00,000 --> 00:42:04,000
+Let me just -- I can't write
+those numbers down without
+
+622
+00:42:04,000 --> 00:42:09,000
+checking the simple checks,
+what the first simple check is
+
+623
+00:42:09,000 --> 00:42:13,000
+the trace, so if I add those
+numbers I
+
+624
+00:42:13,000 --> 00:42:16,000
+get six and if I add those
+numbers I get six.
+
+625
+00:42:16,000 --> 00:42:21,000
+The other simple test is the
+determinant, if I -- can you do
+
+626
+00:42:21,000 --> 00:42:24,000
+this, can you multiply those
+numbers together?
+
+627
+00:42:24,000 --> 00:42:27,000
+I guess we can multiply by two
+out there.
+
+628
+00:42:27,000 --> 00:42:32,000
+What's two minus square root of
+two times two plus square root
+
+629
+00:42:32,000 --> 00:42:35,000
+of
+two, that'll be four minus two,
+
+630
+00:42:35,000 --> 00:42:39,070
+that'll be two,
+yeah, two times two,
+
+631
+00:42:39,070 --> 00:42:43,000
+that's got the determinant,
+right, so it's got,
+
+632
+00:42:43,000 --> 00:42:47,000
+it's got a chance of being
+correct and I think it is.
+
+633
+00:42:47,000 --> 00:42:50,000
+Now, what's the x transpose Ax?
+
+634
+00:42:50,000 --> 00:42:54,070
+I better give myself enough
+room
+
+635
+00:42:54,070 --> 00:42:57,000
+for that.
+x transpose Ax for this guy.
+
+636
+00:42:57,000 --> 00:43:01,000
+It's two x1 squareds,
+and two x2 squareds,
+
+637
+00:43:01,000 --> 00:43:03,000
+and two x3 squareds.
+
+638
+00:43:03,000 --> 00:43:08,000
+Those come from the diagonal,
+those were easy.
+
+639
+00:43:08,000 --> 00:43:12,000
+Now off the diagonal there's a
+minus and a minus,
+
+640
+00:43:12,000 --> 00:43:17,000
+they come together there'll be
+a minus two
+
+641
+00:43:17,000 --> 00:43:19,000
+minus two whats?
+
+642
+00:43:19,000 --> 00:43:23,000
+Are coming from this one two
+and two one position,
+
+643
+00:43:23,000 --> 00:43:24,000
+is the x1 x2.
+
+644
+00:43:24,000 --> 00:43:29,000
+I'm doing mentally a
+multiplication of this matrix
+
+645
+00:43:29,000 --> 00:43:34,000
+times a row vector on the left
+times a column vector on the
+
+646
+00:43:34,000 --> 00:43:40,900
+right, and I know that these
+numbers show up in the answer.
+
+647
+00:43:40,900 --> 00:43:46,000
+The diagonal is the perfect
+square, this off diagonal is a
+
+648
+00:43:46,000 --> 00:43:50,000
+minus two x1 x2,
+and there are no x1 x3-s,
+
+649
+00:43:50,000 --> 00:43:54,000
+and there're minus two x2 x3-s.
+
+650
+00:43:54,000 --> 00:43:59,480
+And I believe that that
+expression is always positive.
+
+651
+00:43:59,480 --> 00:44:04,000
+I believe that that curve,
+that graph, really,
+
+652
+00:44:04,000 --> 00:44:09,000
+of that function,
+this is my function f,
+
+653
+00:44:09,000 --> 00:44:14,000
+and I'm in more dimensions now
+than I can draw,
+
+654
+00:44:14,000 --> 00:44:20,000
+it -- but the graph of that
+function goes upwards.
+
+655
+00:44:20,000 --> 00:44:22,000
+It's a bowl.
+
+656
+00:44:22,000 --> 00:44:29,000
+Or maybe the right word is --
+just forgot, what's a long word
+
+657
+00:44:29,000 --> 00:44:30,870
+for bowl?
+
+658
+00:44:30,870 --> 00:44:38,000
+Hm, maybe paraboloid,
+I think, paraboloid comes in.
+
+659
+00:44:38,000 --> 00:44:42,000
+I'll edit the tape and get that
+word in.
+
+660
+00:44:42,000 --> 00:44:45,000
+Bowl, let's say,
+is, that, so that,
+
+661
+00:44:45,000 --> 00:44:49,000
+and if I can -- I could
+complete the squares,
+
+662
+00:44:49,000 --> 00:44:54,000
+I could write that as the sum
+of three squares,
+
+663
+00:44:54,000 --> 00:44:59,000
+and those three squares would
+get multiplied by the three
+
+664
+00:44:59,000 --> 00:45:00,000
+pivots.
+
+665
+00:45:00,000 --> 00:45:04,000
+And the pivots are all
+positive.
+
+666
+00:45:04,000 --> 00:45:07,000
+So I would have positive pivots
+times squares,
+
+667
+00:45:07,000 --> 00:45:12,000
+the net result would be a
+positive function and a bowl
+
+668
+00:45:12,000 --> 00:45:13,000
+which goes upwards.
+
+669
+00:45:13,000 --> 00:45:17,290
+And then, finally,
+if I cut -- if I slice through
+
+670
+00:45:17,290 --> 00:45:21,000
+this bowl, if I -- now I'm
+asking you to stretch your
+
+671
+00:45:21,000 --> 00:45:25,000
+visualization here,
+because I'm in four dimensions,
+
+672
+00:45:25,000 --> 00:45:29,000
+I've
+got x1 x2 x3 in the base,
+
+673
+00:45:29,000 --> 00:45:33,260
+and this function is z,
+or f, or something.
+
+674
+00:45:33,260 --> 00:45:35,000
+And its graph is going up.
+
+675
+00:45:35,000 --> 00:45:41,000
+But I'm in four dimensions,
+because I've got three in the
+
+676
+00:45:41,000 --> 00:45:46,000
+base and then the upward
+direction, but now if I cut
+
+677
+00:45:46,000 --> 00:45:51,000
+through this four-dimensional
+picture, at level one,
+
+678
+00:45:51,000 --> 00:45:57,000
+so, suppose I cut
+through this thing at height
+
+679
+00:45:57,000 --> 00:45:58,000
+one.
+
+680
+00:45:58,000 --> 00:46:03,000
+So I take all the points that
+are at height one.
+
+681
+00:46:03,000 --> 00:46:08,000
+That gives me -- it gave me an
+ellipse over there,
+
+682
+00:46:08,000 --> 00:46:13,000
+in that two by two case,
+in this case,
+
+683
+00:46:13,000 --> 00:46:19,000
+this will be the equation of an
+ellipsoid, a football in other
+
+684
+00:46:19,000 --> 00:46:20,000
+words.
+
+685
+00:46:20,000 --> 00:46:24,000
+Well, not quite a football.
+
+686
+00:46:24,000 --> 00:46:26,000
+A lopsided football.
+
+687
+00:46:26,000 --> 00:46:30,000
+What would be,
+can I try to describe to you
+
+688
+00:46:30,000 --> 00:46:35,180
+what the ellipsoid will look
+like, this ellipsoid,
+
+689
+00:46:35,180 --> 00:46:39,000
+I'm sorry that the,
+that I've ended the matrix
+
+690
+00:46:39,000 --> 00:46:44,000
+right -- at the point,
+let's -- let me be sure you've
+
+691
+00:46:44,000 --> 00:46:45,000
+seen the equation.
+
+692
+00:46:45,000 --> 00:46:48,620
+Two x1 squared,
+two x2 squared,
+
+693
+00:46:48,620 --> 00:46:54,000
+two x3
+squared, minus two of the cross
+
+694
+00:46:54,000 --> 00:46:57,000
+parts, equal what?
+
+695
+00:46:57,000 --> 00:47:04,990
+That is the equation of a
+football, so what do I mean by a
+
+696
+00:47:04,990 --> 00:47:08,000
+football or an ellipsoid?
+
+697
+00:47:08,000 --> 00:47:13,000
+I mean that,
+well, I'll draw a few.
+
+698
+00:47:13,000 --> 00:47:17,000
+It's like that,
+it's got a center,
+
+699
+00:47:17,000 --> 00:47:24,000
+and it's got it's got three
+principal directions.
+
+700
+00:47:24,000 --> 00:47:26,000
+This ellipsoid.
+
+701
+00:47:26,000 --> 00:47:32,000
+So -- you see what I'm saying,
+if we have a sphere then all
+
+702
+00:47:32,000 --> 00:47:35,000
+directions would be the same.
+
+703
+00:47:35,000 --> 00:47:41,000
+If we had a true football,
+or it's closer to a rugby ball,
+
+704
+00:47:41,000 --> 00:47:46,000
+really, because it's more
+curved than a football,
+
+705
+00:47:46,000 --> 00:47:52,000
+it would have one long
+direction and the other two
+
+706
+00:47:52,000 --> 00:47:53,000
+would be equal.
+
+707
+00:47:53,000 --> 00:47:58,000
+That would be like having a
+matrix that had one eigenvalue
+
+708
+00:47:58,000 --> 00:47:59,000
+repeated.
+
+709
+00:47:59,000 --> 00:48:01,000
+And then one other different.
+
+710
+00:48:01,000 --> 00:48:06,000
+So this sphere comes from,
+like, the identity matrix,
+
+711
+00:48:06,000 --> 00:48:08,000
+all eigenvalues the same.
+
+712
+00:48:08,000 --> 00:48:12,990
+Our rugby ball comes from a
+case where --
+
+713
+00:48:12,990 --> 00:48:17,050
+three, the three,
+two of the three eigenvalues
+
+714
+00:48:17,050 --> 00:48:18,000
+are the same.
+
+715
+00:48:18,000 --> 00:48:22,000
+But we know how the case where
+-- the typical case,
+
+716
+00:48:22,000 --> 00:48:26,000
+where the three eigenvalues
+were all different.
+
+717
+00:48:26,000 --> 00:48:31,000
+So this will have -- How do I
+say it, if I look at this
+
+718
+00:48:31,000 --> 00:48:36,000
+ellipsoid correctly,
+it'll have a major axis,
+
+719
+00:48:36,000 --> 00:48:41,000
+it'll have a middle axis,
+and it'll have a minor axis.
+
+720
+00:48:41,000 --> 00:48:45,000
+And those three axes will be in
+the direction of the
+
+721
+00:48:45,000 --> 00:48:47,110
+eigenvectors.
+
+722
+00:48:47,110 --> 00:48:51,000
+And the lengths of those axes
+will be determined by the
+
+723
+00:48:51,000 --> 00:48:52,000
+eigenvalues.
+
+724
+00:48:52,000 --> 00:48:57,000
+I can get -- turn this all into
+linear algebra,
+
+725
+00:48:57,000 --> 00:49:02,300
+because we have -- the right
+thing we know about
+
+726
+00:49:02,300 --> 00:49:07,000
+eigenvectors and eigenvalues,
+for that matrix is what?
+
+727
+00:49:07,000 --> 00:49:12,000
+Of -- let me just tell you
+that, repeat the main linear
+
+728
+00:49:12,000 --> 00:49:13,000
+algebra point.
+
+729
+00:49:13,000 --> 00:49:17,500
+How could we turn what I said
+into algebra;
+
+730
+00:49:17,500 --> 00:49:22,000
+we would write this A as Q,
+the eigenvector matrix,
+
+731
+00:49:22,000 --> 00:49:26,360
+times lambda,
+the eigenvalue matrix
+
+732
+00:49:26,360 --> 00:49:27,000
+times Q transposed.
+
+733
+00:49:27,000 --> 00:49:31,000
+The principal axis theorem,
+we'll call it,
+
+734
+00:49:31,000 --> 00:49:31,000
+now.
+The eigenvectors tell us the
+directions of the principal
+
+735
+00:49:36,000 --> 00:49:36,000
+axes.
+The eigenvalues tell us the
+lengths of those axes,
+
+736
+00:49:40,880 --> 00:49:44,000
+actually the lengths,
+or the half-lengths,
+
+737
+00:49:44,000 --> 00:49:48,000
+or one over the eigenvalues,
+it turns out.
+
+738
+00:49:48,000 --> 00:49:53,620
+And that is the matrix
+factorization which is the most
+
+739
+00:49:53,620 --> 00:49:58,000
+important matrix factorization
+in our eigenvalue material so
+
+740
+00:49:58,000 --> 00:49:59,000
+far.
+
+741
+00:49:59,000 --> 00:50:03,000
+That's diagonalization for a
+symmetric matrix,
+
+742
+00:50:03,000 --> 00:50:08,000
+so instead of the inverse I can
+write the transposed.
+
+743
+00:50:08,000 --> 00:50:09,000
+OK.
+
+744
+00:50:09,000 --> 00:50:13,000
+I've -- so what I've tried
+today is to tell you the --
+
+745
+00:50:13,000 --> 00:50:18,000
+what's going on with positive
+definite matrices.
+
+746
+00:50:18,000 --> 00:50:23,000
+Ah, you see all how all these
+pieces are there and linear
+
+747
+00:50:23,000 --> 00:50:25,000
+algebra connects them.
+
+748
+00:50:25,000 --> 00:50:25,000
+OK.
+See you on Friday.

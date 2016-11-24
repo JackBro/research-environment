@@ -1,0 +1,3591 @@
+1
+00:00:00,000 --> 00:00:05,000
+OK, this is linear algebra
+lecture nine.
+
+2
+00:00:05,000 --> 00:00:11,000
+And this is a key lecture,
+this is where we get these
+
+3
+00:00:11,000 --> 00:00:18,000
+ideas of linear independence,
+when a bunch of vectors are
+
+4
+00:00:18,000 --> 00:00:24,000
+independent -- or dependent,
+that's the opposite.
+
+5
+00:00:24,000 --> 00:00:27,000
+The space they span.
+
+6
+00:00:27,000 --> 00:00:33,650
+A basis for a subspace or a
+basis for a vector space,
+
+7
+00:00:33,650 --> 00:00:37,850
+that's a central idea.
+
+8
+00:00:37,850 --> 00:00:42,000
+And then the dimension of that
+subspace.
+
+9
+00:00:42,000 --> 00:00:47,000
+So this is the day that those
+words get assigned clear
+
+10
+00:00:47,000 --> 00:00:48,000
+meanings.
+
+11
+00:00:48,000 --> 00:00:54,910
+And emphasize that we talk
+about a bunch of vectors being
+
+12
+00:00:54,910 --> 00:00:56,000
+independent.
+
+13
+00:00:56,000 --> 00:01:02,000
+Wouldn't talk about a matrix
+being independent.
+
+14
+00:01:02,000 --> 00:01:05,000
+A bunch of vectors being
+independent.
+
+15
+00:01:05,000 --> 00:01:08,000
+A bunch of vectors spanning a
+space.
+
+16
+00:01:08,000 --> 00:01:11,000
+A bunch of vectors being a
+basis.
+
+17
+00:01:11,000 --> 00:01:14,000
+And the dimension is some
+number.
+
+18
+00:01:14,000 --> 00:01:17,000
+OK, so what are the
+definitions?
+
+19
+00:01:17,000 --> 00:01:21,000
+Can I begin with a fact,
+a highly important fact,
+
+20
+00:01:21,000 --> 00:01:27,000
+that, I didn't call directly
+attention to earlier.
+
+21
+00:01:27,000 --> 00:01:32,000
+Suppose I have a matrix and I
+look at Ax equals zero.
+
+22
+00:01:32,000 --> 00:01:38,000
+Suppose the matrix has a lot of
+columns, so that n is bigger
+
+23
+00:01:38,000 --> 00:01:39,000
+than m.
+
+24
+00:01:39,000 --> 00:01:43,000
+So I'm looking at n equations
+-- I mean, sorry,
+
+25
+00:01:43,000 --> 00:01:47,000
+m equations,
+a small number of equations m,
+
+26
+00:01:47,000 --> 00:01:49,000
+and more unknowns.
+
+27
+00:01:49,000 --> 00:01:53,000
+I have more unknowns than
+equations.
+
+28
+00:01:53,000 --> 00:01:56,000
+Let me write that down.
+
+29
+00:01:56,000 --> 00:02:00,000
+More unknowns than equations.
+
+30
+00:02:00,000 --> 00:02:03,000
+More unknown x-s than
+equations.
+
+31
+00:02:03,000 --> 00:02:10,000
+Then the conclusion is that
+there's something in the null
+
+32
+00:02:10,000 --> 00:02:16,000
+space of A, other than just the
+zero vector.
+
+33
+00:02:16,000 --> 00:02:23,000
+The conclusion is there are
+some non-zero x-s such that Ax
+
+34
+00:02:23,000 --> 00:02:24,000
+is zero.
+
+35
+00:02:24,000 --> 00:02:28,260
+There are some special
+solutions.
+
+36
+00:02:28,260 --> 00:02:29,250
+And why?
+
+37
+00:02:29,250 --> 00:02:32,470
+We know why.
+
+38
+00:02:32,470 --> 00:02:36,000
+I mean, it sort of like seems
+like a reasonable thing,
+
+39
+00:02:36,000 --> 00:02:41,000
+more unknowns than equations,
+then it seems reasonable that
+
+40
+00:02:41,000 --> 00:02:43,000
+we can solve them.
+
+41
+00:02:43,000 --> 00:02:46,000
+But we have a,
+a clear algorithm which starts
+
+42
+00:02:46,000 --> 00:02:51,000
+with a system and does
+elimination, gets the thing into
+
+43
+00:02:51,000 --> 00:02:55,620
+an echelon form with some pivots
+and pivot columns,
+
+44
+00:02:55,620 --> 00:03:01,000
+and possibly some free columns
+that don't have pivots.
+
+45
+00:03:01,000 --> 00:03:09,000
+And the point is here there
+will be some free columns.
+
+46
+00:03:09,000 --> 00:03:17,000
+The reason, so the reason is
+there must -- there will be free
+
+47
+00:03:17,000 --> 00:03:21,000
+variables, at least one.
+
+48
+00:03:21,000 --> 00:03:24,000
+That's the reason.
+
+49
+00:03:24,000 --> 00:03:30,000
+That we now have this --
+a complete, algorithm,
+
+50
+00:03:30,000 --> 00:03:36,000
+a complete systematic way to
+say, OK, we take the system Ax
+
+51
+00:03:36,000 --> 00:03:41,000
+equals zero, we row reduce,
+we identify the free variables,
+
+52
+00:03:41,000 --> 00:03:46,000
+and, since there are n
+variables and at most m pivots,
+
+53
+00:03:46,000 --> 00:03:50,000
+there will be some free
+variables, at least one,
+
+54
+00:03:50,000 --> 00:03:54,000
+at least n-m in fact,
+left over.
+
+55
+00:03:54,000 --> 00:03:57,000
+And those variables I can
+assign non-zero values to.
+
+56
+00:03:57,000 --> 00:04:00,000
+I don't have to set those to
+zero.
+
+57
+00:04:00,000 --> 00:04:03,000
+I can take them to be one or
+whatever I like,
+
+58
+00:04:03,000 --> 00:04:06,000
+and then I can solve for the
+pivot variables.
+
+59
+00:04:06,000 --> 00:04:09,000
+So then it gives me a solution
+to Ax equals zero.
+
+60
+00:04:09,000 --> 00:04:12,000
+And it's a solution that isn't
+all zeros.
+
+61
+00:04:12,000 --> 00:04:19,000
+So, that's an important point
+that we'll use now in this
+
+62
+00:04:19,000 --> 00:04:20,000
+lecture.
+
+63
+00:04:20,000 --> 00:04:27,000
+So now I want to say what does
+it mean for a bunch of vectors
+
+64
+00:04:27,000 --> 00:04:29,000
+to be independent.
+
+65
+00:04:29,000 --> 00:04:29,000
+OK.
+So this is like the background
+that we know.
+
+66
+00:04:35,000 --> 00:04:42,000
+Now I want to speak about
+independence.
+
+67
+00:04:42,000 --> 00:04:42,000
+OK.
+Let's see.
+
+68
+00:04:44,000 --> 00:04:53,000
+I can give you the abstract
+definition, and I will,
+
+69
+00:04:53,000 --> 00:05:02,000
+but I would also like to give
+you the direct meaning.
+
+70
+00:05:02,000 --> 00:05:08,860
+So the question is,
+when vectors x1,
+
+71
+00:05:08,860 --> 00:05:15,000
+x2 up to --
+Suppose I have n vectors are
+
+72
+00:05:15,000 --> 00:05:16,000
+independent if.
+
+73
+00:05:16,000 --> 00:05:22,500
+Now I have to give you -- or
+linearly independent -- I'll
+
+74
+00:05:22,500 --> 00:05:27,000
+often just say and write
+independent for short.
+
+75
+00:05:27,000 --> 00:05:27,000
+OK.
+I'll give you the full
+definition.
+
+76
+00:05:30,000 --> 00:05:35,000
+These are just vectors in some
+vector space.
+
+77
+00:05:35,000 --> 00:05:39,000
+I can take combinations of
+them.
+
+78
+00:05:39,000 --> 00:05:45,000
+The question is,
+do any combinations give zero?
+
+79
+00:05:45,000 --> 00:05:52,000
+If some combination of those
+vectors gives the zero vector,
+
+80
+00:05:52,000 --> 00:05:58,000
+other than the combination of
+all zeros, then they're
+
+81
+00:05:58,000 --> 00:05:59,000
+dependent.
+
+82
+00:05:59,000 --> 00:06:06,000
+They're independent if no
+combination gives the zero
+
+83
+00:06:06,000 --> 00:06:14,000
+vector -- and then I have,
+I'll have to put in an except
+
+84
+00:06:14,000 --> 00:06:17,000
+the zero combination.
+
+85
+00:06:17,000 --> 00:06:20,000
+So what do I mean by that?
+
+86
+00:06:20,000 --> 00:06:25,000
+No combination gives the zero
+vector.
+
+87
+00:06:25,000 --> 00:06:33,000
+Any combination c1 x1+c2 x2
+plus, plus cn xn is not zero
+
+88
+00:06:33,000 --> 00:06:37,000
+except for the zero combination.
+
+89
+00:06:37,000 --> 00:06:44,000
+This is when all the c-s,
+all the c-s are zero.
+
+90
+00:06:44,000 --> 00:06:46,000
+Then of course.
+
+91
+00:06:46,000 --> 00:06:49,000
+That combination -- I know I'll
+get zero.
+
+92
+00:06:49,000 --> 00:06:53,000
+But the question is,
+does any other combination give
+
+93
+00:06:53,000 --> 00:06:54,000
+zero?
+
+94
+00:06:54,000 --> 00:06:57,570
+If not, then the vectors are
+independent.
+
+95
+00:06:57,570 --> 00:07:02,000
+If some other combination does
+give zero, the vectors are
+
+96
+00:07:02,000 --> 00:07:04,000
+dependent.
+
+97
+00:07:04,000 --> 00:07:04,330
+OK.
+
+98
+00:07:04,330 --> 00:07:06,000
+Let's just take examples.
+
+99
+00:07:06,000 --> 00:07:11,000
+Suppose I'm in,
+say, in two dimensional space.
+
+100
+00:07:11,000 --> 00:07:12,000
+OK.
+
+101
+00:07:12,000 --> 00:07:18,000
+I give you -- I'd like to first
+take an example -- let me take
+
+102
+00:07:18,000 --> 00:07:25,000
+an example where I have a vector
+and twice that vector.
+
+103
+00:07:25,000 --> 00:07:27,000
+So that's two vectors,
+V and 2V.
+
+104
+00:07:27,000 --> 00:07:30,000
+Are those dependent or
+independent?
+
+105
+00:07:30,000 --> 00:07:34,000
+Those are dependent for sure,
+right, because there's one
+
+106
+00:07:34,000 --> 00:07:36,000
+vector is twice the other.
+
+107
+00:07:36,000 --> 00:07:41,150
+One vector is twice as long as
+the other, so if the word
+
+108
+00:07:41,150 --> 00:07:45,000
+dependent means anything,
+these should be dependent.
+
+109
+00:07:45,000 --> 00:07:47,000
+And they are.
+
+110
+00:07:47,000 --> 00:07:51,000
+And in fact,
+I would take two of the first
+
+111
+00:07:51,000 --> 00:07:54,000
+-- so here's,
+here is a vector V and the
+
+112
+00:07:54,000 --> 00:07:59,000
+other guy is a vector 2V,
+that's my -- so there's a
+
+113
+00:07:59,000 --> 00:08:03,000
+vector V1 and my next vector V2
+is 2V1.
+
+114
+00:08:03,000 --> 00:08:08,420
+Of course those are dependent,
+because two of these first
+
+115
+00:08:08,420 --> 00:08:13,000
+vectors minus the second vector
+is zero.
+
+116
+00:08:13,000 --> 00:08:18,000
+That's a combination of these
+two vectors that gives the zero
+
+117
+00:08:18,000 --> 00:08:18,000
+vector.
+OK, that was clear.
+
+118
+00:08:20,120 --> 00:08:24,000
+Suppose, suppose I have a
+vector -- here's another
+
+119
+00:08:24,000 --> 00:08:24,000
+example.
+It's easy example.
+
+120
+00:08:26,000 --> 00:08:30,000
+Suppose I have a vector and the
+other guy is the zero vector.
+
+121
+00:08:30,000 --> 00:08:36,000
+Suppose I have a vector V1 and
+V2 is the zero vector.
+
+122
+00:08:36,000 --> 00:08:40,000
+Then are those vectors
+dependent or independent?
+
+123
+00:08:40,000 --> 00:08:42,000
+They're dependent again.
+
+124
+00:08:42,000 --> 00:08:46,000
+You could say,
+well, this guy is zero times
+
+125
+00:08:46,000 --> 00:08:47,000
+that one.
+
+126
+00:08:47,000 --> 00:08:51,000
+This one is some combination of
+those.
+
+127
+00:08:51,000 --> 00:08:54,000
+But let me write it the other
+way.
+
+128
+00:08:54,000 --> 00:08:58,000
+Let me say --
+what combination,
+
+129
+00:08:58,000 --> 00:09:03,000
+how many V1s and how many V2s
+shall I take to get the zero
+
+130
+00:09:03,000 --> 00:09:03,000
+vector?
+If, if V1 is like the vector
+two one and V2 is the zero
+
+131
+00:09:08,000 --> 00:09:12,000
+vector, zero zero,
+then I would like to show that
+
+132
+00:09:12,000 --> 00:09:16,000
+some combination of those gives
+the zero vector.
+
+133
+00:09:16,000 --> 00:09:18,000
+What shall I take?
+
+134
+00:09:18,000 --> 00:09:21,000
+How many V1s shall I take?
+
+135
+00:09:21,000 --> 00:09:23,000
+Zero of them.
+
+136
+00:09:23,000 --> 00:09:26,000
+Yeah, no, take no V1s.
+
+137
+00:09:26,000 --> 00:09:28,000
+But how many V2s?
+
+138
+00:09:28,000 --> 00:09:29,000
+Six.
+
+139
+00:09:29,000 --> 00:09:29,000
+OK.
+Or five.
+
+140
+00:09:30,000 --> 00:09:36,000
+Then -- in other words,
+the point is if the zero
+
+141
+00:09:36,000 --> 00:09:42,000
+vector's in there,
+if the zero --
+
+142
+00:09:42,000 --> 00:09:46,000
+if one of these vectors is the
+zero vector, independence is
+
+143
+00:09:46,000 --> 00:09:47,000
+dead, right?
+
+144
+00:09:47,000 --> 00:09:51,000
+If one of those vectors is the
+zero vector then I could always
+
+145
+00:09:51,000 --> 00:09:54,000
+take -- include that one and
+none of the others,
+
+146
+00:09:54,000 --> 00:09:57,000
+and I would get the zero
+answer, and I would show
+
+147
+00:09:57,000 --> 00:09:58,000
+dependence.
+
+148
+00:09:58,000 --> 00:09:58,320
+OK.
+
+149
+00:09:58,320 --> 00:10:01,000
+Now, let me,
+let me finally draw an example
+
+150
+00:10:01,000 --> 00:10:04,000
+where they will be independent.
+
+151
+00:10:04,000 --> 00:10:07,000
+Suppose that's V1 and that's
+V2.
+
+152
+00:10:07,000 --> 00:10:10,000
+Those are surely independent,
+right?
+
+153
+00:10:10,000 --> 00:10:15,000
+Any combination of V1 and V2,
+will not be zero except,
+
+154
+00:10:15,000 --> 00:10:17,850
+the zero combination.
+
+155
+00:10:17,850 --> 00:10:20,000
+So those would be independent.
+
+156
+00:10:20,000 --> 00:10:25,000
+But now let me,
+let me stick in a third vector,
+
+157
+00:10:25,000 --> 00:10:25,000
+V3.
+Independent or dependent now,
+those three vectors?
+
+158
+00:10:31,000 --> 00:10:33,000
+So now n is three here.
+
+159
+00:10:33,000 --> 00:10:39,000
+I'm in two dimensional space,
+whatever, I'm in the plane.
+
+160
+00:10:39,000 --> 00:10:43,000
+I have three vectors that I
+didn't draw so carefully.
+
+161
+00:10:43,000 --> 00:10:47,000
+I didn't even tell you what
+exactly they were.
+
+162
+00:10:47,000 --> 00:10:53,000
+But what's this answer on
+dependent or independent?
+
+163
+00:10:53,000 --> 00:10:54,000
+Dependent.
+
+164
+00:10:54,000 --> 00:10:57,000
+How do I know those are
+dependent?
+
+165
+00:10:57,000 --> 00:11:02,000
+How do I know that some
+combination of V1,
+
+166
+00:11:02,000 --> 00:11:05,000
+V2, and V3 gives me the zero
+vector?
+
+167
+00:11:05,000 --> 00:11:08,000
+I know because of that.
+
+168
+00:11:08,000 --> 00:11:14,000
+That's the key fact that tells
+me that three vectors in the
+
+169
+00:11:14,000 --> 00:11:18,000
+plane have to be dependent.
+
+170
+00:11:18,000 --> 00:11:19,000
+Why's that?
+
+171
+00:11:19,000 --> 00:11:24,000
+What's the connection between
+the dependence of these three
+
+172
+00:11:24,000 --> 00:11:26,000
+vectors and that fact?
+
+173
+00:11:26,000 --> 00:11:26,000
+OK.
+So here's the connection.
+
+174
+00:11:29,000 --> 00:11:33,000
+I take the matrix A that has V1
+in its first column,
+
+175
+00:11:33,000 --> 00:11:39,000
+V2 in its second column,
+V3 in its third column.
+
+176
+00:11:39,000 --> 00:11:42,000
+So it's got three columns.
+
+177
+00:11:42,000 --> 00:11:48,000
+And V1 -- I don't know,
+that looks like about two one
+
+178
+00:11:48,000 --> 00:11:48,000
+to me.
+V2 looks like it might be one
+two.
+
+179
+00:11:52,000 --> 00:11:59,000
+V3 looks like it might be maybe
+two, maybe two and a half,
+
+180
+00:11:59,000 --> 00:12:00,000
+minus one.
+
+181
+00:12:00,000 --> 00:12:00,000
+OK.
+Those are my three vectors,
+and I put them in the columns
+
+182
+00:12:07,000 --> 00:12:09,000
+of A.
+
+183
+00:12:09,000 --> 00:12:13,000
+Now that matrix A is two by
+three.
+
+184
+00:12:13,000 --> 00:12:20,260
+It fits this pattern,
+that where we know we've got
+
+185
+00:12:20,260 --> 00:12:25,000
+extra variables,
+we know we have some free
+
+186
+00:12:25,000 --> 00:12:33,000
+variables, we know that there's
+some combination --
+
+187
+00:12:33,000 --> 00:12:36,000
+and let me instead of x-s,
+let me call them c1,
+
+188
+00:12:36,000 --> 00:12:39,000
+c2, and c3 -- that gives the
+zero vector.
+
+189
+00:12:39,000 --> 00:12:42,000
+Sorry that my little bit of art
+got in the way.
+
+190
+00:12:42,000 --> 00:12:43,000
+Do you see the point?
+
+191
+00:12:43,000 --> 00:12:47,000
+When I have a matrix,
+I'm interested in whether its
+
+192
+00:12:47,000 --> 00:12:49,000
+columns are dependent or
+independent.
+
+193
+00:12:49,000 --> 00:12:53,000
+The columns are dependent if
+there is something in the null
+
+194
+00:12:53,000 --> 00:12:55,230
+space.
+
+195
+00:12:55,230 --> 00:12:59,310
+The columns are dependent
+because this,
+
+196
+00:12:59,310 --> 00:13:05,000
+this thing in the null space
+says that c1 of that plus c2 of
+
+197
+00:13:05,000 --> 00:13:08,760
+that plus c3 of this is zero.
+
+198
+00:13:08,760 --> 00:13:12,000
+So in other words,
+I can go out some V1,
+
+199
+00:13:12,000 --> 00:13:17,780
+out some more V2,
+back on V3, and end up zero.
+
+200
+00:13:17,780 --> 00:13:19,000
+OK.
+
+201
+00:13:19,000 --> 00:13:27,000
+So let -- here I've give the
+general, abstract definition,
+
+202
+00:13:27,000 --> 00:13:35,000
+but let me repeat that
+definition -- this is like
+
+203
+00:13:35,000 --> 00:13:40,000
+repeat -- let me call them Vs
+now.
+
+204
+00:13:40,000 --> 00:13:47,000
+V1 up to Vn are the columns of
+a matrix A.
+
+205
+00:13:47,000 --> 00:13:53,000
+In other words,
+this is telling me that if I'm
+
+206
+00:13:53,000 --> 00:14:00,000
+in m dimensional space,
+like two dimensional space in
+
+207
+00:14:00,000 --> 00:14:07,000
+the example, I can answer the
+dependence-independence question
+
+208
+00:14:07,000 --> 00:14:14,700
+directly by putting those
+vectors in the columns of a
+
+209
+00:14:14,700 --> 00:14:16,000
+matrix.
+
+210
+00:14:16,000 --> 00:14:22,000
+They are independent if the
+null space of A,
+
+211
+00:14:22,000 --> 00:14:24,000
+of A, is what?
+
+212
+00:14:24,000 --> 00:14:32,000
+If I have a bunch of columns in
+a matrix, I'm looking at their
+
+213
+00:14:32,000 --> 00:14:38,000
+combinations,
+but that's just A times the
+
+214
+00:14:38,000 --> 00:14:39,000
+vector of c-s.
+
+215
+00:14:39,000 --> 00:14:47,000
+And these columns will be
+independent if the null space of
+
+216
+00:14:47,000 --> 00:14:51,000
+A is the zero vector.
+
+217
+00:14:51,000 --> 00:15:02,000
+They are dependent if there's
+something else in there.
+
+218
+00:15:02,000 --> 00:15:11,000
+If there's something else in
+the null space,
+
+219
+00:15:11,000 --> 00:15:23,000
+if A times c gives the zero
+vector for some non-zero vector
+
+220
+00:15:23,000 --> 00:15:29,000
+c in the null space.
+
+221
+00:15:29,000 --> 00:15:32,000
+Then they're dependent,
+because that's telling me a
+
+222
+00:15:32,000 --> 00:15:36,000
+combination of the columns gives
+the zero column.
+
+223
+00:15:36,000 --> 00:15:38,960
+I think you're with be,
+because we've seen,
+
+224
+00:15:38,960 --> 00:15:42,000
+like, lecture after lecture,
+we're looking at the
+
+225
+00:15:42,000 --> 00:15:46,000
+combinations of the columns and
+asking, do we get zero or don't
+
+226
+00:15:46,000 --> 00:15:47,620
+we?
+
+227
+00:15:47,620 --> 00:15:50,000
+And now we're giving the
+official name,
+
+228
+00:15:50,000 --> 00:15:54,000
+dependent if we do,
+independent if we don't.
+
+229
+00:15:54,000 --> 00:15:57,000
+So I could express this in
+other words now.
+
+230
+00:15:57,000 --> 00:16:02,000
+I could say the rank -- what's
+the rank in this independent
+
+231
+00:16:02,000 --> 00:16:03,000
+case?
+
+232
+00:16:03,000 --> 00:16:05,000
+The rank r of the,
+of the matrix,
+
+233
+00:16:05,000 --> 00:16:10,000
+in the case of independent
+columns, is?
+
+234
+00:16:10,000 --> 00:16:12,000
+So the columns are independent.
+
+235
+00:16:12,000 --> 00:16:16,000
+So how many pivot columns have
+I got.
+
+236
+00:16:16,000 --> 00:16:16,000
+All n.
+All the columns would be pivot
+columns, because free columns
+
+237
+00:16:21,000 --> 00:16:27,000
+are telling me that they're a
+combination of earlier columns.
+
+238
+00:16:27,000 --> 00:16:32,240
+So this would be the case where
+the rank is n.
+
+239
+00:16:32,240 --> 00:16:38,000
+This would be the case where
+the rank is smaller than n.
+
+240
+00:16:38,000 --> 00:16:45,000
+So in this case the rank is n
+and the null space of A is only
+
+241
+00:16:45,000 --> 00:16:47,000
+the zero vector.
+
+242
+00:16:47,000 --> 00:16:50,000
+And no free variables.
+
+243
+00:16:50,000 --> 00:16:52,000
+No free variables.
+
+244
+00:16:52,000 --> 00:16:57,000
+And this is the case yes free
+variables.
+
+245
+00:16:57,000 --> 00:17:05,000
+If you'll allow me to stretch
+the English language that far.
+
+246
+00:17:05,000 --> 00:17:11,000
+That's the case where we have,
+a combination that gives the
+
+247
+00:17:11,000 --> 00:17:12,000
+zero column.
+
+248
+00:17:12,000 --> 00:17:19,000
+I'm often interested in the
+case when my vectors are popped
+
+249
+00:17:19,000 --> 00:17:20,000
+into a matrix.
+
+250
+00:17:20,000 --> 00:17:26,000
+So the, the definition over
+there of independence didn't
+
+251
+00:17:26,000 --> 00:17:30,000
+talk about any matrix.
+
+252
+00:17:30,000 --> 00:17:35,000
+The vectors didn't have to be
+vectors in N dimensional space.
+
+253
+00:17:35,000 --> 00:17:40,000
+And I want to give you some
+examples of vectors that aren't
+
+254
+00:17:40,000 --> 00:17:44,000
+what you think of immediately as
+vectors.
+
+255
+00:17:44,000 --> 00:17:48,000
+But most of the time,
+this is -- the vectors we think
+
+256
+00:17:48,000 --> 00:17:50,000
+of are columns.
+
+257
+00:17:50,000 --> 00:17:53,000
+And we can put them in a
+matrix.
+
+258
+00:17:53,000 --> 00:17:59,000
+And then independence or
+dependence comes back to the
+
+259
+00:17:59,000 --> 00:18:00,000
+null space.
+
+260
+00:18:00,000 --> 00:18:00,000
+OK.
+So that's the idea of
+independence.
+
+261
+00:18:04,000 --> 00:18:09,150
+Can I just, yeah,
+let me go on to spanning a
+
+262
+00:18:09,150 --> 00:18:09,000
+space.
+
+263
+00:18:09,000 --> 00:18:15,000
+What does it mean for a bunch
+of vectors to span a space?
+
+264
+00:18:15,000 --> 00:18:21,000
+Well, actually,
+we've seen it already.
+
+265
+00:18:21,000 --> 00:18:25,000
+You remember,
+if we had a columns in a
+
+266
+00:18:25,000 --> 00:18:32,000
+matrix, we took all their
+combinations and that gave us
+
+267
+00:18:32,000 --> 00:18:34,000
+the column space.
+
+268
+00:18:34,000 --> 00:18:41,000
+Those vectors that we started
+with span that column space.
+
+269
+00:18:41,000 --> 00:18:49,000
+So spanning a space means -- so
+let me move that important stuff
+
+270
+00:18:49,000 --> 00:18:51,000
+right up.
+
+271
+00:18:51,000 --> 00:18:52,000
+OK.
+
+272
+00:18:52,000 --> 00:19:02,000
+So vectors -- let me call them,
+say, V1 up to -- call you some
+
+273
+00:19:02,000 --> 00:19:10,000
+different letter,
+say Vl -- span a space,
+
+274
+00:19:10,000 --> 00:19:18,000
+a subspace, or just a vector
+space I could say,
+
+275
+00:19:18,000 --> 00:19:26,000
+span a space means,
+means the space consists of all
+
+276
+00:19:26,000 --> 00:19:34,000
+combinations of those vectors.
+
+277
+00:19:34,000 --> 00:19:39,000
+That's exactly what we did with
+the column space.
+
+278
+00:19:39,000 --> 00:19:46,000
+So now I could say in shorthand
+the columns of a matrix span the
+
+279
+00:19:46,000 --> 00:19:48,000
+column space.
+
+280
+00:19:48,000 --> 00:19:55,000
+So you remember it's a bunch of
+vectors that have this property
+
+281
+00:19:55,000 --> 00:20:01,000
+that they span a space,
+and actually if I give you a
+
+282
+00:20:01,000 --> 00:20:07,720
+bunch of vectors and say --
+OK, let S be the space that
+
+283
+00:20:07,720 --> 00:20:13,000
+they span, in other words let S
+contain all their combinations,
+
+284
+00:20:13,000 --> 00:20:17,000
+that space S will be the
+smallest space with those
+
+285
+00:20:17,000 --> 00:20:18,000
+vectors in it,
+right?
+
+286
+00:20:18,000 --> 00:20:24,000
+Because any space with those
+vectors in it must have all the
+
+287
+00:20:24,000 --> 00:20:27,000
+combinations of those vectors in
+it.
+
+288
+00:20:27,000 --> 00:20:32,000
+And if I stop there,
+then I've got the smallest
+
+289
+00:20:32,000 --> 00:20:37,000
+space, and that's the space that
+they span.
+
+290
+00:20:37,000 --> 00:20:37,000
+OK.
+So I'm just -- rather than,
+needing to say,
+
+291
+00:20:41,000 --> 00:20:47,250
+take all linear combinations
+and put them in a space,
+
+292
+00:20:47,250 --> 00:20:51,000
+I'm compressing that into the
+word span.
+
+293
+00:20:51,000 --> 00:20:54,240
+Straightforward.
+
+294
+00:20:54,240 --> 00:20:54,000
+OK.
+
+295
+00:20:54,000 --> 00:20:58,780
+So if I think of a,
+of the column space of a
+
+296
+00:20:58,780 --> 00:20:59,000
+matrix.
+
+297
+00:20:59,000 --> 00:21:03,000
+I've got their -- so I start
+with the columns.
+
+298
+00:21:03,000 --> 00:21:06,000
+I take all their combinations.
+
+299
+00:21:06,000 --> 00:21:09,000
+That gives me the columns
+space.
+
+300
+00:21:09,000 --> 00:21:12,000
+They span the column space.
+
+301
+00:21:12,000 --> 00:21:15,000
+Now are they independent?
+
+302
+00:21:15,000 --> 00:21:18,000
+Maybe yes, maybe no.
+
+303
+00:21:18,000 --> 00:21:23,000
+It depends on the particular
+columns that went into that
+
+304
+00:21:23,000 --> 00:21:23,000
+matrix.
+But obviously I'm highly
+interested in a set of vectors
+
+305
+00:21:28,000 --> 00:21:31,000
+that spans a space and is
+independent.
+
+306
+00:21:31,000 --> 00:21:37,290
+That's, that means like I've
+got the right number of vectors.
+
+307
+00:21:37,290 --> 00:21:42,000
+If I didn't have all of them,
+I wouldn't have my whole space.
+
+308
+00:21:42,000 --> 00:21:48,000
+If I had more than that,
+they probably wouldn't --
+
+309
+00:21:48,000 --> 00:21:52,000
+they wouldn't be independent.
+
+310
+00:21:52,000 --> 00:22:00,000
+So, like, basis -- and that's
+the word that's coming -- is
+
+311
+00:22:00,000 --> 00:22:02,000
+just right.
+
+312
+00:22:02,000 --> 00:22:08,000
+So here let me put what that
+word means.
+
+313
+00:22:08,000 --> 00:22:16,000
+A basis for a vector space is,
+is a, is a sequence of vectors
+
+314
+00:22:16,000 --> 00:22:20,000
+--
+shall I call them V1,
+
+315
+00:22:20,000 --> 00:22:26,000
+V2, up to let me say Vd now,
+I'll stop with that letters --
+
+316
+00:22:26,000 --> 00:22:28,000
+that has two properties.
+
+317
+00:22:28,000 --> 00:22:32,000
+I've got enough vectors and not
+too many.
+
+318
+00:22:32,000 --> 00:22:36,000
+It's a natural idea of a basis.
+
+319
+00:22:36,000 --> 00:22:41,000
+So a basis is a bunch of
+vectors in the space and it's a
+
+320
+00:22:41,000 --> 00:22:46,000
+so it's a sequence of vectors
+with two properties,
+
+321
+00:22:46,000 --> 00:22:49,000
+with two properties.
+
+322
+00:22:49,000 --> 00:22:55,000
+One, they are independent.
+
+323
+00:22:55,000 --> 00:23:02,000
+And two -- you know what's
+coming?
+
+324
+00:23:02,000 --> 00:23:07,000
+-- they span the space.
+
+325
+00:23:07,000 --> 00:23:07,000
+OK.
+Let me take -- so time for
+examples, of course.
+
+326
+00:23:17,000 --> 00:23:26,000
+So I'm asking you now to put
+definition one,
+
+327
+00:23:26,000 --> 00:23:37,000
+the definition of independence,
+together with definition two,
+
+328
+00:23:37,000 --> 00:23:41,000
+and let's look at examples,
+because this is -- this
+
+329
+00:23:41,000 --> 00:23:45,000
+combination means the set I've
+-- of vectors I have is just
+
+330
+00:23:45,000 --> 00:23:50,000
+right, and the -- so that this
+idea of a basis will be central.
+
+331
+00:23:50,000 --> 00:23:54,000
+I'll always be asking you now
+for a basis.
+
+332
+00:23:54,000 --> 00:23:58,000
+Whenever I look at a subspace,
+if I ask you for -- if you give
+
+333
+00:23:58,000 --> 00:24:02,000
+me a basis for that subspace,
+you've told me what it is.
+
+334
+00:24:02,000 --> 00:24:05,000
+You've told me everything I
+need to know about that
+
+335
+00:24:05,000 --> 00:24:06,000
+subspace.
+
+336
+00:24:06,000 --> 00:24:09,000
+Those -- I take their
+combinations and I know that I
+
+337
+00:24:09,000 --> 00:24:11,000
+need all the combinations.
+
+338
+00:24:11,000 --> 00:24:12,000
+OK.
+
+339
+00:24:12,000 --> 00:24:13,000
+Examples.
+
+340
+00:24:13,000 --> 00:24:17,000
+OK, so examples of a basis.
+
+341
+00:24:17,000 --> 00:24:23,020
+Let me start with two
+dimensional space.
+
+342
+00:24:23,020 --> 00:24:27,000
+Suppose the space -- say
+example.
+
+343
+00:24:27,000 --> 00:24:32,440
+The space is,
+oh, let's make it R^3.
+
+344
+00:24:32,440 --> 00:24:36,000
+Real three dimensional space.
+
+345
+00:24:36,000 --> 00:24:39,000
+Give me one basis.
+
+346
+00:24:39,000 --> 00:24:42,000
+One basis is?
+
+347
+00:24:42,000 --> 00:24:47,000
+So I want some vectors,
+because if I ask you for a
+
+348
+00:24:47,000 --> 00:24:52,000
+basis, I'm asking you for
+vectors, a little list of
+
+349
+00:24:52,000 --> 00:24:53,000
+vectors.
+
+350
+00:24:53,000 --> 00:24:56,000
+And it should be just right.
+
+351
+00:24:56,000 --> 00:25:01,000
+So what would be a basis for
+three dimensional space?
+
+352
+00:25:01,000 --> 00:25:05,000
+Well, the first basis that
+comes to mind,
+
+353
+00:25:05,000 --> 00:25:10,000
+why don't we write that down.
+
+354
+00:25:10,000 --> 00:25:15,000
+The first basis that comes to
+mind is this vector,
+
+355
+00:25:15,000 --> 00:25:18,000
+this vector,
+and this vector.
+
+356
+00:25:18,000 --> 00:25:18,000
+OK.
+That's one basis.
+
+357
+00:25:20,000 --> 00:25:25,000
+Not the only basis,
+that's going to be my point.
+
+358
+00:25:25,000 --> 00:25:29,000
+But let's just see -- yes,
+that's a basis.
+
+359
+00:25:29,000 --> 00:25:34,000
+Are, are those vectors
+independent?
+
+360
+00:25:34,000 --> 00:25:38,000
+So that's the like the x,
+y, z axes, so if those are not
+
+361
+00:25:38,000 --> 00:25:40,000
+independent, we're in trouble.
+
+362
+00:25:40,000 --> 00:25:42,000
+Certainly, they are.
+
+363
+00:25:42,000 --> 00:25:46,000
+Take a combination c1 of this
+vector plus c2 of this vector
+
+364
+00:25:46,000 --> 00:25:50,000
+plus c3 of that vector and try
+to make it give the zero vector.
+
+365
+00:25:50,000 --> 00:25:52,000
+What are the c-s?
+
+366
+00:25:52,000 --> 00:25:56,000
+If c1 of that plus c2 of that
+plus c3 of that gives me 0 0 0,
+
+367
+00:25:56,000 --> 00:25:59,000
+then the c-s are all -- 0,
+right.
+
+368
+00:25:59,000 --> 00:26:03,000
+So that's the test for
+independence.
+
+369
+00:26:03,000 --> 00:26:09,000
+In the language of matrices,
+which was under that board,
+
+370
+00:26:09,000 --> 00:26:13,000
+I could make those the columns
+of a matrix.
+
+371
+00:26:13,000 --> 00:26:17,000
+Well, it would be the identity
+matrix.
+
+372
+00:26:17,000 --> 00:26:21,000
+Then I would ask,
+what's the null space of the
+
+373
+00:26:21,000 --> 00:26:24,000
+identity matrix?
+
+374
+00:26:24,000 --> 00:26:27,000
+And you would say it's only the
+zero vector.
+
+375
+00:26:27,000 --> 00:26:31,000
+And I would say,
+fine, then the columns are
+
+376
+00:26:31,000 --> 00:26:32,190
+independent.
+
+377
+00:26:32,190 --> 00:26:36,000
+The only thing -- the identity
+times a vector giving zero,
+
+378
+00:26:36,000 --> 00:26:40,000
+the only vector that does that
+is zero.
+
+379
+00:26:40,000 --> 00:26:40,000
+OK.
+Now that's not the only basis.
+
+380
+00:26:45,000 --> 00:26:47,000
+Far from it.
+
+381
+00:26:47,000 --> 00:26:53,000
+Tell me another basis,
+a second basis,
+
+382
+00:26:53,000 --> 00:26:55,000
+another basis.
+
+383
+00:26:55,000 --> 00:27:02,000
+So, give me -- well,
+I'll just start it out.
+
+384
+00:27:02,000 --> 00:27:04,000
+One one two.
+
+385
+00:27:04,000 --> 00:27:06,000
+Two two five.
+
+386
+00:27:06,000 --> 00:27:12,690
+Suppose I stopped there.
+
+387
+00:27:12,690 --> 00:27:18,000
+Has that little bunch of
+vectors got the properties that
+
+388
+00:27:18,000 --> 00:27:21,000
+I'm asking for in a basis for
+R^3?
+
+389
+00:27:21,000 --> 00:27:25,000
+We're looking for a basis for
+R^3.
+
+390
+00:27:25,000 --> 00:27:29,000
+Are they independent,
+those two column vectors?
+
+391
+00:27:29,000 --> 00:27:30,000
+Yes.
+
+392
+00:27:30,000 --> 00:27:33,000
+Do they span R^3?
+
+393
+00:27:33,000 --> 00:27:33,350
+No.
+
+394
+00:27:33,350 --> 00:27:34,000
+Our feeling is no.
+
+395
+00:27:34,000 --> 00:27:36,000
+Our feeling is no.
+
+396
+00:27:36,000 --> 00:27:41,000
+Our feeling is that there're
+some vectors in R3 that are not
+
+397
+00:27:41,000 --> 00:27:43,000
+combinations of those.
+
+398
+00:27:43,000 --> 00:27:43,290
+OK.
+
+399
+00:27:43,290 --> 00:27:47,000
+So suppose I add in -- I need
+another vector then,
+
+400
+00:27:47,000 --> 00:27:51,000
+because these two don't span
+the space.
+
+401
+00:27:51,000 --> 00:27:51,000
+OK.
+Now it would be foolish for me
+to put in three three seven,
+
+402
+00:27:56,000 --> 00:27:58,000
+right, as the third vector.
+
+403
+00:27:58,000 --> 00:28:00,000
+That would be a goof.
+
+404
+00:28:00,000 --> 00:28:04,000
+Because that,
+if I put in three three seven,
+
+405
+00:28:04,000 --> 00:28:08,650
+those vectors would be
+dependent, right?
+
+406
+00:28:08,650 --> 00:28:12,000
+If I put in three three seven,
+it would be the sum of those
+
+407
+00:28:12,000 --> 00:28:16,000
+two, it would lie in the same
+plane as those.
+
+408
+00:28:16,000 --> 00:28:18,000
+It wouldn't be independent.
+
+409
+00:28:18,000 --> 00:28:21,310
+My attempt to create a basis
+would be dead.
+
+410
+00:28:21,310 --> 00:28:25,000
+But if I take -- so what vector
+can I take?
+
+411
+00:28:25,000 --> 00:28:29,000
+I can take any vector that's
+not in that plane.
+
+412
+00:28:29,000 --> 00:28:33,000
+Let me try -- I hope that 3 3 8
+would do it.
+
+413
+00:28:33,000 --> 00:28:37,000
+At least it's not the sum of
+those two vectors.
+
+414
+00:28:37,000 --> 00:28:40,000
+But I believe that's a basis.
+
+415
+00:28:40,000 --> 00:28:45,000
+And what's the test then,
+for that to be a basis?
+
+416
+00:28:45,000 --> 00:28:51,570
+Because I just picked those
+numbers, and if I had picked,
+
+417
+00:28:51,570 --> 00:28:57,000
+5 7 -14 how would we know do we
+have a basis or don't we?
+
+418
+00:28:57,000 --> 00:29:02,000
+You would put them in the
+columns of a matrix,
+
+419
+00:29:02,000 --> 00:29:08,000
+and you would do elimination,
+row reduction --
+
+420
+00:29:08,000 --> 00:29:15,000
+and you would see do you get
+any free variables or are all
+
+421
+00:29:15,000 --> 00:29:18,000
+the columns pivot columns.
+
+422
+00:29:18,000 --> 00:29:25,000
+Well now actually we have a
+square -- the matrix would be
+
+423
+00:29:25,000 --> 00:29:27,000
+three by three.
+
+424
+00:29:27,000 --> 00:29:33,000
+So, what's the test on the
+matrix then?
+
+425
+00:29:33,000 --> 00:29:42,000
+The matrix -- so in this case,
+when my space is R^3 and I have
+
+426
+00:29:42,000 --> 00:29:48,000
+three vectors,
+my matrix is square and what I
+
+427
+00:29:48,000 --> 00:29:57,000
+asking about that matrix in
+order for those columns to be a
+
+428
+00:29:57,000 --> 00:29:58,340
+basis?
+
+429
+00:29:58,340 --> 00:30:05,000
+So in this -- for R^n,
+if I have -- n vectors give a
+
+430
+00:30:05,000 --> 00:30:12,000
+basis if the n by n matrix with
+those columns,
+
+431
+00:30:12,000 --> 00:30:18,000
+with those columns,
+is what?
+
+432
+00:30:18,000 --> 00:30:21,000
+What's the requirement on that
+matrix?
+
+433
+00:30:21,000 --> 00:30:24,000
+Invertible, right,
+right.
+
+434
+00:30:24,000 --> 00:30:27,000
+The matrix should be
+invertible.
+
+435
+00:30:27,000 --> 00:30:32,000
+For a square matrix,
+that's the, that's the perfect
+
+436
+00:30:32,000 --> 00:30:33,000
+answer.
+
+437
+00:30:33,000 --> 00:30:34,000
+Is invertible.
+
+438
+00:30:34,000 --> 00:30:39,000
+So that's when,
+that's when the space is the
+
+439
+00:30:39,000 --> 00:30:42,000
+whole space R^n.
+
+440
+00:30:42,000 --> 00:30:46,000
+Let me, let me be sure you're
+with me here.
+
+441
+00:30:46,000 --> 00:30:48,000
+Let me remove that.
+
+442
+00:30:48,000 --> 00:30:54,000
+Are those two vectors a basis
+for any space at all?
+
+443
+00:30:54,000 --> 00:31:00,000
+Is there a vector space that
+those really are a basis for,
+
+444
+00:31:00,000 --> 00:31:06,000
+those, that pair of vectors,
+this guy and this 1,
+
+445
+00:31:06,000 --> 00:31:08,000
+1 1 2 and 2 2 5?
+
+446
+00:31:08,000 --> 00:31:12,000
+Is there a space for which
+that's a basis?
+
+447
+00:31:12,000 --> 00:31:12,000
+Sure.
+They're independent,
+so they satisfy the first
+
+448
+00:31:16,000 --> 00:31:22,000
+requirement, so what space shall
+I take for them to be a basis
+
+449
+00:31:22,000 --> 00:31:22,000
+of?
+What spaces will they be a
+basis for?
+
+450
+00:31:26,000 --> 00:31:28,000
+The one they span.
+
+451
+00:31:28,000 --> 00:31:30,000
+Their combinations.
+
+452
+00:31:30,000 --> 00:31:31,000
+It's a plane,
+right?
+
+453
+00:31:31,000 --> 00:31:34,000
+It'll be a plane inside R^3.
+
+454
+00:31:34,000 --> 00:31:39,000
+So if I take this vector 1 1 2,
+say it goes there,
+
+455
+00:31:39,000 --> 00:31:43,000
+and this vector 2 2 5,
+say it goes there,
+
+456
+00:31:43,000 --> 00:31:49,000
+those are a basis for --
+because they span a plane.
+
+457
+00:31:49,000 --> 00:31:52,000
+And they're a basis for the
+plane, because they're
+
+458
+00:31:52,000 --> 00:31:52,000
+independent.
+If I stick in some third guy,
+like 3 3 7, which is in the
+
+459
+00:31:56,000 --> 00:31:58,000
+plane -- suppose I put in,
+try to put in 3 3 7,
+
+460
+00:31:58,000 --> 00:32:01,450
+then the three vectors would
+still span the plane,
+
+461
+00:32:01,450 --> 00:32:04,000
+but they wouldn't be a basis
+anymore because they're not
+
+462
+00:32:04,000 --> 00:32:06,320
+independent anymore.
+
+463
+00:32:06,320 --> 00:32:06,000
+OK.
+
+464
+00:32:06,000 --> 00:32:15,000
+So, we're looking at the
+question of -- again,
+
+465
+00:32:15,000 --> 00:32:24,810
+the case with independent
+columns is the case where the
+
+466
+00:32:24,810 --> 00:32:32,000
+column vectors span the column
+space.
+
+467
+00:32:32,000 --> 00:32:36,930
+They're independent,
+so they're a basis for the
+
+468
+00:32:36,930 --> 00:32:38,000
+column space.
+
+469
+00:32:38,000 --> 00:32:38,000
+OK.
+So now there's one bit of
+intuition.
+
+470
+00:32:41,000 --> 00:32:44,000
+Let me go back to all of R^n.
+
+471
+00:32:44,000 --> 00:32:46,000
+So I -- where I put 3 3 8.
+
+472
+00:32:46,000 --> 00:32:47,180
+OK.
+
+473
+00:32:47,180 --> 00:32:51,000
+The first message is that the
+basis is not unique,
+
+474
+00:32:51,000 --> 00:32:53,480
+right.
+
+475
+00:32:53,480 --> 00:32:56,000
+There's zillions of bases.
+
+476
+00:32:56,000 --> 00:33:00,000
+I take any invertible three by
+three matrix,
+
+477
+00:33:00,000 --> 00:33:03,000
+its columns are a basis for
+R^3.
+
+478
+00:33:03,000 --> 00:33:07,000
+The column space is R^3,
+and if those,
+
+479
+00:33:07,000 --> 00:33:13,000
+if that matrix is invertible,
+those columns are independent,
+
+480
+00:33:13,000 --> 00:33:16,000
+I've got a basis for R^3.
+
+481
+00:33:16,000 --> 00:33:19,000
+So there're many,
+many bases.
+
+482
+00:33:19,000 --> 00:33:24,000
+But there is something in
+common for all those bases.
+
+483
+00:33:24,000 --> 00:33:31,000
+There's something that this
+basis shares with that basis and
+
+484
+00:33:31,000 --> 00:33:33,870
+every other basis for R^3.
+
+485
+00:33:33,870 --> 00:33:35,000
+And what's that?
+
+486
+00:33:35,000 --> 00:33:41,000
+Well, you saw it coming,
+because when I stopped here and
+
+487
+00:33:41,000 --> 00:33:47,000
+asked if that was a basis for
+R^3, you said no.
+
+488
+00:33:47,000 --> 00:33:53,000
+And I know that you said no
+because you knew there weren't
+
+489
+00:33:53,000 --> 00:33:55,000
+enough vectors there.
+
+490
+00:33:55,000 --> 00:33:59,000
+And the great fact is that
+there're many,
+
+491
+00:33:59,000 --> 00:34:04,000
+many bases, but -- let me put
+in somebody else,
+
+492
+00:34:04,000 --> 00:34:06,000
+just for variety.
+
+493
+00:34:06,000 --> 00:34:11,000
+There are many,
+many bases, but they all have
+
+494
+00:34:11,000 --> 00:34:15,000
+the same number of vectors.
+
+495
+00:34:15,000 --> 00:34:20,000
+If we're talking about the
+space R^3, then that number of
+
+496
+00:34:20,000 --> 00:34:22,000
+vectors is three.
+
+497
+00:34:22,000 --> 00:34:28,000
+If we're talking about the
+space R^n, then that number of
+
+498
+00:34:28,000 --> 00:34:29,000
+vectors is n.
+
+499
+00:34:29,000 --> 00:34:35,000
+If we're talking about some
+other space, the column space of
+
+500
+00:34:35,000 --> 00:34:40,000
+some matrix, or the null space
+of some matrix,
+
+501
+00:34:40,000 --> 00:34:47,000
+or some other space that we
+haven't even thought of,
+
+502
+00:34:47,000 --> 00:34:52,000
+then that still is true that
+every basis -- that there're
+
+503
+00:34:52,000 --> 00:34:58,510
+lots of bases but every basis
+has the same number of vectors.
+
+504
+00:34:58,510 --> 00:35:01,770
+Let me write that great fact
+down.
+
+505
+00:35:01,770 --> 00:35:05,000
+Every basis -- we're given a
+space.
+
+506
+00:35:05,000 --> 00:35:06,000
+Given a space.
+
+507
+00:35:06,000 --> 00:35:12,000
+R^3 or R^n or some other column
+space of a matrix or the null
+
+508
+00:35:12,000 --> 00:35:18,070
+space of a matrix or some other
+vector space.
+
+509
+00:35:18,070 --> 00:35:26,000
+Then the great fact is that
+every basis for this,
+
+510
+00:35:26,000 --> 00:35:33,000
+for the space has the same
+number of vectors.
+
+511
+00:35:33,000 --> 00:35:43,000
+If one basis has six vectors,
+then every other basis has six
+
+512
+00:35:43,000 --> 00:35:44,000
+vectors.
+
+513
+00:35:44,000 --> 00:35:54,000
+So that number six is telling
+me like it's telling me how big
+
+514
+00:35:54,000 --> 00:35:58,000
+is the space.
+
+515
+00:35:58,000 --> 00:36:02,000
+It's telling me how many
+vectors do I have to have to
+
+516
+00:36:02,000 --> 00:36:03,000
+have a basis.
+
+517
+00:36:03,000 --> 00:36:05,000
+And of course we're seeing it
+this way.
+
+518
+00:36:05,000 --> 00:36:08,000
+That number six,
+if we had seven vectors,
+
+519
+00:36:08,000 --> 00:36:10,000
+then we've got too many.
+
+520
+00:36:10,000 --> 00:36:13,000
+If we have five vectors we
+haven't got enough.
+
+521
+00:36:13,000 --> 00:36:18,000
+Sixes are like just right for
+whatever space that is.
+
+522
+00:36:18,000 --> 00:36:21,470
+And what do we call that
+number?
+
+523
+00:36:21,470 --> 00:36:27,000
+That number is -- now I'm ready
+for the last definition today.
+
+524
+00:36:27,000 --> 00:36:30,000
+It's the dimension of that
+space.
+
+525
+00:36:30,000 --> 00:36:36,000
+So every basis for a space has
+the same number of vectors in
+
+526
+00:36:36,000 --> 00:36:36,000
+it.
+Not the same vectors,
+all sorts of bases --
+
+527
+00:36:42,000 --> 00:36:47,680
+but the same number of vectors
+is always the same,
+
+528
+00:36:47,680 --> 00:36:51,000
+and that number is the
+dimension.
+
+529
+00:36:51,000 --> 00:36:53,000
+This is definitional.
+
+530
+00:36:53,000 --> 00:36:58,000
+This number is the dimension of
+the space.
+
+531
+00:36:58,000 --> 00:36:58,000
+OK.
+OK.
+
+532
+00:36:59,000 --> 00:37:01,000
+Let's do some examples.
+
+533
+00:37:01,000 --> 00:37:05,710
+Because now we've got
+definitions.
+
+534
+00:37:05,710 --> 00:37:12,000
+Let me repeat the four things,
+the four words that have now
+
+535
+00:37:12,000 --> 00:37:15,000
+got defined.
+
+536
+00:37:15,000 --> 00:37:19,000
+Independence,
+that looks at combinations not
+
+537
+00:37:19,000 --> 00:37:19,000
+being zero.
+Spanning, that looks at all the
+combinations.
+
+538
+00:37:23,000 --> 00:37:27,000
+Basis, that's the one that
+combines independence and
+
+539
+00:37:27,000 --> 00:37:28,000
+spanning.
+
+540
+00:37:28,000 --> 00:37:33,000
+And now we've got the idea of
+the dimension of a space.
+
+541
+00:37:33,000 --> 00:37:40,000
+It's the number of vectors in
+any basis, because all bases
+
+542
+00:37:40,000 --> 00:37:42,790
+have the same number.
+
+543
+00:37:42,790 --> 00:37:43,000
+OK.
+
+544
+00:37:43,000 --> 00:37:45,470
+Let's take examples.
+
+545
+00:37:45,470 --> 00:37:50,000
+Suppose I take,
+my space is -- examples now --
+
+546
+00:37:50,000 --> 00:37:55,000
+space is the,
+say, the column space of this
+
+547
+00:37:55,000 --> 00:37:57,000
+matrix.
+
+548
+00:37:57,000 --> 00:38:01,000
+Let me write down a matrix.
+1 1 1, 2 1 2,
+
+549
+00:38:01,000 --> 00:38:07,000
+and I'll -- just to make it
+clear, I'll take the sum there,
+
+550
+00:38:07,000 --> 00:38:12,000
+3 2 3, and let me take the sum
+of all -- oh,
+
+551
+00:38:12,000 --> 00:38:17,000
+let me put in one -- yeah,
+I'll put in one one one again.
+
+552
+00:38:17,000 --> 00:38:19,000
+OK.
+
+553
+00:38:19,000 --> 00:38:21,000
+So that's four vectors.
+
+554
+00:38:21,000 --> 00:38:25,740
+OK, do they span the column
+space of that matrix?
+
+555
+00:38:25,740 --> 00:38:29,000
+Let me repeat,
+do they span the column space
+
+556
+00:38:29,000 --> 00:38:31,150
+of that matrix?
+
+557
+00:38:31,150 --> 00:38:31,000
+Yes.
+
+558
+00:38:31,000 --> 00:38:35,720
+By definition,
+that's what the column space --
+
+559
+00:38:35,720 --> 00:38:38,000
+where it comes from.
+
+560
+00:38:38,000 --> 00:38:41,000
+Are they a basis for the column
+space?
+
+561
+00:38:41,000 --> 00:38:42,000
+Are they independent?
+
+562
+00:38:42,000 --> 00:38:44,000
+No, they're not independent.
+
+563
+00:38:44,000 --> 00:38:47,000
+There's something in that null
+space.
+
+564
+00:38:47,000 --> 00:38:51,000
+Maybe we can -- so let's look
+at the null space of the matrix.
+
+565
+00:38:51,000 --> 00:38:56,000
+Tell me a vector that's in the
+null space of that matrix.
+
+566
+00:38:56,000 --> 00:39:03,000
+So I'm looking for some vector
+that combines those columns and
+
+567
+00:39:03,000 --> 00:39:05,000
+produces the zero column.
+
+568
+00:39:05,000 --> 00:39:11,000
+Or in other words,
+I'm looking for solutions to A
+
+569
+00:39:11,000 --> 00:39:12,000
+X equals zero.
+
+570
+00:39:12,000 --> 00:39:17,000
+So tell me a vector in the null
+space.
+
+571
+00:39:17,000 --> 00:39:20,000
+Maybe -- well,
+this was, this column was that
+
+572
+00:39:20,000 --> 00:39:24,000
+one plus that one,
+so maybe if I have one of those
+
+573
+00:39:24,000 --> 00:39:28,000
+and minus one of those that
+would be a vector in the null
+
+574
+00:39:28,000 --> 00:39:28,000
+space.
+So, you've already told me now,
+are those vectors independent,
+
+575
+00:39:32,000 --> 00:39:37,000
+the answer is -- those column
+vectors, the answer is -- no.
+
+576
+00:39:37,000 --> 00:39:38,000
+Right?
+
+577
+00:39:38,000 --> 00:39:40,000
+They're not independent.
+
+578
+00:39:40,000 --> 00:39:43,330
+Because -- you knew they
+weren't independent.
+
+579
+00:39:43,330 --> 00:39:47,000
+Anyway, minus one of this minus
+one of this plus one of this
+
+580
+00:39:47,000 --> 00:39:50,030
+zero of that is the zero vector.
+
+581
+00:39:50,030 --> 00:39:50,000
+OK.
+
+582
+00:39:50,000 --> 00:39:52,000
+OK, so they're not independent.
+
+583
+00:39:52,000 --> 00:39:56,000
+They span, but they're not
+independent.
+
+584
+00:39:56,000 --> 00:39:59,000
+Tell me a basis for that column
+space.
+
+585
+00:39:59,000 --> 00:40:02,730
+What's a basis for the column
+space?
+
+586
+00:40:02,730 --> 00:40:07,000
+These are all the questions
+that the homework asks,
+
+587
+00:40:07,000 --> 00:40:10,000
+the quizzes ask,
+the final exam will ask.
+
+588
+00:40:10,000 --> 00:40:16,000
+Find a basis for the column
+space of this matrix.
+
+589
+00:40:16,000 --> 00:40:16,000
+OK.
+Now there's many answers,
+but give me the most natural
+
+590
+00:40:21,000 --> 00:40:21,670
+answer.
+
+591
+00:40:21,670 --> 00:40:23,000
+Columns one and two.
+
+592
+00:40:23,000 --> 00:40:25,000
+Columns one and two.
+
+593
+00:40:25,000 --> 00:40:27,000
+That's the natural answer.
+
+594
+00:40:27,000 --> 00:40:31,000
+Those are the pivot columns,
+because, I mean,
+
+595
+00:40:31,000 --> 00:40:33,000
+we s- we begin systematically.
+
+596
+00:40:33,000 --> 00:40:37,000
+We look at the first column,
+it's OK.
+
+597
+00:40:37,000 --> 00:40:40,000
+We can put that in the basis.
+
+598
+00:40:40,000 --> 00:40:43,000
+We look at the second column,
+it's OK.
+
+599
+00:40:43,000 --> 00:40:46,000
+We can put that in the basis.
+
+600
+00:40:46,000 --> 00:40:49,000
+The third column we can't put
+in the basis.
+
+601
+00:40:49,000 --> 00:40:52,000
+The fourth column we can't,
+again.
+
+602
+00:40:52,000 --> 00:40:58,000
+So the rank of the matrix is --
+what's the rank of our matrix?
+
+603
+00:40:58,000 --> 00:40:59,000
+Two.
+
+604
+00:40:59,000 --> 00:41:00,030
+Two.
+
+605
+00:41:00,030 --> 00:41:08,000
+And, and now that rank is also
+-- we also have another word.
+
+606
+00:41:08,000 --> 00:41:12,000
+We, we have a great theorem
+here.
+
+607
+00:41:12,000 --> 00:41:15,000
+The rank of A,
+that rank r,
+
+608
+00:41:15,000 --> 00:41:22,000
+is the number of pivot columns
+and it's also -- well,
+
+609
+00:41:22,000 --> 00:41:27,000
+so now please use my new word.
+
+610
+00:41:27,000 --> 00:41:34,000
+This, it's the number two,
+of course, two is the rank of
+
+611
+00:41:34,000 --> 00:41:41,130
+my matrix,
+it's the number of pivot
+
+612
+00:41:41,130 --> 00:41:46,900
+columns, those pivot columns
+form a basis,
+
+613
+00:41:46,900 --> 00:41:50,000
+of course, so what's two?
+
+614
+00:41:50,000 --> 00:41:53,000
+It's the dimension.
+
+615
+00:41:53,000 --> 00:41:59,000
+The rank of A,
+the number of pivot columns,
+
+616
+00:41:59,000 --> 00:42:04,070
+is the dimension of the column
+space.
+
+617
+00:42:04,070 --> 00:42:06,000
+Of course, you say.
+
+618
+00:42:06,000 --> 00:42:08,000
+It had to be.
+
+619
+00:42:08,000 --> 00:42:11,000
+Right.
+
+620
+00:42:11,000 --> 00:42:15,000
+But just watch,
+look for one moment at the,
+
+621
+00:42:15,000 --> 00:42:19,000
+the language,
+the way the English words get
+
+622
+00:42:19,000 --> 00:42:20,000
+involved here.
+
+623
+00:42:20,000 --> 00:42:25,000
+I take the rank of a matrix,
+the rank of a matrix.
+
+624
+00:42:25,000 --> 00:42:31,000
+It's a number of columns and
+it's the dimension of -- not the
+
+625
+00:42:31,000 --> 00:42:37,000
+dimension of the matrix,
+that's what I want to say.
+
+626
+00:42:37,000 --> 00:42:41,000
+It's the dimension of a space,
+a subspace, the column space.
+
+627
+00:42:41,000 --> 00:42:45,000
+Do you see, I don't take the
+dimension of A.
+
+628
+00:42:45,000 --> 00:42:47,000
+That's not what I want.
+
+629
+00:42:47,000 --> 00:42:51,560
+I'm looking for the dimension
+of the column space of A.
+
+630
+00:42:51,560 --> 00:42:56,000
+If you use those words right,
+it shows you've got the idea
+
+631
+00:42:56,000 --> 00:42:56,000
+right.
+Similarly here.
+
+632
+00:42:58,000 --> 00:43:01,000
+I don't talk about the rank of
+a subspace.
+
+633
+00:43:01,000 --> 00:43:03,000
+It's a matrix that has a rank.
+
+634
+00:43:03,000 --> 00:43:05,000
+I talk about the rank of a
+matrix.
+
+635
+00:43:05,000 --> 00:43:09,000
+And the beauty is that these
+definitions just merge so that
+
+636
+00:43:09,000 --> 00:43:13,760
+the rank of a matrix is the
+dimension of its column space.
+
+637
+00:43:13,760 --> 00:43:15,000
+And in this example it's two.
+
+638
+00:43:15,000 --> 00:43:19,000
+And then the further question
+is, what's a basis?
+
+639
+00:43:19,000 --> 00:43:22,000
+And the first two columns are a
+basis.
+
+640
+00:43:22,000 --> 00:43:24,140
+Tell me another basis.
+
+641
+00:43:24,140 --> 00:43:26,000
+Another basis for the columns
+space.
+
+642
+00:43:26,000 --> 00:43:29,000
+You see I just keep hammering
+away.
+
+643
+00:43:29,000 --> 00:43:32,000
+I apologize,
+but it's, I have to be sure you
+
+644
+00:43:32,000 --> 00:43:33,000
+have the idea of basis.
+
+645
+00:43:33,000 --> 00:43:37,000
+Tell me another basis for the
+column space.
+
+646
+00:43:37,000 --> 00:43:42,000
+Well, you could take columns
+one and three.
+
+647
+00:43:42,000 --> 00:43:46,000
+That would be a basis for the
+column space.
+
+648
+00:43:46,000 --> 00:43:50,000
+Or columns two and three would
+be a basis.
+
+649
+00:43:50,000 --> 00:43:53,000
+Or columns two and four.
+
+650
+00:43:53,000 --> 00:44:00,000
+Or tell me another basis that's
+not made out of those columns at
+
+651
+00:44:00,000 --> 00:44:01,000
+all?
+
+652
+00:44:01,000 --> 00:44:05,000
+So -- I guess I'm giving you
+infinitely many possibilities,
+
+653
+00:44:05,000 --> 00:44:07,000
+so I can't expect a unanimous
+answer here.
+
+654
+00:44:07,000 --> 00:44:10,000
+I'll tell you -- but let's look
+at another basis,
+
+655
+00:44:10,000 --> 00:44:11,000
+though.
+
+656
+00:44:11,000 --> 00:44:14,000
+I'll just -- because it's only
+one out of zillions,
+
+657
+00:44:14,000 --> 00:44:18,000
+I'm going to put it down and
+I'm going to erase it.
+
+658
+00:44:18,000 --> 00:44:23,000
+Another basis for the column
+space would be -- let's see.
+
+659
+00:44:23,000 --> 00:44:27,000
+I'll put in some things that
+are not there.
+
+660
+00:44:27,000 --> 00:44:31,000
+Say, oh well,
+just to make it -- my life
+
+661
+00:44:31,000 --> 00:44:33,000
+easy, 2 2 2.
+
+662
+00:44:33,000 --> 00:44:35,000
+That's in the column space.
+
+663
+00:44:35,000 --> 00:44:39,000
+And, that was sort of obvious.
+
+664
+00:44:39,000 --> 00:44:43,000
+Let me take the sum of those,
+say 6 4 6.
+
+665
+00:44:43,000 --> 00:44:47,450
+Or the sum of all of the
+columns, 7 5 7,
+
+666
+00:44:47,450 --> 00:44:48,000
+why not.
+
+667
+00:44:48,000 --> 00:44:50,000
+That's in the column space.
+
+668
+00:44:50,000 --> 00:44:55,000
+Those are independent and I've
+got the number right,
+
+669
+00:44:55,000 --> 00:44:57,000
+I've got two.
+
+670
+00:44:57,000 --> 00:45:00,000
+Actually, this is a key point.
+
+671
+00:45:00,000 --> 00:45:06,040
+If you know the dimension of
+the space you're working with,
+
+672
+00:45:06,040 --> 00:45:13,000
+and we know that this column --
+we know that the dimension,
+
+673
+00:45:13,000 --> 00:45:18,000
+DIM, the dimension of the
+column space is two.
+
+674
+00:45:18,000 --> 00:45:25,550
+If you know the dimension,
+then -- and we have a couple of
+
+675
+00:45:25,550 --> 00:45:32,000
+vectors that are independent,
+they'll automatically be a
+
+676
+00:45:32,000 --> 00:45:32,000
+basis.
+If we've got the number of
+vectors right,
+
+677
+00:45:38,000 --> 00:45:42,000
+two vectors in this case,
+then if they're independent,
+
+678
+00:45:42,000 --> 00:45:45,000
+they can't help but span the
+space.
+
+679
+00:45:45,000 --> 00:45:50,380
+Because if they didn't span the
+space, there'd be a third guy to
+
+680
+00:45:50,380 --> 00:45:54,000
+help span the space,
+but it couldn't be independent.
+
+681
+00:45:54,000 --> 00:45:58,250
+So, it just has to be
+independent if we've got the
+
+682
+00:45:58,250 --> 00:46:00,000
+numbers right.
+
+683
+00:46:00,000 --> 00:46:01,000
+And they span.
+
+684
+00:46:01,000 --> 00:46:01,000
+OK.
+Very good.
+
+685
+00:46:02,000 --> 00:46:05,000
+So you got the dimension of a
+space.
+
+686
+00:46:05,000 --> 00:46:09,000
+So this was another basis that
+I just invented.
+
+687
+00:46:09,000 --> 00:46:09,000
+OK.
+Now, now I get to ask about the
+null space.
+
+688
+00:46:13,000 --> 00:46:17,820
+What's the dimension of the
+null space?
+
+689
+00:46:17,820 --> 00:46:22,000
+So we, we got a great fact
+there, the dimension of the
+
+690
+00:46:22,000 --> 00:46:25,000
+column space is the rank.
+
+691
+00:46:25,000 --> 00:46:29,340
+Now I want to ask you about the
+null space.
+
+692
+00:46:29,340 --> 00:46:35,000
+That's the other part of the
+lecture, and it'll go on to the
+
+693
+00:46:35,000 --> 00:46:36,000
+next lecture.
+
+694
+00:46:36,000 --> 00:46:36,540
+OK.
+
+695
+00:46:36,540 --> 00:46:41,000
+So we know the dimension of the
+column space is two,
+
+696
+00:46:41,000 --> 00:46:43,000
+the rank.
+
+697
+00:46:43,000 --> 00:46:45,000
+What about the null space?
+
+698
+00:46:45,000 --> 00:46:48,000
+This is a vector in the null
+space.
+
+699
+00:46:48,000 --> 00:46:51,000
+Are there other vectors in the
+null space?
+
+700
+00:46:51,000 --> 00:46:51,000
+Yes or no?
+Yes.
+
+701
+00:46:52,000 --> 00:46:55,000
+So this isn't a basis because
+it's doesn't span,
+
+702
+00:46:55,000 --> 00:46:56,000
+right?
+
+703
+00:46:56,000 --> 00:47:01,000
+There's more in the null space
+than we've got so far.
+
+704
+00:47:01,000 --> 00:47:03,000
+I need another vector at least.
+
+705
+00:47:03,000 --> 00:47:06,000
+So tell me another vector in
+the null space.
+
+706
+00:47:06,000 --> 00:47:10,000
+Well, the natural choice,
+the choice you naturally think
+
+707
+00:47:10,000 --> 00:47:14,000
+of is I'm going on to the fourth
+column, I'm letting that free
+
+708
+00:47:14,000 --> 00:47:18,000
+variable be a one,
+and that free variable be a
+
+709
+00:47:18,000 --> 00:47:22,000
+zero, and I'm asking is that
+fourth column a combination of
+
+710
+00:47:22,000 --> 00:47:24,000
+my pivot columns?
+
+711
+00:47:24,000 --> 00:47:25,000
+Yes, it is.
+
+712
+00:47:25,000 --> 00:47:28,000
+And it's -- that will do.
+
+713
+00:47:28,000 --> 00:47:34,000
+So what I've written there are
+actually the two special
+
+714
+00:47:34,000 --> 00:47:36,000
+solutions, right?
+
+715
+00:47:36,000 --> 00:47:42,000
+I took the two free variables,
+free and free.
+
+716
+00:47:42,000 --> 00:00:01,000
+I gave them the values 1 0 or 0
+
+717
+00:00:01,000 --> 00:47:46,000
+
+
+718
+00:47:46,000 --> 00:47:48,000
+I figured out the rest.
+
+719
+00:47:48,000 --> 00:47:52,000
+So do you see,
+let me just say it in words.
+
+720
+00:47:52,000 --> 00:47:55,000
+This vector,
+these vectors in the null space
+
+721
+00:47:55,000 --> 00:47:58,000
+are telling me,
+they're telling me the
+
+722
+00:47:58,000 --> 00:48:01,000
+combinations of the columns that
+give zero.
+
+723
+00:48:01,000 --> 00:48:07,000
+They're telling me in what way
+the, the columns are dependent.
+
+724
+00:48:07,000 --> 00:48:10,000
+That's what the null space is
+doing.
+
+725
+00:48:10,000 --> 00:48:11,000
+Have I got enough now?
+
+726
+00:48:11,000 --> 00:48:13,000
+And what's the null space now?
+
+727
+00:48:13,000 --> 00:48:16,350
+We have to think about the null
+space.
+
+728
+00:48:16,350 --> 00:48:19,000
+These are two vectors in the
+null space.
+
+729
+00:48:19,000 --> 00:48:20,460
+They're independent.
+
+730
+00:48:20,460 --> 00:48:23,000
+Are they a basis for the null
+space?
+
+731
+00:48:23,000 --> 00:48:26,350
+What's the dimension of the
+null space?
+
+732
+00:48:26,350 --> 00:48:30,000
+You see that those questions
+just keep coming up all the
+
+733
+00:48:30,000 --> 00:48:30,000
+time.
+Are they a basis for the null
+space?
+
+734
+00:48:33,000 --> 00:48:37,000
+You can tell me the answer even
+though we haven't written out a
+
+735
+00:48:37,000 --> 00:48:38,000
+proof of that.
+
+736
+00:48:38,000 --> 00:48:39,000
+Can you?
+
+737
+00:48:39,000 --> 00:48:40,000
+Yes or no?
+
+738
+00:48:40,000 --> 00:48:45,000
+Do these two special solutions
+form a basis for the null space?
+
+739
+00:48:45,000 --> 00:48:48,000
+In other words,
+does the null space consist of
+
+740
+00:48:48,000 --> 00:48:50,000
+all combinations of those two
+guys?
+
+741
+00:48:50,000 --> 00:48:51,000
+Yes or no?
+
+742
+00:48:51,000 --> 00:48:51,870
+Yes.
+
+743
+00:48:51,870 --> 00:48:52,000
+Yes.
+
+744
+00:48:52,000 --> 00:48:54,570
+The null space is two
+dimensional.
+
+745
+00:48:54,570 --> 00:48:57,000
+The null space,
+the dimension of the null
+
+746
+00:48:57,000 --> 00:49:01,000
+space, is the number of free
+variables.
+
+747
+00:49:01,000 --> 00:49:08,000
+So the dimension of the null
+space is the number of free
+
+748
+00:49:08,000 --> 00:49:09,000
+variables.
+
+749
+00:49:09,000 --> 00:49:15,000
+And at the last second,
+give me the formula.
+
+750
+00:49:15,000 --> 00:49:20,000
+This is then the key formula
+that we know.
+
+751
+00:49:20,000 --> 00:49:26,000
+How many free variables are
+there in terms of R,
+
+752
+00:49:26,000 --> 00:49:31,000
+the rank, m --
+the number of rows,
+
+753
+00:49:31,000 --> 00:49:34,000
+n, the number of columns?
+
+754
+00:49:34,000 --> 00:49:36,090
+What do we get?
+
+755
+00:49:36,090 --> 00:49:40,000
+We have n columns,
+r of them are pivot columns,
+
+756
+00:49:40,000 --> 00:49:46,000
+so n-r is the number of free
+columns, free variables.
+
+757
+00:49:46,000 --> 00:49:50,000
+And now it's the dimension of
+the null space.
+
+758
+00:49:50,000 --> 00:49:52,000
+OK.
+
+759
+00:49:52,000 --> 00:49:53,600
+That's great.
+
+760
+00:49:53,600 --> 00:49:57,000
+That's the key spaces,
+their bases,
+
+761
+00:49:57,000 --> 00:49:59,000
+and their dimensions.
+
+762
+00:49:59,000 --> 00:50:02,000
+Thanks.

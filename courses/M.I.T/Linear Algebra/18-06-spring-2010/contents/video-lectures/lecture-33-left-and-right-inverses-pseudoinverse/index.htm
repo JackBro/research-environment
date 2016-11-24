@@ -1,0 +1,1159 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 33: Left and right inverses; pseudoinverse | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 33: Left and right inverses; pseudoinverse" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 33: Left and right inverses; pseudoinverse" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 33: Left and right inverses; pseudoinverse
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 33: Left and right inverses; pseudoinverse
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/Go2aLo7ZOlU.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/33.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/Go2aLo7ZOlU', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse', 'https://img.youtube.com/vi/Go2aLo7ZOlU/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/Go2aLo7ZOlU.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703588, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/Go2aLo7ZOlU.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="1000">Yes, OK, four, three, two, one,</span> <span m="3000">OK, I see you guys are in a happy mood.</span> </p>
+<p><span m="5000">I don't know if that means 18.06 is ending,</span> <span m="8000">or, the quiz was good.</span> </p>
+<p><span m="9000">Uh, my birthday conference was going on at the time of the</span> <span m="13000">quiz, and in the conference, of course, everybody had to say</span> <span m="17000">nice things, but I was wondering, what would my 18.06</span> <span m="21000">class be saying, because it was at the exactly</span> <span m="24000">the same time.</span> </p>
+<p><span m="26000">But, what I know from the grades so far,</span> <span m="31000">they're basically close to, and maybe slightly above the</span> <span m="39000">grades that you got on quiz two.</span> </p>
+<p><span m="44000">So, very satisfactory.</span> </p>
+<p><span m="48000">And, then we have a final exam coming up, and today's lecture,</span> <span m="55000">as I told you by email, will be a first step in the</span> <span m="60820">review, and then on Wednesday I'll do all I can in reviewing</span> <span m="67610">the whole course.</span> </p>
+<p><span m="69000">So my topic today is -- actually, this is a lecture I</span> <span m="75000">have never given before in this way, and it will -- well,</span> <span m="79000">four subspaces, that's certainly fundamental,</span> <span m="83000">and you know that, so I want to speak about</span> <span m="86860">left-inverses and right-inverses and then something called</span> <span m="91000">pseudo-inverses.</span> </p>
+<p><span m="93000">And pseudo-inverses, let me say right away,</span> <span m="99000">that comes in near the end of chapter seven,</span> <span m="105000">and that would not be expected on the final.</span> </p>
+<p><span m="112000">But you'll see that what I'm talking about is really the</span> <span m="116000">basic stuff that, for an m-by-n matrix of rank r,</span> <span m="119000">we're going back to the most fundamental picture in linear</span> </p>
+<p><span m="123000">algebra. Nobody could forget that picture, right?</span> </p>
+<p><span m="126000">When you're my age, even, you'll remember the row</span> <span m="129919">space, and the null space.</span> </p>
+<p><span m="132000">Orthogonal complements over there, the column space and the</span> <span m="138000">null space of A transpose column, orthogonal complements</span> <span m="143000">over here.</span> </p>
+<p><span m="144000">And I want to speak about inverses.</span> </p>
+<p><span m="147900">OK.</span> </p>
+<p><span m="148000">And I want to identify the different possibilities.</span> </p>
+<p><span m="154000">So first of all, when does a matrix have a just</span> <span m="158000">a perfect inverse, two-sided, you know,</span> <span m="162000">so the two-sided inverse is what we just call inverse,</span> <span m="167000">right?</span> </p>
+<p><span m="168000">And, so that means that there's a matrix that produces the</span> <span m="173000">identity, whether we write it on the left or on the right.</span> </p>
+<p><span m="180000">And just tell me, how are the numbers r,</span> <span m="183000">the rank, n the number of columns, m the number of rows,</span> <span m="187610">how are those numbers related when we have an invertible</span> <span m="191000">matrix?</span> </p>
+<p><span m="192000">So this is the matrix which was -- chapter two was all about</span> <span m="197000">matrices like this, the beginning of the course,</span> <span m="200000">what was the relation of th- of r, m, and n, for the nice case?</span> </p>
+<p><span m="206000">They're all the same, all equal.</span> </p>
+<p><span m="212000">So this is the case when r=m=n.</span> </p>
+<p><span m="217000">Square matrix, full rank, period,</span> <span m="223230">just -- so I'll use the words full rank.</span> </p>
+<p><span m="231000">OK, good.</span> </p>
+<p><span m="232040">Everybody knows that.</span> </p>
+<p><span m="233000">OK.</span> </p>
+<p><span m="234000">Then chapter three.</span> </p>
+<p><span m="235000">We began to deal with matrices that were not of full rank,</span> <span m="240000">and they could have any rank, and we learned what the rank</span> </p>
+<p><span m="245000">was. And then we focused, if you remember on some cases</span> <span m="249960">like full column rank.</span> </p>
+<p><span m="252000">Now, can you remember what was the deal with full column rank?</span> </p>
+<p><span m="259000">So, now, I think this is the case in which we have a</span> <span m="264000">left-inverse, and I'll try to find it.</span> </p>
+<p><span m="268000">So we have a -- what was the situation there?</span> </p>
+<p><span m="274000">It's the case of full column rank, and that means -- what</span> <span m="280000">does that mean about r?</span> </p>
+<p><span m="282000">It equals, what's the deal with r, now, if we have full column</span> <span m="288760">rank, I mean the columns are independent, but maybe not the</span> <span m="294000">rows.</span> </p>
+<p><span m="295000">So what is r equal to in this case?</span> </p>
+<p><span m="299000">n. Thanks. n.</span> </p>
+<p><span m="300000">r=n.</span> </p>
+<p><span m="301000">The n columns are independent, but probably,</span> <span m="305820">we have more rows.</span> </p>
+<p><span m="307000">What's the picture, and then what's the null space</span> <span m="312000">for this?</span> </p>
+<p><span m="313000">So the n columns are independent, what's the null</span> <span m="318000">space in this case?</span> </p>
+<p><span m="320000">So of course, you know what I'm asking.</span> </p>
+<p><span m="326000">You're saying, why is this guy asking</span> <span m="329000">something, I know that-- I think about it in my sleep,</span> </p>
+<p><span m="335000">right? So the null space of this matrix if the rank is n,</span> <span m="340000">the null space is what vectors are in the null space?</span> </p>
+<p><span m="345000">Just the zero vector.</span> </p>
+<p><span m="347000">Right?</span> </p>
+<p><span m="348000">The columns are independent.</span> </p>
+<p><span m="352000">Independent columns.</span> </p>
+<p><span m="355000">No combination of the columns gives zero except that one.</span> </p>
+<p><span m="363000">And what's my picture over, -- let me redraw my picture --</span> <span m="372000">the row space is everything.</span> </p>
+<p><span m="377000">No. Is that right?</span> </p>
+<p><span m="378000">Let's see, I often get these turned around,</span> <span m="383000">right?</span> </p>
+<p><span m="383880">So what's the deal?</span> </p>
+<p><span m="385000">The columns are independent, right?</span> </p>
+<p><span m="389000">So the rank should be the full number of columns,</span> <span m="394000">so what does that tell us?</span> </p>
+<p><span m="398000">There's no null space, right.</span> </p>
+<p><span m="400000">OK.</span> </p>
+<p><span m="401180">The row space is the whole thing.</span> </p>
+<p><span m="404000">Yes, I won't even draw the picture.</span> </p>
+<p><span m="407000">And what was the deal with -- and these were very important in</span> <span m="412000">least squares problems because -- So, what more is true here?</span> </p>
+<p><span m="419000">If we have full column rank, the null space is zero,</span> <span m="423000">we have independent columns, the unique -- so we have zero</span> <span m="427000">or one solutions to Ax=b.</span> </p>
+<p><span m="429000">There may not be any solutions, but if there's a solution,</span> <span m="434000">there's only one solution because other solutions are</span> <span m="438390">found by adding on stuff from the null space,</span> <span m="441840">and there's nobody there to add on.</span> </p>
+<p><span m="445000">So the particular solution is the solution,</span> <span m="452000">if there is a particular solution.</span> </p>
+<p><span m="457000">But of course, the rows might not be - are</span> <span m="463000">probably not independent -- and therefore,</span> <span m="469000">so right-hand sides won't end up with a zero equal zero after</span> <span m="474000">elimination, so sometimes we may have no solution,</span> <span m="478000">or one solution.</span> </p>
+<p><span m="479000">OK. And what I want to say is that for this matrix A -- oh,</span> <span m="483000">yes, tell me something about A transpose A in this case.</span> </p>
+<p><span m="489000">So this whole part of the board, now, is devoted to this</span> <span m="492000">case.</span> </p>
+<p><span m="493000">What's the deal with A transpose A?</span> </p>
+<p><span m="495000">I've emphasized over and over how important that combination</span> <span m="499000">is, for a rectangular matrix, A transpose A is the good thing</span> <span m="503000">to look at, and if the rank is n, if the null space has only</span> <span m="507000">zero in it, then the same is true of A transpose A.</span> </p>
+<p><span m="511000">That's the beautiful fact, that if the rank of A is n,</span> <span m="519590">well, we know this will be an n by n symmetric matrix,</span> <span m="527000">and it will be full rank.</span> </p>
+<p><span m="532320">So this is invertible.</span> </p>
+<p><span m="534000">This matrix is invertible.</span> </p>
+<p><span m="536000">That matrix is invertible.</span> </p>
+<p><span m="539000">And now I want to show you that A itself has a one-sided</span> </p>
+<p><span m="544000">inverse. Here it is.</span> </p>
+<p><span m="545000">The inverse of that, which exists,</span> <span m="548850">times A transpose, there is a one-sided -- shall I</span> <span m="553000">call it A inverse? -- left of the matrix A.</span> </p>
+<p><span m="558000">Why do I say that?</span> </p>
+<p><span m="560000">Because if I multiply this guy by A, what do I get?</span> </p>
+<p><span m="564000">What does that multiplication give?</span> </p>
+<p><span m="568000">Of course, you know it instantly, because I just put</span> <span m="573000">the parentheses there, I have A transpose A inverse</span> <span m="577870">times A transpose A so, of course, it's the identity.</span> </p>
+<p><span m="583000">So it's a left inverse.</span> </p>
+<p><span m="586000">And this was the totally crucial case for least squares,</span> <span m="591000">because you remember that least squares, the central equation of</span> <span m="597000">least squares had this matrix, A transpose A,</span> <span m="601200">as its coefficient matrix.</span> </p>
+<p><span m="604000">And in the case of full column rank, that matrix is invertible,</span> <span m="610300">and we're go.</span> </p>
+<p><span m="611000">So that's the case where there is a left-inverse.</span> </p>
+<p><span m="616130">So A does whatever it does, we can find a matrix that</span> <span m="621100">brings it back to the identity.</span> </p>
+<p><span m="624000">Now, is it true that, in the other order -- so A</span> <span m="631000">inverse left times A is the identity.</span> </p>
+<p><span m="636000">Right?</span> </p>
+<p><span m="637470">This matrix is m by n.</span> </p>
+<p><span m="640000">This matrix is n by m.</span> </p>
+<p><span m="643720">The identity matrix is n by n.</span> </p>
+<p><span m="649000">All good.</span> </p>
+<p><span m="650000">All good if you're n.</span> </p>
+<p><span m="652000">But if you try to put that matrix on the other side,</span> <span m="657000">it would fail.</span> </p>
+<p><span m="659000">If the full column rank -- if this is smaller than m,</span> <span m="664500">the case where they're equals is the beautiful case,</span> <span m="669000">but that's all set.</span> </p>
+<p><span m="672000">Now, we're looking at the case where the columns are</span> <span m="676000">independent but the rows are not.</span> </p>
+<p><span m="679000">So this is invertible, but what matrix is not</span> </p>
+<p><span m="683000">invertible? A A transpose is bad for this case.</span> </p>
+<p><span m="686620">A transpose A is good.</span> </p>
+<p><span m="688000">So we can multiply on the left, everything good,</span> <span m="692000">we get the left inverse.</span> </p>
+<p><span m="695000">But it would not be a two-sided inverse.</span> </p>
+<p><span m="700000">A rectangular matrix can't have a two-sided inverse,</span> <span m="708000">because there's got to be some null space, right?</span> </p>
+<p><span m="716000">If I have a matrix that's rectangular, then either that</span> <span m="719000">matrix or its transpose has some null space, because if n and m</span> <span m="723000">are different, then there's going to be some</span> <span m="726000">free variables around, and we'll have some null space</span> <span m="729000">in that direction.</span> </p>
+<p><span m="730000">OK, tell me the corresponding picture for the opposite case.</span> </p>
+<p><span m="734000">So now I'm going to ask you about right-inverses.</span> </p>
+<p><span m="738150">A right-inverse.</span> </p>
+<p><span m="740000">And you can fill this all out, this is going to be the case of</span> <span m="748000">full row rank.</span> </p>
+<p><span m="750000">And then r is equal to m, now, the m rows are</span> <span m="757000">independent, but the columns are not.</span> </p>
+<p><span m="762000">So what's the deal on that?</span> </p>
+<p><span m="767000">Well, just exactly the flip of this one.</span> </p>
+<p><span m="771000">The null space of A transpose contains only zero,</span> <span m="777000">because there are no combinations of the rows that</span> <span m="783000">give the zero row.</span> </p>
+<p><span m="785000">We have independent rows.</span> </p>
+<p><span m="788370">And in a minute, I'll give an example of all</span> <span m="793000">these.</span> </p>
+<p><span m="795000">So, how many solutions to Ax=b in this case?</span> </p>
+<p><span m="800250">The rows are independent.</span> </p>
+<p><span m="803050">So we can always solve Ax=b.</span> </p>
+<p><span m="806000">Whenever elimination never produces a zero row,</span> <span m="811000">so we never get into that zero equal one problem,</span> <span m="816000">so Ax=b always has a solution, but too many.</span> </p>
+<p><span m="822000">So there will be some null space, the null space of A --</span> <span m="828000">what will be the dimension of A's null space?</span> </p>
+<p><span m="833190">How many free variables have we got?</span> </p>
+<p><span m="836000">How many special solutions in that null space have we got?</span> </p>
+<p><span m="843000">So how many free variables in this setup?</span> </p>
+<p><span m="848000">We've got n columns, so n variables,</span> <span m="851000">and this tells us how many are pivot variables,</span> <span m="856000">that tells us how many pivots there are, so there are n-m free</span> <span m="862000">variables.</span> </p>
+<p><span m="864000">So there are infinitely many solutions to Ax=b.</span> </p>
+<p><span m="870000">We have n-m free variables in this case.</span> </p>
+<p><span m="874000">OK. Now I wanted to ask about this idea of a right-inverse.</span> </p>
+<p><span m="879000">OK.</span> </p>
+<p><span m="880100">So I'm going to have a matrix A, my matrix A,</span> <span m="884000">and now there's going to be some inverse on the right that</span> <span m="890000">will give the identity matrix.</span> </p>
+<p><span m="893420">So it will be A times A inverse on the right,</span> <span m="897000">will be I.</span> </p>
+<p><span m="900000">And can you tell me what, just by comparing with what we</span> <span m="906000">had up there, what will be the right-inverse,</span> <span m="911000">we even have a formula for it.</span> </p>
+<p><span m="915000">There will be other -- actually, there are other</span> <span m="920000">left-inverses, that's our favorite.</span> </p>
+<p><span m="925000">There will be other right-inverses,</span> <span m="929000">but tell me our favorite here, what's the nice right-inverse?</span> </p>
+<p><span m="934000">The nice right-inverse will be, well, there we had A transpose</span> <span m="940000">A was good, now it will be A A transpose that's good.</span> </p>
+<p><span m="946000">The good matrix, the good right -- the thing we</span> <span m="951000">can invert is A A transpose, so now if I just do it that</span> <span m="957000">way, there sits the right-inverse.</span> </p>
+<p><span m="961000">You see how completely parallel it is to the one above?</span> </p>
+<p><span m="966000">Right.</span> </p>
+<p><span m="967000">So that's the right-inverse.</span> </p>
+<p><span m="971000">So that's the case when there is -- In terms of this picture,</span> <span m="977000">tell me what the null spaces are like so far for these three</span> <span m="983000">cases.</span> </p>
+<p><span m="984480">What about case one, where we had a two-sided</span> <span m="988000">inverse, full rank, everything great.</span> </p>
+<p><span m="992000">The null spaces were, like, gone, right?</span> </p>
+<p><span m="997000">The null spaces were just the zero vectors.</span> </p>
+<p><span m="1003000">Then I took case two, this null space was gone.</span> </p>
+<p><span m="1008000">Case three, this null space was gone, and then case four is,</span> <span m="1016000">like, the most general case when this picture is all there</span> <span m="1024000">-- when all the null spaces -- this has dimension r,</span> <span m="1031000">of course, this has dimension n-r, this has dimension r,</span> <span m="1038000">this has dimension m-r, and the final case will be when</span> <span m="1046000">r is smaller than m and n.</span> </p>
+<p><span m="1050000">But can I just, before I leave here look a</span> <span m="1054000">little more at this one?</span> </p>
+<p><span m="1056000">At this case of full column rank?</span> </p>
+<p><span m="1059000">So A inverse on the left, it has this left-inverse to</span> <span m="1063000">give the identity.</span> </p>
+<p><span m="1065000">I said if we multiply it in the other order, we wouldn't get the</span> <span m="1071000">identity.</span> </p>
+<p><span m="1072000">But then I just realized that I should ask you,</span> <span m="1078000">what do we get?</span> </p>
+<p><span m="1079000">So if I put them in the other order -- if I continue this down</span> <span m="1086000">below, but I write A times A inverse left -- so there's A</span> <span m="1093000">times the left-inverse, but it's not on the left any</span> <span m="1098830">more.</span> </p>
+<p><span m="1100000">So it's not going to come out perfectly.</span> </p>
+<p><span m="1107380">But everybody in this room ought to recognize that matrix,</span> <span m="1117000">right?</span> </p>
+<p><span m="1118000">Let's see, is that the guy we know?</span> </p>
+<p><span m="1124000">Am I OK, here?</span> </p>
+<p><span m="1126000">What is that matrix?</span> </p>
+<p><span m="1130000">P.</span> </p>
+<p><span m="1132000">Thanks.</span> </p>
+<p><span m="1133000">P. That matrix -- it's a projection.</span> </p>
+<p><span m="1137000">It's the projection onto the column space.</span> </p>
+<p><span m="1141000">It's trying to be the identity matrix, right?</span> </p>
+<p><span m="1146000">A projection matrix tries to be the identity matrix,</span> <span m="1152000">but you've given it, an impossible job.</span> </p>
+<p><span m="1158000">So it's the identity matrix where it can be,</span> <span m="1161000">and elsewhere, it's the zero matrix.</span> </p>
+<p><span m="1164000">So this is P, right.</span> </p>
+<p><span m="1166000">A projection onto the column space.</span> </p>
+<p><span m="1169000">And if I asked you this one, and put these in the opposite</span> </p>
+<p><span m="1169390">OK.</span> <span m="1174000">order -- so this came from up here.</span> </p>
+<p><span m="1178000">And similarly, if I try to put the right</span> <span m="1181000">inverse on the left -- so that, like, came from above.</span> </p>
+<p><span m="1184000">This, coming from this side, what happens if I try to put</span> <span m="1188000">the right inverse on the left?</span> </p>
+<p><span m="1190000">Then I would have A transpose A, A transpose inverse A,</span> <span m="1194000">if this matrix is now on the left, what do you figure that</span> <span m="1198000">matrix is?</span> </p>
+<p><span m="1199000">It's going to be a projection, too, right?</span> </p>
+<p><span m="1205000">It looks very much like this guy, except the only difference</span> <span m="1213060">is, A and A transpose have been reversed.</span> </p>
+<p><span m="1218000">So this is a projection, this is another projection,</span> <span m="1225000">onto the row space.</span> </p>
+<p><span m="1228000">Again, it's trying to be the identity, but there's only so</span> <span m="1234000">much the matrix can do.</span> </p>
+<p><span m="1237000">And this is the projection onto the column space.</span> </p>
+<p><span m="1242000">So let me now go back to the main picture and tell you about</span> <span m="1248000">the general case, the pseudo-inverse.</span> </p>
+<p><span m="1253000">These are cases we know.</span> </p>
+<p><span m="1256000">So this was important review.</span> </p>
+<p><span m="1259180">You've got to know the business about these ranks,</span> <span m="1264000">and the free variables -- really, this is linear algebra</span> <span m="1270000">coming together.</span> </p>
+<p><span m="1271000">And, you know, one nice thing about teaching</span> <span m="1276000">18.06,</span> <span m="1277000">It's not trivial.</span> </p>
+<p><span m="1278000">But it's -- I don't know, somehow, it's nice when it</span> <span m="1282000">comes out right.</span> </p>
+<p><span m="1283000">I mean -- well, I shouldn't say anything bad</span> <span m="1285000">about calculus, but I will.</span> </p>
+<p><span m="1287000">I mean, like, you know, you have formulas for</span> <span m="1290000">surface area, and other awful things and,</span> <span m="1292000">you know, they do their best in calculus, but it's not elegant.</span> </p>
+<p><span m="1297700">And, linear algebra just is -- well, you know,</span> <span m="1304000">linear algebra is about the nice part of calculus,</span> <span m="1312000">where everything's, like, flat, and,</span> <span m="1317000">the formulas come out right.</span> </p>
+<p><span m="1323080">And you can go into high dimensions where,</span> <span m="1325000">in calculus, you're trying to visualize</span> <span m="1327000">these things, well, two or three dimensions</span> <span m="1329480">is kind of the limit.</span> </p>
+<p><span m="1330590">But here, we don't -- you know, I've stopped doing two-by-twos,</span> <span m="1333000">I'm just talking about the general case.</span> </p>
+<p><span m="1336000">OK, now I really will speak about the general case here.</span> </p>
+<p><span m="1339000">What could be the inverse -- what's a kind of reasonable</span> <span m="1342000">inverse for a matrix for the completely general matrix where</span> <span m="1345000">there's a rank r, but it's smaller than n,</span> <span m="1348000">so there's some null space left, and it's smaller than m,</span> <span m="1351000">so a transpose has some null space, and it's those null</span> <span m="1354000">spaces that are screwing up inverses, right?</span> </p>
+<p><span m="1357000">Because if a matrix takes a vector to zero,</span> <span m="1366000">well, there's no way an inverse can, like, bring it back to</span> <span m="1379000">life.</span> </p>
+<p><span m="1382000">My topic is now the pseudo-inverse,</span> <span m="1384490">and let's just by a picture, see what's the best inverse we</span> <span m="1388000">could have?</span> </p>
+<p><span m="1389000">So, here's a vector x in the row space.</span> </p>
+<p><span m="1392270">I multiply by A.</span> </p>
+<p><span m="1393000">Now, the one thing everybody knows is you take a vector,</span> <span m="1397000">you multiply by A, and you get an output,</span> <span m="1400000">and where is that output?</span> </p>
+<p><span m="1403000">Where is Ax?</span> </p>
+<p><span m="1404000">Always in the column space, right?</span> </p>
+<p><span m="1409000">Ax is a combination of the columns.</span> </p>
+<p><span m="1413000">So Ax is somewhere here.</span> </p>
+<p><span m="1417000">So I could take all the vectors in the row space.</span> </p>
+<p><span m="1423000">I could multiply them all by A.</span> </p>
+<p><span m="1429000">I would get a bunch of vectors in the column space and what I</span> <span m="1435000">think is, I'd get all the vectors in the column space just</span> <span m="1440560">right.</span> </p>
+<p><span m="1441000">I think that this connection between an x in the row space</span> <span m="1446000">and an Ax in the column space, this is one-to-one.</span> </p>
+<p><span m="1452000">We got a chance, because they have the same</span> </p>
+<p><span m="1455000">dimension. That's an r-dimensional space, and that's an r-dimensional</span> <span m="1459000">space.</span> </p>
+<p><span m="1460000">And somehow, the matrix A -- it's got these</span> <span m="1463000">null spaces hanging around, where it's knocking vectors to</span> </p>
+<p><span m="1467000">And then it's got all the vectors in between,</span> <span m="1467390">zero.</span> <span m="1470000">which is almost all vectors.</span> </p>
+<p><span m="1473000">Almost all vectors have a row space component and a null space</span> </p>
+<p><span m="1477000">component. And it's killing the null space component.</span> </p>
+<p><span m="1479000">But if I look at the vectors that are in the row space,</span> <span m="1482000">with no null space component, just in the row space,</span> <span m="1485000">then they all go into the column space,</span> <span m="1487000">so if I put another vector, let's say, y,</span> <span m="1489000">in the row space, I positive that wherever Ay is,</span> <span m="1492000">it won't hit Ax.</span> </p>
+<p><span m="1494000">Do you see what I'm saying?</span> </p>
+<p><span m="1499000">Let's see why.</span> </p>
+<p><span m="1502000">All right.</span> </p>
+<p><span m="1505000">So here's what I said.</span> </p>
+<p><span m="1509000">If x and y are in the row space, then A x is not the same</span> <span m="1522000">as A y.</span> </p>
+<p><span m="1525000">They're both in the column space, of course,</span> <span m="1529000">but they're different.</span> </p>
+<p><span m="1531000">That would be a perfect question on a final exam,</span> <span m="1536000">because that's what I'm teaching you in that material of</span> <span m="1542000">chapter three and chapter four, especially chapter three.</span> </p>
+<p><span m="1548000">If x and y are in the row space, then Ax is different from</span> <span m="1554000">Ay.</span> </p>
+<p><span m="1555000">So what this means -- and we'll see why -- is that,</span> <span m="1560000">in words, from the row space to the column space,</span> <span m="1564000">A is perfect, it's an invertible matrix.</span> </p>
+<p><span m="1568000">If we, like, limited it to those spaces.</span> </p>
+<p><span m="1571000">And then, its inverse will be what I'll call the</span> <span m="1576000">pseudo-inverse.</span> </p>
+<p><span m="1578000">So that's that the pseudo-inverse is.</span> </p>
+<p><span m="1580000">It's the inverse -- so A goes this way, from x to y -- sorry,</span> <span m="1584000">x to A x, from y to A y, that's A, going that way.</span> </p>
+<p><span m="1587000">Then in the other direction, anything in the column space</span> <span m="1591000">comes from somebody in the row space, and the reverse there is</span> <span m="1595000">what I'll call the pseudo-inverse,</span> <span m="1597000">and the accepted notation is A plus.</span> </p>
+<p><span m="1600000">So y will be A plus x.</span> </p>
+<p><span m="1605000">I'm sorry.</span> </p>
+<p><span m="1607000">No, y will be A plus times whatever it started with,</span> <span m="1617000">A y.</span> </p>
+<p><span m="1618000">Do you see my picture there?</span> </p>
+<p><span m="1625000">Same, of course, for x and A x.</span> </p>
+<p><span m="1627000">This way, A does it, the other way is the</span> <span m="1630000">pseudo-inverse, and the pseudo-inverse just</span> <span m="1633000">kills this stuff, and the matrix just kills this</span> </p>
+<p><span m="1636000">stuff. So everything that's really serious here is going on in the</span> <span m="1640000">row space and the column space, and now, tell me</span> <span m="1645000">-- this is the fundamental fact, that between those two</span> <span m="1652000">r-dimensional spaces, our matrix is perfect.</span> </p>
+<p><span m="1659000">Why? Suppose they weren't.</span> </p>
+<p><span m="1662000">Why do I get into trouble?</span> </p>
+<p><span m="1666680">Suppose -- so, proof.</span> </p>
+<p><span m="1670000">I haven't written down proof very much, but I'm going to use</span> <span m="1677000">that word once.</span> </p>
+<p><span m="1679000">Suppose they were the same.</span> </p>
+<p><span m="1682000">Suppose these are supposed to be two different vectors.</span> </p>
+<p><span m="1688000">Maybe I'd better make the statement correctly.</span> </p>
+<p><span m="1694000">If x and y are different vectors in the row space --</span> <span m="1697000">maybe I'll better put if x is different from y,</span> <span m="1700000">both in the row space -- so I'm starting with two different</span> <span m="1704000">vectors in the row space, I'm multiplying by A -- so</span> <span m="1707950">these guys are in the column space, everybody knows that,</span> <span m="1711000">and the point is, they're different over there.</span> </p>
+<p><span m="1715000">So, suppose they weren't.</span> </p>
+<p><span m="1718000">Suppose A x=A y.</span> </p>
+<p><span m="1720000">Suppose, well, that's the same as saying</span> <span m="1725000">A(x-y) is zero.</span> </p>
+<p><span m="1727000">So what?</span> </p>
+<p><span m="1729000">So, what do I know now about (x-y), what do I know about this</span> <span m="1736000">vector?</span> </p>
+<p><span m="1737000">Well, I can see right away, what space is it in?</span> </p>
+<p><span m="1745000">It's sitting in the null space, right?</span> </p>
+<p><span m="1749000">So it's in the null space.</span> </p>
+<p><span m="1752000">But what else do I know about it?</span> </p>
+<p><span m="1756000">Here it was x in the row space, y in the row space,</span> <span m="1761000">what about x-y?</span> </p>
+<p><span m="1763000">It's also in the row space, right?</span> </p>
+<p><span m="1768000">Heck, that thing is a vector space, and if the vector space</span> <span m="1772000">is anything at all, if x is in the row space,</span> <span m="1775000">and y is in the row space, then the difference is also,</span> <span m="1779000">so it's also in the row space.</span> </p>
+<p><span m="1781000">So what?</span> </p>
+<p><span m="1782070">Now I've got a vector x-y that's in the null space,</span> <span m="1785660">and that's also in the row space, so what vector is it?</span> </p>
+<p><span m="1790400">It's the zero vector.</span> </p>
+<p><span m="1792000">So I would conclude from that that x-y had to be the zero</span> <span m="1797000">vector, x-y, so, in other words,</span> <span m="1800000">if I start from two different vectors, I get two different</span> <span m="1805000">vectors.</span> </p>
+<p><span m="1806000">If these vectors are the same, then those vectors had to be</span> <span m="1811000">the same.</span> </p>
+<p><span m="1813000">That's like the algebra proof, which we understand completely</span> <span m="1818000">because we really understand these subspaces of what I said</span> <span m="1823000">in words, that a matrix A is really a nice,</span> <span m="1827000">invertible mapping from row space to columns pace.</span> </p>
+<p><span m="1831000">If the null spaces keep out of the way, then we have an</span> <span m="1836000">inverse.</span> </p>
+<p><span m="1838000">And that inverse is called the pseudo inverse,</span> <span m="1841000">and it's a very, very, useful in application.</span> </p>
+<p><span m="1844900">Statisticians discovered, oh boy, this is the thing that</span> <span m="1849000">we needed all our lives, and here it finally showed up,</span> <span m="1853000">the pseudo-inverse is the right thing.</span> </p>
+<p><span m="1856730">Why do statisticians need it?</span> </p>
+<p><span m="1860000">And because statisticians are like least-squares-happy.</span> </p>
+<p><span m="1866000">I mean they're always doing least squares.</span> </p>
+<p><span m="1871000">And so this is their central linear regression.</span> </p>
+<p><span m="1877000">Statisticians who may watch this on video,</span> <span m="1880000">please forgive that description of your interests.</span> </p>
+<p><span m="1884810">One of your interests is linear regression and this problem.</span> </p>
+<p><span m="1889000">But this problem is only OK provided we have full column</span> </p>
+<p><span m="1894000">rank. And statisticians have to worry all the time about,</span> <span m="1898000">oh, God, maybe we just repeated an experiment.</span> </p>
+<p><span m="1903000">You know, you're taking all these measurements,</span> <span m="1908000">maybe you just repeat them a few times.</span> </p>
+<p><span m="1912540">You know, maybe they're not independent.</span> </p>
+<p><span m="1917000">Well, in that case, that A transpose A matrix that</span> <span m="1921000">they depend on becomes singular.</span> </p>
+<p><span m="1923000">So then that's when they needed the pseudo-inverse,</span> <span m="1926000">it just arrived at the right moment, and it's the right</span> <span m="1930830">quantity.</span> </p>
+<p><span m="1931000">OK. So now that you know what the pseudo-inverse should do,</span> <span m="1935000">let me see what it is.</span> </p>
+<p><span m="1938000">Can we find it?</span> </p>
+<p><span m="1940000">So this is my -- to complete the lecture is -- how do I find</span> <span m="1950000">this pseudo-inverse A plus?</span> </p>
+<p><span m="1955000">OK.</span> </p>
+<p><span m="1956000">OK. Well, here's one way.</span> </p>
+<p><span m="1960000">Everything I do today is to try to review stuff.</span> </p>
+<p><span m="1969000">One way would be to start from the SVD.</span> </p>
+<p><span m="1974470">The Singular Value Decomposition.</span> </p>
+<p><span m="1978000">And you remember that that factored A into an orthogonal</span> <span m="1984000">matrix times this diagonal matrix times this orthogonal</span> <span m="1991000">matrix.</span> </p>
+<p><span m="1992000">But what did that diagonal guy look like?</span> </p>
+<p><span m="1998000">This diagonal guy, sigma, has some non-zeroes,</span> <span m="2000000">and you remember, they came from A transpose A,</span> <span m="2003000">and A A transpose, these are the good guys,</span> <span m="2006000">and then some more zeroes, and all zeroes there,</span> <span m="2008940">and all zeroes there.</span> </p>
+<p><span m="2010000">So you can guess what the pseudo-inverse is,</span> <span m="2012000">I just invert stuff that's nice to invert -- well,</span> <span m="2015590">what's the pseudo-inverse of this?</span> </p>
+<p><span m="2018000">That's what the problem comes down to.</span> </p>
+<p><span m="2023000">What's the pseudo-inverse of this beautiful diagonal matrix?</span> </p>
+<p><span m="2031000">But it's got a null space, right?</span> </p>
+<p><span m="2035000">What's the rank of this matrix?</span> </p>
+<p><span m="2040000">What's the rank of this diagonal matrix?</span> </p>
+<p><span m="2043000">r, of course.</span> </p>
+<p><span m="2045000">It's got r non-zeroes, and then it's otherwise,</span> </p>
+<p><span m="2049000">zip. So it's got n columns, it's got m rows,</span> <span m="2053000">and it's got rank r.</span> </p>
+<p><span m="2055000">It's the best example, the simplest example we could</span> <span m="2060000">ever have of our general setup.</span> </p>
+<p><span m="2064000">OK? So what's the pseudo-inverse?</span> </p>
+<p><span m="2068000">What's the matrix -- so I'll erase our columns,</span> <span m="2073000">because right below it, I want to write the</span> <span m="2078000">pseudo-inverse.</span> </p>
+<p><span m="2080000">OK, you can make a pretty darn good guess.</span> </p>
+<p><span m="2086000">If it was a proper diagonal matrix, invertible,</span> <span m="2089000">if there weren't any zeroes down here, if it was sigma one</span> <span m="2094000">to sigma n, then everybody knows what the inverse would be,</span> <span m="2099000">the inverse would be one over sigma one, down to one over s-</span> <span m="2104000">but of course, I'll have to stop at sigma r.</span> </p>
+<p><span m="2108000">And, it will be the rest, zeroes again,</span> <span m="2114000">of course.</span> </p>
+<p><span m="2116000">And now this one was m by n, and this one is meant to have a</span> <span m="2125000">slightly different, you know, transpose shape,</span> <span m="2133000">n by m.</span> </p>
+<p><span m="2134000">They both have that rank r.</span> </p>
+<p><span m="2140000">My idea is that the pseudo-inverse is the best -- is</span> <span m="2145000">the closest I can come to an inverse.</span> </p>
+<p><span m="2149000">So what is sigma times its pseudo-inverse?</span> </p>
+<p><span m="2153000">Can you multiply sigma by its pseudo-inverse?</span> </p>
+<p><span m="2158000">Multiply that by that?</span> </p>
+<p><span m="2160000">What matrix do you get?</span> </p>
+<p><span m="2162000">They're diagonal.</span> </p>
+<p><span m="2165000">Rectangular, of course.</span> </p>
+<p><span m="2168000">But of course, we're going to get ones,</span> <span m="2173000">R ones, and all the rest, zeroes.</span> </p>
+<p><span m="2176000">And the shape of that, this whole matrix will be m by</span> </p>
+<p><span m="2183000">m. And suppose I did it in the other order.</span> </p>
+<p><span m="2189750">Suppose I did sigma plus sigma.</span> </p>
+<p><span m="2192000">Why don't I do it right underneath?</span> </p>
+<p><span m="2195000">in the opposite order?</span> </p>
+<p><span m="2197170">See, this matrix hasn't got a left-inverse,</span> <span m="2200000">it hasn't got a right-inverse, but every matrix has got a</span> <span m="2205000">pseudo-inverse.</span> </p>
+<p><span m="2206000">If I do it in the order sigma plus sigma, what do I get?</span> </p>
+<p><span m="2212000">Square matrix, this is m by n,</span> <span m="2214420">this is m by m, my result is going to m by m --</span> <span m="2217000">is going to be n by n, and what is it?</span> </p>
+<p><span m="2220000">Those are diagonal matrices, it's going to be ones,</span> <span m="2223000">and then zeroes.</span> </p>
+<p><span m="2224610">It's not the same as that, it's a different size -- it's a</span> <span m="2228000">projection.</span> </p>
+<p><span m="2229260">One is a projection matrix onto the column space,</span> <span m="2232000">and this one is the projection matrix onto the row space.</span> </p>
+<p><span m="2237000">That's the best that pseudo-inverse can do.</span> </p>
+<p><span m="2240000">So what the pseudo-inverse does is, if you multiply on the left,</span> <span m="2245000">you don't get the identity, if you multiply on the right,</span> <span m="2249890">you don't get the identity, what you get is the projection.</span> </p>
+<p><span m="2254000">It brings you into the two good spaces, the row space and column</span> <span m="2259000">space.</span> </p>
+<p><span m="2260000">And it just wipes out the null space.</span> </p>
+<p><span m="2264000">So that's what the pseudo-inverse of this diagonal</span> <span m="2270640">one is, and then the pseudo-inverse of A itself --</span> <span m="2276000">this is perfectly invertible.</span> </p>
+<p><span m="2280000">What's the inverse of V transpose?</span> </p>
+<p><span m="2287000">Just another tiny bit of review.</span> </p>
+<p><span m="2293410">That's an orthogonal matrix, and its inverse is V,</span> <span m="2303110">good.</span> </p>
+<p><span m="2305000">This guy has got all the trouble in it,</span> <span m="2307000">all the null space is responsible for,</span> <span m="2310000">so it doesn't have a true inverse, it has a</span> <span m="2313000">pseudo-inverse, and then the inverse of U is U</span> <span m="2316150">transpose, thanks.</span> </p>
+<p><span m="2317000">Or, of course, I could write U inverse.</span> </p>
+<p><span m="2319000">So, that's the question of, how do you find the</span> <span m="2322000">pseudo-inverse -- so what statisticians do</span> <span m="2326000">when they're in this -- so this is like the case of where least</span> <span m="2330000">squares breaks down because the rank is -- you don't have full</span> <span m="2334000">rank, and the beauty of the singular value decomposition is,</span> <span m="2338000">it puts all the problems into this diagonal matrix where it's</span> <span m="2343000">clear what to do.</span> </p>
+<p><span m="2344000">It's the best inverse you could think of is clear.</span> </p>
+<p><span m="2350000">You see there could be other -- I mean, we could put some stuff</span> <span m="2357000">down here, it would multiply these zeroes.</span> </p>
+<p><span m="2362000">It wouldn't have any effect, but then the good</span> <span m="2368000">pseudo-inverse is the one with no extra stuff,</span> <span m="2373000">it's sort of, like, as small as possible.</span> </p>
+<p><span m="2378000">It has to have those to produce the ones.</span> </p>
+<p><span m="2384000">If it had other stuff, it would just be a larger</span> <span m="2388000">matrix, so this pseudo-inverse is kind of the minimal matrix</span> <span m="2392000">that gives the best result.</span> </p>
+<p><span m="2395180">Sigma sigma plus being r ones.</span> </p>
+<p><span m="2397000">SK. so I guess I'm hoping --</span> <span m="2399000">pseudo-inverse, again, let me repeat what I</span> <span m="2403000">said at the very beginning.</span> </p>
+<p><span m="2406000">This pseudo-inverse, which appears at the end,</span> <span m="2413000">which is in section seven point four, and probably I did more</span> <span m="2422000">with it here than I did in the book.</span> </p>
+<p><span m="2429000">The word pseudo-inverse will not appear on an exam in this</span> <span m="2432000">course, but I think if you see this all will appear,</span> <span m="2436000">because this is all what the course was about,</span> <span m="2439000">chapters one, two, three, four -- but if you</span> <span m="2442000">see all that, then you probably see,</span> <span m="2444000">well, OK, the general case had both null spaces around,</span> <span m="2448000">and this is the natural thing to do.</span> </p>
+<p><span m="2451000">So, this is one way to find the pseudo-inverse.</span> </p>
+<p><span m="2451300">Yes.</span> </p>
+<p><span m="2457000">The point of a pseudo-inverse, of computing a pseudo-inverse</span> <span m="2463000">is to get some factors where you can find the pseudo-inverse</span> <span m="2470000">quickly.</span> </p>
+<p><span m="2472000">And this is, like, the champion,</span> <span m="2475000">because this is where we can invert those,</span> <span m="2479000">and those two, easily, just by transposing,</span> <span m="2483000">and we know what to do with a diagonal.</span> </p>
+<p><span m="2487000">OK, that's as much review, maybe --</span> <span m="2491000">let's have a five-minute holiday in 18.06 and,</span> <span m="2496000">I'll see you Wednesday, then, for the rest of this</span> </p>
+<p><span m="2501000">course. Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 90MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/33.mp4">MP4 - 167MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/Go2aLo7ZOlU.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

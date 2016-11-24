@@ -1,0 +1,1256 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 15: Projections onto subspaces | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 15: Projections onto subspaces" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 15: Projections onto subspaces" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-15-projections-onto-subspaces">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 15: Projections onto subspaces
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 15: Projections onto subspaces
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-15-projections-onto-subspaces/Y_Ac6KiQ1t0.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/15.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/Y_Ac6KiQ1t0', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-15-projections-onto-subspaces', 'https://img.youtube.com/vi/Y_Ac6KiQ1t0/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-15-projections-onto-subspaces/Y_Ac6KiQ1t0.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703569, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/Y_Ac6KiQ1t0.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="7000">OK, guys the -- we're almost ready to make this lecture</span> <span m="14000">immortal.</span> </p>
+<p><span m="15000">OK. Are we on?</span> </p>
+<p><span m="16000">All right.</span> </p>
+<p><span m="17000">This is an important lecture.</span> </p>
+<p><span m="21000">It's about projections.</span> </p>
+<p><span m="23000">Let me start by just projecting a vector b down on a vector a.</span> </p>
+<p><span m="30000">So just to so you see what the geometry looks like in when I'm</span> <span m="38070">in -- in just two dimensions,</span> <span m="41000">I'd like to find the point along this line so that line</span> <span m="46000">through a is a one-dimensional subspace, so I'm starting with</span> <span m="51000">one dimension.</span> </p>
+<p><span m="52000">I'd like to find the point on that line closest to a.</span> </p>
+<p><span m="56000">Can I just take that problem first and then I'll explain why</span> <span m="60000">I want to do it and why I want to project on other subspaces.</span> </p>
+<p><span m="66000">So where's the point closest to b that's on that line?</span> </p>
+<p><span m="72000">It's somewhere there.</span> </p>
+<p><span m="75160">And let me connect that and -- and what's the whole point of my</span> <span m="82000">picture now?</span> </p>
+<p><span m="83000">What's the -- where does orthogonality come into this</span> <span m="89000">picture?</span> </p>
+<p><span m="91000">The whole point is that this best point, that's the</span> <span m="95000">projection, P, of b onto the line,</span> <span m="98000">where's orthogonality?</span> </p>
+<p><span m="100000">It's the fact that that's a right angle.</span> </p>
+<p><span m="103000">That this -- the error -- this is like how much I'm wrong by --</span> <span m="109000">this is the difference between b and P, the whole point is --</span> <span m="115000">that's perpendicular to a.</span> </p>
+<p><span m="117000">That's got to give us the equation.</span> </p>
+<p><span m="121000">That's got to tell us -- that's the one fact we know,</span> <span m="126000">that's got to tell us where that projection is.</span> </p>
+<p><span m="130000">Let me also say, look -- I've drawn a triangle</span> <span m="134000">there.</span> </p>
+<p><span m="136000">So if we were doing trigonometry we would do like we</span> <span m="141000">would have angles theta and distances that would involve</span> <span m="147000">sine theta and cos theta that leads to lousy formulas compared</span> <span m="153000">to linear algebra.</span> </p>
+<p><span m="155000">The formula that we want comes out nicely and what's the --</span> <span m="162000">what do we know?</span> </p>
+<p><span m="163000">We know that P, this projection,</span> <span m="166000">is some multiple of a, right?</span> </p>
+<p><span m="169000">It's on that line.</span> </p>
+<p><span m="170000">So we know it's in that one-dimensional subspace,</span> <span m="174000">it's some multiple, let me call that multiple x,</span> </p>
+<p><span m="179000">of a. So really it's that number x I'd like to find.</span> </p>
+<p><span m="184000">So this is going to be simple in 1-D, so let's just carry it</span> <span m="191000">through, and then see how it goes in high dimensions.</span> </p>
+<p><span m="196000">OK.</span> </p>
+<p><span m="197000">The key fact is -- the key to everything is that</span> <span m="202000">perpendicular.</span> </p>
+<p><span m="203000">The fact that a is perpendicular to a is</span> <span m="208270">perpendicular to e.</span> </p>
+<p><span m="211000">Which is (b-ax), xa.</span> </p>
+<p><span m="213000">I don't care what -- xa.</span> </p>
+<p><span m="216000">That that equals zero.</span> </p>
+<p><span m="218000">Do you see that as the central equation, that's saying that</span> <span m="224000">this a is perpendicular to this -- correction,</span> <span m="228000">that's going to tell us what x is.</span> </p>
+<p><span m="232000">Let me just raise the board and simplify that and out will come</span> <span m="238000">x.</span> </p>
+<p><span m="240000">OK. So if I simplify that, let's see, I'll move one to --</span> <span m="245000">one term to one side, the other term will be on the</span> <span m="250000">other side, it looks to me like x times a transpose a is equal</span> <span m="255000">to a transpose b.</span> </p>
+<p><span m="257000">Right? I have a transpose b as one f- one term, a transpose a as the</span> <span m="263000">other, so right away here's my a transpose a.</span> </p>
+<p><span m="268000">But it's just a number now.</span> </p>
+<p><span m="271000">And I divide by it.</span> </p>
+<p><span m="273000">And I get the answer. x is a transpose b over a</span> <span m="278000">transpose a.</span> </p>
+<p><span m="279000">And P, the projection I wanted, is -- that's the right</span> <span m="284730">multiple.</span> </p>
+<p><span m="285000">That's got a cosine theta built in.</span> </p>
+<p><span m="289000">But we don't need to look at angles.</span> </p>
+<p><span m="293000">It's -- we've just got vectors here.</span> </p>
+<p><span m="296000">And the projection is P is a times that x.</span> </p>
+<p><span m="300000">Or x times that a.</span> </p>
+<p><span m="302000">But I'm really going to -- eventually I'm going to want</span> <span m="307000">that x coming on the right-hand side.</span> </p>
+<p><span m="310000">So do you see that I've got two of the three formulas already,</span> <span m="316000">right here, I've got the -- that's the equation -- that</span> <span m="323000">leads me to the answer, here's the answer for x,</span> <span m="328660">and here's the projection.</span> </p>
+<p><span m="331000">OK. can I do add just one more</span> <span m="335000">thing to this one-dimensional problem?</span> </p>
+<p><span m="340600">One more like lift it up into linear algebra,</span> <span m="345000">into matrices.</span> </p>
+<p><span m="346000">Here's the last thing I want to do -- but don't forget those</span> <span m="353000">formulas. a transpose b over a transpose</span> </p>
+<p><span m="357000">a. Actually let's look at that for a moment first.</span> </p>
+<p><span m="362000">Suppose -- Let me take this next step.</span> </p>
+<p><span m="368000">So P is a times x.</span> </p>
+<p><span m="369000">So can I write that then?</span> </p>
+<p><span m="372550">P is a times this neat number, a transpose b over a transpose</span> <span m="378000">a.</span> </p>
+<p><span m="379000">That's our projection.</span> </p>
+<p><span m="381400">Can I ask a couple of questions about it, just while we look,</span> <span m="387000">get that digest that formula.</span> </p>
+<p><span m="391000">Suppose b is doubled.</span> </p>
+<p><span m="394000">Suppose I change b to two b.</span> </p>
+<p><span m="397000">What happens to the projection?</span> </p>
+<p><span m="400000">So suppose I instead of that vector b that I drew on the</span> <span m="406000">board make it two b, twice as long -- what's the</span> <span m="412000">projection now?</span> </p>
+<p><span m="413000">It's doubled too, right?</span> </p>
+<p><span m="417000">It's going to be twice as far, if b goes twice as far,</span> <span m="422000">the projection will go twice as far.</span> </p>
+<p><span m="425000">And you see it there.</span> </p>
+<p><span m="427000">If I put in an extra factor two, then P's got that factor</span> </p>
+<p><span m="432000">too. Now what about if I double a?</span> </p>
+<p><span m="435350">What if I double the vector a that I'm projecting onto?</span> </p>
+<p><span m="440000">What changes?</span> </p>
+<p><span m="442000">The projection doesn't change at all.</span> </p>
+<p><span m="445000">Right? Because I'm just -- the line didn't change.</span> </p>
+<p><span m="449000">If I double a or I take minus a.</span> </p>
+<p><span m="451000">It's still that same line.</span> </p>
+<p><span m="453000">The projection's still in the same place.</span> </p>
+<p><span m="456000">And of course if I double a I get a four up above,</span> <span m="460000">and I get a four -- an extra four below,</span> <span m="465000">they cancel out, and the projection is the same.</span> </p>
+<p><span m="470000">OK. So really, this -- I want to look at this as the projection</span> <span m="477000">-- there's a matrix here.</span> </p>
+<p><span m="479000">The projection is carried out by some matrix that I'm going to</span> <span m="486580">call the projection matrix.</span> </p>
+<p><span m="490620">And in other words the projection is some matrix that</span> <span m="494000">acts on this guy b and produces the projection.</span> </p>
+<p><span m="498280">The projection P is the projection matrix acting on</span> <span m="502000">whatever the input is.</span> </p>
+<p><span m="503000">The input is b, the projection matrix is P.</span> </p>
+<p><span m="507000">OK. Actually you can tell me right away what this projection matrix</span> </p>
+<p><span m="512000">is. So this is a pretty interesting matrix.</span> </p>
+<p><span m="516000">What matrix is multiplying b?</span> </p>
+<p><span m="520000">I'm just -- just from my formula -- I see what P is.</span> </p>
+<p><span m="527000">P, this projection matrix, is -- what is it?</span> </p>
+<p><span m="533000">I see a a transpose above, and I see a transpose a below.</span> </p>
+<p><span m="541000">And those don't cancel.</span> </p>
+<p><span m="545000">That's not one.</span> </p>
+<p><span m="546000">Right?</span> </p>
+<p><span m="547000">That's a matrix.</span> </p>
+<p><span m="548000">Because down here, the a transpose a,</span> <span m="551420">that's just a number, a transpose a,</span> <span m="554000">that's the length of a squared, and up above is a column times</span> </p>
+<p><span m="559000">a row. Column times a row is a matrix.</span> </p>
+<p><span m="562300">So this is a full-scale n by n matrix, if I --</span> <span m="567000">if I'm in n dimensions.</span> </p>
+<p><span m="569000">And it's kind of an interesting one.</span> </p>
+<p><span m="572320">And it's the one which if I multiply by b then I get this,</span> <span m="577000">you see once again I'm putting parentheses in different places.</span> </p>
+<p><span m="583000">I'm putting the parentheses right there.</span> </p>
+<p><span m="586690">I'm saying OK, that's really the matrix that</span> <span m="590000">produces this projection.</span> </p>
+<p><span m="593000">OK.</span> </p>
+<p><span m="594000">Now, tell me -- all right, what are the properties of that</span> <span m="599750">matrix?</span> </p>
+<p><span m="600000">I'm just using letters here, a and b, I could put in</span> <span m="605340">numbers, but I think it's -- for once, it's clearer with letters,</span> <span m="611000">because all formulas are simple, a transpose b over a</span> <span m="616000">transpose a -- that's the number that</span> <span m="620000">multiplies the a, and then I see wait a minute,</span> <span m="624000">there's a matrix here and what's the rank of that matrix,</span> <span m="628000">by the way?</span> </p>
+<p><span m="629000">What's the rank of that matrix, yeah -- let me just ask you</span> <span m="634000">about that matrix.</span> </p>
+<p><span m="635000">Which looks a little strange, a a transpose over this number.</span> </p>
+<p><span m="640000">But well, I could ask you its column space.</span> </p>
+<p><span m="644000">Yeah, let me ask you its column space.</span> </p>
+<p><span m="647000">So what's the column space of a matrix?</span> </p>
+<p><span m="650000">If you multiply that matrix by anything you always get in the</span> <span m="654000">column space, right?</span> </p>
+<p><span m="656000">The column space of a matrix is when you multiply any vector by</span> <span m="661000">that matrix -- any vector b,</span> <span m="664000">by the matrix, you always land in the column</span> <span m="669000">space.</span> </p>
+<p><span m="670440">That's what column spaces work.</span> </p>
+<p><span m="674000">Now what space do we always land in?</span> </p>
+<p><span m="678260">What's the column space of -- what's the result when I</span> <span m="684540">multiply this any vector b by my matrix?</span> </p>
+<p><span m="690000">So I have P times b, where I?</span> </p>
+<p><span m="694010">I'm on that line, right?</span> </p>
+<p><span m="696000">The column space, so here are facts about this</span> <span m="702620">matrix.</span> </p>
+<p><span m="703000">The column space of P, of this projection matrix,</span> <span m="709000">is the line through a.</span> </p>
+<p><span m="712000">And the rank of this matrix is you can all say it at once one.</span> </p>
+<p><span m="720000">Right. The rank is one.</span> </p>
+<p><span m="724650">This is a rank one matrix.</span> </p>
+<p><span m="727000">Actually it's exactly the form that we're familiar with a rank</span> <span m="734000">one matrix.</span> </p>
+<p><span m="735000">A column times a row, that's a rank one matrix,</span> <span m="740250">that column is the basis for the column space.</span> </p>
+<p><span m="745000">Just one dimension.</span> </p>
+<p><span m="748000">OK. So I know that much about the matrix.</span> </p>
+<p><span m="751000">But now there are two more facts about the matrix that I</span> <span m="757000">want to notice.</span> </p>
+<p><span m="758000">First of all is the matrix symmetric?</span> </p>
+<p><span m="762000">That's a natural question for matrices.</span> </p>
+<p><span m="766130">And the answer is yes.</span> </p>
+<p><span m="768000">If I take the transpose of this --</span> <span m="772000">there's a number down there, the transpose of a a transpose</span> <span m="778000">is a a transpose.</span> </p>
+<p><span m="779000">So P is symmetric.</span> </p>
+<p><span m="781000">P transpose equals P.</span> </p>
+<p><span m="783000">So this is a key property.</span> </p>
+<p><span m="785000">That the projection matrix is symmetric.</span> </p>
+<p><span m="789000">One more property now and this is the real one.</span> </p>
+<p><span m="793000">What happens if I do the projection twice?</span> </p>
+<p><span m="798000">So I'm looking for something, some information about P</span> <span m="803000">squared.</span> </p>
+<p><span m="804000">But just give me in terms of that picture,</span> <span m="808000">in terms my picture, I take any vector b,</span> <span m="812000">I multiply it by my projection matrix, and that puts me there,</span> <span m="819000">so this is Pb.</span> </p>
+<p><span m="820000">And now I project again.</span> </p>
+<p><span m="824000">What happens now?</span> </p>
+<p><span m="826000">What happens when I apply the projection matrix a second time?</span> </p>
+<p><span m="832000">To this, so I'm applying it once brings me here and the</span> <span m="838450">second time brings me I stay put.</span> </p>
+<p><span m="841000">Right?</span> </p>
+<p><span m="842000">The projection for a point on this line the projection is</span> <span m="848000">right where it is.</span> </p>
+<p><span m="851000">The projection is the same point.</span> </p>
+<p><span m="854000">So that means that if I project twice, I get the same answer as</span> <span m="859000">I did in the first projection.</span> </p>
+<p><span m="862000">So those are the two properties that tell me I'm looking at a</span> <span m="867000">projection matrix.</span> </p>
+<p><span m="868000">It's symmetric and it's square is itself.</span> </p>
+<p><span m="872000">Because if I project a second time, it's the same result as</span> <span m="877000">the first result.</span> </p>
+<p><span m="879000">OK.</span> </p>
+<p><span m="880250">So that's -- and then here's the exact formula when I know</span> <span m="886000">what I'm projecting onto, that line through a,</span> <span m="890920">then I know what P is.</span> </p>
+<p><span m="893000">So do you see that I have all the pieces here for projection</span> <span m="899000">on a line?</span> </p>
+<p><span m="900000">Now, and those -- please remember those.</span> </p>
+<p><span m="905000">So there are three formulas to remember.</span> </p>
+<p><span m="908000">The formula for x, the formula for P,</span> <span m="912000">which is just ax, and then the formula for</span> <span m="916000">capital P, which is the matrix.</span> </p>
+<p><span m="918000">Good.</span> </p>
+<p><span m="919000">Good. OK.</span> </p>
+<p><span m="920000">Now I want to move to more dimensions.</span> </p>
+<p><span m="923000">So we're going to have three formulas again but you'll have</span> <span m="928000">to -- they'll be a little different</span> <span m="935000">because we won't have a single line but -- a plane or</span> <span m="943000">three-dimensional or a n-dimensional subspace.</span> </p>
+<p><span m="950000">OK. So now I'll move to the next question.</span> </p>
+<p><span m="956000">Maybe -- let me say first why I want this projection,</span> <span m="966000">and then we'll figure out what it is, we'll go completely in</span> <span m="976000">parallel there, and then we'll use it.</span> </p>
+<p><span m="982270">OK, why do I want this projection?</span> </p>
+<p><span m="987000">Well, so why project?</span> </p>
+<p><span m="991000">It's because I'm as I mentioned last time this new chapter deals</span> <span m="1001000">with equations Ax=b may have no solution.</span> </p>
+<p><span m="1010000">So that's really my problem, that I'm given a bunch of</span> <span m="1016000">equations probably too many equations, more equations than</span> <span m="1022000">unknowns, and I can't solve them.</span> </p>
+<p><span m="1026700">OK.</span> </p>
+<p><span m="1027000">So what do I do?</span> </p>
+<p><span m="1028000">I solve the closest problem that I can solve.</span> </p>
+<p><span m="1034000">And what's the closest one?</span> </p>
+<p><span m="1038000">Well, ax will always be in the column space of a.</span> </p>
+<p><span m="1044000">That's my problem.</span> </p>
+<p><span m="1047000">My problem is ax has to be in the column space and b is</span> <span m="1054000">probably not in the column space.</span> </p>
+<p><span m="1058000">So I change b to what?</span> </p>
+<p><span m="1061000">I choose the closest vector in the column space,</span> <span m="1067000">so I'll solve Ax equal P instead.</span> </p>
+<p><span m="1071480">That one I can do.</span> </p>
+<p><span m="1075000">Where P is this is the projection of b onto the column</span> <span m="1080000">space.</span> </p>
+<p><span m="1081000">That's why I want to be able to do this.</span> </p>
+<p><span m="1085000">Because I have to find a solution here,</span> <span m="1089000">and I'm going to put a little hat there to indicate that it's</span> <span m="1095100">not the x, it's not the x that doesn't exist,</span> <span m="1099000">it's the x hat that's best possible.</span> </p>
+<p><span m="1104000">So I must be able to figure out what's the good projection</span> <span m="1110000">there.</span> </p>
+<p><span m="1111000">What's the good right-hand side that is in the column space</span> <span m="1118000">that's as close as possible to b and then I'm -- then I know what</span> <span m="1125000">to do.</span> </p>
+<p><span m="1126000">OK.</span> </p>
+<p><span m="1127000">So now I've got that problem.</span> </p>
+<p><span m="1131000">So that's why I have the problem again but now let me say</span> <span m="1138000">I'm in three dimensions, so I have a plane maybe for</span> <span m="1143000">example, and I have a vector b that's not in the plane.</span> </p>
+<p><span m="1150000">And I want to project b down into the plane.</span> </p>
+<p><span m="1154000">OK.</span> </p>
+<p><span m="1155000">So there's my question.</span> </p>
+<p><span m="1157000">How do I project a vector and I'm --</span> <span m="1163000">what I'm looking for is a nice formula, and I'm counting on</span> <span m="1168000">linear algebra to just come out right, a nice formula for the</span> <span m="1173000">projection of b into the plane.</span> </p>
+<p><span m="1176000">The nearest point.</span> </p>
+<p><span m="1177000">So this again a right angle is going to be crucial.</span> </p>
+<p><span m="1182000">OK. Now so what's -- first of all I've got to say what is that</span> <span m="1187000">plane.</span> </p>
+<p><span m="1188000">To get a formula I have to tell you what the plane is.</span> </p>
+<p><span m="1193000">How I going to tell you a plane?</span> </p>
+<p><span m="1195000">I'll tell you a basis for the plane, I'll tell you two vectors</span> <span m="1201000">a one and a two that give you a basis for the plane,</span> <span m="1205000">so that -- let us say -- say there's an a one and here's an a</span> <span m="1210000">-- a vector a two.</span> </p>
+<p><span m="1212000">They don't have to be perpendicular.</span> </p>
+<p><span m="1217000">But they better be independent, because then that tells me the</span> </p>
+<p><span m="1224000">plane. The plane is the -- is the plane of a one and a two.</span> </p>
+<p><span m="1230000">And actually going back to my -- to this connection,</span> <span m="1237000">this plane is a column space, it's the column space of what</span> <span m="1243000">matrix?</span> </p>
+<p><span m="1246000">What matrix, so how do I connect the two</span> <span m="1250000">questions?</span> </p>
+<p><span m="1252000">I'm thinking how do I project onto a plane and I want to get a</span> <span m="1259000">matrix in here.</span> </p>
+<p><span m="1261000">Everything's cleaner if I write it in terms of a matrix.</span> </p>
+<p><span m="1268000">So what matrix has these -- has that column space?</span> </p>
+<p><span m="1274000">Well of course it's just the matrix that has a one in the</span> <span m="1279650">first column and a two in the second column.</span> </p>
+<p><span m="1283000">Right, just just let's be sure we've got the question before we</span> <span m="1289000">get to the answer.</span> </p>
+<p><span m="1291000">So I'm looking for again I'm given a matrix a with two</span> <span m="1295000">columns.</span> </p>
+<p><span m="1297000">And really I'm ready once I get to two I'm ready for n.</span> </p>
+<p><span m="1302000">So it could be two columns, it could be n columns.</span> </p>
+<p><span m="1306000">I'll write the answer in terms of the matrix a.</span> </p>
+<p><span m="1311000">And the point will be those two columns describe the plane,</span> <span m="1316000">they describe the column space, and I want to project.</span> </p>
+<p><span m="1321000">OK.</span> </p>
+<p><span m="1322000">And I'm given a vector b that's probably not in the column</span> </p>
+<p><span m="1327000">space. Of course, if b is in the column space,</span> <span m="1331000">my projection is simple, it's just b.</span> </p>
+<p><span m="1334000">But most likely I have an error e, this b minus P part,</span> <span m="1339000">which is probably not zero.</span> </p>
+<p><span m="1341000">OK.</span> </p>
+<p><span m="1341840">But the beauty is that I know -- from geometry or I could get</span> <span m="1347000">it from calculus or I could get it from linear algebra that that</span> <span m="1352000">this this vector -- this is the part of b that's</span> <span m="1360000">that's perpendicular to the plane.</span> </p>
+<p><span m="1365000">That e is perpendicular is perpendicular to the plane.</span> </p>
+<p><span m="1374000">If your intuition is saying that that's the crucial fact.</span> </p>
+<p><span m="1382000">That's going to give us the answer.</span> </p>
+<p><span m="1389000">OK.</span> </p>
+<p><span m="1390000">So let me, that's the problem.</span> </p>
+<p><span m="1393000">Now for the answer.</span> </p>
+<p><span m="1395000">So this is a lecture that's really like moving along.</span> </p>
+<p><span m="1401000">Because I'm just plotting that problem up there and asking you</span> <span m="1409000">what combination -- now, yeah, so what is it?</span> </p>
+<p><span m="1414000">What is this projection P?</span> </p>
+<p><span m="1414320">P.</span> </p>
+<p><span m="1418000">This is projection P, is some multiple of these basis</span> <span m="1423000">guys, right, some multiple of the columns.</span> </p>
+<p><span m="1427000">But I don't like writing out x one a one plus x two a two,</span> <span m="1432000">I would rather right that as ax.</span> </p>
+<p><span m="1435700">Well, actually I should put if I'm really doing everything</span> <span m="1440000">right, I should put a little hat on it --</span> <span m="1445000">to remember that this x -- that those are the numbers and I</span> <span m="1451000">could have a put a hat way back there is right,</span> <span m="1456000">so this is this is the projection, P.</span> </p>
+<p><span m="1460000">P is ax bar.</span> </p>
+<p><span m="1461000">And I'm looking for x bar.</span> </p>
+<p><span m="1463000">So that's what I want an equation for.</span> </p>
+<p><span m="1467000">So now I've got hold of the problem.</span> </p>
+<p><span m="1472000">The problem is find the right combination of the columns so</span> <span m="1479000">that the error vector is perpendicular to the plane.</span> </p>
+<p><span m="1485000">Now let me turn that into an equation.</span> </p>
+<p><span m="1489000">So I'll raise the board and just turn that -- what we've</span> <span m="1496000">just done into an equation.</span> </p>
+<p><span m="1499000">So let me I'll write again the main point.</span> </p>
+<p><span m="1505000">The projection is ax b- x hat.</span> </p>
+<p><span m="1509000">And our problem is find x hat.</span> </p>
+<p><span m="1513000">And the key is that b minus ax hat, that's the error.</span> </p>
+<p><span m="1521000">This is the e.</span> </p>
+<p><span m="1523000">Is perpendicular to the plane.</span> </p>
+<p><span m="1527000">That's got to give me well what I looking for,</span> <span m="1533000">I'm looking for two equations now because I've got an x one</span> <span m="1542000">and an x two.</span> </p>
+<p><span m="1545000">And I'll get two equations because so this thing e is</span> <span m="1549000">perpendicular to the plane.</span> </p>
+<p><span m="1551000">So what does that mean?</span> </p>
+<p><span m="1553000">I guess it means it's perpendicular to a one and also</span> <span m="1557000">to a two.</span> </p>
+<p><span m="1558000">Right, those are two vectors in the plane and the things that</span> <span m="1563270">are perpendicular to the plane are perpendicular to a one and a</span> <span m="1568180">two.</span> </p>
+<p><span m="1569000">Let me just repeat.</span> </p>
+<p><span m="1571000">This this guy then is perpendicular to the plane so</span> <span m="1575000">it's perpendicular to that vector and that vector.</span> </p>
+<p><span m="1579000">Not -- it's perpendicular to that of course.</span> </p>
+<p><span m="1583000">But it's perpendicular to everything I the plane.</span> </p>
+<p><span m="1587000">And the plane is really told me by a one and a two.</span> </p>
+<p><span m="1592000">So really I have the equations a one transpose b minus ax is</span> <span m="1600000">zero.</span> </p>
+<p><span m="1601000">And also a two transpose b minus ax is zero.</span> </p>
+<p><span m="1607000">Those are my two equations.</span> </p>
+<p><span m="1611000">But I want those in matrix form.</span> </p>
+<p><span m="1615000">I want to put those two equations together as a matrix</span> <span m="1622000">equation and it's just comes out right.</span> </p>
+<p><span m="1629000">Look at the matrix a transpose.</span> </p>
+<p><span m="1634000">Put a one a one transpose is its first row,</span> <span m="1641000">a two transpose is its second row, that multiplies this b-ax,</span> <span m="1650000">and gives me the zero and the zero.</span> </p>
+<p><span m="1656000">I'm you see the -- this is one way -- to come up with this</span> <span m="1665000">equation.</span> </p>
+<p><span m="1668220">So the equation I'm coming up with is a transpose b-ax hat is</span> <span m="1674000">zero.</span> </p>
+<p><span m="1675000">OK. That's my equation.</span> </p>
+<p><span m="1677000">All right.</span> </p>
+<p><span m="1678000">Now I want to stop for a moment before I solve it and just think</span> <span m="1684000">about it.</span> </p>
+<p><span m="1685000">First of all do you see that that equation back in the very</span> <span m="1691000">first problem I solved on a line, what was --</span> <span m="1697000">what was on a line the matrix a only had one column,</span> <span m="1702730">it was just little a.</span> </p>
+<p><span m="1704000">So in the first problem I solved, projecting on a line,</span> <span m="1709000">this for capital a you just change that to little a and you</span> <span m="1715000">have the same equation that we solved before.</span> </p>
+<p><span m="1719640">a transpose e equals zero.</span> </p>
+<p><span m="1723000">OK. Now a second thing, second comment.</span> </p>
+<p><span m="1727000">I would like to since I know about these four subspaces,</span> <span m="1733000">I would like to get them into this picture.</span> </p>
+<p><span m="1737000">So let me ask the question, what subspace is this thing in?</span> </p>
+<p><span m="1743000">Which of the four subspaces is that error vector e,</span> <span m="1749270">this is this is nothing but e --</span> <span m="1754000">this is this guy, coming in down perpendicular to</span> <span m="1760000">the plane.</span> </p>
+<p><span m="1761000">What subspace is e in?</span> </p>
+<p><span m="1764000">From this equation.</span> </p>
+<p><span m="1766000">Well the equation is saying a transpose e is zero.</span> </p>
+<p><span m="1773000">So I'm learning here that e is in the null space of a</span> <span m="1779000">transpose.</span> </p>
+<p><span m="1781000">Right? That's my equation.</span> </p>
+<p><span m="1785000">And now I just want to see hey of course that that was right.</span> </p>
+<p><span m="1791000">Because things that are in the null space of a transpose,</span> <span m="1796000">what do we know about the null space of a transpose?</span> </p>
+<p><span m="1801000">So that last lecture gave us the sort of the geometry of</span> <span m="1807000">these subspaces.</span> </p>
+<p><span m="1809000">And the orthogonality of them.</span> </p>
+<p><span m="1812000">And do you remember what it was?</span> </p>
+<p><span m="1815000">What on the right side of our big figure we always have the</span> <span m="1822000">null space of a transpose and the column space of a,</span> <span m="1827000">and they're orthogonal.</span> </p>
+<p><span m="1829910">So e in the null space of a transpose is saying e is</span> <span m="1835000">perpendicular to the column space of a.</span> </p>
+<p><span m="1840000">Yes.</span> </p>
+<p><span m="1841000">I just feel OK, the damn thing came out right.</span> </p>
+<p><span m="1847000">The equation for the equation that I struggled to find for e</span> <span m="1855000">really said what I wanted, that the error e is</span> <span m="1861000">perpendicular to the column space of a, just right.</span> </p>
+<p><span m="1868000">And from our four fundamental subspaces we knew that that is</span> <span m="1874000">the same as that.</span> </p>
+<p><span m="1875000">To say e is in the null space of a transpose says e's</span> <span m="1880000">perpendicular to the column space.</span> </p>
+<p><span m="1883000">OK. So we've got this equation.</span> </p>
+<p><span m="1885000">Now let's just solve it.</span> </p>
+<p><span m="1887870">All right.</span> </p>
+<p><span m="1888000">Let me just rewrite it as a transpose a x hat equals a</span> <span m="1893000">transpose b.</span> </p>
+<p><span m="1895000">That's our equation.</span> </p>
+<p><span m="1897000">That gives us x.</span> </p>
+<p><span m="1899000">And -- allow me to keep remembering the one-dimensional</span> </p>
+<p><span m="1904000">case. The one-dimensional case, this was little a.</span> </p>
+<p><span m="1909000">So this was just a number, little a transpose,</span> <span m="1913000">a transpose a was just a vector row times a column,</span> <span m="1918000">a number.</span> </p>
+<p><span m="1920000">And this was a number.</span> </p>
+<p><span m="1923000">And x was the ratio of those numbers.</span> </p>
+<p><span m="1927000">But now we've got matrices, this one is n by n.</span> </p>
+<p><span m="1932000">a transpose a is an n by n matrix.</span> </p>
+<p><span m="1936000">OK.</span> </p>
+<p><span m="1937000">So can I move to the next board for the solution?</span> </p>
+<p><span m="1942000">OK.</span> </p>
+<p><span m="1943000">This is the -- the key equation.</span> </p>
+<p><span m="1948000">Now I'm ready for the formulas that we have to remember.</span> </p>
+<p><span m="1953000">What's x hat?</span> </p>
+<p><span m="1955000">What's the projection, what's the projection matrix,</span> <span m="1960000">those are my three questions.</span> </p>
+<p><span m="1963000">That we answered in the 1-D case and now we're ready for in</span> <span m="1969000">the n-dimensional case.</span> </p>
+<p><span m="1972000">So what is x hat?</span> </p>
+<p><span m="1974000">Well, what can I say but a transpose a inverse,</span> <span m="1979000">a transpose b.</span> </p>
+<p><span m="1981000">That's the solution to -- to our equation.</span> </p>
+<p><span m="1981250">OK.</span> </p>
+<p><span m="1986000">What's the projection?</span> </p>
+<p><span m="1988000">That's more interesting.</span> </p>
+<p><span m="1991000">What's the projection?</span> </p>
+<p><span m="1993000">The projection is a x hat.</span> </p>
+<p><span m="1997000">That's how x hat got into the picture in the first place.</span> </p>
+<p><span m="2003410">x hat was the was the combination of columns in the I</span> <span m="2008000">had to look for those numbers and now I found them.</span> </p>
+<p><span m="2013310">Was the combination of the columns of a that gave me the</span> <span m="2018000">projection.</span> </p>
+<p><span m="2019000">OK.</span> </p>
+<p><span m="2020000">So now I know what this guy is.</span> </p>
+<p><span m="2024000">So it's just I multiply by a. a a transpose a inverse a</span> <span m="2031000">transpose b.</span> </p>
+<p><span m="2032000">That's looking a little messy but it's not bad.</span> </p>
+<p><span m="2038000">That that combination is is our like magic combination.</span> </p>
+<p><span m="2045000">This is the thing which is which use which is like what's</span> <span m="2053000">it like, what was it in one dimension?</span> </p>
+<p><span m="2059000">What was that we had this we must have had this thing way</span> <span m="2065000">back at the beginning of the lecture.</span> </p>
+<p><span m="2068000">What did we -- oh that a was just a column so it was little</span> <span m="2074000">a, little a transpose over a transpose a, right,</span> <span m="2079000">that's what it was in 1-D.</span> </p>
+<p><span m="2082000">You see what's happened in more dimensions, I --</span> <span m="2087000">I'm not allowed to to just divide because because I don't</span> <span m="2093000">have a number, I have to put inverse,</span> <span m="2096000">because I have an n by n matrix.</span> </p>
+<p><span m="2099000">But same formula.</span> </p>
+<p><span m="2101000">And now tell me what's the projection matrix?</span> </p>
+<p><span m="2105000">What matrix is multiplying b to give the projection?</span> </p>
+<p><span m="2110000">Right there.</span> </p>
+<p><span m="2112000">Because there it -- I even already underlined it by</span> <span m="2119590">accident.</span> </p>
+<p><span m="2120000">The projection matrix which I use capital P is this,</span> <span m="2128000">it's it's that thing, shall I write it again,</span> <span m="2134000">a times a transpose a inverse times a transpose.</span> </p>
+<p><span m="2140000">Now if you'll bear with me I'll think about what have I done</span> </p>
+<p><span m="2149000">here. I've got this formula.</span> </p>
+<p><span m="2154000">Now the first thing that occurs to me is something bad.</span> </p>
+<p><span m="2159000">Look why don't I just you know here's a product of two matrices</span> <span m="2165000">and I want its inverse, why don't I just use the</span> <span m="2169510">formula I know for the inverse of a product and say OK,</span> <span m="2174450">that's a inverse times a transpose inverse,</span> <span m="2178000">what will happen if I do that?</span> </p>
+<p><span m="2182000">What will happen if I say hey this is a inverse times a</span> <span m="2187000">transpose inverse, then shall I do it?</span> </p>
+<p><span m="2191000">It's going to go on videotape if I do it, and I don't -- all</span> <span m="2197000">right, I'll put it there, but just like don't take the</span> <span m="2203000">videotape quite so carefully.</span> </p>
+<p><span m="2207000">OK. So if I put that thing it -- it would be a a inverse a transpose</span> <span m="2215000">inverse a transpose and what's that?</span> </p>
+<p><span m="2219710">That's the identity.</span> </p>
+<p><span m="2222000">But what's going on?</span> </p>
+<p><span m="2224000">So why -- you see my question is somehow I did something</span> <span m="2231000">wrong.</span> </p>
+<p><span m="2231920">That that wasn't allowed.</span> </p>
+<p><span m="2236000">And and and why is that?</span> </p>
+<p><span m="2238000">Because a is not a square matrix.</span> </p>
+<p><span m="2242210">a is not a square matrix.</span> </p>
+<p><span m="2244860">It doesn't have an inverse.</span> </p>
+<p><span m="2247000">So I have to leave it that way.</span> </p>
+<p><span m="2251000">This is not OK.</span> </p>
+<p><span m="2252000">If if a was a square invertible matrix, then then I couldn't</span> <span m="2258000">complain.</span> </p>
+<p><span m="2259000">Yeah I think -- let me think about that case.</span> </p>
+<p><span m="2265000">But you but my main case, the whole reason I'm doing all</span> <span m="2270000">this, is that a is this matrix that has x too many rows,</span> <span m="2274000">it's just got a couple of columns, like a one and a two,</span> <span m="2278000">but lots of rows.</span> </p>
+<p><span m="2280000">Not square. And if it's not square, this a transpose a is square</span> <span m="2284000">but I can't pull it apart like this --</span> <span m="2288000">I'm not allowed to do this pull apart, except if a was square.</span> </p>
+<p><span m="2295000">Now if a is square what's what's going on if a is a square</span> <span m="2301000">matrix? a nice square inv- invertible</span> <span m="2304000">matrix.</span> </p>
+<p><span m="2305000">Think.</span> </p>
+<p><span m="2306000">What's up with that what's with that case.</span> </p>
+<p><span m="2311000">So this is that the formula ought to work then too.</span> </p>
+<p><span m="2316000">If a is a nice square invertible matrix what's its</span> <span m="2321000">column space, so it's a nice n by n</span> <span m="2324000">invertible everything great matrix, what's its column space,</span> <span m="2330000">the whole of R^n.</span> </p>
+<p><span m="2331000">So what's the projection matrix if I'm projecting onto the whole</span> <span m="2337000">space?</span> </p>
+<p><span m="2339000">It's the identity matrix right?</span> </p>
+<p><span m="2341000">If I'm projecting b onto the whole space, not just onto a</span> <span m="2346000">plane, but onto all of 3-D, then b is already in the column</span> <span m="2350000">space, the projection is the identity, and this is gives me</span> <span m="2355000">the correct formula, P is I.</span> </p>
+<p><span m="2357000">But if I'm projecting onto a subspace then I can't split</span> <span m="2361000">those apart and I have to stay with that formula.</span> </p>
+<p><span m="2366000">OK. And what can I say if -- so I remember this formula for 1-D</span> <span m="2372520">and that's what it looks like in n dimensions.</span> </p>
+<p><span m="2376000">And what are the properties that I expected for any</span> <span m="2381000">projection matrix?</span> </p>
+<p><span m="2383000">And I still expect for this one?</span> </p>
+<p><span m="2386000">That matrix should be symmetric and it is.</span> </p>
+<p><span m="2390000">P transpose is P.</span> </p>
+<p><span m="2393190">Because if I transpose this, this guy's symmetric,</span> <span m="2397000">and its inverse is symmetric, and if I transpose this one</span> <span m="2403000">when I transpose it will pop up there, become a,</span> <span m="2407000">that a transpose will pop up here, and I'm back to P again.</span> </p>
+<p><span m="2413000">And do we dare try the other property which is P squared</span> <span m="2418000">equal P?</span> </p>
+<p><span m="2419000">It's got to be right.</span> </p>
+<p><span m="2422000">Because we know geometrically that the first projection pops</span> <span m="2430000">us onto the column space and the second one leaves us where we</span> </p>
+<p><span m="2438000">are. So I expect that if I multiply by let me do it -- if I multiply</span> <span m="2447000">by another P, so there's another a,</span> <span m="2451000">another a transpose a inverse a transpose, can you --</span> <span m="2459000">eight (a)-s in a row is quite obscene but -- do you see that</span> <span m="2465000">it works?</span> </p>
+<p><span m="2466000">So I'm squaring that so what do I do-- how do I see that</span> <span m="2470920">multiplication?</span> </p>
+<p><span m="2472000">Well, yeah, I just want to put parentheses in good places,</span> <span m="2477000">so I see what's happening, yeah, here's an a transpose a</span> <span m="2482000">sitting together -- so when that a transpose a</span> <span m="2487000">multiplies its inverse, all that stuff goes,</span> <span m="2491000">right.</span> </p>
+<p><span m="2492000">And leaves just the a transpose at the end, which is just what</span> <span m="2497000">we want.</span> </p>
+<p><span m="2498000">So P squared equals P.</span> </p>
+<p><span m="2500000">So sure enough those two properties hold.</span> </p>
+<p><span m="2504000">OK. OK we really have got now all the formulas.</span> </p>
+<p><span m="2510000">x hat, the projection P, and the projection matrix</span> <span m="2514000">capital P.</span> </p>
+<p><span m="2515000">And now my job is to use them.</span> </p>
+<p><span m="2518000">OK.</span> </p>
+<p><span m="2519130">So when would I have a bunch of equations, too many equations</span> <span m="2524000">and yet I want the best answer and the -- the most important</span> <span m="2530000">example, the most common example is if I have points so here's</span> <span m="2536000">the -- here's the application.</span> </p>
+<p><span m="2542000">v squared.</span> </p>
+<p><span m="2543000">Fitting by a line.</span> </p>
+<p><span m="2546000">OK.</span> </p>
+<p><span m="2547000">So I'll start this application today and there's more in it</span> <span m="2556000">than I can do in this same lecture.</span> </p>
+<p><span m="2561000">So that'll give me a chance to recap the formulas and there</span> <span m="2571000">they are, and recap the ideas.</span> </p>
+<p><span m="2577000">So let me start the problem today.</span> </p>
+<p><span m="2582000">I'm given a bunch of data points.</span> </p>
+<p><span m="2586000">And they lie close to a line but not on a line.</span> </p>
+<p><span m="2591000">Let me take that.</span> </p>
+<p><span m="2593000">Say a t equal to one, two and three,</span> <span m="2598000">I have one, and two and two again.</span> </p>
+<p><span m="2603000">So my data points are this is the like the time direction and</span> <span m="2610000">this is like well let me call that b or y or something.</span> </p>
+<p><span m="2617000">I'm given these three points and I want to fit them by a</span> <span m="2623000">line.</span> </p>
+<p><span m="2624400">By the best straight line.</span> </p>
+<p><span m="2627000">So the problem is fit the points one, one is the first</span> <span m="2633000">point -- the second point is t equals</span> <span m="2638000">two, b equal one, and the third point is t equal</span> <span m="2643000">three, b equal to two.</span> </p>
+<p><span m="2646000">So those are my three points, t equal sorry,that's two.</span> </p>
+<p><span m="2651000">Yeah, OK.</span> </p>
+<p><span m="2652000">So this is the point one, one.</span> </p>
+<p><span m="2655790">This is the point two, two, and that's the point</span> <span m="2660000">three, two.</span> </p>
+<p><span m="2661000">And of course there isn't a -- a line that goes through them.</span> </p>
+<p><span m="2669000">So I'm looking for the best line.</span> </p>
+<p><span m="2672000">I'm looking for a line that probably goes somewhere,</span> <span m="2677000">do you think it goes somewhere like that?</span> </p>
+<p><span m="2680000">I didn't mean to make it go through that point,</span> <span m="2685000">it won't.</span> </p>
+<p><span m="2686000">It'll kind of -- it'll go between so the error</span> <span m="2691000">there and the error there and the error there are as small as</span> <span m="2697000">I can get them.</span> </p>
+<p><span m="2698650">OK, what I'd like to do is find the matrix a.</span> </p>
+<p><span m="2702000">Because once I've found the matrix a the formulas take over.</span> </p>
+<p><span m="2708000">So what I'm looking for this line, b is C+Dt.</span> </p>
+<p><span m="2713000">So this is in the homework that I sent out for today.</span> </p>
+<p><span m="2718000">Find the best line.</span> </p>
+<p><span m="2719000">So I'm looking for these numbers.</span> </p>
+<p><span m="2722000">C and D.</span> </p>
+<p><span m="2723000">That tell me the line and I want them to be as close to</span> <span m="2728000">going through those three points as I can get.</span> </p>
+<p><span m="2732000">I can't get exactly so there are three equations to go</span> <span m="2736000">through the three points.</span> </p>
+<p><span m="2739000">It would it will go exactly through that point if let's see</span> <span m="2745000">that first point has t equal to one, so that would say C+D</span> <span m="2750000">equaled 1.</span> </p>
+<p><span m="2751000">This is the one, one.</span> </p>
+<p><span m="2752820">The second point t is two.</span> </p>
+<p><span m="2755000">So C+2D should come out to equal 2.</span> </p>
+<p><span m="2758000">But I also want to get the third equation in and at that</span> <span m="2763000">third equation t is three so C+3D equals only 2.</span> </p>
+<p><span m="2768000">That's the key.</span> </p>
+<p><span m="2769960">Is to write down what equations we would like to solve but</span> <span m="2775000">can't.</span> </p>
+<p><span m="2776000">Reason we if we could solve them that would mean that we</span> <span m="2782120">could put a line through all three points and of course if</span> <span m="2787000">these numbers one, two, two were different,</span> <span m="2792000">we could do it.</span> </p>
+<p><span m="2795000">But with those numbers, one, two, two,</span> <span m="2798000">we can't.</span> </p>
+<p><span m="2799000">So what is our equation Ax equal Ax equal b that we can't</span> <span m="2805780">solve?</span> </p>
+<p><span m="2806000">I just want to say what's the matrix here, what's the unknown</span> <span m="2812000">x, and what's the right-hand side.</span> </p>
+<p><span m="2817000">So this is the matrix is one, one, one, one,</span> <span m="2822000">two, three.</span> </p>
+<p><span m="2823000">The unknown is C and D.</span> </p>
+<p><span m="2826000">And the right-hand side if one, two, two.</span> </p>
+<p><span m="2830000">Right, I've just taken my equations and I've said what is</span> <span m="2837000">Ax and what is b.</span> </p>
+<p><span m="2839000">Then there's no solution, this is the typical case where</span> <span m="2845000">I have three equations -- two unknowns,</span> <span m="2851000">no solution, but I'm still looking for the</span> <span m="2856000">best solution.</span> </p>
+<p><span m="2858000">And the best solution is taken is is to solve not this equation</span> <span m="2865000">Ax equal b which has which has no solution but the equation</span> <span m="2872000">that does have a solution, which was this one.</span> </p>
+<p><span m="2877000">So that's the equation to solve.</span> </p>
+<p><span m="2883000">That's the central equation of the subject.</span> </p>
+<p><span m="2887000">I can't solve Ax=b but magically when I multiply both</span> <span m="2891000">sides by a transpose I get an equation that I can solve and</span> <span m="2897000">its solution gives me x, the best x, the best</span> <span m="2901000">projection, and I discover what's the matrix that's behind</span> <span m="2906000">it.</span> </p>
+<p><span m="2907000">OK. So next time I'll complete an example, numerical example.</span> </p>
+<p><span m="2912000">today was all letters, numbers next time.</span> </p>
+<p><span m="2916000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 104MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/15.mp4">MP4 - 195MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/Y_Ac6KiQ1t0.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

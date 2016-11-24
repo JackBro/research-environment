@@ -1,0 +1,1284 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 5: Transposes, permutations, spaces R^n | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 5: Transposes, permutations, spaces R^n" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 5: Transposes, permutations, spaces R^n" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-5-transposes-permutations-spaces-r-n">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 5: Transposes, permutations, spaces R^n
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 5: Transposes, permutations, spaces R^n
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-5-transposes-permutations-spaces-r-n/JibVXBElKL0.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/05.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/JibVXBElKL0', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-5-transposes-permutations-spaces-r-n', 'https://img.youtube.com/vi/JibVXBElKL0/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-5-transposes-permutations-spaces-r-n/JibVXBElKL0.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703559, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang  teaching 18.06 were   recorded in Fall 1999 and do not correspond  precisely to the current   edition of the textbook. However, this book is  still the best  reference  for more information on the topics covered in  each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/JibVXBElKL0.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="8000">Okay. This is lecture five in linear algebra.</span> </p>
+<p><span m="12000">And, it will complete this chapter of the book.</span> </p>
+<p><span m="16000">So the last section of this chapter is two point seven that</span> <span m="21000">talks about permutations, which finished the previous</span> <span m="26000">lecture, and transposes, which also came in the previous</span> <span m="31000">lecture.</span> </p>
+<p><span m="33000">There's a little more to do with those guys,</span> <span m="37000">permutations and transposes.</span> </p>
+<p><span m="39000">But then the heart of the lecture will be the beginning of</span> <span m="44000">what you could say is the beginning of linear algebra,</span> <span m="48000">the beginning of real linear algebra which is seeing a bigger</span> <span m="53000">picture with vector spaces -- not just vectors,</span> <span m="58000">but spaces of vectors and sub-spaces of those spaces.</span> </p>
+<p><span m="64000">So we're a little ahead of the syllabus, which is good,</span> <span m="70000">because we're coming to the place where, there's a lot to</span> </p>
+<p><span m="76000">do. Okay.</span> </p>
+<p><span m="77090">So, to begin with permutations.</span> </p>
+<p><span m="81000">Can I just -- so these permutations,</span> <span m="86000">those are matrices P and they execute row exchanges.</span> </p>
+<p><span m="94000">And we may need them.</span> </p>
+<p><span m="97000">We may have a perfectly good matrix, a perfect matrix A</span> <span m="105000">that's invertible that we can solve A x=b, but to do it --</span> <span m="114000">I've got to allow myself that extra freedom that if a zero</span> <span m="120000">shows up in the pivot position I move it away.</span> </p>
+<p><span m="124000">I get a non-zero.</span> </p>
+<p><span m="126000">I get a proper pivot there by exchanging from a row below.</span> </p>
+<p><span m="131000">And you've seen that already, and I just want to collect the</span> <span m="137000">ideas together.</span> </p>
+<p><span m="139000">And principle, I could even have to do that</span> <span m="143000">two times, or more times.</span> </p>
+<p><span m="145000">So I have to allow -- to complete the -- the theory,</span> <span m="150000">the possibility that I take my matrix A, I start elimination,</span> <span m="155000">I find out that I need row exchanges and I do it and</span> <span m="160000">continue and I finish.</span> </p>
+<p><span m="162000">Okay.</span> </p>
+<p><span m="163000">Then all I want to do is say -- and I won't make a big project</span> <span m="170000">out of this -- what happens to A equal L U?</span> </p>
+<p><span m="174000">So A equal L U -- this was a matrix L with ones on the</span> <span m="180000">diagonal and zeroes above and multipliers below,</span> <span m="185200">and this U we know, with zeroes down here.</span> </p>
+<p><span m="190000">That's only possible.</span> </p>
+<p><span m="192000">That description of elimination assumes that we don't have a P,</span> <span m="199000">that we don't have any row exchanges.</span> </p>
+<p><span m="202000">And now I just want to say, okay, how do I account for row</span> <span m="208600">exchanges?</span> </p>
+<p><span m="209000">Because that doesn't.</span> </p>
+<p><span m="212000">The P in this factorization is the identity matrix.</span> </p>
+<p><span m="217000">The rows were in a good order, we left them there.</span> </p>
+<p><span m="222000">Maybe I'll just add a little moment of reality,</span> <span m="226000">too, about how Matlab actually does elimination.</span> </p>
+<p><span m="230000">Matlab not only checks whether that pivot is not zero,</span> <span m="235000">as every human would do.</span> </p>
+<p><span m="239000">It checks for is that pivot big enough, because it doesn't like</span> <span m="244000">very, very small pivots.</span> </p>
+<p><span m="246000">Pivots close to zero are numerically bad.</span> </p>
+<p><span m="249000">So actually if we ask Matlab to solve a system,</span> <span m="252000">it will do some elimination some row exchanges,</span> <span m="256000">which we don't think are necessary.</span> </p>
+<p><span m="259000">Algebra doesn't say they're necessary, but accuracy --</span> <span m="264000">numerical accuracy says they are.</span> </p>
+<p><span m="267000">Well, we're doing algebra, so here we will say,</span> <span m="271000">well, what do row exchanges do, but we won't do them unless we</span> <span m="277000">have to.</span> </p>
+<p><span m="278000">But we may have to.</span> </p>
+<p><span m="282000">And then, the result is -- it's hiding here.</span> </p>
+<p><span m="289000">It's the main fact.</span> </p>
+<p><span m="292000">This is the description of elimination with row exchanges.</span> </p>
+<p><span m="302000">So A equal L U becomes P A equal L U.</span> </p>
+<p><span m="310000">So this P is the matrix that does the row exchanges,</span> <span m="314460">and actually it does them -- it gets the rows into the right</span> <span m="319000">order, into the good order where pivots will not --</span> <span m="324480">where zeroes won't appear in the pivot position,</span> <span m="329000">where L and U will come out right as up here.</span> </p>
+<p><span m="334000">So, that's the point.</span> </p>
+<p><span m="336000">Actually, I don't want to labor that point, that a permutation</span> <span m="342000">matrix -- and you remember what those were.</span> </p>
+<p><span m="348000">I'll remind you from last time of what the main points about</span> <span m="356000">permutation matrices were -- and then just leave this</span> <span m="363000">factorization as the general case.</span> </p>
+<p><span m="367000">This is -- any invertible A we get this.</span> </p>
+<p><span m="373000">For almost every one, we don't need a P.</span> </p>
+<p><span m="379000">But there's that handful that do need row exchanges,</span> <span m="388000">and if we do need them, there they are.</span> </p>
+<p><span m="395000">Okay, finally, just to remember what P was.</span> </p>
+<p><span m="402000">So permutations, P is the identity matrix with</span> <span m="410000">reordered rows.</span> </p>
+<p><span m="414000">I include in reordering the possibility that you just leave</span> <span m="418000">them the same.</span> </p>
+<p><span m="419000">So the identity matrix is -- okay.</span> </p>
+<p><span m="422000">That's, like, your basic permutation matrix</span> <span m="425000">-- your do-nothing permutation matrix is the identity.</span> </p>
+<p><span m="430000">And then there are the ones that exchange two rows and then</span> <span m="434000">the ones that exchange three rows and then then ones that</span> <span m="439000">exchange four -- well, it gets a little -- it gets</span> <span m="443000">more interesting algebraically if you've got four rows,</span> <span m="448000">you might exchange them all in one big cycle.</span> </p>
+<p><span m="451000">One to two, two to three, three to four,</span> <span m="454000">four to one.</span> </p>
+<p><span m="455000">Or you might have -- exchange one and two and three and four.</span> </p>
+<p><span m="460020">Lots of possibilities there.</span> </p>
+<p><span m="462000">In fact, how many possibilities?</span> </p>
+<p><span m="465000">The answer was (n)factorial.</span> </p>
+<p><span m="470200">This is n(n-1)(n-2)... (3)(2)(1).</span> </p>
+<p><span m="475000">That's the number of -- this counts the reorderings,</span> <span m="484000">the possible reorderings.</span> </p>
+<p><span m="489000">So it counts all the n by n permutations.</span> </p>
+<p><span m="496000">And all those matrices have these --</span> <span m="504000">have this nice property that they're all invertible,</span> <span m="509000">because we can bring those rows back into the normal order.</span> </p>
+<p><span m="515000">And the matrix that does that is just P -- is just the same as</span> <span m="521860">the transpose.</span> </p>
+<p><span m="523000">You might take a permutation matrix, multiply by its</span> <span m="528000">transpose and you will see how --</span> <span m="532000">that the ones hit the ones and give the ones in the identity</span> <span m="537000">matrix.</span> </p>
+<p><span m="538000">So this is a -- we'll be highly interested in matrices that have</span> <span m="543000">nice properties.</span> </p>
+<p><span m="545000">And one property that -- maybe I could rewrite that as P</span> <span m="549000">transpose P is the identity.</span> </p>
+<p><span m="552000">That tells me in other words that this is the inverse of</span> <span m="556000">that.</span> </p>
+<p><span m="558000">Okay. We'll be interested in matrices that have P transpose P equal</span> <span m="564000">the identity.</span> </p>
+<p><span m="565000">There are more of them than just permutations,</span> <span m="569000">but my point right now is that permutations are like a little</span> <span m="575000">group in the middle -- in the center of these special</span> <span m="579000">matrices.</span> </p>
+<p><span m="581000">Okay.</span> </p>
+<p><span m="582000">So now we know how many there are.</span> </p>
+<p><span m="584000">Twenty four in the case of -- there are twenty four four by</span> <span m="588950">four permutations, there are five factorial which</span> <span m="592000">is a hundred and twenty, five times twenty four would</span> <span m="596000">bump us up to a hundred and twenty --</span> <span m="600000">so listing all the five by five permutations would be not so</span> <span m="607000">much fun.</span> </p>
+<p><span m="608000">Okay.</span> </p>
+<p><span m="609000">So that's permutations.</span> </p>
+<p><span m="612000">Now also in section two seven is some discussion of</span> <span m="618590">transposes.</span> </p>
+<p><span m="619000">And can I just complete that discussion.</span> </p>
+<p><span m="626000">First of all, I haven't even transposed a</span> <span m="630000">matrix on the board here, have I?</span> </p>
+<p><span m="633000">So I'd better do it.</span> </p>
+<p><span m="635000">So suppose I take a matrix like (1 2 4; 3 3 1).</span> </p>
+<p><span m="640000">It's a rectangular matrix, three by two.</span> </p>
+<p><span m="644000">And I want to transpose it.</span> </p>
+<p><span m="647000">So what's -- I'll use a T, also Matlab would use a prime.</span> </p>
+<p><span m="655000">And the result will be -- I'll right it here,</span> <span m="659000">because this was three rows and two columns, this was a three by</span> <span m="666000">two matrix.</span> </p>
+<p><span m="667000">The transpose will be two rows and three columns,</span> <span m="672000">two by three.</span> </p>
+<p><span m="674000">So it's short and wider.</span> </p>
+<p><span m="676000">And, of course, that row -- that column becomes</span> <span m="681000">a row -- that column becomes the other</span> <span m="687860">row.</span> </p>
+<p><span m="688000">And at the same time, that row became a column.</span> </p>
+<p><span m="694000">This row became a column.</span> </p>
+<p><span m="697560">Oh, what's the general formula for the transpose?</span> </p>
+<p><span m="703000">So the transpose -- you see it in numbers.</span> </p>
+<p><span m="710000">What I'm going to write is the same thing in symbols.</span> </p>
+<p><span m="715000">The numbers are the clearest, of course.</span> </p>
+<p><span m="719000">But in symbols, if I take A transpose and I ask</span> <span m="724000">what number is in row I and column J of A transpose?</span> </p>
+<p><span m="729000">Well, it came out of A.</span> </p>
+<p><span m="731000">It came out A by this flip across the main diagonal.</span> </p>
+<p><span m="738000">And, actually, it was the number in A which</span> <span m="743000">was in row J, column I.</span> </p>
+<p><span m="745000">So the row and column -- the row and column numbers just get</span> <span m="752000">reversed.</span> </p>
+<p><span m="753000">The row number becomes the column number,</span> <span m="757890">the column number becomes the row number.</span> </p>
+<p><span m="763000">No problem.</span> </p>
+<p><span m="764000">Okay.</span> </p>
+<p><span m="765000">Now, a special -- the best matrices, we could say.</span> </p>
+<p><span m="770000">In a lot of applications, symmetric matrices show up.</span> </p>
+<p><span m="775000">So can I just call attention to symmetric matrices?</span> </p>
+<p><span m="780000">What does that mean?</span> </p>
+<p><span m="782000">What does that word symmetric mean?</span> </p>
+<p><span m="786000">It means that this transposing doesn't change the matrix.</span> </p>
+<p><span m="792000">A transpose equals A.</span> </p>
+<p><span m="795000">And an example.</span> </p>
+<p><span m="797000">So, let's take a matrix that's symmetric, so whatever is</span> <span m="803390">sitting on the diagonal -- but now what's above the diagonal,</span> <span m="810000">like a one, had better be there, a seven had better be</span> <span m="816000">here, a nine had better be there.</span> </p>
+<p><span m="821000">There's a symmetric matrix.</span> </p>
+<p><span m="823000">I happened to use all positive numbers as its entries.</span> </p>
+<p><span m="828000">That's not the point.</span> </p>
+<p><span m="830000">The point is that if I transpose that matrix,</span> <span m="835000">I get it back again.</span> </p>
+<p><span m="837000">So symmetric matrices have this property A transpose equals A.</span> </p>
+<p><span m="842000">I guess at this point -- I'm just asking you to notice</span> <span m="849000">this family of matrices that are unchanged by transposing.</span> </p>
+<p><span m="855000">And they're easy to identify, of course.</span> </p>
+<p><span m="859000">You know, it's not maybe so easy before we had a case where</span> <span m="865000">the transpose gave the inverse.</span> </p>
+<p><span m="869000">That's highly important, but not so simple to see.</span> </p>
+<p><span m="875000">This is the case where the transpose gives the same matrix</span> </p>
+<p><span m="880000">back again. That's totally simple to see.</span> </p>
+<p><span m="883000">Okay. Could actually -- maybe I could even say when would we get such</span> <span m="888000">a matrix?</span> </p>
+<p><span m="889000">For example, this -- that matrix is</span> <span m="891000">absolutely far from symmetric, right?</span> </p>
+<p><span m="894000">The transpose isn't even the same shape --</span> <span m="899000">because it's rectangular, it turns the -- lies down on</span> <span m="903000">its side.</span> </p>
+<p><span m="904000">But let me tell you a way to get a symmetric matrix out of</span> </p>
+<p><span m="909000">this. Multiply those together.</span> </p>
+<p><span m="912000">If I multiply this rectangular, shall I call it R for</span> <span m="916000">rectangular?</span> </p>
+<p><span m="918000">So let that be R for rectangular matrix and let that</span> <span m="923460">be R transpose, which it is.</span> </p>
+<p><span m="926000">Then I think that if I multiply those together,</span> <span m="930000">I get a symmetric matrix.</span> </p>
+<p><span m="932940">Can I just do it with the numbers and then ask you why,</span> <span m="938000">how did I know it would be symmetric?</span> </p>
+<p><span m="942710">So my point is that R transpose R is always symmetric.</span> </p>
+<p><span m="948000">Okay?</span> </p>
+<p><span m="949000">And I'm going to do it for that particular R transpose R which</span> <span m="955000">was -- let's see, the column was one two four</span> <span m="960000">three three one.</span> </p>
+<p><span m="962000">I called that one R transpose, didn't I, and I called this guy</span> <span m="968000">one two four three three one.</span> </p>
+<p><span m="973000">I called that R.</span> </p>
+<p><span m="974000">Shall we just do that multiplication?</span> </p>
+<p><span m="977000">Okay, so up here I'm getting a ten.</span> </p>
+<p><span m="980000">Next to it I'm getting two, a nine, I'm getting an eleven.</span> </p>
+<p><span m="984000">Next to that I'm getting four and three, a seven.</span> </p>
+<p><span m="988000">Now what do I get there?</span> </p>
+<p><span m="991000">This eleven came from one three times two three,</span> <span m="995000">right?</span> </p>
+<p><span m="996510">Row one, column two.</span> </p>
+<p><span m="998000">What goes here?</span> </p>
+<p><span m="999000">Row two, column one.</span> </p>
+<p><span m="1001000">But no difference.</span> </p>
+<p><span m="1003000">One three two three or two three one three,</span> <span m="1006000">same thing.</span> </p>
+<p><span m="1007000">It's going to be an eleven.</span> </p>
+<p><span m="1010330">That's the symmetry.</span> </p>
+<p><span m="1013000">I can continue to fill it out.</span> </p>
+<p><span m="1015000">What -- oh, let's get that seven.</span> </p>
+<p><span m="1017000">That seven will show up down here, too, and then four more</span> <span m="1021000">numbers.</span> </p>
+<p><span m="1022000">That seven will show up here because one three times four one</span> <span m="1026000">gave the seven, but also four one times one</span> <span m="1029000">three will give that seven.</span> </p>
+<p><span m="1031960">Do you see that it works?</span> </p>
+<p><span m="1034000">Actually, do you want to see it work also in matrix language?</span> </p>
+<p><span m="1041000">I mean, that's quite convincing, right?</span> </p>
+<p><span m="1046000">That seven is no accident.</span> </p>
+<p><span m="1049000">The eleven is no accident.</span> </p>
+<p><span m="1052000">But just tell me how do I know if I transpose this guy --</span> <span m="1059000">How do I know it's symmetric?</span> </p>
+<p><span m="1063000">Well, I'm going to transpose it.</span> </p>
+<p><span m="1066000">And when I transpose it, I'm hoping I get the matrix</span> <span m="1073000">back again.</span> </p>
+<p><span m="1074000">So can I transpose R transpose R?</span> </p>
+<p><span m="1078000">So just -- so, why?</span> </p>
+<p><span m="1080000">Well, my suggestion is take the transpose.</span> </p>
+<p><span m="1087000">That's the only way to show it's symmetric.</span> </p>
+<p><span m="1091000">Take the transpose and see that it didn't change.</span> </p>
+<p><span m="1095000">Okay, so I take the transpose of R transpose R.</span> </p>
+<p><span m="1099000">Okay.</span> </p>
+<p><span m="1100000">How do I do that?</span> </p>
+<p><span m="1101000">This is our little practice on the rules for transposes.</span> </p>
+<p><span m="1107000">So the rule for transposes is the order gets reversed.</span> </p>
+<p><span m="1113000">Just like inverses, which we did prove,</span> <span m="1117000">same rule for transposes and -- which we'll now use.</span> </p>
+<p><span m="1123000">So the order gets reversed.</span> </p>
+<p><span m="1126000">It's the transpose of that that comes first, and the transpose</span> <span m="1132000">of this that comes -- no.</span> </p>
+<p><span m="1136000">Is that -- yeah.</span> </p>
+<p><span m="1137000">That's what I have to write, right?</span> </p>
+<p><span m="1140000">This is a product of two matrices and I want its</span> </p>
+<p><span m="1144000">transpose. So I put the matrices in the opposite order and I transpose</span> <span m="1149000">them.</span> </p>
+<p><span m="1149770">But what have I got here?</span> </p>
+<p><span m="1151000">What is R transpose transpose?</span> </p>
+<p><span m="1154000">Well, don't all speak at once.</span> </p>
+<p><span m="1157000">R transpose transpose, I flipped over the diagonal,</span> <span m="1163000">I flipped over the diagonal again, so I've got R.</span> </p>
+<p><span m="1168000">And that's just my point, that if I started with this</span> <span m="1174000">matrix, I transposed it, I got it back again.</span> </p>
+<p><span m="1179460">So that's the check, without using numbers,</span> <span m="1184000">but with -- it checked in two lines that I</span> <span m="1189000">always get symmetric matrices this way.</span> </p>
+<p><span m="1193000">And actually, that's where they come from in</span> <span m="1198000">so many practical applications.</span> </p>
+<p><span m="1201910">Okay.</span> </p>
+<p><span m="1202000">So now I've said something today about permutations and</span> <span m="1208000">about transposes and about symmetry and I'm ready for</span> <span m="1213000">chapter three.</span> </p>
+<p><span m="1216000">Can we take a breath -- the tape won't take a breath,</span> <span m="1224000">but the lecturer will, because to tell you about</span> <span m="1232000">vector spaces is -- we really have to start now and think,</span> <span m="1241000">okay, listen up.</span> </p>
+<p><span m="1243000">What are vector spaces?</span> </p>
+<p><span m="1247000">And what are sub-spaces?</span> </p>
+<p><span m="1250000">Okay.</span> </p>
+<p><span m="1251000">So, the point is, The main operations that we do</span> <span m="1259000">-- what do we do with vectors?</span> </p>
+<p><span m="1262000">We add them.</span> </p>
+<p><span m="1263000">We know how to add two vectors.</span> </p>
+<p><span m="1266000">We multiply them by numbers, usually called scalers.</span> </p>
+<p><span m="1271000">If we have a vector, we know what three V is.</span> </p>
+<p><span m="1276000">If we have a vector V and W, we know what V plus W is.</span> </p>
+<p><span m="1282000">Those are the two operations that we've got to be able to do.</span> </p>
+<p><span m="1287000">To legitimately talk about a space of vectors,</span> <span m="1291000">the requirement is that we should be able to add the things</span> <span m="1296000">and multiply by numbers and that there should be some decent</span> <span m="1301570">rules satisfied.</span> </p>
+<p><span m="1303710">Okay.</span> </p>
+<p><span m="1304000">So let me start with examples.</span> </p>
+<p><span m="1307680">So I'm talking now about vector spaces.</span> </p>
+<p><span m="1311990">And I'm going to start with examples.</span> </p>
+<p><span m="1316000">Let me say again what this word space is meaning.</span> </p>
+<p><span m="1321000">When I say that word space, that means to me that I've got</span> <span m="1327000">a bunch of vectors, a space of vectors.</span> </p>
+<p><span m="1333000">But not just any bunch of vectors.</span> </p>
+<p><span m="1337080">It has to be a space of vectors -- has to allow me to do the</span> <span m="1343000">operations that vectors are for.</span> </p>
+<p><span m="1346000">I have to be able to add vectors and multiply by numbers.</span> </p>
+<p><span m="1352000">I have to be able to take linear combinations.</span> </p>
+<p><span m="1357000">Well, where did we meet linear combinations?</span> </p>
+<p><span m="1362000">We met them back in, say in R^2.</span> </p>
+<p><span m="1365000">So there's a vector space.</span> </p>
+<p><span m="1368150">What's that vector space?</span> </p>
+<p><span m="1370000">So R two is telling me I'm talking about real numbers and</span> <span m="1376000">I'm talking about two real numbers.</span> </p>
+<p><span m="1380000">So this is all two dimensional vectors -- real,</span> <span m="1388000">such as -- well, I'm not going to be able to</span> <span m="1394000">list them all.</span> </p>
+<p><span m="1397000">But let me put a few down. |3; 2|, |0;0|,</span> <span m="1403000">|pi; e|.</span> </p>
+<p><span m="1404000">So on.</span> </p>
+<p><span m="1405450">And it's natural -- okay.</span> </p>
+<p><span m="1409000">Let's see, I guess I should do algebra first.</span> </p>
+<p><span m="1416230">Algebra means what can I do to these vectors?</span> </p>
+<p><span m="1425000">I can add them.</span> </p>
+<p><span m="1426000">I can add that to that.</span> </p>
+<p><span m="1428000">And how do I do it?</span> </p>
+<p><span m="1430000">A component at a time, of course.</span> </p>
+<p><span m="1432000">Three two added to zero zero gives me, three two.</span> </p>
+<p><span m="1437000">Sorry about that.</span> </p>
+<p><span m="1438000">Three two added to pi e gives me three plus pi,</span> <span m="1442000">two plus e.</span> </p>
+<p><span m="1443000">Oh, you know what it does.</span> </p>
+<p><span m="1446000">And you know the picture that goes with it.</span> </p>
+<p><span m="1450000">There's the vector three two.</span> </p>
+<p><span m="1452000">And often, the picture has an arrow.</span> </p>
+<p><span m="1455000">The vector zero zero, which is a highly important</span> <span m="1459000">vector -- it's got, like, the most important here</span> </p>
+<p><span m="1463000">-- is there. And of course there's not much of an arrow.</span> </p>
+<p><span m="1468340">Pi -- I'll have to remember -- pi is about three and a little</span> <span m="1474000">more, e is about two and a little more.</span> </p>
+<p><span m="1478000">So maybe there's pi e.</span> </p>
+<p><span m="1480000">I never drew pi e before.</span> </p>
+<p><span m="1483000">It's just natural to -- this is the first component on the</span> <span m="1488000">horizontal and this is the second component,</span> <span m="1493000">going up the vertical.</span> </p>
+<p><span m="1496000">Okay.</span> </p>
+<p><span m="1497000">And the whole plane is R two.</span> </p>
+<p><span m="1502000">So R two is, we could say,</span> <span m="1507000">the plane.</span> </p>
+<p><span m="1508000">The xy plane.</span> </p>
+<p><span m="1511000">That's what everybody thinks.</span> </p>
+<p><span m="1516000">But the point is it's a vector space because all those vectors</span> <span m="1527000">are in there.</span> </p>
+<p><span m="1529000">If I removed one of them -- Suppose I removed zero zero.</span> </p>
+<p><span m="1538000">Suppose I tried to take the -- considered the X Y plane with a</span> <span m="1542000">puncture, with a point removed.</span> </p>
+<p><span m="1545000">Like the origin.</span> </p>
+<p><span m="1546000">That would be, like, awful to take the origin</span> <span m="1549000">away.</span> </p>
+<p><span m="1550000">Why is that?</span> </p>
+<p><span m="1551000">Why do I need the origin there?</span> </p>
+<p><span m="1553000">Because I have to be allowed -- if I had these other vectors,</span> <span m="1558000">I have to be allowed to multiply three two -- this was</span> <span m="1563000">three two -- by anything, by any scaler,</span> <span m="1566000">including zero.</span> </p>
+<p><span m="1567000">I've got to be allowed to multiply by zero and the</span> <span m="1571000">result's got to be there.</span> </p>
+<p><span m="1574000">I can't do without that point.</span> </p>
+<p><span m="1577000">And I have to be able to add three two to the opposite guy,</span> <span m="1581000">minus three minus two.</span> </p>
+<p><span m="1583000">And if I add those I'm back to the origin again.</span> </p>
+<p><span m="1587000">No way I can do without the origin.</span> </p>
+<p><span m="1590000">Every vector space has got that zero vector in it.</span> </p>
+<p><span m="1594000">Okay, that's an easy vector space, because we have a natural</span> <span m="1603040">picture of it.</span> </p>
+<p><span m="1604000">Okay.</span> </p>
+<p><span m="1605000">Similarly easy is R^3.</span> </p>
+<p><span m="1608000">This would be all -- let me go up a little here.</span> </p>
+<p><span m="1615000">This would be -- R three would be all three dimensional vectors</span> <span m="1623000">-- or shall I say vectors with</span> <span m="1629000">three real components.</span> </p>
+<p><span m="1632000">Okay.</span> </p>
+<p><span m="1633000">Let me just to be sure we're together, let me take the vector</span> <span m="1643000">three two zero.</span> </p>
+<p><span m="1645000">Is that a vector in R^2 or R^3?</span> </p>
+<p><span m="1650000">Definitely it's in R^3.</span> </p>
+<p><span m="1654000">It's got three components.</span> </p>
+<p><span m="1659000">One of them happens to be zero, but that's a perfectly okay</span> </p>
+<p><span m="1665000">number. So that's a vector in R^3.</span> </p>
+<p><span m="1668000">We don't want to mix up the -- I mean, keep these vectors</span> <span m="1673000">straight and keep R^n straight.</span> </p>
+<p><span m="1676930">So what's R^n?</span> </p>
+<p><span m="1678000">R^n. So this is our big example, is all vectors with n</span> <span m="1683000">components.</span> </p>
+<p><span m="1685000">And I'm making these darn things column vectors.</span> </p>
+<p><span m="1689000">Can I try to follow that convention, that they'll be</span> <span m="1694000">column vectors, and their components should be</span> <span m="1698000">real numbers.</span> </p>
+<p><span m="1699000">Later we'll need complex numbers and complex vectors,</span> <span m="1704050">but much later.</span> </p>
+<p><span m="1705000">Okay. So that's a vector space.</span> </p>
+<p><span m="1709000">Now, let's see.</span> </p>
+<p><span m="1710350">What do I have to tell you about vector spaces?</span> </p>
+<p><span m="1714000">I said the most important thing, which is that we can add</span> <span m="1718000">any two of these and we -- still in R^2.</span> </p>
+<p><span m="1722000">We can multiply by any number and we're still in R^2.</span> </p>
+<p><span m="1726000">We can take any combination and we're still in R^2.</span> </p>
+<p><span m="1731000">And same goes for R^n.</span> </p>
+<p><span m="1733000">It's -- honesty requires me to mention that these operations of</span> <span m="1740000">adding and multiplying have to obey a few rules.</span> </p>
+<p><span m="1745210">Like, we can't just arbitrarily say, okay, the sum of three two</span> <span m="1751000">and pi e is zero zero.</span> </p>
+<p><span m="1754000">It's not.</span> </p>
+<p><span m="1755000">The sum of three two and minus three two is zero zero.</span> </p>
+<p><span m="1760000">So -- oh, I'm not going to -- the book, actually,</span> <span m="1764000">lists the eight rules that the addition and multiplication have</span> <span m="1770000">to satisfy, but they do.</span> </p>
+<p><span m="1772000">They certainly satisfy it in R^n and usually it's not those</span> <span m="1777000">eight rules that are in doubt.</span> </p>
+<p><span m="1781000">What's -- the question is, can we do those additions and</span> <span m="1787000">do we stay in the space?</span> </p>
+<p><span m="1790000">Let me show you a case where you can't.</span> </p>
+<p><span m="1794000">So suppose this is going to be not a vector space.</span> </p>
+<p><span m="1800000">Suppose I take the xy plane -- so there's R^2.</span> </p>
+<p><span m="1806000">That is a vector space.</span> </p>
+<p><span m="1809000">Now suppose I just take part of it.</span> </p>
+<p><span m="1813000">Just this.</span> </p>
+<p><span m="1814000">Just this one -- this is one quarter of the vector space.</span> </p>
+<p><span m="1822000">All the vectors with positive or at least not negative</span> <span m="1828990">components.</span> </p>
+<p><span m="1831000">Can I add those safely?</span> </p>
+<p><span m="1833000">Yes. If I add a vector with, like, two -- three two to</span> <span m="1837000">another vector like five six, I'm still up in this quarter,</span> <span m="1842000">no problem with adding.</span> </p>
+<p><span m="1844000">But there's a heck of a problem with multiplying by scalers,</span> <span m="1849000">because there's a lot of scalers that will take me out of</span> <span m="1854000">this quarter plane, like negative ones.</span> </p>
+<p><span m="1859000">If I took three two and I multiplied by minus five,</span> <span m="1863000">I'm way down here.</span> </p>
+<p><span m="1865000">So that's not a vector space, because it's not -- closed is</span> <span m="1871000">the right word.</span> </p>
+<p><span m="1872420">It's not closed under multiplication by all real</span> <span m="1876000">numbers.</span> </p>
+<p><span m="1877000">So a vector space has to be closed under multiplication and</span> <span m="1883000">addition of vectors.</span> </p>
+<p><span m="1886000">In other words, linear combinations.</span> </p>
+<p><span m="1888000">It -- so, it means that if I give you a few vectors -- yeah</span> <span m="1893000">look, here's an important -- here -- now we're getting to</span> <span m="1898000">some really important vector spaces.</span> </p>
+<p><span m="1901000">Well, R^n -- like, they are the most important.</span> </p>
+<p><span m="1905000">But we will be interested in so- in vector spaces that are</span> <span m="1911000">inside R^n.</span> </p>
+<p><span m="1912000">Vector spaces that follow the rules, but they -- we don't need</span> <span m="1919000">all of -- see, there we started with R^2 here,</span> <span m="1924000">and took part of it and messed it up.</span> </p>
+<p><span m="1928000">What we got was not a vector space.</span> </p>
+<p><span m="1932000">Now tell me a vector space that is part of R^2 and is still</span> <span m="1938000">safely -- we can multiply,</span> <span m="1942000">we can add and we stay in this smaller vector space.</span> </p>
+<p><span m="1948000">So it's going to be called a subspace.</span> </p>
+<p><span m="1952000">So I'm going to change this bad example to a good one.</span> </p>
+<p><span m="1957000">Okay.</span> </p>
+<p><span m="1958000">So I'm going to start again with R^2, but I'm going to take</span> <span m="1964000">an example -- it is a vector space,</span> <span m="1970000">so it'll be a vector space inside R^2.</span> </p>
+<p><span m="1975900">And we'll call that a subspace of R^2.</span> </p>
+<p><span m="1981000">Okay.</span> </p>
+<p><span m="1982250">What can I do?</span> </p>
+<p><span m="1984000">It's got something in it.</span> </p>
+<p><span m="1988000">Suppose it's got this vector in it.</span> </p>
+<p><span m="1993000">Okay.</span> </p>
+<p><span m="1995000">If that vector's in my little subspace and it's a true</span> <span m="1999000">subspace, then there's got to be some more in it,</span> </p>
+<p><span m="2003000">right? I have to be able to multiply that by two, and that double</span> <span m="2008000">vector has to be included.</span> </p>
+<p><span m="2009000">Have to be able to multiply by zero, that vector,</span> <span m="2013000">or by half, or by three quarters.</span> </p>
+<p><span m="2016000">All these vectors.</span> </p>
+<p><span m="2018000">Or by minus a half, or by minus one.</span> </p>
+<p><span m="2021000">I have to be able to multiply by any number.</span> </p>
+<p><span m="2026000">So that is going to say that I have to have that whole line.</span> </p>
+<p><span m="2031000">Do you see that?</span> </p>
+<p><span m="2033000">Once I get a vector in there -- I've got the whole line of all</span> <span m="2040000">multiples of that vector.</span> </p>
+<p><span m="2043000">I can't have a vector space without extending to get those</span> <span m="2049070">multiples in there.</span> </p>
+<p><span m="2051000">Now I still have to check addition.</span> </p>
+<p><span m="2054000">But that comes out okay.</span> </p>
+<p><span m="2058000">This line is going to work, because I could add something</span> <span m="2063670">on the line to something else on the line and I'm still on the</span> <span m="2069000">line.</span> </p>
+<p><span m="2070000">So, example.</span> </p>
+<p><span m="2071510">So this is all examples of a subspace -- our example is a</span> <span m="2077000">line in R^2 actually -- not just any line.</span> </p>
+<p><span m="2081260">If I took this line, would that -- so all the</span> <span m="2085000">vectors on that line.</span> </p>
+<p><span m="2089000">So that vector and that vector and this vector and this vector</span> <span m="2096000">-- in lighter type, I'm drawing something that</span> <span m="2102000">doesn't work.</span> </p>
+<p><span m="2103000">It's not a subspace.</span> </p>
+<p><span m="2106000">The line in R^2 -- to be a subspace, the line in R^2 must</span> <span m="2113000">go through the zero vector.</span> </p>
+<p><span m="2117000">Because -- why is this line no good?</span> </p>
+<p><span m="2121000">Let me do a dashed line.</span> </p>
+<p><span m="2123000">Because if I multiplied that vector on the dashed line by</span> <span m="2128000">zero, then I'm down here, I'm not on the dashed line.</span> </p>
+<p><span m="2133000">Z- zero's got to be.</span> </p>
+<p><span m="2135000">Every subspace has got to contain zero --</span> <span m="2140000">because I must be allowed to multiply by zero and that will</span> <span m="2145000">always give me the zero vector.</span> </p>
+<p><span m="2147000">Okay.</span> </p>
+<p><span m="2148000">Now, I was going to make -- create some subspaces.</span> </p>
+<p><span m="2152000">Oh, while I'm in R^2, why don't we think of all the</span> <span m="2156000">possibilities.</span> </p>
+<p><span m="2157000">R two, there can't be that many.</span> </p>
+<p><span m="2160000">So what are the possible subspaces of R^2?</span> </p>
+<p><span m="2164000">Let me list them.</span> </p>
+<p><span m="2167000">So I'm listing now the subspaces of R^2.</span> </p>
+<p><span m="2172000">And one possibility that we always allow is all of R two,</span> <span m="2180000">the whole thing, the whole space.</span> </p>
+<p><span m="2184000">That counts as a subspace of itself.</span> </p>
+<p><span m="2189000">You always want to allow that.</span> </p>
+<p><span m="2195000">Then the others are lines -- any line, meaning infinitely far</span> <span m="2203240">in both directions through the zero.</span> </p>
+<p><span m="2207000">So that's like the whole space -- that's like whole two D</span> <span m="2215000">space.</span> </p>
+<p><span m="2216000">This is like one dimension.</span> </p>
+<p><span m="2219000">Is this line the same as R^1 ?</span> </p>
+<p><span m="2223000">No.</span> </p>
+<p><span m="2225740">You could say it looks a lot like R^1.</span> </p>
+<p><span m="2228790">R^1 was just a line and this is a line.</span> </p>
+<p><span m="2231000">But this is a line inside R^2.</span> </p>
+<p><span m="2234000">The vectors here have two components.</span> </p>
+<p><span m="2237000">So that's not the same as R^1, because there the vectors only</span> <span m="2242000">have one component.</span> </p>
+<p><span m="2244000">Very close, you could say, but not the same.</span> </p>
+<p><span m="2249000">Okay.</span> </p>
+<p><span m="2250000">And now there's a third possibility.</span> </p>
+<p><span m="2254000">There's a third subspace that's -- of R^2 that's not the whole</span> <span m="2262000">thing, and it's not a line.</span> </p>
+<p><span m="2265000">It's even less.</span> </p>
+<p><span m="2267000">It's just the zero vector alone.</span> </p>
+<p><span m="2272000">The zero vector alone, only.</span> </p>
+<p><span m="2275000">I'll often call this subspace Z, just for zero.</span> </p>
+<p><span m="2280000">Here's a line, L.</span> </p>
+<p><span m="2281000">Here's a plane, all of R^2.</span> </p>
+<p><span m="2284000">So, do you see that the zero vector's okay?</span> </p>
+<p><span m="2289000">You would just -- to understand subspaces, we have to know the</span> <span m="2296000">rules -- and knowing the rules means</span> <span m="2300000">that we have to see that yes, the zero vector by itself,</span> <span m="2304000">just this guy alone satisfies the rules.</span> </p>
+<p><span m="2307000">Why's that?</span> </p>
+<p><span m="2308000">Oh, it's too dumb to tell you.</span> </p>
+<p><span m="2310000">If I took that and added it to itself, I'm still there.</span> </p>
+<p><span m="2314000">If I took that and multiplied by seventeen,</span> <span m="2317000">I'm still there.</span> </p>
+<p><span m="2319000">So I've done the operations, adding and multiplying by</span> <span m="2324000">numbers, that are required, and I didn't go outside this</span> <span m="2329000">one point space.</span> </p>
+<p><span m="2330000">So that's always -- that's the littlest subspace.</span> </p>
+<p><span m="2334600">And the largest subspace is the whole thing and in-between come</span> <span m="2340000">all -- whatever's in between.</span> </p>
+<p><span m="2343000">Okay. So for example, what's in between for R^3?</span> </p>
+<p><span m="2347000">So if I'm in ordinary three dimensions, the subspace is R,</span> <span m="2352000">all of R^3 at one extreme, the zero vector at the bottom.</span> </p>
+<p><span m="2356000">And then a plane, a plane through the origin.</span> </p>
+<p><span m="2360000">Or a line, a line through the origin.</span> </p>
+<p><span m="2364000">So with R^3, the subspaces were R^3,</span> <span m="2368000">plane through the origin, line through the origin and a</span> <span m="2374000">zero vector by itself, zero zero zero,</span> <span m="2379000">just that single vector.</span> </p>
+<p><span m="2382000">Okay, you've got the idea.</span> </p>
+<p><span m="2385000">But, now comes -- the reality is -- what are these -- where do</span> <span m="2394000">these subspaces come -- how do they come out of matrices?</span> </p>
+<p><span m="2402000">And I want to take this matrix -- oh, let me take that matrix.</span> </p>
+<p><span m="2411000">So I want to create some subspaces out of that matrix.</span> </p>
+<p><span m="2419000">Well, one subspace is from the columns.</span> </p>
+<p><span m="2425000">Okay.</span> </p>
+<p><span m="2427000">So this is the important subspace, the first important</span> <span m="2434000">subspace that comes from that matrix -- I'm going to -- let me</span> <span m="2441000">call it A again.</span> </p>
+<p><span m="2444000">Back to -- okay.</span> </p>
+<p><span m="2446000">I'm looking at the columns of A.</span> </p>
+<p><span m="2450000">Those are vectors in R^3.</span> </p>
+<p><span m="2453000">So the columns are in R^3.</span> </p>
+<p><span m="2456000">The columns are in R^3.</span> </p>
+<p><span m="2460000">So I want those columns to be in my subspace.</span> </p>
+<p><span m="2464000">Now I can't just put two columns in my subspace and call</span> <span m="2469000">it a subspace.</span> </p>
+<p><span m="2470000">What do I have to throw in -- if I'm going to put those two</span> <span m="2475000">columns in, what else has got to be there to have a subspace?</span> </p>
+<p><span m="2480000">I must be able to add those things.</span> </p>
+<p><span m="2484000">So the sum of those columns -- so these columns are in R^3,</span> <span m="2488000">and I have to be able -- I'm, you know, I want that to be in</span> <span m="2493000">my subspace, I want that to be in my subspace,</span> <span m="2496000">but therefore I have to be able to multiply them by anything.</span> </p>
+<p><span m="2501000">Zero zero zero has got to be in my subspace.</span> </p>
+<p><span m="2505000">I have to be able to add them so that four five five is in the</span> <span m="2510000">subspace.</span> </p>
+<p><span m="2511000">I've got to be able to add one of these plus three of these.</span> </p>
+<p><span m="2517330">That'll give me some other vector.</span> </p>
+<p><span m="2520000">I have to be able to take all the linear combinations.</span> </p>
+<p><span m="2525000">So these are columns in R^3 and all there linear combinations</span> <span m="2530000">form a subspace.</span> </p>
+<p><span m="2533590">What do I mean by linear combinations?</span> </p>
+<p><span m="2537000">I mean multiply that by something, multiply that by</span> <span m="2541970">something and add.</span> </p>
+<p><span m="2543000">The two operations of linear algebra, multiplying by numbers</span> <span m="2549000">and adding vectors.</span> </p>
+<p><span m="2551000">And, if I include all the results, then I'm guaranteed to</span> <span m="2556000">have a subspace.</span> </p>
+<p><span m="2559000">I've done the job.</span> </p>
+<p><span m="2563000">And we'll give it a name -- the column space.</span> </p>
+<p><span m="2572000">Column space.</span> </p>
+<p><span m="2575000">And maybe I'll call it C of A.</span> </p>
+<p><span m="2581000">C for column space.</span> </p>
+<p><span m="2585000">There's an idea there that -- Like, the central idea for</span> <span m="2596000">today's lecture is -- got a few vectors.</span> </p>
+<p><span m="2599000">Not satisfied with a few vectors, we want a space of</span> <span m="2604000">vectors.</span> </p>
+<p><span m="2605670">The vectors, they're in -- these vectors in</span> <span m="2609000">-- are in R^3 , so our space of vectors will be</span> <span m="2614000">vectors in R^3.</span> </p>
+<p><span m="2615000">The key idea's -- we have to be able to take</span> <span m="2620000">their combinations.</span> </p>
+<p><span m="2621000">So tell me, geometrically, if I drew all these things --</span> <span m="2625000">like if I drew one two four, that would be somewhere maybe</span> </p>
+<p><span m="2629000">there. If I drew three three one, who knows, might be -- I don't</span> <span m="2633000">know, I'll say there.</span> </p>
+<p><span m="2636000">There's column one, there's column two.</span> </p>
+<p><span m="2639000">What else -- what's in the whole column space?</span> </p>
+<p><span m="2643000">How do I draw the whole column space now?</span> </p>
+<p><span m="2647000">I take all combinations of those two vectors.</span> </p>
+<p><span m="2650000">Do I get -- well, I guess I actually listed the</span> <span m="2655000">possibilities.</span> </p>
+<p><span m="2657000">Do I get the whole space?</span> </p>
+<p><span m="2659000">Do I get a plane?</span> </p>
+<p><span m="2660000">I get more than a line, that's for sure.</span> </p>
+<p><span m="2664000">And I certainly get more than the zero vector,</span> <span m="2668240">but I do get the zero vector included.</span> </p>
+<p><span m="2671000">What do I get if I combine -- take all the combinations of</span> <span m="2677000">two vectors in R^3 ?</span> </p>
+<p><span m="2678000">So I've got all this stuff on -- that whole line gets filled</span> <span m="2683000">out, that whole line gets filled out, but all in-between gets</span> <span m="2688000">filled out -- between the two lines because I --</span> <span m="2693000">I allowed to add something from one line, something from the</span> <span m="2698000">other.</span> </p>
+<p><span m="2699000">You see what's coming?</span> </p>
+<p><span m="2701000">I'm getting a plane.</span> </p>
+<p><span m="2703000">That's my -- and it's through the origin.</span> </p>
+<p><span m="2706900">Those two vectors, namely one two four and three</span> <span m="2711000">three one, when I take all their combinations,</span> <span m="2715000">I fill out a whole plane.</span> </p>
+<p><span m="2718900">Please think about that.</span> </p>
+<p><span m="2721000">That's the picture you have to see.</span> </p>
+<p><span m="2724000">You sure have to see it in R^3 , because we're going to do it</span> <span m="2730000">in R^10, and we may take a combination of five vectors in</span> <span m="2735000">R^10, and what will we have?</span> </p>
+<p><span m="2739000">God knows.</span> </p>
+<p><span m="2740050">It's some subspace.</span> </p>
+<p><span m="2741000">We'll have five vectors.</span> </p>
+<p><span m="2743720">They'll all have ten components.</span> </p>
+<p><span m="2746000">We take their combinations.</span> </p>
+<p><span m="2748670">We don't have R^5 , because our vectors have ten</span> <span m="2752000">components.</span> </p>
+<p><span m="2753000">And we possibly have, like, some five dimensional</span> <span m="2757000">flat thing going through the origin for sure.</span> </p>
+<p><span m="2762000">Well, of course, if those five vectors were all</span> <span m="2766000">on the line, then we would only get that line.</span> </p>
+<p><span m="2771000">So, you see, there are, like,</span> <span m="2773000">other possibilities here.</span> </p>
+<p><span m="2775000">It depends what -- it depends on those five</span> <span m="2780800">vectors.</span> </p>
+<p><span m="2781610">Just like if our two columns had been on the same line,</span> <span m="2787000">then the column space would have been only a line.</span> </p>
+<p><span m="2792040">Here it was a plane.</span> </p>
+<p><span m="2794000">Okay. I'm going to stop at that point.</span> </p>
+<p><span m="2797710">That's the central idea of -- the great example of how to</span> <span m="2803000">create a subspace from a matrix.</span> </p>
+<p><span m="2807000">Take its columns, take their combinations,</span> <span m="2810000">all their linear combinations and you get the column space.</span> </p>
+<p><span m="2815000">And that's the central sort of -- we're looking at linear</span> <span m="2819000">algebra at a higher level.</span> </p>
+<p><span m="2821000">When I look at A -- now, I want to look at Ax=b.</span> </p>
+<p><span m="2824000">That'll be the first thing in the next lecture.</span> </p>
+<p><span m="2828000">How do I understand Ax=b in this language -- in this new</span> <span m="2832000">language of vector spaces and column spaces.</span> </p>
+<p><span m="2836000">And what are other subspaces?</span> </p>
+<p><span m="2838000">So the column space is a big one, there are others to come.</span> </p>
+<p><span m="2842000">Okay, thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 105MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/05.mp4">MP4 - 191MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/JibVXBElKL0.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

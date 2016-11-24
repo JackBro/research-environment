@@ -1,0 +1,1110 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     45695,       1101]
+NotebookOptionsPosition[     43248,       1015]
+NotebookOutlinePosition[     43849,       1037]
+CellTagsIndexPosition[     43806,       1034]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Wave Functions: A wave-packet", "Title",
+ CellChangeTimes->{{3.569793962808854*^9, 3.569793974991797*^9}, {
+  3.570231682061864*^9, 3.570231682716029*^9}}],
+
+Cell["\<\
+Somehow, in this transition from classical mechanics (CM) to quantum \
+mechanics (QM), we have lost our friends position and momentum (x and p).  \
+Here I will show that we haven\[CloseCurlyQuote]t really lost them, they are \
+just a little less certain in QM.\
+\>", "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697983030322847`*^9, 
+  3.569798311606552*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The wave function \[CapitalPsi](x)", "Subtitle",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.569794954466889*^9, 3.569794980703898*^9}, {
+  3.570242102819203*^9, 3.570242113263543*^9}}],
+
+Cell[TextData[{
+ "We start with a wave function with three parts: an amplitude A, a Gaussian \
+envelope ",
+ Cell[BoxData[
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"-", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "x0"}], ")"}], "2"], 
+     RowBox[{"2", " ", "d"}]]}]]],
+  CellChangeTimes->{
+   3.569795541072249*^9, {3.569795576486362*^9, 3.569795604541171*^9}}],
+ ", and a phase oscillation ",
+ Cell[BoxData[
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"\[ImaginaryI]", " ", "k0", " ", 
+    RowBox[{"(", 
+     RowBox[{"x", "-", "x0"}], ")"}]}]]],
+  CellChangeTimes->{
+   3.569795541072249*^9, {3.569795576486362*^9, 3.5697956045426283`*^9}}],
+ ".  The envelope will serve as the position of our particle; we know it is \
+somewhere around x0, with an uncertainty of d.  The oscillation with wave \
+number k0 serves as our momentum, since de Broglie tells us that p = \[HBar]k."
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+  3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+  3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+  3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+  3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+  3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+  3.569801453490944*^9, 3.5698014789829884`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   SubscriptBox["\[CapitalPsi]", "u"], "=", 
+   RowBox[{"A", " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"x", "-", "x0"}], ")"}], "^", "2"}]}], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", 
+        RowBox[{"d", "^", "2"}]}], ")"}]}], "]"}], 
+    RowBox[{"Exp", "[", 
+     RowBox[{"I", " ", "k0", " ", 
+      RowBox[{"(", 
+       RowBox[{"x", "-", "x0"}], ")"}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.569794997985655*^9, 3.569795002096586*^9}, {
+   3.569795175125039*^9, 3.5697951863391533`*^9}, {3.569795487724008*^9, 
+   3.5697954885137577`*^9}, {3.569797831594491*^9, 3.5697978387551203`*^9}, {
+   3.569797956380327*^9, 3.569797968164699*^9}, {3.5697983270167513`*^9, 
+   3.569798348423245*^9}, {3.569798389425069*^9, 3.569798431877515*^9}, {
+   3.5697993122366037`*^9, 3.569799425424567*^9}, {3.569799584091559*^9, 
+   3.569799584211434*^9}, {3.569799649178732*^9, 3.569799706904767*^9}, {
+   3.569799913988449*^9, 3.569799935358078*^9}, {3.5698000286066093`*^9, 
+   3.5698000456126957`*^9}, {3.5698001372982273`*^9, 3.569800160569306*^9}, {
+   3.5698001933213453`*^9, 3.569800194584214*^9}, {3.569800252734565*^9, 
+   3.5698002824532633`*^9}, {3.569800398488742*^9, 3.569800407471616*^9}, {
+   3.569800440297349*^9, 3.569800474806767*^9}, {3.569800610330573*^9, 
+   3.5698006866035767`*^9}, {3.5698007191850567`*^9, 3.569800763151011*^9}, {
+   3.569800825910396*^9, 3.5698008932184563`*^9}, {3.5698009306916227`*^9, 
+   3.569800936812134*^9}, {3.569800986457678*^9, 3.569801057312224*^9}, {
+   3.5698011951397867`*^9, 3.569801259559914*^9}, {3.569801302655377*^9, 
+   3.569801312128417*^9}, 3.5698013588435307`*^9, {3.569801667781753*^9, 
+   3.5698016881717443`*^9}, {3.569802057455226*^9, 3.569802079690357*^9}, {
+   3.570232081942215*^9, 3.570232082265761*^9}}],
+
+Cell[BoxData[
+ RowBox[{"A", " ", 
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{
+    RowBox[{"\[ImaginaryI]", " ", "k0", " ", 
+     RowBox[{"(", 
+      RowBox[{"x", "-", "x0"}], ")"}]}], "-", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "x0"}], ")"}], "2"], 
+     RowBox[{"2", " ", 
+      SuperscriptBox["d", "2"]}]]}]]}]], "Output",
+ CellChangeTimes->{{3.569799387730171*^9, 3.569799427152238*^9}, 
+   3.569799585104453*^9, {3.56979966351446*^9, 3.5697997073481007`*^9}, 
+   3.569799936750263*^9, 3.569800047050108*^9, {3.5698001534697638`*^9, 
+   3.56980016171595*^9}, 3.5698001953524437`*^9, {3.569800267550633*^9, 
+   3.5698002829830723`*^9}, 3.569800408252943*^9, {3.569800463733444*^9, 
+   3.5698004754567347`*^9}, {3.5698006170841007`*^9, 3.569800689214313*^9}, {
+   3.569800722306868*^9, 3.5698007637702703`*^9}, {3.569800839308601*^9, 
+   3.569800894223731*^9}, 3.5698009396992807`*^9, {3.569800999584618*^9, 
+   3.5698010586649323`*^9}, {3.569801201692811*^9, 3.569801261618373*^9}, 
+   3.5698013132947407`*^9, 3.569801359999443*^9, 3.569801689473961*^9, 
+   3.569802081009297*^9, 3.569804991206421*^9, 3.569809805429977*^9, 
+   3.569973433317954*^9, 3.5702316430471907`*^9, 3.570232206251651*^9, 
+   3.57023571690644*^9, 3.570235797608879*^9, 3.570235985227539*^9, 
+   3.570236080899281*^9, 3.5702361502864532`*^9, 3.570236333726325*^9, 
+   3.5702363687960367`*^9, 3.570236536608004*^9, 3.570242130484315*^9, 
+   3.570297279838056*^9, 3.5703592441520767`*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "(To keep ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " happy, we need to make explicit some assumptions about our parameters...)"
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+  3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+  3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+  3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+  3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+  3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+  3.569801453490944*^9, 3.5698014789829884`*^9}, {3.569802095037325*^9, 
+  3.569802122121757*^9}, {3.569809777514798*^9, 3.569809779095008*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$Assumptions", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"d", ">", "0"}], ",", 
+    RowBox[{"Element", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "x0", ",", "k0", ",", "d"}], "}"}], ",", "Reals"}], 
+     "]"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.5698021259386044`*^9, 3.569802196059175*^9}, 
+   3.569802241930991*^9, {3.569803127694442*^9, 3.569803151868195*^9}, {
+   3.570235899582016*^9, 3.570235899641122*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"d", ">", "0"}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "|", "x0", "|", "k0", "|", "d"}], ")"}], "\[Element]", 
+    "Reals"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.570235900410578*^9, 3.5702360810759087`*^9, 
+  3.570236150433527*^9, 3.570236333834731*^9, 3.570236368978242*^9, 
+  3.570236536757242*^9, 3.570242130617352*^9, 3.570297279999494*^9, 
+  3.570359244298394*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Before we get much further, let\[CloseCurlyQuote]s normalize the wave \
+function.  By normalizing \[CapitalPsi](x) we ensure that the probability of \
+finding our particle ",
+ StyleBox["somewhere",
+  FontSlant->"Italic"],
+ " is equal to 1."
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+  3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+  3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+  3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+  3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+  3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+  3.569801453490944*^9, 3.5698014789829884`*^9}, {3.5698017609060497`*^9, 
+  3.569801890562646*^9}, {3.569802903251644*^9, 3.5698029989985943`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Px", "=", 
+   RowBox[{
+    RowBox[{"Abs", "[", 
+     SubscriptBox["\[CapitalPsi]", "u"], "]"}], "^", "2"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Anorm", "=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Integrate", "[", 
+      RowBox[{"Px", ",", 
+       RowBox[{"{", " ", 
+        RowBox[{"x", ",", 
+         RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], "]"}], 
+     "\[Equal]", "1"}], ",", " ", "A"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.5697672448000593`*^9, 3.56976732439917*^9}, {
+   3.569767409628089*^9, 3.569767409706108*^9}, 3.5697938962591257`*^9, {
+   3.5698019276245947`*^9, 3.569801950435587*^9}, {3.569803013409067*^9, 
+   3.569803102588592*^9}, {3.56980316235565*^9, 3.569803170327304*^9}, {
+   3.5698036928443727`*^9, 3.569803697961116*^9}, {3.57023212887372*^9, 
+   3.570232129152355*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"A", "\[Rule]", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{
+        SqrtBox["d"], " ", 
+        SuperscriptBox["\[Pi]", 
+         RowBox[{"1", "/", "4"}]]}]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"A", "\[Rule]", 
+     FractionBox["1", 
+      RowBox[{
+       SqrtBox["d"], " ", 
+       SuperscriptBox["\[Pi]", 
+        RowBox[{"1", "/", "4"}]]}]]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.569767289913458*^9, 3.569767327357834*^9, 
+  3.5697674133550253`*^9, 3.569801964694441*^9, 3.569802207453589*^9, 
+  3.5698028808658857`*^9, 3.569803104988018*^9, 3.569803136461763*^9, 
+  3.569803700409191*^9, 3.56980980617505*^9, 3.569973435422092*^9, 
+  3.5702316450529346`*^9, 3.570232206731016*^9, 3.5702357190896797`*^9, 
+  3.570235798135819*^9, 3.570236083292511*^9, 3.570236152269411*^9, 
+  3.570236335747567*^9, 3.570236372775588*^9, 3.5702365381507053`*^9, 
+  3.5702421321095257`*^9, 3.5702972815784388`*^9, 3.570359245883799*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "We find that there are 2 possible values of A, one positive and one \
+negative.  There is no way to say which is correct, since in the end we can \
+only measure ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"|", 
+    RowBox[{"\[CapitalPsi]", "(", "x", ")"}], 
+    SuperscriptBox["|", "2"]}], TraditionalForm]]],
+ " which means we only care about ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["A", "2"], TraditionalForm]]],
+ ".  Let\[CloseCurlyQuote]s update \[CapitalPsi](x) with the positive value \
+of A."
+}], "Text",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQfc+3t+H6jFeOZQknwXTLpOqHIPr59uVvQXTJd0mB
+G0C66H6QJIiOa9tsBKI33RI0BdEXK/5bg+isJnYbEK16J90ZRJusLIsF0TYv
+FsTdBNJK0vvjQfQKea9UEM07Y1oaiDY3mZEFoucUXMoF0fmNcpUg2vhPDpi+
+sHW97G0gvaTkvgKIjvkn4wKijRiDQkB0Be+LSyC65sv9eyD6WdwppjtAet7B
+85wgetqmM/wgmkEwWwJE2918rgSinUz4VUA0m/J3LRDN1bpHG0TPUA/cDKL1
+QtO2gWgRx6jdYHnhmr0gGgCKganz
+  "]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[CapitalPsi]", "=", 
+  RowBox[{
+   SubscriptBox["\[CapitalPsi]", "u"], "/.", 
+   RowBox[{"Anorm", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.569804783580406*^9, 3.569804860163259*^9}, 
+   3.569804904035015*^9, 3.569805001247548*^9, {3.57023213775239*^9, 
+   3.570232139695258*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{
+    RowBox[{"\[ImaginaryI]", " ", "k0", " ", 
+     RowBox[{"(", 
+      RowBox[{"x", "-", "x0"}], ")"}]}], "-", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"x", "-", "x0"}], ")"}], "2"], 
+     RowBox[{"2", " ", 
+      SuperscriptBox["d", "2"]}]]}]], 
+  RowBox[{
+   SqrtBox["d"], " ", 
+   SuperscriptBox["\[Pi]", 
+    RowBox[{"1", "/", "4"}]]}]]], "Output",
+ CellChangeTimes->{{3.569804825024884*^9, 3.569804860582883*^9}, 
+   3.56980490558633*^9, 3.569805002012022*^9, 3.569809806201948*^9, 
+   3.569973435621668*^9, 3.570231645150709*^9, 3.570232206757584*^9, 
+   3.570235719258491*^9, 3.570235798160748*^9, 3.570236083436924*^9, 
+   3.570236152404161*^9, 3.570236335846744*^9, 3.570236372938092*^9, 
+   3.570236538294752*^9, 3.570242132237591*^9, 3.5702972817359953`*^9, 
+   3.57035924603826*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "So that we can see what we are doing, here is a plot of the real part and \
+magnitude of \[CapitalPsi](x).  To move the particle around, change ",
+ Cell[BoxData[
+  SubscriptBox["x", "0"]],
+  CellChangeTimes->{{3.569802517817897*^9, 3.5698025358344097`*^9}, {
+   3.569802622911973*^9, 3.5698027463247633`*^9}}],
+ ".  To make a well-localized particle with low average momentum, make d \
+small (e.g., logD = -1) and ",
+ Cell[BoxData[
+  SubscriptBox["k", "0"]],
+  CellChangeTimes->{{3.569802517817897*^9, 3.5698025358344097`*^9}, {
+   3.569802622911973*^9, 3.5698027463247633`*^9}}],
+ " close to 0.  Making d large (e.g., logD = 2) moving ",
+ Cell[BoxData[
+  SubscriptBox["k", "0"]],
+  CellChangeTimes->{{3.569802517817897*^9, 3.5698025358344097`*^9}, {
+   3.569802622911973*^9, 3.5698027463247633`*^9}}],
+ " away from zero makes a plane-wave-like wave function."
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+  3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+  3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+  3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+  3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+  3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+  3.569801453490944*^9, 3.5698014789829884`*^9}, {3.569802095037325*^9, 
+  3.569802122121757*^9}, {3.569802268407764*^9, 3.569802508198224*^9}, {
+  3.569802615347192*^9, 3.569802615419037*^9}, {3.5698027723590117`*^9, 
+  3.569802870857061*^9}, {3.569804983231247*^9, 3.569804983501965*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Re", "[", "\[CapitalPsi]", "]"}], ",", 
+        RowBox[{"Abs", "[", "\[CapitalPsi]", "]"}]}], "}"}], "/.", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"A", "\[Rule]", "1"}], ",", 
+        RowBox[{"d", "\[Rule]", 
+         RowBox[{"10", "^", "logD"}]}], ",", 
+        RowBox[{"x0", "\[Rule]", 
+         SubscriptBox["x", "0"]}], ",", 
+        RowBox[{"k0", "\[Rule]", 
+         SubscriptBox["k", "0"]}]}], "}"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "1"}], "}"}]}], ",", 
+     RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "Quality"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"logD", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "1"}], ",", "2", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["x", "0"], ",", "2"}], "}"}], ",", 
+     RowBox[{"-", "10"}], ",", "10", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["k", "0"], ",", "4"}], "}"}], ",", 
+     RowBox[{"-", "10"}], ",", "10", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.569802517817897*^9, 3.5698025358344097`*^9}, {
+  3.569802622911973*^9, 3.56980275363207*^9}, {3.5698083862593527`*^9, 
+  3.56980838927967*^9}, {3.569808953336495*^9, 3.569808955929385*^9}, {
+  3.570232101754064*^9, 3.5702321052049923`*^9}, {3.570236480822925*^9, 
+  3.570236484756165*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`logD$$ = 0, $CellContext`$1331$$ = 
+    2, $CellContext`$1332$$ = 4, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`logD$$], 0}, -1, 2, 0.1}, {{
+       Hold[$CellContext`$1331$$], 2, 
+       RawBoxes[
+        TagBox[
+         SubscriptBox["x", "0"], HoldForm]]}, -10, 10, 0.1}, {{
+       Hold[$CellContext`$1332$$], 4, 
+       RawBoxes[
+        TagBox[
+         SubscriptBox["k", "0"], HoldForm]]}, -10, 10, 0.1}}, 
+    Typeset`size$$ = {540., {169., 179.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`logD$120614$$ = 0, $CellContext`$1331$120615$$ = 
+    0, $CellContext`$1332$120616$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`logD$$ = 0, $CellContext`$1331$$ = 
+        2, $CellContext`$1332$$ = 4}, "ControllerVariables" :> {
+        Hold[$CellContext`logD$$, $CellContext`logD$120614$$, 0], 
+        Hold[$CellContext`$1331$$, $CellContext`$1331$120615$$, 0], 
+        Hold[$CellContext`$1332$$, $CellContext`$1332$120616$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        ReplaceAll[{
+          Re[$CellContext`\[CapitalPsi]], 
+          Abs[$CellContext`\[CapitalPsi]]}, {$CellContext`A -> 
+          1, $CellContext`d -> 
+          10^$CellContext`logD$$, $CellContext`x0 -> $CellContext`$1331$$, \
+$CellContext`k0 -> $CellContext`$1332$$}], {$CellContext`x, -10, 10}, 
+        PlotRange -> {-1, 1}, Filling -> Axis, 
+        PerformanceGoal -> $CellContext`Quality], 
+      "Specifications" :> {{{$CellContext`logD$$, 0}, -1, 2, 0.1, 
+         Appearance -> "Labeled"}, {{$CellContext`$1331$$, 2, 
+          RawBoxes[
+           TagBox[
+            SubscriptBox["x", "0"], HoldForm]]}, -10, 10, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`$1332$$, 4, 
+          RawBoxes[
+           TagBox[
+            SubscriptBox["k", "0"], HoldForm]]}, -10, 10, 0.1, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{604., {275., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.569802072999374*^9, 3.569802200718094*^9, 3.5698025380390167`*^9, {
+   3.5698026365990047`*^9, 3.569802642126449*^9}, 3.569802685568448*^9, 
+   3.569802755752103*^9, 3.569808390319357*^9, 3.569808956668056*^9, 
+   3.569809805522641*^9, 3.569973433454733*^9, 3.5702316431719723`*^9, 
+   3.5702322063875437`*^9, 3.570235717123757*^9, 3.5702357508557463`*^9, 
+   3.5702357977853537`*^9, 3.5702360814869423`*^9, {3.57023613169669*^9, 
+   3.570236150481287*^9}, 3.570236259698217*^9, 3.5702363338683043`*^9, 
+   3.570236370789401*^9, 3.570236485578834*^9, 3.570236538338873*^9, 
+   3.570242132285861*^9, 3.570297281758319*^9, 3.57035924608112*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The Fourier Transform of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalPsi]", "(", "x", ")"}], TraditionalForm]]],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[CapitalPsi]", "~"], "(", "k", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"]
+}], "Subtitle",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.569794954466889*^9, 3.569794980703898*^9}, {
+  3.5698032254235897`*^9, 3.569803270259418*^9}, {3.569809498999652*^9, 
+  3.569809517070086*^9}}],
+
+Cell[TextData[{
+ "The position-space wave function \[CapitalPsi](x), shown above, gives us a \
+good idea of the uncertainty in x, but not a lot of information about the \
+uncertainty in p.  To get this, let\[CloseCurlyQuote]s take the Fourier \
+transform of \[CapitalPsi](x) to find ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[CapitalPsi]", "~"], "(", "k", ")"}], TraditionalForm]]],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+  3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+  3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+  3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+  3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+  3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+  3.569801453490944*^9, 3.5698014789829884`*^9}, {3.5698017609060497`*^9, 
+  3.569801890562646*^9}, {3.569806751913938*^9, 3.569806774521617*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  OverscriptBox["\[CapitalPsi]", "~"], "=", 
+  RowBox[{
+   RowBox[{"1", "/", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"2", "\[Pi]"}], "]"}]}], 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"\[CapitalPsi]", " ", 
+      RowBox[{"Exp", "[", 
+       RowBox[{
+        RowBox[{"-", "I"}], " ", "k", " ", "x"}], "]"}]}], ",", 
+     RowBox[{"{", " ", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.5697672448000593`*^9, 3.56976732439917*^9}, {
+   3.569767409628089*^9, 3.569767409706108*^9}, 3.5697938962591257`*^9, {
+   3.5698019276245947`*^9, 3.569801950435587*^9}, {3.569803828297757*^9, 
+   3.569803868861665*^9}, {3.5698039502175198`*^9, 3.5698039628661203`*^9}, 
+   3.569805013736294*^9, {3.569805691747076*^9, 3.5698056922481728`*^9}, 
+   3.569807597694734*^9, 3.570232163008314*^9}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SqrtBox["d"], " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", 
+      SuperscriptBox["d", "2"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"k", "-", "k0"}], ")"}], "2"]}], "-", 
+     RowBox[{"\[ImaginaryI]", " ", "k", " ", "x0"}]}]]}], 
+  SuperscriptBox["\[Pi]", 
+   RowBox[{"1", "/", "4"}]]]], "Output",
+ CellChangeTimes->{3.569767289913458*^9, 3.569767327357834*^9, 
+  3.5697674133550253`*^9, 3.569801964694441*^9, 3.569802207453589*^9, 
+  3.5698028808658857`*^9, 3.569803839401379*^9, 3.5698038701273003`*^9, 
+  3.569803966711273*^9, 3.569804910759083*^9, 3.569805018806243*^9, 
+  3.569805694788458*^9, 3.5698061251868467`*^9, 3.569807600082335*^9, 
+  3.5698098077457*^9, 3.569973437437715*^9, 3.570231646989213*^9, 
+  3.5702322083261766`*^9, 3.570235721135667*^9, 3.5702357997701*^9, 
+  3.570236085261058*^9, 3.570236154197712*^9, 3.5702363376159563`*^9, 
+  3.5702363747296658`*^9, 3.570236540697516*^9, 3.570242134679475*^9, 
+  3.570297284209989*^9, 3.570359248569602*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "This momentum-space wave function ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[CapitalPsi]", "~"], "(", "k", ")"}], TraditionalForm]],
+  FormatType->"TraditionalForm"],
+ ", can be separated in a way similar to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalPsi]", "(", "x", ")"}], TraditionalForm]]],
+ "... amplitude, envelope, phase."
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+   3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+   3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+   3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+   3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+   3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+   3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+   3.569801453490944*^9, 3.5698014789829884`*^9}, {3.5698017609060497`*^9, 
+   3.569801890562646*^9}, {3.5698054255207767`*^9, 3.5698055209002533`*^9}, {
+   3.5698062042142*^9, 3.569806216029694*^9}, {3.569806502863576*^9, 
+   3.569806505820554*^9}, {3.569806601640382*^9, 3.5698067288638077`*^9}, {
+   3.569806830977706*^9, 3.569806874344602*^9}, 3.569806936113843*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  OverscriptBox["\[CapitalPsi]", "~"], "==", 
+  RowBox[{
+   FractionBox[
+    SqrtBox["d"], 
+    SuperscriptBox["\[Pi]", 
+     RowBox[{"1", "/", "4"}]]], "\[Times]", " ", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], " ", 
+     SuperscriptBox["d", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"k", "-", "k0"}], ")"}], "2"]}]], "\[Times]", 
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", "\[ImaginaryI]"}], " ", "k", " ", "x0"}]]}]}]], "Input",
+ CellChangeTimes->{{3.5697672448000593`*^9, 3.56976732439917*^9}, {
+   3.569767409628089*^9, 3.569767409706108*^9}, 3.5697938962591257`*^9, {
+   3.5698019276245947`*^9, 3.569801950435587*^9}, {3.569803828297757*^9, 
+   3.569803868861665*^9}, {3.5698039502175198`*^9, 3.5698039628661203`*^9}, 
+   3.569805013736294*^9, {3.569805551752345*^9, 3.569805579051383*^9}, {
+   3.569805616097406*^9, 3.569805678508132*^9}, {3.569805715086046*^9, 
+   3.5698057209767447`*^9}, {3.5698057639759912`*^9, 3.569805771321024*^9}, {
+   3.569805861448146*^9, 3.569805892455331*^9}, 3.569806048363757*^9, {
+   3.569807605789185*^9, 3.5698076147570972`*^9}}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.569767289913458*^9, 3.569767327357834*^9, 
+  3.5697674133550253`*^9, 3.569801964694441*^9, 3.569802207453589*^9, 
+  3.5698028808658857`*^9, 3.569803839401379*^9, 3.5698038701273003`*^9, 
+  3.569803966711273*^9, 3.569804910759083*^9, 3.569805018806243*^9, 
+  3.569805792173285*^9, 3.5698058627282476`*^9, 3.569805905159178*^9, 
+  3.569806049092945*^9, 3.569806127613187*^9, 3.569807617597847*^9, 
+  3.5698098078567533`*^9, 3.569973437485532*^9, 3.570231647122307*^9, 
+  3.570232208429038*^9, 3.5702357212584753`*^9, 3.570235799929921*^9, 
+  3.57023608543904*^9, 3.570236154340884*^9, 3.570236337703188*^9, 
+  3.570236374889579*^9, 3.5702365408487053`*^9, 3.5702421348624363`*^9, 
+  3.570297284356645*^9, 3.570359248712076*^9}]
+}, Open  ]],
+
+Cell["\<\
+And it is properly normalized! (Has anyone heard of \
+Parseval\[CloseCurlyQuote]s Theorem?)\
+\>", "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+   3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+   3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+   3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+   3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+   3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+   3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+   3.569801453490944*^9, 3.5698014789829884`*^9}, {3.5698017609060497`*^9, 
+   3.569801890562646*^9}, {3.5698054255207767`*^9, 3.5698055209002533`*^9}, {
+   3.5698062042142*^9, 3.569806216029694*^9}, {3.569806502863576*^9, 
+   3.569806505820554*^9}, {3.569806601640382*^9, 3.5698067288638077`*^9}, {
+   3.569806830977706*^9, 3.569806874344602*^9}, 3.569806936113843*^9, {
+   3.569889668293735*^9, 3.569889680386446*^9}, {3.569925265965065*^9, 
+   3.569925313386622*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Abs", "[", 
+     OverscriptBox["\[CapitalPsi]", "~"], "]"}], "^", "2"}], ",", 
+   RowBox[{"{", " ", 
+    RowBox[{"k", ",", 
+     RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5697672448000593`*^9, 3.56976732439917*^9}, {
+   3.569767409628089*^9, 3.569767409706108*^9}, 3.5697938962591257`*^9, {
+   3.5698019276245947`*^9, 3.569801950435587*^9}, {3.569803828297757*^9, 
+   3.569803868861665*^9}, {3.5698039502175198`*^9, 3.5698039628661203`*^9}, 
+   3.569805013736294*^9, {3.569805551752345*^9, 3.569805579051383*^9}, {
+   3.569805616097406*^9, 3.569805678508132*^9}, {3.569805715086046*^9, 
+   3.5698057209767447`*^9}, {3.5698057639759912`*^9, 3.569805771321024*^9}, {
+   3.569805861448146*^9, 3.569805892455331*^9}, 3.569806048363757*^9, {
+   3.569807605789185*^9, 3.5698076147570972`*^9}, {3.569889722200095*^9, 
+   3.5698897824706783`*^9}, {3.569889830642063*^9, 3.569889831013961*^9}}],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{3.569767289913458*^9, 3.569767327357834*^9, 
+  3.5697674133550253`*^9, 3.569801964694441*^9, 3.569802207453589*^9, 
+  3.5698028808658857`*^9, 3.569803839401379*^9, 3.5698038701273003`*^9, 
+  3.569803966711273*^9, 3.569804910759083*^9, 3.569805018806243*^9, 
+  3.569805792173285*^9, 3.5698058627282476`*^9, 3.569805905159178*^9, 
+  3.569806049092945*^9, 3.569806127613187*^9, 3.569807617597847*^9, 
+  3.5698098078567533`*^9, 3.5698897943713408`*^9, 3.569889833701386*^9, 
+  3.569973438979436*^9, 3.57023164855142*^9, 3.570232208655301*^9, 
+  3.570235722769506*^9, 3.570235800157585*^9, 3.570236086924816*^9, 
+  3.570236155790065*^9, 3.570236339133253*^9, 3.570236376343639*^9, 
+  3.5702365423022013`*^9, 3.5702421363729553`*^9, 3.5702972858866777`*^9, 
+  3.5703592502448997`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Re", "[", 
+         OverscriptBox["\[CapitalPsi]", "~"], "]"}], ",", 
+        RowBox[{"Abs", "[", 
+         OverscriptBox["\[CapitalPsi]", "~"], "]"}]}], "}"}], "/.", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"d", "\[Rule]", 
+         RowBox[{"10", "^", "logD"}]}], ",", 
+        RowBox[{"x0", "\[Rule]", 
+         SubscriptBox["x", "0"]}], ",", 
+        RowBox[{"k0", "\[Rule]", 
+         SubscriptBox["k", "0"]}]}], "}"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "1"}], "}"}]}], ",", 
+     RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "Quality"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"logD", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "1"}], ",", "2", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["x", "0"], ",", "2"}], "}"}], ",", 
+     RowBox[{"-", "10"}], ",", "10", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["k", "0"], ",", "4"}], "}"}], ",", 
+     RowBox[{"-", "10"}], ",", "10", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.569808480976666*^9, 3.569808585467937*^9}, {
+  3.569808805678804*^9, 3.569808807651209*^9}, {3.569808880617095*^9, 
+  3.5698089457444572`*^9}, {3.569809009161829*^9, 3.569809013562242*^9}, {
+  3.5698090574786663`*^9, 3.5698090624299994`*^9}, {3.570232350151176*^9, 
+  3.570232350676311*^9}, {3.570236210604512*^9, 3.570236212093183*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`logD$$ = 0, $CellContext`$1431$$ = 
+    2, $CellContext`$1432$$ = 4, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`logD$$], 0}, -1, 2, 0.1}, {{
+       Hold[$CellContext`$1431$$], 2, 
+       RawBoxes[
+        TagBox[
+         SubscriptBox["x", "0"], HoldForm]]}, -10, 10, 0.1}, {{
+       Hold[$CellContext`$1432$$], 4, 
+       RawBoxes[
+        TagBox[
+         SubscriptBox["k", "0"], HoldForm]]}, -10, 10, 0.1}}, 
+    Typeset`size$$ = {540., {169., 179.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`logD$122701$$ = 0, $CellContext`$1431$122702$$ = 
+    0, $CellContext`$1432$122703$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`logD$$ = 0, $CellContext`$1431$$ = 
+        2, $CellContext`$1432$$ = 4}, "ControllerVariables" :> {
+        Hold[$CellContext`logD$$, $CellContext`logD$122701$$, 0], 
+        Hold[$CellContext`$1431$$, $CellContext`$1431$122702$$, 0], 
+        Hold[$CellContext`$1432$$, $CellContext`$1432$122703$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        ReplaceAll[{
+          Re[
+           OverTilde[$CellContext`\[CapitalPsi]]], 
+          Abs[
+           OverTilde[$CellContext`\[CapitalPsi]]]}, {$CellContext`d -> 
+          10^$CellContext`logD$$, $CellContext`x0 -> $CellContext`$1431$$, \
+$CellContext`k0 -> $CellContext`$1432$$}], {$CellContext`k, -10, 10}, 
+        PlotRange -> {-1, 1}, Filling -> Axis, 
+        PerformanceGoal -> $CellContext`Quality], 
+      "Specifications" :> {{{$CellContext`logD$$, 0}, -1, 2, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`$1431$$, 2, 
+          RawBoxes[
+           TagBox[
+            SubscriptBox["x", "0"], HoldForm]]}, -10, 10, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`$1432$$, 4, 
+          RawBoxes[
+           TagBox[
+            SubscriptBox["k", "0"], HoldForm]]}, -10, 10, 0.1, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{604., {275., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.569809063239719*^9, 3.569809807894569*^9, 
+  3.569973439050221*^9, 3.5702316486037283`*^9, 3.570232208683567*^9, 
+  3.570235722902626*^9, 3.570235800186154*^9, 3.570236087104012*^9, 
+  3.5702361559177094`*^9, 3.570236212915289*^9, 3.570236339192259*^9, 
+  3.570236376482094*^9, 3.5702365428372297`*^9, 3.570242136518978*^9, 
+  3.570297286001707*^9, 3.570359250803145*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "You can see that the equation for ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[CapitalPsi]", "~"], "(", "k", ")"}], TraditionalForm]]],
+ " is essentially identical to \[CapitalPsi](x) (only an overall phase of ",
+ Cell[BoxData[
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"\[ImaginaryI]", " ", "k0", " ", "x0"}]]],
+  CellChangeTimes->{{3.5697672448000593`*^9, 3.56976732439917*^9}, {
+    3.569767409628089*^9, 3.569767409706108*^9}, 3.5697938962591257`*^9, {
+    3.5698019276245947`*^9, 3.569801950435587*^9}, {3.569803828297757*^9, 
+    3.569803868861665*^9}, {3.5698039502175198`*^9, 3.5698039628661203`*^9}, 
+    3.569805013736294*^9, {3.569805551752345*^9, 3.569805579051383*^9}, {
+    3.569805616097406*^9, 3.569805678508132*^9}, {3.569805715086046*^9, 
+    3.5698057209767447`*^9}, {3.5698057639759912`*^9, 3.569805771321024*^9}, {
+    3.569805861448146*^9, 3.569805892455331*^9}, 3.569806048363757*^9, {
+    3.569807605789185*^9, 3.5698076147570972`*^9}}],
+ " is missing).  In particular, the uncertainty in k is now clear; the width \
+of the Gaussian in frequency space is inversely proportional to d, so a \
+narrow peak in \[CapitalPsi](x) leads to a wide peak in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[CapitalPsi]", "~"], "(", "k", ")"}], TraditionalForm]]],
+ "!  Putting this all together we see that \[CapitalDelta]x = d/",
+ Cell[BoxData[
+  SqrtBox["2"]],
+  CellChangeTimes->{{3.56983851689749*^9, 3.569838542775506*^9}, {
+    3.569838607356724*^9, 3.569838618615345*^9}, 3.569840352861493*^9, 
+    3.56984047706774*^9, 3.569840574767591*^9, {3.569840610285877*^9, 
+    3.5698406220977297`*^9}, {3.5698406667166967`*^9, 
+    3.5698406790417624`*^9}}],
+ " and \[CapitalDelta]k = 1/",
+ Cell[BoxData[
+  SqrtBox["2"]],
+  CellChangeTimes->{{3.56983851689749*^9, 3.569838542775506*^9}, {
+    3.569838607356724*^9, 3.569838618615345*^9}, 3.569840352861493*^9, 
+    3.56984047706774*^9, 3.569840574767591*^9, {3.569840610285877*^9, 
+    3.5698406220977297`*^9}, {3.5698406667166967`*^9, 
+    3.5698406790417624`*^9}}],
+ "d such that \[CapitalDelta]x \[CapitalDelta]k = 1/2, which de Broglie tells \
+us means \[CapitalDelta]x \[CapitalDelta]p = \[HBar]/2.  ",
+ StyleBox["Implication: the Uncertainty Principal need not be an axiom.  It \
+is simply the result of the mixed wave-particle nature of reality.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+   3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+   3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+   3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+   3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+   3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+   3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+   3.569801453490944*^9, 3.5698014789829884`*^9}, {3.5698017609060497`*^9, 
+   3.569801890562646*^9}, {3.5698054255207767`*^9, 3.5698055209002533`*^9}, {
+   3.5698062042142*^9, 3.569806216029694*^9}, {3.569806943381136*^9, 
+   3.569806966581046*^9}, {3.5698070822096777`*^9, 3.569807087594842*^9}, {
+   3.569807366152732*^9, 3.569807371129187*^9}, {3.569808172472826*^9, 
+   3.569808211014648*^9}, {3.569808678163019*^9, 3.5698087605031157`*^9}, {
+   3.569837975575522*^9, 3.569838016529628*^9}, {3.5698381278723288`*^9, 
+   3.569838316610132*^9}, 3.569838388241014*^9, {3.5698407331981573`*^9, 
+   3.569840752682876*^9}, {3.5698411156253147`*^9, 3.569841121254754*^9}, {
+   3.570241936231859*^9, 3.570241996007559*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The Inverse Fourier Transform of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[CapitalPsi]", "~"], "(", "k", ")"}], TraditionalForm]]]
+}], "Subtitle",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.569794954466889*^9, 3.569794980703898*^9}, {
+  3.5698032254235897`*^9, 3.569803270259418*^9}, {3.5698094841071453`*^9, 
+  3.5698094855031157`*^9}, {3.569809526952667*^9, 3.569809530930937*^9}}],
+
+Cell[TextData[{
+ "Just to show that it works, let\[CloseCurlyQuote]s take the inverse Fourier \
+transform of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    OverscriptBox["\[CapitalPsi]", "~"], "(", "k", ")"}], TraditionalForm]]],
+ " to get back to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalPsi]", "(", "x", ")"}], TraditionalForm]]],
+ "..."
+}], "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+  3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+  3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+  3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+  3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+  3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+  3.569801453490944*^9, 3.5698014789829884`*^9}, {3.5698017609060497`*^9, 
+  3.569801890562646*^9}, {3.569806751913938*^9, 3.569806774521617*^9}, {
+  3.569809537968343*^9, 3.56980958030856*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SubscriptBox["\[CapitalPsi]", "2"], "=", 
+  RowBox[{
+   RowBox[{"1", "/", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{"2", "\[Pi]"}], "]"}]}], 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      OverscriptBox["\[CapitalPsi]", "~"], " ", 
+      RowBox[{"Exp", "[", 
+       RowBox[{"I", " ", "k", " ", "x"}], "]"}]}], ",", 
+     RowBox[{"{", " ", 
+      RowBox[{"k", ",", 
+       RowBox[{"-", "Infinity"}], ",", "Infinity"}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.569809605273348*^9, 3.56980970314585*^9}, {
+  3.569809736524913*^9, 3.569809737555559*^9}, {3.5702317296975737`*^9, 
+  3.570231756280455*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  SuperscriptBox["\[ExponentialE]", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"x", "-", "x0"}], ")"}], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+        SuperscriptBox["d", "2"], " ", "k0"}], "-", "x", "+", "x0"}], ")"}]}], 
+    RowBox[{"2", " ", 
+     SuperscriptBox["d", "2"]}]]], 
+  RowBox[{
+   SqrtBox["d"], " ", 
+   SuperscriptBox["\[Pi]", 
+    RowBox[{"1", "/", "4"}]]}]]], "Output",
+ CellChangeTimes->{{3.569809720601557*^9, 3.5698097391980343`*^9}, 
+   3.569809810220519*^9, 3.569973441589983*^9, 3.570231651073332*^9, {
+   3.5702317361276913`*^9, 3.570231757136739*^9}, 3.5702322110257072`*^9, 
+   3.570235725512198*^9, 3.5702358026195793`*^9, 3.5702360910690727`*^9, 
+   3.570236159725284*^9, 3.570236343021098*^9, 3.570236380301388*^9, 
+   3.570236546230851*^9, 3.570242140415694*^9, 3.570297290015401*^9, 
+   3.570359254365777*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{
+   SubscriptBox["\[CapitalPsi]", "2"], "\[Equal]", "\[CapitalPsi]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.570232196942913*^9}],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.5698097432107573`*^9, 3.569809810317362*^9, 
+  3.56997344169691*^9, 3.570231651147276*^9, 3.570232211108604*^9, 
+  3.570235725656693*^9, 3.570235802740589*^9, 3.5702360912093067`*^9, 
+  3.57023615987294*^9, 3.570236343115765*^9, 3.570236380455606*^9, 
+  3.570236546377198*^9, 3.5702421405255413`*^9, 3.570297290159402*^9, 
+  3.5703592544742537`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1250, 1006},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+CellContext->Notebook,
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (August 26, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Creative"}, "PastelColor.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 161, 2, 90, "Title"],
+Cell[743, 26, 452, 8, 62, "Text"],
+Cell[CellGroupData[{
+Cell[1220, 38, 199, 3, 46, "Subtitle"],
+Cell[1422, 43, 1500, 32, 104, "Text"],
+Cell[CellGroupData[{
+Cell[2947, 79, 1916, 36, 79, "Input"],
+Cell[4866, 117, 1511, 28, 80, "Output"]
+}, Open  ]],
+Cell[6392, 148, 824, 14, 39, "Text"],
+Cell[CellGroupData[{
+Cell[7241, 166, 471, 12, 55, "Input"],
+Cell[7715, 180, 441, 11, 58, "Output"]
+}, Open  ]],
+Cell[8171, 194, 930, 16, 62, "Text"],
+Cell[CellGroupData[{
+Cell[9126, 214, 886, 22, 79, "Input"],
+Cell[10015, 238, 1029, 25, 84, "Output"]
+}, Open  ]],
+Cell[11059, 266, 909, 23, 70, "Text"],
+Cell[CellGroupData[{
+Cell[11993, 293, 341, 8, 55, "Input"],
+Cell[12337, 303, 904, 23, 110, "Output"]
+}, Open  ]],
+Cell[13256, 329, 1692, 30, 90, "Text"],
+Cell[CellGroupData[{
+Cell[14973, 363, 1985, 53, 128, "Input"],
+Cell[16961, 418, 3504, 70, 596, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20514, 494, 503, 15, 52, "Subtitle"],
+Cell[21020, 511, 1076, 19, 66, "Text"],
+Cell[CellGroupData[{
+Cell[22121, 534, 905, 22, 58, "Input"],
+Cell[23029, 558, 1120, 25, 95, "Output"]
+}, Open  ]],
+Cell[24164, 586, 1273, 24, 43, "Text"],
+Cell[CellGroupData[{
+Cell[25462, 614, 1206, 27, 92, "Input"],
+Cell[26671, 643, 778, 11, 55, "Output"]
+}, Open  ]],
+Cell[27464, 657, 1103, 17, 39, "Text"],
+Cell[CellGroupData[{
+Cell[28592, 678, 1015, 18, 63, "Input"],
+Cell[29610, 698, 826, 12, 55, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30473, 715, 2048, 54, 145, "Input"],
+Cell[32524, 771, 3244, 67, 596, "Output"]
+}, Open  ]],
+Cell[35783, 841, 3643, 64, 139, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39463, 910, 430, 10, 52, "Subtitle"],
+Cell[39896, 922, 1064, 22, 43, "Text"],
+Cell[CellGroupData[{
+Cell[40985, 948, 657, 19, 63, "Input"],
+Cell[41645, 969, 938, 23, 112, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42620, 997, 183, 5, 55, "Input"],
+Cell[42806, 1004, 402, 6, 55, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

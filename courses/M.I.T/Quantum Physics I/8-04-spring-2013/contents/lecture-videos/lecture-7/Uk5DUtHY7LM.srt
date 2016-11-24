@@ -1,0 +1,7586 @@
+1
+00:00:00,000 --> 00:00:00,060
+
+2
+00:00:00,060 --> 00:00:01,670
+The following
+content is provided
+
+3
+00:00:01,670 --> 00:00:03,800
+under a Creative
+Commons license.
+
+4
+00:00:03,800 --> 00:00:06,530
+Your support will help MIT
+OpenCourseWare continue
+
+5
+00:00:06,530 --> 00:00:10,120
+to offer high quality
+educational resources for free.
+
+6
+00:00:10,120 --> 00:00:12,690
+To make a donation or
+view additional materials
+
+7
+00:00:12,690 --> 00:00:16,590
+from hundreds of MIT courses,
+visit MIT OpenCourseWare
+
+8
+00:00:16,590 --> 00:00:17,297
+at ocw.mit.edu.
+
+9
+00:00:17,297 --> 00:00:23,489
+
+10
+00:00:23,489 --> 00:00:25,030
+PROFESSOR: OK, so
+I want to start out
+
+11
+00:00:25,030 --> 00:00:27,420
+by reviewing a few
+things and putting
+
+12
+00:00:27,420 --> 00:00:29,620
+some machinery together.
+
+13
+00:00:29,620 --> 00:00:31,560
+Unfortunately, this
+thing is sort of stuck.
+
+14
+00:00:31,560 --> 00:00:35,300
+We're going to need a
+later, so I don't know.
+
+15
+00:00:35,300 --> 00:00:37,700
+I'll put it up for now.
+
+16
+00:00:37,700 --> 00:00:40,410
+So first just a bit of notation.
+
+17
+00:00:40,410 --> 00:00:42,250
+This symbol, you
+should think of it
+
+18
+00:00:42,250 --> 00:00:44,520
+like the dot product,
+or the inner product.
+
+19
+00:00:44,520 --> 00:00:49,160
+It's just saying that
+bracket f g is the integral.
+
+20
+00:00:49,160 --> 00:00:50,450
+It's a number that you get.
+
+21
+00:00:50,450 --> 00:00:52,780
+So this is a number that
+you get from the function
+
+22
+00:00:52,780 --> 00:00:55,820
+f and the function g
+by taking f, taking
+
+23
+00:00:55,820 --> 00:00:58,840
+its complex conjugate,
+multiplying it by g,
+
+24
+00:00:58,840 --> 00:01:00,710
+and then integrating
+overall positions.
+
+25
+00:01:00,710 --> 00:01:01,490
+All right?
+
+26
+00:01:01,490 --> 00:01:02,740
+So it's a way to get a number.
+
+27
+00:01:02,740 --> 00:01:05,310
+And you should think about it
+as the analog for functions
+
+28
+00:01:05,310 --> 00:01:07,530
+of the dot product for vectors.
+
+29
+00:01:07,530 --> 00:01:11,490
+It's a way to get a
+number out of two vectors.
+
+30
+00:01:11,490 --> 00:01:15,860
+And so, for example, with
+vectors we could do v dot w,
+
+31
+00:01:15,860 --> 00:01:16,940
+and this is some number.
+
+32
+00:01:16,940 --> 00:01:20,712
+And it has a nice
+property that v dot v,
+
+33
+00:01:20,712 --> 00:01:23,170
+we can think it as v squared,
+it's something like a length.
+
+34
+00:01:23,170 --> 00:01:25,480
+It's strictly positive,
+and it's something
+
+35
+00:01:25,480 --> 00:01:26,760
+like the length of a vector.
+
+36
+00:01:26,760 --> 00:01:31,320
+Similarly, if I take f and
+take its bracket with f,
+
+37
+00:01:31,320 --> 00:01:34,205
+this is equal to the
+integral dx of f squared,
+
+38
+00:01:34,205 --> 00:01:36,580
+and in particular, f could be
+complex, so f norm squared.
+
+39
+00:01:36,580 --> 00:01:38,000
+This is strictly non-negative.
+
+40
+00:01:38,000 --> 00:01:41,550
+It could vanish, but it's
+not negative at a point,
+
+41
+00:01:41,550 --> 00:01:42,740
+hence the norm squared.
+
+42
+00:01:42,740 --> 00:01:46,990
+So this will be zero
+if and only if what?
+
+43
+00:01:46,990 --> 00:01:49,010
+f is 0, f is the
+0 function, right.
+
+44
+00:01:49,010 --> 00:01:51,852
+So the same way that
+if you take a vector,
+
+45
+00:01:51,852 --> 00:01:54,310
+and you take its dot product
+with itself, take it the norm,
+
+46
+00:01:54,310 --> 00:01:56,470
+it's 0 if an only
+if the vector is 0.
+
+47
+00:01:56,470 --> 00:01:59,270
+So this beast satisfies a lot
+of the properties of a dot
+
+48
+00:01:59,270 --> 00:01:59,920
+product.
+
+49
+00:01:59,920 --> 00:02:01,980
+You should think about
+it as morally equivalent.
+
+50
+00:02:01,980 --> 00:02:04,190
+We'll talk about that
+in more detail later.
+
+51
+00:02:04,190 --> 00:02:06,670
+Second, basic postulate
+of quantum mechanics,
+
+52
+00:02:06,670 --> 00:02:08,972
+to every observable is
+associated an operator,
+
+53
+00:02:08,972 --> 00:02:11,180
+and it's an operator acting
+on the space of functions
+
+54
+00:02:11,180 --> 00:02:14,340
+or on the space
+of wave functions.
+
+55
+00:02:14,340 --> 00:02:16,249
+And to every operator
+corresponding
+
+56
+00:02:16,249 --> 00:02:17,790
+to an observable in
+quantum mechanics
+
+57
+00:02:17,790 --> 00:02:20,060
+are associated a special
+set of functions called
+
+58
+00:02:20,060 --> 00:02:22,640
+the eigenfunctions, such
+that when the operator acts
+
+59
+00:02:22,640 --> 00:02:24,640
+on that function, it gives
+you the same function
+
+60
+00:02:24,640 --> 00:02:26,560
+back times a constant.
+
+61
+00:02:26,560 --> 00:02:29,100
+What these functions
+mean, physically,
+
+62
+00:02:29,100 --> 00:02:32,860
+is they are the wave functions
+describing configurations
+
+63
+00:02:32,860 --> 00:02:35,930
+with a definite value of the
+corresponding observable.
+
+64
+00:02:35,930 --> 00:02:38,240
+If I'm in an eigenfunction
+of position with
+
+65
+00:02:38,240 --> 00:02:41,610
+eigenvalue x naught, awesome.
+
+66
+00:02:41,610 --> 00:02:44,740
+Thank you, AV person, thank you.
+
+67
+00:02:44,740 --> 00:02:48,742
+So if your system is described
+by a wave function which
+
+68
+00:02:48,742 --> 00:02:50,200
+is an eigenfunction
+of the position
+
+69
+00:02:50,200 --> 00:02:52,470
+operator with
+eigenvalue x naught,
+
+70
+00:02:52,470 --> 00:02:55,084
+that means you can be
+confident that the system is
+
+71
+00:02:55,084 --> 00:02:56,500
+in the configuration
+corresponding
+
+72
+00:02:56,500 --> 00:02:59,111
+to having a definite
+position x naught.
+
+73
+00:02:59,111 --> 00:02:59,610
+Right?
+
+74
+00:02:59,610 --> 00:03:02,360
+It's not a superposition
+of different positions.
+
+75
+00:03:02,360 --> 00:03:04,980
+It is at x naught.
+
+76
+00:03:04,980 --> 00:03:07,567
+Similarly, momentum,
+momentum has eigenfunctions,
+
+77
+00:03:07,567 --> 00:03:08,900
+and we know what these guys are.
+
+78
+00:03:08,900 --> 00:03:12,300
+These are the exponentials,
+e to the iKX's.
+
+79
+00:03:12,300 --> 00:03:14,890
+They're the eigenfunctions, and
+those are the wave functions
+
+80
+00:03:14,890 --> 00:03:18,130
+describing states with
+definite value of the momentum,
+
+81
+00:03:18,130 --> 00:03:19,780
+of the associated observable.
+
+82
+00:03:19,780 --> 00:03:26,640
+Energy as an operator, energy is
+described by an operator, which
+
+83
+00:03:26,640 --> 00:03:34,340
+has eigenfunctions which I'll
+call phi sub n, with energy
+
+84
+00:03:34,340 --> 00:03:37,910
+as E sub n, those
+are the eigenvalues.
+
+85
+00:03:37,910 --> 00:03:40,920
+And if I tell you that your
+wave function is the state phi
+
+86
+00:03:40,920 --> 00:03:43,330
+sub 2, what that tells
+you is that the system has
+
+87
+00:03:43,330 --> 00:03:46,540
+a definite energy, E
+sub 2, corresponding
+
+88
+00:03:46,540 --> 00:03:48,883
+to that eigenvalue.
+
+89
+00:03:48,883 --> 00:03:51,166
+Cool?
+
+90
+00:03:51,166 --> 00:03:53,040
+And this is true for
+any physical observable.
+
+91
+00:03:53,040 --> 00:03:54,350
+But these are sort
+of the basic ones
+
+92
+00:03:54,350 --> 00:03:56,849
+that we'll keep focusing on,
+position, momentum, and energy,
+
+93
+00:03:56,849 --> 00:03:58,930
+for the next while.
+
+94
+00:03:58,930 --> 00:04:01,360
+Now a nice property about
+these eigenfunctions
+
+95
+00:04:01,360 --> 00:04:04,740
+is that for different
+eigenvalues,
+
+96
+00:04:04,740 --> 00:04:07,220
+the associated wave functions
+are different functions.
+
+97
+00:04:07,220 --> 00:04:08,320
+And what I mean by
+saying they're different
+
+98
+00:04:08,320 --> 00:04:09,736
+functions is that
+they're actually
+
+99
+00:04:09,736 --> 00:04:12,540
+orthogonal functions in the
+sense of this dot product.
+
+100
+00:04:12,540 --> 00:04:16,050
+If I have a state
+corresponding to be at x 0,
+
+101
+00:04:16,050 --> 00:04:17,579
+definite position
+x 0, that means
+
+102
+00:04:17,579 --> 00:04:20,371
+they're in eigenfunction of
+position with eigenvalue x 0,
+
+103
+00:04:20,371 --> 00:04:21,829
+and I have another
+that corresponds
+
+104
+00:04:21,829 --> 00:04:24,630
+to being at x1, an eigenfunction
+of the position operator
+
+105
+00:04:24,630 --> 00:04:28,240
+or the eigenvalue x1, then
+these wave functions are
+
+106
+00:04:28,240 --> 00:04:29,920
+orthogonal to each other.
+
+107
+00:04:29,920 --> 00:04:32,960
+And we get 0 if x 0
+is not equal to x1.
+
+108
+00:04:32,960 --> 00:04:35,250
+Everyone cool with that?
+
+109
+00:04:35,250 --> 00:04:37,520
+Now, meanwhile not only
+are they orthogonal
+
+110
+00:04:37,520 --> 00:04:39,837
+but they're normalized
+in a particular way.
+
+111
+00:04:39,837 --> 00:04:41,670
+The inner product gives
+me a delta function,
+
+112
+00:04:41,670 --> 00:04:44,490
+which goes beep once, so that
+if I integrate against it
+
+113
+00:04:44,490 --> 00:04:45,319
+I get a 1.
+
+114
+00:04:45,319 --> 00:04:46,360
+Same thing with momentum.
+
+115
+00:04:46,360 --> 00:04:48,734
+And you do this, this you're
+checking on the problem set.
+
+116
+00:04:48,734 --> 00:04:50,930
+I don't remember if it
+was last one or this one.
+
+117
+00:04:50,930 --> 00:04:53,410
+And for the energies,
+energy 1, if I
+
+118
+00:04:53,410 --> 00:04:58,436
+know the system is in state
+energy 1, and let's say e sub n
+
+119
+00:04:58,436 --> 00:05:00,625
+and e sub m, those
+are different states
+
+120
+00:05:00,625 --> 00:05:02,250
+if n and m are not
+equal to each other.
+
+121
+00:05:02,250 --> 00:05:04,867
+And this inner product
+is 0 if n and m are not
+
+122
+00:05:04,867 --> 00:05:06,450
+equal to each other
+and 1 if they are.
+
+123
+00:05:06,450 --> 00:05:08,220
+Their properly normalized.
+
+124
+00:05:08,220 --> 00:05:10,240
+Everyone cool with that?
+
+125
+00:05:10,240 --> 00:05:11,769
+Yeah.
+
+126
+00:05:11,769 --> 00:05:13,768
+AUDIENCE: Is it possible
+that two eigenfunctions
+
+127
+00:05:13,768 --> 00:05:15,514
+have the same eigenvalue?
+
+128
+00:05:15,514 --> 00:05:16,430
+PROFESSOR: Absolutely.
+
+129
+00:05:16,430 --> 00:05:18,650
+It is absolutely possible
+for two eigenfunctions
+
+130
+00:05:18,650 --> 00:05:19,996
+to have the same eigenvalue.
+
+131
+00:05:19,996 --> 00:05:21,120
+That is certainly possible.
+
+132
+00:05:21,120 --> 00:05:23,210
+AUDIENCE: [INAUDIBLE]
+
+133
+00:05:23,210 --> 00:05:25,257
+PROFESSOR: Yeah, good.
+
+134
+00:05:25,257 --> 00:05:26,840
+Thank you, this is
+a good technicality
+
+135
+00:05:26,840 --> 00:05:28,970
+that I didn't want to get into,
+but I'll go and get into it.
+
+136
+00:05:28,970 --> 00:05:30,053
+It's a very good question.
+
+137
+00:05:30,053 --> 00:05:31,900
+So the question is,
+is it possible for two
+
+138
+00:05:31,900 --> 00:05:34,620
+different eigenfunctions to
+have the same eigenvalue.
+
+139
+00:05:34,620 --> 00:05:36,640
+Could there be two states
+with the same energy ,
+
+140
+00:05:36,640 --> 00:05:38,550
+different states, same energy?
+
+141
+00:05:38,550 --> 00:05:40,080
+Yeah, that's
+absolutely possible.
+
+142
+00:05:40,080 --> 00:05:41,280
+And we'll run into that.
+
+143
+00:05:41,280 --> 00:05:43,550
+And there's nice
+physics encoded in it.
+
+144
+00:05:43,550 --> 00:05:45,200
+But let's think about
+what that means.
+
+145
+00:05:45,200 --> 00:05:47,400
+The subsequent question is
+well, if that's the case,
+
+146
+00:05:47,400 --> 00:05:49,910
+are they really
+still orthogonal?
+
+147
+00:05:49,910 --> 00:05:51,450
+And here's the crucial thing.
+
+148
+00:05:51,450 --> 00:05:55,190
+The crucial thing is, let's
+say I take one function,
+
+149
+00:05:55,190 --> 00:05:58,750
+I'll call the function phi 1,
+consider the function phi 1.
+
+150
+00:05:58,750 --> 00:06:02,330
+And let it have energy E1,
+so that E acting on phi 1
+
+151
+00:06:02,330 --> 00:06:05,020
+is equal to E1 phi 1.
+
+152
+00:06:05,020 --> 00:06:08,600
+And let there be
+another function, phi 2,
+
+153
+00:06:08,600 --> 00:06:10,810
+such that the energy
+operator acting on phi 2
+
+154
+00:06:10,810 --> 00:06:14,050
+is also equal to E1 phi 2.
+
+155
+00:06:14,050 --> 00:06:16,700
+These are said to be degenerate.
+
+156
+00:06:16,700 --> 00:06:18,950
+Degenerate doesn't mean you
+go out and trash your car,
+
+157
+00:06:18,950 --> 00:06:22,510
+degenerate that the
+energies are the same.
+
+158
+00:06:22,510 --> 00:06:23,997
+So what does this tell me?
+
+159
+00:06:23,997 --> 00:06:25,080
+This tells me a cool fact.
+
+160
+00:06:25,080 --> 00:06:30,390
+If I take a wave function phi,
+and I will call this phi star,
+
+161
+00:06:30,390 --> 00:06:32,560
+in honor of Shri
+Kulkarni, so I've
+
+162
+00:06:32,560 --> 00:06:35,770
+got this phi star, which is
+a linear combination alpha
+
+163
+00:06:35,770 --> 00:06:39,270
+phi 1 plus beta phi 2,
+a linear combination
+
+164
+00:06:39,270 --> 00:06:42,700
+of them, a superposition
+of those two states.
+
+165
+00:06:42,700 --> 00:06:46,060
+Is this also an
+energy eigenfunction?
+
+166
+00:06:46,060 --> 00:06:52,630
+Yeah, because if I act on phi
+star with E, then it's linear,
+
+167
+00:06:52,630 --> 00:06:55,960
+so E acting on phi star is
+E acting on alpha phi 1,
+
+168
+00:06:55,960 --> 00:06:57,370
+alpha's a constant,
+doesn't care.
+
+169
+00:06:57,370 --> 00:06:59,090
+Phi 1 gives me an E1.
+
+170
+00:06:59,090 --> 00:07:02,060
+Similarly, E acting on
+phi 2 gives me an E1.
+
+171
+00:07:02,060 --> 00:07:06,490
+So if I act with E
+on this guy, this
+
+172
+00:07:06,490 --> 00:07:09,229
+is equal to, from both of these
+I get an overall factor of E1.
+
+173
+00:07:09,229 --> 00:07:11,270
+So notice that we get the
+same vector back, times
+
+174
+00:07:11,270 --> 00:07:16,260
+a constant, a common constant.
+
+175
+00:07:16,260 --> 00:07:18,237
+So when we have
+degenerate eigenfunctions,
+
+176
+00:07:18,237 --> 00:07:20,320
+we can take arbitrary
+linear combinations to them,
+
+177
+00:07:20,320 --> 00:07:22,700
+get another degenerate
+eigenfunction.
+
+178
+00:07:22,700 --> 00:07:23,522
+Cool?
+
+179
+00:07:23,522 --> 00:07:25,230
+So this is like,
+imagine I have a vector,
+
+180
+00:07:25,230 --> 00:07:26,460
+and I have another vector.
+
+181
+00:07:26,460 --> 00:07:27,840
+And they share the
+property that they're
+
+182
+00:07:27,840 --> 00:07:29,240
+both eigenfunctions
+of some operator.
+
+183
+00:07:29,240 --> 00:07:30,948
+That means any linear
+combination of them
+
+184
+00:07:30,948 --> 00:07:32,284
+is also, right?
+
+185
+00:07:32,284 --> 00:07:33,950
+So there's a whole
+vector space, there's
+
+186
+00:07:33,950 --> 00:07:36,850
+a whole space of
+possible functions
+
+187
+00:07:36,850 --> 00:07:38,704
+that all have the
+same eigenvalue.
+
+188
+00:07:38,704 --> 00:07:40,870
+So now you say, well, look,
+are these two orthogonal
+
+189
+00:07:40,870 --> 00:07:41,360
+to each other?
+
+190
+00:07:41,360 --> 00:07:41,640
+No.
+
+191
+00:07:41,640 --> 00:07:41,820
+These two?
+
+192
+00:07:41,820 --> 00:07:42,240
+No.
+
+193
+00:07:42,240 --> 00:07:43,140
+But here's the thing.
+
+194
+00:07:43,140 --> 00:07:45,306
+If you have a vector space,
+if you have a the space,
+
+195
+00:07:45,306 --> 00:07:48,030
+you can always find
+orthogonal guys and a basis
+
+196
+00:07:48,030 --> 00:07:50,190
+for that space, yes?
+
+197
+00:07:50,190 --> 00:07:53,470
+So while it's not true that
+the eigenfunctions are always
+
+198
+00:07:53,470 --> 00:07:58,070
+orthogonal, it is true--
+we will not prove this,
+
+199
+00:07:58,070 --> 00:07:59,920
+but we will discuss
+the proof of it
+
+200
+00:07:59,920 --> 00:08:01,770
+later by pulling the
+mathematician out
+
+201
+00:08:01,770 --> 00:08:06,370
+of the closet-- the proof will
+say that it is possible to find
+
+202
+00:08:06,370 --> 00:08:09,620
+a set of eigenfunctions which
+are orthogonal in precisely
+
+203
+00:08:09,620 --> 00:08:12,380
+this fashion, even if
+there are degeneracies.
+
+204
+00:08:12,380 --> 00:08:12,880
+OK?
+
+205
+00:08:12,880 --> 00:08:14,960
+That theorem is called
+the spectral theorem.
+
+206
+00:08:14,960 --> 00:08:16,724
+And we'll discuss it later.
+
+207
+00:08:16,724 --> 00:08:18,140
+So it is always
+possible to do so.
+
+208
+00:08:18,140 --> 00:08:20,460
+But you must be alert that
+there may be degeneracies.
+
+209
+00:08:20,460 --> 00:08:22,140
+There aren't always
+degeneracies.
+
+210
+00:08:22,140 --> 00:08:24,040
+In fact, degeneracies
+are very special.
+
+211
+00:08:24,040 --> 00:08:27,840
+Why should two numbers
+happen to be the same?
+
+212
+00:08:27,840 --> 00:08:29,840
+Something has to be forcing
+them to be the same.
+
+213
+00:08:29,840 --> 00:08:31,715
+That's going to be an
+important theme for us.
+
+214
+00:08:31,715 --> 00:08:32,966
+But it certainly is possible.
+
+215
+00:08:32,966 --> 00:08:33,549
+Good question.
+
+216
+00:08:33,549 --> 00:08:36,085
+Other questions?
+
+217
+00:08:36,085 --> 00:08:36,585
+Yeah.
+
+218
+00:08:36,585 --> 00:08:37,460
+AUDIENCE: [INAUDIBLE]
+
+219
+00:08:37,460 --> 00:08:42,314
+
+220
+00:08:42,314 --> 00:08:43,980
+PROFESSOR: Yeah, so
+using the triangular
+
+221
+00:08:43,980 --> 00:08:47,820
+brackets-- so there's another
+notation for the same thing,
+
+222
+00:08:47,820 --> 00:08:51,351
+which is f g, but this carries
+some slightly different weight.
+
+223
+00:08:51,351 --> 00:08:53,600
+It mean something slightly--
+you'll see this in books,
+
+224
+00:08:53,600 --> 00:08:55,500
+and this means something
+very similar to this.
+
+225
+00:08:55,500 --> 00:08:56,680
+But I'm not going to
+use this notation.
+
+226
+00:08:56,680 --> 00:08:58,010
+It's called Dirac notation.
+
+227
+00:08:58,010 --> 00:08:59,360
+We'll talk about it
+later in the semester,
+
+228
+00:08:59,360 --> 00:09:00,640
+but we're not going to
+talk about it just yet.
+
+229
+00:09:00,640 --> 00:09:02,490
+But when you see
+this, effectively it
+
+230
+00:09:02,490 --> 00:09:05,565
+means the same thing as this.
+
+231
+00:09:05,565 --> 00:09:07,260
+This is sort of like dialect.
+
+232
+00:09:07,260 --> 00:09:10,590
+You know, it's like
+French and Quebecois.
+
+233
+00:09:10,590 --> 00:09:12,290
+Other questions?
+
+234
+00:09:12,290 --> 00:09:14,190
+My wife's Canadian.
+
+235
+00:09:14,190 --> 00:09:15,750
+Other questions?
+
+236
+00:09:15,750 --> 00:09:17,760
+OK.
+
+237
+00:09:17,760 --> 00:09:19,200
+So given this fact,
+given the fact
+
+238
+00:09:19,200 --> 00:09:20,574
+that we can
+associate observables
+
+239
+00:09:20,574 --> 00:09:23,210
+to operators, operators
+come with special functions,
+
+240
+00:09:23,210 --> 00:09:25,460
+the eigenfunctions, those
+eigenfunctions corresponding
+
+241
+00:09:25,460 --> 00:09:27,410
+to have a definite
+value of the observable,
+
+242
+00:09:27,410 --> 00:09:29,320
+and they're orthonormal.
+
+243
+00:09:29,320 --> 00:09:30,940
+This tells us,
+and this is really
+
+244
+00:09:30,940 --> 00:09:32,523
+the statement of the
+spectral theorem,
+
+245
+00:09:32,523 --> 00:09:36,340
+that any function can be
+expanded in a basis of states
+
+246
+00:09:36,340 --> 00:09:38,550
+with definite values
+of some observable.
+
+247
+00:09:38,550 --> 00:09:40,200
+So for example,
+consider position.
+
+248
+00:09:40,200 --> 00:09:41,720
+I claim that any
+wave function can
+
+249
+00:09:41,720 --> 00:09:44,660
+be expanded as a
+superposition of states
+
+250
+00:09:44,660 --> 00:09:46,190
+with definite position.
+
+251
+00:09:46,190 --> 00:09:48,510
+So here's an arbitrary
+function, here's
+
+252
+00:09:48,510 --> 00:09:52,140
+this set of states with definite
+position, the delta functions.
+
+253
+00:09:52,140 --> 00:09:55,290
+And I can write any
+function as a superposition
+
+254
+00:09:55,290 --> 00:09:57,960
+with some coefficients of
+states with definite position,
+
+255
+00:09:57,960 --> 00:10:01,814
+integrating over all
+possible positions, x0.
+
+256
+00:10:01,814 --> 00:10:03,480
+And this is also sort
+of trivially true,
+
+257
+00:10:03,480 --> 00:10:04,910
+because what's this integral?
+
+258
+00:10:04,910 --> 00:10:07,650
+Well, it's an integral, dx0
+over all possible positions
+
+259
+00:10:07,650 --> 00:10:09,170
+of this delta function.
+
+260
+00:10:09,170 --> 00:10:12,090
+But we're evaluating
+at x, so this is 0
+
+261
+00:10:12,090 --> 00:10:13,550
+unless x is equal to x0.
+
+262
+00:10:13,550 --> 00:10:15,125
+So I can just put
+in x instead of x0,
+
+263
+00:10:15,125 --> 00:10:16,670
+and that gives me psi of x.
+
+264
+00:10:16,670 --> 00:10:18,760
+Sort of tautological We
+can do the same thing
+
+265
+00:10:18,760 --> 00:10:20,442
+for momentum eigenfunctions.
+
+266
+00:10:20,442 --> 00:10:22,150
+I claim that any
+function can be expanded
+
+267
+00:10:22,150 --> 00:10:24,340
+in a superposition of
+momentum eigenfunctions, where
+
+268
+00:10:24,340 --> 00:10:27,160
+I sum over all possible
+values in the momentum
+
+269
+00:10:27,160 --> 00:10:30,120
+with some weight.
+
+270
+00:10:30,120 --> 00:10:31,670
+This psi tilde of
+K is just telling
+
+271
+00:10:31,670 --> 00:10:34,480
+me how much amplitude there
+is at that wave number.
+
+272
+00:10:34,480 --> 00:10:35,120
+Cool?
+
+273
+00:10:35,120 --> 00:10:37,660
+But this is the Fourier theorem,
+it's a Fourier expansion.
+
+274
+00:10:37,660 --> 00:10:40,864
+So purely mathematically,
+we know that this is true.
+
+275
+00:10:40,864 --> 00:10:42,530
+But there's also the
+physical statement.
+
+276
+00:10:42,530 --> 00:10:44,404
+Any state can be expressed
+as a superposition
+
+277
+00:10:44,404 --> 00:10:47,950
+of states with
+definite momentum.
+
+278
+00:10:47,950 --> 00:10:50,300
+There's a math in here, but
+there's also physics in it.
+
+279
+00:10:50,300 --> 00:10:52,370
+Finally, this is less obvious
+from a mathematical point
+
+280
+00:10:52,370 --> 00:10:54,036
+of view, because I
+haven't even told you
+
+281
+00:10:54,036 --> 00:10:56,560
+what energy is, any wave
+function can be expanded
+
+282
+00:10:56,560 --> 00:10:58,360
+in states with definite energy.
+
+283
+00:10:58,360 --> 00:11:02,110
+So this is a state, my state
+En, with definite energy,
+
+284
+00:11:02,110 --> 00:11:05,200
+with some coefficient summed
+over all possible values
+
+285
+00:11:05,200 --> 00:11:07,790
+of the energy.
+
+286
+00:11:07,790 --> 00:11:11,750
+Given any physical observable,
+any physical observable,
+
+287
+00:11:11,750 --> 00:11:13,860
+momentum, position,
+angular momentum,
+
+288
+00:11:13,860 --> 00:11:16,790
+whatever, given any
+physical observable,
+
+289
+00:11:16,790 --> 00:11:20,250
+a given wave function can be
+expanded as some superposition
+
+290
+00:11:20,250 --> 00:11:21,920
+of having definite
+values of that.
+
+291
+00:11:21,920 --> 00:11:25,950
+Will it in general have definite
+values of the observable?
+
+292
+00:11:25,950 --> 00:11:28,500
+Well a general state be
+an energy eigenfunction?
+
+293
+00:11:28,500 --> 00:11:29,420
+No.
+
+294
+00:11:29,420 --> 00:11:35,210
+But any state is a superposition
+of energy eigenfunctions.
+
+295
+00:11:35,210 --> 00:11:38,240
+Will a random state
+have definite position?
+
+296
+00:11:38,240 --> 00:11:38,870
+Certainly not.
+
+297
+00:11:38,870 --> 00:11:41,010
+You could have
+this wave function.
+
+298
+00:11:41,010 --> 00:11:43,110
+Superposition.
+
+299
+00:11:43,110 --> 00:11:45,210
+Yeah.
+
+300
+00:11:45,210 --> 00:11:50,710
+AUDIENCE: Why is the
+energy special such
+
+301
+00:11:50,710 --> 00:11:54,680
+that you can make an arbitrary
+state with a countable number
+
+302
+00:11:54,680 --> 00:11:56,954
+of energy eigenfunctions
+rather than having
+
+303
+00:11:56,954 --> 00:11:58,120
+to do a continuous spectrum?
+
+304
+00:11:58,120 --> 00:11:58,890
+PROFESSOR: Excellent question.
+
+305
+00:11:58,890 --> 00:12:00,340
+So I'm going to phrase
+that slightly differently.
+
+306
+00:12:00,340 --> 00:12:01,280
+It's an excellent
+question, and we'll
+
+307
+00:12:01,280 --> 00:12:03,460
+come to that at the
+end of today's lecture.
+
+308
+00:12:03,460 --> 00:12:05,960
+So the question is,
+those are integrals,
+
+309
+00:12:05,960 --> 00:12:08,115
+that is a sum over
+discrete things.
+
+310
+00:12:08,115 --> 00:12:08,615
+Why?
+
+311
+00:12:08,615 --> 00:12:12,012
+Why is the possible values
+of the position continuous,
+
+312
+00:12:12,012 --> 00:12:14,470
+possible values of momentum
+continuous, and possible values
+
+313
+00:12:14,470 --> 00:12:16,690
+of energy discrete?
+
+314
+00:12:16,690 --> 00:12:20,050
+The answer to this
+will become apparent
+
+315
+00:12:20,050 --> 00:12:22,152
+over the course of your
+next few problem sets.
+
+316
+00:12:22,152 --> 00:12:23,610
+You have to do some
+problems to get
+
+317
+00:12:23,610 --> 00:12:25,190
+your fingers dirty to
+really understand this.
+
+318
+00:12:25,190 --> 00:12:26,648
+But here's the
+statement, and we'll
+
+319
+00:12:26,648 --> 00:12:30,700
+see the first version of this
+at the end of today's lecture.
+
+320
+00:12:30,700 --> 00:12:33,420
+Sometimes the allowed energies
+of a system, the energy
+
+321
+00:12:33,420 --> 00:12:35,240
+eigenvalues, are discrete.
+
+322
+00:12:35,240 --> 00:12:37,170
+Sometimes they are continuous.
+
+323
+00:12:37,170 --> 00:12:41,056
+They will be discrete when you
+have bound states, states that
+
+324
+00:12:41,056 --> 00:12:42,930
+are trapped in some
+region and aren't allowed
+
+325
+00:12:42,930 --> 00:12:44,410
+to get arbitrarily far away.
+
+326
+00:12:44,410 --> 00:12:46,380
+They'll be continuous
+when you have
+
+327
+00:12:46,380 --> 00:12:50,720
+states that can get
+arbitrarily far away.
+
+328
+00:12:50,720 --> 00:12:54,090
+Sometimes the momentum will be
+allowed to be discrete values,
+
+329
+00:12:54,090 --> 00:12:56,930
+sometimes it will be allowed
+to be continuous values.
+
+330
+00:12:56,930 --> 00:12:59,416
+And we'll see exactly
+why subsequently.
+
+331
+00:12:59,416 --> 00:13:00,790
+But the thing I
+want to emphasize
+
+332
+00:13:00,790 --> 00:13:03,720
+is that I'm writing this to
+emphasize that it's possible
+
+333
+00:13:03,720 --> 00:13:05,920
+that each of these can be
+discrete or continuous.
+
+334
+00:13:05,920 --> 00:13:09,120
+The important thing is that once
+you pick your physical system,
+
+335
+00:13:09,120 --> 00:13:11,572
+you ask what are the allowed
+values of position, what
+
+336
+00:13:11,572 --> 00:13:13,030
+are the allowed
+values of momentum,
+
+337
+00:13:13,030 --> 00:13:15,940
+and what are the allowed
+values of energy.
+
+338
+00:13:15,940 --> 00:13:18,290
+And then you sum over
+all possible values.
+
+339
+00:13:18,290 --> 00:13:21,450
+Now, in the examples we looked
+at yesterday, or last lecture,
+
+340
+00:13:21,450 --> 00:13:23,070
+the energy could
+have been discrete,
+
+341
+00:13:23,070 --> 00:13:25,070
+as in the case of
+the infinite well,
+
+342
+00:13:25,070 --> 00:13:28,680
+or continuous, as in the
+case of the free particle.
+
+343
+00:13:28,680 --> 00:13:30,180
+In the case of a
+continuous particle
+
+344
+00:13:30,180 --> 00:13:31,810
+this would have
+been an integral.
+
+345
+00:13:31,810 --> 00:13:35,890
+In the case of the system
+such as a free particle, where
+
+346
+00:13:35,890 --> 00:13:37,890
+the energy could take any
+of a continuous number
+
+347
+00:13:37,890 --> 00:13:40,424
+of possible values, this would
+be a continuous integral.
+
+348
+00:13:40,424 --> 00:13:41,840
+To deal with that,
+I'm often going
+
+349
+00:13:41,840 --> 00:13:45,660
+to use the notation, just
+shorthand, integral sum.
+
+350
+00:13:45,660 --> 00:13:47,500
+Which I know is a
+horrible bastardization
+
+351
+00:13:47,500 --> 00:13:50,120
+of all that's good and
+just, but on the other hand,
+
+352
+00:13:50,120 --> 00:13:53,000
+emphasizes the fact
+that in some systems
+
+353
+00:13:53,000 --> 00:13:55,200
+you will get continuous,
+in some systems discrete,
+
+354
+00:13:55,200 --> 00:13:57,520
+and sometimes you'll have
+both continuous and discrete.
+
+355
+00:13:57,520 --> 00:14:00,380
+For example, in
+hydrogen, in hydrogen
+
+356
+00:14:00,380 --> 00:14:02,310
+we'll find that there
+are bound states
+
+357
+00:14:02,310 --> 00:14:04,830
+where the electron is stuck
+to the hydrogen nucleus,
+
+358
+00:14:04,830 --> 00:14:05,920
+to the proton.
+
+359
+00:14:05,920 --> 00:14:08,510
+And there are discrete
+allowed energy levels
+
+360
+00:14:08,510 --> 00:14:10,170
+for that configuration.
+
+361
+00:14:10,170 --> 00:14:12,640
+However, once you
+ionize the hydrogen,
+
+362
+00:14:12,640 --> 00:14:15,290
+the electron can add
+any energy you want.
+
+363
+00:14:15,290 --> 00:14:16,170
+It's no longer bound.
+
+364
+00:14:16,170 --> 00:14:18,090
+It can just get
+arbitrarily far away.
+
+365
+00:14:18,090 --> 00:14:20,360
+And there are an
+uncountable infinity,
+
+366
+00:14:20,360 --> 00:14:22,744
+a continuous set
+of possible states.
+
+367
+00:14:22,744 --> 00:14:24,410
+So in that situation,
+we'll find that we
+
+368
+00:14:24,410 --> 00:14:27,230
+have both the discrete
+and continuous series
+
+369
+00:14:27,230 --> 00:14:28,582
+of possible states.
+
+370
+00:14:28,582 --> 00:14:29,082
+Yeah.
+
+371
+00:14:29,082 --> 00:14:29,957
+AUDIENCE: [INAUDIBLE]
+
+372
+00:14:29,957 --> 00:14:32,420
+
+373
+00:14:32,420 --> 00:14:34,620
+PROFESSOR: Yeah, sure,
+if you work on a lattice.
+
+374
+00:14:34,620 --> 00:14:36,870
+So for example, consider the
+following quantum system.
+
+375
+00:14:36,870 --> 00:14:38,550
+I have an undergraduate.
+
+376
+00:14:38,550 --> 00:14:41,760
+And that undergraduate has
+been placed in 1 of 12 boxes.
+
+377
+00:14:41,760 --> 00:14:42,450
+OK?
+
+378
+00:14:42,450 --> 00:14:44,309
+Now, what's the state
+of the undergraduate?
+
+379
+00:14:44,309 --> 00:14:44,850
+I don't know.
+
+380
+00:14:44,850 --> 00:14:46,410
+Is it a definite position state?
+
+381
+00:14:46,410 --> 00:14:47,290
+It might be.
+
+382
+00:14:47,290 --> 00:14:49,660
+But probably it's a
+superposition, an arbitrary
+
+383
+00:14:49,660 --> 00:14:51,360
+superposition, right?
+
+384
+00:14:51,360 --> 00:14:54,912
+Very impressive
+undergraduates at MIT.
+
+385
+00:14:54,912 --> 00:14:55,745
+OK, other questions.
+
+386
+00:14:55,745 --> 00:14:58,355
+
+387
+00:14:58,355 --> 00:14:59,491
+Yeah.
+
+388
+00:14:59,491 --> 00:15:00,990
+AUDIENCE: Do these
+three [INAUDIBLE]
+
+389
+00:15:00,990 --> 00:15:03,580
+hold even if the probability
+changes over time?
+
+390
+00:15:03,580 --> 00:15:04,170
+PROFESSOR: Excellent question.
+
+391
+00:15:04,170 --> 00:15:05,090
+We'll come back to that.
+
+392
+00:15:05,090 --> 00:15:06,631
+Very good question,
+leading question.
+
+393
+00:15:06,631 --> 00:15:09,340
+OK, so we have this.
+
+394
+00:15:09,340 --> 00:15:11,730
+The next thing is that
+energy eigenfunctions
+
+395
+00:15:11,730 --> 00:15:15,540
+satisfy some very
+special properties.
+
+396
+00:15:15,540 --> 00:15:17,340
+And in particular,
+energy eigenfunctions
+
+397
+00:15:17,340 --> 00:15:20,785
+have the property from the
+Schrodinger equation i h
+
+398
+00:15:20,785 --> 00:15:25,640
+bar d t on psi of x and
+t is equal to the energy
+
+399
+00:15:25,640 --> 00:15:28,680
+operator acting
+on psi of x and t.
+
+400
+00:15:28,680 --> 00:15:30,150
+This tells us that
+if we have psi
+
+401
+00:15:30,150 --> 00:15:37,000
+x 0 time t 0 is equal to phi
+n of x, as we saw last time,
+
+402
+00:15:37,000 --> 00:15:41,080
+then the wave function,
+psi at x at time t
+
+403
+00:15:41,080 --> 00:15:43,100
+is equal to phi n of x.
+
+404
+00:15:43,100 --> 00:15:45,250
+And it only changes
+by an overall phase,
+
+405
+00:15:45,250 --> 00:15:50,510
+e to the minus i
+En t over h bar.
+
+406
+00:15:50,510 --> 00:15:52,760
+And this ratio En
+upon h bar will often
+
+407
+00:15:52,760 --> 00:15:56,130
+be written omega n is
+equal to En over h bar.
+
+408
+00:15:56,130 --> 00:15:59,252
+This is just the
+Dupre relations.
+
+409
+00:15:59,252 --> 00:16:01,340
+Everyone cool with that?
+
+410
+00:16:01,340 --> 00:16:07,570
+So are energy
+eigenfunctions-- how to say.
+
+411
+00:16:07,570 --> 00:16:12,800
+No wave function is more
+morally good than another.
+
+412
+00:16:12,800 --> 00:16:14,727
+But some are
+particularly convenient.
+
+413
+00:16:14,727 --> 00:16:16,560
+Energy eigenfunctions
+have the nice property
+
+414
+00:16:16,560 --> 00:16:17,990
+that while they're not
+in a definite position
+
+415
+00:16:17,990 --> 00:16:20,156
+and they don't necessarily
+have a definite momentum,
+
+416
+00:16:20,156 --> 00:16:22,950
+they do evolve over time in
+a particularly simple way.
+
+417
+00:16:22,950 --> 00:16:25,690
+And that and the
+superposition principle
+
+418
+00:16:25,690 --> 00:16:27,250
+allow me to write the following.
+
+419
+00:16:27,250 --> 00:16:34,400
+If I know that this is my wave
+function at psi at x at time 0,
+
+420
+00:16:34,400 --> 00:16:38,230
+so let's say in all these cases,
+this is psi of x at time 0,
+
+421
+00:16:38,230 --> 00:16:40,590
+how does this state
+evolve forward in time?
+
+422
+00:16:40,590 --> 00:16:44,909
+
+423
+00:16:44,909 --> 00:16:45,950
+It's kind of complicated.
+
+424
+00:16:45,950 --> 00:16:49,060
+How does this description,
+how does psi tilde of k
+
+425
+00:16:49,060 --> 00:16:50,715
+evolve forward in time?
+
+426
+00:16:50,715 --> 00:16:51,840
+Again, kind of complicated.
+
+427
+00:16:51,840 --> 00:16:54,497
+But when expressed in terms
+of the energy eigenstates,
+
+428
+00:16:54,497 --> 00:16:56,330
+the answer to how it
+evolves forward in time
+
+429
+00:16:56,330 --> 00:16:58,460
+is very simple, because
+I know that this
+
+430
+00:16:58,460 --> 00:17:01,440
+is a superposition, a
+linear combination of states
+
+431
+00:17:01,440 --> 00:17:02,600
+with definite energy.
+
+432
+00:17:02,600 --> 00:17:05,079
+States with definite
+energy evolve with a phase.
+
+433
+00:17:05,079 --> 00:17:07,010
+And the Schrodinger
+equation is linear,
+
+434
+00:17:07,010 --> 00:17:08,700
+so solutions of the
+Schrodinger equation
+
+435
+00:17:08,700 --> 00:17:11,680
+evolve to become solutions
+of the Schrodinger equation.
+
+436
+00:17:11,680 --> 00:17:13,950
+So how does this state
+evolve forward in time?
+
+437
+00:17:13,950 --> 00:17:18,476
+It evolves forward with a phase,
+e to the minus i omega n t.
+
+438
+00:17:18,476 --> 00:17:21,560
+One for every different
+terms in this sum.
+
+439
+00:17:21,560 --> 00:17:23,020
+Cool?
+
+440
+00:17:23,020 --> 00:17:25,089
+So we are going to harp
+on energy functions,
+
+441
+00:17:25,089 --> 00:17:28,300
+not because they're more moral,
+or more just, or more good,
+
+442
+00:17:28,300 --> 00:17:31,040
+but because they're more
+convenient for solving the time
+
+443
+00:17:31,040 --> 00:17:33,680
+evolution problem in
+quantum mechanics.
+
+444
+00:17:33,680 --> 00:17:37,020
+So most of today is going
+to be about this expansion
+
+445
+00:17:37,020 --> 00:17:40,470
+and qualitative features
+of energy eigenfunctions.
+
+446
+00:17:40,470 --> 00:17:42,690
+Cool?
+
+447
+00:17:42,690 --> 00:17:43,510
+OK.
+
+448
+00:17:43,510 --> 00:17:45,670
+And just to close
+that out, I just
+
+449
+00:17:45,670 --> 00:17:47,420
+want to remind you of
+a couple of examples
+
+450
+00:17:47,420 --> 00:17:50,022
+that we did last time,
+just get them on board.
+
+451
+00:17:50,022 --> 00:17:51,355
+So the first is a free particle.
+
+452
+00:17:51,355 --> 00:17:54,440
+
+453
+00:17:54,440 --> 00:18:00,620
+So for free particle, we have
+that our wave functions-- well,
+
+454
+00:18:00,620 --> 00:18:04,125
+actually let me not
+write that down.
+
+455
+00:18:04,125 --> 00:18:06,000
+Actually, let me skip
+over the free particle,
+
+456
+00:18:06,000 --> 00:18:06,999
+because it's so trivial.
+
+457
+00:18:06,999 --> 00:18:10,417
+Let me just talk about
+the infinite well.
+
+458
+00:18:10,417 --> 00:18:12,000
+So the potential is
+infinite out here,
+
+459
+00:18:12,000 --> 00:18:14,510
+and it's 0 inside the
+well, and it goes from 0
+
+460
+00:18:14,510 --> 00:18:18,790
+to L. This is just my
+choice of notation.
+
+461
+00:18:18,790 --> 00:18:22,300
+And the energy
+operator, as usual,
+
+462
+00:18:22,300 --> 00:18:26,165
+is p squared upon
+2m plus u of x.
+
+463
+00:18:26,165 --> 00:18:27,790
+You might say, where
+did I derive this,
+
+464
+00:18:27,790 --> 00:18:29,000
+and the answer is I
+didn't derive this.
+
+465
+00:18:29,000 --> 00:18:30,030
+I just wrote it down.
+
+466
+00:18:30,030 --> 00:18:32,690
+It's like force in
+Newton's equations.
+
+467
+00:18:32,690 --> 00:18:34,730
+You just declare some
+force and you ask,
+
+468
+00:18:34,730 --> 00:18:36,190
+what system does is model.
+
+469
+00:18:36,190 --> 00:18:38,120
+So here's my system.
+
+470
+00:18:38,120 --> 00:18:41,630
+It has what looks like a
+classical kind of energy,
+
+471
+00:18:41,630 --> 00:18:43,450
+except these are all operators.
+
+472
+00:18:43,450 --> 00:18:48,120
+And the potential here is this
+guy, it's 0 between 0 and L,
+
+473
+00:18:48,120 --> 00:18:49,730
+and it's infinite elsewhere.
+
+474
+00:18:49,730 --> 00:18:51,740
+And as we saw last
+time, the solutions
+
+475
+00:18:51,740 --> 00:18:53,480
+to the energy
+eigenvalue equation
+
+476
+00:18:53,480 --> 00:18:55,190
+are particularly simple.
+
+477
+00:18:55,190 --> 00:18:59,500
+Phi sub n of x is
+equal to root properly
+
+478
+00:18:59,500 --> 00:19:04,620
+normalized 2 upon
+L sine of Kn x,
+
+479
+00:19:04,620 --> 00:19:08,790
+where kn is equal to
+n plus 1 pi, where
+
+480
+00:19:08,790 --> 00:19:11,670
+n is an integer upon L.
+
+481
+00:19:11,670 --> 00:19:14,070
+And these were chosen to
+satisfy our boundary conditions,
+
+482
+00:19:14,070 --> 00:19:16,403
+that the wave function must
+vanish here, hence the sine,
+
+483
+00:19:16,403 --> 00:19:19,690
+and K was chosen so that it
+turned over and just hit 0
+
+484
+00:19:19,690 --> 00:19:25,210
+as we got to L. And that gave us
+that the allowed energies were
+
+485
+00:19:25,210 --> 00:19:29,050
+discrete, because the En, which
+you can get by just plugging
+
+486
+00:19:29,050 --> 00:19:31,200
+into the energy
+eigenvalue equation,
+
+487
+00:19:31,200 --> 00:19:34,860
+was equal to h bar squared
+Kn squared upon 2m.
+
+488
+00:19:34,860 --> 00:19:37,550
+
+489
+00:19:37,550 --> 00:19:39,370
+So this tells us a nice thing.
+
+490
+00:19:39,370 --> 00:19:41,430
+First off, in this system,
+if I take a particle
+
+491
+00:19:41,430 --> 00:19:43,940
+and I throw it in here
+in some arbitrary state
+
+492
+00:19:43,940 --> 00:19:46,070
+so that at time t
+equals zero the wave
+
+493
+00:19:46,070 --> 00:19:54,170
+function x 0 is equal to
+sum over n phi n of x Cn.
+
+494
+00:19:54,170 --> 00:19:56,440
+OK?
+
+495
+00:19:56,440 --> 00:19:57,220
+Can I do this?
+
+496
+00:19:57,220 --> 00:19:58,845
+Can I just pick some
+arbitrary function
+
+497
+00:19:58,845 --> 00:20:01,320
+which is a superposition
+of energy eigenstates?
+
+498
+00:20:01,320 --> 00:20:02,956
+Sure, because any function is.
+
+499
+00:20:02,956 --> 00:20:04,955
+Any function can be
+described as a superposition
+
+500
+00:20:04,955 --> 00:20:06,560
+of energy eigenfunctions.
+
+501
+00:20:06,560 --> 00:20:09,350
+And if I use the
+energy eigenfunctions,
+
+502
+00:20:09,350 --> 00:20:11,600
+it will automatically satisfy
+the boundary conditions.
+
+503
+00:20:11,600 --> 00:20:13,190
+All good things will happen.
+
+504
+00:20:13,190 --> 00:20:15,170
+So this is perfectly
+fine initial condition.
+
+505
+00:20:15,170 --> 00:20:16,950
+What is the system at time t?
+
+506
+00:20:16,950 --> 00:20:20,986
+
+507
+00:20:20,986 --> 00:20:22,360
+Yeah, we just pick
+up the phases.
+
+508
+00:20:22,360 --> 00:20:24,100
+And what phase is this guy?
+
+509
+00:20:24,100 --> 00:20:28,420
+It's this, e to the
+minus i omega n t.
+
+510
+00:20:28,420 --> 00:20:29,900
+And when I write
+omega n, let me be
+
+511
+00:20:29,900 --> 00:20:33,820
+more explicit about that,
+that's En over h bar.
+
+512
+00:20:33,820 --> 00:20:38,340
+So that's h bar Kn
+squared upon 2m t.
+
+513
+00:20:38,340 --> 00:20:41,420
+
+514
+00:20:41,420 --> 00:20:42,550
+Cool?
+
+515
+00:20:42,550 --> 00:20:48,740
+So there is our solution for
+arbitrary initial conditions
+
+516
+00:20:48,740 --> 00:20:54,069
+to the infinite square well
+problem in quantum mechanics.
+
+517
+00:20:54,069 --> 00:20:56,610
+And you're going to study this
+in some detail on your problem
+
+518
+00:20:56,610 --> 00:20:58,950
+set.
+
+519
+00:20:58,950 --> 00:21:01,920
+But just to start with a
+little bit of intuition,
+
+520
+00:21:01,920 --> 00:21:04,390
+let's look at the wave
+functions and the probability
+
+521
+00:21:04,390 --> 00:21:06,177
+distributions for the
+lowest lying states.
+
+522
+00:21:06,177 --> 00:21:07,760
+So for example, let's
+look at the wave
+
+523
+00:21:07,760 --> 00:21:11,360
+function for the ground state,
+what I will call psi sub 0.
+
+524
+00:21:11,360 --> 00:21:14,959
+And this is from 0 to L.
+And I put these bars here
+
+525
+00:21:14,959 --> 00:21:16,750
+not because we're
+looking at the potential.
+
+526
+00:21:16,750 --> 00:21:23,954
+I'm going to be plotting the
+real part of the wave function.
+
+527
+00:21:23,954 --> 00:21:26,450
+But I put these walls
+here just to emphasize
+
+528
+00:21:26,450 --> 00:21:29,617
+that that's where the walls are,
+at x equals 0 and x equals L.
+
+529
+00:21:29,617 --> 00:21:30,700
+So what does it look like?
+
+530
+00:21:30,700 --> 00:21:33,100
+Well, the first one is
+going to sine of Kn x.
+
+531
+00:21:33,100 --> 00:21:34,010
+n is 0.
+
+532
+00:21:34,010 --> 00:21:38,804
+Kn is going to be pi upon L.
+So that's again just this guy.
+
+533
+00:21:38,804 --> 00:21:40,470
+Now, what's the
+probability distribution
+
+534
+00:21:40,470 --> 00:21:43,734
+associated with psi 0?
+
+535
+00:21:43,734 --> 00:21:45,025
+Where do you find the particle?
+
+536
+00:21:45,025 --> 00:21:47,920
+
+537
+00:21:47,920 --> 00:21:51,850
+So we know that it's just
+the norm squared of this wave
+
+538
+00:21:51,850 --> 00:21:56,580
+function and the norm
+squared is here at 0, it's 0
+
+539
+00:21:56,580 --> 00:21:58,040
+and it rises
+linearly, because sine
+
+540
+00:21:58,040 --> 00:21:59,580
+is linear for small values.
+
+541
+00:21:59,580 --> 00:22:02,980
+That makes this
+quadratic, and a maximum,
+
+542
+00:22:02,980 --> 00:22:04,600
+and then quadratic again.
+
+543
+00:22:04,600 --> 00:22:06,710
+So there's our
+probability distribution.
+
+544
+00:22:06,710 --> 00:22:08,014
+Now, here's a funny thing.
+
+545
+00:22:08,014 --> 00:22:09,930
+Imagine I take a particle,
+classical particle,
+
+546
+00:22:09,930 --> 00:22:11,607
+and I put it in a box.
+
+547
+00:22:11,607 --> 00:22:13,690
+And you put it in a box,
+and you tell it, OK, it's
+
+548
+00:22:13,690 --> 00:22:14,390
+got some energy.
+
+549
+00:22:14,390 --> 00:22:16,210
+So classically it's
+got some momentum.
+
+550
+00:22:16,210 --> 00:22:17,834
+So it's sort of
+bouncing back and forth
+
+551
+00:22:17,834 --> 00:22:20,000
+and just bounces off the
+arbitrarily hard walls
+
+552
+00:22:20,000 --> 00:22:20,880
+and moves around.
+
+553
+00:22:20,880 --> 00:22:22,880
+Where are you most likely
+to find that particle?
+
+554
+00:22:22,880 --> 00:22:27,850
+
+555
+00:22:27,850 --> 00:22:29,530
+Where does it spend
+most of its time?
+
+556
+00:22:29,530 --> 00:22:33,052
+
+557
+00:22:33,052 --> 00:22:35,010
+It spends the same amount
+of time at any point.
+
+558
+00:22:35,010 --> 00:22:36,410
+It's moving at
+constant velocity.
+
+559
+00:22:36,410 --> 00:22:39,247
+It goes boo, boo,
+boo, boo, right?
+
+560
+00:22:39,247 --> 00:22:40,830
+So what's the
+probability distribution
+
+561
+00:22:40,830 --> 00:22:44,020
+for finding it at any
+point inside, classically?
+
+562
+00:22:44,020 --> 00:22:45,411
+Constant.
+
+563
+00:22:45,411 --> 00:22:47,660
+Classically, the probability
+distribution is constant.
+
+564
+00:22:47,660 --> 00:22:49,576
+You're just as likely
+to find it near the wall
+
+565
+00:22:49,576 --> 00:22:51,615
+as not near the wall.
+
+566
+00:22:51,615 --> 00:22:53,740
+However, quantum mechanically,
+for the lowest lying
+
+567
+00:22:53,740 --> 00:22:55,090
+state that is clearly not true.
+
+568
+00:22:55,090 --> 00:22:58,310
+You're really likely to
+find it near the wall.
+
+569
+00:22:58,310 --> 00:23:01,060
+What's up with that?
+
+570
+00:23:01,060 --> 00:23:03,630
+So that's a question that
+I want to put in your head
+
+571
+00:23:03,630 --> 00:23:05,850
+and have you think about.
+
+572
+00:23:05,850 --> 00:23:08,309
+You're going to see a similar
+effect arising over and over.
+
+573
+00:23:08,309 --> 00:23:09,891
+And we're going to
+see at the very end
+
+574
+00:23:09,891 --> 00:23:12,460
+that that is directly related,
+the fact that this goes to 0,
+
+575
+00:23:12,460 --> 00:23:15,370
+is directly related,
+and I'm not kidding,
+
+576
+00:23:15,370 --> 00:23:16,940
+to the transparency of diamond.
+
+577
+00:23:16,940 --> 00:23:22,385
+
+578
+00:23:22,385 --> 00:23:24,000
+OK, I think it was pretty cool.
+
+579
+00:23:24,000 --> 00:23:26,720
+
+580
+00:23:26,720 --> 00:23:27,470
+They're expensive.
+
+581
+00:23:27,470 --> 00:23:30,399
+
+582
+00:23:30,399 --> 00:23:31,940
+It's also related
+to the transparency
+
+583
+00:23:31,940 --> 00:23:34,148
+of cubic zirconium, which
+I guess is less impressive.
+
+584
+00:23:34,148 --> 00:23:37,020
+
+585
+00:23:37,020 --> 00:23:39,090
+So the first state,
+again, let's look
+
+586
+00:23:39,090 --> 00:23:43,790
+at the real part of psi 1,
+the first excited state.
+
+587
+00:23:43,790 --> 00:23:46,700
+Well, this is now a sine
+with one extra-- with a 2
+
+588
+00:23:46,700 --> 00:23:50,940
+here, 2 pi, so it
+goes through 0.
+
+589
+00:23:50,940 --> 00:23:53,740
+So the probability distribution
+associated with psi 1,
+
+590
+00:23:53,740 --> 00:23:56,774
+and I should say write this
+as a function of x, looks
+
+591
+00:23:56,774 --> 00:23:58,190
+like, well, again,
+it's quadratic.
+
+592
+00:23:58,190 --> 00:24:01,310
+But it has a 0
+again in the middle.
+
+593
+00:24:01,310 --> 00:24:07,670
+So it's going to look like--
+oops, my bad art defeats me.
+
+594
+00:24:07,670 --> 00:24:08,580
+OK, there we go.
+
+595
+00:24:08,580 --> 00:24:10,010
+So now it's even worse.
+
+596
+00:24:10,010 --> 00:24:12,100
+Not only is unlikely
+to be out here,
+
+597
+00:24:12,100 --> 00:24:14,183
+it's also very unlikely
+to be found in the middle.
+
+598
+00:24:14,183 --> 00:24:16,750
+In fact, there is 0 probability
+you'll find it in the middle.
+
+599
+00:24:16,750 --> 00:24:18,700
+That's sort of surprising.
+
+600
+00:24:18,700 --> 00:24:20,990
+But you can quickly
+guess what happens
+
+601
+00:24:20,990 --> 00:24:23,770
+as you go to very high energies.
+
+602
+00:24:23,770 --> 00:24:30,010
+The real part of psi n let's
+say 10,000, 10 to the 4,
+
+603
+00:24:30,010 --> 00:24:31,610
+what is that going to look like?
+
+604
+00:24:31,610 --> 00:24:33,620
+Well, this had no
+0s, this had one 0,
+
+605
+00:24:33,620 --> 00:24:35,300
+and every time you
+increase n by 1,
+
+606
+00:24:35,300 --> 00:24:37,570
+you're just going to add
+one more 0 to the sign.
+
+607
+00:24:37,570 --> 00:24:39,570
+That's an interesting
+and suggestive fact.
+
+608
+00:24:39,570 --> 00:24:42,650
+So if it's size of
+10,000, how many nodes
+
+609
+00:24:42,650 --> 00:24:45,411
+are there going to be in
+the middle of the domain?
+
+610
+00:24:45,411 --> 00:24:45,910
+10,000.
+
+611
+00:24:45,910 --> 00:24:48,690
+And the amplitude is
+going to be the same.
+
+612
+00:24:48,690 --> 00:24:51,220
+I'm not to be able to do
+this, but you get the idea.
+
+613
+00:24:51,220 --> 00:24:53,520
+And now if I construct the
+probability distribution,
+
+614
+00:24:53,520 --> 00:24:55,780
+what's the probability
+distribution going to be?
+
+615
+00:24:55,780 --> 00:25:02,030
+Probability of the 10,000th
+psi sub 10 to the 4 of x.
+
+616
+00:25:02,030 --> 00:25:05,830
+Well, it's again going
+to be strictly positive.
+
+617
+00:25:05,830 --> 00:25:10,040
+And if you are not able to make
+measurements on the scale of L
+
+618
+00:25:10,040 --> 00:25:14,340
+upon 10,000, but just say like
+L over 3, because you have
+
+619
+00:25:14,340 --> 00:25:17,331
+a thumb and you don't have an
+infinitely accurate meter, what
+
+620
+00:25:17,331 --> 00:25:17,830
+do you see?
+
+621
+00:25:17,830 --> 00:25:20,384
+You see effectively a constant
+probability distribution.
+
+622
+00:25:20,384 --> 00:25:22,050
+And actually, I
+shouldn't draw it there.
+
+623
+00:25:22,050 --> 00:25:23,834
+I should draw it
+through the half,
+
+624
+00:25:23,834 --> 00:25:27,170
+because sine squared over
+2 averages to one half,
+
+625
+00:25:27,170 --> 00:25:30,500
+or, sorry, sine squared averages
+to one half over many periods.
+
+626
+00:25:30,500 --> 00:25:33,660
+So what we see is that
+the classical probability
+
+627
+00:25:33,660 --> 00:25:38,100
+distribution constant
+does arise when
+
+628
+00:25:38,100 --> 00:25:41,590
+we look at very
+high energy states.
+
+629
+00:25:41,590 --> 00:25:42,880
+Cool?
+
+630
+00:25:42,880 --> 00:25:46,084
+But it is manifestly
+not a good description.
+
+631
+00:25:46,084 --> 00:25:48,250
+The classical description
+is not a good description.
+
+632
+00:25:48,250 --> 00:25:51,070
+Your intuition is
+crappy at low energies,
+
+633
+00:25:51,070 --> 00:25:53,570
+near the ground state, where
+quantum effects are dominating,
+
+634
+00:25:53,570 --> 00:25:55,980
+because indeed, classically
+there was no minimum energy.
+
+635
+00:25:55,980 --> 00:25:57,930
+Quantum effects have
+to be dominating there.
+
+636
+00:25:57,930 --> 00:25:59,780
+And here we see that even the
+probability distribution's
+
+637
+00:25:59,780 --> 00:26:01,542
+radically different
+than our intuition.
+
+638
+00:26:01,542 --> 00:26:02,042
+Yeah.
+
+639
+00:26:02,042 --> 00:26:03,034
+AUDIENCE: [INAUDIBLE]
+
+640
+00:26:03,034 --> 00:26:12,650
+
+641
+00:26:12,650 --> 00:26:13,900
+PROFESSOR: Keep working on it.
+
+642
+00:26:13,900 --> 00:26:19,420
+So I want you all to think
+about what-- you're not,
+
+643
+00:26:19,420 --> 00:26:21,820
+I promise you, unless you've
+already seen some quantum
+
+644
+00:26:21,820 --> 00:26:22,641
+mechanics, you're
+not going to be
+
+645
+00:26:22,641 --> 00:26:24,210
+able to answer
+this question now.
+
+646
+00:26:24,210 --> 00:26:27,010
+But I want you to have it as
+an uncomfortable little piece
+
+647
+00:26:27,010 --> 00:26:29,200
+of sand in the
+back of your oyster
+
+648
+00:26:29,200 --> 00:26:38,020
+mind-- no offense--
+what is causing that 0?
+
+649
+00:26:38,020 --> 00:26:39,300
+Why are we getting 0?
+
+650
+00:26:39,300 --> 00:26:40,575
+And I'll give you a hint.
+
+651
+00:26:40,575 --> 00:26:42,960
+In quantum mechanics,
+anytime something interesting
+
+652
+00:26:42,960 --> 00:26:45,985
+happens it's because of
+superposition and interference.
+
+653
+00:26:45,985 --> 00:26:49,220
+
+654
+00:26:49,220 --> 00:26:50,850
+All right.
+
+655
+00:26:50,850 --> 00:26:55,044
+So with all that said, so any
+questions now over this story
+
+656
+00:26:55,044 --> 00:26:56,585
+about energy
+eigenfunctions expanding
+
+657
+00:26:56,585 --> 00:27:01,136
+in a basis, et cetera,
+before we get moving?
+
+658
+00:27:01,136 --> 00:27:03,370
+No, OK.
+
+659
+00:27:03,370 --> 00:27:05,880
+In that case, get
+out your clickers.
+
+660
+00:27:05,880 --> 00:27:07,620
+We're going to test
+your knowledge.
+
+661
+00:27:07,620 --> 00:27:17,720
+
+662
+00:27:17,720 --> 00:27:20,836
+Channel 41, for those of
+you who have to adjust it.
+
+663
+00:27:20,836 --> 00:27:32,380
+[CHATTER]
+
+664
+00:27:32,380 --> 00:27:32,880
+Wow.
+
+665
+00:27:32,880 --> 00:27:37,100
+
+666
+00:27:37,100 --> 00:27:38,100
+That's kind of worrying.
+
+667
+00:27:38,100 --> 00:27:42,980
+
+668
+00:27:42,980 --> 00:27:43,480
+Aha.
+
+669
+00:27:43,480 --> 00:27:58,400
+
+670
+00:27:58,400 --> 00:28:01,780
+OK, ready?
+
+671
+00:28:01,780 --> 00:28:07,010
+OK, channel 41, and here we go.
+
+672
+00:28:07,010 --> 00:28:18,300
+
+673
+00:28:18,300 --> 00:28:19,789
+So go ahead and start now.
+
+674
+00:28:19,789 --> 00:28:21,830
+Sorry, there was a little
+technical glitch there.
+
+675
+00:28:21,830 --> 00:28:24,640
+So psi 1 and psi
+2 are eigenstates.
+
+676
+00:28:24,640 --> 00:28:27,590
+They're non-degenerate, meaning
+the energies are different.
+
+677
+00:28:27,590 --> 00:28:30,020
+Is a superposition psi 1 plus
+psi 2 also an eigenstate?
+
+678
+00:28:30,020 --> 00:28:43,398
+
+679
+00:28:43,398 --> 00:28:45,580
+All right, four more seconds.
+
+680
+00:28:45,580 --> 00:28:48,610
+
+681
+00:28:48,610 --> 00:28:49,560
+All right.
+
+682
+00:28:49,560 --> 00:28:52,910
+I want everyone to turn
+to the person next to you
+
+683
+00:28:52,910 --> 00:28:54,050
+and discuss this.
+
+684
+00:28:54,050 --> 00:28:56,538
+You've got about 30 seconds
+to discuss, or a minute.
+
+685
+00:28:56,538 --> 00:29:39,780
+[CHATTER]
+
+686
+00:29:39,780 --> 00:29:41,940
+All right.
+
+687
+00:29:41,940 --> 00:29:45,230
+I want everyone, now that you've
+got an answer, click again,
+
+688
+00:29:45,230 --> 00:29:47,300
+put in your current best guess.
+
+689
+00:29:47,300 --> 00:29:50,564
+
+690
+00:29:50,564 --> 00:29:51,230
+Oh, wait, sorry.
+
+691
+00:29:51,230 --> 00:29:54,180
+For some reason I have
+to start over again.
+
+692
+00:29:54,180 --> 00:29:56,080
+OK, now click.
+
+693
+00:29:56,080 --> 00:30:02,690
+
+694
+00:30:02,690 --> 00:30:05,090
+This is the best.
+
+695
+00:30:05,090 --> 00:30:08,180
+I'm such a convert to clickers,
+this is just fantastic.
+
+696
+00:30:08,180 --> 00:30:11,750
+So you guys went from,
+so roughly you all
+
+697
+00:30:11,750 --> 00:30:20,480
+went from about 30, 60,
+10, to what are we now?
+
+698
+00:30:20,480 --> 00:30:26,990
+8, 82, and 10.
+
+699
+00:30:26,990 --> 00:30:29,230
+So it sounds like you guys
+are predicting answer b.
+
+700
+00:30:29,230 --> 00:30:34,420
+And the answer is--
+I like the suspense.
+
+701
+00:30:34,420 --> 00:30:37,170
+There we go.
+
+702
+00:30:37,170 --> 00:30:38,150
+B, good.
+
+703
+00:30:38,150 --> 00:30:40,160
+So here's a quick question.
+
+704
+00:30:40,160 --> 00:30:42,890
+
+705
+00:30:42,890 --> 00:30:44,020
+So why?
+
+706
+00:30:44,020 --> 00:30:49,910
+And the reason why is that if
+we have E on psi 1 plus psi 2,
+
+707
+00:30:49,910 --> 00:30:56,540
+this is equal to E on psi 1 plus
+E on psi 2, operator, operator,
+
+708
+00:30:56,540 --> 00:30:59,200
+operator, but this
+is equal to E 1
+
+709
+00:30:59,200 --> 00:31:05,380
+psi 1 E 2 psi 2, which if
+E1 and E2 are not equal,
+
+710
+00:31:05,380 --> 00:31:09,070
+which is not equal to E
+times psi 1 plus psi 2.
+
+711
+00:31:09,070 --> 00:31:10,350
+Right?
+
+712
+00:31:10,350 --> 00:31:14,740
+Not equal to E anything
+times psi 1 plus psi 2.
+
+713
+00:31:14,740 --> 00:31:17,230
+And it needs to be, in order
+to be an eigenfunction,
+
+714
+00:31:17,230 --> 00:31:20,960
+an eigenfunction of
+the energy operator.
+
+715
+00:31:20,960 --> 00:31:22,538
+Yeah.
+
+716
+00:31:22,538 --> 00:31:24,162
+AUDIENCE: So I was
+thinking about this,
+
+717
+00:31:24,162 --> 00:31:26,037
+if this was kind of a
+silly random case where
+
+718
+00:31:26,037 --> 00:31:27,140
+one of the energies is 0.
+
+719
+00:31:27,140 --> 00:31:29,640
+Does this only happen if you
+have something that's infinite?
+
+720
+00:31:29,640 --> 00:31:31,360
+PROFESSOR: Yeah, that's
+a really good question.
+
+721
+00:31:31,360 --> 00:31:33,340
+So first off, how do
+you measure an energy?
+
+722
+00:31:33,340 --> 00:31:36,240
+
+723
+00:31:36,240 --> 00:31:38,790
+Do you ever measure an energy?
+
+724
+00:31:38,790 --> 00:31:41,670
+Do you ever measure a voltage,
+the actual value of the scalar
+
+725
+00:31:41,670 --> 00:31:43,670
+potential, the electromagnetic
+scalar potential?
+
+726
+00:31:43,670 --> 00:31:44,169
+No.
+
+727
+00:31:44,169 --> 00:31:46,259
+You measure a difference.
+
+728
+00:31:46,259 --> 00:31:47,550
+Do you ever measure the energy?
+
+729
+00:31:47,550 --> 00:31:49,296
+No, you measure a
+difference in energy.
+
+730
+00:31:49,296 --> 00:31:51,670
+So the absolute value of energy
+is sort of a silly thing.
+
+731
+00:31:51,670 --> 00:31:54,440
+But we always talk
+about it as if it's not.
+
+732
+00:31:54,440 --> 00:31:55,680
+We say, that's got energy 14.
+
+733
+00:31:55,680 --> 00:31:58,200
+It's a little bit suspicious.
+
+734
+00:31:58,200 --> 00:32:00,480
+So to answer your
+question, there's
+
+735
+00:32:00,480 --> 00:32:02,290
+nothing hallowed
+about the number 0,
+
+736
+00:32:02,290 --> 00:32:04,282
+although we will often
+refer to zero energy
+
+737
+00:32:04,282 --> 00:32:05,490
+with a very specific meaning.
+
+738
+00:32:05,490 --> 00:32:07,430
+What we really mean in
+that case is the value
+
+739
+00:32:07,430 --> 00:32:09,420
+of the potential
+energy at infinity.
+
+740
+00:32:09,420 --> 00:32:11,220
+So when I say energy,
+usually what I mean
+
+741
+00:32:11,220 --> 00:32:12,790
+is relative to the
+value at infinity.
+
+742
+00:32:12,790 --> 00:32:14,415
+So then let me ask
+your question again.
+
+743
+00:32:14,415 --> 00:32:16,510
+Your question is it
+possible to have energy 0?
+
+744
+00:32:16,510 --> 00:32:17,802
+Absolutely, and we'll see that.
+
+745
+00:32:17,802 --> 00:32:20,093
+And it's actually going to
+be really interesting what's
+
+746
+00:32:20,093 --> 00:32:21,910
+true of states with
+energy 0 in that sense.
+
+747
+00:32:21,910 --> 00:32:23,451
+Second part of your
+question, though,
+
+748
+00:32:23,451 --> 00:32:25,690
+is how does energy
+being 0 fit into this?
+
+749
+00:32:25,690 --> 00:32:26,970
+Well, does that save us?
+
+750
+00:32:26,970 --> 00:32:29,210
+Suppose one of
+the energies is 0.
+
+751
+00:32:29,210 --> 00:32:31,690
+Then that says E on psi
+1 plus psi 2 is equal to,
+
+752
+00:32:31,690 --> 00:32:34,790
+let's say E2 is 0.
+
+753
+00:32:34,790 --> 00:32:35,950
+Well, that term is gone.
+
+754
+00:32:35,950 --> 00:32:37,074
+So there's just the one E1.
+
+755
+00:32:37,074 --> 00:32:38,657
+Are we in energy eigenstate?
+
+756
+00:32:38,657 --> 00:32:40,240
+No, because it's
+still not of the form
+
+757
+00:32:40,240 --> 00:32:42,290
+E times psi 1 plus psi 2.
+
+758
+00:32:42,290 --> 00:32:44,740
+So it doesn't save us, but
+it's an interesting question
+
+759
+00:32:44,740 --> 00:32:46,200
+for the future.
+
+760
+00:32:46,200 --> 00:32:48,290
+All right.
+
+761
+00:32:48,290 --> 00:32:50,935
+Next question, four parts.
+
+762
+00:32:50,935 --> 00:33:07,100
+
+763
+00:33:07,100 --> 00:33:10,250
+So the question says x
+and p commute to i h bar.
+
+764
+00:33:10,250 --> 00:33:11,470
+We've shown this.
+
+765
+00:33:11,470 --> 00:33:14,580
+Is p x equal to i h
+bar, and is ip plus cx
+
+766
+00:33:14,580 --> 00:33:15,910
+the same as cx plus ip?
+
+767
+00:33:15,910 --> 00:33:29,920
+
+768
+00:33:29,920 --> 00:33:33,740
+If you're really unsure you
+can ask the person next to you,
+
+769
+00:33:33,740 --> 00:33:37,170
+but you don't have to.
+
+770
+00:33:37,170 --> 00:33:41,290
+OK, so this is looking good.
+
+771
+00:33:41,290 --> 00:33:44,060
+Everyone have an answer in?
+
+772
+00:33:44,060 --> 00:33:44,560
+No?
+
+773
+00:33:44,560 --> 00:33:49,770
+
+774
+00:33:49,770 --> 00:33:55,310
+Five, four, three,
+two, one, OK, good.
+
+775
+00:33:55,310 --> 00:34:03,242
+So the answer is C, which most
+of you got, but not everyone.
+
+776
+00:34:03,242 --> 00:34:05,200
+A bunch of you put D. So
+let's talk through it.
+
+777
+00:34:05,200 --> 00:34:10,639
+So remember what the definition
+of the commutator is.
+
+778
+00:34:10,639 --> 00:34:15,219
+x with p by definition
+is equal to xp minus px.
+
+779
+00:34:15,219 --> 00:34:18,500
+If we change the
+order here, px is
+
+780
+00:34:18,500 --> 00:34:22,630
+equal to minus
+this, px minus xp.
+
+781
+00:34:22,630 --> 00:34:24,620
+It's just the definition
+of the commutator.
+
+782
+00:34:24,620 --> 00:34:27,800
+So on the other hand, if you
+add things, does 7 plus 6
+
+783
+00:34:27,800 --> 00:34:28,940
+equal 6 plus 7?
+
+784
+00:34:28,940 --> 00:34:29,440
+Yeah.
+
+785
+00:34:29,440 --> 00:34:31,116
+Well, of course 6
+times 7 is 7 times 6.
+
+786
+00:34:31,116 --> 00:34:32,699
+So that's not a
+terribly good analogy.
+
+787
+00:34:32,699 --> 00:34:36,880
+
+788
+00:34:36,880 --> 00:34:39,880
+Does the order of addition
+of operators matter?
+
+789
+00:34:39,880 --> 00:34:42,540
+No.
+
+790
+00:34:42,540 --> 00:34:44,639
+Yeah.
+
+791
+00:34:44,639 --> 00:34:45,630
+Yeah, exactly.
+
+792
+00:34:45,630 --> 00:34:46,130
+Exactly.
+
+793
+00:34:46,130 --> 00:34:47,130
+So it's slightly sneaky.
+
+794
+00:34:47,130 --> 00:34:49,840
+OK, next question.
+
+795
+00:34:49,840 --> 00:34:51,170
+OK, this one has five.
+
+796
+00:34:51,170 --> 00:34:54,860
+
+797
+00:34:54,860 --> 00:34:56,670
+f and g are both wave functions.
+
+798
+00:34:56,670 --> 00:34:58,090
+c is a constant.
+
+799
+00:34:58,090 --> 00:35:03,150
+Then if we take the inner
+product c times f with g,
+
+800
+00:35:03,150 --> 00:35:05,160
+this is equal to what?
+
+801
+00:35:05,160 --> 00:35:21,000
+
+802
+00:35:21,000 --> 00:35:24,240
+Three, two, one, OK.
+
+803
+00:35:24,240 --> 00:35:27,610
+So the answer is-- so this
+one definitely discuss.
+
+804
+00:35:27,610 --> 00:35:29,778
+Discuss with the
+person next to you.
+
+805
+00:35:29,778 --> 00:35:55,520
+[CHATTER]
+
+806
+00:35:55,520 --> 00:35:56,280
+All right.
+
+807
+00:35:56,280 --> 00:36:01,440
+
+808
+00:36:01,440 --> 00:36:05,910
+OK, go ahead and enter
+your guess again,
+
+809
+00:36:05,910 --> 00:36:08,490
+or your answer again,
+let it not be a guess.
+
+810
+00:36:08,490 --> 00:36:11,220
+
+811
+00:36:11,220 --> 00:36:12,855
+OK, 10 seconds.
+
+812
+00:36:12,855 --> 00:36:15,450
+
+813
+00:36:15,450 --> 00:36:15,950
+Wow.
+
+814
+00:36:15,950 --> 00:36:16,630
+OK, fantastic.
+
+815
+00:36:16,630 --> 00:36:17,630
+That works like a champ.
+
+816
+00:36:17,630 --> 00:36:19,040
+So what's the answer?
+
+817
+00:36:19,040 --> 00:36:20,970
+Yes, complex conjugation.
+
+818
+00:36:20,970 --> 00:36:21,970
+Don't screw that one up.
+
+819
+00:36:21,970 --> 00:36:24,110
+It's very easy to forget,
+but it matters a lot.
+
+820
+00:36:24,110 --> 00:36:28,297
+
+821
+00:36:28,297 --> 00:36:29,380
+Cursor keeps disappearing.
+
+822
+00:36:29,380 --> 00:36:32,360
+OK, next one.
+
+823
+00:36:32,360 --> 00:36:40,120
+A wave function
+has been expressed
+
+824
+00:36:40,120 --> 00:36:41,570
+as a sum of energy
+eigenfunctions.
+
+825
+00:36:41,570 --> 00:36:45,445
+Here I'm calling them mu rather
+than phi, but same thing.
+
+826
+00:36:45,445 --> 00:36:47,070
+Compared to the
+original wave function,
+
+827
+00:36:47,070 --> 00:36:49,920
+the set of coefficients, given
+that we're using the energy
+
+828
+00:36:49,920 --> 00:36:52,730
+basis, the set of coefficients
+contains more or less
+
+829
+00:36:52,730 --> 00:36:55,390
+the same information, or
+it can't be determined.
+
+830
+00:36:55,390 --> 00:37:00,650
+
+831
+00:37:00,650 --> 00:37:02,360
+OK, five seconds.
+
+832
+00:37:02,360 --> 00:37:06,990
+
+833
+00:37:06,990 --> 00:37:07,780
+All right.
+
+834
+00:37:07,780 --> 00:37:11,660
+And the answer is C, great.
+
+835
+00:37:11,660 --> 00:37:13,390
+OK, next one.
+
+836
+00:37:13,390 --> 00:37:16,429
+
+837
+00:37:16,429 --> 00:37:17,720
+So right now we're normalizing.
+
+838
+00:37:17,720 --> 00:37:22,540
+
+839
+00:37:22,540 --> 00:37:23,470
+OK.
+
+840
+00:37:23,470 --> 00:37:25,820
+All stationary states, or
+all energy eigenstates,
+
+841
+00:37:25,820 --> 00:37:28,570
+have the form that spatial
+and time dependence
+
+842
+00:37:28,570 --> 00:37:30,760
+is the spatial dependence,
+the energy eigenfunction,
+
+843
+00:37:30,760 --> 00:37:35,110
+times a phase, so that the norm
+squared is time independent.
+
+844
+00:37:35,110 --> 00:37:37,290
+Consider the sum of two
+non-degenerate energy
+
+845
+00:37:37,290 --> 00:37:40,280
+eigenstates psi 1 and psi 2.
+
+846
+00:37:40,280 --> 00:37:42,990
+Non-degenerate means they
+have different energy.
+
+847
+00:37:42,990 --> 00:37:45,540
+
+848
+00:37:45,540 --> 00:37:47,140
+Is the wave function stationary?
+
+849
+00:37:47,140 --> 00:37:48,840
+Is the probability
+distribution time
+
+850
+00:37:48,840 --> 00:37:50,420
+independent or is
+it time dependent?
+
+851
+00:37:50,420 --> 00:38:00,600
+
+852
+00:38:00,600 --> 00:38:02,980
+This one's not trivial.
+
+853
+00:38:02,980 --> 00:38:03,530
+Oh, shoot.
+
+854
+00:38:03,530 --> 00:38:04,730
+I forgot to get it started.
+
+855
+00:38:04,730 --> 00:38:06,399
+Sorry.
+
+856
+00:38:06,399 --> 00:38:08,940
+It's particularly non-trivial
+if you can't enter your answer.
+
+857
+00:38:08,940 --> 00:38:09,210
+Right.
+
+858
+00:38:09,210 --> 00:38:10,626
+So go ahead and
+enter your answer.
+
+859
+00:38:10,626 --> 00:38:17,438
+
+860
+00:38:17,438 --> 00:38:19,420
+Whoo, yeah.
+
+861
+00:38:19,420 --> 00:38:20,715
+This one always kills people.
+
+862
+00:38:20,715 --> 00:38:31,315
+
+863
+00:38:31,315 --> 00:38:32,190
+No chatting just yet.
+
+864
+00:38:32,190 --> 00:38:33,565
+Test yourself,
+not your neighbor.
+
+865
+00:38:33,565 --> 00:38:38,427
+
+866
+00:38:38,427 --> 00:38:40,010
+It's fine to look
+deep into your soul,
+
+867
+00:38:40,010 --> 00:38:41,980
+but don't look deep into the
+soul of the person sitting next
+
+868
+00:38:41,980 --> 00:38:42,480
+to you.
+
+869
+00:38:42,480 --> 00:38:46,660
+
+870
+00:38:46,660 --> 00:38:47,590
+All right.
+
+871
+00:38:47,590 --> 00:38:51,840
+So at this point, chat
+with your neighbor.
+
+872
+00:38:51,840 --> 00:38:54,086
+Let me just give
+you some presage.
+
+873
+00:38:54,086 --> 00:38:57,720
+The parallel strategy's probably
+not so good, because about half
+
+874
+00:38:57,720 --> 00:39:00,273
+of you got it right, and about
+half of you got it wrong.
+
+875
+00:39:00,273 --> 00:40:07,070
+[CHATTER]
+
+876
+00:40:07,070 --> 00:40:07,950
+All right.
+
+877
+00:40:07,950 --> 00:40:09,375
+Let's vote again.
+
+878
+00:40:09,375 --> 00:40:11,980
+
+879
+00:40:11,980 --> 00:40:15,720
+And hold on, starting now.
+
+880
+00:40:15,720 --> 00:40:16,480
+OK, vote again.
+
+881
+00:40:16,480 --> 00:40:18,063
+You've got 10 seconds
+to enter a vote.
+
+882
+00:40:18,063 --> 00:40:24,520
+
+883
+00:40:24,520 --> 00:40:25,710
+Wow.
+
+884
+00:40:25,710 --> 00:40:28,110
+OK, two seconds.
+
+885
+00:40:28,110 --> 00:40:29,020
+Good.
+
+886
+00:40:29,020 --> 00:40:36,940
+So the distribution on
+this one went from 30, 50,
+
+887
+00:40:36,940 --> 00:40:47,290
+20 initially, to now
+it is 10, 80, and 10.
+
+888
+00:40:47,290 --> 00:40:51,030
+Amazingly, you guys got worse.
+
+889
+00:40:51,030 --> 00:40:55,620
+The answer is C. And I want
+you to discuss with each other
+
+890
+00:40:55,620 --> 00:40:57,174
+why it's C.
+
+891
+00:40:57,174 --> 00:41:27,840
+[CHATTER]
+
+892
+00:41:27,840 --> 00:41:29,420
+All right.
+
+893
+00:41:29,420 --> 00:41:32,060
+OK.
+
+894
+00:41:32,060 --> 00:41:33,830
+So let me talk you through it.
+
+895
+00:41:33,830 --> 00:41:36,230
+So the wave function,
+we've said psi of x and t
+
+896
+00:41:36,230 --> 00:41:45,865
+is equal to phi 1 at x, e to
+the minus i omega 1 t plus phi
+
+897
+00:41:45,865 --> 00:41:50,940
+2 of x e to the
+minus i omega 2 t.
+
+898
+00:41:50,940 --> 00:41:52,670
+So great, we take
+the norm squared.
+
+899
+00:41:52,670 --> 00:41:55,342
+What's the probability to
+find it at x at time t.
+
+900
+00:41:55,342 --> 00:41:56,800
+The probability
+density is the norm
+
+901
+00:41:56,800 --> 00:41:59,260
+squared of this guy,
+psi squared, which
+
+902
+00:41:59,260 --> 00:42:04,590
+is equal to phi 1 complex
+conjugate e to the plus i omega
+
+903
+00:42:04,590 --> 00:42:12,200
+1 t plus phi 2 complex conjugate
+e to the plus i omega 2t times
+
+904
+00:42:12,200 --> 00:42:16,210
+the thing itself phi 1
+of x e to the minus i
+
+905
+00:42:16,210 --> 00:42:23,320
+omega 1 t plus phi 2 of x e to
+the minus i omega 2t, right?
+
+906
+00:42:23,320 --> 00:42:25,870
+So this has four terms.
+
+907
+00:42:25,870 --> 00:42:28,470
+The first term is
+psi 1 norm squared.
+
+908
+00:42:28,470 --> 00:42:30,650
+The phases cancel, right?
+
+909
+00:42:30,650 --> 00:42:33,340
+You're going to see this
+happen a billion times in 804.
+
+910
+00:42:33,340 --> 00:42:35,850
+The first term is going
+to be phi 1 norm squared.
+
+911
+00:42:35,850 --> 00:42:37,970
+There's another term, which
+is phi 2 norm squared.
+
+912
+00:42:37,970 --> 00:42:40,345
+Again the phases exactly
+cancel, even the minus i omega 2
+
+913
+00:42:40,345 --> 00:42:42,080
+t to the plus i omega 2 t.
+
+914
+00:42:42,080 --> 00:42:44,470
+Plus phi 2 squared.
+
+915
+00:42:44,470 --> 00:42:47,280
+But then there are two cross
+terms, the interference terms.
+
+916
+00:42:47,280 --> 00:42:55,180
+Plus phi 1 complex conjugate
+phi 2 e to the i omega 1 t
+
+917
+00:42:55,180 --> 00:43:00,670
+e to the plus i omega 1 t, i
+omega 1 t, and e to the minus
+
+918
+00:43:00,670 --> 00:43:02,129
+i omega 2t, minus omega 2.
+
+919
+00:43:02,129 --> 00:43:03,670
+So we have a cross-term
+which depends
+
+920
+00:43:03,670 --> 00:43:05,270
+on the difference
+in frequencies.
+
+921
+00:43:05,270 --> 00:43:07,394
+Frequencies are like energies
+[INAUDIBLE] in h bar,
+
+922
+00:43:07,394 --> 00:43:09,240
+so it's a difference
+in energies.
+
+923
+00:43:09,240 --> 00:43:10,740
+And then there's
+another term, which
+
+924
+00:43:10,740 --> 00:43:12,670
+is the complex
+conjugate of this guy,
+
+925
+00:43:12,670 --> 00:43:15,950
+phi 2 star times phi 1 phi
+2 complex conjugate phi 1
+
+926
+00:43:15,950 --> 00:43:17,825
+and the phases are also
+the complex conjugate
+
+927
+00:43:17,825 --> 00:43:28,350
+e to the minus i omega 1 minus
+omega 2 t of x of x of x of x.
+
+928
+00:43:28,350 --> 00:43:31,880
+So is there time dependence
+in this, in principle?
+
+929
+00:43:31,880 --> 00:43:33,890
+Absolutely, from the
+interference terms.
+
+930
+00:43:33,890 --> 00:43:35,500
+Were we not in
+the superposition,
+
+931
+00:43:35,500 --> 00:43:37,470
+we would not have
+interference terms.
+
+932
+00:43:37,470 --> 00:43:39,465
+Time dependence comes
+from interference,
+
+933
+00:43:39,465 --> 00:43:41,600
+when we expand in
+energy eigenfunctions.
+
+934
+00:43:41,600 --> 00:43:43,187
+Cool?
+
+935
+00:43:43,187 --> 00:43:44,270
+However, can these vanish?
+
+936
+00:43:44,270 --> 00:43:44,769
+When?
+
+937
+00:43:44,769 --> 00:43:48,450
+
+938
+00:43:48,450 --> 00:43:50,460
+Sorry, say again?
+
+939
+00:43:50,460 --> 00:43:54,577
+Great, so when omega 1
+equals omega 2, what happens?
+
+940
+00:43:54,577 --> 00:43:55,660
+Time dependence goes away.
+
+941
+00:43:55,660 --> 00:44:00,750
+But omega 1 is e 1 over h bar,
+omega 2 is e 2 over h bar,
+
+942
+00:44:00,750 --> 00:44:03,595
+and we started out by saying
+these are non-degenerate.
+
+943
+00:44:03,595 --> 00:44:05,970
+So if they're non-degenerate,
+the energies are different,
+
+944
+00:44:05,970 --> 00:44:08,361
+the frequencies are different,
+so that doesn't help us.
+
+945
+00:44:08,361 --> 00:44:09,860
+How do we kill this
+time dependence?
+
+946
+00:44:09,860 --> 00:44:12,860
+
+947
+00:44:12,860 --> 00:44:13,399
+Yes.
+
+948
+00:44:13,399 --> 00:44:15,190
+If the two functions
+aren't just orthogonal
+
+949
+00:44:15,190 --> 00:44:17,150
+in a functional sense, but
+if we have the following.
+
+950
+00:44:17,150 --> 00:44:18,410
+Suppose phi 1 is like this.
+
+951
+00:44:18,410 --> 00:44:21,430
+It's 0 everywhere except for
+in some lump that's phi 1,
+
+952
+00:44:21,430 --> 00:44:25,230
+and phi 2 is 0
+everywhere except here.
+
+953
+00:44:25,230 --> 00:44:27,670
+Then anywhere that phi 1
+is non-zero, phi 2 is zero.
+
+954
+00:44:27,670 --> 00:44:30,790
+And anywhere where phi 2
+is non-zero, phi 1 is zero.
+
+955
+00:44:30,790 --> 00:44:33,940
+So this can point-wise vanish.
+
+956
+00:44:33,940 --> 00:44:37,250
+Do you expect this to
+happen generically?
+
+957
+00:44:37,250 --> 00:44:39,850
+Does it happen for the
+energy eigenfunctions
+
+958
+00:44:39,850 --> 00:44:41,270
+in the infinite square well?
+
+959
+00:44:41,270 --> 00:44:44,710
+
+960
+00:44:44,710 --> 00:44:45,360
+Sine waves?
+
+961
+00:44:45,360 --> 00:44:47,981
+
+962
+00:44:47,981 --> 00:44:48,480
+No.
+
+963
+00:44:48,480 --> 00:44:50,100
+They have zero at
+isolated points,
+
+964
+00:44:50,100 --> 00:44:53,019
+but they're non-zero
+generically.
+
+965
+00:44:53,019 --> 00:44:54,310
+Yeah, so it doesn't work there.
+
+966
+00:44:54,310 --> 00:44:55,875
+What about for
+the free particle?
+
+967
+00:44:55,875 --> 00:44:57,250
+Well, those are
+just plain waves.
+
+968
+00:44:57,250 --> 00:44:58,680
+Does that ever happen?
+
+969
+00:44:58,680 --> 00:44:59,610
+No.
+
+970
+00:44:59,610 --> 00:45:02,540
+OK, so this is an
+incredibly special case.
+
+971
+00:45:02,540 --> 00:45:04,040
+We'll actually see
+it in one problem
+
+972
+00:45:04,040 --> 00:45:05,485
+on a problem set later on.
+
+973
+00:45:05,485 --> 00:45:07,130
+It's a very special case.
+
+974
+00:45:07,130 --> 00:45:09,935
+So technically, the
+answer is C. And I
+
+975
+00:45:09,935 --> 00:45:11,570
+want you guys to
+keep your minds open
+
+976
+00:45:11,570 --> 00:45:15,310
+on these sorts of questions,
+when does a spatial dependence
+
+977
+00:45:15,310 --> 00:45:17,370
+matter and when are
+there interference terms.
+
+978
+00:45:17,370 --> 00:45:18,260
+Those are two
+different questions,
+
+979
+00:45:18,260 --> 00:45:19,718
+and I want you to
+tease them apart.
+
+980
+00:45:19,718 --> 00:45:21,490
+OK?
+
+981
+00:45:21,490 --> 00:45:22,590
+Cool?
+
+982
+00:45:22,590 --> 00:45:23,784
+Yeah?
+
+983
+00:45:23,784 --> 00:45:26,462
+AUDIENCE: Is a valid
+way to think about this
+
+984
+00:45:26,462 --> 00:45:32,063
+to think that you're fixing
+the initial [INAUDIBLE]
+
+985
+00:45:32,063 --> 00:45:34,594
+
+986
+00:45:34,594 --> 00:45:36,760
+PROFESSOR: That's a very
+good way to think about it.
+
+987
+00:45:36,760 --> 00:45:39,150
+That's exactly right.
+
+988
+00:45:39,150 --> 00:45:41,082
+That's a very,
+very good question.
+
+989
+00:45:41,082 --> 00:45:43,040
+Let me say that subtly
+differently, and tell me
+
+990
+00:45:43,040 --> 00:45:44,956
+if this agrees with what
+you were just saying.
+
+991
+00:45:44,956 --> 00:45:47,806
+So I can look at
+this wave function,
+
+992
+00:45:47,806 --> 00:45:49,930
+and I already know that
+the overall phase of a wave
+
+993
+00:45:49,930 --> 00:45:51,150
+function doesn't matter.
+
+994
+00:45:51,150 --> 00:45:52,960
+That's what it is to say a
+stationary state is stationary.
+
+995
+00:45:52,960 --> 00:45:54,960
+It's got an overall phase
+that's the only thing,
+
+996
+00:45:54,960 --> 00:45:56,540
+norm squared it goes away.
+
+997
+00:45:56,540 --> 00:46:01,950
+So I can write this as e to
+the minus i omega 1 t times phi
+
+998
+00:46:01,950 --> 00:46:08,750
+1 of x plus phi 2 of x
+e to the minus i omega
+
+999
+00:46:08,750 --> 00:46:12,506
+2 minus omega 1 t.
+
+1000
+00:46:12,506 --> 00:46:13,920
+Is that what you mean?
+
+1001
+00:46:13,920 --> 00:46:15,170
+So that's one way to do this.
+
+1002
+00:46:15,170 --> 00:46:16,503
+We could also do something else.
+
+1003
+00:46:16,503 --> 00:46:22,752
+We could do e to the minus i
+omega 1 plus omega 2 upon 2 t.
+
+1004
+00:46:22,752 --> 00:46:24,210
+And this is more,
+I think, what you
+
+1005
+00:46:24,210 --> 00:46:26,085
+were thinking of, a sort
+of average frequency
+
+1006
+00:46:26,085 --> 00:46:28,070
+and then a relative
+frequency, and then
+
+1007
+00:46:28,070 --> 00:46:31,050
+the change in the frequencies
+on these two terms.
+
+1008
+00:46:31,050 --> 00:46:31,760
+Absolutely.
+
+1009
+00:46:31,760 --> 00:46:36,720
+So you can organize
+this in many, many ways.
+
+1010
+00:46:36,720 --> 00:46:39,670
+But your question gets at
+a very important point,
+
+1011
+00:46:39,670 --> 00:46:41,670
+which is that the overall
+phase doesn't matter.
+
+1012
+00:46:41,670 --> 00:46:46,400
+But relative phases in a
+superposition do matter.
+
+1013
+00:46:46,400 --> 00:46:48,727
+So when does a phase
+matter in a wave function?
+
+1014
+00:46:48,727 --> 00:46:50,560
+It does not matter if
+it's an overall phase.
+
+1015
+00:46:50,560 --> 00:46:53,170
+But it does matter if it's a
+relative phase between terms
+
+1016
+00:46:53,170 --> 00:46:54,790
+in a superposition.
+
+1017
+00:46:54,790 --> 00:46:55,870
+Cool?
+
+1018
+00:46:55,870 --> 00:46:57,510
+Very good question.
+
+1019
+00:46:57,510 --> 00:47:00,330
+Other questions?
+
+1020
+00:47:00,330 --> 00:47:03,550
+If not, then I have some.
+
+1021
+00:47:03,550 --> 00:47:07,930
+So, consider a system
+which is in the state--
+
+1022
+00:47:07,930 --> 00:47:11,549
+so I should give you five--
+system is in a state which
+
+1023
+00:47:11,549 --> 00:47:13,090
+is a linear combination
+of n equals 1
+
+1024
+00:47:13,090 --> 00:47:14,280
+and n equals 2 eigenstates.
+
+1025
+00:47:14,280 --> 00:47:16,956
+
+1026
+00:47:16,956 --> 00:47:18,580
+What's the probability
+that measurement
+
+1027
+00:47:18,580 --> 00:47:20,082
+will give us energy E1?
+
+1028
+00:47:20,082 --> 00:47:21,373
+And it's in this superposition.
+
+1029
+00:47:21,373 --> 00:47:28,390
+
+1030
+00:47:28,390 --> 00:47:29,215
+OK, five seconds.
+
+1031
+00:47:29,215 --> 00:47:33,780
+
+1032
+00:47:33,780 --> 00:47:34,660
+OK, fantastic.
+
+1033
+00:47:34,660 --> 00:47:36,450
+What's the answer?
+
+1034
+00:47:36,450 --> 00:47:37,497
+Yes, C, great.
+
+1035
+00:47:37,497 --> 00:47:38,580
+OK, everyone got that one.
+
+1036
+00:47:38,580 --> 00:47:42,100
+So one's a slightly more
+interesting question.
+
+1037
+00:47:42,100 --> 00:47:45,580
+
+1038
+00:47:45,580 --> 00:47:55,210
+Suppose I have an infinite
+well with width L.
+
+1039
+00:47:55,210 --> 00:47:57,150
+How does the energy,
+the ground state energy,
+
+1040
+00:47:57,150 --> 00:48:01,175
+compare to that of a
+system with a wider well?
+
+1041
+00:48:01,175 --> 00:48:16,070
+
+1042
+00:48:16,070 --> 00:48:21,335
+So L versus a larger
+L. OK, four seconds.
+
+1043
+00:48:21,335 --> 00:48:25,140
+
+1044
+00:48:25,140 --> 00:48:28,940
+OK, quickly discuss amongst
+yourselves, like 10 seconds.
+
+1045
+00:48:28,940 --> 00:48:45,160
+[CHATTER]
+
+1046
+00:48:45,160 --> 00:48:47,300
+All right.
+
+1047
+00:48:47,300 --> 00:48:48,185
+Now click again.
+
+1048
+00:48:48,185 --> 00:48:51,493
+
+1049
+00:48:51,493 --> 00:48:51,993
+Yeah.
+
+1050
+00:48:51,993 --> 00:48:56,080
+
+1051
+00:48:56,080 --> 00:48:57,520
+All right.
+
+1052
+00:48:57,520 --> 00:48:58,260
+Five seconds.
+
+1053
+00:48:58,260 --> 00:49:02,270
+One, two, three,
+four, five, great.
+
+1054
+00:49:02,270 --> 00:49:08,470
+OK, the answer is A. OK,
+great, because the energy
+
+1055
+00:49:08,470 --> 00:49:11,530
+of the infinite well
+goes like K squared.
+
+1056
+00:49:11,530 --> 00:49:18,974
+K goes like 1 over L. So the
+energy is, if we make it wider,
+
+1057
+00:49:18,974 --> 00:49:21,140
+the energy if we make it
+wider is going to be lower.
+
+1058
+00:49:21,140 --> 00:49:27,260
+
+1059
+00:49:27,260 --> 00:49:28,725
+And last couple of questions.
+
+1060
+00:49:28,725 --> 00:49:31,510
+
+1061
+00:49:31,510 --> 00:49:34,900
+OK, so t equals 0.
+
+1062
+00:49:34,900 --> 00:49:38,350
+Could the wave function for an
+electron in an infinite square
+
+1063
+00:49:38,350 --> 00:49:44,880
+well of width a, rather than
+L, be A sine squared of pi x
+
+1064
+00:49:44,880 --> 00:49:48,680
+upon a, where A is suitably
+chosen to be normalized?
+
+1065
+00:49:48,680 --> 00:50:10,460
+
+1066
+00:50:10,460 --> 00:50:13,870
+All right, you've got
+about five seconds left.
+
+1067
+00:50:13,870 --> 00:50:17,550
+
+1068
+00:50:17,550 --> 00:50:21,420
+And OK, we are at chance.
+
+1069
+00:50:21,420 --> 00:50:24,710
+We are at even
+odds, and the answer
+
+1070
+00:50:24,710 --> 00:50:28,380
+is not a superposition
+of A and B,
+
+1071
+00:50:28,380 --> 00:50:31,130
+so I encourage you to discuss
+with the people around you.
+
+1072
+00:50:31,130 --> 00:50:34,567
+[CHATTER]
+
+1073
+00:50:34,567 --> 00:50:51,731
+
+1074
+00:50:51,731 --> 00:50:52,230
+Great.
+
+1075
+00:50:52,230 --> 00:50:54,400
+What properties had it
+better satisfy in order
+
+1076
+00:50:54,400 --> 00:50:56,774
+to be a viable wave function?
+
+1077
+00:50:56,774 --> 00:50:58,440
+What properties should
+the wave function
+
+1078
+00:50:58,440 --> 00:51:00,391
+have so that it's reasonable?
+
+1079
+00:51:00,391 --> 00:51:00,890
+Yeah.
+
+1080
+00:51:00,890 --> 00:51:02,080
+Is it zero at the ends?
+
+1081
+00:51:02,080 --> 00:51:03,001
+Yeah.
+
+1082
+00:51:03,001 --> 00:51:03,500
+Good.
+
+1083
+00:51:03,500 --> 00:51:04,841
+Is it smooth?
+
+1084
+00:51:04,841 --> 00:51:07,100
+Yeah.
+
+1085
+00:51:07,100 --> 00:51:07,830
+Exactly.
+
+1086
+00:51:07,830 --> 00:51:09,691
+And so you can write
+it as a superposition.
+
+1087
+00:51:09,691 --> 00:51:10,190
+Excellent.
+
+1088
+00:51:10,190 --> 00:51:11,692
+So the answer is?
+
+1089
+00:51:11,692 --> 00:51:12,192
+Yeah.
+
+1090
+00:51:12,192 --> 00:51:17,516
+
+1091
+00:51:17,516 --> 00:51:18,015
+All right.
+
+1092
+00:51:18,015 --> 00:51:20,780
+
+1093
+00:51:20,780 --> 00:51:21,750
+Vote again.
+
+1094
+00:51:21,750 --> 00:51:25,170
+
+1095
+00:51:25,170 --> 00:51:26,794
+OK, I might have
+missed a few people.
+
+1096
+00:51:26,794 --> 00:51:27,710
+So go ahead and start.
+
+1097
+00:51:27,710 --> 00:51:31,800
+
+1098
+00:51:31,800 --> 00:51:33,185
+OK, five more seconds.
+
+1099
+00:51:33,185 --> 00:51:37,230
+
+1100
+00:51:37,230 --> 00:51:37,950
+All right.
+
+1101
+00:51:37,950 --> 00:51:43,820
+So we went from 50-50 to 77-23.
+
+1102
+00:51:43,820 --> 00:51:44,820
+That's pretty good.
+
+1103
+00:51:44,820 --> 00:51:47,260
+What's the answer?
+
+1104
+00:51:47,260 --> 00:51:47,890
+A. Why?
+
+1105
+00:51:47,890 --> 00:51:51,710
+
+1106
+00:51:51,710 --> 00:51:53,892
+Is this an energy eigenstate?
+
+1107
+00:51:53,892 --> 00:51:55,160
+No.
+
+1108
+00:51:55,160 --> 00:51:56,960
+Does that matter?
+
+1109
+00:51:56,960 --> 00:51:57,620
+No.
+
+1110
+00:51:57,620 --> 00:51:59,710
+What properties had this
+wave function better
+
+1111
+00:51:59,710 --> 00:52:05,460
+satisfy to be a reasonable wave
+function in this potential?
+
+1112
+00:52:05,460 --> 00:52:06,660
+Say again?
+
+1113
+00:52:06,660 --> 00:52:08,020
+It's got to vanish at the walls.
+
+1114
+00:52:08,020 --> 00:52:09,853
+It's got to satisfy the
+boundary conditions.
+
+1115
+00:52:09,853 --> 00:52:12,290
+What else must be true
+of this wave function?
+
+1116
+00:52:12,290 --> 00:52:13,010
+Normalizable.
+
+1117
+00:52:13,010 --> 00:52:14,240
+Is it normalizable?
+
+1118
+00:52:14,240 --> 00:52:14,880
+Yeah.
+
+1119
+00:52:14,880 --> 00:52:16,400
+What else?
+
+1120
+00:52:16,400 --> 00:52:16,900
+Continuous.
+
+1121
+00:52:16,900 --> 00:52:18,524
+It better not have
+any discontinuities.
+
+1122
+00:52:18,524 --> 00:52:19,471
+Is it continuous?
+
+1123
+00:52:19,471 --> 00:52:19,970
+Great.
+
+1124
+00:52:19,970 --> 00:52:20,470
+OK.
+
+1125
+00:52:20,470 --> 00:52:23,691
+Is there any reason that this
+is a stupid wave function?
+
+1126
+00:52:23,691 --> 00:52:24,190
+No.
+
+1127
+00:52:24,190 --> 00:52:25,500
+It's perfectly reasonable.
+
+1128
+00:52:25,500 --> 00:52:28,360
+It's not an energy
+eigenfunction,
+
+1129
+00:52:28,360 --> 00:52:31,330
+but-- Yeah, cool?
+
+1130
+00:52:31,330 --> 00:52:32,150
+Yeah.
+
+1131
+00:52:32,150 --> 00:52:34,252
+AUDIENCE: This is sort
+of like a math question.
+
+1132
+00:52:34,252 --> 00:52:35,768
+So to write that
+at a superposition,
+
+1133
+00:52:35,768 --> 00:52:38,636
+you have to write it like
+basically a Fourier sign
+
+1134
+00:52:38,636 --> 00:52:39,592
+series?
+
+1135
+00:52:39,592 --> 00:52:42,940
+Isn't the [INAUDIBLE]
+function even, though?
+
+1136
+00:52:42,940 --> 00:52:46,426
+PROFESSOR: On this domain,
+that and the sines are even.
+
+1137
+00:52:46,426 --> 00:52:48,925
+So this is actually odd, but
+we're only looking at it from 0
+
+1138
+00:52:48,925 --> 00:52:53,480
+to L. So, I mean
+that half of it.
+
+1139
+00:52:53,480 --> 00:52:56,080
+The sines are odd, but we're
+only looking at the first peak.
+
+1140
+00:52:56,080 --> 00:52:56,780
+So you could just
+as well have written
+
+1141
+00:52:56,780 --> 00:52:59,420
+that as cosine of the
+midpoint plus the distance
+
+1142
+00:52:59,420 --> 00:53:01,595
+from the midpoint.
+
+1143
+00:53:01,595 --> 00:53:03,470
+Actually, let me say
+that again, because it's
+
+1144
+00:53:03,470 --> 00:53:05,511
+a much better question I
+just give it shrift for.
+
+1145
+00:53:05,511 --> 00:53:10,050
+
+1146
+00:53:10,050 --> 00:53:11,010
+So here's the question.
+
+1147
+00:53:11,010 --> 00:53:15,359
+The question is, look, so
+sine is an odd function,
+
+1148
+00:53:15,359 --> 00:53:16,900
+but sine squared is
+an even function.
+
+1149
+00:53:16,900 --> 00:53:19,670
+So how can you expand sine
+squared, an even function,
+
+1150
+00:53:19,670 --> 00:53:21,780
+in terms of sines,
+an odd function?
+
+1151
+00:53:21,780 --> 00:53:23,860
+But think about this physically.
+
+1152
+00:53:23,860 --> 00:53:30,570
+Here's sine squared in our
+domain, and here's sine.
+
+1153
+00:53:30,570 --> 00:53:31,810
+Now what do you mean by even?
+
+1154
+00:53:31,810 --> 00:53:33,905
+Usually by even we mean
+reflection around zero.
+
+1155
+00:53:33,905 --> 00:53:35,780
+But I could just as well
+have said reflection
+
+1156
+00:53:35,780 --> 00:53:36,770
+around the origin.
+
+1157
+00:53:36,770 --> 00:53:39,030
+This potential is symmetric.
+
+1158
+00:53:39,030 --> 00:53:41,745
+And the energy eigenfunctions
+are symmetric about the origin.
+
+1159
+00:53:41,745 --> 00:53:44,120
+They're not symmetric about
+reflection around this point.
+
+1160
+00:53:44,120 --> 00:53:46,380
+But they are symmetric about
+reflection around this point.
+
+1161
+00:53:46,380 --> 00:53:48,210
+That's a particularly
+natural place to call it 0.
+
+1162
+00:53:48,210 --> 00:53:49,930
+So I was calling them sine
+because I was calling this 0,
+
+1163
+00:53:49,930 --> 00:53:51,304
+but I could have
+called it cosine
+
+1164
+00:53:51,304 --> 00:53:55,470
+if I called this
+0, for the same Kx.
+
+1165
+00:53:55,470 --> 00:53:58,570
+And indeed, can we
+expand this sine
+
+1166
+00:53:58,570 --> 00:54:00,440
+squared function
+in terms of a basis
+
+1167
+00:54:00,440 --> 00:54:02,610
+of these sines on
+the domain 0 to L?
+
+1168
+00:54:02,610 --> 00:54:04,030
+Absolutely.
+
+1169
+00:54:04,030 --> 00:54:07,220
+Very good question.
+
+1170
+00:54:07,220 --> 00:54:09,355
+And lastly, last
+clicker question.
+
+1171
+00:54:09,355 --> 00:54:12,700
+
+1172
+00:54:12,700 --> 00:54:13,460
+Oops.
+
+1173
+00:54:13,460 --> 00:54:16,030
+Whatever.
+
+1174
+00:54:16,030 --> 00:54:17,210
+OK.
+
+1175
+00:54:17,210 --> 00:54:19,756
+At t equals 0, a
+particle is described
+
+1176
+00:54:19,756 --> 00:54:21,130
+by the wave function
+we just saw.
+
+1177
+00:54:21,130 --> 00:54:23,461
+
+1178
+00:54:23,461 --> 00:54:25,710
+Which of the following is
+true about the wave function
+
+1179
+00:54:25,710 --> 00:54:26,600
+at subsequent times?
+
+1180
+00:54:26,600 --> 00:54:37,650
+
+1181
+00:54:37,650 --> 00:54:38,210
+5 seconds.
+
+1182
+00:54:38,210 --> 00:54:42,776
+
+1183
+00:54:42,776 --> 00:54:43,730
+Whew.
+
+1184
+00:54:43,730 --> 00:54:44,650
+Oh, OK.
+
+1185
+00:54:44,650 --> 00:54:47,360
+In the last few seconds we had
+an explosive burst for A, B,
+
+1186
+00:54:47,360 --> 00:54:49,870
+and C. So our
+current distribution
+
+1187
+00:54:49,870 --> 00:54:54,960
+is 8, 16, 10, and 67,
+sounds like 67 is popular.
+
+1188
+00:54:54,960 --> 00:54:58,630
+Discuss quickly, very quickly,
+with the person next to you.
+
+1189
+00:54:58,630 --> 00:55:02,510
+[CHATTER]
+
+1190
+00:55:02,510 --> 00:55:13,670
+
+1191
+00:55:13,670 --> 00:55:17,093
+OK, and vote again.
+
+1192
+00:55:17,093 --> 00:55:21,580
+
+1193
+00:55:21,580 --> 00:55:22,980
+OK, five seconds.
+
+1194
+00:55:22,980 --> 00:55:24,180
+Get your last vote in.
+
+1195
+00:55:24,180 --> 00:55:28,240
+
+1196
+00:55:28,240 --> 00:55:29,300
+All right.
+
+1197
+00:55:29,300 --> 00:55:33,472
+And the answer is D. Yay.
+
+1198
+00:55:33,472 --> 00:55:37,289
+
+1199
+00:55:37,289 --> 00:55:38,580
+So let's think about the logic.
+
+1200
+00:55:38,580 --> 00:55:39,950
+Let's go through the logic here.
+
+1201
+00:55:39,950 --> 00:55:42,360
+So as was pointed out by
+a student up here earlier,
+
+1202
+00:55:42,360 --> 00:55:46,070
+the wave function
+sine squared of pi x
+
+1203
+00:55:46,070 --> 00:55:49,100
+can be expanded in terms of
+the energy eigenfunction.
+
+1204
+00:55:49,100 --> 00:55:51,150
+Any reasonable function
+can be expanded
+
+1205
+00:55:51,150 --> 00:55:53,540
+in terms of a superposition
+of definite energy
+
+1206
+00:55:53,540 --> 00:55:55,600
+states of energy eigenfunctions.
+
+1207
+00:55:55,600 --> 00:55:58,490
+So that means we can
+write psi at some time
+
+1208
+00:55:58,490 --> 00:56:04,060
+as a superposition Cn sine of n
+pi x upon a e to the minus i e
+
+1209
+00:56:04,060 --> 00:56:09,450
+n t upon h bar, since those are,
+in fact, the eigenfunctions.
+
+1210
+00:56:09,450 --> 00:56:10,200
+So we can do that.
+
+1211
+00:56:10,200 --> 00:56:11,877
+Now, when we look at
+the time evolution,
+
+1212
+00:56:11,877 --> 00:56:13,710
+we know that each term
+in that superposition
+
+1213
+00:56:13,710 --> 00:56:15,450
+evolves with a phase.
+
+1214
+00:56:15,450 --> 00:56:19,220
+The overall wave function
+does not evolve with a phase.
+
+1215
+00:56:19,220 --> 00:56:21,360
+It is not an energy eigenstate.
+
+1216
+00:56:21,360 --> 00:56:23,460
+There are going to be
+interference terms due
+
+1217
+00:56:23,460 --> 00:56:26,207
+to the fact that
+it's a superposition.
+
+1218
+00:56:26,207 --> 00:56:28,540
+So its probability distribution
+is not time-independent.
+
+1219
+00:56:28,540 --> 00:56:29,640
+It is a superposition.
+
+1220
+00:56:29,640 --> 00:56:33,430
+And so the wave function doesn't
+rotate by an overall phase.
+
+1221
+00:56:33,430 --> 00:56:37,030
+However, we can solve
+the Schrodinger equation,
+
+1222
+00:56:37,030 --> 00:56:37,810
+as we did before.
+
+1223
+00:56:37,810 --> 00:56:40,440
+The wave function is
+expanded at time 0
+
+1224
+00:56:40,440 --> 00:56:43,544
+as the energy eigenfunctions
+times some set of coefficients.
+
+1225
+00:56:43,544 --> 00:56:44,960
+And the time
+evolution corresponds
+
+1226
+00:56:44,960 --> 00:56:48,230
+to adding two each independent
+term in the superposition
+
+1227
+00:56:48,230 --> 00:56:52,120
+the appropriate phase for
+that energy eigenstate.
+
+1228
+00:56:52,120 --> 00:56:54,040
+Cool?
+
+1229
+00:56:54,040 --> 00:56:54,540
+All right.
+
+1230
+00:56:54,540 --> 00:57:03,220
+So the answer is D. And that's
+it for the clicker questions.
+
+1231
+00:57:03,220 --> 00:57:07,050
+OK, so any questions on the
+clicker questions so far?
+
+1232
+00:57:07,050 --> 00:57:09,050
+OK, those are going to
+be posted on the web site
+
+1233
+00:57:09,050 --> 00:57:12,190
+so you can go over them.
+
+1234
+00:57:12,190 --> 00:57:14,250
+And now back to
+energy eigenfunctions.
+
+1235
+00:57:14,250 --> 00:57:24,770
+
+1236
+00:57:24,770 --> 00:57:27,730
+So what I want to talk about
+now is the qualitative behavior
+
+1237
+00:57:27,730 --> 00:57:29,140
+of energy eigenfunctions.
+
+1238
+00:57:29,140 --> 00:57:31,460
+Suppose I know I have
+an energy eigenfunction.
+
+1239
+00:57:31,460 --> 00:57:33,955
+What can I say generally
+about its structure?
+
+1240
+00:57:33,955 --> 00:57:38,870
+
+1241
+00:57:38,870 --> 00:57:41,175
+So let me ask the question,
+qualitative behavior.
+
+1242
+00:57:41,175 --> 00:57:47,270
+
+1243
+00:57:47,270 --> 00:57:49,670
+So suppose someone hands
+you a potential U of x.
+
+1244
+00:57:49,670 --> 00:57:51,990
+Someone hands you some
+potential, U of x,
+
+1245
+00:57:51,990 --> 00:57:54,900
+and says, look, I've
+got this potential.
+
+1246
+00:57:54,900 --> 00:57:57,580
+Maybe I'll draw it for you.
+
+1247
+00:57:57,580 --> 00:57:59,850
+It's got some wiggles,
+and then a big wiggle,
+
+1248
+00:57:59,850 --> 00:58:01,880
+and then it's got a
+big wiggle, and then--
+
+1249
+00:58:01,880 --> 00:58:03,195
+do I want to do that?
+
+1250
+00:58:03,195 --> 00:58:04,275
+Yeah, let's do that.
+
+1251
+00:58:04,275 --> 00:58:08,089
+Then a big wiggle, and
+something like this.
+
+1252
+00:58:08,089 --> 00:58:09,630
+And someone shows
+you this potential.
+
+1253
+00:58:09,630 --> 00:58:11,921
+And they say, look, what are
+the energy eigenfunctions?
+
+1254
+00:58:11,921 --> 00:58:13,770
+
+1255
+00:58:13,770 --> 00:58:17,510
+Well, OK, free
+particle was easy.
+
+1256
+00:58:17,510 --> 00:58:19,070
+The infinite square
+well was easy.
+
+1257
+00:58:19,070 --> 00:58:21,207
+We could solve
+that analytically.
+
+1258
+00:58:21,207 --> 00:58:23,290
+The next involved solving
+a differential equation.
+
+1259
+00:58:23,290 --> 00:58:25,360
+So what differential equation
+is this going to lead us to?
+
+1260
+00:58:25,360 --> 00:58:27,570
+Well, we know that the
+energy eigenvalue equation
+
+1261
+00:58:27,570 --> 00:58:32,070
+is minus h bar
+squared upon 2 m phi
+
+1262
+00:58:32,070 --> 00:58:38,570
+prime prime of x plus U of x
+phi x, so that's the energy
+
+1263
+00:58:38,570 --> 00:58:41,620
+operator acting on
+phi, is equal to,
+
+1264
+00:58:41,620 --> 00:58:47,949
+saying that it's an energy
+eigenfunction, phi sub E,
+
+1265
+00:58:47,949 --> 00:58:49,740
+says that it's equal
+to the energy operator
+
+1266
+00:58:49,740 --> 00:58:52,670
+acting on this eigenfunction
+is just a constant E phi sub
+
+1267
+00:58:52,670 --> 00:58:54,870
+E of x.
+
+1268
+00:58:54,870 --> 00:58:56,680
+And I'm going to work
+at moment in time,
+
+1269
+00:58:56,680 --> 00:59:00,420
+so we're going to drop all the
+t dependence for the moment.
+
+1270
+00:59:00,420 --> 00:59:01,920
+So this is the
+differential equation
+
+1271
+00:59:01,920 --> 00:59:07,072
+we need to solve where U of
+x is this god-awful function.
+
+1272
+00:59:07,072 --> 00:59:08,780
+Do you think it's very
+likely that you're
+
+1273
+00:59:08,780 --> 00:59:11,670
+going to be able to
+solve this analytically?
+
+1274
+00:59:11,670 --> 00:59:13,700
+Probably not.
+
+1275
+00:59:13,700 --> 00:59:18,761
+However, some basic
+ideas will help
+
+1276
+00:59:18,761 --> 00:59:21,010
+you get an intuition for
+what the wave function should
+
+1277
+00:59:21,010 --> 00:59:22,240
+look like.
+
+1278
+00:59:22,240 --> 00:59:25,910
+And I cannot overstate the
+importance of being able
+
+1279
+00:59:25,910 --> 00:59:29,560
+to eyeball a system and guess
+the qualitative features of its
+
+1280
+00:59:29,560 --> 00:59:32,030
+wave functions,
+because that intuition,
+
+1281
+00:59:32,030 --> 00:59:34,590
+that ability to estimate, is
+going to contain an awful lot
+
+1282
+00:59:34,590 --> 00:59:35,340
+of physics.
+
+1283
+00:59:35,340 --> 00:59:36,790
+So let's try to extract it.
+
+1284
+00:59:36,790 --> 00:59:38,930
+So in order to do
+so, I want to start
+
+1285
+00:59:38,930 --> 00:59:40,945
+by massaging this
+equation into a form which
+
+1286
+00:59:40,945 --> 00:59:42,070
+is particularly convenient.
+
+1287
+00:59:42,070 --> 00:59:44,790
+
+1288
+00:59:44,790 --> 00:59:47,910
+So in particular, I'm going to
+write this equation as phi sub
+
+1289
+00:59:47,910 --> 00:59:49,449
+E prime prime.
+
+1290
+00:59:49,449 --> 00:59:51,740
+So what I'm going to do is
+I'm going to take this term,
+
+1291
+00:59:51,740 --> 00:59:53,615
+I'm going to notice this
+has two derivatives,
+
+1292
+00:59:53,615 --> 00:59:56,026
+this has no derivatives,
+this has no derivatives.
+
+1293
+00:59:56,026 --> 00:59:59,130
+And I'm going to move this
+term over here and combine
+
+1294
+00:59:59,130 --> 01:00:01,600
+these terms into E
+minus U of x, and I'm
+
+1295
+01:00:01,600 --> 01:00:05,320
+going to divide each side by 2m
+upon h bar squared with a minus
+
+1296
+01:00:05,320 --> 01:00:08,260
+sign, giving me that
+phi prime prime of E
+
+1297
+01:00:08,260 --> 01:00:14,420
+of x upon phi E of x dividing
+through by this phi E
+
+1298
+01:00:14,420 --> 01:00:18,250
+is equal to minus 2m
+over h bar squared.
+
+1299
+01:00:18,250 --> 01:00:21,682
+
+1300
+01:00:21,682 --> 01:00:23,140
+And let's just get
+our signs right.
+
+1301
+01:00:23,140 --> 01:00:24,560
+We've got the minus
+from here, so this
+
+1302
+01:00:24,560 --> 01:00:25,960
+is going to be E minus U of x.
+
+1303
+01:00:25,960 --> 01:00:33,931
+
+1304
+01:00:33,931 --> 01:00:35,680
+So you might look at
+that and think, well,
+
+1305
+01:00:35,680 --> 01:00:40,010
+why is that any better than
+what I've just written down.
+
+1306
+01:00:40,010 --> 01:00:43,034
+But what is the second
+derivative of function?
+
+1307
+01:00:43,034 --> 01:00:44,700
+It's telling you not
+its slope, but it's
+
+1308
+01:00:44,700 --> 01:00:46,550
+telling you how
+the slope changes.
+
+1309
+01:00:46,550 --> 01:00:49,588
+It's telling about the
+curvature of the function.
+
+1310
+01:00:49,588 --> 01:00:52,046
+And what this is telling me is
+something very, very useful.
+
+1311
+01:00:52,046 --> 01:00:54,179
+
+1312
+01:00:54,179 --> 01:00:55,970
+So for example, let's
+look at the function.
+
+1313
+01:00:55,970 --> 01:00:57,360
+Let's assume that
+the function is real,
+
+1314
+01:00:57,360 --> 01:00:58,901
+although we know in
+general it's not.
+
+1315
+01:00:58,901 --> 01:01:02,100
+Let's assume that the function
+is real for simplicity.
+
+1316
+01:01:02,100 --> 01:01:05,910
+So we're going to plot
+the real part of phi
+
+1317
+01:01:05,910 --> 01:01:07,210
+in the vertical axis.
+
+1318
+01:01:07,210 --> 01:01:08,630
+And this is x.
+
+1319
+01:01:08,630 --> 01:01:15,130
+Suppose the real part of phi
+is positive at some point.
+
+1320
+01:01:15,130 --> 01:01:17,070
+Phi prime prime,
+if it's positive,
+
+1321
+01:01:17,070 --> 01:01:19,297
+tells us that not only
+is the slope positive,
+
+1322
+01:01:19,297 --> 01:01:20,130
+but it's increasing.
+
+1323
+01:01:20,130 --> 01:01:21,600
+Or it doesn't tell us
+anything about the slope,
+
+1324
+01:01:21,600 --> 01:01:23,080
+but it tells us that whatever
+the slope, it's increasing.
+
+1325
+01:01:23,080 --> 01:01:25,650
+If it's negative, the slope is
+increasing as we increase x.
+
+1326
+01:01:25,650 --> 01:01:28,210
+If it's positive, it's
+increasing as we increase x.
+
+1327
+01:01:28,210 --> 01:01:31,450
+So it's telling us that the
+wave function looks like this,
+
+1328
+01:01:31,450 --> 01:01:34,880
+locally, something like that.
+
+1329
+01:01:34,880 --> 01:01:39,040
+If phi is negative,
+if phi is negative,
+
+1330
+01:01:39,040 --> 01:01:41,254
+then if this
+quantity is positive,
+
+1331
+01:01:41,254 --> 01:01:42,920
+then phi prime prime
+has to be negative.
+
+1332
+01:01:42,920 --> 01:01:45,150
+But negative is curving down.
+
+1333
+01:01:45,150 --> 01:01:50,210
+
+1334
+01:01:50,210 --> 01:01:54,780
+So if this quantity, which
+I will call the curvature,
+
+1335
+01:01:54,780 --> 01:02:01,260
+if this quantity is positive,
+it curves away from the axis.
+
+1336
+01:02:01,260 --> 01:02:07,100
+So this is phi prime prime
+over phi greater than 0.
+
+1337
+01:02:07,100 --> 01:02:09,700
+If this quantity is
+positive, the function
+
+1338
+01:02:09,700 --> 01:02:11,050
+curves away from the axis.
+
+1339
+01:02:11,050 --> 01:02:12,440
+Cool?
+
+1340
+01:02:12,440 --> 01:02:16,270
+If this quantity is negative,
+phi prime prime upon
+
+1341
+01:02:16,270 --> 01:02:19,490
+phi less than 0,
+exactly the opposite.
+
+1342
+01:02:19,490 --> 01:02:20,920
+This has to be negative.
+
+1343
+01:02:20,920 --> 01:02:23,480
+If phi is positive, then phi
+prime prime has to be negative.
+
+1344
+01:02:23,480 --> 01:02:24,907
+It has to be curving down.
+
+1345
+01:02:24,907 --> 01:02:27,710
+
+1346
+01:02:27,710 --> 01:02:30,290
+And similarly, if
+phi is negative,
+
+1347
+01:02:30,290 --> 01:02:33,170
+then phi prime prime
+has to be positive,
+
+1348
+01:02:33,170 --> 01:02:34,500
+and it has to curve up.
+
+1349
+01:02:34,500 --> 01:02:37,840
+So if this quantity is positive,
+if the curvature is positive,
+
+1350
+01:02:37,840 --> 01:02:39,440
+it curves away from the axis.
+
+1351
+01:02:39,440 --> 01:02:41,950
+If the curvature is negative,
+if this quantity is negative,
+
+1352
+01:02:41,950 --> 01:02:44,120
+it curves towards the axis.
+
+1353
+01:02:44,120 --> 01:02:47,000
+So what does that tell
+you about solutions
+
+1354
+01:02:47,000 --> 01:02:49,206
+when the curvature is
+positive or negative?
+
+1355
+01:02:49,206 --> 01:02:50,330
+It tells you the following.
+
+1356
+01:02:50,330 --> 01:02:52,930
+
+1357
+01:02:52,930 --> 01:02:55,940
+It tells you that, imagine
+we have a function where
+
+1358
+01:02:55,940 --> 01:02:59,450
+phi prime prime over
+phi is constant.
+
+1359
+01:02:59,450 --> 01:03:03,050
+And in particular, let's
+let phi prime prime over phi
+
+1360
+01:03:03,050 --> 01:03:06,760
+be a constant,
+which is positive.
+
+1361
+01:03:06,760 --> 01:03:10,671
+And I'll call that positive
+constant kappa squared.
+
+1362
+01:03:10,671 --> 01:03:12,170
+And to emphasize
+that it's positive,
+
+1363
+01:03:12,170 --> 01:03:14,174
+I'm going to call
+it kappa squared.
+
+1364
+01:03:14,174 --> 01:03:15,090
+It's a positive thing.
+
+1365
+01:03:15,090 --> 01:03:16,980
+It's a real number squared.
+
+1366
+01:03:16,980 --> 01:03:18,635
+What does the
+solution look like?
+
+1367
+01:03:18,635 --> 01:03:22,510
+
+1368
+01:03:22,510 --> 01:03:24,120
+Well, this quantity is positive.
+
+1369
+01:03:24,120 --> 01:03:25,661
+It's always going
+to be curving away.
+
+1370
+01:03:25,661 --> 01:03:28,287
+So we have solutions that
+look like this or solutions
+
+1371
+01:03:28,287 --> 01:03:29,120
+that look like this.
+
+1372
+01:03:29,120 --> 01:03:29,990
+Can it ever be 0?
+
+1373
+01:03:29,990 --> 01:03:32,907
+
+1374
+01:03:32,907 --> 01:03:34,740
+Yeah, sure, it could
+be an inflection point.
+
+1375
+01:03:34,740 --> 01:03:36,698
+So for example, here the
+curvature is positive,
+
+1376
+01:03:36,698 --> 01:03:40,170
+but at this point the curvature
+has to switch to be like this.
+
+1377
+01:03:40,170 --> 01:03:41,960
+What functions are of this form?
+
+1378
+01:03:41,960 --> 01:03:44,752
+
+1379
+01:03:44,752 --> 01:03:45,960
+Let me give you another hint.
+
+1380
+01:03:45,960 --> 01:03:46,550
+Here's one.
+
+1381
+01:03:46,550 --> 01:03:49,400
+Is this curvature positive?
+
+1382
+01:03:49,400 --> 01:03:50,057
+Yes.
+
+1383
+01:03:50,057 --> 01:03:50,890
+What about this one?
+
+1384
+01:03:50,890 --> 01:03:53,470
+
+1385
+01:03:53,470 --> 01:03:53,970
+Yup.
+
+1386
+01:03:53,970 --> 01:03:56,220
+Those are all
+positive curvature.
+
+1387
+01:03:56,220 --> 01:03:57,910
+And these are exponentials.
+
+1388
+01:03:57,910 --> 01:03:59,930
+And the solution to this
+differential equation
+
+1389
+01:03:59,930 --> 01:04:06,670
+is e to the plus kappa x
+or e to the minus kappa x.
+
+1390
+01:04:06,670 --> 01:04:08,940
+And an arbitrary
+solution of this equation
+
+1391
+01:04:08,940 --> 01:04:12,130
+is a superposition A e
+to the kappa x plus B
+
+1392
+01:04:12,130 --> 01:04:14,346
+e to the minus kappa x.
+
+1393
+01:04:14,346 --> 01:04:16,244
+Everyone cool with that?
+
+1394
+01:04:16,244 --> 01:04:17,660
+When this quantity
+is positive, we
+
+1395
+01:04:17,660 --> 01:04:19,390
+get growing and
+collapsing exponentials.
+
+1396
+01:04:19,390 --> 01:04:21,890
+
+1397
+01:04:21,890 --> 01:04:22,390
+Yeah?
+
+1398
+01:04:22,390 --> 01:04:25,610
+
+1399
+01:04:25,610 --> 01:04:29,990
+On the other hand, if
+phi prime prime over phi
+
+1400
+01:04:29,990 --> 01:04:34,010
+is a negative number, i.e.
+minus what I'll call k
+
+1401
+01:04:34,010 --> 01:04:44,010
+squared, then the curvature
+has to be negative.
+
+1402
+01:04:44,010 --> 01:04:47,460
+And what functions have
+everywhere negative curvature?
+
+1403
+01:04:47,460 --> 01:04:49,169
+Sinusoidals.
+
+1404
+01:04:49,169 --> 01:04:49,669
+Cool?
+
+1405
+01:04:49,669 --> 01:04:53,540
+
+1406
+01:04:53,540 --> 01:05:00,445
+And the general solution
+is A e to the i K x plus B
+
+1407
+01:05:00,445 --> 01:05:03,226
+e to the minus i K x.
+
+1408
+01:05:03,226 --> 01:05:06,710
+So that differential equation,
+also known as sine and cosine.
+
+1409
+01:05:06,710 --> 01:05:09,170
+
+1410
+01:05:09,170 --> 01:05:09,670
+Cool?
+
+1411
+01:05:09,670 --> 01:05:12,540
+
+1412
+01:05:12,540 --> 01:05:19,765
+So putting that together
+with our original function,
+
+1413
+01:05:19,765 --> 01:05:21,140
+let's bring this up.
+
+1414
+01:05:21,140 --> 01:05:24,110
+
+1415
+01:05:24,110 --> 01:05:26,680
+So we want to think about
+the wave functions here.
+
+1416
+01:05:26,680 --> 01:05:29,014
+But in order to think about
+the energy eigenstates,
+
+1417
+01:05:29,014 --> 01:05:30,305
+we need to decide on an energy.
+
+1418
+01:05:30,305 --> 01:05:32,850
+
+1419
+01:05:32,850 --> 01:05:35,794
+We need to pick an
+energy, because you
+
+1420
+01:05:35,794 --> 01:05:37,960
+can't find the solution
+without figuring the energy.
+
+1421
+01:05:37,960 --> 01:05:38,950
+But notice something nice here.
+
+1422
+01:05:38,950 --> 01:05:40,260
+So suppose the energy is e.
+
+1423
+01:05:40,260 --> 01:05:42,360
+And let me just draw
+E. This is a constant.
+
+1424
+01:05:42,360 --> 01:05:43,187
+The energy is this.
+
+1425
+01:05:43,187 --> 01:05:45,520
+So this is the value of E.
+Here we're drawing potential.
+
+1426
+01:05:45,520 --> 01:05:48,489
+But this is the value of the
+energy, which is a constant.
+
+1427
+01:05:48,489 --> 01:05:49,280
+It's just a number.
+
+1428
+01:05:49,280 --> 01:05:53,680
+
+1429
+01:05:53,680 --> 01:05:57,200
+If you had a classical particle
+moving in this potential,
+
+1430
+01:05:57,200 --> 01:05:58,760
+what would happen?
+
+1431
+01:05:58,760 --> 01:05:59,650
+It would roll around.
+
+1432
+01:05:59,650 --> 01:06:01,360
+So for example, let's say
+you gave it this energy
+
+1433
+01:06:01,360 --> 01:06:02,210
+by putting it here.
+
+1434
+01:06:02,210 --> 01:06:04,168
+And think of this as a
+gravitational potential.
+
+1435
+01:06:04,168 --> 01:06:06,157
+You put it here, you let
+go, and it falls down.
+
+1436
+01:06:06,157 --> 01:06:07,990
+And it'll keep rolling
+until it gets up here
+
+1437
+01:06:07,990 --> 01:06:10,230
+to the classical turning point.
+
+1438
+01:06:10,230 --> 01:06:12,080
+And at that point,
+its kinetic energy
+
+1439
+01:06:12,080 --> 01:06:14,910
+must be 0, because its potential
+energy is its total energy,
+
+1440
+01:06:14,910 --> 01:06:17,670
+at which point it will
+turn around and fall back.
+
+1441
+01:06:17,670 --> 01:06:18,359
+Yes?
+
+1442
+01:06:18,359 --> 01:06:20,150
+If you take your ball,
+and you put it here,
+
+1443
+01:06:20,150 --> 01:06:21,525
+and you let it
+roll, does it ever
+
+1444
+01:06:21,525 --> 01:06:23,960
+get here, to this position?
+
+1445
+01:06:23,960 --> 01:06:25,990
+No, because it doesn't
+have enough energy.
+
+1446
+01:06:25,990 --> 01:06:29,620
+Classically, this is
+a forbidden position.
+
+1447
+01:06:29,620 --> 01:06:31,790
+So given an energy
+and given a potential,
+
+1448
+01:06:31,790 --> 01:06:38,200
+we can break the system up
+into classically allowed zones
+
+1449
+01:06:38,200 --> 01:06:39,760
+and classically forbidden zones.
+
+1450
+01:06:39,760 --> 01:06:45,170
+
+1451
+01:06:45,170 --> 01:06:47,120
+Cool?
+
+1452
+01:06:47,120 --> 01:06:49,210
+Now, in a classically
+allowed zone,
+
+1453
+01:06:49,210 --> 01:06:53,670
+the energy is greater
+than the potential.
+
+1454
+01:06:53,670 --> 01:06:55,170
+And in a classically
+forbidden zone,
+
+1455
+01:06:55,170 --> 01:06:57,300
+the energy is less
+than the potential.
+
+1456
+01:06:57,300 --> 01:07:00,530
+
+1457
+01:07:00,530 --> 01:07:03,230
+Everyone cool with that?
+
+1458
+01:07:03,230 --> 01:07:06,080
+But this tells us
+something really nice.
+
+1459
+01:07:06,080 --> 01:07:09,429
+If the energy is greater
+than the potential,
+
+1460
+01:07:09,429 --> 01:07:10,970
+what do you know
+about the curvature?
+
+1461
+01:07:10,970 --> 01:07:15,050
+
+1462
+01:07:15,050 --> 01:07:15,550
+Yeah.
+
+1463
+01:07:15,550 --> 01:07:17,175
+If we're in a
+classically allowed zone,
+
+1464
+01:07:17,175 --> 01:07:20,150
+so the energy is greater
+than the potential,
+
+1465
+01:07:20,150 --> 01:07:22,860
+then this quantity is positive,
+there's a minus sign here,
+
+1466
+01:07:22,860 --> 01:07:23,920
+so this is negative.
+
+1467
+01:07:23,920 --> 01:07:25,760
+So the curvature is negative.
+
+1468
+01:07:25,760 --> 01:07:28,920
+
+1469
+01:07:28,920 --> 01:07:31,680
+Remember, curvature
+is negative means
+
+1470
+01:07:31,680 --> 01:07:35,000
+that we curve towards the axis.
+
+1471
+01:07:35,000 --> 01:07:37,015
+So in a classically
+allowed region,
+
+1472
+01:07:37,015 --> 01:07:38,640
+the wave function
+should be sinusoidal.
+
+1473
+01:07:38,640 --> 01:07:43,840
+
+1474
+01:07:43,840 --> 01:07:46,050
+What about in the classically
+forbidden regions?
+
+1475
+01:07:46,050 --> 01:07:47,280
+In the classically
+forbidden regions,
+
+1476
+01:07:47,280 --> 01:07:48,890
+the energy is less
+than the potential.
+
+1477
+01:07:48,890 --> 01:07:50,848
+That means in magnitude
+this is less than this,
+
+1478
+01:07:50,848 --> 01:07:53,270
+this is a negative
+number, minus sign,
+
+1479
+01:07:53,270 --> 01:07:56,110
+the curvature is going to
+be minus times a minus is
+
+1480
+01:07:56,110 --> 01:07:59,050
+a positive, so the
+curvature's positive.
+
+1481
+01:07:59,050 --> 01:08:02,260
+
+1482
+01:08:02,260 --> 01:08:05,190
+So the solutions are
+either growing exponentials
+
+1483
+01:08:05,190 --> 01:08:10,000
+or shrinking exponentials
+or superpositions of them.
+
+1484
+01:08:10,000 --> 01:08:11,810
+Everyone cool with that?
+
+1485
+01:08:11,810 --> 01:08:14,340
+So let's think about
+a simple example.
+
+1486
+01:08:14,340 --> 01:08:16,452
+Let's work through this
+in a simple example.
+
+1487
+01:08:16,452 --> 01:08:18,575
+And let me give you a
+little bit more board space.
+
+1488
+01:08:18,575 --> 01:08:22,430
+
+1489
+01:08:22,430 --> 01:08:26,122
+Simple example would be a
+potential that looks like this.
+
+1490
+01:08:26,122 --> 01:08:27,580
+And let's just
+suppose that we want
+
+1491
+01:08:27,580 --> 01:08:33,760
+to find an energy eigenfunction
+with energy that's E. Well,
+
+1492
+01:08:33,760 --> 01:08:36,250
+this is a classically
+allowed zone,
+
+1493
+01:08:36,250 --> 01:08:39,939
+and these are the classically
+forbidden regions.
+
+1494
+01:08:39,939 --> 01:08:43,370
+Now I want to ask, what does
+the wave function look like?
+
+1495
+01:08:43,370 --> 01:08:46,630
+And I don't want to draw it
+on top of the energy diagram,
+
+1496
+01:08:46,630 --> 01:08:49,037
+because wave function
+is not an energy.
+
+1497
+01:08:49,037 --> 01:08:50,620
+Wave function is a
+different quantity,
+
+1498
+01:08:50,620 --> 01:08:52,161
+because it's got
+different axes and I
+
+1499
+01:08:52,161 --> 01:08:54,279
+want it drawn on
+a different plot.
+
+1500
+01:08:54,279 --> 01:08:58,410
+So but as a function
+of x-- so just
+
+1501
+01:08:58,410 --> 01:09:01,185
+to get the positions
+straight, these
+
+1502
+01:09:01,185 --> 01:09:02,560
+are the bounds of
+the classically
+
+1503
+01:09:02,560 --> 01:09:04,899
+allowed and forbidden regions.
+
+1504
+01:09:04,899 --> 01:09:07,140
+What do we expect?
+
+1505
+01:09:07,140 --> 01:09:09,830
+Well, we expect that it's
+going to be sinusoidal in here.
+
+1506
+01:09:09,830 --> 01:09:13,160
+
+1507
+01:09:13,160 --> 01:09:15,450
+We expect that it's
+going to be exponential
+
+1508
+01:09:15,450 --> 01:09:20,399
+growing or converging
+out here, exp.
+
+1509
+01:09:20,399 --> 01:09:25,100
+But one last important thing is
+that not only is the curvature
+
+1510
+01:09:25,100 --> 01:09:28,270
+negative in here in these
+classically allowed regions,
+
+1511
+01:09:28,270 --> 01:09:30,080
+but the magnitude
+of the curvature,
+
+1512
+01:09:30,080 --> 01:09:32,870
+how rapidly it's turning over,
+how big that second derivative
+
+1513
+01:09:32,870 --> 01:09:35,040
+is, depends on the
+difference between the energy
+
+1514
+01:09:35,040 --> 01:09:35,865
+and the potential.
+
+1515
+01:09:35,865 --> 01:09:38,240
+The greater the difference,
+the more rapid the curvature,
+
+1516
+01:09:38,240 --> 01:09:40,500
+the more rapid the turning
+over and fluctuation.
+
+1517
+01:09:40,500 --> 01:09:43,450
+If the differences between the
+potential and the true energy,
+
+1518
+01:09:43,450 --> 01:09:46,720
+the total energy, is small, then
+the curvature is very small.
+
+1519
+01:09:46,720 --> 01:09:49,990
+So the derivative
+changes very gradually.
+
+1520
+01:09:49,990 --> 01:09:51,660
+What does that tell us?
+
+1521
+01:09:51,660 --> 01:09:54,194
+That tells us that in here the
+wave function is oscillating
+
+1522
+01:09:54,194 --> 01:09:56,110
+rapidly, because the
+curvature, the difference
+
+1523
+01:09:56,110 --> 01:09:58,320
+between the energy and
+the potential is large,
+
+1524
+01:09:58,320 --> 01:10:01,690
+and so the wave function
+is oscillating rapidly.
+
+1525
+01:10:01,690 --> 01:10:04,200
+As we get out towards the
+classical turning points,
+
+1526
+01:10:04,200 --> 01:10:07,640
+the wave function will be
+oscillating less rapidly.
+
+1527
+01:10:07,640 --> 01:10:09,865
+The slope will be
+changing more gradually.
+
+1528
+01:10:09,865 --> 01:10:11,810
+And as a consequence,
+two things happen.
+
+1529
+01:10:11,810 --> 01:10:13,768
+Let me actually draw this
+slightly differently.
+
+1530
+01:10:13,768 --> 01:10:17,647
+
+1531
+01:10:17,647 --> 01:10:19,230
+So as a consequence
+two things happen.
+
+1532
+01:10:19,230 --> 01:10:21,130
+One is the wavelength
+gets longer,
+
+1533
+01:10:21,130 --> 01:10:22,847
+because the
+curvature is smaller.
+
+1534
+01:10:22,847 --> 01:10:24,680
+And the second is the
+amplitude gets larger,
+
+1535
+01:10:24,680 --> 01:10:27,280
+because it keeps on having
+a positive slope for longer
+
+1536
+01:10:27,280 --> 01:10:31,520
+and longer, and it takes
+longer to curve back down.
+
+1537
+01:10:31,520 --> 01:10:34,260
+So here we have
+rapid oscillations.
+
+1538
+01:10:34,260 --> 01:10:41,430
+And then the oscillations get
+longer and longer wavelength,
+
+1539
+01:10:41,430 --> 01:10:43,892
+until we get out to the
+classical turning point.
+
+1540
+01:10:43,892 --> 01:10:45,225
+And at this point, what happens?
+
+1541
+01:10:45,225 --> 01:10:47,746
+
+1542
+01:10:47,746 --> 01:10:49,120
+Yeah, it's got to
+be [INAUDIBLE].
+
+1543
+01:10:49,120 --> 01:10:51,860
+Now, here we have some sine,
+and some superpositions
+
+1544
+01:10:51,860 --> 01:10:53,647
+of sine and cosines,
+exponentials.
+
+1545
+01:10:53,647 --> 01:10:55,730
+And in particular, it
+arrives here with some slope
+
+1546
+01:10:55,730 --> 01:10:57,490
+and with some value.
+
+1547
+01:10:57,490 --> 01:11:00,140
+We know this side we've
+got to get exponentials.
+
+1548
+01:11:00,140 --> 01:11:02,330
+And so this sum of sines
+and cosines at this point
+
+1549
+01:11:02,330 --> 01:11:06,400
+must match the sum
+of exponentials.
+
+1550
+01:11:06,400 --> 01:11:08,282
+How must it do so?
+
+1551
+01:11:08,282 --> 01:11:10,490
+What must be true of the
+wave function at this point?
+
+1552
+01:11:10,490 --> 01:11:13,880
+
+1553
+01:11:13,880 --> 01:11:16,090
+Can it be discontinuous?
+
+1554
+01:11:16,090 --> 01:11:17,850
+Can its derivative
+be discontinuous?
+
+1555
+01:11:17,850 --> 01:11:18,350
+No.
+
+1556
+01:11:18,350 --> 01:11:21,800
+So the value and the
+derivative must be continuous.
+
+1557
+01:11:21,800 --> 01:11:24,690
+So that tells us precisely
+which linear combination
+
+1558
+01:11:24,690 --> 01:11:29,089
+of positive growing and
+shrinking exponentials we get.
+
+1559
+01:11:29,089 --> 01:11:30,630
+So we'll get some
+linear combination,
+
+1560
+01:11:30,630 --> 01:11:32,360
+which may do this for awhile.
+
+1561
+01:11:32,360 --> 01:11:33,860
+But since it's got
+some contribution
+
+1562
+01:11:33,860 --> 01:11:36,490
+of positive exponential, it'll
+just grow exponentially off
+
+1563
+01:11:36,490 --> 01:11:37,982
+to infinity.
+
+1564
+01:11:37,982 --> 01:11:39,940
+And as the energy gets
+further and further away
+
+1565
+01:11:39,940 --> 01:11:42,780
+from the potential, now in
+their negative sine, what
+
+1566
+01:11:42,780 --> 01:11:45,444
+happens to the rate of growth?
+
+1567
+01:11:45,444 --> 01:11:46,610
+It gets more and more rapid.
+
+1568
+01:11:46,610 --> 01:11:48,540
+So this just diverges
+more and more rapidly.
+
+1569
+01:11:48,540 --> 01:11:51,554
+Similarly, out here we
+have to match the slope.
+
+1570
+01:11:51,554 --> 01:11:52,970
+And we know that
+the curvature has
+
+1571
+01:11:52,970 --> 01:11:55,530
+to be now positive,
+so it has to do this.
+
+1572
+01:11:55,530 --> 01:11:59,120
+
+1573
+01:11:59,120 --> 01:12:00,040
+So two questions.
+
+1574
+01:12:00,040 --> 01:12:03,820
+First off, is this sketch
+of the wave function
+
+1575
+01:12:03,820 --> 01:12:05,560
+a reasonable sketch,
+given what we
+
+1576
+01:12:05,560 --> 01:12:08,570
+know about curvature and this
+potential of a wave function
+
+1577
+01:12:08,570 --> 01:12:09,280
+with that energy?
+
+1578
+01:12:09,280 --> 01:12:13,007
+
+1579
+01:12:13,007 --> 01:12:14,840
+Are there ways in which
+it's a bad estimate?
+
+1580
+01:12:14,840 --> 01:12:17,798
+
+1581
+01:12:17,798 --> 01:12:19,590
+AUDIENCE: [INAUDIBLE]
+
+1582
+01:12:19,590 --> 01:12:21,685
+PROFESSOR: OK, excellent.
+
+1583
+01:12:21,685 --> 01:12:24,600
+AUDIENCE: On the right side,
+could it have crossed zero?
+
+1584
+01:12:24,600 --> 01:12:25,720
+PROFESSOR: Absolutely, it
+could have crossed zero.
+
+1585
+01:12:25,720 --> 01:12:26,920
+So I may have drawn this badly.
+
+1586
+01:12:26,920 --> 01:12:28,060
+It turned out it
+was a little subtle.
+
+1587
+01:12:28,060 --> 01:12:28,740
+It's not obvious.
+
+1588
+01:12:28,740 --> 01:12:30,340
+Maybe it actually punched
+all the way through zero,
+
+1589
+01:12:30,340 --> 01:12:31,660
+and then it diverged
+down negative.
+
+1590
+01:12:31,660 --> 01:12:32,785
+That's absolutely positive.
+
+1591
+01:12:32,785 --> 01:12:35,075
+So that was one of the
+quibbles you could have.
+
+1592
+01:12:35,075 --> 01:12:36,450
+Another quibble
+you could have is
+
+1593
+01:12:36,450 --> 01:12:39,200
+that it looks like I have
+constant wavelength in here.
+
+1594
+01:12:39,200 --> 01:12:41,010
+But the potential's
+actually changing.
+
+1595
+01:12:41,010 --> 01:12:43,070
+And what you should
+chalk this up to,
+
+1596
+01:12:43,070 --> 01:12:46,299
+if you'll pardon the pun, is
+my artistic skills are limited.
+
+1597
+01:12:46,299 --> 01:12:48,340
+So this is always going
+to be sort of inescapable
+
+1598
+01:12:48,340 --> 01:12:50,505
+when you qualitatively
+draw something.
+
+1599
+01:12:50,505 --> 01:12:53,130
+On a test, I'm not going to bag
+you points on things like that.
+
+1600
+01:12:53,130 --> 01:12:54,584
+That's what I want to emphasize.
+
+1601
+01:12:54,584 --> 01:12:56,250
+But the second thing,
+is there something
+
+1602
+01:12:56,250 --> 01:12:57,622
+bad about this wave function?
+
+1603
+01:12:57,622 --> 01:12:58,830
+Yes, you've already named it.
+
+1604
+01:12:58,830 --> 01:13:01,090
+What's bad about
+this wave function?
+
+1605
+01:13:01,090 --> 01:13:03,150
+It's badly non-normalizable.
+
+1606
+01:13:03,150 --> 01:13:06,820
+It diverges off to infinity
+out here and out here.
+
+1607
+01:13:06,820 --> 01:13:10,110
+What does that tell you?
+
+1608
+01:13:10,110 --> 01:13:10,860
+It's not physical.
+
+1609
+01:13:10,860 --> 01:13:11,170
+Good.
+
+1610
+01:13:11,170 --> 01:13:13,045
+What else does it tell
+you about this system?
+
+1611
+01:13:13,045 --> 01:13:16,110
+
+1612
+01:13:16,110 --> 01:13:18,220
+Sorry?
+
+1613
+01:13:18,220 --> 01:13:18,870
+Excellent.
+
+1614
+01:13:18,870 --> 01:13:21,670
+Is this an allowable energy?
+
+1615
+01:13:21,670 --> 01:13:22,840
+No.
+
+1616
+01:13:22,840 --> 01:13:25,130
+If the wave function
+has this energy,
+
+1617
+01:13:25,130 --> 01:13:28,700
+it is impossible to make
+it continuous, assuming
+
+1618
+01:13:28,700 --> 01:13:31,530
+that I drew it correctly,
+and have it converge.
+
+1619
+01:13:31,530 --> 01:13:33,640
+Is this wave function allowable?
+
+1620
+01:13:33,640 --> 01:13:36,180
+No, because it does not satisfy
+our boundary conditions.
+
+1621
+01:13:36,180 --> 01:13:38,763
+Our boundary conditions are that
+the wave function must vanish
+
+1622
+01:13:38,763 --> 01:13:41,710
+out here and it must
+vanish out here at infinity
+
+1623
+01:13:41,710 --> 01:13:43,785
+in order to be normalizable.
+
+1624
+01:13:43,785 --> 01:13:44,410
+Here we failed.
+
+1625
+01:13:44,410 --> 01:13:47,590
+
+1626
+01:13:47,590 --> 01:13:49,160
+Now, you can imagine
+that-- so let's
+
+1627
+01:13:49,160 --> 01:13:50,610
+decrease the energy
+a little bit.
+
+1628
+01:13:50,610 --> 01:13:53,760
+If we decrease the energy,
+our trial energy just a little
+
+1629
+01:13:53,760 --> 01:13:55,200
+tiny bit, what happens?
+
+1630
+01:13:55,200 --> 01:13:58,570
+Well, that's going to decrease
+the curvature in here.
+
+1631
+01:13:58,570 --> 01:14:01,260
+We decrease, we bring the energy
+in just a little tiny bit.
+
+1632
+01:14:01,260 --> 01:14:03,550
+That means this is a
+little bit smaller.
+
+1633
+01:14:03,550 --> 01:14:05,130
+The potential stays the same.
+
+1634
+01:14:05,130 --> 01:14:06,760
+So the curvature in
+the allowed region
+
+1635
+01:14:06,760 --> 01:14:09,010
+is just a little
+tiny bit smaller.
+
+1636
+01:14:09,010 --> 01:14:10,600
+And meanwhile,
+the allowed region
+
+1637
+01:14:10,600 --> 01:14:12,649
+has got just a
+little bit thinner.
+
+1638
+01:14:12,649 --> 01:14:14,940
+And what that will do is the
+curvature's a little less,
+
+1639
+01:14:14,940 --> 01:14:29,406
+the region's a little less,
+so now we have-- Sorry,
+
+1640
+01:14:29,406 --> 01:14:30,885
+I get excited.
+
+1641
+01:14:30,885 --> 01:14:33,010
+And if we tweak the energy,
+what's going to happen?
+
+1642
+01:14:33,010 --> 01:14:35,176
+Well, it's going to arrive
+here a little bit sooner.
+
+1643
+01:14:35,176 --> 01:14:38,220
+
+1644
+01:14:38,220 --> 01:14:40,490
+And let's imagine
+something like this.
+
+1645
+01:14:40,490 --> 01:14:45,250
+And if we chose the
+energy just right,
+
+1646
+01:14:45,250 --> 01:14:48,120
+we would get it to match
+to a linear combination
+
+1647
+01:14:48,120 --> 01:14:50,560
+of collapsing and
+growing exponentials,
+
+1648
+01:14:50,560 --> 01:14:52,585
+where the contribution
+from the growing
+
+1649
+01:14:52,585 --> 01:14:54,210
+exponential in this
+direction vanishes.
+
+1650
+01:14:54,210 --> 01:14:57,180
+
+1651
+01:14:57,180 --> 01:14:59,430
+There's precisely one
+value of the energy that
+
+1652
+01:14:59,430 --> 01:15:01,992
+lets me do that with
+this number of wiggles.
+
+1653
+01:15:01,992 --> 01:15:03,950
+And so then it goes
+through and does its thing.
+
+1654
+01:15:03,950 --> 01:15:07,860
+
+1655
+01:15:07,860 --> 01:15:11,570
+And we need it to
+happen on both sides.
+
+1656
+01:15:11,570 --> 01:15:14,510
+Now if I take that solution,
+so that it achieves convergence
+
+1657
+01:15:14,510 --> 01:15:18,740
+out here, and it achieves
+convergence out here,
+
+1658
+01:15:18,740 --> 01:15:21,940
+and I take that energy and I
+increase it by epsilon, by just
+
+1659
+01:15:21,940 --> 01:15:24,450
+the tiniest little bit, what
+will happen to this wave
+
+1660
+01:15:24,450 --> 01:15:26,057
+function?
+
+1661
+01:15:26,057 --> 01:15:26,640
+It'll diverge.
+
+1662
+01:15:26,640 --> 01:15:28,670
+It will no longer
+be normalizable.
+
+1663
+01:15:28,670 --> 01:15:31,070
+When you have classically
+forbidden regions,
+
+1664
+01:15:31,070 --> 01:15:36,010
+are the allowed energies
+continuous or discrete?
+
+1665
+01:15:36,010 --> 01:15:38,820
+And that answers a question
+from earlier in the class.
+
+1666
+01:15:38,820 --> 01:15:40,570
+And it also is going
+to be the beginning
+
+1667
+01:15:40,570 --> 01:15:41,986
+of the answer to
+the question, why
+
+1668
+01:15:41,986 --> 01:15:44,000
+is the spectrum of
+hydrogen discrete.
+
+1669
+01:15:44,000 --> 01:15:45,960
+See you next time.
+
+1670
+01:15:45,960 --> 01:15:53,316

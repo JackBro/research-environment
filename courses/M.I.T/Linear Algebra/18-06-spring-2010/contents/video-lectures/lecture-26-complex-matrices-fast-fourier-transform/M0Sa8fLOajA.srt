@@ -1,0 +1,3383 @@
+1
+00:00:07,000 --> 00:00:07,000
+Okay.
+This is a lecture where complex
+numbers come in.
+
+2
+00:00:12,000 --> 00:00:18,000
+It's a -- complex numbers have
+slipped into this course because
+
+3
+00:00:18,000 --> 00:00:22,000
+even a real matrix can have
+complex eigenvalues.
+
+4
+00:00:22,000 --> 00:00:27,000
+So we met complex numbers there
+as the eigenvalues and complex
+
+5
+00:00:27,000 --> 00:00:29,000
+eigenvectors.
+
+6
+00:00:29,000 --> 00:00:34,000
+And we -- or --
+this is probably the last -- we
+
+7
+00:00:34,000 --> 00:00:38,000
+have a lot of other things to do
+about eigenvalues and
+
+8
+00:00:38,000 --> 00:00:39,000
+eigenvectors.
+
+9
+00:00:39,000 --> 00:00:41,000
+And that will be mostly real.
+
+10
+00:00:41,000 --> 00:00:46,650
+But at one point somewhere,
+we have to see what you do when
+
+11
+00:00:46,650 --> 00:00:49,000
+the numbers become complex
+numbers.
+
+12
+00:00:49,000 --> 00:00:55,000
+What happens when the vectors
+are complex, when the matrixes
+
+13
+00:00:55,000 --> 00:00:58,000
+are complex,
+when the -- what's the inner
+
+14
+00:00:58,000 --> 00:01:01,000
+product of two,
+the dot product of two complex
+
+15
+00:01:01,000 --> 00:01:06,000
+vectors -- we just have to make
+the change, just see -- what is
+
+16
+00:01:06,000 --> 00:01:09,000
+the change when numbers become
+complex?
+
+17
+00:01:09,000 --> 00:01:13,000
+Then, can I tell you about the
+most important example of
+
+18
+00:01:13,000 --> 00:01:15,000
+complex matrixes?
+
+19
+00:01:15,000 --> 00:01:18,000
+It comes in the Fourier matrix.
+
+20
+00:01:18,000 --> 00:01:21,000
+So the Fourier matrix,
+which I'll describe,
+
+21
+00:01:21,000 --> 00:01:23,000
+is a complex matrix.
+
+22
+00:01:23,000 --> 00:01:27,000
+It's certainly the most
+important complex matrix.
+
+23
+00:01:27,000 --> 00:01:31,000
+It's the matrix that we need in
+Fourier transform.
+
+24
+00:01:31,000 --> 00:01:35,000
+And the -- really,
+the special thing that I want
+
+25
+00:01:35,000 --> 00:01:39,000
+to
+tell you about is what's called
+
+26
+00:01:39,000 --> 00:01:44,000
+the fast Fourier transform,
+and everybody refers to it as
+
+27
+00:01:44,000 --> 00:01:49,820
+the FFT and it's in all computer
+and it's used -- it's being used
+
+28
+00:01:49,820 --> 00:01:54,000
+as we speak in a thousand
+places, because it has,
+
+29
+00:01:54,000 --> 00:01:57,000
+like, transformed whole
+industries
+
+30
+00:01:57,000 --> 00:02:01,830
+to be able to do the Fourier
+transform fast,
+
+31
+00:02:01,830 --> 00:02:07,000
+which means multiplying -- how
+do I multiply fast by that
+
+32
+00:02:07,000 --> 00:02:10,000
+matrix -- by that n by n matrix?
+
+33
+00:02:10,000 --> 00:02:15,000
+Normally, multiplications by an
+n by n matrix -- would normally
+
+34
+00:02:15,000 --> 00:02:21,000
+be n squared multiplications,
+because I've got n squared
+
+35
+00:02:21,000 --> 00:02:24,000
+entries
+and none of them is zero.
+
+36
+00:02:24,000 --> 00:02:27,000
+This is a full matrix.
+
+37
+00:02:27,000 --> 00:02:30,000
+And it's a matrix with
+orthogonal columns.
+
+38
+00:02:30,000 --> 00:02:34,000
+I mean, it's just,
+like, the best matrix.
+
+39
+00:02:34,000 --> 00:02:40,000
+And this fast Fourier transform
+idea reduces this n squared,
+
+40
+00:02:40,000 --> 00:02:44,000
+which was slowing up the
+calculation of Fourier
+
+41
+00:02:44,000 --> 00:02:48,000
+transforms
+down to n log(n).
+
+42
+00:02:48,000 --> 00:02:52,000
+n log(n), log to the base two,
+actually.
+
+43
+00:02:52,000 --> 00:02:58,000
+And it's this -- when that hit
+-- when that possibility hit,
+
+44
+00:02:58,000 --> 00:03:00,000
+it made a big difference.
+
+45
+00:03:00,000 --> 00:03:07,000
+Everybody realized gradually
+what, -- that this simple idea
+
+46
+00:03:07,000 --> 00:03:13,960
+-- you'll see it's just a simple
+matrix factorization -- but it
+
+47
+00:03:13,960 --> 00:03:15,000
+changed everything.
+
+48
+00:03:15,000 --> 00:03:16,000
+Okay.
+
+49
+00:03:16,000 --> 00:03:21,000
+So I want to talk about complex
+vectors and matrixes in general,
+
+50
+00:03:21,000 --> 00:03:26,000
+recap a little bit from last
+time, and the Fourier matrix in
+
+51
+00:03:26,000 --> 00:03:27,000
+particular.
+
+52
+00:03:27,000 --> 00:03:28,000
+Okay.
+
+53
+00:03:28,000 --> 00:03:29,000
+So what's the deal?
+
+54
+00:03:29,000 --> 00:03:30,000
+All right.
+
+55
+00:03:30,000 --> 00:03:35,000
+The main point is,
+what about length?
+
+56
+00:03:35,000 --> 00:03:38,000
+I'm given a vector,
+I have a vector x.
+
+57
+00:03:38,000 --> 00:03:42,000
+Or let me call it z as a
+reminder that it's complex,
+
+58
+00:03:42,000 --> 00:03:44,000
+for the moment.
+
+59
+00:03:44,000 --> 00:03:48,000
+But I can -- later I'll call
+the components x.
+
+60
+00:03:48,000 --> 00:03:50,000
+They'll be complex numbers.
+
+61
+00:03:50,000 --> 00:03:54,040
+But it's a vector -- z1,
+z2 down to zn.
+
+62
+00:03:54,040 --> 00:03:58,000
+So the only novelty is it's not
+in R^n
+
+63
+00:03:58,000 --> 00:03:59,000
+anymore.
+
+64
+00:03:59,000 --> 00:04:02,000
+It's in complex n dimensional
+space.
+
+65
+00:04:02,000 --> 00:04:06,600
+Each of those numbers is a
+complex number.
+
+66
+00:04:06,600 --> 00:04:11,000
+So this z,z1 is in C^n,
+n dimensional complex space
+
+67
+00:04:11,000 --> 00:04:12,000
+instead of R^n.
+
+68
+00:04:12,000 --> 00:04:18,000
+So just a different letter
+there, but now the point about
+
+69
+00:04:18,000 --> 00:04:21,560
+its length
+is what?
+
+70
+00:04:21,560 --> 00:04:29,290
+The point about its length is
+that z transpose z is no good.
+
+71
+00:04:29,290 --> 00:04:36,000
+z transpose z -- if I just put
+down z transpose here,
+
+72
+00:04:36,000 --> 00:04:39,000
+it would be z1,
+z2, to zn.
+
+73
+00:04:39,000 --> 00:04:46,000
+Doing that multiplication
+doesn't give me the right thing.
+
+74
+00:04:46,000 --> 00:04:48,000
+W-Why not?
+
+75
+00:04:48,000 --> 00:04:53,920
+Because the length squared
+should
+
+76
+00:04:53,920 --> 00:04:54,000
+be positive.
+
+77
+00:04:54,000 --> 00:04:58,000
+And if I multiply -- suppose
+this is, like,
+
+78
+00:04:58,000 --> 00:04:59,000
+1 and i.
+
+79
+00:04:59,000 --> 00:05:04,000
+What's the length of the vector
+with components 1 and i?
+
+80
+00:05:04,000 --> 00:05:07,000
+What if I do this,
+so n is just two.
+
+81
+00:05:07,000 --> 00:05:12,000
+I'm in C^2, two dimensional
+space, complex space with the
+
+82
+00:05:12,000 --> 00:05:16,000
+vector whose components are 1
+and i.
+
+83
+00:05:16,000 --> 00:05:17,000
+All right.
+
+84
+00:05:17,000 --> 00:05:21,000
+So if I took one times one and
+i times i and added,
+
+85
+00:05:21,000 --> 00:05:24,000
+z transpose z would be zero.
+
+86
+00:05:24,000 --> 00:05:30,000
+But I don't -- that vector is
+not -- doesn't have length zero
+
+87
+00:05:30,000 --> 00:05:34,000
+-- the vector with the
+components 1 and i -- this
+
+88
+00:05:34,000 --> 00:05:39,000
+multiplication --
+what I really want is z1
+
+89
+00:05:39,000 --> 00:05:40,000
+conjugate z1.
+
+90
+00:05:40,000 --> 00:05:47,000
+You remember that z1 conjugate
+z1 is -- so you see that first
+
+91
+00:05:47,000 --> 00:05:53,000
+step will be z1 conjugate z1,
+which is the magnitude of z1
+
+92
+00:05:53,000 --> 00:05:56,000
+squared, which is what I want.
+
+93
+00:05:56,000 --> 00:06:00,000
+That's, like,
+three squared or five squared.
+
+94
+00:06:00,000 --> 00:06:06,000
+Now, if it's --
+if z1 is i, then I multiplied
+
+95
+00:06:06,000 --> 00:06:13,000
+by minus i gives one plus one,
+so the component of length --
+
+96
+00:06:13,000 --> 00:06:18,000
+the component i,
+its modulus squared is plus
+
+97
+00:06:18,000 --> 00:06:18,000
+one.
+That's great.
+
+98
+00:06:20,000 --> 00:06:26,000
+So what I want to do then is do
+that -- I want z1 bar z1,
+
+99
+00:06:26,000 --> 00:06:30,000
+z2 bar z2, zn bar zn.
+
+100
+00:06:30,000 --> 00:06:35,000
+And remember that -- you
+remember this complex conjugate.
+
+101
+00:06:35,000 --> 00:06:38,000
+So -- so there's the point.
+
+102
+00:06:38,000 --> 00:06:43,000
+Now I can erase the no good and
+put is good, because that now
+
+103
+00:06:43,000 --> 00:06:48,000
+gives the answer zero for the
+zero vector, of course,
+
+104
+00:06:48,000 --> 00:06:54,409
+but it gives a positive length
+squared for any other vector.
+
+105
+00:06:54,409 --> 00:06:58,000
+So it's a --
+it's the right definition of
+
+106
+00:06:58,000 --> 00:07:03,000
+length, and essentially the
+message is that we're always
+
+107
+00:07:03,000 --> 00:07:09,000
+going to be taking -- when we
+transpose, we also take complex
+
+108
+00:07:09,000 --> 00:07:10,000
+conjugate.
+
+109
+00:07:10,000 --> 00:07:15,000
+So let's -- let's find the
+length of one -- so the vector
+
+110
+00:07:15,000 --> 00:07:19,000
+one i, that's z,
+that's that vector z.
+
+111
+00:07:19,000 --> 00:07:24,000
+Now I take the conjugate of one
+is one, the conjugate of i is
+
+112
+00:07:24,000 --> 00:07:24,000
+minus i.
+I take this vector,
+I get one plus one -- I get
+
+113
+00:07:28,000 --> 00:07:28,000
+two.
+So that's a vector and that's a
+vector of length -- square root
+
+114
+00:07:34,000 --> 00:07:34,000
+of two.
+Square root of two is the
+length and not the zero that we
+
+115
+00:07:39,130 --> 00:07:43,000
+would have got from one minus i
+squared.
+
+116
+00:07:43,000 --> 00:07:43,000
+Okay.
+So the message really is
+whenever we transpose,
+
+117
+00:07:48,810 --> 00:07:51,000
+we also take conjugates.
+
+118
+00:07:51,000 --> 00:07:55,000
+So here's a symbol -- one
+symbol to do both.
+
+119
+00:07:55,000 --> 00:08:00,000
+So that symbol H,
+it stands for a guy named
+
+120
+00:08:00,000 --> 00:08:05,000
+Hermite, who didn't actually
+pronounce the H,
+
+121
+00:08:05,000 --> 00:08:10,000
+but let's pronounce it -- so I
+would
+
+122
+00:08:10,000 --> 00:08:13,000
+call that z Hermitian z.
+
+123
+00:08:13,000 --> 00:08:21,000
+I'll -- let me write that word,
+Herm- so his name was Hermite,
+
+124
+00:08:21,000 --> 00:08:27,000
+and then we make it into an
+adjective, Hermitian.
+
+125
+00:08:27,000 --> 00:08:30,000
+So z Hermitian z.
+z H z.
+
+126
+00:08:30,000 --> 00:08:30,000
+Okay.
+So, that's the -- that's the,
+length squared.
+
+127
+00:08:36,490 --> 00:08:40,210
+Now what's the inner product?
+
+128
+00:08:40,210 --> 00:08:44,000
+Well, it should match.
+
+129
+00:08:44,000 --> 00:08:50,000
+The inner product of two
+vectors -- so inner product is
+
+130
+00:08:50,000 --> 00:08:54,000
+no longer -- used to be y
+transpose x.
+
+131
+00:08:54,000 --> 00:08:57,000
+That's for real vectors.
+
+132
+00:08:57,000 --> 00:09:02,000
+For complex vectors,
+whenever we transpose,
+
+133
+00:09:02,000 --> 00:09:05,000
+we also take the conjugate.
+
+134
+00:09:05,000 --> 00:09:08,000
+So it's y Hermitian x.
+
+135
+00:09:08,000 --> 00:09:13,000
+Of course it's not real
+anymore, usually.
+
+136
+00:09:13,000 --> 00:09:18,000
+That -- the inner product will
+usually be complex number.
+
+137
+00:09:18,000 --> 00:09:22,000
+But if y and x are the same,
+if they're the same z,
+
+138
+00:09:22,000 --> 00:09:26,560
+then we have z -- z H z,
+we have the length squared,
+
+139
+00:09:26,560 --> 00:09:30,000
+and that's what we want,
+the inner product of a vector
+
+140
+00:09:30,000 --> 00:09:34,000
+with itself should be its length
+squared.
+
+141
+00:09:34,000 --> 00:09:39,000
+So this is, like,
+forced on us because this is
+
+142
+00:09:39,000 --> 00:09:40,000
+forced on us.
+
+143
+00:09:40,000 --> 00:09:45,000
+So -- so this z -- this --
+everybody's picking up what this
+
+144
+00:09:45,000 --> 00:09:46,000
+equals.
+
+145
+00:09:46,000 --> 00:09:49,000
+This is z1 squared plus zn
+squared.
+
+146
+00:09:49,000 --> 00:09:51,000
+That's the length squared.
+
+147
+00:09:51,000 --> 00:09:57,000
+And that's the inner product
+that we have to go with.
+
+148
+00:09:57,000 --> 00:10:02,000
+So it could be a complex number
+now.
+
+149
+00:10:02,000 --> 00:10:04,000
+One more change.
+
+150
+00:10:04,000 --> 00:10:07,000
+Well, two more changes.
+
+151
+00:10:07,000 --> 00:10:13,000
+We've got to change the idea of
+a symmetric matrix.
+
+152
+00:10:13,000 --> 00:10:19,000
+So I'll just recap on symmetric
+matrixes.
+
+153
+00:10:19,000 --> 00:10:26,790
+Symmetric means A transpose
+equals A, but not -- no good if
+
+154
+00:10:26,790 --> 00:10:28,510
+A is complex.
+
+155
+00:10:28,510 --> 00:10:34,000
+So what do we
+instead -- that applies
+
+156
+00:10:34,000 --> 00:10:37,000
+perfectly to real matrixes.
+
+157
+00:10:37,000 --> 00:10:42,000
+But now if my matrixes were
+complex, I want to take the
+
+158
+00:10:42,000 --> 00:10:46,000
+transpose and the conjugate to
+equal A.
+
+159
+00:10:46,000 --> 00:10:52,000
+So there's -- that's the -- the
+right complex version of
+
+160
+00:10:52,000 --> 00:10:53,000
+symmetry.
+
+161
+00:10:53,000 --> 00:10:57,000
+The com- the symmetry now means
+when
+
+162
+00:10:57,000 --> 00:11:01,000
+I transpose it,
+flip across the diagonal and
+
+163
+00:11:01,000 --> 00:11:02,000
+take conjugates.
+
+164
+00:11:02,000 --> 00:11:06,000
+So, for example -- here would
+be an example.
+
+165
+00:11:06,000 --> 00:11:09,000
+On the diagonal,
+it had better be real,
+
+166
+00:11:09,000 --> 00:11:13,000
+because when I flip it,
+the diagonal is still there and
+
+167
+00:11:13,000 --> 00:11:19,000
+it has to -- and then when
+I take the complex conjugate it
+
+168
+00:11:19,000 --> 00:11:23,000
+has to be still there,
+so it better be a real number,
+
+169
+00:11:23,000 --> 00:11:25,000
+let me say two and five.
+
+170
+00:11:25,000 --> 00:11:28,000
+What about entries off the
+diagonal?
+
+171
+00:11:28,000 --> 00:11:31,000
+If this entry is,
+say, three plus i,
+
+172
+00:11:31,000 --> 00:11:37,000
+then this entry had better be
+-- because I want whatever this
+
+173
+00:11:37,000 --> 00:11:40,000
+--
+when I transpose,
+
+174
+00:11:40,000 --> 00:11:43,000
+it'll show up here and i
+conjugate.
+
+175
+00:11:43,000 --> 00:11:46,840
+So I need three minus I there.
+
+176
+00:11:46,840 --> 00:11:52,000
+So there's a matrix with --
+that corresponds to symmetry,
+
+177
+00:11:52,000 --> 00:11:54,000
+but it's complex.
+
+178
+00:11:54,000 --> 00:11:59,000
+And those matrixes are called
+Hermitian matrixes.
+
+179
+00:11:59,000 --> 00:12:02,000
+Hermitian matrixes.
+
+180
+00:12:02,000 --> 00:12:04,000
+A H equals A.
+
+181
+00:12:04,000 --> 00:12:04,000
+Fine.
+Okay, that's -- and those
+matrixes have real eigenvalues
+
+182
+00:12:10,000 --> 00:12:14,000
+and they have perpendicular
+eigenvectors.
+
+183
+00:12:14,000 --> 00:12:17,000
+What does perpendicular mean?
+
+184
+00:12:17,000 --> 00:12:23,000
+Perpendicular means the inner
+product -- so let's go on to
+
+185
+00:12:23,000 --> 00:12:25,000
+perpendicular.
+
+186
+00:12:25,000 --> 00:12:31,000
+Well, when I had perpendicular
+vectors, for example,
+
+187
+00:12:31,000 --> 00:12:34,000
+they were like q1,
+q2 up to qn.
+
+188
+00:12:34,000 --> 00:12:39,640
+That's my -- q is my letter
+that I use for perpendicular.
+
+189
+00:12:39,640 --> 00:12:44,000
+Actually, I usually -- I also
+mean unit length.
+
+190
+00:12:44,000 --> 00:12:48,000
+So those are perpendicular unit
+vectors.
+
+191
+00:12:48,000 --> 00:12:53,000
+But now what does -- so it's a
+-- orthonormal basis,
+
+192
+00:12:53,000 --> 00:12:58,000
+I'll still use those words,
+but how do I compute
+
+193
+00:12:58,000 --> 00:12:59,370
+perpendicular?
+
+194
+00:12:59,370 --> 00:13:02,000
+How do I check perpendicular?
+
+195
+00:13:02,000 --> 00:13:07,000
+This means that the inner
+product of qi with qj -- but now
+
+196
+00:13:07,000 --> 00:13:11,000
+I not only transpose,
+I must conjugate,
+
+197
+00:13:11,000 --> 00:13:16,000
+right, to get zero if i is not
+j and one if
+
+198
+00:13:16,000 --> 00:13:17,000
+i is j.
+
+199
+00:13:17,000 --> 00:13:22,000
+So it's a unit vector,
+meaning unit length,
+
+200
+00:13:22,000 --> 00:13:27,000
+orthogonal -- all the angles
+are right angles,
+
+201
+00:13:27,000 --> 00:13:34,000
+but these are angles in complex
+n dimensional space.
+
+202
+00:13:34,000 --> 00:13:38,000
+So it's q1, q on- qi bar
+transpose.
+
+203
+00:13:38,000 --> 00:13:40,000
+Or, for short,
+qi H qj.
+
+204
+00:13:40,000 --> 00:13:48,000
+So it will still be true --
+so let me -- again I'll create
+
+205
+00:13:48,000 --> 00:13:51,000
+a matrix out of those guys.
+
+206
+00:13:51,000 --> 00:13:55,000
+The matrix will have these q-s
+in its columns,
+
+207
+00:13:55,000 --> 00:13:56,000
+q2 to qn.
+
+208
+00:13:56,000 --> 00:14:00,000
+And I want to turn that into
+matrix language,
+
+209
+00:14:00,000 --> 00:14:01,000
+just like before.
+
+210
+00:14:01,000 --> 00:14:03,000
+What does that mean?
+
+211
+00:14:03,000 --> 00:14:07,000
+That means I want all these
+inner products,
+
+212
+00:14:07,000 --> 00:14:14,000
+so I take these columns of Q,
+multiply by their rows -- so it
+
+213
+00:14:14,000 --> 00:14:21,000
+was -- it used to be Q -- it
+used to be Q transpose Q equals
+
+214
+00:14:21,000 --> 00:14:22,000
+I, right?
+
+215
+00:14:22,000 --> 00:14:26,000
+This was an orthogonal matrix.
+
+216
+00:14:26,000 --> 00:14:28,000
+But what's changed?
+
+217
+00:14:28,000 --> 00:14:31,810
+These are now complex vectors.
+
+218
+00:14:31,810 --> 00:14:38,000
+Their inner products are --
+involve conjugating the first
+
+219
+00:14:38,000 --> 00:14:39,000
+factor.
+
+220
+00:14:39,000 --> 00:14:43,000
+So it's not --
+it's the conjugate of Q
+
+221
+00:14:43,000 --> 00:14:44,000
+transpose.
+
+222
+00:14:44,000 --> 00:14:46,940
+It's Q bar transpose Q.
+
+223
+00:14:46,940 --> 00:14:47,000
+Q H.
+
+224
+00:14:47,000 --> 00:14:51,000
+So can I call this -- let me
+call it Q H Q,
+
+225
+00:14:51,000 --> 00:14:52,000
+which is I.
+
+226
+00:14:52,000 --> 00:14:57,000
+So that's our new -- you -- you
+see I'm just translating,
+
+227
+00:14:57,000 --> 00:15:02,000
+and the -- the book h- on one
+page gives a little dictionary
+
+228
+00:15:02,000 --> 00:15:08,000
+of the right words in the real
+case, R^n, and the corresponding
+
+229
+00:15:08,000 --> 00:15:13,070
+words in
+the complex case for the vector
+
+230
+00:15:13,070 --> 00:15:14,000
+space C^n.
+
+231
+00:15:14,000 --> 00:15:19,000
+Of course, C^n is a vector
+space, the numbers we multiply
+
+232
+00:15:19,000 --> 00:15:25,000
+are now complex numbers -- we're
+just moving into complex n
+
+233
+00:15:25,000 --> 00:15:26,000
+dimensional space.
+
+234
+00:15:26,000 --> 00:15:27,000
+Okay.
+
+235
+00:15:27,000 --> 00:15:31,000
+Now -- actually,
+I have to say we changed the
+
+236
+00:15:31,000 --> 00:15:36,000
+word
+symmet- symmetric to Hermitian
+
+237
+00:15:36,000 --> 00:15:37,000
+for those matrixes.
+
+238
+00:15:37,000 --> 00:15:43,000
+People also change this word
+orthogonal into another word
+
+239
+00:15:43,000 --> 00:15:48,000
+that happens to be unitary,
+as a word that applies -- that
+
+240
+00:15:48,000 --> 00:15:54,000
+signals that we might be dealing
+with a complex matrix here.
+
+241
+00:15:54,000 --> 00:15:56,000
+So what's a unitary matrix?
+
+242
+00:15:56,000 --> 00:16:02,000
+It's a -- it's just like an
+orthogonal matrix.
+
+243
+00:16:02,000 --> 00:16:06,000
+It's a square,
+n by n matrix with orthonormal
+
+244
+00:16:06,000 --> 00:16:12,000
+columns, perpendicular columns,
+unit vectors -- unit vectors
+
+245
+00:16:12,000 --> 00:16:17,000
+computed by -- and
+perpendicularity computed by
+
+246
+00:16:17,000 --> 00:16:22,000
+remembering that there's a
+conjugate as well as a
+
+247
+00:16:22,000 --> 00:16:24,000
+transpose.
+
+248
+00:16:24,000 --> 00:16:25,190
+Okay.
+
+249
+00:16:25,190 --> 00:16:27,000
+So those are the words.
+
+250
+00:16:27,000 --> 00:16:33,000
+Now I'm ready to get into the
+substance of the lecture which
+
+251
+00:16:33,000 --> 00:16:39,000
+is the most famous complex
+matrix, which happens to be one
+
+252
+00:16:39,000 --> 00:16:41,000
+of these guys.
+
+253
+00:16:41,000 --> 00:16:46,000
+It has orthogonal columns,
+and it's named after Fourier
+
+254
+00:16:46,000 --> 00:16:52,000
+because it comes into the
+Fourier transform,
+
+255
+00:16:52,000 --> 00:16:57,000
+so it's the matrix that's all
+around us.
+
+256
+00:16:57,000 --> 00:16:57,000
+Okay.
+Let me tell you what it is
+first of all in the n by n case.
+
+257
+00:17:04,000 --> 00:17:10,950
+Then often I'll let n be four
+because four is a good size to
+
+258
+00:17:10,950 --> 00:17:12,000
+work with.
+
+259
+00:17:12,000 --> 00:17:16,000
+But here's the n by n Fourier
+matrix.
+
+260
+00:17:16,000 --> 00:17:21,000
+Its first column is the vector
+of
+
+261
+00:17:21,000 --> 00:17:21,680
+ones.
+
+262
+00:17:21,680 --> 00:17:23,000
+It's n by n,
+of course.
+
+263
+00:17:23,000 --> 00:17:28,450
+Its second column is the
+powers, the -- actually,
+
+264
+00:17:28,450 --> 00:17:34,000
+better if I move from the math
+department to EE for this one
+
+265
+00:17:34,000 --> 00:17:38,000
+half hour and then,
+please, let me move back again.
+
+266
+00:17:38,000 --> 00:17:39,000
+Okay.
+
+267
+00:17:39,000 --> 00:17:44,000
+What's the difference between
+those two departments?
+
+268
+00:17:44,000 --> 00:17:49,050
+It's just math starts counting
+with
+
+269
+00:17:49,050 --> 00:17:53,430
+one and electrical engineers
+start counting at zero.
+
+270
+00:17:53,430 --> 00:17:56,000
+Actually, they're probably
+right.
+
+271
+00:17:56,000 --> 00:17:59,000
+So anyway, we'll give them --
+humor them.
+
+272
+00:17:59,000 --> 00:18:02,000
+So this is really the zeroes
+column.
+
+273
+00:18:02,000 --> 00:18:07,000
+And the first column up to the
+n-1, that's the one inconvenient
+
+274
+00:18:07,000 --> 00:18:11,000
+spot in electrical engineering.
+
+275
+00:18:11,000 --> 00:18:15,840
+All these expressions start at
+zero, no problem,
+
+276
+00:18:15,840 --> 00:18:17,000
+but they end at n-1.
+
+277
+00:18:17,000 --> 00:18:22,140
+Well, that's -- that's the
+difficulty of Course 6.
+
+278
+00:18:22,140 --> 00:18:27,000
+So what's -- they're the powers
+of a number that I'm going to
+
+279
+00:18:27,000 --> 00:18:32,000
+call W -- W squared,
+W cubed, W to the -- now what
+
+280
+00:18:32,000 --> 00:18:34,000
+is the W here?
+
+281
+00:18:34,000 --> 00:18:35,000
+What's the power?
+
+282
+00:18:35,000 --> 00:18:39,000
+This was the zeroes power,
+first power,
+
+283
+00:18:39,000 --> 00:18:42,690
+second power,
+this will be n minus first
+
+284
+00:18:42,690 --> 00:18:43,000
+power.
+
+285
+00:18:43,000 --> 00:18:44,000
+That's the column.
+
+286
+00:18:44,000 --> 00:18:46,000
+What's the next column?
+
+287
+00:18:46,000 --> 00:18:50,000
+It's the powers of W squared,
+W to the fourth,
+
+288
+00:18:50,000 --> 00:18:53,780
+W to the sixth,
+W to the two n-1.
+
+289
+00:18:53,780 --> 00:19:00,000
+And then more columns and more
+columns and more columns and
+
+290
+00:19:00,000 --> 00:19:02,000
+what's the last column?
+
+291
+00:19:02,000 --> 00:19:05,000
+It's the powers of -- let's
+see.
+
+292
+00:19:05,000 --> 00:19:08,000
+We -- actually,
+if we look around rows,
+
+293
+00:19:08,000 --> 00:19:11,000
+w- this matrix is symmetric.
+
+294
+00:19:11,000 --> 00:19:15,000
+It's symmetric in the old not
+quite perfect way,
+
+295
+00:19:15,000 --> 00:19:20,310
+not perfect because these
+numbers are complex.
+
+296
+00:19:20,310 --> 00:19:24,000
+And so it's -- that first row
+is all ones.
+
+297
+00:19:24,000 --> 00:19:27,000
+One W W squared up to W to the
+n-1.
+
+298
+00:19:27,000 --> 00:19:33,000
+That's the last column is the
+powers of W to the n-1,
+
+299
+00:19:33,000 --> 00:19:37,000
+so this guy matches that,
+and finally we get W to
+
+300
+00:19:37,000 --> 00:19:40,000
+something
+here.
+
+301
+00:19:40,000 --> 00:19:45,000
+I guess we could actually
+figure out what that something
+
+302
+00:19:45,000 --> 00:19:46,000
+is.
+
+303
+00:19:46,000 --> 00:19:49,630
+What are the entries of this
+matrix?
+
+304
+00:19:49,630 --> 00:19:55,000
+The i j entry of this matrix
+are -- I going to -- are you
+
+305
+00:19:55,000 --> 00:20:00,000
+going to allow me to let i go
+from zero to n minus one?
+
+306
+00:20:00,000 --> 00:20:05,000
+So i and g go from zero
+to n-1.
+
+307
+00:20:05,000 --> 00:20:11,000
+So the one -- the zero zero
+entry is a one -- it's just this
+
+308
+00:20:11,000 --> 00:20:15,000
+same W guy to the power i times
+j.
+
+309
+00:20:15,000 --> 00:20:16,000
+Let's see.
+
+310
+00:20:16,000 --> 00:20:23,000
+I'm jumping into formulas here
+and I have to tell you what W is
+
+311
+00:20:23,000 --> 00:20:29,000
+and then you know everything
+about this matrix.
+
+312
+00:20:29,000 --> 00:20:33,000
+So W is the -- well,
+shall we finish here?
+
+313
+00:20:33,000 --> 00:20:37,440
+What was this -- this is the
+(n-1) (n-1) entry.
+
+314
+00:20:37,440 --> 00:20:40,000
+This is W to the n-1 squared.
+
+315
+00:20:40,000 --> 00:20:45,000
+Everything's looking like a
+mess here, because we have --
+
+316
+00:20:45,000 --> 00:20:50,000
+not too bad, because all the
+entries are powers of W.
+
+317
+00:20:50,000 --> 00:20:54,040
+There -- none of them are zero.
+
+318
+00:20:54,040 --> 00:20:56,000
+This is a full matrix.
+
+319
+00:20:56,000 --> 00:21:00,000
+But W is a very special number.
+
+320
+00:21:00,000 --> 00:21:05,000
+W is the special number whose
+n-th power is one.
+
+321
+00:21:05,000 --> 00:21:10,000
+In fact -- well,
+actually, there are n numbers
+
+322
+00:21:10,000 --> 00:21:11,000
+like that.
+
+323
+00:21:11,000 --> 00:21:14,000
+One of them is one,
+of course.
+
+324
+00:21:14,000 --> 00:21:21,000
+But the one we --
+the W we want is -- the angle
+
+325
+00:21:21,000 --> 00:21:23,890
+is two pi over n.
+
+326
+00:21:23,890 --> 00:21:28,000
+Is that what I mean?
+n over two pi.
+
+327
+00:21:28,000 --> 00:21:30,000
+No, two pi over n.
+
+328
+00:21:30,000 --> 00:21:36,000
+W is E to the I and the angle
+is two pi over n.
+
+329
+00:21:36,000 --> 00:21:37,000
+Right.
+
+330
+00:21:37,000 --> 00:21:41,000
+Where is this W in the complex
+plane?
+
+331
+00:21:41,000 --> 00:21:47,450
+It's -- it's on the unit
+circle,
+
+332
+00:21:47,450 --> 00:21:48,000
+right?
+
+333
+00:21:48,000 --> 00:21:54,000
+This is -- it's the cosine of
+two pi over n plus I times the
+
+334
+00:21:54,000 --> 00:21:56,000
+sine of two pi over n.
+
+335
+00:21:56,000 --> 00:21:59,000
+But actually,
+forget this.
+
+336
+00:21:59,000 --> 00:22:05,000
+It's never good to work with
+the real and imaginary parts,
+
+337
+00:22:05,000 --> 00:22:10,000
+the rectangular coordinates,
+when we're taking powers.
+
+338
+00:22:10,000 --> 00:22:16,000
+To take that to the tenth
+power, we can't see what we're
+
+339
+00:22:16,000 --> 00:22:17,000
+doing.
+
+340
+00:22:17,000 --> 00:22:21,000
+To take this form to the tenth
+power, we see immediately what
+
+341
+00:22:21,000 --> 00:22:22,560
+we're doing.
+
+342
+00:22:22,560 --> 00:22:25,000
+It would be e to the i 20 pi
+over n.
+
+343
+00:22:25,000 --> 00:22:29,000
+So when our matrix is full of
+powers -- so it's this formula,
+
+344
+00:22:29,000 --> 00:22:32,000
+and where is this on the
+complex plain?
+
+345
+00:22:32,000 --> 00:22:37,000
+Here are the real numbers,
+here's the imaginary axis,
+
+346
+00:22:37,000 --> 00:22:42,000
+here's the unit circle of
+radius one, and this number is
+
+347
+00:22:42,000 --> 00:22:47,000
+on the unit circle at this
+angle, which is one n-th of the
+
+348
+00:22:47,000 --> 00:22:48,000
+full way round.
+
+349
+00:22:48,000 --> 00:22:51,000
+So if I drew,
+for example,
+
+350
+00:22:51,000 --> 00:22:56,000
+n equals six,
+this would be e to the two pi,
+
+351
+00:22:56,000 --> 00:23:00,000
+two pi over six,
+it would be one sixth of the
+
+352
+00:23:00,000 --> 00:23:03,000
+way around, it would be 60
+degrees.
+
+353
+00:23:03,000 --> 00:23:05,000
+And where is W squared?
+
+354
+00:23:05,000 --> 00:23:10,000
+So I -- my W is e to the two pi
+I over six in this case,
+
+355
+00:23:10,000 --> 00:23:15,000
+in this six by -- for the six
+by six Fourier transform,
+
+356
+00:23:15,000 --> 00:23:19,000
+it's totally constructed out of
+this
+
+357
+00:23:19,000 --> 00:23:21,000
+number and its powers.
+
+358
+00:23:21,000 --> 00:23:23,000
+So what are its powers?
+
+359
+00:23:23,000 --> 00:23:27,000
+Well, its powers are on the
+unit circle, right?
+
+360
+00:23:27,000 --> 00:23:31,000
+Because when I square a number,
+a complex number,
+
+361
+00:23:31,000 --> 00:23:35,570
+I square its absolute value,
+which gives me one again.
+
+362
+00:23:35,570 --> 00:23:40,000
+All the powers have -- are on
+the unit circle.
+
+363
+00:23:40,000 --> 00:23:45,000
+And the -- the angle gets
+doubled to a hundred and twenty,
+
+364
+00:23:45,000 --> 00:23:48,000
+so there's W squared,
+there's W cubed,
+
+365
+00:23:48,000 --> 00:23:52,000
+there's W to the fourth,
+there's W to the fifth and
+
+366
+00:23:52,000 --> 00:23:55,000
+there is W to the sixth,
+as we hoped,
+
+367
+00:23:55,000 --> 00:23:58,000
+W to the sixth coming back to
+one.
+
+368
+00:23:58,000 --> 00:24:02,000
+So those are the six -- can I
+say this on TV?
+
+369
+00:24:02,000 --> 00:24:07,000
+The six sixth roots of one,
+and it's this one,
+
+370
+00:24:07,000 --> 00:24:11,000
+the primitive one we say,
+the first one,
+
+371
+00:24:11,000 --> 00:24:12,000
+which is W.
+
+372
+00:24:12,000 --> 00:24:18,000
+Okay, so what -- let me change
+-- let me -- I said I would
+
+373
+00:24:18,000 --> 00:24:21,000
+probably switch to n equal four.
+
+374
+00:24:21,000 --> 00:24:23,000
+What's W for that?
+
+375
+00:24:23,000 --> 00:24:25,000
+It's the fourth root of one.
+
+376
+00:24:25,000 --> 00:24:28,000
+W to the fourth will be one.
+
+377
+00:24:28,000 --> 00:24:32,890
+W will be e to the two pi i
+over
+
+378
+00:24:32,890 --> 00:24:34,000
+four now.
+
+379
+00:24:34,000 --> 00:24:35,000
+What's that?
+
+380
+00:24:35,000 --> 00:24:39,000
+This is e to the i pi over two.
+
+381
+00:24:39,000 --> 00:24:45,000
+This is a quarter of the way
+around the unit circle,
+
+382
+00:24:45,000 --> 00:24:51,000
+and that's exactly i,
+a quarter of the way around.
+
+383
+00:24:51,000 --> 00:24:55,000
+And sure enough,
+the powers are i,
+
+384
+00:24:55,000 --> 00:25:02,000
+i squared, which is minus one,
+i cubed,
+
+385
+00:25:02,000 --> 00:25:07,000
+which is minus i and finally i
+to the fourth which is one,
+
+386
+00:25:07,000 --> 00:25:08,000
+right.
+
+387
+00:25:08,000 --> 00:25:11,000
+So there's W,
+W squared, W cubed,
+
+388
+00:25:11,000 --> 00:25:17,000
+W to the fourth -- I'm really
+ready to write down this Fourier
+
+389
+00:25:17,000 --> 00:25:21,000
+matrix for the four by four
+case, just so we see that
+
+390
+00:25:21,000 --> 00:25:22,000
+clearly.
+
+391
+00:25:22,000 --> 00:25:24,000
+Let me do it here.
+
+392
+00:25:24,000 --> 00:25:30,000
+F4 is -- all right,
+one one one one one one one W
+
+393
+00:25:30,000 --> 00:25:31,000
+-- it's I.
+
+394
+00:25:31,000 --> 00:25:32,000
+I squared.
+
+395
+00:25:32,000 --> 00:25:36,000
+That's minus one.
+i cubed is minus i.
+
+396
+00:25:36,000 --> 00:25:41,000
+I'll -- I could write i squared
+and i cubed.
+
+397
+00:25:41,000 --> 00:25:45,000
+Why don't I,
+just so we see the pattern for
+
+398
+00:25:45,000 --> 00:25:48,000
+sure.
+i squared,
+
+399
+00:25:48,000 --> 00:25:52,490
+i cubed, i squared,
+i cubed, i fourth,
+
+400
+00:25:52,490 --> 00:25:56,000
+i sixth -- i fourth,
+i sixth and i ninth.
+
+401
+00:25:56,000 --> 00:26:02,000
+You see the exponents fall in
+this nice -- the exponent is the
+
+402
+00:26:02,000 --> 00:26:08,000
+row number times the column
+number, always starting at zero.
+
+403
+00:26:08,000 --> 00:26:08,000
+Okay.
+And now I can put in those
+numbers if you like -- one one
+
+404
+00:26:14,000 --> 00:26:19,000
+one one,
+one i minus one minus i,
+
+405
+00:26:19,000 --> 00:26:25,000
+one minus one,
+one minus one and one minus i
+
+406
+00:26:25,000 --> 00:26:27,000
+minus one i.
+
+407
+00:26:27,000 --> 00:26:27,000
+No.
+Yes.
+
+408
+00:26:28,000 --> 00:26:29,000
+Right.
+
+409
+00:26:29,000 --> 00:26:36,560
+What's -- why do I think that
+matrix is so remarkable?
+
+410
+00:26:36,560 --> 00:26:44,000
+It's the four by four matrix
+that comes into the four point
+
+411
+00:26:44,000 --> 00:26:47,000
+Fourier transform.
+
+412
+00:26:47,000 --> 00:26:53,000
+When we want to find the
+Fourier
+
+413
+00:26:53,000 --> 00:26:57,000
+transform, the four point
+Fourier transform of a vector
+
+414
+00:26:57,000 --> 00:27:02,000
+with four components,
+we want to multiply by this F4
+
+415
+00:27:02,000 --> 00:27:05,000
+or we want to multiply by F4
+inverse.
+
+416
+00:27:05,000 --> 00:27:09,610
+One way we're taking the
+transform, one way we're taking
+
+417
+00:27:09,610 --> 00:27:11,000
+the inverse transform.
+
+418
+00:27:11,000 --> 00:27:15,290
+Actually, they're so close that
+it's
+
+419
+00:27:15,290 --> 00:27:17,000
+easy to confuse the two.
+
+420
+00:27:17,000 --> 00:27:22,330
+The inverse of this matrix will
+be a nice matrix also.
+
+421
+00:27:22,330 --> 00:27:26,000
+So -- and that's,
+of course, what makes it --
+
+422
+00:27:26,000 --> 00:27:29,000
+that -- I guess Fourier knew
+that.
+
+423
+00:27:29,000 --> 00:27:32,000
+He knew the inverse of this
+matrix.
+
+424
+00:27:32,000 --> 00:27:36,000
+A- as you'll see,
+it just comes from the fact
+
+425
+00:27:36,000 --> 00:27:40,000
+that the
+columns are orthogonal -- from
+
+426
+00:27:40,000 --> 00:27:45,000
+the fact that the columns are
+orthogonal, we will quickly
+
+427
+00:27:45,000 --> 00:27:48,000
+figure out what is the inverse.
+
+428
+00:27:48,000 --> 00:27:53,000
+What Fourier didn't know --
+didn't notice -- I think Gauss
+
+429
+00:27:53,000 --> 00:27:58,000
+noticed it but didn't make a
+point of it and then
+
+430
+00:27:58,000 --> 00:28:03,000
+it turned out to be really
+important was the fact that this
+
+431
+00:28:03,000 --> 00:28:08,000
+matrix is so special that you
+can break it up into nice pieces
+
+432
+00:28:08,000 --> 00:28:12,000
+with lots of zeroes,
+factors that have lots of
+
+433
+00:28:12,000 --> 00:28:16,660
+zeroes and multiply by it or by
+its inverse very,
+
+434
+00:28:16,660 --> 00:28:17,000
+very fast.
+
+435
+00:28:17,000 --> 00:28:17,000
+Okay.
+But how did it get into this
+lecture first?
+
+436
+00:28:22,000 --> 00:28:26,000
+Because the columns are
+orthogonal.
+
+437
+00:28:26,000 --> 00:28:32,000
+Can I just check that the
+columns of this matrix are
+
+438
+00:28:32,000 --> 00:28:33,000
+orthogonal?
+
+439
+00:28:33,000 --> 00:28:40,000
+So the inner product of that
+column with that column is zero.
+
+440
+00:28:40,000 --> 00:28:46,000
+The inner product of column one
+with column three is zero.
+
+441
+00:28:46,000 --> 00:28:51,000
+How about the inner product of
+two and four?
+
+442
+00:28:51,000 --> 00:28:57,000
+Can I take the inner product of
+column two
+
+443
+00:28:57,000 --> 00:28:59,660
+with column four?
+
+444
+00:28:59,660 --> 00:29:05,000
+Or even the inner product of
+two with three,
+
+445
+00:29:05,000 --> 00:29:13,000
+let's -- let's see,
+does that -- let me do two and
+
+446
+00:29:13,000 --> 00:29:13,000
+four.
+Okay.
+
+447
+00:29:14,000 --> 00:29:18,000
+What -- oh, I see,
+yes, hmm.
+
+448
+00:29:18,000 --> 00:29:18,000
+Hmm.
+Let's see, I believe that those
+two columns are
+
+449
+00:29:27,000 --> 00:29:28,000
+orthogonal.
+
+450
+00:29:28,000 --> 00:29:32,000
+So let me take their inner
+product and hope to get zero.
+
+451
+00:29:32,000 --> 00:29:36,000
+Okay, now if you hadn't
+listened to the first half of
+
+452
+00:29:36,000 --> 00:29:39,000
+this lecture,
+when you took the inner product
+
+453
+00:29:39,000 --> 00:29:42,000
+of that with that,
+you would have multiplied one
+
+454
+00:29:42,000 --> 00:29:46,000
+by one, i by minus i,
+and that would have given you
+
+455
+00:29:46,000 --> 00:29:50,000
+one,
+minus one by minus one would
+
+456
+00:29:50,000 --> 00:29:55,000
+have given you another one minus
+I by I would have been minus I
+
+457
+00:29:55,000 --> 00:29:57,000
+squared, that's another one.
+
+458
+00:29:57,000 --> 00:30:02,980
+So do I conclude that the inner
+product of columns -- I said
+
+459
+00:30:02,980 --> 00:30:07,000
+columns two and four,
+that's because I forgot those
+
+460
+00:30:07,000 --> 00:30:09,000
+are columns one and three.
+
+461
+00:30:09,000 --> 00:30:14,000
+I'm interested in their inner
+product and I'm hoping it's
+
+462
+00:30:14,000 --> 00:30:17,060
+zero, but it doesn't look like
+zero.
+
+463
+00:30:17,060 --> 00:30:18,000
+Nevertheless,
+it is zero.
+
+464
+00:30:18,000 --> 00:30:20,000
+Those columns are
+perpendicular.
+
+465
+00:30:20,000 --> 00:30:21,000
+Why?
+
+466
+00:30:21,000 --> 00:30:23,000
+Because the inner product -- we
+conjugate.
+
+467
+00:30:23,000 --> 00:30:27,000
+Do you remember that the -- one
+of the vectors in the inner
+
+468
+00:30:27,000 --> 00:30:30,000
+product has to get conjugated.
+
+469
+00:30:30,000 --> 00:30:35,000
+So when I conjugated,
+it changes that i to a minus i,
+
+470
+00:30:35,000 --> 00:30:40,760
+changes this to a plus i,
+changes those -- that second
+
+471
+00:30:40,760 --> 00:30:44,000
+sine and that fourth sine and I
+do get zero.
+
+472
+00:30:44,000 --> 00:30:47,000
+So those columns are
+orthogonal.
+
+473
+00:30:47,000 --> 00:30:50,000
+So columns are orthogonal.
+
+474
+00:30:50,000 --> 00:30:53,000
+They're not quite orthonormal.
+
+475
+00:30:53,000 --> 00:30:56,330
+But I could fix that easily.
+
+476
+00:30:56,330 --> 00:30:59,000
+They -- all those columns have
+length two.
+
+477
+00:30:59,000 --> 00:31:04,000
+Length squared is four,
+like this -- the four I had
+
+478
+00:31:04,000 --> 00:31:08,000
+there -- this length squared,
+one plus -- one squared one
+
+479
+00:31:08,000 --> 00:31:14,000
+squared one squared one squared
+is four, square root is two --
+
+480
+00:31:14,000 --> 00:31:20,000
+so if I really wanted them --
+suppose I really wanted to fix
+
+481
+00:31:20,000 --> 00:31:24,000
+life perfectly,
+I could divide by two,
+
+482
+00:31:24,000 --> 00:31:29,500
+and now I have columns that are
+actually orthonormal.
+
+483
+00:31:29,500 --> 00:31:30,000
+So what?
+
+484
+00:31:30,000 --> 00:31:33,000
+So I can invert right away,
+right?
+
+485
+00:31:33,000 --> 00:31:39,000
+O- orthonormal columns means --
+now I'm keeping this one half in
+
+486
+00:31:39,000 --> 00:31:44,000
+here for the
+moment -- c- means F4
+
+487
+00:31:44,000 --> 00:31:50,000
+Hermitian, can I use that,
+conjugate transpose times F4 is
+
+488
+00:31:50,000 --> 00:31:50,000
+i.
+So I see what the inverse is.
+
+489
+00:31:53,000 --> 00:31:58,000
+The inverse of F4 is -- it's
+just like an -- an orthogonal
+
+490
+00:31:58,000 --> 00:31:59,000
+matrix.
+
+491
+00:31:59,000 --> 00:32:04,000
+The inverse is the transpose --
+here the inverse is the
+
+492
+00:32:04,000 --> 00:32:08,000
+conjugate transpose.
+
+493
+00:32:08,000 --> 00:32:08,000
+So, fine.
+That -- that tells me that
+anything good that I learn about
+
+494
+00:32:13,000 --> 00:32:19,000
+F4 I'll know the same -- I'll
+know a similar fact about its
+
+495
+00:32:19,000 --> 00:32:24,000
+inverse, because its inverse is
+just its conjugate transpose.
+
+496
+00:32:24,000 --> 00:32:27,000
+Okay, now -- so what's good?
+
+497
+00:32:27,000 --> 00:32:30,000
+Well, first,
+the columns are orthogonal.
+
+498
+00:32:30,000 --> 00:32:32,000
+That's a key fact,
+then.
+
+499
+00:32:32,000 --> 00:32:35,000
+That's the thing that makes the
+inverse easy.
+
+500
+00:32:35,000 --> 00:32:39,000
+But what property is it that
+leads to the fast Fourier
+
+501
+00:32:39,000 --> 00:32:40,000
+transform?
+
+502
+00:32:40,000 --> 00:32:43,000
+So now I'm going to talk,
+in these last minutes,
+
+503
+00:32:43,000 --> 00:32:46,000
+about the fast Fourier
+transform.
+
+504
+00:32:46,000 --> 00:32:49,000
+What -- here's the idea.
+
+505
+00:32:49,000 --> 00:32:54,000
+F6, our six by six matrix,
+will c- there's a neat
+
+506
+00:32:54,000 --> 00:32:57,000
+connection to F3,
+half as big.
+
+507
+00:32:57,000 --> 00:33:00,000
+There's a connection of F8 to
+F4.
+
+508
+00:33:00,000 --> 00:33:04,000
+There's a connection of F(64)
+to F(32).
+
+509
+00:33:04,000 --> 00:33:08,000
+Shall I write down what that
+connection is?
+
+510
+00:33:08,000 --> 00:33:13,000
+What's the connection of F(64)
+to F(32)?
+
+511
+00:33:13,000 --> 00:33:21,000
+So F(64) is a 64 by 64 matrix
+whose W is the 64th root of one.
+
+512
+00:33:21,000 --> 00:33:26,560
+So it's one 64th of the way
+round in F(64).
+
+513
+00:33:26,560 --> 00:33:32,000
+And it -- do- and F(32) is a 32
+by 32 matrix.
+
+514
+00:33:32,000 --> 00:33:36,000
+Remember, they're different
+sizes.
+
+515
+00:33:36,000 --> 00:33:43,000
+And the W in that 32 by 32
+matrix is the 32nd root of one,
+
+516
+00:33:43,000 --> 00:33:50,000
+which is twice as far --
+that -- you sh- see that key
+
+517
+00:33:50,000 --> 00:33:55,000
+point -- that's the -- that's
+how 32 and 64 are connected in
+
+518
+00:33:55,000 --> 00:33:56,000
+the Ws.
+
+519
+00:33:56,000 --> 00:34:02,000
+The W for 64 is one 64th of the
+way -- so all I'm saying is that
+
+520
+00:34:02,000 --> 00:34:07,000
+if I square the W -- W(64),
+that's what I'm using for the
+
+521
+00:34:07,000 --> 00:34:12,000
+one over -- the -- W sixty f-
+this Wn is either the i two pi
+
+522
+00:34:12,000 --> 00:34:17,830
+over n --
+so W(64) is one 64th of the way
+
+523
+00:34:17,830 --> 00:34:19,000
+around it.
+
+524
+00:34:19,000 --> 00:34:24,000
+When I square that,
+what do I get but W(32)?
+
+525
+00:34:24,000 --> 00:34:24,000
+Right?
+If I square this matrix,
+I double the angle -- if I
+
+526
+00:34:30,000 --> 00:34:35,000
+square this number,
+I double the angle,
+
+527
+00:34:35,000 --> 00:34:37,000
+I get, the -- the W(32).
+
+528
+00:34:37,000 --> 00:34:43,000
+So somehow there's a little
+hope
+
+529
+00:34:43,000 --> 00:34:46,000
+here to connect F(64) with
+F(32).
+
+530
+00:34:46,000 --> 00:34:49,000
+And here's the connection.
+
+531
+00:34:49,000 --> 00:34:49,000
+Okay.
+Let me -- let me go back,
+-- yes, let me -- I'll do it
+
+532
+00:34:55,000 --> 00:34:56,000
+here.
+
+533
+00:34:56,000 --> 00:34:58,000
+Here's the connection.
+
+534
+00:34:58,000 --> 00:34:59,000
+F(64).
+
+535
+00:34:59,000 --> 00:35:05,000
+The 64 by 64 Fourier matrix is
+connected to two copies of
+
+536
+00:35:05,000 --> 00:35:06,000
+F(32).
+
+537
+00:35:06,000 --> 00:35:11,000
+Let me leave a little space for
+the connection.
+
+538
+00:35:11,000 --> 00:35:13,000
+So this is 64 by 64.
+
+539
+00:35:13,000 --> 00:35:18,000
+Here's a matrix of that same
+size,
+
+540
+00:35:18,000 --> 00:35:23,000
+because it's got two copies of
+F(32) and two zero matrixes.
+
+541
+00:35:23,000 --> 00:35:28,000
+Those zero matrixes are the
+key, because when I multiply by
+
+542
+00:35:28,000 --> 00:35:32,000
+this matrix, just as it is,
+regular multiplication,
+
+543
+00:35:32,000 --> 00:35:37,000
+I would take -- need 64 -- I
+would -- I would have 64 squared
+
+544
+00:35:37,000 --> 00:35:40,000
+little multiplications to do.
+
+545
+00:35:40,000 --> 00:35:43,000
+But this matrix is half zero.
+
+546
+00:35:43,000 --> 00:35:47,000
+Well, of course,
+the two aren't equal.
+
+547
+00:35:47,000 --> 00:35:52,000
+I'm going to put an equals
+sign, but there has to be some
+
+548
+00:35:52,000 --> 00:35:58,000
+fix up factors -- one there and
+one there -- to make it true.
+
+549
+00:35:58,000 --> 00:36:05,000
+The beauty is that these fix up
+factors will be really -- almost
+
+550
+00:36:05,000 --> 00:36:07,000
+all zeroes.
+
+551
+00:36:07,000 --> 00:36:11,000
+So that as soon as we get this
+formula right,
+
+552
+00:36:11,000 --> 00:36:16,490
+we've got a great idea for how
+to get from the sixty- from the
+
+553
+00:36:16,490 --> 00:36:21,000
+64 squared calculations -- so
+this original -- originally we
+
+554
+00:36:21,000 --> 00:36:26,750
+have 64 squared calculations
+from there, but this one will
+
+555
+00:36:26,750 --> 00:36:30,000
+give us -- this is -- this will
+--
+
+556
+00:36:30,000 --> 00:36:35,000
+we don't need that many -- we
+only need two times 32 squared,
+
+557
+00:36:35,000 --> 00:36:38,000
+because we've got that twice.
+
+558
+00:36:38,000 --> 00:36:40,000
+And -- plus the fix-up.
+
+559
+00:36:40,000 --> 00:36:45,000
+So I have to tell you what's in
+this fix-up matrix.
+
+560
+00:36:45,000 --> 00:36:49,000
+The one on the right is
+actually a permutation matrix,
+
+561
+00:36:49,000 --> 00:36:54,000
+a very simple odds and evens
+permutation matrix,
+
+562
+00:36:54,000 --> 00:36:58,530
+the --
+ones show up -- I haven't put
+
+563
+00:36:58,530 --> 00:37:04,000
+enough ones, I really need a --
+32 of these guys at -- double
+
+564
+00:37:04,000 --> 00:37:10,000
+space and then -- you see it's
+-- it's a permutation matrix.
+
+565
+00:37:10,000 --> 00:37:16,000
+What it does -- shall I call it
+P for permutation matrix?
+
+566
+00:37:16,000 --> 00:37:22,000
+So what that P does when it
+multiplies a vector,
+
+567
+00:37:22,000 --> 00:37:27,000
+it takes the odd -- the even
+numbered components first and
+
+568
+00:37:27,000 --> 00:37:29,000
+then the odds.
+
+569
+00:37:29,000 --> 00:37:34,000
+You see this -- this one
+skipping every time is going to
+
+570
+00:37:34,000 --> 00:37:38,760
+pick out x0, x2,
+x4, x6 and then below that will
+
+571
+00:37:38,760 --> 00:37:41,000
+come --
+will pick out x1,
+
+572
+00:37:41,000 --> 00:37:42,000
+x3, x5.
+
+573
+00:37:42,000 --> 00:37:46,000
+And of course,
+that can be hard wired in the
+
+574
+00:37:46,000 --> 00:37:49,000
+computer to be instantaneous.
+
+575
+00:37:49,000 --> 00:37:53,000
+So that says -- so far,
+what have we said?
+
+576
+00:37:53,000 --> 00:37:59,310
+We're saying that the 64 by 64
+Fourier matrix is really
+
+577
+00:37:59,310 --> 00:38:04,000
+separated into --
+separate your vector into the
+
+578
+00:38:04,000 --> 00:38:08,000
+odd -- into the even components
+and the odd components,
+
+579
+00:38:08,000 --> 00:38:13,000
+then do a 32 size Fourier
+transform onto those separately,
+
+580
+00:38:13,000 --> 00:38:16,000
+and then put the pieces
+together again.
+
+581
+00:38:16,000 --> 00:38:21,000
+So the pieces -- putting them
+together turns them out
+
+582
+00:38:21,000 --> 00:38:26,000
+to be I and a diagonal matrix
+and I and a minus,
+
+583
+00:38:26,000 --> 00:38:28,000
+that same diagonal matrix.
+
+584
+00:38:28,000 --> 00:38:34,000
+So the fix-up cost is really
+the cost of multiplying by D,
+
+585
+00:38:34,000 --> 00:38:39,000
+this diagonal matrix,
+because there's essentially no
+
+586
+00:38:39,000 --> 00:38:44,110
+cost in -- in the I part or in
+the permutation part,
+
+587
+00:38:44,110 --> 00:38:48,000
+so really it's -- the fix-up
+cost is
+
+588
+00:38:48,000 --> 00:38:53,000
+essentially because D is
+diagonal -- is 32
+
+589
+00:38:53,000 --> 00:38:54,000
+multiplications.
+
+590
+00:38:54,000 --> 00:39:01,000
+That's the -- there you're
+seeing -- of course we didn't
+
+591
+00:39:01,000 --> 00:39:06,000
+check the formula or we didn't
+even say what D is yet,
+
+592
+00:39:06,000 --> 00:39:13,000
+but I will -- this diagonal
+matrix D is powers of W -- one W
+
+593
+00:39:13,000 --> 00:39:18,000
+W squared down to W to the 31st.
+
+594
+00:39:18,000 --> 00:39:22,000
+So you see that when I -- to do
+a multiplication by D,
+
+595
+00:39:22,000 --> 00:39:25,000
+I need to do 32
+multiplications.
+
+596
+00:39:25,000 --> 00:39:26,000
+There they are.
+
+597
+00:39:26,000 --> 00:39:31,000
+Then -- but the other,
+the more serious work is to do
+
+598
+00:39:31,000 --> 00:39:35,000
+the F(32) twice on the --
+separately on the even numbered
+
+599
+00:39:35,000 --> 00:39:40,000
+and odd numbered components,
+so twice 32 squared.
+
+600
+00:39:40,000 --> 00:39:43,000
+So 64 squared is gone now.
+
+601
+00:39:43,000 --> 00:39:46,000
+And that's the new count.
+
+602
+00:39:46,000 --> 00:39:49,000
+Okay, great,
+but what next?
+
+603
+00:39:49,000 --> 00:39:56,000
+So that's -- I -- we now have
+the key idea -- we would have to
+
+604
+00:39:56,000 --> 00:40:02,000
+check the algebra,
+but it's just checking a lot of
+
+605
+00:40:02,000 --> 00:40:05,000
+sums that come out correctly.
+
+606
+00:40:05,000 --> 00:40:11,000
+This is right --
+the right way to see the fast
+
+607
+00:40:11,000 --> 00:40:15,000
+Fourier transform,
+or one right way to see it.
+
+608
+00:40:15,000 --> 00:40:19,000
+Then you've got to see what's
+the next idea.
+
+609
+00:40:19,000 --> 00:40:22,000
+The next idea is to break the
+32s down.
+
+610
+00:40:22,000 --> 00:40:24,000
+Break those 32s down.
+
+611
+00:40:24,000 --> 00:40:30,000
+So we have this factor,
+and now we have the F(32),
+
+612
+00:40:30,000 --> 00:40:35,590
+but that breaks into some guy
+here -- F thirty- F six- F(16)
+
+613
+00:40:35,590 --> 00:40:36,000
+-- F(16).
+
+614
+00:40:36,000 --> 00:40:41,000
+Each -- each F(32) is breaking
+into two copies of F(16),
+
+615
+00:40:41,000 --> 00:40:47,000
+and then we have a permutation
+and then the -- so this is a --
+
+616
+00:40:47,000 --> 00:40:51,950
+like, this was a 64 size
+permutation, this is a 32 size
+
+617
+00:40:51,950 --> 00:40:55,000
+permutation -- I guess I've got
+it twice.
+
+618
+00:40:55,000 --> 00:41:00,000
+So it's -- I'm --
+I'm just using the same idea
+
+619
+00:41:00,000 --> 00:41:05,000
+recursively -- recursion is the
+key word -- that on each of
+
+620
+00:41:05,000 --> 00:41:11,000
+those F(32)s -- so here's zero
+zero -- it's just -- to get
+
+621
+00:41:11,000 --> 00:41:16,000
+F(32) -- this is the odd even
+permutations -- so you see,
+
+622
+00:41:16,000 --> 00:41:21,000
+we're -- the combination of
+those permutations,
+
+623
+00:41:21,000 --> 00:41:22,000
+what's it doing?
+
+624
+00:41:22,000 --> 00:41:28,000
+This guy separates into odds --
+in -- into evens and odds,
+
+625
+00:41:28,000 --> 00:41:33,000
+and then this guy separates the
+evens into the ones -- the
+
+626
+00:41:33,000 --> 00:41:39,000
+numbers that are mult- the even
+evens, which means zero four
+
+627
+00:41:39,000 --> 00:41:43,000
+eight sixteen -- and even odds,
+which means two,
+
+628
+00:41:43,000 --> 00:41:48,000
+six, ten, fourteen -- and then
+odd evens and
+
+629
+00:41:48,000 --> 00:41:49,650
+odd odds.
+
+630
+00:41:49,650 --> 00:41:54,000
+You see, together these
+permutations then break it --
+
+631
+00:41:54,000 --> 00:42:00,000
+break our vector down into x,
+even even and three other
+
+632
+00:42:00,000 --> 00:42:01,000
+pieces.
+
+633
+00:42:01,000 --> 00:42:07,000
+Those are the four pieces that
+separately get multiplied by
+
+634
+00:42:07,000 --> 00:42:13,000
+F(16) -- separately fixed up by
+these Is and Ds and Is and minus
+
+635
+00:42:13,000 --> 00:42:18,000
+Ds -- so this count is now
+reduced.
+
+636
+00:42:18,000 --> 00:42:21,610
+This count is now -- what's it
+reduced to?
+
+637
+00:42:21,610 --> 00:42:26,000
+So that's going to be gone,
+because 32 squared -- that's --
+
+638
+00:42:26,000 --> 00:42:29,000
+that's the change I'm making,
+right?
+
+639
+00:42:29,000 --> 00:42:34,000
+The 32 squared -- w- so -- so
+it's this that's now reduced.
+
+640
+00:42:34,000 --> 00:42:39,000
+So I still have two times it,
+but now what's 32 squared?
+
+641
+00:42:39,000 --> 00:42:45,000
+It's gone in favor of two
+sixteen squareds plus sixteen.
+
+642
+00:42:45,000 --> 00:42:50,000
+That's -- and then the original
+32 to fix.
+
+643
+00:42:50,000 --> 00:42:54,000
+Maybe you see what's happening.
+
+644
+00:42:54,000 --> 00:43:01,000
+Even easier than this formula
+is w- what's -- when I do the
+
+645
+00:43:01,000 --> 00:43:07,000
+recursion more and more times,
+I get simpler and simpler
+
+646
+00:43:07,000 --> 00:43:10,000
+factors in
+the middle.
+
+647
+00:43:10,000 --> 00:43:15,000
+Eventually I'll be down to two
+point or one point Fourier
+
+648
+00:43:15,000 --> 00:43:16,000
+transforms.
+
+649
+00:43:16,000 --> 00:43:21,000
+But I get more and more factors
+piling up on the right and left.
+
+650
+00:43:21,000 --> 00:43:24,000
+On the right,
+I'm just getting permutation
+
+651
+00:43:24,000 --> 00:43:24,000
+matrixes.
+On the left,
+I'm getting these guys,
+
+652
+00:43:28,550 --> 00:43:32,000
+these Is and Ds,
+so that there was a 32 there
+
+653
+00:43:32,000 --> 00:43:36,000
+and -- each one of these is
+costing 32.
+
+654
+00:43:36,000 --> 00:43:37,000
+Each one of those is costing
+
+655
+00:43:38,000 --> 00:43:39,400
+
+
+656
+00:43:39,400 --> 00:43:41,000
+And how many will there be?
+
+657
+00:43:41,000 --> 00:43:46,000
+So you see the 32 for this
+original fix up,
+
+658
+00:43:46,000 --> 00:43:50,000
+because D had 32 numbers,
+32 for this next fix up,
+
+659
+00:43:50,000 --> 00:43:53,000
+because D has 16 and 16 more.
+
+660
+00:43:53,000 --> 00:43:56,010
+I keep going.
+
+661
+00:43:56,010 --> 00:44:01,000
+So the count in the middle goes
+down to zip, but these fix up
+
+662
+00:44:01,000 --> 00:44:06,000
+counts are all that I'm left
+with, and how many factors --
+
+663
+00:44:06,000 --> 00:44:10,000
+how many fix-ups have I got --
+log in -- from 64,
+
+664
+00:44:10,000 --> 00:44:13,000
+one step to 32,
+one step to 16,
+
+665
+00:44:13,000 --> 00:44:16,000
+one step to eight,
+four, two and one.
+
+666
+00:44:16,000 --> 00:44:17,000
+Six steps.
+
+667
+00:44:17,000 --> 00:44:23,000
+So I have six fix-up --
+six fix up factors.
+
+668
+00:44:23,000 --> 00:44:26,000
+Finally I get to six times the
+
+669
+00:44:26,000 --> 00:44:27,000
+
+
+670
+00:44:28,000 --> 00:44:31,000
+That's my final count.
+
+671
+00:44:31,000 --> 00:44:38,000
+Instead of 64 squared,
+this is log to the base two of
+
+672
+00:44:38,000 --> 00:44:43,360
+64 times 64 -- actually,
+half of 64.
+
+673
+00:44:43,360 --> 00:44:49,330
+So actually,
+the final count is n log to the
+
+674
+00:44:49,330 --> 00:44:56,000
+base two of n -- that's the 32
+-- a half.
+
+675
+00:44:56,000 --> 00:45:02,000
+So can I put a box around that
+wonderful, extremely important
+
+676
+00:45:02,000 --> 00:45:08,970
+and satisfying conclusion --
+that the fast Fourier transform
+
+677
+00:45:08,970 --> 00:45:15,000
+multiplies by an n by n matrix,
+but it does it not in n squared
+
+678
+00:45:15,000 --> 00:45:19,000
+steps, but in one half n log n
+steps.
+
+679
+00:45:19,000 --> 00:45:24,000
+And if we just -- complete by
+doing a count,
+
+680
+00:45:24,000 --> 00:45:32,000
+let's suppose -- suppose -- a
+typical case would be two to the
+
+681
+00:45:32,000 --> 00:45:32,000
+tenth.
+Now n squared is bigger than a
+million.
+
+682
+00:45:37,000 --> 00:45:44,350
+So it's a thousand twenty four
+times a thousand twenty four.
+
+683
+00:45:44,350 --> 00:45:51,000
+But what is n -- what is one
+half -- what is the new count,
+
+684
+00:45:51,000 --> 00:45:54,000
+done the right way?
+
+685
+00:45:54,000 --> 00:45:59,000
+It's n -- the thousand twenty
+four times one half,
+
+686
+00:45:59,000 --> 00:46:02,000
+and what's the logarithm?
+
+687
+00:46:02,000 --> 00:46:03,000
+It's ten.
+
+688
+00:46:03,000 --> 00:46:05,000
+So times ten over two.
+
+689
+00:46:05,000 --> 00:46:11,360
+So it's five times -- it's five
+times a thousand twenty four,
+
+690
+00:46:11,360 --> 00:46:17,000
+where this one was a thousand
+twenty four times a thousand
+
+691
+00:46:17,000 --> 00:46:18,000
+twenty four.
+
+692
+00:46:18,000 --> 00:46:22,000
+We've reduced the calculation
+by a
+
+693
+00:46:22,000 --> 00:46:27,000
+factor of 200 just by factoring
+the matrix properly.
+
+694
+00:46:27,000 --> 00:46:32,000
+This was a thousand times n,
+we're now down to five times n.
+
+695
+00:46:32,000 --> 00:46:37,000
+So we can do 200 Fourier
+transforms, where before we
+
+696
+00:46:37,000 --> 00:46:40,000
+could do one,
+and in real scientific
+
+697
+00:46:40,000 --> 00:46:45,780
+calculations where Fourier
+transforms are happening all the
+
+698
+00:46:45,780 --> 00:46:49,000
+time, we're saving a factor of
+
+699
+00:46:49,000 --> 00:46:55,000
+in one of the major steps of
+modern scientific computing.
+
+700
+00:46:55,000 --> 00:47:00,070
+So that's the idea of the fast
+Fourier transform,
+
+701
+00:47:00,070 --> 00:47:05,870
+and you see the whole thing
+hinged on being a special matrix
+
+702
+00:47:05,870 --> 00:47:08,000
+with orthonormal columns.
+
+703
+00:47:08,000 --> 00:47:12,000
+Okay, that's actually it for
+complex numbers.
+
+704
+00:47:12,000 --> 00:47:17,000
+I'm back next time really to --
+to real numbers,
+
+705
+00:47:17,000 --> 00:47:22,000
+eigenvalues and eigenvectors
+and the key idea of positive
+
+706
+00:47:22,000 --> 00:47:25,000
+definite matrixes is going to
+show up.
+
+707
+00:47:25,000 --> 00:47:27,000
+What's a positive definite
+matrix?
+
+708
+00:47:27,000 --> 00:47:31,000
+And it's terrific that this
+course is going to reach
+
+709
+00:47:31,000 --> 00:47:35,000
+positive definiteness,
+because those are the matrixes
+
+710
+00:47:35,000 --> 00:47:39,670
+that you see the most in
+applications.
+
+711
+00:47:39,670 --> 00:47:41,000
+Okay, see you next time.
+
+712
+00:47:41,000 --> 00:47:44,000
+Thanks.

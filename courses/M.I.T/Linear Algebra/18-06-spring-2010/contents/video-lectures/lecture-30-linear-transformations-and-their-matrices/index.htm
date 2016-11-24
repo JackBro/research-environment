@@ -1,0 +1,1217 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 30: Linear transformations and their matrices | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 30: Linear transformations and their matrices" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 30: Linear transformations and their matrices" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-30-linear-transformations-and-their-matrices">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 30: Linear transformations and their matrices
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 30: Linear transformations and their matrices
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-30-linear-transformations-and-their-matrices/Ts3o2I8_Mxc.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/30.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/Ts3o2I8_Mxc', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-30-linear-transformations-and-their-matrices', 'https://img.youtube.com/vi/Ts3o2I8_Mxc/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-30-linear-transformations-and-their-matrices/Ts3o2I8_Mxc.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703585, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" alt="Amazon logo" src="https://ocw.mit.edu/images/a_logo_17.gif"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/Ts3o2I8_Mxc.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="8000">OK, this is the lecture on linear transformations.</span> </p>
+<p><span m="13130">Actually, linear algebra courses used to begin with this</span> <span m="18000">lecture, so you could say I'm beginning this course again by</span> <span m="24000">talking about linear transformations.</span> </p>
+<p><span m="27000">In a lot of courses, those come first before</span> <span m="31000">matrices.</span> </p>
+<p><span m="33000">The idea of a linear transformation makes sense</span> <span m="37000">without a matrix, and physicists and other --</span> <span m="42000">some people like it better that way.</span> </p>
+<p><span m="45000">They don't like coordinates.</span> </p>
+<p><span m="48000">They don't want those numbers.</span> </p>
+<p><span m="51000">They want to see what's going on with the whole space.</span> </p>
+<p><span m="57000">But, for most of us, in the end, if we're going to</span> <span m="61000">compute anything, we introduce coordinates,</span> <span m="64349">and then every linear transformation will lead us to a</span> </p>
+<p><span m="68000">matrix. And then, to all the things that we've done about null space</span> <span m="73000">and row space, and determinant,</span> <span m="75000">and eigenvalues -- all will come from the matrix.</span> </p>
+<p><span m="79000">But, behind it -- in other words, behind this is the idea</span> <span m="88000">of a linear transformation.</span> </p>
+<p><span m="92000">Let me give an example of a linear transformation.</span> </p>
+<p><span m="100000">So, example.</span> </p>
+<p><span m="102000">Example one.</span> </p>
+<p><span m="103000">A projection.</span> </p>
+<p><span m="107190">I can describe a projection without telling you any matrix,</span> <span m="113000">anything about any matrix.</span> </p>
+<p><span m="115000">I can describe a projection, say, this will be a linear</span> <span m="121000">transformation that takes, say, all of R^2,</span> <span m="125000">every vector in the plane, into a vector in the plane.</span> </p>
+<p><span m="131000">And this is the way people describe, a mapping.</span> </p>
+<p><span m="137030">It takes every vector, and so, by what rule?</span> </p>
+<p><span m="141000">So, what's the rule, is, I take a -- so here's the</span> <span m="146000">plane, this is going to be my line, my line through my line,</span> <span m="152500">and I'm going to project every vector onto that line.</span> </p>
+<p><span m="157000">So if I take a vector like b -- or let me call the vector v for</span> <span m="165060">the moment -- the projection -- the linear transformation is</span> <span m="171000">going to produce this vector as T(v).</span> </p>
+<p><span m="174000">So T -- it's like a function.</span> </p>
+<p><span m="177000">Exactly like a function.</span> </p>
+<p><span m="180000">You give me an input, the transformation produces the</span> <span m="185000">output.</span> </p>
+<p><span m="187000">So transformation, sometimes the word map,</span> <span m="190000">or mapping is used.</span> </p>
+<p><span m="191980">A map between inputs and outputs.</span> </p>
+<p><span m="194000">So this is one particular map, this is one example,</span> <span m="198000">a projection that takes every vector -- here,</span> <span m="202000">let me do another vector v, or let me do this vector w,</span> <span m="206000">what is T(w)?</span> </p>
+<p><span m="207000">You see?</span> </p>
+<p><span m="208000">There are no coordinates here.</span> </p>
+<p><span m="212000">I've drawn those axes, but I'm sorry I drew them,</span> <span m="216000">I'm going to remove them, that's the whole point,</span> <span m="221000">is that we don't need axes, we just need -- so guts -- get</span> <span m="226000">it out of there, I'm not a physicist,</span> <span m="229000">so I draw those axes.</span> </p>
+<p><span m="232000">So the input is w, the output of the projection</span> <span m="235000">is, project on that line, T(w).</span> </p>
+<p><span m="238000">OK. Now, I could think of a lot of transformations T.</span> </p>
+<p><span m="242000">But, in this linear algebra course, I want it to be a linear</span> <span m="246000">transformation.</span> </p>
+<p><span m="247000">So here are the rules for a linear transformation.</span> </p>
+<p><span m="252000">Here, see, exactly, the two operations that we can</span> <span m="256000">do on vectors, adding and multiplying by</span> <span m="259000">scalars, the transformation does something special with respect</span> <span m="265000">to those operations.</span> </p>
+<p><span m="267000">So, for example, the projection is a linear</span> <span m="270000">transformation because -- for example,</span> <span m="274000">if I wanted to check that one, if I took v to be twice as</span> <span m="280000">long, the projection would be twice as long.</span> </p>
+<p><span m="284000">If I took v to be minus -- if I changed from v to minus v,</span> <span m="290000">the projection would change to a minus.</span> </p>
+<p><span m="293000">So c equal to two, c equal minus one,</span> <span m="297000">any c is OK.</span> </p>
+<p><span m="299000">So you see that actually, those combine,</span> <span m="304000">I can combine those into one statement.</span> </p>
+<p><span m="308000">What the transformation does to any linear combination,</span> <span m="314000">it must produce the same combination of T(v) and T(w).</span> </p>
+<p><span m="320000">Let's think about some -- I mean, it's like,</span> <span m="326000">not hard to decide, is a transformation linear or</span> <span m="333000">is it not.</span> </p>
+<p><span m="335000">Let me give you an example so you can tell me the answer.</span> </p>
+<p><span m="343250">Suppose my transformation is -- here's another example two.</span> </p>
+<p><span m="352000">Shift the whole plane.</span> </p>
+<p><span m="355000">So here are all my vectors, my plane, and every vector v in</span> <span m="363000">the plane, I shift it over by, let's say, three by some vector</span> <span m="371000">v0.</span> </p>
+<p><span m="372000">Shift whole plane by v0.</span> </p>
+<p><span m="375000">So every vector in the plane -- this was v, T(v) will be v+v0.</span> </p>
+<p><span m="384000">There's T(v).</span> </p>
+<p><span m="386000">Here's v0.</span> </p>
+<p><span m="387000">There's the typical v.</span> </p>
+<p><span m="389000">And there's T(v).</span> </p>
+<p><span m="391000">You see what this transformation does?</span> </p>
+<p><span m="394000">Takes this vector and adds to it.</span> </p>
+<p><span m="397000">Adds a fixed vector to it.</span> </p>
+<p><span m="400000">Well, that seems like a pretty reasonable, simple</span> <span m="405000">transformation, but is it linear?</span> </p>
+<p><span m="409000">The answer is no, it's not linear.</span> </p>
+<p><span m="413000">Which law is broken?</span> </p>
+<p><span m="416540">Maybe both laws are broken.</span> </p>
+<p><span m="419000">Let's see.</span> </p>
+<p><span m="421000">If I double the length of v, does the transformation produce</span> <span m="428820">something double -- do I double T(v)?</span> </p>
+<p><span m="433000">No.</span> </p>
+<p><span m="435000">If I double the length of v, in this transformation,</span> <span m="438000">I'm just adding on the same one -- same v0, not two v0s,</span> <span m="442000">but only one v0 for every vector, so I don't get two times</span> <span m="446000">the transform.</span> </p>
+<p><span m="447000">Do you see what I'm saying?</span> </p>
+<p><span m="449230">That if I double this, then the transformation starts</span> <span m="452000">there and only goes one v0 out and doesn't double T(v).</span> </p>
+<p><span m="457409">In fact, a linear transformation -- what is T of</span> </p>
+<p><span m="463000">zero? That's just like a special case, but really worth noticing.</span> </p>
+<p><span m="470000">The zero vector in a linear transformation must get</span> <span m="476000">transformed to zero.</span> </p>
+<p><span m="479000">It can't move, because, take any vector V here</span> <span m="484000">-- well, so you can see why T of</span> <span m="490000">zero is zero.</span> </p>
+<p><span m="492000">Take v to be the zero vector, take c to be three.</span> </p>
+<p><span m="499000">Then we'd have T of zero vector equaling three T of zero vector,</span> <span m="507000">the T of zero has to be zero.</span> </p>
+<p><span m="512000">OK. So, this example is really a non-example.</span> </p>
+<p><span m="519000">Shifting the whole plane is not a linear transformation.</span> </p>
+<p><span m="525000">Or if I cooked up some formula that involved squaring,</span> <span m="531000">or the transformation that, also non-example,</span> <span m="536000">how about the transformation that, takes any vector and</span> <span m="543000">produces its length?</span> </p>
+<p><span m="546000">So there's a transformation that takes any vector,</span> <span m="550000">say, any vector in R^3, let me just -- I'll just get a</span> <span m="555000">chance to use this notation again.</span> </p>
+<p><span m="558000">Suppose I think of the transformation that takes any</span> <span m="563000">vector in R^3 and produces this number.</span> </p>
+<p><span m="567000">So that, I could say, is a member of R^1,</span> <span m="570000">for example, if I wanted.</span> </p>
+<p><span m="574000">Or just real numbers.</span> </p>
+<p><span m="576000">That's certainly not linear.</span> </p>
+<p><span m="579000">It's true that the zero vector goes to zero.</span> </p>
+<p><span m="584000">But if I double a vector, it does double the length,</span> <span m="589000">that's true.</span> </p>
+<p><span m="591000">But suppose I multiply a vector by minus two.</span> </p>
+<p><span m="596000">What happens to its length?</span> </p>
+<p><span m="600000">It just doubles.</span> </p>
+<p><span m="601000">It doesn't get multiplied by minus two.</span> </p>
+<p><span m="604590">So when c is minus two in my requirement, I'm not satisfying</span> <span m="609000">that requirement.</span> </p>
+<p><span m="610000">So T of minus v is not minus v -- minus, the length,</span> <span m="615000">it's just the length.</span> </p>
+<p><span m="616000">OK, so that's another non-example.</span> </p>
+<p><span m="619000">Projection was an example, let me give you another</span> <span m="623000">example.</span> </p>
+<p><span m="625000">I can stay here and have a -- this will be an example that is</span> <span m="636000">a linear transformation, a rotation.</span> </p>
+<p><span m="643000">Rotation by -- what shall we say?</span> </p>
+<p><span m="648000">By 45 degrees.</span> </p>
+<p><span m="651000">OK?</span> </p>
+<p><span m="653000">So again, let me choose this, this will be a mapping,</span> <span m="657320">from the whole plane of vectors, into the whole plane of</span> <span m="661000">vectors, and it just -- here is the input vector v,</span> <span m="665000">and the output vector foam this 45 degree rotation is just</span> <span m="669000">rotate that thing by 45 degrees, T(v).</span> </p>
+<p><span m="672000">So every vector got rotated.</span> </p>
+<p><span m="674000">You see that I can describe this without any coordinates.</span> </p>
+<p><span m="679000">And see that it's linear.</span> </p>
+<p><span m="682000">If I doubled v, the rotation would just be</span> <span m="688000">twice as far out.</span> </p>
+<p><span m="690000">If I had v+w, and if I rotated each of them</span> <span m="695000">and added, the answer's the same as if I add and then rotate.</span> </p>
+<p><span m="704000">That's what the linear transformation is.</span> </p>
+<p><span m="709000">OK, so those are two examples.</span> </p>
+<p><span m="712000">Two examples, projection and rotation,</span> <span m="717000">and I could invent more that are linear transformations where</span> <span m="724000">I haven't told you a matrix yet.</span> </p>
+<p><span m="728000">Actually, the book has a picture of the action of linear</span> <span m="733250">transformations -- actually, the cover of the book has it.</span> </p>
+<p><span m="737000">So, in this section seven point one, we can think of a --</span> <span m="742100">actually, here let's take this linear transformation,</span> <span m="746000">rotation, suppose I have, as the cover of the book has,</span> <span m="750000">a house in R^2.</span> </p>
+<p><span m="752000">So instead of this, let me take a small house in</span> </p>
+<p><span m="757000">R^2. So that's a whole lot of points.</span> </p>
+<p><span m="761000">The idea is, with this linear</span> <span m="764400">transformation, that I can see what it does to</span> <span m="769000">everything at once.</span> </p>
+<p><span m="772000">I don't have to just take one vector at a time and see what T</span> <span m="778000">of V is, I can take all the vectors on the outline of the</span> <span m="783000">house, and see where they all go.</span> </p>
+<p><span m="786000">In fact, that will show me where the whole house goes.</span> </p>
+<p><span m="792000">So what will happen with this particular linear</span> <span m="798000">transformation?</span> </p>
+<p><span m="799000">The whole house will rotate, so the result,</span> <span m="804000">if I can draw it, will be, the house will be</span> <span m="809000">sitting there.</span> </p>
+<p><span m="810000">OK.</span> </p>
+<p><span m="811000">And, but suppose I give some other examples.</span> </p>
+<p><span m="817000">Oh, let me give some examples that involve a matrix.</span> </p>
+<p><span m="824000">Example three -- and this is important -- coming from a</span> <span m="831000">matrix at -- we always call A.</span> </p>
+<p><span m="835000">So the transformation will be, multiply by A.</span> </p>
+<p><span m="840000">There is a linear transformation.</span> </p>
+<p><span m="846220">And a whole family of them, because every matrix produces a</span> <span m="851000">transformation by this simple rule, just multiply every vector</span> <span m="856000">by that matrix, and it's linear,</span> </p>
+<p><span m="859000">right? Linear, I have to check that A(v) -- A times v plus w equals</span> <span m="864000">Av plus A w, which is fine, and I have to check that A</span> <span m="869000">times vc equals c A(v).</span> </p>
+<p><span m="872000">Check.</span> </p>
+<p><span m="872810">Those are fine.</span> </p>
+<p><span m="874000">So there is a linear transformation.</span> </p>
+<p><span m="878290">And if I take my favorite matrix A, and I apply it to all</span> <span m="884000">vectors in the plane, it will produce a bunch of</span> <span m="889000">outputs.</span> </p>
+<p><span m="890000">See, the idea is now worth thinking of, like,</span> <span m="895000">the big picture.</span> </p>
+<p><span m="898000">The whole plane is transformed by matrix multiplication.</span> </p>
+<p><span m="901000">Every vector in the plane gets multiplied by A.</span> </p>
+<p><span m="904000">Let's take an example, and see what happens to the</span> <span m="907000">vectors of the house.</span> </p>
+<p><span m="908000">So this is still a transformation from plane to</span> <span m="911030">plane, and let me take a particular matrix A -- well,</span> <span m="914070">if I cooked up a rotation matrix, this would be the right</span> <span m="917000">picture.</span> </p>
+<p><span m="918000">If I cooked up a projection matrix, the projection would be</span> <span m="924000">the picture.</span> </p>
+<p><span m="925260">Let me just take some other matrix.</span> </p>
+<p><span m="928480">Let me take the matrix one zero zero minus one.</span> </p>
+<p><span m="932000">What happens to the house, to all vectors,</span> <span m="936000">and in particular, we can sort of visualize it if</span> <span m="941000">we look at the house -- so the house is not rotated any</span> <span m="948000">more, what do I get?</span> </p>
+<p><span m="951000">What happens to all the vectors if I do this transformation?</span> </p>
+<p><span m="959000">I multiply by this matrix.</span> </p>
+<p><span m="963000">Well, of course, it's an easy matrix,</span> <span m="968000">it's diagonal.</span> </p>
+<p><span m="971000">The x component stays the same, the y component reverses sign,</span> <span m="976000">so that like the roof of that house, the point,</span> <span m="979000">the tip of the roof, has an x component which stays</span> <span m="983000">the same, but its y component reverses, and it's down here.</span> </p>
+<p><span m="987000">And, of course, what we get is,</span> <span m="990170">the house is, like, upside down.</span> </p>
+<p><span m="993000">Now, I have to put -- where does the door go?</span> </p>
+<p><span m="997000">I guess the door goes upside down there, right?</span> </p>
+<p><span m="1002000">So here's the input, here's the input house,</span> <span m="1006000">and this is the output.</span> </p>
+<p><span m="1008000">OK.</span> </p>
+<p><span m="1009000">This idea of a linear transformation is like kind of</span> <span m="1014000">the abstract description of matrix multiplication.</span> </p>
+<p><span m="1020000">And what's our goal here?</span> </p>
+<p><span m="1023000">Our goal is to understand linear transformations,</span> <span m="1029000">and the way to understand them is to find the matrix that lies</span> <span m="1036000">behind them.</span> </p>
+<p><span m="1037000">That's really the idea.</span> </p>
+<p><span m="1040000">Find the matrix that lies behind them.</span> </p>
+<p><span m="1046000">Um, and to do that, we have to bring in</span> <span m="1050000">coordinates.</span> </p>
+<p><span m="1051000">We have to choose a basis.</span> </p>
+<p><span m="1054000">So let me point out what's the story -- if we have a linear</span> <span m="1060000">transformation -- so start with -- start.</span> </p>
+<p><span m="1064000">Suppose we have a linear transformation.</span> </p>
+<p><span m="1069000">Let -- from now on, let T stand for linear</span> <span m="1073030">transformations.</span> </p>
+<p><span m="1074000">I won't be interested in the nonlinear ones.</span> </p>
+<p><span m="1078000">Only linear transformations I'm interested in.</span> </p>
+<p><span m="1082000">OK.</span> </p>
+<p><span m="1082970">I start with a linear transformation T.</span> </p>
+<p><span m="1086000">Let's suppose its inputs are vectors in R^3.</span> </p>
+<p><span m="1091000">OK? And suppose its outputs are vectors in R^2,</span> <span m="1096000">for example.</span> </p>
+<p><span m="1097000">OK. What's an example of such a transformation,</span> <span m="1102000">just before I go any further?</span> </p>
+<p><span m="1105000">Any matrix of the right size will do this.</span> </p>
+<p><span m="1109000">So what would be the right shape of a matrix?</span> </p>
+<p><span m="1115000">So, for example -- I'm wanting to give you an example,</span> <span m="1122000">just because, here, I'm thinking of</span> <span m="1126000">transformations that take three-dimensional space to</span> <span m="1133000">two-dimensional space.</span> </p>
+<p><span m="1137740">And I want them to be linear, and the easy way to invent them</span> <span m="1143000">is a matrix multiplication.</span> </p>
+<p><span m="1146000">So example, T of v should be any A v.</span> </p>
+<p><span m="1150000">Those transformations are linear, that's what 18.06 is</span> <span m="1155000">about.</span> </p>
+<p><span m="1156180">And A should be what size, what shape of matrix should</span> <span m="1161550">that be?</span> </p>
+<p><span m="1163000">I want V to have three components, because this is what</span> <span m="1170000">the inputs have -- so here's the input in R^3,</span> <span m="1176000">and here's the output in R^2.</span> </p>
+<p><span m="1180000">So what shape of matrix?</span> </p>
+<p><span m="1183000">So this should be, I guess, a two by three matrix?</span> </p>
+<p><span m="1189000">Right?</span> </p>
+<p><span m="1190000">A two by three matrix.</span> </p>
+<p><span m="1194000">A two by three matrix, we'll multiply a vector in R^3</span> <span m="1199000">-- you see I'm moving to coordinates so quickly,</span> <span m="1204000">I'm not a true physicist here.</span> </p>
+<p><span m="1207260">A two by three matrix, we'll multiply a vector in R^3</span> <span m="1212000">an produce an output in R^2, and it will be a linear</span> <span m="1217000">transformation, and OK.</span> </p>
+<p><span m="1220000">So there's a whole lot of examples, every two by three</span> <span m="1224000">matrix give me an example, and basically,</span> <span m="1227000">I want to show you that there are no other examples.</span> </p>
+<p><span m="1231000">Every linear transformation is associated with a matrix.</span> </p>
+<p><span m="1235000">Now, let me come back to the idea of linear transformation.</span> </p>
+<p><span m="1240000">Suppose I've got this linear transformation in my mind,</span> <span m="1247000">and I want to tell you what it is.</span> </p>
+<p><span m="1251000">Suppose I tell you what the transformation does to one</span> <span m="1258000">vector.</span> </p>
+<p><span m="1260000">OK. You know one thing, then.</span> </p>
+<p><span m="1263810">All right.</span> </p>
+<p><span m="1265000">So this is like the -- what I'm speaking about now is,</span> <span m="1272000">how much information is needed to know the transformation?</span> </p>
+<p><span m="1280590">By knowing T, I -- to know T of v for all v.</span> </p>
+<p><span m="1286000">All inputs.</span> </p>
+<p><span m="1289000">How much information do I have to give you so that you know</span> <span m="1295000">what the transformation does to every vector?</span> </p>
+<p><span m="1299000">OK, I could tell you what the transformation -- so I could</span> <span m="1304000">take a vector v1, one particular vector,</span> <span m="1308000">tell you what the transformation does to it --</span> <span m="1312000">fine.</span> </p>
+<p><span m="1314000">But now you only know what the transformation does to one</span> </p>
+<p><span m="1319000">vector. So you say, OK, that's not enough,</span> <span m="1322000">tell me what it does to another vector.</span> </p>
+<p><span m="1326000">So I say, OK, give me a vector,</span> <span m="1328000">you give me a vector v2, and we see, what does the</span> <span m="1333000">transformation do to v2?</span> </p>
+<p><span m="1336000">Now, you only know -- or do you only know what the</span> <span m="1340000">transformation does to two vectors?</span> </p>
+<p><span m="1342000">Have I got to ask you -- answer you about every vector in the</span> <span m="1347000">whole input space, or can you, knowing what it</span> <span m="1350000">does to v1 and v2, how much do you now know about</span> <span m="1354000">the transformation?</span> </p>
+<p><span m="1356980">You know what the transformation does to a larger</span> <span m="1362000">bunch of vectors than just these two, because you know what it</span> <span m="1369000">does to every linear combination.</span> </p>
+<p><span m="1373570">You know what it does, now, to the whole plane of</span> <span m="1379000">vectors, with bases v1 and v2.</span> </p>
+<p><span m="1383000">I'm assuming v1 and v2 were independent.</span> </p>
+<p><span m="1387000">If they were dependent, if v2 was six times v1,</span> <span m="1391000">then I didn't give you any new information in T of v2,</span> <span m="1396000">you already knew it would be six times T of v1.</span> </p>
+<p><span m="1400480">So you can see what I'd headed for.</span> </p>
+<p><span m="1404000">If I know what the transformation does to every</span> <span m="1410000">vector in a basis, then I know everything.</span> </p>
+<p><span m="1414000">So the information needed to know T of v for all inputs is T</span> <span m="1422000">of v1, T of v2, up to T of vm,</span> <span m="1425000">let's say, or vn, for any basis -- for a basis v1</span> <span m="1431000">up to vn.</span> </p>
+<p><span m="1433730">This is a base for any -- can I call it an input basis?</span> </p>
+<p><span m="1445000">It's a basis for the space of inputs.</span> </p>
+<p><span m="1452000">The things that T is acting on.</span> </p>
+<p><span m="1460000">You see this point, that if I have a basis for the</span> <span m="1465000">input space, and I tell you what the transformation does to every</span> <span m="1472000">one of those basis vectors, that is all I'm allowed to tell</span> <span m="1478000">you, and it's enough to know T of v for all v-s,</span> <span m="1483000">because why?</span> </p>
+<p><span m="1486000">Because every v is some combination of these basis</span> <span m="1491530">vectors, c1v1+...+cnvn, that's what a basis is,</span> <span m="1496650">right?</span> </p>
+<p><span m="1497000">It spans the space.</span> </p>
+<p><span m="1499000">And if I know what T does to this, and what T does to v2,</span> <span m="1505000">and what T does to vn, then I know what T does to V.</span> </p>
+<p><span m="1511000">By this linearity, it has to be c1 T of v1 plus O</span> <span m="1516000">one plus cn T of vn.</span> </p>
+<p><span m="1520000">There's no choice.</span> </p>
+<p><span m="1522000">So, the point of this comment is that if I know what T does to</span> <span m="1529000">a basis, to each vector in a basis, then I know the linear</span> <span m="1536000">transformation.</span> </p>
+<p><span m="1537000">The property of linearity tells me all the other vectors.</span> </p>
+<p><span m="1545000">All the other outputs.</span> </p>
+<p><span m="1547000">OK. So now, we got -- so that light we now see, what do we really</span> <span m="1552000">need in a linear transformation, and we're ready to go to a</span> </p>
+<p><span m="1557000">matrix. OK.</span> </p>
+<p><span m="1558000">What's the step now that takes us from a linear transformation</span> <span m="1563000">that's free of coordinates to a matrix that's been created with</span> <span m="1568000">respect to coordinates?</span> </p>
+<p><span m="1571000">The matrix is going to come from the coordinate system.</span> </p>
+<p><span m="1577000">These are the coordinates.</span> </p>
+<p><span m="1580000">Coordinates mean a basis is decided.</span> </p>
+<p><span m="1583000">Once you decide on a basis -- this is where coordinates come</span> </p>
+<p><span m="1590000">from. You decide on a basis, then every vector,</span> <span m="1595000">these are the coordinates in that basis.</span> </p>
+<p><span m="1600500">There is one and only one way to express v as a combination of</span> <span m="1607000">the basis vectors, and the numbers you need in</span> <span m="1613000">that combination are the coordinates.</span> </p>
+<p><span m="1617000">Let me write that down.</span> </p>
+<p><span m="1620000">So what are coordinates?</span> </p>
+<p><span m="1623000">Coordinates come from a basis.</span> </p>
+<p><span m="1626000">Coordinates come from a basis.</span> </p>
+<p><span m="1631000">The coordinates of v, the coordinates of v are these</span> <span m="1638000">numbers that tell you how much of each basis vector is in v.</span> </p>
+<p><span m="1645000">If I change the basis, I change the coordinates,</span> <span m="1651000">right?</span> </p>
+<p><span m="1652000">Now, we have always been assuming that were working with</span> <span m="1659000">a standard basis, right?</span> </p>
+<p><span m="1663000">The basis we don't even think about this stuff,</span> <span m="1666000">because if I give you the vector v equals three two four,</span> <span m="1671000">you have been assuming completely -- and probably</span> <span m="1675000">rightly -- that I had in mind the standard basis,</span> <span m="1679000">that this vector was three times the first coordinate</span> <span m="1683000">vector, and two times the second, and four times the</span> <span m="1687000">third.</span> </p>
+<p><span m="1688000">But you're not entitled -- I might have had some other basis</span> <span m="1697000">in mind.</span> </p>
+<p><span m="1699000">This is like the standard basis.</span> </p>
+<p><span m="1703830">And then the coordinates are sitting right there in the</span> <span m="1712000">vector.</span> </p>
+<p><span m="1714000">But I could have chosen a different basis,</span> <span m="1717000">like I might have had eigenvectors of a matrix,</span> <span m="1721000">and I might have said, OK, that's a great basis,</span> <span m="1725420">I'll use the eigenvectors of this matrix as my basis vectors.</span> </p>
+<p><span m="1730000">Which are not necessarily these three, but some other basis.</span> </p>
+<p><span m="1736000">So that was an example, this is the real thing,</span> <span m="1740000">the coordinates are these numbers, I'll circle them again,</span> <span m="1745000">the amounts of each basis.</span> </p>
+<p><span m="1747000">OK.</span> </p>
+<p><span m="1748000">So, if I want to create a matrix that describes a linear</span> <span m="1753000">transformation, now I'm ready to do that.</span> </p>
+<p><span m="1757910">OK, OK.</span> </p>
+<p><span m="1759000">So now what I plan to do is construct the matrix A that</span> <span m="1768000">represents, or tells me about, a linear transformation,</span> <span m="1777000">linear transformation T.</span> </p>
+<p><span m="1782000">OK. So I really start with the transformation --</span> <span m="1791000">whether it's a projection or a rotation, or some strange</span> <span m="1797970">movement of this house in the plane, or some transformation</span> <span m="1804000">from n-dimensional space to -- or m-dimensional space to</span> <span m="1810850">n-dimensional space. n to m, I guess.</span> </p>
+<p><span m="1815000">Usually, we'll have T, we'll somehow transform</span> <span m="1819000">n-dimensional space to m-dimensional space,</span> <span m="1822000">and the whole point is that if I have a basis for n-dimensional</span> <span m="1826000">space -- I guess I need two bases, really.</span> </p>
+<p><span m="1829480">I need an input basis to describe the inputs,</span> <span m="1832000">and I need an output basis to give me coordinates -- to give</span> <span m="1836000">me some numbers for the output.</span> </p>
+<p><span m="1840000">So I've got to choose two bases.</span> </p>
+<p><span m="1843000">Choose a basis v1 up to vn for the inputs, for the inputs in --</span> <span m="1850000">they came from R^n.</span> </p>
+<p><span m="1853170">So the transformation is taking every n-dimensional vector into</span> <span m="1860000">some m-dimensional vector.</span> </p>
+<p><span m="1863000">And I have to choose a basis, and I'll call them w1 up to wn,</span> <span m="1870000">for the outputs.</span> </p>
+<p><span m="1873000">Those are guys in R^m.</span> </p>
+<p><span m="1876000">Once I've chosen the basis, that settles the matrix -- I</span> <span m="1883000">now working with coordinates.</span> </p>
+<p><span m="1887000">Every vector in R^n, every input vector has some</span> <span m="1893000">coordinates.</span> </p>
+<p><span m="1894000">So here's what I do, here's what I do.</span> </p>
+<p><span m="1899000">Can I say it in words?</span> </p>
+<p><span m="1903000">I take a vector v.</span> </p>
+<p><span m="1905000">I express it in its basis, in the basis,</span> <span m="1908000">so I get its coordinates.</span> </p>
+<p><span m="1910000">Then I'm going to multiply those coordinates by the right</span> <span m="1915000">matrix A, and that will give me the coordinates of the output in</span> <span m="1920000">the output basis.</span> </p>
+<p><span m="1922000">I'd better write that down, that was a mouthful.</span> </p>
+<p><span m="1927000">What I want -- I want a matrix A that does what the linear</span> <span m="1935000">transformation does.</span> </p>
+<p><span m="1938000">And it does it with respecting these bases.</span> </p>
+<p><span m="1945000">So I want the matrix to be -- well, let's suppose -- look,</span> <span m="1953000">let me take an example.</span> </p>
+<p><span m="1958500">Let me take the projection example.</span> </p>
+<p><span m="1961000">The projection example.</span> </p>
+<p><span m="1964000">Suppose I take -- because we've got that -- we've got that</span> <span m="1969000">projection in mind -- I can fit in here.</span> </p>
+<p><span m="1973000">Here's the projection example.</span> </p>
+<p><span m="1976000">So the projection example, I'm thinking of n and m as two.</span> </p>
+<p><span m="1982000">The transformation takes the plane, takes every vector in the</span> <span m="1988000">plane, and, let me draw the plane, just so we remember it's</span> <span m="1993000">a plane -- and there's the thing that I'm projecting onto,</span> <span m="1998000">that's the line I'm projecting onto -- so the transformation</span> <span m="2003000">takes every vector in the plane and projects it onto that line.</span> </p>
+<p><span m="2010160">So this is projection, so I'm going to do projection.</span> </p>
+<p><span m="2014000">OK. But, I'm going to choose a basis that I like better than</span> <span m="2019000">the standard basis.</span> </p>
+<p><span m="2021220">My basis -- in fact, I'll choose the same basis for</span> <span m="2025000">inputs and for outputs, and the basis will be -- my</span> <span m="2029000">first basis vector will be right on the line.</span> </p>
+<p><span m="2033000">There's my first basis vector.</span> </p>
+<p><span m="2037000">Say, a unit vector, on the line.</span> </p>
+<p><span m="2039000">And my second basis vector will be a unit vector perpendicular</span> <span m="2043000">to that line.</span> </p>
+<p><span m="2044000">And I'm going to choose that as the output basis,</span> </p>
+<p><span m="2048000">also. And I'm going to ask you, what's the matrix?</span> </p>
+<p><span m="2051000">What's the matrix?</span> </p>
+<p><span m="2053000">How do I describe this transformation of projection</span> <span m="2056000">with respect to this basis?</span> </p>
+<p><span m="2059000">OK?</span> </p>
+<p><span m="2060000">So what's the rule?</span> </p>
+<p><span m="2062000">I take any vector v, it's some combination of the</span> <span m="2068530">first basis ve- vector, and the second basis vector.</span> </p>
+<p><span m="2074000">Now, what is T of v?</span> </p>
+<p><span m="2077000">Suppose the input is -- well, suppose the input is v1.</span> </p>
+<p><span m="2083000">What's the output? v1, right?</span> </p>
+<p><span m="2088000">The projection leaves this one alone.</span> </p>
+<p><span m="2091000">So we know what the projection does to this first basis vector,</span> <span m="2097000">this guy, it leaves it.</span> </p>
+<p><span m="2099000">What does the projection do to the second basis vector?</span> </p>
+<p><span m="2104000">It kills it, sends it to zero.</span> </p>
+<p><span m="2107000">So what does the projection do to a combination?</span> </p>
+<p><span m="2111000">It kills this part, and this part,</span> <span m="2114000">it leaves alone.</span> </p>
+<p><span m="2117000">Now, all I want to do is find the matrix.</span> </p>
+<p><span m="2123000">I now want to find the matrix that takes an input,</span> <span m="2130000">c1 c2, the coordinates, and gives me the output,</span> <span m="2137000">c1 0.</span> </p>
+<p><span m="2139000">You see that in this basis, the coordinates of the input</span> <span m="2144000">were c1, c2, and the coordinates of the output are c1,</span> <span m="2149000">And of course, not hard to find a matrix that</span> <span m="2153000">will do that.</span> </p>
+<p><span m="2154000">The matrix that will do that is the matrix one,</span> <span m="2158000">zero, zero, zero.</span> </p>
+<p><span m="2161000">Because if I multiply input by that matrix A -- this is A times</span> <span m="2169000">input coordinates -- and I'm hoping to get the output</span> <span m="2176000">coordinates.</span> </p>
+<p><span m="2178000">And what do I get from that multiplication?</span> </p>
+<p><span m="2183000">I get the right answer, c1 and zero.</span> </p>
+<p><span m="2188370">So what's the point?</span> </p>
+<p><span m="2192000">So the first point is, there's a matrix that does the</span> <span m="2195000">job.</span> </p>
+<p><span m="2196000">If there's a linear transformation out there,</span> <span m="2199000">coordinate-free, no coordinates,</span> <span m="2201000">and then I choose a basis for the inputs, and I choose a basis</span> <span m="2205000">for the outputs, then there's a matrix that does</span> </p>
+<p><span m="2208000">And what's the job?</span> <span m="2208440">the job.</span> </p>
+<p><span m="2210000">It multiplies the input coordinates and produces the</span> <span m="2213000">output coordinates.</span> </p>
+<p><span m="2216000">Now, in this example -- let me repeat, I chose the input basis</span> <span m="2221000">was the same as the output basis.</span> </p>
+<p><span m="2224000">The input basis and output basis were both along the line,</span> <span m="2228000">and perpendicular to the line.</span> </p>
+<p><span m="2231000">They're actually the eigenvectors of the projection.</span> </p>
+<p><span m="2236000">And, as a result, the matrix came out diagonal.</span> </p>
+<p><span m="2242000">In fact, it came out to be lambda.</span> </p>
+<p><span m="2247000">This is like, the good basis.</span> </p>
+<p><span m="2251000">So the good -- the eigenvector basis is the good basis,</span> <span m="2258000">it leads to the matrix -- the diagonal matrix of</span> <span m="2265000">eigenvalues lambda, and just as in this example,</span> <span m="2270000">the eigenvectors and eigenvalues of this linear</span> <span m="2276000">transformation were along the line, and perpendicular.</span> </p>
+<p><span m="2281000">The eigenvalues were one and zero, and that's the matrix that</span> <span m="2288000">we got.</span> </p>
+<p><span m="2289000">OK.</span> </p>
+<p><span m="2290000">So that's a, like, the great choice of</span> <span m="2293000">matrix, that's the choice a physicist would do when he had</span> <span m="2297000">to finally -- he or she had to finally bring coordinates in</span> <span m="2301000">unwillingly, the coordinates to be chosen, the good coordinates</span> <span m="2305000">are the eigenvectors, because, if I did this</span> <span m="2308000">projection in the standard basis -- which I could do,</span> <span m="2312000">right?</span> </p>
+<p><span m="2313000">I could do the whole thing in the standard basis -- I better</span> <span m="2320460">try, if I can do that.</span> </p>
+<p><span m="2323000">What are we calling -- so I'll have to tell you now which line</span> <span m="2330000">we're projecting on.</span> </p>
+<p><span m="2333000">Say, the 45 degree line.</span> </p>
+<p><span m="2336000">So say we're projecting onto 45 degree line, and we use not the</span> <span m="2343000">eigenvector basis, but the standard basis.</span> </p>
+<p><span m="2348000">The standard basis, v1, is one, zero,</span> <span m="2352000">and v2 is zero, one.</span> </p>
+<p><span m="2355000">And again, I'll use the same basis for the outputs.</span> </p>
+<p><span m="2362000">Then I have to do this -- I can find a matrix,</span> <span m="2366000">it will be the matrix that we would always think of,</span> <span m="2370000">it would be the projection matrix.</span> </p>
+<p><span m="2373000">It will be, actually, it's the matrix that we learned</span> <span m="2377000">about in chapter four, it's what I call the matrix --</span> <span m="2381000">do you remember, P was A, A transpose over A</span> <span m="2385520">transpose A?</span> </p>
+<p><span m="2387000">And I think, in this example,</span> <span m="2391000">it will come out, one-half, one-half,</span> <span m="2395000">one-half, one-half.</span> </p>
+<p><span m="2397760">I believe that's the matrix that comes from our formula.</span> </p>
+<p><span m="2404000">And that's the matrix that will do the job.</span> </p>
+<p><span m="2410000">If I give you this input, one, zero, what's the output?</span> </p>
+<p><span m="2417000">The output is one-half, one-half.</span> </p>
+<p><span m="2421000">And that should be the right projection.</span> </p>
+<p><span m="2426000">And if I give you the input zero, one, the output is,</span> <span m="2433330">again, one-half, one-half, again the projection.</span> </p>
+<p><span m="2440000">So that's the matrix, but not diagonal of course,</span> <span m="2444000">because we didn't choose a great basis, we just chose the</span> <span m="2449000">handiest basis.</span> </p>
+<p><span m="2450000">Well, so the course has practically been about the</span> <span m="2454000">handiest basis, and just dealing with the</span> <span m="2457000">matrix that we got.</span> </p>
+<p><span m="2460000">And it's not that bad a matrix, it's symmetric,</span> <span m="2463000">and it has this P squared equal P property, all those things are</span> <span m="2468000">good.</span> </p>
+<p><span m="2469000">But in the best basis, it's easy to see that P squared</span> <span m="2473000">equals P, and it's symmetric, and it's diagonal.</span> </p>
+<p><span m="2477000">So that's the idea then, is, do you see now how I'm</span> <span m="2481000">associating a matrix to the transformation?</span> </p>
+<p><span m="2485000">I'd better write the rule down, I'd better write the rule down.</span> </p>
+<p><span m="2491000">The rule to find the matrix A.</span> </p>
+<p><span m="2494000">All right, first column.</span> </p>
+<p><span m="2496000">So, a rule to find A, we're given the bases.</span> </p>
+<p><span m="2500000">Of course, we don't -- because there's no way we could</span> <span m="2505000">construct the matrix until we're told what the bases are.</span> </p>
+<p><span m="2511000">So we're given the input basis, and the output basis,</span> <span m="2518340">v1 to vn, w1 to wm.</span> </p>
+<p><span m="2520000">Those are given.</span> </p>
+<p><span m="2522000">Now, in the first column of A, how do I find that column?</span> </p>
+<p><span m="2530000">The first column of the matrix.</span> </p>
+<p><span m="2535000">So that should tell me what happens to the first basis</span> <span m="2541000">vector.</span> </p>
+<p><span m="2542000">So the rule is, apply the linear transformation</span> <span m="2547000">to v1.</span> </p>
+<p><span m="2548000">To the first basis vector.</span> </p>
+<p><span m="2551000">And then, I'll write it -- so that's the output,</span> <span m="2557000">right?</span> </p>
+<p><span m="2558000">The input is v1, what's the output?</span> </p>
+<p><span m="2563460">The output is in the output space, it's some combination of</span> <span m="2568550">these guys, and it's that combination that goes into the</span> <span m="2573000">first column -- so, let me -- I'll put this word --</span> <span m="2577000">right, I'll say it in words again.</span> </p>
+<p><span m="2580000">How to find this matrix.</span> </p>
+<p><span m="2582770">Take the first basis vector.</span> </p>
+<p><span m="2586000">Apply the transformation, then it's in the output space,</span> <span m="2591000">T of v1, so it's some combination of these outputs,</span> <span m="2596000">this output basis.</span> </p>
+<p><span m="2597000">So that combination, the coefficients in that</span> <span m="2601000">combination will be the first column -- so a1,</span> <span m="2606000">a row 2, column 1, w2, am1, wm.</span> </p>
+<p><span m="2608000">There are the numbers in the first column of the matrix.</span> </p>
+<p><span m="2615000">Let me make the point by doing the second column.</span> </p>
+<p><span m="2621000">Second column of A.</span> </p>
+<p><span m="2624000">What's the idea, now?</span> </p>
+<p><span m="2627000">I take the second basis vector, I apply the transformation to</span> <span m="2635000">it, that's in -- now I get an output, so it's some combination</span> <span m="2643000">in the output basis -- and that combination is the</span> <span m="2651000">bunch of numbers that should go in the second column of the</span> <span m="2657000">matrix.</span> </p>
+<p><span m="2658000">OK. And so forth.</span> </p>
+<p><span m="2660000">So I get a matrix, and the matrix I get does the</span> <span m="2665000">right job.</span> </p>
+<p><span m="2666430">Now, the matrix constructed that way, and following the</span> <span m="2672000">rules of matrix multiplication.</span> </p>
+<p><span m="2677000">The result will be that if I give you the input coordinates,</span> <span m="2683000">and I multiply by the matrix, so the outcome of all this is A</span> <span m="2689000">times the input coordinates correctly reproduces the output</span> <span m="2696000">coordinates.</span> </p>
+<p><span m="2697000">Why is this right?</span> </p>
+<p><span m="2699000">Let me just check the first column.</span> </p>
+<p><span m="2702000">Suppose the input coordinates are one and all zeros.</span> </p>
+<p><span m="2709000">What does that mean?</span> </p>
+<p><span m="2711000">What's the input?</span> </p>
+<p><span m="2712000">If the input coordinates are one and other -- and the rest</span> <span m="2716000">zeros, then the input is v1, right?</span> </p>
+<p><span m="2719000">That's the vector that has coordinates one and all zeros.</span> </p>
+<p><span m="2723000">OK?</span> </p>
+<p><span m="2724000">When I multiply A by the one and all zeros,</span> <span m="2727000">I'll get the first column of A, I'll get these numbers.</span> </p>
+<p><span m="2732000">And, sure enough, those are the output</span> <span m="2735000">coordinates for T of v1.</span> </p>
+<p><span m="2737190">So we made it right on the first column,</span> <span m="2740000">we made it right on the second column, we made it right on all</span> <span m="2744000">the basis vectors, and then it has to be right on</span> <span m="2748000">every vector.</span> </p>
+<p><span m="2749000">So there is a picture of the matrix for a linear</span> </p>
+<p><span m="2749420">OK.</span> <span m="2753000">transformation.</span> </p>
+<p><span m="2755000">Finally, let me give you another -- a different linear</span> <span m="2761970">transformation.</span> </p>
+<p><span m="2763000">The linear transformation that takes the derivative.</span> </p>
+<p><span m="2770000">That's a linear transformation.</span> </p>
+<p><span m="2773000">Suppose the input space is all combination c1 plus c2x plus c3</span> <span m="2781000">x squared.</span> </p>
+<p><span m="2783000">So the basis is these simple functions.</span> </p>
+<p><span m="2787000">Then what's the output?</span> </p>
+<p><span m="2790000">Is the derivative.</span> </p>
+<p><span m="2792000">The output is the derivative, so the output is c2+2c3 x.</span> </p>
+<p><span m="2798000">And let's take as output basis, the vectors one and x.</span> </p>
+<p><span m="2804000">So we're going from a three-dimensional space of</span> <span m="2809000">inputs to a two-dimensional space of outputs by the</span> <span m="2814000">derivative.</span> </p>
+<p><span m="2817000">And I don't know if you ever thought that the derivative is</span> <span m="2827560">linear.</span> </p>
+<p><span m="2828000">But if it weren't linear, taking derivatives would take</span> <span m="2838000">forever, right?</span> </p>
+<p><span m="2841000">We are able to compute derivatives of functions exactly</span> <span m="2845000">because we know it's a linear transformation,</span> <span m="2847000">so that if we learn the derivatives of a few functions,</span> <span m="2851000">like sine x and cos x and e to the x, and another little short</span> <span m="2854000">list, then we can take all their combinations and we can do all</span> <span m="2858000">the derivatives.</span> </p>
+<p><span m="2860000">OK, now what's the matrix?</span> </p>
+<p><span m="2862000">What's the matrix?</span> </p>
+<p><span m="2864000">So I want the matrix to multiply these input vectors --</span> <span m="2869000">input coordinates, and give these output</span> <span m="2873000">coordinates.</span> </p>
+<p><span m="2874000">So I just think, OK, what's the matrix that does</span> <span m="2878000">it?</span> </p>
+<p><span m="2879000">I can follow my rule of construction,</span> <span m="2882500">or I can see what the matrix is.</span> </p>
+<p><span m="2886000">It should be a two by three matrix, right?</span> </p>
+<p><span m="2890000">And the matrix -- so I'm just figuring out,</span> <span m="2893000">what do I want?</span> </p>
+<p><span m="2895000">No, I'll -- let me write it here.</span> </p>
+<p><span m="2897750">What do I want from my matrix?</span> </p>
+<p><span m="2900000">What should that matrix do?</span> </p>
+<p><span m="2902000">Well, I want to get c2 in the first output,</span> <span m="2906140">so zero, one, zero will do it.</span> </p>
+<p><span m="2909000">I want to get two c3, so zero, zero,</span> <span m="2912000">two will do it.</span> </p>
+<p><span m="2913210">That's the matrix for this linear transformation with those</span> <span m="2917000">bases and those coordinates.</span> </p>
+<p><span m="2919000">You see, it just clicks, and the whole point is that the</span> <span m="2923000">inverse matrix gives the inverse to the linear transformation,</span> <span m="2927000">that the product of two matrices gives the right matrix</span> <span m="2931000">for the product of two transformations --</span> <span m="2934000">matrix multiplication really came from linear</span> <span m="2943000">transformations.</span> </p>
+<p><span m="2946000">I'd better pick up on that theme Monday after Thanksgiving.</span> </p>
+<p><span m="2957000">And I hope you have a great holiday.</span> </p>
+<p><span m="2964000">I hope Indian summer keeps going.</span> </p>
+<p><span m="2970000">OK, see you on Monday.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 106MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/30.mp4">MP4 - 198MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/Ts3o2I8_Mxc.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

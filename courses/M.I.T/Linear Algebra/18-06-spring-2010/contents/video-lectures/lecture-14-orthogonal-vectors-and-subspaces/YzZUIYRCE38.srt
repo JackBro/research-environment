@@ -1,0 +1,3406 @@
+1
+00:00:12,790 --> 00:00:15,000
+OK.
+cameras are rolling.
+
+2
+00:00:15,000 --> 00:00:20,000
+This is lecture fourteen,
+starting a new chapter.
+
+3
+00:00:20,000 --> 00:00:24,000
+Chapter about orthogonality.
+
+4
+00:00:24,000 --> 00:00:29,010
+What it means for vectors to be
+orthogonal.
+
+5
+00:00:29,010 --> 00:00:34,000
+What it means for subspaces to
+be orthogonal.
+
+6
+00:00:34,000 --> 00:00:39,000
+What it means for bases to be
+orthogonal.
+
+7
+00:00:39,000 --> 00:00:45,000
+So ninety degrees,
+this is a ninety-degree
+
+8
+00:00:45,000 --> 00:00:46,000
+chapter.
+
+9
+00:00:46,000 --> 00:00:52,000
+So what does it mean -- let me
+jump to subspaces.
+
+10
+00:00:52,000 --> 00:00:58,000
+Because I've drawn here the big
+picture.
+
+11
+00:00:58,000 --> 00:01:02,320
+This is the 18.06 picture here.
+
+12
+00:01:02,320 --> 00:01:06,000
+And hold it down,
+guys.
+
+13
+00:01:06,000 --> 00:01:13,000
+So this is the picture and we
+know a lot about that picture
+
+14
+00:01:13,000 --> 00:01:14,000
+already.
+
+15
+00:01:14,000 --> 00:01:19,000
+We know the dimension of every
+subspace.
+
+16
+00:01:19,000 --> 00:01:24,000
+We know that these dimensions
+are r and n-r.
+
+17
+00:01:24,000 --> 00:01:30,000
+We know that these dimensions
+are r and m-r.
+
+18
+00:01:30,000 --> 00:01:36,000
+What I want to show now is what
+this figure is saying,
+
+19
+00:01:36,000 --> 00:01:42,000
+that the angle --
+the figure is just my attempt
+
+20
+00:01:42,000 --> 00:01:47,000
+to draw what I'm now going to
+say, that the angle between
+
+21
+00:01:47,000 --> 00:01:50,000
+these subspaces is ninety
+degrees.
+
+22
+00:01:50,000 --> 00:01:54,000
+And the angle between these
+subspaces is ninety degrees.
+
+23
+00:01:54,000 --> 00:01:58,000
+Now I have to say what does
+that mean?
+
+24
+00:01:58,000 --> 00:02:03,000
+What does it mean for subspaces
+to be orthogonal?
+
+25
+00:02:03,000 --> 00:02:07,000
+But I hope you appreciate the
+beauty of this picture,
+
+26
+00:02:07,000 --> 00:02:12,000
+that that those subspaces are
+going to come out to be
+
+27
+00:02:12,000 --> 00:02:13,000
+orthogonal.
+
+28
+00:02:13,000 --> 00:02:16,000
+Those two and also those two.
+
+29
+00:02:16,000 --> 00:02:21,000
+So that's like one point,
+one important point to step
+
+30
+00:02:21,000 --> 00:02:24,000
+forward in understanding those
+subspaces.
+
+31
+00:02:24,000 --> 00:02:30,000
+We knew what each subspace was
+like, we could compute bases for
+
+32
+00:02:30,000 --> 00:02:31,980
+them.
+
+33
+00:02:31,980 --> 00:02:34,170
+Now we know more.
+
+34
+00:02:34,170 --> 00:02:37,000
+Or we will in a few minutes.
+
+35
+00:02:37,000 --> 00:02:38,000
+OK.
+
+36
+00:02:38,000 --> 00:02:46,000
+I have to say first of all what
+does it mean for two vectors to
+
+37
+00:02:46,000 --> 00:02:47,000
+be orthogonal?
+
+38
+00:02:47,000 --> 00:02:51,000
+So let me start with that.
+
+39
+00:02:51,000 --> 00:02:53,000
+Orthogonal vectors.
+
+40
+00:02:53,000 --> 00:03:00,000
+The word orthogonal is -- is
+just another word for
+
+41
+00:03:00,000 --> 00:03:03,000
+perpendicular.
+
+42
+00:03:03,000 --> 00:03:10,000
+It means that in n-dimensional
+space the angle between those
+
+43
+00:03:10,000 --> 00:03:12,970
+vectors is ninety degrees.
+
+44
+00:03:12,970 --> 00:03:17,000
+It means that they form a right
+triangle.
+
+45
+00:03:17,000 --> 00:03:24,000
+It even means that the going
+way back to the Greeks that this
+
+46
+00:03:24,000 --> 00:03:29,000
+angle that this triangle a
+vector x, a vector x,
+
+47
+00:03:29,000 --> 00:03:35,000
+and a vector x+y --
+of course that'll be the
+
+48
+00:03:35,000 --> 00:03:42,000
+hypotenuse, so what was it the
+Greeks figured out and it's
+
+49
+00:03:42,000 --> 00:03:43,000
+neat.
+
+50
+00:03:43,000 --> 00:03:48,000
+It's the fact that the -- so
+these are orthogonal,
+
+51
+00:03:48,000 --> 00:03:54,000
+this is a right angle,
+if -- so let me put the great
+
+52
+00:03:54,000 --> 00:04:00,080
+name down, Pythagoras,
+I'm looking for -- what I
+
+53
+00:04:00,080 --> 00:04:02,000
+looking for?
+
+54
+00:04:02,000 --> 00:04:07,000
+I'm looking for the condition
+if you give me two vectors,
+
+55
+00:04:07,000 --> 00:04:10,000
+how do I know if they're
+orthogonal?
+
+56
+00:04:10,000 --> 00:04:13,000
+How can I tell two
+perpendicular vectors?
+
+57
+00:04:13,000 --> 00:04:17,000
+And actually you probably know
+the answer.
+
+58
+00:04:17,000 --> 00:04:19,000
+Let me write the answer down.
+
+59
+00:04:19,000 --> 00:04:23,000
+Orthogonal vectors,
+what's the test for
+
+60
+00:04:23,000 --> 00:04:25,000
+orthogonality?
+
+61
+00:04:25,000 --> 00:04:32,000
+I take the dot product which I
+tend to write as x transpose y,
+
+62
+00:04:32,000 --> 00:04:38,000
+because that's a row times a
+column, and that matrix
+
+63
+00:04:38,000 --> 00:04:45,000
+multiplication just gives me the
+right thing, that x1y1+x2y2 and
+
+64
+00:04:45,000 --> 00:04:51,000
+so on, so these vectors are
+orthogonal if this result x
+
+65
+00:04:51,000 --> 00:04:54,000
+transpose y is zero.
+
+66
+00:04:54,000 --> 00:04:55,000
+That's the test.
+
+67
+00:04:55,000 --> 00:04:56,000
+OK.
+
+68
+00:04:56,000 --> 00:05:01,000
+Can I connect that to other
+things?
+
+69
+00:05:01,000 --> 00:05:06,000
+I mean -- it's just beautiful
+that here we have we're in n
+
+70
+00:05:06,000 --> 00:05:11,000
+dimensions, we've got a couple
+of vectors, we want to know the
+
+71
+00:05:11,000 --> 00:05:15,430
+angle between them,
+and the right thing to look at
+
+72
+00:05:15,430 --> 00:05:19,050
+is the simplest thing that you
+could imagine,
+
+73
+00:05:19,050 --> 00:05:20,000
+the dot product.
+
+74
+00:05:20,000 --> 00:05:20,000
+OK.
+Now why?
+
+75
+00:05:21,000 --> 00:05:25,550
+So I'm answering the question
+now why --
+
+76
+00:05:25,550 --> 00:05:31,000
+let's add some justification to
+this fact, that's the test.
+
+77
+00:05:31,000 --> 00:05:36,000
+OK, so Pythagoras would say
+we've got a right triangle,
+
+78
+00:05:36,000 --> 00:05:42,000
+if that length squared plus
+that length squared equals that
+
+79
+00:05:42,000 --> 00:05:44,000
+length squared.
+
+80
+00:05:44,000 --> 00:05:50,000
+OK, can I write it as x squared
+plus y squared equals x plus y
+
+81
+00:05:50,000 --> 00:05:51,000
+squared?
+
+82
+00:05:51,000 --> 00:05:56,000
+Now don't, please don't think
+that this is always true.
+
+83
+00:05:56,000 --> 00:06:01,000
+This is only going to be true
+in this -- it's going to be
+
+84
+00:06:01,000 --> 00:06:04,000
+equivalent to orthogonality.
+
+85
+00:06:04,000 --> 00:06:08,000
+For other triangles of course,
+it's not true.
+
+86
+00:06:08,000 --> 00:06:11,000
+For other triangles it's not.
+
+87
+00:06:11,000 --> 00:06:16,000
+But for a right triangle
+somehow that fact should connect
+
+88
+00:06:16,000 --> 00:06:18,000
+to that fact.
+
+89
+00:06:18,000 --> 00:06:21,000
+Can we just make that
+connection?
+
+90
+00:06:21,000 --> 00:06:26,000
+What's the connection between
+this test for orthogonality and
+
+91
+00:06:26,000 --> 00:06:29,000
+this statement of orthogonality?
+
+92
+00:06:29,000 --> 00:06:34,000
+Well, I guess I have to say
+what is the length squared?
+
+93
+00:06:34,000 --> 00:06:39,000
+So let's continue on the board
+underneath with that equation.
+
+94
+00:06:39,000 --> 00:06:46,000
+Give me another way to express
+the length squared of a vector.
+
+95
+00:06:46,000 --> 00:06:49,000
+And let me just give you a
+vector.
+
+96
+00:06:49,000 --> 00:06:51,000
+The vector one,
+two, three.
+
+97
+00:06:51,000 --> 00:06:53,810
+That's in three dimensions.
+
+98
+00:06:53,810 --> 00:06:58,000
+What is the length squared of
+the vector x equal one,
+
+99
+00:06:58,000 --> 00:06:59,000
+two, three?
+
+100
+00:06:59,000 --> 00:07:02,000
+So how do you find the length
+squared?
+
+101
+00:07:02,000 --> 00:07:07,000
+Well, really you just,
+you want the length of that
+
+102
+00:07:07,000 --> 00:07:14,000
+vector that goes along one --
+up two, and out three -- and
+
+103
+00:07:14,000 --> 00:07:19,000
+we'll come back to that right
+triangle stuff.
+
+104
+00:07:19,000 --> 00:07:24,000
+The length squared is exactly x
+transpose x.
+
+105
+00:07:24,000 --> 00:07:30,000
+Whenever I see x transpose x,
+I know I've got a number that's
+
+106
+00:07:30,000 --> 00:07:31,830
+positive.
+
+107
+00:07:31,830 --> 00:07:36,000
+It's a length squared unless it
+--
+
+108
+00:07:36,000 --> 00:07:41,000
+unless x happens to be the zero
+vector, that's the one case
+
+109
+00:07:41,000 --> 00:07:44,070
+where the length is zero.
+
+110
+00:07:44,070 --> 00:07:49,000
+So right -- this is just x1
+squared plus x2 squared plus so
+
+111
+00:07:49,000 --> 00:07:51,000
+on, plus xn squared.
+
+112
+00:07:51,000 --> 00:07:56,520
+So one -- in the example I gave
+you what was the length squared
+
+113
+00:07:56,520 --> 00:08:00,000
+of that vector one,
+two, three?
+
+114
+00:08:00,000 --> 00:08:02,890
+So you square those,
+you get one,
+
+115
+00:08:02,890 --> 00:08:06,000
+four and nine,
+you add, you get fourteen.
+
+116
+00:08:06,000 --> 00:08:10,000
+So the vector one,
+two, three has length fourteen.
+
+117
+00:08:10,000 --> 00:08:13,000
+So let me just put down a
+vector here.
+
+118
+00:08:13,000 --> 00:08:17,000
+Let x be the vector one,
+two, three.
+
+119
+00:08:17,000 --> 00:08:22,000
+Let me cook up a vector that's
+orthogonal to it.
+
+120
+00:08:22,000 --> 00:08:27,000
+So what's the vector that's
+orthogonal?
+
+121
+00:08:27,000 --> 00:08:35,450
+So right down here,
+x squared is one plus four plus
+
+122
+00:08:35,450 --> 00:08:42,000
+nine, fourteen,
+let me cook up a vector that's
+
+123
+00:08:42,000 --> 00:08:50,000
+orthogonal to it,
+we'll get right that that --
+
+124
+00:08:50,000 --> 00:08:56,000
+those two vectors are
+orthogonal, the length of y
+
+125
+00:08:56,000 --> 00:09:01,000
+squared is five,
+and x plus y is one and two
+
+126
+00:09:01,000 --> 00:09:06,000
+making three,
+two and minus one making one,
+
+127
+00:09:06,000 --> 00:09:13,000
+three and zero making three,
+and the length of this squared
+
+128
+00:09:13,000 --> 00:09:18,000
+is nine plus one plus nine,
+nineteen.
+
+129
+00:09:18,000 --> 00:09:24,000
+And sure enough,
+I haven't proved anything.
+
+130
+00:09:24,000 --> 00:09:29,000
+I've just like checked to see
+that my test x transpose y
+
+131
+00:09:29,000 --> 00:09:32,000
+equals zero, which is true,
+right?
+
+132
+00:09:32,000 --> 00:09:37,000
+Everybody sees that x transpose
+y is zero here?
+
+133
+00:09:37,000 --> 00:09:39,000
+That's maybe the main point.
+
+134
+00:09:39,000 --> 00:09:44,000
+That you should get really
+quick at doing x transpose y,
+
+135
+00:09:44,000 --> 00:09:50,000
+so it's just this plus this
+plus this and that's zero.
+
+136
+00:09:50,000 --> 00:09:54,000
+And sure enough,
+that clicks with fourteen plus
+
+137
+00:09:54,000 --> 00:09:57,000
+five agreeing with nineteen.
+
+138
+00:09:57,000 --> 00:10:00,500
+Now let me just do that in
+letters.
+
+139
+00:10:00,500 --> 00:10:02,000
+So that's y transpose y.
+
+140
+00:10:02,000 --> 00:10:06,000
+And this is x plus y transpose
+x plus y.
+
+141
+00:10:06,000 --> 00:10:06,000
+OK.
+So I'm looking,
+again, this isn't always true.
+
+142
+00:10:10,000 --> 00:10:11,000
+I repeat.
+
+143
+00:10:11,000 --> 00:10:17,000
+This is going to be true when
+we have a right angle.
+
+144
+00:10:17,000 --> 00:10:22,000
+And let's just -- well,
+of course, I'm just going to
+
+145
+00:10:22,000 --> 00:10:24,000
+simplify this stuff here.
+
+146
+00:10:24,000 --> 00:10:27,000
+There's an x transpose x there.
+
+147
+00:10:27,000 --> 00:10:30,000
+And there's a y transpose y
+there.
+
+148
+00:10:30,000 --> 00:10:32,000
+And there's an x transpose y.
+
+149
+00:10:32,000 --> 00:10:35,490
+And there's a y transpose x.
+
+150
+00:10:35,490 --> 00:10:40,310
+I knew I could do that
+simplification because I'm just
+
+151
+00:10:40,310 --> 00:10:46,000
+doing matrix multiplication and
+I've just followed the rules.
+
+152
+00:10:46,000 --> 00:10:47,000
+OK.
+
+153
+00:10:47,000 --> 00:10:50,200
+So x transpose x-s cancel.
+
+154
+00:10:50,200 --> 00:10:52,000
+Y transpose y-s cancel.
+
+155
+00:10:52,000 --> 00:10:55,000
+And what about these guys?
+
+156
+00:10:55,000 --> 00:11:02,650
+What can you tell me about the
+inner product of x with y and
+
+157
+00:11:02,650 --> 00:11:06,000
+the inner product of y with x?
+
+158
+00:11:06,000 --> 00:11:08,000
+Is there a difference?
+
+159
+00:11:08,000 --> 00:11:14,000
+I think if we --
+while we're doing real vectors,
+
+160
+00:11:14,000 --> 00:11:18,000
+which is all we're doing now,
+there isn't a difference,
+
+161
+00:11:18,000 --> 00:11:20,000
+there's no difference.
+
+162
+00:11:20,000 --> 00:11:24,420
+If I take x transpose y,
+that'll give me zero,
+
+163
+00:11:24,420 --> 00:11:29,680
+if I took y transpose x I would
+have the same x1y1 and x2y2 and
+
+164
+00:11:29,680 --> 00:11:33,000
+x3y3, it would be the same,
+so this is --
+
+165
+00:11:33,000 --> 00:11:39,000
+this is the same as that,
+this is really I'll knock that
+
+166
+00:11:39,000 --> 00:11:42,000
+guy out and say two of these.
+
+167
+00:11:42,000 --> 00:11:48,000
+So actually that's the -- this
+equation boiled down to this
+
+168
+00:11:48,000 --> 00:11:50,000
+thing being zero.
+
+169
+00:11:50,000 --> 00:11:50,000
+Right?
+Everything else canceled and
+this equation boiled down to
+
+170
+00:11:56,670 --> 00:11:58,000
+that one.
+
+171
+00:11:58,000 --> 00:12:01,000
+So that's really all I wanted.
+
+172
+00:12:01,000 --> 00:12:07,000
+I just wanted to check that
+Pythagoras for a right triangle
+
+173
+00:12:07,000 --> 00:12:11,850
+led me to this -- of course I
+cancel the two now.
+
+174
+00:12:11,850 --> 00:12:12,920
+No problem.
+
+175
+00:12:12,920 --> 00:12:16,000
+To x transpose y equals zero as
+the test.
+
+176
+00:12:16,000 --> 00:12:17,000
+Fair enough.
+
+177
+00:12:17,000 --> 00:12:18,000
+OK.
+
+178
+00:12:18,000 --> 00:12:20,000
+You knew it was coming.
+
+179
+00:12:20,000 --> 00:12:26,000
+The dot product of orthogonal
+vectors is zero.
+
+180
+00:12:26,000 --> 00:12:30,000
+It's just -- I just want to say
+that's really neat.
+
+181
+00:12:30,000 --> 00:12:33,430
+That it comes out so well.
+
+182
+00:12:33,430 --> 00:12:34,000
+All right.
+
+183
+00:12:34,000 --> 00:12:40,000
+Now what about -- so now I know
+if two -- when two vectors are
+
+184
+00:12:40,000 --> 00:12:41,290
+orthogonal.
+
+185
+00:12:41,290 --> 00:12:46,000
+By the way, what about if one
+of these guys is the zero
+
+186
+00:12:46,000 --> 00:12:48,000
+vector?
+
+187
+00:12:48,000 --> 00:12:52,000
+Suppose x is the zero vector,
+and y is whatever.
+
+188
+00:12:52,000 --> 00:12:53,000
+Are they orthogonal?
+
+189
+00:12:53,000 --> 00:12:54,190
+Sure.
+
+190
+00:12:54,190 --> 00:12:58,000
+In math the one thing about
+math is you're supposed to
+
+191
+00:12:58,000 --> 00:13:00,000
+follow the rules.
+
+192
+00:13:00,000 --> 00:13:04,000
+So you're supposed to -- if x
+is the zero vector,
+
+193
+00:13:04,000 --> 00:13:09,000
+you're supposed to take the
+zero vector dotted with y and of
+
+194
+00:13:09,000 --> 00:13:12,000
+course you always get zero.
+
+195
+00:13:12,000 --> 00:13:19,000
+So just so we're all sure,
+the zero vector is orthogonal
+
+196
+00:13:19,000 --> 00:13:21,000
+to everybody.
+
+197
+00:13:21,000 --> 00:13:28,000
+But what I want to -- what I
+now want to think about is
+
+198
+00:13:28,000 --> 00:13:29,000
+subspaces.
+
+199
+00:13:29,000 --> 00:13:37,000
+What does it mean for me to say
+that some subspace is orthogonal
+
+200
+00:13:37,000 --> 00:13:41,000
+to some other subspace?
+
+201
+00:13:41,000 --> 00:13:42,000
+So OK.
+
+202
+00:13:42,000 --> 00:13:45,640
+Now I've got to write this
+down.
+
+203
+00:13:45,640 --> 00:13:51,000
+So because we're defining
+definition of subspace S is
+
+204
+00:13:51,000 --> 00:13:57,000
+orthogonal so to subspace let's
+say T, so I've got a couple of
+
+205
+00:13:57,000 --> 00:13:58,000
+subspaces.
+
+206
+00:13:58,000 --> 00:14:04,000
+And what should it mean for
+those guys to be orthogonal?
+
+207
+00:14:04,000 --> 00:14:10,000
+It's just sort of what's the
+natural extension from
+
+208
+00:14:10,000 --> 00:14:16,000
+orthogonal vectors to orthogonal
+subspaces?
+
+209
+00:14:16,000 --> 00:14:25,000
+Well, and in particular,
+let's think of some orthogonal
+
+210
+00:14:25,000 --> 00:14:30,000
+subspaces, like this wall.
+
+211
+00:14:30,000 --> 00:14:35,000
+Let's say in three dimensions.
+
+212
+00:14:35,000 --> 00:14:43,000
+So the blackboard extended to
+infinity, right,
+
+213
+00:14:43,000 --> 00:14:47,000
+is a --
+is a subspace,
+
+214
+00:14:47,000 --> 00:14:52,000
+a plane, a two-dimensional
+subspace.
+
+215
+00:14:52,000 --> 00:14:58,000
+It's a little bumpy but anyway,
+it's a -- think of it as a
+
+216
+00:14:58,000 --> 00:15:05,000
+subspace, let me take the floor
+as another subspace.
+
+217
+00:15:05,000 --> 00:15:11,000
+Again, it's not a great
+subspace, MIT only built it like
+
+218
+00:15:11,000 --> 00:15:16,420
+so-so, but I'll put the origin
+right here.
+
+219
+00:15:16,420 --> 00:15:22,000
+So the origin of the world is
+right there.
+
+220
+00:15:22,000 --> 00:15:23,000
+OK.
+
+221
+00:15:23,000 --> 00:15:29,000
+Thereby giving linear algebra
+its proper importance in this.
+
+222
+00:15:29,000 --> 00:15:29,000
+OK.
+So there is one subspace,
+there's another one.
+
+223
+00:15:34,000 --> 00:15:35,000
+The floor.
+
+224
+00:15:35,000 --> 00:15:38,000
+And are they orthogonal?
+
+225
+00:15:38,000 --> 00:15:44,000
+What does it mean for two
+subspaces to be orthogonal and
+
+226
+00:15:44,000 --> 00:15:49,000
+in that special case are they
+orthogonal?
+
+227
+00:15:49,000 --> 00:15:51,000
+All right.
+
+228
+00:15:51,000 --> 00:15:54,000
+Let's finish this sentence.
+
+229
+00:15:54,000 --> 00:16:01,000
+What does it mean means we have
+to know what we're talking about
+
+230
+00:16:01,000 --> 00:16:01,000
+here.
+So what would be a reasonable
+idea of orthogonal?
+
+231
+00:16:06,000 --> 00:16:10,000
+Well, let me put the right
+thing up.
+
+232
+00:16:10,000 --> 00:16:16,000
+It means that every vector in
+S, every vector in S,
+
+233
+00:16:16,000 --> 00:16:22,000
+is orthogonal to --
+what I going to say?
+
+234
+00:16:22,000 --> 00:16:25,000
+Every vector in T.
+
+235
+00:16:25,000 --> 00:16:32,000
+That's a reasonable and it's a
+good and it's the right
+
+236
+00:16:32,000 --> 00:16:39,000
+definition for two subspaces to
+be orthogonal.
+
+237
+00:16:39,000 --> 00:16:47,000
+But I just want you to see,
+hey, what does that mean?
+
+238
+00:16:47,000 --> 00:16:55,000
+So answer the question about
+the -- the blackboard and the
+
+239
+00:16:55,000 --> 00:16:57,000
+floor.
+
+240
+00:16:57,000 --> 00:17:03,000
+Are those two subspaces,
+they're two-dimensional,
+
+241
+00:17:03,000 --> 00:17:06,000
+right, and we're in R^3.
+
+242
+00:17:06,000 --> 00:17:12,000
+It's like a xz plane or
+something and a xy plane.
+
+243
+00:17:12,000 --> 00:17:14,000
+Are they orthogonal?
+
+244
+00:17:14,000 --> 00:17:21,000
+Is every vector in the
+blackboard orthogonal to every
+
+245
+00:17:21,000 --> 00:17:27,000
+vector in the floor,
+starting from the origin right
+
+246
+00:17:27,000 --> 00:17:29,000
+there?
+
+247
+00:17:29,000 --> 00:17:30,000
+Yes or no?
+
+248
+00:17:30,000 --> 00:17:32,000
+I could take a vote.
+
+249
+00:17:32,000 --> 00:17:37,000
+Well we get some yeses and some
+noes.
+
+250
+00:17:37,000 --> 00:17:39,000
+No is the answer.
+
+251
+00:17:39,000 --> 00:17:40,000
+They're not.
+
+252
+00:17:40,000 --> 00:17:47,000
+You can tell me a vector in the
+blackboard and a vector in the
+
+253
+00:17:47,000 --> 00:17:51,570
+floor that are not orthogonal.
+
+254
+00:17:51,570 --> 00:17:57,000
+Well you can tell me quite a
+few, I guess.
+
+255
+00:17:57,000 --> 00:18:02,000
+Maybe like I could take some
+forty-five-degree guy in the
+
+256
+00:18:02,000 --> 00:18:08,000
+blackboard, and something in the
+floor, they're not at ninety
+
+257
+00:18:08,000 --> 00:18:09,000
+degrees, right?
+
+258
+00:18:09,000 --> 00:18:13,490
+In fact, even more,
+you could tell me a vector
+
+259
+00:18:13,490 --> 00:18:18,000
+that's in both the blackboard
+plane and the floor plane,
+
+260
+00:18:18,000 --> 00:18:23,000
+so it's certainly not
+orthogonal to itself.
+
+261
+00:18:23,000 --> 00:18:26,000
+So for sure,
+those two planes aren't
+
+262
+00:18:26,000 --> 00:18:27,000
+orthogonal.
+
+263
+00:18:27,000 --> 00:18:29,000
+What would that be?
+
+264
+00:18:29,000 --> 00:18:34,000
+So what's a vector that's -- in
+both of those planes?
+
+265
+00:18:34,000 --> 00:18:39,000
+It's this guy running along the
+crack there, in the
+
+266
+00:18:39,000 --> 00:18:42,000
+intersection,
+the intersection.
+
+267
+00:18:42,000 --> 00:18:47,000
+A vector, you know --
+if two subspaces meet at some
+
+268
+00:18:47,000 --> 00:18:51,000
+vector, well then for sure
+they're not orthogonal,
+
+269
+00:18:51,000 --> 00:18:54,000
+because that vector is in one
+and it's in the other,
+
+270
+00:18:54,000 --> 00:18:58,000
+and it's not orthogonal to
+itself unless it's zero.
+
+271
+00:18:58,000 --> 00:19:02,000
+So the only I mean so
+orthogonal is for me to say
+
+272
+00:19:02,000 --> 00:19:05,000
+these two subspaces are
+orthogonal first of all I'm
+
+273
+00:19:05,000 --> 00:19:11,000
+certainly saying that they don't
+intersect in any nonzero vector.
+
+274
+00:19:11,000 --> 00:19:17,000
+But also I mean more than that
+just not intersecting isn't good
+
+275
+00:19:17,000 --> 00:19:17,000
+enough.
+So give me an example,
+oh, let's say in the plane,
+
+276
+00:19:22,000 --> 00:19:26,000
+oh well, when do we have
+orthogonal subspaces in the
+
+277
+00:19:26,000 --> 00:19:27,370
+plane?
+
+278
+00:19:27,370 --> 00:19:32,000
+Yeah, tell me in the plane,
+so we don't -- there aren't
+
+279
+00:19:32,000 --> 00:19:37,000
+that many different subspaces in
+the plane.
+
+280
+00:19:37,000 --> 00:19:42,000
+What what have we got in the
+plane as possible subspaces?
+
+281
+00:19:42,000 --> 00:19:45,000
+The zero vector,
+real small.
+
+282
+00:19:45,000 --> 00:19:47,000
+A line through the origin.
+
+283
+00:19:47,000 --> 00:19:49,000
+Or the whole plane.
+
+284
+00:19:49,000 --> 00:19:49,000
+OK.
+Now so when is a line through
+the origin orthogonal to the
+
+285
+00:19:55,000 --> 00:19:56,000
+whole plane?
+
+286
+00:19:56,000 --> 00:19:58,000
+Never, right,
+never.
+
+287
+00:19:58,000 --> 00:20:03,000
+When is a line through the
+origin orthogonal to the zero
+
+288
+00:20:03,000 --> 00:20:05,000
+subspace?
+
+289
+00:20:05,000 --> 00:20:06,000
+Always.
+
+290
+00:20:06,000 --> 00:20:06,000
+Right.
+When is a line through the
+origin orthogonal to a different
+
+291
+00:20:12,000 --> 00:20:14,650
+line through the origin?
+
+292
+00:20:14,650 --> 00:20:20,000
+Well, that's the case that we
+all have a clear picture of,
+
+293
+00:20:20,000 --> 00:20:25,000
+they -- the two lines have to
+meet at ninety degrees.
+
+294
+00:20:25,000 --> 00:20:30,000
+They have only the -- so that's
+like this simple case I'm
+
+295
+00:20:30,000 --> 00:20:31,000
+talking about.
+
+296
+00:20:31,000 --> 00:20:35,550
+There's one subspace,
+there's the other subspace.
+
+297
+00:20:35,550 --> 00:20:37,000
+They only meet at zero.
+
+298
+00:20:37,000 --> 00:20:39,000
+And they're orthogonal.
+
+299
+00:20:39,000 --> 00:20:39,000
+OK.
+Now.
+So we now know what it means
+for two subspaces to be
+
+300
+00:20:44,000 --> 00:20:45,000
+orthogonal.
+
+301
+00:20:45,000 --> 00:20:53,000
+And now I want to say that this
+is true for the row space and
+
+302
+00:20:53,000 --> 00:20:55,000
+the null space.
+
+303
+00:20:55,000 --> 00:20:55,000
+OK.
+So that's the neat fact.
+
+304
+00:20:58,550 --> 00:21:04,000
+So row space is orthogonal to
+the null space.
+
+305
+00:21:04,000 --> 00:21:07,000
+Now how did I come up with
+that?
+
+306
+00:21:07,000 --> 00:21:16,000
+But you see the rank it's
+great, that means that these --
+
+307
+00:21:16,000 --> 00:21:22,000
+that these subspaces are just
+the right things,
+
+308
+00:21:22,000 --> 00:21:30,000
+they're just cutting the whole
+space up into two perpendicular
+
+309
+00:21:30,000 --> 00:21:31,000
+subspaces.
+
+310
+00:21:31,000 --> 00:21:32,000
+OK.
+
+311
+00:21:32,000 --> 00:21:32,000
+So why?
+Well, what have I got to work
+with?
+
+312
+00:21:37,000 --> 00:21:41,300
+All I know is the null space.
+
+313
+00:21:41,300 --> 00:21:49,000
+The null space has vectors that
+solve Ax equals zero.
+
+314
+00:21:49,000 --> 00:21:53,000
+So this is a guy x.
+x is in the null space.
+
+315
+00:21:53,000 --> 00:21:55,000
+Then Ax is zero.
+
+316
+00:21:55,000 --> 00:21:59,000
+So why is it orthogonal to the
+rows of A?
+
+317
+00:21:59,000 --> 00:22:04,000
+If I write down Ax equals zero,
+which is all I know about the
+
+318
+00:22:04,000 --> 00:22:10,000
+null space, then I guess I want
+you to see that that's telling
+
+319
+00:22:10,000 --> 00:22:16,000
+me, just that equation right
+there is telling me that the
+
+320
+00:22:16,000 --> 00:22:20,000
+rows of A, let me write it out.
+
+321
+00:22:20,000 --> 00:22:23,000
+There's row one of A.
+
+322
+00:22:23,000 --> 00:22:24,000
+Row two.
+
+323
+00:22:24,000 --> 00:22:27,000
+Row m of A.
+that's A.
+
+324
+00:22:27,000 --> 00:22:30,000
+And it's multiplying X.
+
+325
+00:22:30,000 --> 00:22:34,000
+And it's producing zero.
+
+326
+00:22:34,000 --> 00:22:34,000
+OK.
+Written out that way you'll see
+it.
+
+327
+00:22:39,000 --> 00:22:48,000
+So I'm saying that a vector in
+the row space is perpendicular
+
+328
+00:22:48,000 --> 00:22:52,000
+to this guy X in the null space.
+
+329
+00:22:52,000 --> 00:22:57,000
+And you see why?
+
+330
+00:22:57,000 --> 00:23:02,000
+Because this equation is
+telling you that row one of A
+
+331
+00:23:02,000 --> 00:23:06,000
+multiplying that's a dot
+product, right?
+
+332
+00:23:06,000 --> 00:23:12,000
+Row one of A dot product with
+this x is producing this zero.
+
+333
+00:23:12,000 --> 00:23:15,000
+So x is orthogonal to the first
+row.
+
+334
+00:23:15,000 --> 00:23:18,000
+And to the second row.
+
+335
+00:23:18,000 --> 00:23:22,000
+Row two of A,
+x is giving that zero.
+
+336
+00:23:22,000 --> 00:23:26,000
+Row m of A times x is giving
+that zero.
+
+337
+00:23:26,000 --> 00:23:31,000
+So x is -- the equation is
+telling me that x is orthogonal
+
+338
+00:23:31,000 --> 00:23:32,000
+to all the rows.
+
+339
+00:23:32,000 --> 00:23:35,000
+Right, it's just sitting there.
+
+340
+00:23:35,000 --> 00:23:41,000
+That's all we -- it had to be
+sitting there because we didn't
+
+341
+00:23:41,000 --> 00:23:46,000
+know anything more about the
+null space than this.
+
+342
+00:23:46,000 --> 00:23:50,000
+And now I guess to be totally
+complete here I'd now check that
+
+343
+00:23:50,000 --> 00:23:53,000
+x is orthogonal to each separate
+row.
+
+344
+00:23:53,000 --> 00:23:56,000
+But what else strictly speaking
+do I have to do?
+
+345
+00:23:56,000 --> 00:23:59,000
+To show that those subspaces
+are orthogonal,
+
+346
+00:23:59,000 --> 00:24:03,000
+I have to take this x in the
+null space and show that it's
+
+347
+00:24:03,000 --> 00:24:07,000
+orthogonal to every vector in
+the row space,
+
+348
+00:24:07,000 --> 00:24:10,000
+every vector in the row space,
+so what --
+
+349
+00:24:10,000 --> 00:24:13,000
+what else is in the row space?
+
+350
+00:24:13,000 --> 00:24:19,000
+This row is in the row space,
+that row is in the row space,
+
+351
+00:24:19,000 --> 00:24:23,000
+they're all there,
+but it's not the whole row
+
+352
+00:24:23,000 --> 00:24:27,150
+space, right,
+we just have to like remember,
+
+353
+00:24:27,150 --> 00:24:31,000
+what does it mean,
+what does that word space
+
+354
+00:24:31,000 --> 00:24:33,000
+telling us?
+
+355
+00:24:33,000 --> 00:24:35,000
+And what else is in the row
+space?
+
+356
+00:24:35,000 --> 00:24:37,000
+Besides the rows?
+
+357
+00:24:37,000 --> 00:24:38,000
+All their combinations.
+
+358
+00:24:38,000 --> 00:24:42,000
+So I really have to check that
+sure enough if x is
+
+359
+00:24:42,000 --> 00:24:46,000
+perpendicular to row one,
+row two, all the different
+
+360
+00:24:46,000 --> 00:24:50,000
+separate rows,
+then also x is perpendicular to
+
+361
+00:24:50,000 --> 00:24:53,000
+a combination of the rows.
+
+362
+00:24:53,000 --> 00:24:57,000
+And that's just matrix
+multiplication again.
+
+363
+00:24:57,000 --> 00:25:02,000
+You know, I have row one
+transpose x is zero,
+
+364
+00:25:02,000 --> 00:25:08,000
+so on, row two transpose x is
+zero, so I'm entitled to
+
+365
+00:25:08,000 --> 00:25:12,000
+multiply that by some c1,
+this by some c2,
+
+366
+00:25:12,000 --> 00:25:16,000
+I still have zeroes,
+I'm entitled to add,
+
+367
+00:25:16,000 --> 00:25:24,000
+so I have c1 row one so --
+so all this when I put that
+
+368
+00:25:24,000 --> 00:25:31,000
+together that's big parentheses
+c1 row one plus c2 row two and
+
+369
+00:25:31,000 --> 00:25:32,000
+so on.
+
+370
+00:25:32,000 --> 00:25:34,000
+Transpose x is zero.
+
+371
+00:25:34,000 --> 00:25:35,000
+Right?
+
+372
+00:25:35,000 --> 00:25:42,000
+I just added the zeroes and got
+zero, and I just added these
+
+373
+00:25:42,000 --> 00:25:44,000
+following the rule.
+
+374
+00:25:44,000 --> 00:25:46,000
+No big deal.
+
+375
+00:25:46,000 --> 00:25:52,000
+The whole point was right
+sitting in that.
+
+376
+00:25:52,000 --> 00:25:53,000
+OK.
+
+377
+00:25:53,000 --> 00:26:00,000
+So if I come back to this
+figure now I'm like a happier
+
+378
+00:26:00,000 --> 00:26:01,000
+person.
+
+379
+00:26:01,000 --> 00:26:08,000
+Because I have this -- I now
+see how those subspaces are
+
+380
+00:26:08,000 --> 00:26:09,000
+oriented.
+
+381
+00:26:09,000 --> 00:26:14,000
+And these subspaces are also
+oriented.
+
+382
+00:26:14,000 --> 00:26:21,000
+Well, actually why is that
+orthogonality?
+
+383
+00:26:21,000 --> 00:26:27,000
+Well, it's the same statement
+for A transpose that that one
+
+384
+00:26:27,000 --> 00:26:28,270
+was for A.
+
+385
+00:26:28,270 --> 00:26:34,000
+So I won't take time to prove
+it again because we've checked
+
+386
+00:26:34,000 --> 00:26:39,000
+it for every matrix and A
+transpose is just as good a
+
+387
+00:26:39,000 --> 00:26:41,000
+matrix as A.
+
+388
+00:26:41,000 --> 00:26:44,000
+So we're orthogonal over there.
+
+389
+00:26:44,000 --> 00:26:48,000
+So we really have carved up
+this --
+
+390
+00:26:48,000 --> 00:26:53,000
+this was like carving up
+m-dimensional space into two
+
+391
+00:26:53,000 --> 00:26:59,260
+subspaces and this one was
+carving up n-dimensional space
+
+392
+00:26:59,260 --> 00:27:01,000
+into two subspaces.
+
+393
+00:27:01,000 --> 00:27:03,000
+And well, one more thing here.
+
+394
+00:27:03,000 --> 00:27:06,000
+One more important thing.
+
+395
+00:27:06,000 --> 00:27:09,000
+Let me move into three
+dimensions.
+
+396
+00:27:09,000 --> 00:27:15,000
+Tell me a couple of orthogonal
+subspaces in three dimensions
+
+397
+00:27:15,000 --> 00:27:21,000
+that somehow don't carve up the
+whole space, there's stuff left
+
+398
+00:27:21,000 --> 00:27:23,080
+there.
+
+399
+00:27:23,080 --> 00:27:28,000
+I'm thinking of a couple of
+orthogonal lines.
+
+400
+00:27:28,000 --> 00:27:33,000
+If I -- suppose I'm in three
+dimensions, R^3.
+
+401
+00:27:33,000 --> 00:27:39,000
+And I have one line,
+one one-dimensional subspace,
+
+402
+00:27:39,000 --> 00:27:42,000
+and a perpendicular one.
+
+403
+00:27:42,000 --> 00:27:49,000
+Could those be the row space
+and the null space?
+
+404
+00:27:49,000 --> 00:27:55,000
+Could those be the row space
+and the null space?
+
+405
+00:27:55,000 --> 00:28:02,000
+Could I be in three dimensions
+and have a row space that's a
+
+406
+00:28:02,000 --> 00:28:06,000
+line and a null space that's a
+line?
+
+407
+00:28:06,000 --> 00:28:07,000
+No.
+
+408
+00:28:07,000 --> 00:28:08,000
+Why not?
+
+409
+00:28:08,000 --> 00:28:12,000
+Because the dimensions aren't
+right.
+
+410
+00:28:12,000 --> 00:28:12,000
+Right?
+The dimensions are no good.
+
+411
+00:28:17,000 --> 00:28:21,000
+The dimensions here,
+r and n-r, they add up to
+
+412
+00:28:21,000 --> 00:28:23,000
+three, they add up to n.
+
+413
+00:28:23,000 --> 00:28:28,000
+If I take -- just follow that
+example -- if the row space is
+
+414
+00:28:28,000 --> 00:28:32,000
+one-dimensional,
+suppose A is what's a good in
+
+415
+00:28:32,000 --> 00:28:37,000
+R^3, I want a one-dimensional
+row space, let me take one,
+
+416
+00:28:37,000 --> 00:28:40,000
+two, five, two,
+four, ten.
+
+417
+00:28:40,000 --> 00:28:45,000
+What's the dimension of that
+row space?
+
+418
+00:28:45,000 --> 00:28:45,970
+One.
+
+419
+00:28:45,970 --> 00:28:50,000
+What's the dimension of the
+null space?
+
+420
+00:28:50,000 --> 00:28:57,000
+Tell what's the null space look
+like in that case?
+
+421
+00:28:57,000 --> 00:29:00,000
+The row space is a line,
+right?
+
+422
+00:29:00,000 --> 00:29:06,510
+One-dimensional,
+it's just a line through one,
+
+423
+00:29:06,510 --> 00:29:09,000
+two, five.
+
+424
+00:29:09,000 --> 00:29:14,000
+Geometrically what's the row
+space look like?
+
+425
+00:29:14,000 --> 00:29:17,000
+What's its dimension?
+
+426
+00:29:17,000 --> 00:29:22,000
+So here r here n is three,
+the rank is one,
+
+427
+00:29:22,000 --> 00:29:29,000
+so the dimension of the null
+space, so I'm looking at this x,
+
+428
+00:29:29,000 --> 00:29:30,000
+x1, x2, x3.
+
+429
+00:29:30,000 --> 00:29:32,000
+To give zero.
+
+430
+00:29:32,000 --> 00:29:40,000
+So the dimension of the null
+space is we all know is two.
+
+431
+00:29:40,000 --> 00:29:41,000
+Right.
+
+432
+00:29:41,000 --> 00:29:42,000
+It's a plane.
+
+433
+00:29:42,000 --> 00:29:47,000
+And now actually we know,
+we see better,
+
+434
+00:29:47,000 --> 00:29:49,070
+what plane is it?
+
+435
+00:29:49,070 --> 00:29:51,000
+What plane is it?
+
+436
+00:29:51,000 --> 00:29:55,000
+It's the plane that's
+perpendicular to one,
+
+437
+00:29:55,000 --> 00:29:56,000
+two, five.
+
+438
+00:29:56,000 --> 00:29:57,000
+Right?
+
+439
+00:29:57,000 --> 00:29:58,000
+We now see.
+
+440
+00:29:58,000 --> 00:30:04,080
+In fact the two,
+four, ten didn't actually have
+
+441
+00:30:04,080 --> 00:30:07,000
+any effect at all.
+
+442
+00:30:07,000 --> 00:30:11,000
+I could have just ignored that.
+
+443
+00:30:11,000 --> 00:30:17,000
+That didn't change the row
+space or the null space.
+
+444
+00:30:17,000 --> 00:30:21,000
+I'll just make that one
+equation.
+
+445
+00:30:21,000 --> 00:30:21,000
+Yeah.
+OK.
+
+446
+00:30:22,000 --> 00:30:22,000
+Sure.
+That's the easiest to deal
+with.
+
+447
+00:30:26,000 --> 00:30:28,000
+One equation.
+
+448
+00:30:28,000 --> 00:30:30,000
+Three unknowns.
+
+449
+00:30:30,000 --> 00:30:36,000
+And I want to ask --
+what would the equation give me
+
+450
+00:30:36,000 --> 00:30:40,000
+the null space,
+and you would have said back in
+
+451
+00:30:40,000 --> 00:30:45,000
+September you would have said it
+gives you a plane,
+
+452
+00:30:45,000 --> 00:30:47,000
+and we're completely right.
+
+453
+00:30:47,000 --> 00:30:51,000
+And the plane it gives you,
+the normal vector,
+
+454
+00:30:51,000 --> 00:30:55,680
+you remember in calculus,
+there was this dumb normal
+
+455
+00:30:55,680 --> 00:30:57,000
+vector called N.
+
+456
+00:30:57,000 --> 00:30:59,000
+Well there it is.
+
+457
+00:30:59,000 --> 00:31:02,000
+One, two, five.
+
+458
+00:31:02,000 --> 00:31:02,000
+OK.
+What is the what's the point I
+want to make here?
+
+459
+00:31:10,000 --> 00:31:20,000
+I want to make -- I want to
+emphasize that not only are the
+
+460
+00:31:20,000 --> 00:31:24,000
+-- let me write it in words.
+
+461
+00:31:24,000 --> 00:31:33,000
+So I want to write the null
+space and the row space are
+
+462
+00:31:33,000 --> 00:31:43,000
+orthogonal, that's this neat
+fact, which we've --
+
+463
+00:31:43,000 --> 00:31:47,000
+we've just checked from Ax
+equals zero, but now I want to
+
+464
+00:31:47,000 --> 00:31:51,000
+say more because there's a
+little more that's true.
+
+465
+00:31:51,000 --> 00:31:55,000
+Their dimensions add to the
+whole space.
+
+466
+00:31:55,000 --> 00:31:58,000
+So that's like a little extra
+information.
+
+467
+00:31:58,000 --> 00:32:03,000
+That it's not like I could have
+-- I couldn't have a line and a
+
+468
+00:32:03,000 --> 00:32:06,000
+line in three dimensions.
+
+469
+00:32:06,000 --> 00:32:11,000
+Those don't add up one and one
+don't add to three.
+
+470
+00:32:11,000 --> 00:32:16,000
+So I used the word orthogonal
+complements in R^n.
+
+471
+00:32:16,000 --> 00:32:21,000
+And the idea of this word
+complement is that the
+
+472
+00:32:21,000 --> 00:32:27,000
+orthogonal complement of a row
+space contains not just some
+
+473
+00:32:27,000 --> 00:32:31,000
+vectors that are orthogonal to
+it, but all.
+
+474
+00:32:31,000 --> 00:32:35,530
+So what does that mean?
+
+475
+00:32:35,530 --> 00:32:42,000
+That means that the null space
+contains all,
+
+476
+00:32:42,000 --> 00:32:50,000
+not just some but all,
+vectors that are perpendicular
+
+477
+00:32:50,000 --> 00:32:52,000
+to the row space.
+
+478
+00:32:52,000 --> 00:32:53,110
+OK.
+
+479
+00:32:53,110 --> 00:33:01,670
+Really what I've done in this
+half of the lecture is just
+
+480
+00:33:01,670 --> 00:33:09,000
+notice some of the nice geometry
+that --
+
+481
+00:33:09,000 --> 00:33:13,000
+that we didn't pick up before
+because we didn't discuss
+
+482
+00:33:13,000 --> 00:33:16,000
+perpendicular vectors before.
+
+483
+00:33:16,000 --> 00:33:19,000
+But it was all sitting there.
+
+484
+00:33:19,000 --> 00:33:21,000
+And now we picked it up.
+
+485
+00:33:21,000 --> 00:33:25,000
+That these vectors are
+orthogonal complements.
+
+486
+00:33:25,000 --> 00:33:30,000
+And I guess I even call this
+part one of the fundamental
+
+487
+00:33:30,000 --> 00:33:33,000
+theorem of linear algebra.
+
+488
+00:33:33,000 --> 00:33:38,000
+The fundamental theorem of
+linear algebra is about these
+
+489
+00:33:38,000 --> 00:33:42,410
+four subspaces,
+so part one is about their
+
+490
+00:33:42,410 --> 00:33:46,000
+dimension, maybe I should call
+it part two now.
+
+491
+00:33:46,000 --> 00:33:48,000
+Their dimensions we got.
+
+492
+00:33:48,000 --> 00:33:52,000
+Now we're getting their
+orthogonality,
+
+493
+00:33:52,000 --> 00:33:53,000
+that's part two.
+
+494
+00:33:53,000 --> 00:33:57,000
+And part three will be about
+bases for them.
+
+495
+00:33:57,000 --> 00:33:59,000
+Orthogonal bases.
+
+496
+00:33:59,000 --> 00:34:02,000
+So that's coming up.
+
+497
+00:34:02,000 --> 00:34:03,000
+OK.
+
+498
+00:34:03,000 --> 00:34:09,000
+So I'm happy with that geometry
+right now.
+
+499
+00:34:09,000 --> 00:34:09,000
+OK.
+OK.
+
+500
+00:34:10,000 --> 00:34:16,000
+Now what's my next goal in this
+chapter?
+
+501
+00:34:16,000 --> 00:34:21,000
+Here's the main problem of the
+chapter.
+
+502
+00:34:21,000 --> 00:34:30,000
+The main problem of the chapter
+is -- so this is coming.
+
+503
+00:34:30,000 --> 00:34:35,000
+It's coming attraction.
+
+504
+00:34:35,000 --> 00:34:42,000
+This is the very last chapter
+that's about Ax=b.
+
+505
+00:34:42,000 --> 00:34:50,030
+I would like to solve that
+system of equations when there
+
+506
+00:34:50,030 --> 00:34:52,000
+is no solution.
+
+507
+00:34:52,000 --> 00:34:58,000
+You may say what a ridiculous
+thing to do.
+
+508
+00:34:58,000 --> 00:35:03,000
+But I have to say it's done all
+the time.
+
+509
+00:35:03,000 --> 00:35:07,000
+In fact it has to be done.
+
+510
+00:35:07,000 --> 00:35:14,000
+You get -- so the problem is
+solve --
+
+511
+00:35:14,000 --> 00:35:20,000
+the best possible solve I'll
+put quote Ax=b when there is no
+
+512
+00:35:20,000 --> 00:35:21,650
+solution.
+
+513
+00:35:21,650 --> 00:35:25,000
+And of course what does that
+mean?
+
+514
+00:35:25,000 --> 00:35:28,000
+b isn't in the column space.
+
+515
+00:35:28,000 --> 00:35:34,000
+And it's quite typical if this
+matrix A is rectangular if I --
+
+516
+00:35:34,000 --> 00:35:41,000
+maybe I have m equations and
+that's bigger than the number of
+
+517
+00:35:41,000 --> 00:35:47,000
+unknowns, then for sure the rank
+is not m,
+
+518
+00:35:47,000 --> 00:35:52,000
+the rank couldn't be m now,
+so there'll be a lot of
+
+519
+00:35:52,000 --> 00:35:57,000
+right-hand sides with no
+solution, but here's an example.
+
+520
+00:35:57,000 --> 00:36:01,000
+Some satellite is buzzing
+along.
+
+521
+00:36:01,000 --> 00:36:03,000
+You measure its position.
+
+522
+00:36:03,000 --> 00:36:06,980
+You make a thousand
+measurements.
+
+523
+00:36:06,980 --> 00:36:12,000
+So that gives you a thousand
+equations for the -- for the
+
+524
+00:36:12,000 --> 00:36:18,000
+parameters that --
+that give the position.
+
+525
+00:36:18,000 --> 00:36:23,000
+But there aren't a thousand
+parameters, there's just maybe
+
+526
+00:36:23,000 --> 00:36:25,000
+six or something.
+
+527
+00:36:25,000 --> 00:36:30,000
+Or you're measuring the --
+you're doing questionnaires.
+
+528
+00:36:30,000 --> 00:36:33,000
+You're measuring resistances.
+
+529
+00:36:33,000 --> 00:36:35,000
+You're taking pulses.
+
+530
+00:36:35,000 --> 00:36:40,690
+You're measuring somebody's
+pulse rate.
+
+531
+00:36:40,690 --> 00:36:40,000
+OK.
+
+532
+00:36:40,000 --> 00:36:42,000
+There's just one unknown.
+
+533
+00:36:42,000 --> 00:36:43,000
+The pulse rate.
+
+534
+00:36:43,000 --> 00:36:47,000
+So you measure it once,
+OK, fine, but if you really
+
+535
+00:36:47,000 --> 00:36:50,000
+want to know it,
+you measure it multiple times,
+
+536
+00:36:50,000 --> 00:36:53,000
+but then the measurements have
+noise in them,
+
+537
+00:36:53,000 --> 00:36:57,000
+so there's -- the problem is
+that in many many problems we've
+
+538
+00:36:57,000 --> 00:37:00,000
+got too many equations and
+they've got noise in the
+
+539
+00:37:00,000 --> 00:37:02,000
+right-hand side.
+
+540
+00:37:02,000 --> 00:37:08,000
+So Ax=b I can't expect to solve
+it exactly right,
+
+541
+00:37:08,000 --> 00:37:15,000
+because I don't even know what
+-- there's a measurement mistake
+
+542
+00:37:15,000 --> 00:37:16,000
+in b.
+
+543
+00:37:16,000 --> 00:37:19,270
+But there's information too.
+
+544
+00:37:19,270 --> 00:37:25,000
+There's a lot of information
+about x in there.
+
+545
+00:37:25,000 --> 00:37:30,000
+And what I want to do is like
+separate the noise,
+
+546
+00:37:30,000 --> 00:37:33,000
+the junk, from the information.
+
+547
+00:37:33,000 --> 00:37:37,000
+And so this is a
+straightforward linear algebra
+
+548
+00:37:37,000 --> 00:37:38,000
+problem.
+
+549
+00:37:38,000 --> 00:37:42,000
+How do I solve,
+what's the best solution?
+
+550
+00:37:42,000 --> 00:37:42,570
+OK.
+
+551
+00:37:42,570 --> 00:37:42,960
+Now.
+
+552
+00:37:42,960 --> 00:37:48,000
+I want to say so that's like
+describes the problem in an
+
+553
+00:37:48,000 --> 00:37:50,000
+algebraic way.
+
+554
+00:37:50,000 --> 00:37:56,000
+I got some equations,
+I'm looking for the best
+
+555
+00:37:56,000 --> 00:37:57,000
+solution.
+
+556
+00:37:57,000 --> 00:38:03,000
+Well, one way to find it is --
+one way to start,
+
+557
+00:38:03,000 --> 00:38:10,000
+one way to find a solution is
+throw away equations until
+
+558
+00:38:10,000 --> 00:38:15,990
+you've got a nice,
+square invertible system and
+
+559
+00:38:15,990 --> 00:38:17,000
+solve that.
+
+560
+00:38:17,000 --> 00:38:21,000
+That's not satisfactory.
+
+561
+00:38:21,000 --> 00:38:25,000
+There's no reason in these
+measurements to say these
+
+562
+00:38:25,000 --> 00:38:30,000
+measurements are perfect and
+these measurements are useless.
+
+563
+00:38:30,000 --> 00:38:34,000
+We want to use all the
+measurements to get the best
+
+564
+00:38:34,000 --> 00:38:37,000
+information, to get the maximum
+information.
+
+565
+00:38:37,000 --> 00:38:38,000
+But how?
+
+566
+00:38:38,000 --> 00:38:38,000
+OK.
+Let me anticipate a matrix
+that's going to show up.
+
+567
+00:38:42,000 --> 00:38:45,000
+This A is typically
+rectangular.
+
+568
+00:38:45,000 --> 00:38:50,000
+But a matrix that shows up
+whenever you have -- and we
+
+569
+00:38:50,000 --> 00:38:53,000
+chapter three was all about
+rectangular matrices.
+
+570
+00:38:53,000 --> 00:38:57,000
+And we know when this is
+solvable, you could do
+
+571
+00:38:57,000 --> 00:38:59,000
+elimination on it,
+right?
+
+572
+00:38:59,000 --> 00:39:03,000
+But I'm thinking hey,
+you do elimination and you get
+
+573
+00:39:03,000 --> 00:39:06,000
+equation zero equal other
+non-zeroes.
+
+574
+00:39:06,000 --> 00:39:11,000
+I'm thinking we really --
+elimination is going to fail.
+
+575
+00:39:11,000 --> 00:39:14,000
+So that's our question.
+
+576
+00:39:14,000 --> 00:39:19,000
+Elimination will get us down to
+-- will tell us if there is a
+
+577
+00:39:19,000 --> 00:39:21,000
+solution or not.
+
+578
+00:39:21,000 --> 00:39:23,350
+But I'm now thinking not.
+
+579
+00:39:23,350 --> 00:39:23,000
+OK.
+
+580
+00:39:23,000 --> 00:39:26,100
+So what are we going to do?
+
+581
+00:39:26,100 --> 00:39:27,000
+All right.
+
+582
+00:39:27,000 --> 00:39:32,000
+I want to tell you to jump
+ahead to the matrix that will
+
+583
+00:39:32,000 --> 00:39:34,000
+play a key role.
+
+584
+00:39:34,000 --> 00:39:41,000
+So this is the matrix that you
+want to understand for this
+
+585
+00:39:41,000 --> 00:39:42,540
+chapter four.
+
+586
+00:39:42,540 --> 00:39:46,000
+And it's the matrix A transpose
+A.
+
+587
+00:39:46,000 --> 00:39:51,000
+What's -- tell me some things
+about that matrix.
+
+588
+00:39:51,000 --> 00:39:55,000
+So A is this m by n matrix,
+rectangular,
+
+589
+00:39:55,000 --> 00:40:02,000
+but now I'm saying that the
+good matrix that shows up in the
+
+590
+00:40:02,000 --> 00:40:06,000
+end is A transpose A.
+
+591
+00:40:06,000 --> 00:40:09,000
+So tell me something about
+that.
+
+592
+00:40:09,000 --> 00:40:16,000
+Is it -- what's the first thing
+you know about A transpose A.
+
+593
+00:40:16,000 --> 00:40:17,000
+It's square.
+
+594
+00:40:17,000 --> 00:40:18,000
+Right?
+
+595
+00:40:18,000 --> 00:40:23,490
+Square because this is m by n
+and this is n by m.
+
+596
+00:40:23,490 --> 00:40:26,000
+So this is the result is n by
+n.
+
+597
+00:40:26,000 --> 00:40:27,410
+Good.
+
+598
+00:40:27,410 --> 00:40:28,000
+Square.
+
+599
+00:40:28,000 --> 00:40:30,000
+What else?
+
+600
+00:40:30,000 --> 00:40:32,000
+It's symmetric.
+
+601
+00:40:32,000 --> 00:40:32,000
+Good.
+It's symmetric.
+
+602
+00:40:34,000 --> 00:40:37,000
+Because you remember how to do
+that.
+
+603
+00:40:37,000 --> 00:40:42,610
+If we transpose that matrix
+let's transpose it,
+
+604
+00:40:42,610 --> 00:40:45,000
+A transpose A,
+if I transpose it,
+
+605
+00:40:45,000 --> 00:40:51,150
+then that comes first
+transposed, this comes second,
+
+606
+00:40:51,150 --> 00:40:56,000
+transposed, and then
+transposing twice is leaves it
+
+607
+00:40:56,000 --> 00:41:01,000
+--
+brings it back to the same so
+
+608
+00:41:01,000 --> 00:41:03,000
+it's symmetric.
+
+609
+00:41:03,000 --> 00:41:04,000
+Good.
+
+610
+00:41:04,000 --> 00:41:10,000
+Now we now know how to ask more
+about a matrix.
+
+611
+00:41:10,000 --> 00:41:14,000
+I'm interested in is it
+invertible?
+
+612
+00:41:14,000 --> 00:41:18,000
+If not, what's its null space?
+
+613
+00:41:18,000 --> 00:41:25,390
+So I want to know about --
+because you're going to see,
+
+614
+00:41:25,390 --> 00:41:30,180
+well, let me --
+let me even,
+
+615
+00:41:30,180 --> 00:41:34,000
+well I shouldn't do this,
+but I will.
+
+616
+00:41:34,000 --> 00:41:41,000
+Let me tell you what equation
+to solve when you can't solve
+
+617
+00:41:41,000 --> 00:41:42,000
+that one.
+
+618
+00:41:42,000 --> 00:41:49,000
+The good equation comes from
+multiplying both sides by A
+
+619
+00:41:49,000 --> 00:41:57,000
+transpose, so the good equation
+that you get to is this one.
+
+620
+00:41:57,000 --> 00:42:00,000
+A transpose Ax equals A
+transpose b.
+
+621
+00:42:00,000 --> 00:42:05,000
+That will be the central
+equation in the chapter.
+
+622
+00:42:05,000 --> 00:42:08,000
+So I think why not tell it to
+you.
+
+623
+00:42:08,000 --> 00:42:10,000
+Why not admit it right away.
+
+624
+00:42:10,000 --> 00:42:11,000
+OK.
+
+625
+00:42:11,000 --> 00:42:14,000
+I have to -- I should really
+give x.
+
+626
+00:42:14,000 --> 00:42:20,000
+I want to sort of indicate that
+this x isn't I mean this x was
+
+627
+00:42:20,000 --> 00:42:27,000
+the solution to that equation if
+it existed, but probably didn't.
+
+628
+00:42:27,000 --> 00:42:32,000
+Now let me give this a
+different name,
+
+629
+00:42:32,000 --> 00:42:33,000
+x hat.
+
+630
+00:42:33,000 --> 00:42:39,000
+Because I'm hoping this one
+will have a solution.
+
+631
+00:42:39,000 --> 00:42:45,300
+And I'm saying that it's my
+best solution.
+
+632
+00:42:45,300 --> 00:42:50,000
+I'll have to say what does best
+mean.
+
+633
+00:42:50,000 --> 00:42:55,000
+But that's going to be my --
+my plan.
+
+634
+00:42:55,000 --> 00:43:01,000
+I'm going to say that the best
+solution solves this equation.
+
+635
+00:43:01,000 --> 00:43:07,000
+So you see right away why I'm
+so interested in this matrix A
+
+636
+00:43:07,000 --> 00:43:08,000
+transpose A.
+
+637
+00:43:08,000 --> 00:43:11,000
+And in its invertibility.
+
+638
+00:43:11,000 --> 00:43:11,000
+OK.
+Now, when is it invertible?
+
+639
+00:43:14,000 --> 00:43:14,000
+OK.
+Let me take a case,
+let me just do an example and
+
+640
+00:43:19,000 --> 00:43:24,000
+then --
+I'll just pick a matrix here.
+
+641
+00:43:24,000 --> 00:43:29,000
+Just so we see what A transpose
+A looks like.
+
+642
+00:43:29,000 --> 00:43:34,000
+So let me take a matrix A one,
+one, one, one,
+
+643
+00:43:34,000 --> 00:43:35,000
+two, five.
+
+644
+00:43:35,000 --> 00:43:38,000
+Just to invent a matrix.
+
+645
+00:43:38,000 --> 00:43:40,000
+So there's a matrix A.
+
+646
+00:43:40,000 --> 00:43:46,440
+Notice that it has M equal
+three rows and N equal two
+
+647
+00:43:46,440 --> 00:43:48,590
+columns.
+
+648
+00:43:48,590 --> 00:43:55,000
+Its rank is -- the rank of that
+matrix is two.
+
+649
+00:43:55,000 --> 00:44:01,000
+Right, yeah,
+the columns are independent.
+
+650
+00:44:01,000 --> 00:44:03,000
+Does Ax equal b?
+
+651
+00:44:03,000 --> 00:44:08,940
+If I look at Ax=b,
+so x is just x1 x2,
+
+652
+00:44:08,940 --> 00:44:11,000
+and b is b1 b2 b3.
+
+653
+00:44:11,000 --> 00:44:15,000
+Do I expect to solve Ax=b?
+
+654
+00:44:15,000 --> 00:44:20,000
+What's -- no way,
+right?
+
+655
+00:44:20,000 --> 00:44:26,000
+I mean linear algebra's great,
+but solving three equations
+
+656
+00:44:26,000 --> 00:44:30,000
+with only two unknowns usually
+we can't do it.
+
+657
+00:44:30,000 --> 00:44:35,000
+We can only solve it if this
+vector is b is what?
+
+658
+00:44:35,000 --> 00:44:40,000
+I can solve that equation if
+that vector b1 b2 b3 is in the
+
+659
+00:44:40,000 --> 00:44:42,000
+column space.
+
+660
+00:44:42,000 --> 00:44:47,000
+If it's a combination of those
+columns then fine.
+
+661
+00:44:47,000 --> 00:44:50,000
+But usually it won't be.
+
+662
+00:44:50,000 --> 00:44:55,960
+The combinations just fill up a
+plane and most vectors aren't on
+
+663
+00:44:55,960 --> 00:44:56,000
+that plane.
+
+664
+00:44:56,000 --> 00:45:02,000
+So what I'm saying is that I'm
+going to work with the matrix A
+
+665
+00:45:02,000 --> 00:45:03,000
+transpose A.
+
+666
+00:45:03,000 --> 00:45:09,000
+And I just want to figure out
+in this example what A transpose
+
+667
+00:45:09,000 --> 00:45:09,930
+A is.
+
+668
+00:45:09,930 --> 00:45:12,000
+So it's two by two.
+
+669
+00:45:12,000 --> 00:45:18,000
+The first entry is a three,
+the next entry is an eight,
+
+670
+00:45:18,000 --> 00:45:21,960
+this entry is -- what's that
+entry?
+
+671
+00:45:21,960 --> 00:45:23,000
+Eight, for sure.
+
+672
+00:45:23,000 --> 00:45:27,000
+We knew it had to be,
+and this entry is,
+
+673
+00:45:27,000 --> 00:45:31,000
+what's that now,
+getting out my trusty
+
+674
+00:45:31,000 --> 00:45:35,080
+calculator, thirty,
+is that right?
+
+675
+00:45:35,080 --> 00:45:35,000
+Thirty.
+
+676
+00:45:35,000 --> 00:45:40,000
+And is that matrix invertible?
+
+677
+00:45:40,000 --> 00:45:42,000
+There's an A transpose A.
+
+678
+00:45:42,000 --> 00:45:44,000
+And it is invertible,
+right?
+
+679
+00:45:44,000 --> 00:45:49,000
+Three, eight is not a multiple
+of eight, thirty -- and it's
+
+680
+00:45:49,000 --> 00:45:50,000
+invertible.
+
+681
+00:45:50,000 --> 00:45:54,000
+And that's the normal,
+that's what I expect.
+
+682
+00:45:54,000 --> 00:45:56,000
+So this is I want to show.
+
+683
+00:45:56,000 --> 00:46:00,000
+So here's the final -- here's
+the key point.
+
+684
+00:46:00,000 --> 00:46:06,640
+The null space of A transpose A
+-- it's not going to be always
+
+685
+00:46:06,640 --> 00:46:07,000
+invertible.
+
+686
+00:46:07,000 --> 00:46:13,000
+Tell me a matrix -- I have to
+say that I can't say A transpose
+
+687
+00:46:13,000 --> 00:46:15,000
+A is always invertible.
+
+688
+00:46:15,000 --> 00:46:18,310
+Because that's asking too much.
+
+689
+00:46:18,310 --> 00:46:22,000
+I mean what could the matrix A
+be, for example,
+
+690
+00:46:22,000 --> 00:46:27,000
+so that A transpose A was not
+invertible?
+
+691
+00:46:27,000 --> 00:46:33,000
+Well, it even could be the zero
+matrix.
+
+692
+00:46:33,000 --> 00:46:37,000
+I mean that's like extreme
+case.
+
+693
+00:46:37,000 --> 00:46:45,000
+Suppose I make this rank --
+suppose I change to that A.
+
+694
+00:46:45,000 --> 00:46:54,000
+Now I figure out A transpose A
+again and I get -- what do I
+
+695
+00:46:54,000 --> 00:46:55,000
+get?
+
+696
+00:46:55,000 --> 00:47:03,000
+I get nine, I get nine of
+course and here I get what's
+
+697
+00:47:03,000 --> 00:47:06,000
+that entry?
+
+698
+00:47:06,000 --> 00:47:07,000
+Twenty-seven.
+
+699
+00:47:07,000 --> 00:47:10,760
+And is that matrix invertible?
+
+700
+00:47:10,760 --> 00:47:11,000
+No.
+
+701
+00:47:11,000 --> 00:47:16,000
+And why do I -- I knew it
+wouldn't be invertible anyway.
+
+702
+00:47:16,000 --> 00:47:20,000
+Because this matrix only has
+rank one.
+
+703
+00:47:20,000 --> 00:47:24,000
+And if I have a product of
+matrices of rank one,
+
+704
+00:47:24,000 --> 00:47:31,000
+the product is not going to
+have a rank bigger than one.
+
+705
+00:47:31,000 --> 00:47:37,000
+So I'm not surprised that the
+answer only has rank one.
+
+706
+00:47:37,000 --> 00:47:43,000
+And that's what I -- always
+happens, that the rank of A
+
+707
+00:47:43,000 --> 00:47:48,000
+transpose A comes out to equal
+the rank of A.
+
+708
+00:47:48,000 --> 00:47:54,000
+So, yes, so the null space of A
+transpose A equals the null
+
+709
+00:47:54,000 --> 00:48:01,000
+space of A, the rank of A
+transpose A equals the rank of
+
+710
+00:48:01,000 --> 00:48:02,000
+A.
+
+711
+00:48:02,000 --> 00:48:10,130
+So let's -- as soon as I can
+why that's true.
+
+712
+00:48:10,130 --> 00:48:18,000
+But let's draw from that what
+the fact that I want.
+
+713
+00:48:18,000 --> 00:48:28,950
+This tells me that this square
+symmetric matrix is invertible
+
+714
+00:48:28,950 --> 00:48:34,000
+if -- so here's my conclusion.
+
+715
+00:48:34,000 --> 00:48:43,000
+A transpose A is invertible if
+exactly when --
+
+716
+00:48:43,000 --> 00:48:51,000
+exactly if this null space is
+only got the zero vector.
+
+717
+00:48:51,000 --> 00:48:58,000
+Which means the columns of A
+are independent.
+
+718
+00:48:58,000 --> 00:49:07,000
+So A transpose A is invertible
+exactly if A has independent
+
+719
+00:49:07,000 --> 00:49:08,000
+columns.
+
+720
+00:49:08,000 --> 00:49:16,000
+That's the fact that I need
+about A transpose A.
+
+721
+00:49:16,000 --> 00:49:20,000
+And then you'll see next time
+how A transpose A enters
+
+722
+00:49:20,000 --> 00:49:21,000
+everything.
+
+723
+00:49:21,000 --> 00:49:24,000
+Next lecture is actually a
+crucial one.
+
+724
+00:49:24,000 --> 00:49:28,000
+Here I'm preparing for it by
+getting us thinking about A
+
+725
+00:49:28,000 --> 00:49:29,000
+transpose A.
+
+726
+00:49:29,000 --> 00:49:33,000
+And its rank is the same as the
+rank of A, and we can decide
+
+727
+00:49:33,000 --> 00:49:35,000
+when it's invertible.
+
+728
+00:49:35,000 --> 00:49:36,000
+OK.
+
+729
+00:49:36,000 --> 00:49:38,000
+So I'll see you Friday.
+
+730
+00:49:38,000 --> 00:49:41,000
+Thanks.

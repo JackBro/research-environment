@@ -1,0 +1,1296 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 14: Orthogonal vectors and subspaces | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 14: Orthogonal vectors and subspaces" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 14: Orthogonal vectors and subspaces" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-14-orthogonal-vectors-and-subspaces">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 14: Orthogonal vectors and subspaces
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 14: Orthogonal vectors and subspaces
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/YzZUIYRCE38.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/14.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/YzZUIYRCE38', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-14-orthogonal-vectors-and-subspaces', 'https://img.youtube.com/vi/YzZUIYRCE38/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/YzZUIYRCE38.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703568, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/YzZUIYRCE38.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="12790">OK. cameras are rolling.</span> </p>
+<p><span m="15000">This is lecture fourteen, starting a new chapter.</span> </p>
+<p><span m="20000">Chapter about orthogonality.</span> </p>
+<p><span m="24000">What it means for vectors to be orthogonal.</span> </p>
+<p><span m="29010">What it means for subspaces to be orthogonal.</span> </p>
+<p><span m="34000">What it means for bases to be orthogonal.</span> </p>
+<p><span m="39000">So ninety degrees, this is a ninety-degree</span> <span m="45000">chapter.</span> </p>
+<p><span m="46000">So what does it mean -- let me jump to subspaces.</span> </p>
+<p><span m="52000">Because I've drawn here the big picture.</span> </p>
+<p><span m="58000">This is the 18.06 picture here.</span> </p>
+<p><span m="62320">And hold it down, guys.</span> </p>
+<p><span m="66000">So this is the picture and we know a lot about that picture</span> <span m="73000">already.</span> </p>
+<p><span m="74000">We know the dimension of every subspace.</span> </p>
+<p><span m="79000">We know that these dimensions are r and n-r.</span> </p>
+<p><span m="84000">We know that these dimensions are r and m-r.</span> </p>
+<p><span m="90000">What I want to show now is what this figure is saying,</span> <span m="96000">that the angle -- the figure is just my attempt</span> <span m="102000">to draw what I'm now going to say, that the angle between</span> <span m="107000">these subspaces is ninety degrees.</span> </p>
+<p><span m="110000">And the angle between these subspaces is ninety degrees.</span> </p>
+<p><span m="114000">Now I have to say what does that mean?</span> </p>
+<p><span m="118000">What does it mean for subspaces to be orthogonal?</span> </p>
+<p><span m="123000">But I hope you appreciate the beauty of this picture,</span> <span m="127000">that that those subspaces are going to come out to be</span> <span m="132000">orthogonal.</span> </p>
+<p><span m="133000">Those two and also those two.</span> </p>
+<p><span m="136000">So that's like one point, one important point to step</span> <span m="141000">forward in understanding those subspaces.</span> </p>
+<p><span m="144000">We knew what each subspace was like, we could compute bases for</span> <span m="150000">them.</span> </p>
+<p><span m="151980">Now we know more.</span> </p>
+<p><span m="154170">Or we will in a few minutes.</span> </p>
+<p><span m="157000">OK.</span> </p>
+<p><span m="158000">I have to say first of all what does it mean for two vectors to</span> <span m="166000">be orthogonal?</span> </p>
+<p><span m="167000">So let me start with that.</span> </p>
+<p><span m="171000">Orthogonal vectors.</span> </p>
+<p><span m="173000">The word orthogonal is -- is just another word for</span> <span m="180000">perpendicular.</span> </p>
+<p><span m="183000">It means that in n-dimensional space the angle between those</span> <span m="190000">vectors is ninety degrees.</span> </p>
+<p><span m="192970">It means that they form a right triangle.</span> </p>
+<p><span m="197000">It even means that the going way back to the Greeks that this</span> <span m="204000">angle that this triangle a vector x, a vector x,</span> <span m="209000">and a vector x+y -- of course that'll be the</span> <span m="215000">hypotenuse, so what was it the Greeks figured out and it's</span> <span m="222000">neat.</span> </p>
+<p><span m="223000">It's the fact that the -- so these are orthogonal,</span> <span m="228000">this is a right angle, if -- so let me put the great</span> <span m="234000">name down, Pythagoras, I'm looking for -- what I</span> <span m="240080">looking for?</span> </p>
+<p><span m="242000">I'm looking for the condition if you give me two vectors,</span> <span m="247000">how do I know if they're orthogonal?</span> </p>
+<p><span m="250000">How can I tell two perpendicular vectors?</span> </p>
+<p><span m="253000">And actually you probably know the answer.</span> </p>
+<p><span m="257000">Let me write the answer down.</span> </p>
+<p><span m="259000">Orthogonal vectors, what's the test for</span> <span m="263000">orthogonality?</span> </p>
+<p><span m="265000">I take the dot product which I tend to write as x transpose y,</span> <span m="272000">because that's a row times a column, and that matrix</span> <span m="278000">multiplication just gives me the right thing, that x1y1+x2y2 and</span> <span m="285000">so on, so these vectors are orthogonal if this result x</span> <span m="291000">transpose y is zero.</span> </p>
+<p><span m="294000">That's the test.</span> </p>
+<p><span m="295000">OK.</span> </p>
+<p><span m="296000">Can I connect that to other things?</span> </p>
+<p><span m="301000">I mean -- it's just beautiful that here we have we're in n</span> <span m="306000">dimensions, we've got a couple of vectors, we want to know the</span> <span m="311000">angle between them, and the right thing to look at</span> <span m="315430">is the simplest thing that you could imagine,</span> <span m="319050">the dot product.</span> </p>
+<p><span m="320000">OK. Now why?</span> </p>
+<p><span m="321000">So I'm answering the question now why --</span> <span m="325550">let's add some justification to this fact, that's the test.</span> </p>
+<p><span m="331000">OK, so Pythagoras would say we've got a right triangle,</span> <span m="336000">if that length squared plus that length squared equals that</span> <span m="342000">length squared.</span> </p>
+<p><span m="344000">OK, can I write it as x squared plus y squared equals x plus y</span> <span m="350000">squared?</span> </p>
+<p><span m="351000">Now don't, please don't think that this is always true.</span> </p>
+<p><span m="356000">This is only going to be true in this -- it's going to be</span> <span m="361000">equivalent to orthogonality.</span> </p>
+<p><span m="364000">For other triangles of course, it's not true.</span> </p>
+<p><span m="368000">For other triangles it's not.</span> </p>
+<p><span m="371000">But for a right triangle somehow that fact should connect</span> <span m="376000">to that fact.</span> </p>
+<p><span m="378000">Can we just make that connection?</span> </p>
+<p><span m="381000">What's the connection between this test for orthogonality and</span> <span m="386000">this statement of orthogonality?</span> </p>
+<p><span m="389000">Well, I guess I have to say what is the length squared?</span> </p>
+<p><span m="394000">So let's continue on the board underneath with that equation.</span> </p>
+<p><span m="399000">Give me another way to express the length squared of a vector.</span> </p>
+<p><span m="406000">And let me just give you a vector.</span> </p>
+<p><span m="409000">The vector one, two, three.</span> </p>
+<p><span m="411000">That's in three dimensions.</span> </p>
+<p><span m="413810">What is the length squared of the vector x equal one,</span> <span m="418000">two, three?</span> </p>
+<p><span m="419000">So how do you find the length squared?</span> </p>
+<p><span m="422000">Well, really you just, you want the length of that</span> <span m="427000">vector that goes along one -- up two, and out three -- and</span> <span m="434000">we'll come back to that right triangle stuff.</span> </p>
+<p><span m="439000">The length squared is exactly x transpose x.</span> </p>
+<p><span m="444000">Whenever I see x transpose x, I know I've got a number that's</span> <span m="450000">positive.</span> </p>
+<p><span m="451830">It's a length squared unless it --</span> <span m="456000">unless x happens to be the zero vector, that's the one case</span> <span m="461000">where the length is zero.</span> </p>
+<p><span m="464070">So right -- this is just x1 squared plus x2 squared plus so</span> <span m="469000">on, plus xn squared.</span> </p>
+<p><span m="471000">So one -- in the example I gave you what was the length squared</span> <span m="476520">of that vector one, two, three?</span> </p>
+<p><span m="480000">So you square those, you get one,</span> <span m="482890">four and nine, you add, you get fourteen.</span> </p>
+<p><span m="486000">So the vector one, two, three has length fourteen.</span> </p>
+<p><span m="490000">So let me just put down a vector here.</span> </p>
+<p><span m="493000">Let x be the vector one, two, three.</span> </p>
+<p><span m="497000">Let me cook up a vector that's orthogonal to it.</span> </p>
+<p><span m="502000">So what's the vector that's orthogonal?</span> </p>
+<p><span m="507000">So right down here, x squared is one plus four plus</span> <span m="515450">nine, fourteen, let me cook up a vector that's</span> <span m="522000">orthogonal to it, we'll get right that that --</span> <span m="530000">those two vectors are orthogonal, the length of y</span> <span m="536000">squared is five, and x plus y is one and two</span> <span m="541000">making three, two and minus one making one,</span> <span m="546000">three and zero making three, and the length of this squared</span> <span m="553000">is nine plus one plus nine, nineteen.</span> </p>
+<p><span m="558000">And sure enough, I haven't proved anything.</span> </p>
+<p><span m="564000">I've just like checked to see that my test x transpose y</span> <span m="569000">equals zero, which is true, right?</span> </p>
+<p><span m="572000">Everybody sees that x transpose y is zero here?</span> </p>
+<p><span m="577000">That's maybe the main point.</span> </p>
+<p><span m="579000">That you should get really quick at doing x transpose y,</span> <span m="584000">so it's just this plus this plus this and that's zero.</span> </p>
+<p><span m="590000">And sure enough, that clicks with fourteen plus</span> <span m="594000">five agreeing with nineteen.</span> </p>
+<p><span m="597000">Now let me just do that in letters.</span> </p>
+<p><span m="600500">So that's y transpose y.</span> </p>
+<p><span m="602000">And this is x plus y transpose x plus y.</span> </p>
+<p><span m="606000">OK. So I'm looking, again, this isn't always true.</span> </p>
+<p><span m="610000">I repeat.</span> </p>
+<p><span m="611000">This is going to be true when we have a right angle.</span> </p>
+<p><span m="617000">And let's just -- well, of course, I'm just going to</span> <span m="622000">simplify this stuff here.</span> </p>
+<p><span m="624000">There's an x transpose x there.</span> </p>
+<p><span m="627000">And there's a y transpose y there.</span> </p>
+<p><span m="630000">And there's an x transpose y.</span> </p>
+<p><span m="632000">And there's a y transpose x.</span> </p>
+<p><span m="635490">I knew I could do that simplification because I'm just</span> <span m="640310">doing matrix multiplication and I've just followed the rules.</span> </p>
+<p><span m="646000">OK.</span> </p>
+<p><span m="647000">So x transpose x-s cancel.</span> </p>
+<p><span m="650200">Y transpose y-s cancel.</span> </p>
+<p><span m="652000">And what about these guys?</span> </p>
+<p><span m="655000">What can you tell me about the inner product of x with y and</span> <span m="662650">the inner product of y with x?</span> </p>
+<p><span m="666000">Is there a difference?</span> </p>
+<p><span m="668000">I think if we -- while we're doing real vectors,</span> <span m="674000">which is all we're doing now, there isn't a difference,</span> <span m="678000">there's no difference.</span> </p>
+<p><span m="680000">If I take x transpose y, that'll give me zero,</span> <span m="684420">if I took y transpose x I would have the same x1y1 and x2y2 and</span> <span m="689680">x3y3, it would be the same, so this is --</span> <span m="693000">this is the same as that, this is really I'll knock that</span> <span m="699000">guy out and say two of these.</span> </p>
+<p><span m="702000">So actually that's the -- this equation boiled down to this</span> <span m="708000">thing being zero.</span> </p>
+<p><span m="710000">Right? Everything else canceled and this equation boiled down to</span> <span m="716670">that one.</span> </p>
+<p><span m="718000">So that's really all I wanted.</span> </p>
+<p><span m="721000">I just wanted to check that Pythagoras for a right triangle</span> <span m="727000">led me to this -- of course I cancel the two now.</span> </p>
+<p><span m="731850">No problem.</span> </p>
+<p><span m="732920">To x transpose y equals zero as the test.</span> </p>
+<p><span m="736000">Fair enough.</span> </p>
+<p><span m="737000">OK.</span> </p>
+<p><span m="738000">You knew it was coming.</span> </p>
+<p><span m="740000">The dot product of orthogonal vectors is zero.</span> </p>
+<p><span m="746000">It's just -- I just want to say that's really neat.</span> </p>
+<p><span m="750000">That it comes out so well.</span> </p>
+<p><span m="753430">All right.</span> </p>
+<p><span m="754000">Now what about -- so now I know if two -- when two vectors are</span> <span m="760000">orthogonal.</span> </p>
+<p><span m="761290">By the way, what about if one of these guys is the zero</span> <span m="766000">vector?</span> </p>
+<p><span m="768000">Suppose x is the zero vector, and y is whatever.</span> </p>
+<p><span m="772000">Are they orthogonal?</span> </p>
+<p><span m="773000">Sure.</span> </p>
+<p><span m="774190">In math the one thing about math is you're supposed to</span> <span m="778000">follow the rules.</span> </p>
+<p><span m="780000">So you're supposed to -- if x is the zero vector,</span> <span m="784000">you're supposed to take the zero vector dotted with y and of</span> <span m="789000">course you always get zero.</span> </p>
+<p><span m="792000">So just so we're all sure, the zero vector is orthogonal</span> <span m="799000">to everybody.</span> </p>
+<p><span m="801000">But what I want to -- what I now want to think about is</span> <span m="808000">subspaces.</span> </p>
+<p><span m="809000">What does it mean for me to say that some subspace is orthogonal</span> <span m="817000">to some other subspace?</span> </p>
+<p><span m="821000">So OK.</span> </p>
+<p><span m="822000">Now I've got to write this down.</span> </p>
+<p><span m="825640">So because we're defining definition of subspace S is</span> <span m="831000">orthogonal so to subspace let's say T, so I've got a couple of</span> <span m="837000">subspaces.</span> </p>
+<p><span m="838000">And what should it mean for those guys to be orthogonal?</span> </p>
+<p><span m="844000">It's just sort of what's the natural extension from</span> <span m="850000">orthogonal vectors to orthogonal subspaces?</span> </p>
+<p><span m="856000">Well, and in particular, let's think of some orthogonal</span> <span m="865000">subspaces, like this wall.</span> </p>
+<p><span m="870000">Let's say in three dimensions.</span> </p>
+<p><span m="875000">So the blackboard extended to infinity, right,</span> <span m="883000">is a -- is a subspace,</span> <span m="887000">a plane, a two-dimensional subspace.</span> </p>
+<p><span m="892000">It's a little bumpy but anyway, it's a -- think of it as a</span> <span m="898000">subspace, let me take the floor as another subspace.</span> </p>
+<p><span m="905000">Again, it's not a great subspace, MIT only built it like</span> <span m="911000">so-so, but I'll put the origin right here.</span> </p>
+<p><span m="916420">So the origin of the world is right there.</span> </p>
+<p><span m="922000">OK.</span> </p>
+<p><span m="923000">Thereby giving linear algebra its proper importance in this.</span> </p>
+<p><span m="929000">OK. So there is one subspace, there's another one.</span> </p>
+<p><span m="934000">The floor.</span> </p>
+<p><span m="935000">And are they orthogonal?</span> </p>
+<p><span m="938000">What does it mean for two subspaces to be orthogonal and</span> <span m="944000">in that special case are they orthogonal?</span> </p>
+<p><span m="949000">All right.</span> </p>
+<p><span m="951000">Let's finish this sentence.</span> </p>
+<p><span m="954000">What does it mean means we have to know what we're talking about</span> </p>
+<p><span m="961000">here. So what would be a reasonable idea of orthogonal?</span> </p>
+<p><span m="966000">Well, let me put the right thing up.</span> </p>
+<p><span m="970000">It means that every vector in S, every vector in S,</span> <span m="976000">is orthogonal to -- what I going to say?</span> </p>
+<p><span m="982000">Every vector in T.</span> </p>
+<p><span m="985000">That's a reasonable and it's a good and it's the right</span> <span m="992000">definition for two subspaces to be orthogonal.</span> </p>
+<p><span m="999000">But I just want you to see, hey, what does that mean?</span> </p>
+<p><span m="1007000">So answer the question about the -- the blackboard and the</span> <span m="1015000">floor.</span> </p>
+<p><span m="1017000">Are those two subspaces, they're two-dimensional,</span> <span m="1023000">right, and we're in R^3.</span> </p>
+<p><span m="1026000">It's like a xz plane or something and a xy plane.</span> </p>
+<p><span m="1032000">Are they orthogonal?</span> </p>
+<p><span m="1034000">Is every vector in the blackboard orthogonal to every</span> <span m="1041000">vector in the floor, starting from the origin right</span> <span m="1047000">there?</span> </p>
+<p><span m="1049000">Yes or no?</span> </p>
+<p><span m="1050000">I could take a vote.</span> </p>
+<p><span m="1052000">Well we get some yeses and some noes.</span> </p>
+<p><span m="1057000">No is the answer.</span> </p>
+<p><span m="1059000">They're not.</span> </p>
+<p><span m="1060000">You can tell me a vector in the blackboard and a vector in the</span> <span m="1067000">floor that are not orthogonal.</span> </p>
+<p><span m="1071570">Well you can tell me quite a few, I guess.</span> </p>
+<p><span m="1077000">Maybe like I could take some forty-five-degree guy in the</span> <span m="1082000">blackboard, and something in the floor, they're not at ninety</span> <span m="1088000">degrees, right?</span> </p>
+<p><span m="1089000">In fact, even more, you could tell me a vector</span> <span m="1093490">that's in both the blackboard plane and the floor plane,</span> <span m="1098000">so it's certainly not orthogonal to itself.</span> </p>
+<p><span m="1103000">So for sure, those two planes aren't</span> <span m="1106000">orthogonal.</span> </p>
+<p><span m="1107000">What would that be?</span> </p>
+<p><span m="1109000">So what's a vector that's -- in both of those planes?</span> </p>
+<p><span m="1114000">It's this guy running along the crack there, in the</span> <span m="1119000">intersection, the intersection.</span> </p>
+<p><span m="1122000">A vector, you know -- if two subspaces meet at some</span> <span m="1127000">vector, well then for sure they're not orthogonal,</span> <span m="1131000">because that vector is in one and it's in the other,</span> <span m="1134000">and it's not orthogonal to itself unless it's zero.</span> </p>
+<p><span m="1138000">So the only I mean so orthogonal is for me to say</span> <span m="1142000">these two subspaces are orthogonal first of all I'm</span> <span m="1145000">certainly saying that they don't intersect in any nonzero vector.</span> </p>
+<p><span m="1151000">But also I mean more than that just not intersecting isn't good</span> </p>
+<p><span m="1157000">enough. So give me an example, oh, let's say in the plane,</span> <span m="1162000">oh well, when do we have orthogonal subspaces in the</span> <span m="1166000">plane?</span> </p>
+<p><span m="1167370">Yeah, tell me in the plane, so we don't -- there aren't</span> <span m="1172000">that many different subspaces in the plane.</span> </p>
+<p><span m="1177000">What what have we got in the plane as possible subspaces?</span> </p>
+<p><span m="1182000">The zero vector, real small.</span> </p>
+<p><span m="1185000">A line through the origin.</span> </p>
+<p><span m="1187000">Or the whole plane.</span> </p>
+<p><span m="1189000">OK. Now so when is a line through the origin orthogonal to the</span> <span m="1195000">whole plane?</span> </p>
+<p><span m="1196000">Never, right, never.</span> </p>
+<p><span m="1198000">When is a line through the origin orthogonal to the zero</span> <span m="1203000">subspace?</span> </p>
+<p><span m="1205000">Always.</span> </p>
+<p><span m="1206000">Right. When is a line through the origin orthogonal to a different</span> <span m="1212000">line through the origin?</span> </p>
+<p><span m="1214650">Well, that's the case that we all have a clear picture of,</span> <span m="1220000">they -- the two lines have to meet at ninety degrees.</span> </p>
+<p><span m="1225000">They have only the -- so that's like this simple case I'm</span> <span m="1230000">talking about.</span> </p>
+<p><span m="1231000">There's one subspace, there's the other subspace.</span> </p>
+<p><span m="1235550">They only meet at zero.</span> </p>
+<p><span m="1237000">And they're orthogonal.</span> </p>
+<p><span m="1239000">OK. Now. So we now know what it means for two subspaces to be</span> <span m="1244000">orthogonal.</span> </p>
+<p><span m="1245000">And now I want to say that this is true for the row space and</span> <span m="1253000">the null space.</span> </p>
+<p><span m="1255000">OK. So that's the neat fact.</span> </p>
+<p><span m="1258550">So row space is orthogonal to the null space.</span> </p>
+<p><span m="1264000">Now how did I come up with that?</span> </p>
+<p><span m="1267000">But you see the rank it's great, that means that these --</span> <span m="1276000">that these subspaces are just the right things,</span> <span m="1282000">they're just cutting the whole space up into two perpendicular</span> <span m="1290000">subspaces.</span> </p>
+<p><span m="1291000">OK.</span> </p>
+<p><span m="1292000">So why? Well, what have I got to work with?</span> </p>
+<p><span m="1297000">All I know is the null space.</span> </p>
+<p><span m="1301300">The null space has vectors that solve Ax equals zero.</span> </p>
+<p><span m="1309000">So this is a guy x. x is in the null space.</span> </p>
+<p><span m="1313000">Then Ax is zero.</span> </p>
+<p><span m="1315000">So why is it orthogonal to the rows of A?</span> </p>
+<p><span m="1319000">If I write down Ax equals zero, which is all I know about the</span> <span m="1324000">null space, then I guess I want you to see that that's telling</span> <span m="1330000">me, just that equation right there is telling me that the</span> <span m="1336000">rows of A, let me write it out.</span> </p>
+<p><span m="1340000">There's row one of A.</span> </p>
+<p><span m="1343000">Row two.</span> </p>
+<p><span m="1344000">Row m of A. that's A.</span> </p>
+<p><span m="1347000">And it's multiplying X.</span> </p>
+<p><span m="1350000">And it's producing zero.</span> </p>
+<p><span m="1354000">OK. Written out that way you'll see it.</span> </p>
+<p><span m="1359000">So I'm saying that a vector in the row space is perpendicular</span> <span m="1368000">to this guy X in the null space.</span> </p>
+<p><span m="1372000">And you see why?</span> </p>
+<p><span m="1377000">Because this equation is telling you that row one of A</span> <span m="1382000">multiplying that's a dot product, right?</span> </p>
+<p><span m="1386000">Row one of A dot product with this x is producing this zero.</span> </p>
+<p><span m="1392000">So x is orthogonal to the first row.</span> </p>
+<p><span m="1395000">And to the second row.</span> </p>
+<p><span m="1398000">Row two of A, x is giving that zero.</span> </p>
+<p><span m="1402000">Row m of A times x is giving that zero.</span> </p>
+<p><span m="1406000">So x is -- the equation is telling me that x is orthogonal</span> <span m="1411000">to all the rows.</span> </p>
+<p><span m="1412000">Right, it's just sitting there.</span> </p>
+<p><span m="1415000">That's all we -- it had to be sitting there because we didn't</span> <span m="1421000">know anything more about the null space than this.</span> </p>
+<p><span m="1426000">And now I guess to be totally complete here I'd now check that</span> <span m="1430000">x is orthogonal to each separate row.</span> </p>
+<p><span m="1433000">But what else strictly speaking do I have to do?</span> </p>
+<p><span m="1436000">To show that those subspaces are orthogonal,</span> <span m="1439000">I have to take this x in the null space and show that it's</span> <span m="1443000">orthogonal to every vector in the row space,</span> <span m="1447000">every vector in the row space, so what --</span> <span m="1450000">what else is in the row space?</span> </p>
+<p><span m="1453000">This row is in the row space, that row is in the row space,</span> <span m="1459000">they're all there, but it's not the whole row</span> <span m="1463000">space, right, we just have to like remember,</span> <span m="1467150">what does it mean, what does that word space</span> <span m="1471000">telling us?</span> </p>
+<p><span m="1473000">And what else is in the row space?</span> </p>
+<p><span m="1475000">Besides the rows?</span> </p>
+<p><span m="1477000">All their combinations.</span> </p>
+<p><span m="1478000">So I really have to check that sure enough if x is</span> <span m="1482000">perpendicular to row one, row two, all the different</span> <span m="1486000">separate rows, then also x is perpendicular to</span> <span m="1490000">a combination of the rows.</span> </p>
+<p><span m="1493000">And that's just matrix multiplication again.</span> </p>
+<p><span m="1497000">You know, I have row one transpose x is zero,</span> <span m="1502000">so on, row two transpose x is zero, so I'm entitled to</span> <span m="1508000">multiply that by some c1, this by some c2,</span> <span m="1512000">I still have zeroes, I'm entitled to add,</span> <span m="1516000">so I have c1 row one so -- so all this when I put that</span> <span m="1524000">together that's big parentheses c1 row one plus c2 row two and</span> <span m="1531000">so on.</span> </p>
+<p><span m="1532000">Transpose x is zero.</span> </p>
+<p><span m="1534000">Right?</span> </p>
+<p><span m="1535000">I just added the zeroes and got zero, and I just added these</span> <span m="1542000">following the rule.</span> </p>
+<p><span m="1544000">No big deal.</span> </p>
+<p><span m="1546000">The whole point was right sitting in that.</span> </p>
+<p><span m="1552000">OK.</span> </p>
+<p><span m="1553000">So if I come back to this figure now I'm like a happier</span> <span m="1560000">person.</span> </p>
+<p><span m="1561000">Because I have this -- I now see how those subspaces are</span> <span m="1568000">oriented.</span> </p>
+<p><span m="1569000">And these subspaces are also oriented.</span> </p>
+<p><span m="1574000">Well, actually why is that orthogonality?</span> </p>
+<p><span m="1581000">Well, it's the same statement for A transpose that that one</span> <span m="1587000">was for A.</span> </p>
+<p><span m="1588270">So I won't take time to prove it again because we've checked</span> <span m="1594000">it for every matrix and A transpose is just as good a</span> <span m="1599000">matrix as A.</span> </p>
+<p><span m="1601000">So we're orthogonal over there.</span> </p>
+<p><span m="1604000">So we really have carved up this --</span> <span m="1608000">this was like carving up m-dimensional space into two</span> <span m="1613000">subspaces and this one was carving up n-dimensional space</span> <span m="1619260">into two subspaces.</span> </p>
+<p><span m="1621000">And well, one more thing here.</span> </p>
+<p><span m="1623000">One more important thing.</span> </p>
+<p><span m="1626000">Let me move into three dimensions.</span> </p>
+<p><span m="1629000">Tell me a couple of orthogonal subspaces in three dimensions</span> <span m="1635000">that somehow don't carve up the whole space, there's stuff left</span> <span m="1641000">there.</span> </p>
+<p><span m="1643080">I'm thinking of a couple of orthogonal lines.</span> </p>
+<p><span m="1648000">If I -- suppose I'm in three dimensions, R^3.</span> </p>
+<p><span m="1653000">And I have one line, one one-dimensional subspace,</span> <span m="1659000">and a perpendicular one.</span> </p>
+<p><span m="1662000">Could those be the row space and the null space?</span> </p>
+<p><span m="1669000">Could those be the row space and the null space?</span> </p>
+<p><span m="1675000">Could I be in three dimensions and have a row space that's a</span> <span m="1682000">line and a null space that's a line?</span> </p>
+<p><span m="1686000">No.</span> </p>
+<p><span m="1687000">Why not?</span> </p>
+<p><span m="1688000">Because the dimensions aren't right.</span> </p>
+<p><span m="1692000">Right? The dimensions are no good.</span> </p>
+<p><span m="1697000">The dimensions here, r and n-r, they add up to</span> <span m="1701000">three, they add up to n.</span> </p>
+<p><span m="1703000">If I take -- just follow that example -- if the row space is</span> <span m="1708000">one-dimensional, suppose A is what's a good in</span> <span m="1712000">R^3, I want a one-dimensional row space, let me take one,</span> <span m="1717000">two, five, two, four, ten.</span> </p>
+<p><span m="1720000">What's the dimension of that row space?</span> </p>
+<p><span m="1725000">One.</span> </p>
+<p><span m="1725970">What's the dimension of the null space?</span> </p>
+<p><span m="1730000">Tell what's the null space look like in that case?</span> </p>
+<p><span m="1737000">The row space is a line, right?</span> </p>
+<p><span m="1740000">One-dimensional, it's just a line through one,</span> <span m="1746510">two, five.</span> </p>
+<p><span m="1749000">Geometrically what's the row space look like?</span> </p>
+<p><span m="1754000">What's its dimension?</span> </p>
+<p><span m="1757000">So here r here n is three, the rank is one,</span> <span m="1762000">so the dimension of the null space, so I'm looking at this x,</span> <span m="1769000">x1, x2, x3.</span> </p>
+<p><span m="1770000">To give zero.</span> </p>
+<p><span m="1772000">So the dimension of the null space is we all know is two.</span> </p>
+<p><span m="1780000">Right.</span> </p>
+<p><span m="1781000">It's a plane.</span> </p>
+<p><span m="1782000">And now actually we know, we see better,</span> <span m="1787000">what plane is it?</span> </p>
+<p><span m="1789070">What plane is it?</span> </p>
+<p><span m="1791000">It's the plane that's perpendicular to one,</span> <span m="1795000">two, five.</span> </p>
+<p><span m="1796000">Right?</span> </p>
+<p><span m="1797000">We now see.</span> </p>
+<p><span m="1798000">In fact the two, four, ten didn't actually have</span> <span m="1804080">any effect at all.</span> </p>
+<p><span m="1807000">I could have just ignored that.</span> </p>
+<p><span m="1811000">That didn't change the row space or the null space.</span> </p>
+<p><span m="1817000">I'll just make that one equation.</span> </p>
+<p><span m="1821000">Yeah. OK.</span> </p>
+<p><span m="1822000">Sure. That's the easiest to deal with.</span> </p>
+<p><span m="1826000">One equation.</span> </p>
+<p><span m="1828000">Three unknowns.</span> </p>
+<p><span m="1830000">And I want to ask -- what would the equation give me</span> <span m="1836000">the null space, and you would have said back in</span> <span m="1840000">September you would have said it gives you a plane,</span> <span m="1845000">and we're completely right.</span> </p>
+<p><span m="1847000">And the plane it gives you, the normal vector,</span> <span m="1851000">you remember in calculus, there was this dumb normal</span> <span m="1855680">vector called N.</span> </p>
+<p><span m="1857000">Well there it is.</span> </p>
+<p><span m="1859000">One, two, five.</span> </p>
+<p><span m="1862000">OK. What is the what's the point I want to make here?</span> </p>
+<p><span m="1870000">I want to make -- I want to emphasize that not only are the</span> <span m="1880000">-- let me write it in words.</span> </p>
+<p><span m="1884000">So I want to write the null space and the row space are</span> <span m="1893000">orthogonal, that's this neat fact, which we've --</span> <span m="1903000">we've just checked from Ax equals zero, but now I want to</span> <span m="1907000">say more because there's a little more that's true.</span> </p>
+<p><span m="1911000">Their dimensions add to the whole space.</span> </p>
+<p><span m="1915000">So that's like a little extra information.</span> </p>
+<p><span m="1918000">That it's not like I could have -- I couldn't have a line and a</span> <span m="1923000">line in three dimensions.</span> </p>
+<p><span m="1926000">Those don't add up one and one don't add to three.</span> </p>
+<p><span m="1931000">So I used the word orthogonal complements in R^n.</span> </p>
+<p><span m="1936000">And the idea of this word complement is that the</span> <span m="1941000">orthogonal complement of a row space contains not just some</span> <span m="1947000">vectors that are orthogonal to it, but all.</span> </p>
+<p><span m="1951000">So what does that mean?</span> </p>
+<p><span m="1955530">That means that the null space contains all,</span> <span m="1962000">not just some but all, vectors that are perpendicular</span> <span m="1970000">to the row space.</span> </p>
+<p><span m="1972000">OK.</span> </p>
+<p><span m="1973110">Really what I've done in this half of the lecture is just</span> <span m="1981670">notice some of the nice geometry that --</span> <span m="1989000">that we didn't pick up before because we didn't discuss</span> <span m="1993000">perpendicular vectors before.</span> </p>
+<p><span m="1996000">But it was all sitting there.</span> </p>
+<p><span m="1999000">And now we picked it up.</span> </p>
+<p><span m="2001000">That these vectors are orthogonal complements.</span> </p>
+<p><span m="2005000">And I guess I even call this part one of the fundamental</span> <span m="2010000">theorem of linear algebra.</span> </p>
+<p><span m="2013000">The fundamental theorem of linear algebra is about these</span> <span m="2018000">four subspaces, so part one is about their</span> <span m="2022410">dimension, maybe I should call it part two now.</span> </p>
+<p><span m="2026000">Their dimensions we got.</span> </p>
+<p><span m="2028000">Now we're getting their orthogonality,</span> <span m="2032000">that's part two.</span> </p>
+<p><span m="2033000">And part three will be about bases for them.</span> </p>
+<p><span m="2037000">Orthogonal bases.</span> </p>
+<p><span m="2039000">So that's coming up.</span> </p>
+<p><span m="2042000">OK.</span> </p>
+<p><span m="2043000">So I'm happy with that geometry right now.</span> </p>
+<p><span m="2049000">OK. OK.</span> </p>
+<p><span m="2050000">Now what's my next goal in this chapter?</span> </p>
+<p><span m="2056000">Here's the main problem of the chapter.</span> </p>
+<p><span m="2061000">The main problem of the chapter is -- so this is coming.</span> </p>
+<p><span m="2070000">It's coming attraction.</span> </p>
+<p><span m="2075000">This is the very last chapter that's about Ax=b.</span> </p>
+<p><span m="2082000">I would like to solve that system of equations when there</span> <span m="2090030">is no solution.</span> </p>
+<p><span m="2092000">You may say what a ridiculous thing to do.</span> </p>
+<p><span m="2098000">But I have to say it's done all the time.</span> </p>
+<p><span m="2103000">In fact it has to be done.</span> </p>
+<p><span m="2107000">You get -- so the problem is solve --</span> <span m="2114000">the best possible solve I'll put quote Ax=b when there is no</span> <span m="2120000">solution.</span> </p>
+<p><span m="2121650">And of course what does that mean?</span> </p>
+<p><span m="2125000">b isn't in the column space.</span> </p>
+<p><span m="2128000">And it's quite typical if this matrix A is rectangular if I --</span> <span m="2134000">maybe I have m equations and that's bigger than the number of</span> <span m="2141000">unknowns, then for sure the rank is not m,</span> <span m="2147000">the rank couldn't be m now, so there'll be a lot of</span> <span m="2152000">right-hand sides with no solution, but here's an example.</span> </p>
+<p><span m="2157000">Some satellite is buzzing along.</span> </p>
+<p><span m="2161000">You measure its position.</span> </p>
+<p><span m="2163000">You make a thousand measurements.</span> </p>
+<p><span m="2166980">So that gives you a thousand equations for the -- for the</span> <span m="2172000">parameters that -- that give the position.</span> </p>
+<p><span m="2178000">But there aren't a thousand parameters, there's just maybe</span> <span m="2183000">six or something.</span> </p>
+<p><span m="2185000">Or you're measuring the -- you're doing questionnaires.</span> </p>
+<p><span m="2190000">You're measuring resistances.</span> </p>
+<p><span m="2193000">You're taking pulses.</span> </p>
+<p><span m="2195000">You're measuring somebody's pulse rate.</span> </p>
+<p><span m="2200000">There's just one unknown.</span> </p>
+<p><span m="2200690">OK.</span> </p>
+<p><span m="2202000">The pulse rate.</span> </p>
+<p><span m="2203000">So you measure it once, OK, fine, but if you really</span> <span m="2207000">want to know it, you measure it multiple times,</span> <span m="2210000">but then the measurements have noise in them,</span> <span m="2213000">so there's -- the problem is that in many many problems we've</span> <span m="2217000">got too many equations and they've got noise in the</span> <span m="2220000">right-hand side.</span> </p>
+<p><span m="2222000">So Ax=b I can't expect to solve it exactly right,</span> <span m="2228000">because I don't even know what -- there's a measurement mistake</span> <span m="2235000">in b.</span> </p>
+<p><span m="2236000">But there's information too.</span> </p>
+<p><span m="2239270">There's a lot of information about x in there.</span> </p>
+<p><span m="2245000">And what I want to do is like separate the noise,</span> <span m="2250000">the junk, from the information.</span> </p>
+<p><span m="2253000">And so this is a straightforward linear algebra</span> <span m="2257000">problem.</span> </p>
+<p><span m="2258000">How do I solve, what's the best solution?</span> </p>
+<p><span m="2262000">OK.</span> </p>
+<p><span m="2262570">Now.</span> </p>
+<p><span m="2262960">I want to say so that's like describes the problem in an</span> <span m="2268000">algebraic way.</span> </p>
+<p><span m="2270000">I got some equations, I'm looking for the best</span> <span m="2276000">solution.</span> </p>
+<p><span m="2277000">Well, one way to find it is -- one way to start,</span> <span m="2283000">one way to find a solution is throw away equations until</span> <span m="2290000">you've got a nice, square invertible system and</span> <span m="2295990">solve that.</span> </p>
+<p><span m="2297000">That's not satisfactory.</span> </p>
+<p><span m="2301000">There's no reason in these measurements to say these</span> <span m="2305000">measurements are perfect and these measurements are useless.</span> </p>
+<p><span m="2310000">We want to use all the measurements to get the best</span> <span m="2314000">information, to get the maximum information.</span> </p>
+<p><span m="2317000">But how?</span> </p>
+<p><span m="2318000">OK. Let me anticipate a matrix that's going to show up.</span> </p>
+<p><span m="2322000">This A is typically rectangular.</span> </p>
+<p><span m="2325000">But a matrix that shows up whenever you have -- and we</span> <span m="2330000">chapter three was all about rectangular matrices.</span> </p>
+<p><span m="2333000">And we know when this is solvable, you could do</span> <span m="2337000">elimination on it, right?</span> </p>
+<p><span m="2339000">But I'm thinking hey, you do elimination and you get</span> <span m="2343000">equation zero equal other non-zeroes.</span> </p>
+<p><span m="2346000">I'm thinking we really -- elimination is going to fail.</span> </p>
+<p><span m="2351000">So that's our question.</span> </p>
+<p><span m="2354000">Elimination will get us down to -- will tell us if there is a</span> <span m="2359000">solution or not.</span> </p>
+<p><span m="2361000">But I'm now thinking not.</span> </p>
+<p><span m="2363000">So what are we going to do?</span> </p>
+<p><span m="2363350">OK.</span> </p>
+<p><span m="2366100">All right.</span> </p>
+<p><span m="2367000">I want to tell you to jump ahead to the matrix that will</span> <span m="2372000">play a key role.</span> </p>
+<p><span m="2374000">So this is the matrix that you want to understand for this</span> <span m="2381000">chapter four.</span> </p>
+<p><span m="2382540">And it's the matrix A transpose A.</span> </p>
+<p><span m="2386000">What's -- tell me some things about that matrix.</span> </p>
+<p><span m="2391000">So A is this m by n matrix, rectangular,</span> <span m="2395000">but now I'm saying that the good matrix that shows up in the</span> <span m="2402000">end is A transpose A.</span> </p>
+<p><span m="2406000">So tell me something about that.</span> </p>
+<p><span m="2409000">Is it -- what's the first thing you know about A transpose A.</span> </p>
+<p><span m="2416000">It's square.</span> </p>
+<p><span m="2417000">Right?</span> </p>
+<p><span m="2418000">Square because this is m by n and this is n by m.</span> </p>
+<p><span m="2423490">So this is the result is n by n.</span> </p>
+<p><span m="2426000">Good.</span> </p>
+<p><span m="2427410">Square.</span> </p>
+<p><span m="2428000">What else?</span> </p>
+<p><span m="2430000">It's symmetric.</span> </p>
+<p><span m="2432000">Good. It's symmetric.</span> </p>
+<p><span m="2434000">Because you remember how to do that.</span> </p>
+<p><span m="2437000">If we transpose that matrix let's transpose it,</span> <span m="2442610">A transpose A, if I transpose it,</span> <span m="2445000">then that comes first transposed, this comes second,</span> <span m="2451150">transposed, and then transposing twice is leaves it</span> <span m="2456000">-- brings it back to the same so</span> <span m="2461000">it's symmetric.</span> </p>
+<p><span m="2463000">Good.</span> </p>
+<p><span m="2464000">Now we now know how to ask more about a matrix.</span> </p>
+<p><span m="2470000">I'm interested in is it invertible?</span> </p>
+<p><span m="2474000">If not, what's its null space?</span> </p>
+<p><span m="2478000">So I want to know about -- because you're going to see,</span> <span m="2485390">well, let me -- let me even,</span> <span m="2490180">well I shouldn't do this, but I will.</span> </p>
+<p><span m="2494000">Let me tell you what equation to solve when you can't solve</span> <span m="2501000">that one.</span> </p>
+<p><span m="2502000">The good equation comes from multiplying both sides by A</span> <span m="2509000">transpose, so the good equation that you get to is this one.</span> </p>
+<p><span m="2517000">A transpose Ax equals A transpose b.</span> </p>
+<p><span m="2520000">That will be the central equation in the chapter.</span> </p>
+<p><span m="2525000">So I think why not tell it to you.</span> </p>
+<p><span m="2528000">Why not admit it right away.</span> </p>
+<p><span m="2530000">OK.</span> </p>
+<p><span m="2531000">I have to -- I should really give x.</span> </p>
+<p><span m="2534000">I want to sort of indicate that this x isn't I mean this x was</span> <span m="2540000">the solution to that equation if it existed, but probably didn't.</span> </p>
+<p><span m="2547000">Now let me give this a different name,</span> <span m="2552000">x hat.</span> </p>
+<p><span m="2553000">Because I'm hoping this one will have a solution.</span> </p>
+<p><span m="2559000">And I'm saying that it's my best solution.</span> </p>
+<p><span m="2565300">I'll have to say what does best mean.</span> </p>
+<p><span m="2570000">But that's going to be my -- my plan.</span> </p>
+<p><span m="2575000">I'm going to say that the best solution solves this equation.</span> </p>
+<p><span m="2581000">So you see right away why I'm so interested in this matrix A</span> <span m="2587000">transpose A.</span> </p>
+<p><span m="2588000">And in its invertibility.</span> </p>
+<p><span m="2591000">OK. Now, when is it invertible?</span> </p>
+<p><span m="2594000">OK. Let me take a case, let me just do an example and</span> <span m="2599000">then -- I'll just pick a matrix here.</span> </p>
+<p><span m="2604000">Just so we see what A transpose A looks like.</span> </p>
+<p><span m="2609000">So let me take a matrix A one, one, one, one,</span> <span m="2614000">two, five.</span> </p>
+<p><span m="2615000">Just to invent a matrix.</span> </p>
+<p><span m="2618000">So there's a matrix A.</span> </p>
+<p><span m="2620000">Notice that it has M equal three rows and N equal two</span> <span m="2626440">columns.</span> </p>
+<p><span m="2628590">Its rank is -- the rank of that matrix is two.</span> </p>
+<p><span m="2635000">Right, yeah, the columns are independent.</span> </p>
+<p><span m="2641000">Does Ax equal b?</span> </p>
+<p><span m="2643000">If I look at Ax=b, so x is just x1 x2,</span> <span m="2648940">and b is b1 b2 b3.</span> </p>
+<p><span m="2651000">Do I expect to solve Ax=b?</span> </p>
+<p><span m="2655000">What's -- no way, right?</span> </p>
+<p><span m="2660000">I mean linear algebra's great, but solving three equations</span> <span m="2666000">with only two unknowns usually we can't do it.</span> </p>
+<p><span m="2670000">We can only solve it if this vector is b is what?</span> </p>
+<p><span m="2675000">I can solve that equation if that vector b1 b2 b3 is in the</span> <span m="2680000">column space.</span> </p>
+<p><span m="2682000">If it's a combination of those columns then fine.</span> </p>
+<p><span m="2687000">But usually it won't be.</span> </p>
+<p><span m="2690000">The combinations just fill up a plane and most vectors aren't on</span> <span m="2695960">that plane.</span> </p>
+<p><span m="2696000">So what I'm saying is that I'm going to work with the matrix A</span> <span m="2702000">transpose A.</span> </p>
+<p><span m="2703000">And I just want to figure out in this example what A transpose</span> <span m="2709000">A is.</span> </p>
+<p><span m="2709930">So it's two by two.</span> </p>
+<p><span m="2712000">The first entry is a three, the next entry is an eight,</span> <span m="2718000">this entry is -- what's that entry?</span> </p>
+<p><span m="2721960">Eight, for sure.</span> </p>
+<p><span m="2723000">We knew it had to be, and this entry is,</span> <span m="2727000">what's that now, getting out my trusty</span> <span m="2731000">calculator, thirty, is that right?</span> </p>
+<p><span m="2735000">And is that matrix invertible?</span> </p>
+<p><span m="2735080">Thirty.</span> </p>
+<p><span m="2740000">There's an A transpose A.</span> </p>
+<p><span m="2742000">And it is invertible, right?</span> </p>
+<p><span m="2744000">Three, eight is not a multiple of eight, thirty -- and it's</span> <span m="2749000">invertible.</span> </p>
+<p><span m="2750000">And that's the normal, that's what I expect.</span> </p>
+<p><span m="2754000">So this is I want to show.</span> </p>
+<p><span m="2756000">So here's the final -- here's the key point.</span> </p>
+<p><span m="2760000">The null space of A transpose A -- it's not going to be always</span> <span m="2766640">invertible.</span> </p>
+<p><span m="2767000">Tell me a matrix -- I have to say that I can't say A transpose</span> <span m="2773000">A is always invertible.</span> </p>
+<p><span m="2775000">Because that's asking too much.</span> </p>
+<p><span m="2778310">I mean what could the matrix A be, for example,</span> <span m="2782000">so that A transpose A was not invertible?</span> </p>
+<p><span m="2787000">Well, it even could be the zero matrix.</span> </p>
+<p><span m="2793000">I mean that's like extreme case.</span> </p>
+<p><span m="2797000">Suppose I make this rank -- suppose I change to that A.</span> </p>
+<p><span m="2805000">Now I figure out A transpose A again and I get -- what do I</span> <span m="2814000">get?</span> </p>
+<p><span m="2815000">I get nine, I get nine of course and here I get what's</span> <span m="2823000">that entry?</span> </p>
+<p><span m="2826000">Twenty-seven.</span> </p>
+<p><span m="2827000">And is that matrix invertible?</span> </p>
+<p><span m="2830760">No.</span> </p>
+<p><span m="2831000">And why do I -- I knew it wouldn't be invertible anyway.</span> </p>
+<p><span m="2836000">Because this matrix only has rank one.</span> </p>
+<p><span m="2840000">And if I have a product of matrices of rank one,</span> <span m="2844000">the product is not going to have a rank bigger than one.</span> </p>
+<p><span m="2851000">So I'm not surprised that the answer only has rank one.</span> </p>
+<p><span m="2857000">And that's what I -- always happens, that the rank of A</span> <span m="2863000">transpose A comes out to equal the rank of A.</span> </p>
+<p><span m="2868000">So, yes, so the null space of A transpose A equals the null</span> <span m="2874000">space of A, the rank of A transpose A equals the rank of</span> <span m="2881000">A.</span> </p>
+<p><span m="2882000">So let's -- as soon as I can why that's true.</span> </p>
+<p><span m="2890130">But let's draw from that what the fact that I want.</span> </p>
+<p><span m="2898000">This tells me that this square symmetric matrix is invertible</span> <span m="2908950">if -- so here's my conclusion.</span> </p>
+<p><span m="2914000">A transpose A is invertible if exactly when --</span> <span m="2923000">exactly if this null space is only got the zero vector.</span> </p>
+<p><span m="2931000">Which means the columns of A are independent.</span> </p>
+<p><span m="2938000">So A transpose A is invertible exactly if A has independent</span> <span m="2947000">columns.</span> </p>
+<p><span m="2948000">That's the fact that I need about A transpose A.</span> </p>
+<p><span m="2956000">And then you'll see next time how A transpose A enters</span> <span m="2960000">everything.</span> </p>
+<p><span m="2961000">Next lecture is actually a crucial one.</span> </p>
+<p><span m="2964000">Here I'm preparing for it by getting us thinking about A</span> <span m="2968000">transpose A.</span> </p>
+<p><span m="2969000">And its rank is the same as the rank of A, and we can decide</span> <span m="2973000">when it's invertible.</span> </p>
+<p><span m="2975000">OK.</span> </p>
+<p><span m="2976000">So I'll see you Friday.</span> </p>
+<p><span m="2978000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 107MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/14.mp4">MP4 - 199MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/YzZUIYRCE38.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

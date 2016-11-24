@@ -1,0 +1,1292 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 8: Solving Ax = b: row reduced form R | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 8: Solving Ax = b: row reduced form R" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 8: Solving Ax = b: row reduced form R" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 8: Solving Ax = b: row reduced form R
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 8: Solving Ax = b: row reduced form R
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/9Q1q7s1jTzU.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/08.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/9Q1q7s1jTzU', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r', 'https://img.youtube.com/vi/9Q1q7s1jTzU/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/9Q1q7s1jTzU.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703562, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/9Q1q7s1jTzU.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="0">OK, when the camera says, we'll start.</span> </p>
+<p><span m="5000">You want to give me a signal?</span> </p>
+<p><span m="8930">OK, this is lecture eight in linear algebra,</span> <span m="14000">and this is the lecture where we completely solve linear</span> <span m="21000">equations.</span> </p>
+<p><span m="23000">So Ax=b.</span> </p>
+<p><span m="24000">That's our goal.</span> </p>
+<p><span m="26510">If it has a solution.</span> </p>
+<p><span m="30000">It certainly can happen that there is no solution.</span> </p>
+<p><span m="34000">We have to identify that possibility by elimination.</span> </p>
+<p><span m="38860">And then if there is a solution we want to find out is there</span> <span m="43000">only one solution or are -- is there a whole family of</span> <span m="47000">solutions, and then find them all.</span> </p>
+<p><span m="50000">OK.</span> </p>
+<p><span m="51720">Can I use as an example the same matrix that I had last time</span> <span m="58730">when we were looking for the null space.</span> </p>
+<p><span m="63000">So the, the matrix has rows 1 2 2 2, 2 4 6 8,</span> <span m="68000">and the third row -- you remember the main point was the</span> <span m="75000">third row, 3 6 8 10, is the sum of row one plus row</span> <span m="81070">two.</span> </p>
+<p><span m="82000">In other words, if I add those left-hand sides,</span> <span m="86000">I get the third left-hand side.</span> </p>
+<p><span m="89180">So you can tell me right away what elimination is going to</span> <span m="93000">discover about the right-hand sides.</span> </p>
+<p><span m="96740">What's -- there is a condition on b1, b2, and b3 for this</span> <span m="101000">system to have a solution.</span> </p>
+<p><span m="103000">Most cases -- if I took these numbers to be one --</span> <span m="108000">5, and 17, there would not be a solution.</span> </p>
+<p><span m="112000">In fact, if I took those first numbers to be 1 and 5,</span> <span m="118000">what is the only b3 that would be OK?</span> </p>
+<p><span m="121000">Six.</span> </p>
+<p><span m="122000">If the left-hand -- if these left-hand sides add up to that,</span> <span m="128000">then B -- I need b1 plus b2 to equal b3.</span> </p>
+<p><span m="132000">Let's just see how elimination discovers that.</span> </p>
+<p><span m="135000">But we can see it coming, right?</span> </p>
+<p><span m="138000">That if -- let me say it in other words.</span> </p>
+<p><span m="141000">If some combination on the left-hand side gives all 0s then</span> <span m="145000">the same combination on the right-hand side must give 0.</span> </p>
+<p><span m="150000">OK. So let me take that example and write down instead of copying</span> <span m="157000">out all the plus signs, let me write down the matrix.</span> </p>
+<p><span m="163000">1 2 2 2, 2 4 6 8, and that 6 3 8 10,</span> <span m="167000">where the third row is the sum of the first two rows.</span> </p>
+<p><span m="174000">Now how do we deal with the right-hand side?</span> </p>
+<p><span m="178000">That's -- we want to do the same thing to the right-hand</span> <span m="183000">side that we're doing to these rows on the left side,</span> <span m="188000">so we just tack on the right-hand side as another</span> <span m="192000">vector, another column.</span> </p>
+<p><span m="195000">So this is the augmented matrix.</span> </p>
+<p><span m="199000">It's, it's the matrix A with the vector b tacked on.</span> </p>
+<p><span m="206000">In Matlab, that's all you would need to type.</span> </p>
+<p><span m="212670">OK.</span> </p>
+<p><span m="213000">So we do elimination on that.</span> </p>
+<p><span m="216000">Can we just do elimination quickly?</span> </p>
+<p><span m="222000">The first pivot is fine, I subtract two of this away</span> <span m="228000">from this, three of this away from this, so I have 1 2 2 2 b1.</span> </p>
+<p><span m="235000">Two of those away will give me 0 0 2 and 4, and that was b2</span> <span m="241700">minus two b1.</span> </p>
+<p><span m="243000">I, I have to do the same thing to that third,</span> <span m="248000">that last column.</span> </p>
+<p><span m="251000">And then three of these away from this gave me 0 0 2 4 b3</span> <span m="256000">minus three b1s.</span> </p>
+<p><span m="257000">So that's the, that's elimination with the</span> <span m="261000">first column completed.</span> </p>
+<p><span m="263000">We move on.</span> </p>
+<p><span m="264000">There's the first pivot still.</span> </p>
+<p><span m="267000">Here is the second pivot.</span> </p>
+<p><span m="269000">We're always remembering, now, these are then going to be</span> <span m="274000">the pivot columns.</span> </p>
+<p><span m="277000">And let me get the final result -- well, let me -- can I do it</span> <span m="284000">by eraser?</span> </p>
+<p><span m="285000">We're capable of subtracting this row from this row,</span> <span m="292000">just by -- that'll knock this out completely and give me the</span> <span m="299000">row of 0s, and on the right-hand side, when I subtract this away</span> <span m="307000">from this, what do I have?</span> </p>
+<p><span m="311000">I think I have b3 minus a b2, and I had minus three b1s.</span> </p>
+<p><span m="318000">This is going to, it's going to be a minus a b1.</span> </p>
+<p><span m="325000">Oh yeah that's exactly what I expect.</span> </p>
+<p><span m="329000">So now the -- what's the last equation?</span> </p>
+<p><span m="335680">The last equation, this represented by this zero</span> <span m="338000">row, that last equation is, says 0 equals b3 minus b2 minus</span> </p>
+<p><span m="342000">b1. So that's the condition for solvability.</span> </p>
+<p><span m="345000">That's the condition on the right-hand side that we</span> <span m="348580">expected.</span> </p>
+<p><span m="349000">It says that b1+b2 has to match b3, and if our numbers happen to</span> <span m="353000">have been 1, 5, and 6 -- so let me take,</span> <span m="355000">suppose b is 1 5 6.</span> </p>
+<p><span m="358000">That's an OK b.</span> </p>
+<p><span m="360000">And when I do this elimination, what will I have?</span> </p>
+<p><span m="368000">The b1 will still be a 1. b2 would be 5 minus 2,</span> <span m="375000">this would be a 3. 5 -- my 6 minus 5 minus 1,</span> <span m="382000">this will be -- this is the main point -- this will be a 0,</span> <span m="387000">thanks.</span> </p>
+<p><span m="388000">OK. So the last equation is OK now.</span> </p>
+<p><span m="391000">And I can proceed to solve the two equations that are really</span> <span m="397000">there with four unknowns.</span> </p>
+<p><span m="400000">OK, I, I, I want to do that, so this, this b is OK.</span> </p>
+<p><span m="405000">It allows a solution.</span> </p>
+<p><span m="408000">We're going to be, naturally, interested to keep</span> <span m="414000">track what are the conditions on b that make the equation</span> <span m="421000">solvable.</span> </p>
+<p><span m="422210">So let me write down what we already see before I continue to</span> <span m="429000">solve it.</span> </p>
+<p><span m="431000">Let me first -- solvability, solvability.</span> </p>
+<p><span m="438000">So which -- so this is the condition on the right-hand</span> <span m="446000">sides.</span> </p>
+<p><span m="447000">And what is that condition?</span> </p>
+<p><span m="452000">This is solvability always of Ax=b.</span> </p>
+<p><span m="457000">So Ax=b is solvable -- well, actually,</span> <span m="464000">we had an answer in the language of the column space.</span> </p>
+<p><span m="469000">Can you remind me what that answer is?</span> </p>
+<p><span m="473000">That, that was like our answer from earlier lecture.</span> </p>
+<p><span m="478000">b had to be in the column space.</span> </p>
+<p><span m="482000">Solvable if -- when -- exactly when b is in the column space of</span> <span m="488000">A.</span> </p>
+<p><span m="489000">Right?</span> </p>
+<p><span m="490000">That just says that b has to be a combination of the columns,</span> <span m="496630">and of course that's exactly what the equation is looking</span> </p>
+<p><span m="502000">for. So that -- now I want to answer it -- the same answer but in</span> <span m="508000">different language.</span> </p>
+<p><span m="510000">Another way to answer this -- if a combination of the rows of</span> <span m="518000">A gives the zero row, and this was an example where</span> <span m="524000">it happened, some combination of the rows of A produced the zero</span> <span m="532000">row -- then what's the requirement on b?</span> </p>
+<p><span m="537000">Since we're going to do the same thing to both sides of all</span> <span m="545000">equations -- the same combination of the</span> <span m="551000">components of b has to give 0.</span> </p>
+<p><span m="554790">Right?</span> </p>
+<p><span m="555000">That's -- so if there's a combination of the rows that</span> <span m="561000">gives the zero row, then the same combination of</span> <span m="567000">the entries of b must give 0.</span> </p>
+<p><span m="571000">And this isn't the zero row, that's the zero number.</span> </p>
+<p><span m="578000">Tthis is another way of saying -- and it is not immediate,</span> </p>
+<p><span m="578490">OK.</span> <span m="584000">right, that these two statements are equivalent.</span> </p>
+<p><span m="589000">But somehow they must be, because they're both equivalent</span> <span m="595000">to the solvability of the system.</span> </p>
+<p><span m="598000">OK.</span> </p>
+<p><span m="599000">So we've got this, this sort of -- like question</span> <span m="603000">zero is, does the system have a solution?</span> </p>
+<p><span m="607000">OK, I'll come back to discuss that further.</span> </p>
+<p><span m="611000">Let's go forward when it does.</span> </p>
+<p><span m="613000">When there is a solution.</span> </p>
+<p><span m="615000">And so what's our job now?</span> </p>
+<p><span m="618000">Abstractly we sit back and we say, OK, there's a solution,</span> <span m="623000">finished.</span> </p>
+<p><span m="625000">It exists. But we want to construct it.</span> </p>
+<p><span m="628000">So what's the algorithm, the sequence of steps to find</span> <span m="632000">the solution?</span> </p>
+<p><span m="633320">That's what I -- and of course the quiz and the final,</span> <span m="637000">I'm going to give you a system Ax=b and I'm going to ask you</span> <span m="642000">for the solution, if there is one.</span> </p>
+<p><span m="645000">And so this algorithm that you want to follow.</span> </p>
+<p><span m="653000">OK, let's see.</span> </p>
+<p><span m="655000">So what's the -- so now to find the complete solution to Ax=b.</span> </p>
+<p><span m="665000">OK. Let me start by finding one solution, one particular</span> <span m="674000">solution.</span> </p>
+<p><span m="676000">I'm expecting that I can, because my system of equations</span> <span m="682000">now, that last equation is zero equals zero, so that's all fine.</span> </p>
+<p><span m="688000">I really have two equations -- actually I've got four unknowns,</span> <span m="694890">so I'm expecting to find not only a solution but a whole</span> <span m="700000">bunch of them.</span> </p>
+<p><span m="701000">But let's just find one.</span> </p>
+<p><span m="705000">So step one, a particular solution,</span> <span m="708000">x particular.</span> </p>
+<p><span m="709000">How do I find one particular solution?</span> </p>
+<p><span m="712000">Well, let me tell you how I, how I find it.</span> </p>
+<p><span m="715870">So this is -- since there are lots of solutions,</span> <span m="719000">you could have your own way to find a particular one.</span> </p>
+<p><span m="725230">But this is a pretty natural way.</span> </p>
+<p><span m="729000">Set all free variables to zero.</span> </p>
+<p><span m="734000">Since those free variables are the guys that can be anything,</span> <span m="743000">the most convenient choice is zero.</span> </p>
+<p><span m="748000">And then solve Ax=b for the pivot variables.</span> </p>
+<p><span m="754000">So what does that mean in this example?</span> </p>
+<p><span m="761000">Which are the free variables?</span> </p>
+<p><span m="764020">Which, which are the variables that we can assign freely and</span> <span m="768000">then there's one and only one way to find the pivot variables?</span> </p>
+<p><span m="774020">They're x2 and -- so x2 is zero, because that's in a column</span> <span m="778000">without a pivot, the second column has no pivot.</span> </p>
+<p><span m="783520">And the -- what's the other one?</span> </p>
+<p><span m="786000">The fourth, x4 is zero.</span> </p>
+<p><span m="788000">Because that, those are the,</span> <span m="791000">the free ones.</span> </p>
+<p><span m="792000">Those are in the columns with no pivots.</span> </p>
+<p><span m="796000">So you see what my -- so when I knock -- when x2 and x4 are</span> <span m="801000">zero, I'm left with the -- what I left with here?</span> </p>
+<p><span m="807570">I'm just left with -- see, now I'm not using the two free</span> </p>
+<p><span m="812000">columns. I'm only using the pivot columns.</span> </p>
+<p><span m="815000">So I'm really left with x1 -- the first equation is just x1</span> <span m="820350">and two x3s should be the right-hand side,</span> <span m="823000">which we picked to be a one.</span> </p>
+<p><span m="826000">And the second equation is two x3s, as it happened,</span> <span m="830000">turned out to be, three.</span> </p>
+<p><span m="833000">I just write it again here with the x2 and the x4 knocked out,</span> <span m="839000">since we're set them to zero.</span> </p>
+<p><span m="842840">And you see that we're back in the normal case of having back</span> <span m="849000">-- where back substitution will do it.</span> </p>
+<p><span m="853000">So x3 is three halves, and then we go back up and x1</span> <span m="858000">is one minus two x3.</span> </p>
+<p><span m="861000">That's probably minus two.</span> </p>
+<p><span m="865000">Good.</span> </p>
+<p><span m="866000">So now we have the solution, x particular is the vector</span> <span m="873000">minus two zero three halves zero.</span> </p>
+<p><span m="878000">OK, good.</span> </p>
+<p><span m="879000">That's one particular solution, and we should and could plug it</span> <span m="888000">into the original system.</span> </p>
+<p><span m="893000">Really if -- on the quiz, please, it's a good thing to</span> <span m="898000">do.</span> </p>
+<p><span m="898680">So we did all this, these, row operations,</span> <span m="902000">but this is supposed to solve the original system,</span> <span m="907000">and I think it does.</span> </p>
+<p><span m="909000">OK. So that's x particular which we've got.</span> </p>
+<p><span m="913000">So that's like what's new today.</span> </p>
+<p><span m="916000">The particular solution comes -- first you check that you have</span> <span m="920000">zero equals zero, so you're OK on the last</span> </p>
+<p><span m="923000">equations. And then you set the free variables to zero,</span> <span m="926000">solve for the pivot variables, and you've got a particular</span> <span m="930760">solution, the particular solution that has zero free</span> <span m="934000">variables.</span> </p>
+<p><span m="935000">OK.</span> </p>
+<p><span m="936000">Now -- but that's only one solution, and now I'm looking</span> <span m="943000">for all.</span> </p>
+<p><span m="944000">So how do I find the rest?</span> </p>
+<p><span m="947750">The point is I can add on x -- anything out of the null space.</span> </p>
+<p><span m="955000">We know how to find the vectors in the null space --</span> <span m="963000">because we did it last time, but I'll remind you what we</span> </p>
+<p><span m="968000">got. And then I'll add.</span> </p>
+<p><span m="970000">So the final result will be that the complete solution --</span> <span m="975000">this is now the complete guy -- the complete solution is this</span> <span m="980000">one particular solution plus any, any vector,</span> <span m="984700">all different vectors out of the null space.</span> </p>
+<p><span m="989000">xn, OK.</span> </p>
+<p><span m="990000">Well why, why this pattern, because this pattern shows up</span> <span m="996000">through all of mathematics, because it shows up everywhere</span> <span m="1003000">we have linear equations.</span> </p>
+<p><span m="1005000">Let me just put here the, the reason.</span> </p>
+<p><span m="1010000">A xp, so that's x particular, so what does Ax particular</span> <span m="1018000">give?</span> </p>
+<p><span m="1019000">That gives the correct right-hand side b.</span> </p>
+<p><span m="1024839">And what does A times an x in the null space give?</span> </p>
+<p><span m="1031000">Zero.</span> </p>
+<p><span m="1032000">So I add, and I put in parentheses.</span> </p>
+<p><span m="1037089">So xp plus xn is b plus zero, which is b.</span> </p>
+<p><span m="1044000">So -- oh, what I saying?</span> </p>
+<p><span m="1046000">Let me just say it in words.</span> </p>
+<p><span m="1049000">If I have one solution, I can add on anything in the</span> <span m="1053000">null space, because anything in the null space has a zero</span> <span m="1058000">right-hand side, and I still have the correct</span> <span m="1062000">right-hand side B.</span> </p>
+<p><span m="1064000">So that's my system.</span> </p>
+<p><span m="1067000">That's my complete solution.</span> </p>
+<p><span m="1070000">Now let me write out what that will be for this example.</span> </p>
+<p><span m="1076000">So in this example, x general, x complete,</span> <span m="1080000">the complete solution, is x particular,</span> <span m="1084600">which is minus two zero three halves zero, with those zeroes</span> <span m="1090000">in the free variable, plus --</span> <span m="1095000">you remember there were the special solutions in the null</span> <span m="1099000">space that had a one in the free variables -- or one and zero in</span> <span m="1104000">the free variables, and then we filled in to find</span> </p>
+<p><span m="1108000">I've forgotten what they were, but maybe it was that.</span> <span m="1108070">the others?</span> </p>
+<p><span m="1113000">That was a special solution, and then there was another</span> <span m="1117000">special solution that had that free variable zero and this free</span> <span m="1122000">variable equal one, and I have to fill those in.</span> </p>
+<p><span m="1126000">Let's see, can I remember how those fill in?</span> </p>
+<p><span m="1129000">Maybe this was a minus two and this was a two,</span> </p>
+<p><span m="1133000">possibly? I think probably that's right.</span> </p>
+<p><span m="1136000">I'm not -- yeah.</span> </p>
+<p><span m="1138000">Does that look write to you?</span> </p>
+<p><span m="1140000">I would have to remember what are my equations.</span> </p>
+<p><span m="1144000">Can I, rather than go way back to that board,</span> <span m="1148000">let me remember the first equation was two x3 plus two x4</span> <span m="1152000">equaling zero now, because I'm looking for the</span> <span m="1156000">guys in the null space.</span> </p>
+<p><span m="1159000">So I set x4 to be one and the second equation,</span> <span m="1163000">that I didn't copy again, gave me minus two for this and</span> <span m="1169000">then -- yeah, so I think that's right.</span> </p>
+<p><span m="1172000">Two minus four and two gives zero, check.</span> </p>
+<p><span m="1176000">OK.</span> </p>
+<p><span m="1177000">Those were the special solutions.</span> </p>
+<p><span m="1180000">What do we do to get the complete solution?</span> </p>
+<p><span m="1185000">How do I get the complete solution now?</span> </p>
+<p><span m="1189000">I multiply this by anything, c1, say, and I multiply this by</span> <span m="1194000">anything -- I take any combination.</span> </p>
+<p><span m="1198000">Remember that's how we described the null space?</span> </p>
+<p><span m="1202000">The null space consists of all combinations of --</span> <span m="1208000">so this is xn -- all combinations of the special</span> <span m="1212000">solutions.</span> </p>
+<p><span m="1213000">There were two special solutions because there were two</span> <span m="1218000">free variables.</span> </p>
+<p><span m="1219000">And we want to make that count -- carefully now.</span> </p>
+<p><span m="1223000">Just while I'm up here.</span> </p>
+<p><span m="1225000">So there's, that's what the -- that's the kind of answer I'm</span> <span m="1230000">looking for.</span> </p>
+<p><span m="1231000">Is there a constant multiplying this guy?</span> </p>
+<p><span m="1234000">Is there a free constant that multiplies x particular?</span> </p>
+<p><span m="1238500">No way.</span> </p>
+<p><span m="1239000">Right? x particular solves A xp=b.</span> </p>
+<p><span m="1241000">I'm not allowed to multiply that by three.</span> </p>
+<p><span m="1245000">But Axn, I'm allowed to multiply xn by three,</span> <span m="1249000">or add to another xn, because I keep getting zero on</span> <span m="1254000">the right.</span> </p>
+<p><span m="1256000">OK. So, so again, xp is one particular guy.</span> </p>
+<p><span m="1260000">xn is a whole subspace.</span> </p>
+<p><span m="1263000">Right?</span> </p>
+<p><span m="1264000">It's one guy plus, plus anything from a subspace.</span> </p>
+<p><span m="1270000">Let me draw it.</span> </p>
+<p><span m="1272000">Let me try to -- oh.</span> </p>
+<p><span m="1275340">I want to draw, I want to graph all this -- I</span> <span m="1281000">want to, I want to plot all solutions.</span> </p>
+<p><span m="1286000">Now x.</span> </p>
+<p><span m="1288000">So what dimension I in?</span> </p>
+<p><span m="1290520">This is a unfortunate point.</span> </p>
+<p><span m="1293000">How many components does x have?</span> </p>
+<p><span m="1296000">Four.</span> </p>
+<p><span m="1297000">There are four unknowns.</span> </p>
+<p><span m="1299000">So I have to draw a four dimensional picture on this MIT</span> <span m="1305000">cheap blackboard.</span> </p>
+<p><span m="1307000">OK. So here we go. x1 -- Einstein could do it,</span> <span m="1313000">but, this, this is -- those are four perpendicular axes in --</span> <span m="1321000">representing four dimensional space.</span> </p>
+<p><span m="1325000">OK. Where are my solutions?</span> </p>
+<p><span m="1328000">Do my solutions form a subspace?</span> </p>
+<p><span m="1332000">Does the set of solutions to Ax=b form a subspace?</span> </p>
+<p><span m="1338000">No way.</span> </p>
+<p><span m="1340000">What does it actually look like, though?</span> </p>
+<p><span m="1344000">A subspace is in this picture.</span> </p>
+<p><span m="1346000">This part is a subspace, right?</span> </p>
+<p><span m="1348000">That part is some, like, two dimensional,</span> <span m="1352120">because I've got two parameters, so it's -- I'm</span> <span m="1355830">thinking of this null space as a two dimensional subspace inside</span> <span m="1360000">R^4.</span> </p>
+<p><span m="1362200">Now I have to tell you and will tell you next time,</span> <span m="1365000">what does it mean to say a subspace, what's the dimension</span> </p>
+<p><span m="1369000">of a subspace. But you see what it's going to be.</span> </p>
+<p><span m="1372050">It's the number of free independent constants that we</span> <span m="1375000">can choose.</span> </p>
+<p><span m="1376000">So somehow there'll be a two dimensional subspace,</span> <span m="1379000">not a line, and not a three dimensional plane,</span> <span m="1382000">but only a two dimensional guy.</span> </p>
+<p><span m="1385000">But it's doesn't go through the origin because it goes through</span> <span m="1391000">this point.</span> </p>
+<p><span m="1392000">So there's x particular. x particular is somewhere here.</span> </p>
+<p><span m="1398000">x particular.</span> </p>
+<p><span m="1400000">So it's somehow a subspace -- can I try to draw it that way?</span> </p>
+<p><span m="1407000">It's a two dimensional subspace that goes through x particular</span> <span m="1415000">and then onwards by -- so there's x particular,</span> <span m="1420000">and I added on xn, and there's x.</span> </p>
+<p><span m="1424000">There's x=xp+xn.</span> </p>
+<p><span m="1426740">But the xn was anywhere in this subspace, so that filled out a</span> <span m="1434000">plane.</span> </p>
+<p><span m="1436000">It's a subspace -- it's not a subspace, what I saying?</span> </p>
+<p><span m="1440000">It's like a flat thing, it's like a subspace,</span> <span m="1444000">but it's been shifted, away from the origin.</span> </p>
+<p><span m="1448000">It doesn't contain zero.</span> </p>
+<p><span m="1450000">Thanks.</span> </p>
+<p><span m="1450460">OK.</span> </p>
+<p><span m="1452000">That's the picture, and that's the algorithm.</span> </p>
+<p><span m="1455000">So the algorithm is just go through elimination and,</span> <span m="1460390">find the particular solution, and then find those special</span> <span m="1465000">solutions.</span> </p>
+<p><span m="1466000">You can do that.</span> </p>
+<p><span m="1467550">Let me take our time here in the lecture to think,</span> <span m="1471000">about the bigger picture.</span> </p>
+<p><span m="1474000">So let me think about -- so this is my pattern.</span> </p>
+<p><span m="1482000">Now I want to think -- I want to ask you about a question -- I</span> <span m="1492030">want to ask you some questions.</span> </p>
+<p><span m="1496000">So when I mean think bigger, I mean I'll think about an m by</span> <span m="1506000">n matrix A of rank r.</span> </p>
+<p><span m="1511000">OK. What's our definition of rank?</span> </p>
+<p><span m="1514000">Our current definition of rank is number of pivots.</span> </p>
+<p><span m="1519000">OK. First of all, how are these numbers related?</span> </p>
+<p><span m="1523000">Can you tell me a relation between r and m?</span> </p>
+<p><span m="1527000">If I have m rows in the matrix and R pivots,</span> <span m="1532000">-- then I certainly know,</span> <span m="1535000">always -- what relation do I know between r and m?</span> </p>
+<p><span m="1541000">r is less or equal, right?</span> </p>
+<p><span m="1544000">Because I've got m rows, I can't have more than m</span> <span m="1549000">pivots, I might have m and I might have fewer.</span> </p>
+<p><span m="1554000">Also, I've got n columns.</span> </p>
+<p><span m="1557000">So what's the relation between r and n?</span> </p>
+<p><span m="1562000">It's the same, less or equal,</span> <span m="1564810">because a column can't have more than one pivot.</span> </p>
+<p><span m="1568000">So I can't have more than n pivots altogether.</span> </p>
+<p><span m="1572000">OK, OK.</span> </p>
+<p><span m="1573000">So I have an m by n matrix of rank r.</span> </p>
+<p><span m="1575000">And I always know r less than or equal to m,</span> <span m="1579000">r less than or equal to n.</span> </p>
+<p><span m="1582000">Now I'm specially interested in the case of full rank,</span> <span m="1588000">when the rank r is as big as it can be.</span> </p>
+<p><span m="1592000">Well, I guess I've got two separate possibilities here,</span> <span m="1598000">depending on what these numbers m and n are.</span> </p>
+<p><span m="1603000">So let me talk about the case of full column rank.</span> </p>
+<p><span m="1610000">And by that I mean r=n.</span> </p>
+<p><span m="1613000">And I want to ask you, what does that imply about our</span> <span m="1620000">solutions?</span> </p>
+<p><span m="1622160">What does that tell us about the null space?</span> </p>
+<p><span m="1628000">What does that tell us about, the complete solution?</span> </p>
+<p><span m="1636000">OK, so what does that mean?</span> </p>
+<p><span m="1639000">So I want to ask you, well, OK, if the rank is n,</span> <span m="1646000">what does that mean?</span> </p>
+<p><span m="1648000">That means there's a pivot in every column.</span> </p>
+<p><span m="1654000">So how many pivot variables are there?</span> </p>
+<p><span m="1659000">n.</span> </p>
+<p><span m="1660000">All the columns have pivots in this case.</span> </p>
+<p><span m="1663620">So how many free variables are there?</span> </p>
+<p><span m="1666000">None at all.</span> </p>
+<p><span m="1667000">So no free variables. r=n, no free variables.</span> </p>
+<p><span m="1671000">So what does that tell us about what's going to happen then in</span> <span m="1677000">our, in our little algorithms?</span> </p>
+<p><span m="1680000">What will be in the null space?</span> </p>
+<p><span m="1685000">The null space of A has got what in it?</span> </p>
+<p><span m="1690000">Only the zero vector.</span> </p>
+<p><span m="1693000">There are no free variables to give other values to.</span> </p>
+<p><span m="1701000">So the null space is only the zero vector.</span> </p>
+<p><span m="1708000">And what about our solution to Ax=b?</span> </p>
+<p><span m="1712000">Solution to Ax=b?</span> </p>
+<p><span m="1714000">What, what's the story on that one?</span> </p>
+<p><span m="1718000">So now that's coming from today's lecture.</span> </p>
+<p><span m="1723000">The solution x is -- what's the complete solution?</span> </p>
+<p><span m="1729000">It's just x particular, right?</span> </p>
+<p><span m="1733000">If, if, if there is an x, if there is a solution.</span> </p>
+<p><span m="1740000">It's x equal x particular.</span> </p>
+<p><span m="1743000">There's nothing -- you know, there's just one solution.</span> </p>
+<p><span m="1750000">If there's one at all.</span> </p>
+<p><span m="1753000">So it's unique solution -- unique means only one -- unique</span> <span m="1760860">solution if it exists, if it exists.</span> </p>
+<p><span m="1766000">In other words, I would say -- let me put it a</span> <span m="1772000">different way.</span> </p>
+<p><span m="1773000">There're either zero or one solutions.</span> </p>
+<p><span m="1778000">This is all in this case r=n.</span> </p>
+<p><span m="1782000">So I'm -- because many, many applications in reality,</span> <span m="1789000">the columns will be what I'll later call independent.</span> </p>
+<p><span m="1797000">And we'll have, nothing to look for in the null</span> <span m="1801000">space, and we'll only have particular solutions.</span> </p>
+<p><span m="1806000">OK.</span> </p>
+<p><span m="1807000">Everybody see that possibility?</span> </p>
+<p><span m="1810000">But I need an example, right?</span> </p>
+<p><span m="1813000">So let me create an example.</span> </p>
+<p><span m="1816000">What sort of a matrix -- what's the shape of a matrix</span> <span m="1822000">that has full column rank?</span> </p>
+<p><span m="1825000">So can I squeeze in an, an example here?</span> </p>
+<p><span m="1829470">If it exists.</span> </p>
+<p><span m="1830000">Let me put in an example, and it's just the right space</span> <span m="1836000">to put in an example.</span> </p>
+<p><span m="1838000">Because the example will be like tall and thin.</span> </p>
+<p><span m="1844000">It will have -- well, I mean, here's an example,</span> <span m="1850000">one two six five, three one one one.</span> </p>
+<p><span m="1854000">Brilliant example.</span> </p>
+<p><span m="1856000">OK.</span> </p>
+<p><span m="1857000">So there's a matrix A, and what's its rank?</span> </p>
+<p><span m="1862000">What's the rank of that matrix?</span> </p>
+<p><span m="1865000">How many pivots will I find if I do elimination?</span> </p>
+<p><span m="1873000">Two, right?</span> </p>
+<p><span m="1874070">Two.</span> </p>
+<p><span m="1874410">I see a pivot there -- oh certainly those two columns are</span> <span m="1879000">headed off in different directions.</span> </p>
+<p><span m="1882000">When I do elimination, I'll certainly get another</span> <span m="1886000">pivot here, fine, and I can use those to clean</span> <span m="1890000">out below and above.</span> </p>
+<p><span m="1892000">So the -- actually, tell me what its row reduced</span> <span m="1897000">row echelon form would be.</span> </p>
+<p><span m="1900000">Can you carry that, that elimination process to the</span> <span m="1906000">bitter end?</span> </p>
+<p><span m="1907000">So what do, what does that mean?</span> </p>
+<p><span m="1910000">I subtract a multiple of this row from these rows.</span> </p>
+<p><span m="1917000">So I clean up, all zeros there.</span> </p>
+<p><span m="1919000">Then I've got some pivot here.</span> </p>
+<p><span m="1921000">What do I do with that?</span> </p>
+<p><span m="1923000">I go subtract it below and above, and then I divide</span> <span m="1926000">through, and what's R for that example?</span> </p>
+<p><span m="1929000">Maybe I can -- you'll allow me to put that just here in the</span> <span m="1933000">next board.</span> </p>
+<p><span m="1935000">What's the row reduced echelon form, just out of practice,</span> <span m="1940000">for that matrix?</span> </p>
+<p><span m="1942330">It's got ones in the pivots.</span> </p>
+<p><span m="1945000">It's got the identity matrix, a little two by two identity</span> <span m="1950000">matrix, and below it all zeros.</span> </p>
+<p><span m="1953000">That's a matrix that really has two independent rows,</span> <span m="1958000">and they're the first two, actually.</span> </p>
+<p><span m="1962000">The first two rows are independent.</span> </p>
+<p><span m="1965000">They're not in the same direction.</span> </p>
+<p><span m="1968000">But the other rows are combinations of the first two,</span> <span m="1972000">so -- is there always a solution to Ax=b?</span> </p>
+<p><span m="1975000">Tell me what's the picture here?</span> </p>
+<p><span m="1978370">For this matrix A, this is a case of full column</span> <span m="1982000">rank.</span> </p>
+<p><span m="1983000">The two columns are -- give two pivots.</span> </p>
+<p><span m="1987000">There's nothing in the null space.</span> </p>
+<p><span m="1989000">There's no combination of those columns that gives the zero</span> <span m="1995000">column except the zero zero combination.</span> </p>
+<p><span m="1998000">So there's nothing in the null space.</span> </p>
+<p><span m="2001000">But is there always a solution to A X equal B?</span> </p>
+<p><span m="2006000">What's up with A X equal B?</span> </p>
+<p><span m="2009340">I've got four, four equations here,</span> <span m="2012000">and only two Xs.</span> </p>
+<p><span m="2014000">So the answer is certainly no.</span> </p>
+<p><span m="2017000">There's not always a solution.</span> </p>
+<p><span m="2020000">I may have zero solutions, and if I make a random choice,</span> <span m="2025000">I'll have zero solutions.</span> </p>
+<p><span m="2029000">Or if I make a great particular choice of the right-hand side,</span> <span m="2033000">which just happens to be a combination of those two guys --</span> <span m="2038000">like tell me one right-hand side that would have a solution.</span> </p>
+<p><span m="2042000">Tell me a right-hand side that would have a solution.</span> </p>
+<p><span m="2047040">Well, 0 0 0 0, OK.</span> </p>
+<p><span m="2049150">No prize for that one.</span> </p>
+<p><span m="2051000">Tell me another one.</span> </p>
+<p><span m="2052000">Another right-hand side that has a solution would be 4 3 7 6.</span> </p>
+<p><span m="2057000">I could add the two columns.</span> </p>
+<p><span m="2060000">What would be the total complete solution if the</span> </p>
+<p><span m="2060130">Right?</span> <span m="2064000">right-hand side was 4 3 7 6?</span> </p>
+<p><span m="2067000">There would be the particular solution one one,</span> <span m="2071000">one of that column plus one of that, and that would be the only</span> </p>
+<p><span m="2076000">solution. So there would be -- x particular would be one one in</span> <span m="2080000">the case when the right side is the sum of those two columns,</span> <span m="2085000">and that's it.</span> </p>
+<p><span m="2087000">So that would be a case with one solution.</span> </p>
+<p><span m="2092000">OK.</span> </p>
+<p><span m="2093000">That, this is the typical setup with full column rank.</span> </p>
+<p><span m="2100000">Now I go to full row rank.</span> </p>
+<p><span m="2103000">You see the sort of natural symmetry of this discussion.</span> </p>
+<p><span m="2111000">Full row rank means r=m.</span> </p>
+<p><span m="2114000">So this is what I'm interested in now, r=m.</span> </p>
+<p><span m="2121000">OK, what's up with that?</span> </p>
+<p><span m="2125000">How many pivots? m.</span> </p>
+<p><span m="2127000">So what happens when we do elimination in that case?</span> </p>
+<p><span m="2135000">I'm going to get m pivots.</span> </p>
+<p><span m="2139000">So every row has a pivot, right?</span> </p>
+<p><span m="2143000">Every row has a pivot.</span> </p>
+<p><span m="2146000">Then what about solvability?</span> </p>
+<p><span m="2150000">What about this business of -- for which right-hand sides can</span> <span m="2160000">I solve it?</span> </p>
+<p><span m="2162280">So that's my question.</span> </p>
+<p><span m="2165200">I can solve Ax=b for which right-hand sides?</span> </p>
+<p><span m="2170000">Do you see what's coming?</span> </p>
+<p><span m="2174000">I do elimination, I don't get any zero rows.</span> </p>
+<p><span m="2179000">So there aren't any requirements on b.</span> </p>
+<p><span m="2186000">I can solve Ax=b for every b.</span> </p>
+<p><span m="2190000">I can solve Ax=b for every right-hand side.</span> </p>
+<p><span m="2196000">So this is the existence, exists a solution.</span> </p>
+<p><span m="2202000">Now tell me, so the, u- u- so every row has</span> <span m="2209000">a pivot in it.</span> </p>
+<p><span m="2211000">So how many free variables are there?</span> </p>
+<p><span m="2217000">How many free variables in this case?</span> </p>
+<p><span m="2224000">If I had n variables to start with, how many are used up by</span> <span m="2235000">pivot variables? r, which is m.</span> </p>
+<p><span m="2240610">So I'm left with, left with n-r free variables.</span> </p>
+<p><span m="2249000">OK.</span> </p>
+<p><span m="2251000">So this case of full row rank I can always solve,</span> <span m="2255000">and then this tells me how many variables are free,</span> <span m="2260000">and this is of course n-m.</span> </p>
+<p><span m="2263370">This is n-m free variables.</span> </p>
+<p><span m="2266000">Can I do an example?</span> </p>
+<p><span m="2267000">You know, the best way for me to do an example is just to</span> <span m="2273460">transpose that example.</span> </p>
+<p><span m="2276000">So let me take, let me take that matrix that</span> <span m="2280000">had column one two six five and make it a row.</span> </p>
+<p><span m="2285000">And let me take three one one one as the second row.</span> </p>
+<p><span m="2290000">And let me ask you, this is my matrix A,</span> <span m="2294060">what's its rank?</span> </p>
+<p><span m="2295000">What's the rank of that matrix?</span> </p>
+<p><span m="2299000">Sorry to ask, but not sorry really,</span> <span m="2302400">because we're just getting the idea of rank.</span> </p>
+<p><span m="2305000">What's the rank of that matrix?</span> </p>
+<p><span m="2308000">Two, exactly, two.</span> </p>
+<p><span m="2309000">There will be two pivots.</span> </p>
+<p><span m="2311000">What will the row reduced echelon form be?</span> </p>
+<p><span m="2315000">Anybody know that one?</span> </p>
+<p><span m="2317000">Actually, tell me not only -- you have to tell me not only</span> <span m="2321000">the, there'll be two pivots but which will be the pivot columns.</span> </p>
+<p><span m="2325000">Which columns of this matrix will be pivot columns?</span> </p>
+<p><span m="2328000">So the first column is fine, and then I go on to the next</span> <span m="2332000">column, and what do I get?</span> </p>
+<p><span m="2333840">Do I get a second pivot out of --</span> <span m="2336000">will I get a second pivot in this position?</span> </p>
+<p><span m="2341000">Yes. So the pivots, when I get all the way to R,</span> <span m="2346000">will be there.</span> </p>
+<p><span m="2347650">And here will be some numbers.</span> </p>
+<p><span m="2350000">This is the part that I previously called F.</span> </p>
+<p><span m="2355590">This is the part that -- the pivot columns in R will be</span> <span m="2362400">the identity matrix.</span> </p>
+<p><span m="2364000">There are no zero rows, no zero rows,</span> <span m="2368000">because the rank is two.</span> </p>
+<p><span m="2370000">But there'll be stuff over here.</span> </p>
+<p><span m="2373000">And that will, enter the special solutions and</span> <span m="2378000">the null space.</span> </p>
+<p><span m="2381000">OK. So this is a typical matrix with r=m smaller than n.</span> </p>
+<p><span m="2388000">Now finally I've got a space here for r=m=n.</span> </p>
+<p><span m="2393000">I'm off in the corner here with the most important case of all.</span> </p>
+<p><span m="2401000">So what's up with this matrix?</span> </p>
+<p><span m="2405000">So let me give an example.</span> </p>
+<p><span m="2408000">OK, brilliant example, 1 2 3 1.</span> </p>
+<p><span m="2414000">Tell me what -- how do I describe a matrix that has rank</span> <span m="2420000">r=m=n?</span> </p>
+<p><span m="2421000">So the matrix is square, right, it's a square matrix.</span> </p>
+<p><span m="2426000">And if I know its rank is -- it's full rank,</span> <span m="2431830">now.</span> </p>
+<p><span m="2432000">I don't have to say full column rank or full row rank --</span> <span m="2439690">I just say full rank, because the count,</span> <span m="2443000">column count and the row count are the same,</span> <span m="2447000">and the rank is as big as it can be.</span> </p>
+<p><span m="2450000">And what kind of a matrix have I got?</span> </p>
+<p><span m="2454000">It's invertible.</span> </p>
+<p><span m="2455570">So that's exactly the invertible matrices.</span> </p>
+<p><span m="2459000">r=m=n means the -- what's the row echelon form,</span> <span m="2465000">the reduced row echelon form, for an invertible matrix?</span> </p>
+<p><span m="2470000">For a square, nice, square,</span> <span m="2473000">invertible matrix?</span> </p>
+<p><span m="2475000">It's I.</span> </p>
+<p><span m="2476000">Right. So you see that the, the good matrices are the ones</span> <span m="2482000">that kind of come out trivially in R.</span> </p>
+<p><span m="2487360">You reduce them all the way to the identity matrix.</span> </p>
+<p><span m="2491660">What's the null space for this, for this matrix?</span> </p>
+<p><span m="2495000">Can I just hammer away with questions?</span> </p>
+<p><span m="2498000">What's the null space for this matrix?</span> </p>
+<p><span m="2502000">The null space of that matrix is the zero vector only.</span> </p>
+<p><span m="2507000">The zero vector only.</span> </p>
+<p><span m="2510000">What are the conditions to solve Ax=b?</span> </p>
+<p><span m="2515030">Which right-hand sides b are OK?</span> </p>
+<p><span m="2519000">If I want to solve Ax=b for this example,</span> <span m="2524000">so A is this, b is b1 b2, what are the</span> <span m="2529080">conditions on b1 and b2?</span> </p>
+<p><span m="2533000">None at all, right.</span> </p>
+<p><span m="2535000">So this is the case, this is the case where I can</span> <span m="2539000">solve -- so I've coming back here, I can -- since the rank</span> <span m="2544000">equals m, I can solve for every b.</span> </p>
+<p><span m="2547000">And since the rank is also n, there's a unique solution.</span> </p>
+<p><span m="2552000">Let me summarize the whole picture here.</span> </p>
+<p><span m="2557000">Here's the whole picture.</span> </p>
+<p><span m="2559000">I could have r=m=n.</span> </p>
+<p><span m="2562000">This is the case where this is the identity matrix.</span> </p>
+<p><span m="2567860">And this is the case where there is one solution.</span> </p>
+<p><span m="2573000">That's the square invertible chapter two case.</span> </p>
+<p><span m="2578590">Now we're into chapter three.</span> </p>
+<p><span m="2581000">We could have r=m smaller than n.</span> </p>
+<p><span m="2586000">Now that's what we had over there, and the row echelon form</span> <span m="2594000">looked like the identity with some zero rows.</span> </p>
+<p><span m="2600000">And that was the case where there are zero or one solution.</span> </p>
+<p><span m="2608680">When I say solution I mean to Ax=b.</span> </p>
+<p><span m="2613000">So this case, there's always one.</span> </p>
+<p><span m="2619000">This case there's zero or one.</span> </p>
+<p><span m="2623000">And now let me take the case of full column rank,</span> <span m="2630000">but some, extra rows.</span> </p>
+<p><span m="2633000">So now R has -- well, the identity -- I'm almost</span> <span m="2640950">tempted to write the identity matrix and then F,</span> <span m="2648000">but that isn't necessarily right.</span> </p>
+<p><span m="2652000">I have -- is that right?</span> </p>
+<p><span m="2658000">Am I getting this correct here?</span> </p>
+<p><span m="2660000">Oh, I'm not!</span> </p>
+<p><span m="2661000">My God!</span> </p>
+<p><span m="2662000">This is the case R equals n, the columns,</span> <span m="2665000">the columns are, are OK.</span> </p>
+<p><span m="2667000">That's the case that was on that board, r=n,</span> <span m="2671000">full column rank.</span> </p>
+<p><span m="2673000">Now I want the case where m is smaller than n and I've got</span> <span m="2677000">extra columns.</span> </p>
+<p><span m="2680000">OK. There we go.</span> </p>
+<p><span m="2683000">So this is now the case of full row rank, and it looks like I F</span> <span m="2694000">except that I can't be sure that the pivot columns are the first</span> <span m="2706000">columns.</span> </p>
+<p><span m="2709000">So the I and the F, could be partly mixed into the</span> </p>
+<p><span m="2714000">I. Can I write that with just like that?</span> </p>
+<p><span m="2717000">So the F could be sort of partly into the I if the first</span> <span m="2722000">columns weren't the pivot columns.</span> </p>
+<p><span m="2726000">Now how many solutions in this case?</span> </p>
+<p><span m="2730530">There's always a solution.</span> </p>
+<p><span m="2732000">This is the existence case.</span> </p>
+<p><span m="2734000">There's always a solution.</span> </p>
+<p><span m="2737180">We're not getting any zero rows.</span> </p>
+<p><span m="2739000">There are no zero rows here.</span> </p>
+<p><span m="2742000">So there's always either one or infinitely many solutions.</span> </p>
+<p><span m="2746000">OK.</span> </p>
+<p><span m="2747000">Actually, I guess there's always an infinite number,</span> <span m="2751490">because we always have some null space to deal with.</span> </p>
+<p><span m="2756000">Then the final case is where r is smaller than m and smaller</span> <span m="2764000">than n.</span> </p>
+<p><span m="2765000">OK. Now that's the case where R is the identity with some free</span> <span m="2773000">stuff but with some zero rows too.</span> </p>
+<p><span m="2777000">And that's the case where there's either no solution --</span> <span m="2785000">because we didn't get a zero equals zero for some bs,</span> <span m="2791000">or infinitely many solutions.</span> </p>
+<p><span m="2794000">OK.</span> </p>
+<p><span m="2795000">Do you -- this board really summarizes the lecture,</span> <span m="2801000">and this sentence summarizes the lecture.</span> </p>
+<p><span m="2805000">The rank tells you everything about the number of solutions.</span> </p>
+<p><span m="2813000">That number, the rank r, tells you all the</span> <span m="2818000">information except the exact entries in the solutions.</span> </p>
+<p><span m="2824000">For that you go to the matrix.</span> </p>
+<p><span m="2828000">OK, good.</span> </p>
+<p><span m="2829000">Have a great weekend, and I'll see you on Monday.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 101MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/08.mp4">MP4 - 188MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/9Q1q7s1jTzU.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

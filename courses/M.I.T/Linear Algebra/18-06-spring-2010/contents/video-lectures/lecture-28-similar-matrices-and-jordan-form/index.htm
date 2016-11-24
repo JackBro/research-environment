@@ -1,0 +1,1223 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 28: Similar matrices and jordan form | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 28: Similar matrices and jordan form" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 28: Similar matrices and jordan form" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-28-similar-matrices-and-jordan-form">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 28: Similar matrices and jordan form
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 28: Similar matrices and jordan form
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-28-similar-matrices-and-jordan-form/z_zYQHmrh08.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/28.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/z_zYQHmrh08', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-28-similar-matrices-and-jordan-form', 'https://img.youtube.com/vi/z_zYQHmrh08/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-28-similar-matrices-and-jordan-form/z_zYQHmrh08.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703584, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/z_zYQHmrh08.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="6000">Okay.</span> </p>
+<p><span m="7230">This lecture is mostly about the idea of similar matrixes.</span> </p>
+<p><span m="12000">I'm going to tell you what that word similar means and in what</span> <span m="17000">way two matrixes are called similar.</span> </p>
+<p><span m="20000">But before I do that, I have a little more to say</span> <span m="24000">about positive definite matrixes.</span> </p>
+<p><span m="27000">You can tell this is a subject I</span> <span m="31000">think is really important and I told you what positive definite</span> <span m="37000">meant -- it means that this -- this expression,</span> <span m="41000">this quadratic form, x transpose I x is always</span> <span m="45000">positive.</span> </p>
+<p><span m="46000">But the direct way to test it was with eigenvalues or pivots</span> <span m="51000">or determinants.</span> </p>
+<p><span m="53000">So I -- we know what it means,</span> <span m="56000">we know how to test it, but I didn't really say where</span> <span m="61000">positive definite matrixes come from.</span> </p>
+<p><span m="64000">And so one thing I want to say is that they come from least</span> <span m="68000">squares in -- and all sorts of physical problems start with a</span> <span m="73000">rectangular matrix -- well,</span> <span m="76000">you remember in least squares the crucial combination was A</span> <span m="81000">transpose A.</span> </p>
+<p><span m="82000">So I want to show that that's a positive definite matrix.</span> </p>
+<p><span m="86000">Can -- so I -- I'm going to speak a little more about</span> <span m="90000">positive definite matrixes, just recapping -- so let me ask</span> <span m="95000">a question.</span> </p>
+<p><span m="96000">It may be on the homework.</span> </p>
+<p><span m="99000">Suppose a matrix A is positive definite.</span> </p>
+<p><span m="102000">I mean by that it's all -- I'm assuming it's symmetric.</span> </p>
+<p><span m="107380">That's always built into the definition.</span> </p>
+<p><span m="110000">So we have a symmetric positive definite matrix.</span> </p>
+<p><span m="115000">What about its inverse?</span> </p>
+<p><span m="117000">Is the inverse of a symmetric positive definite matrix also</span> <span m="123000">symmetric positive definite?</span> </p>
+<p><span m="126000">So you quickly think, okay, what do I know about the</span> <span m="131000">pivots of the inverse matrix?</span> </p>
+<p><span m="133000">Not much.</span> </p>
+<p><span m="134000">What do I know about the eigenvalues of the inverse</span> <span m="139000">matrix?</span> </p>
+<p><span m="141000">Everything, right?</span> </p>
+<p><span m="142000">The eigenvalues of the inverse are one over the eigenvalues of</span> <span m="147000">the matrix.</span> </p>
+<p><span m="148000">So if my matrix starts out positive definite,</span> <span m="152540">then right away I know that its inverse is positive definite,</span> <span m="157000">because those positive eigenvalues -- then one over the</span> <span m="162000">eigenvalue is also positive.</span> </p>
+<p><span m="165000">What if I know that A -- a matrix A and a matrix B are both</span> <span m="172000">positive definite?</span> </p>
+<p><span m="174000">But let me ask you this.</span> </p>
+<p><span m="176690">Suppose if A and B are positive definite, what about -- what</span> <span m="183000">about A plus B?</span> </p>
+<p><span m="184000">In some way, you hope that that would be</span> <span m="189000">true.</span> </p>
+<p><span m="191000">It's -- positive definite for a matrix is kind of like positive</span> <span m="195000">for a real number.</span> </p>
+<p><span m="196000">But we don't know the eigenvalues of A plus B.</span> </p>
+<p><span m="200000">We don't know the pivots of A plus B.</span> </p>
+<p><span m="202000">So we just, like, have to go down this list of,</span> <span m="206410">all right, which approach to positive definite can we get a</span> <span m="211000">handle on?</span> </p>
+<p><span m="212610">And this is a good one.</span> </p>
+<p><span m="214000">This is a good one.</span> </p>
+<p><span m="216000">Can we -- how would we decide that -- if A was like this and</span> <span m="221000">if B was like this, then we would look at x</span> <span m="224000">transpose A plus B x.</span> </p>
+<p><span m="226460">I'm sure this is in the homework.</span> </p>
+<p><span m="229000">Now -- so we have x transpose A x</span> <span m="232000">bigger than zero, x transpose B x positive for</span> <span m="237660">all -- for all x, so now I ask you about this</span> </p>
+<p><span m="242000">guy. And of course, you just add that and that and</span> <span m="247000">we get what we want.</span> </p>
+<p><span m="249000">If A and B are positive definites, so is A plus B.</span> </p>
+<p><span m="254000">So that's what I've shown.</span> </p>
+<p><span m="257000">So is A plus B.</span> </p>
+<p><span m="258000">Just -- be sort of ready for all the approaches through</span> <span m="266000">eigenvalues and through this expression.</span> </p>
+<p><span m="270000">And now, finally, one more thought about positive</span> <span m="276000">definite is this combination that came up in least squares.</span> </p>
+<p><span m="282000">Can I do that?</span> </p>
+<p><span m="284000">So now -- now suppose A is rectangular, m by n.</span> </p>
+<p><span m="289000">I -- so I'm sorry that I've used</span> <span m="294000">the same letter A for the positive definite matrixes in</span> <span m="299000">the eigenvalue chapter that I used way back in earlier</span> <span m="304000">chapters when the matrix was rectangular.</span> </p>
+<p><span m="308000">Now, that matrix -- a rectangular matrix,</span> <span m="311000">no way its positive definite.</span> </p>
+<p><span m="314520">It's not symmetric.</span> </p>
+<p><span m="316000">It's not even square in general.</span> </p>
+<p><span m="320000">But you remember that the key for these rectangular ones was A</span> <span m="327000">transpose A.</span> </p>
+<p><span m="328000">That's square.</span> </p>
+<p><span m="330000">That's symmetric.</span> </p>
+<p><span m="332000">Those are things we knew -- we knew back when we met this thing</span> <span m="340000">in the least square stuff, in the projection stuff.</span> </p>
+<p><span m="346000">But now we know something more -- we can ask a more important</span> <span m="354000">question, a deeper question -- is it positive definite?</span> </p>
+<p><span m="360000">And we sort of hope so.</span> </p>
+<p><span m="362000">Like, we -- we might -- in analogy with numbers,</span> <span m="367000">this is like -- sort of like the square of a number,</span> <span m="372000">and that's positive.</span> </p>
+<p><span m="374000">So now I want to ask the matrix question.</span> </p>
+<p><span m="378000">Is A transpose A positive definite?</span> </p>
+<p><span m="382000">Okay, now it's -- so again, it's a rectangular A that I'm</span> <span m="387000">starting with, but it's the combination A</span> <span m="390000">transpose A that's the square, symmetric and hopefully</span> <span m="394000">positive definite matrix.</span> </p>
+<p><span m="396000">So how -- how do I see that it is positive definite,</span> <span m="401000">or at least positive semi-definite?</span> </p>
+<p><span m="404000">You'll see that.</span> </p>
+<p><span m="406000">Well, I don't know the eigenvalues of this product.</span> </p>
+<p><span m="410830">I don't want to work with the pivots.</span> </p>
+<p><span m="414000">The right thing -- the right quantity to look at is this,</span> <span m="419000">x transpose Ax -- A -- x transpose times my matrix</span> <span m="424630">times x.</span> </p>
+<p><span m="425000">I'd like to see that this thing -- that that expression is</span> <span m="430140">always positive.</span> </p>
+<p><span m="431000">I'm not doing it with numbers, I'm doing it with symbols.</span> </p>
+<p><span m="436000">Do you see -- how do I see that that expression comes out</span> <span m="440990">positive?</span> </p>
+<p><span m="441000">I'm taking a rectangular matrix A</span> <span m="445000">and an A transpose -- that gives me something square</span> <span m="449030">symmetric, but now I want to see that if I multiply -- that if I</span> <span m="453000">do this -- I form this quadratic expression that I get this</span> <span m="457000">positive thing that goes upwards when I graph it.</span> </p>
+<p><span m="461000">How do I see that that's positive,</span> <span m="464130">or absolutely it isn't negative anyway?</span> </p>
+<p><span m="467000">We'll have to, like, spend a minute on the</span> <span m="471000">question could it be zero, but it can't be negative.</span> </p>
+<p><span m="476000">Why can this never be negative?</span> </p>
+<p><span m="479000">The argument is -- like the one key idea in so many steps in</span> <span m="484000">linear algebra -- put those parentheses</span> <span m="489000">in a good way.</span> </p>
+<p><span m="491000">Put the parentheses around Ax and what's the first part?</span> </p>
+<p><span m="498840">What's this x transpose A transpose?</span> </p>
+<p><span m="503000">That is Ax transpose.</span> </p>
+<p><span m="506000">So what do we have?</span> </p>
+<p><span m="508000">We have the length squared of Ax.</span> </p>
+<p><span m="513000">We have -- that's the column vector Ax that's the row</span> <span m="521000">vector Ax, its length squared, certainly greater than or</span> <span m="526000">possibly equal to zero.</span> </p>
+<p><span m="528000">So we have to deal with this little possibility.</span> </p>
+<p><span m="533000">Could it be equal?</span> </p>
+<p><span m="534000">Well, when could the length squared be zero?</span> </p>
+<p><span m="538650">Only if the vector is zero, right?</span> </p>
+<p><span m="542000">That's the only vector that has length squared zero.</span> </p>
+<p><span m="546000">So we have -- we would like to -- I would like to get that</span> <span m="551000">possibility out of there.</span> </p>
+<p><span m="554030">So I want to have Ax never -- never be zero,</span> <span m="557000">except of course for the zero vector.</span> </p>
+<p><span m="560000">How do I assure that Ax is never zero?</span> </p>
+<p><span m="565000">The -- in other words, how do I show that there's no</span> <span m="570000">null space of A?</span> </p>
+<p><span m="571910">The rank should be -- so now remember -- what's the rank when</span> <span m="577000">there's no null space?</span> </p>
+<p><span m="580000">By no null space, you know what I mean.</span> </p>
+<p><span m="584000">Only the zero vector in the null space.</span> </p>
+<p><span m="587000">So if I have a -- if I have an 11 by 5 matrix --</span> <span m="593000">so it's got 11 rows, 5 columns, when is there no</span> <span m="598000">null space?</span> </p>
+<p><span m="599000">So the columns should be independent -- what's the rank?</span> </p>
+<p><span m="605470">n 5 -- rank n.</span> </p>
+<p><span m="606920">Independent columns, when -- so if I -- then I</span> <span m="611580">conclude yes, positive definite.</span> </p>
+<p><span m="614790">And this was the assumption -- then A transpose A is</span> <span m="621350">invertible -- the least squares equations all work fine.</span> </p>
+<p><span m="627000">And more than that -- the matrix is even positive</span> <span m="632000">definite.</span> </p>
+<p><span m="633000">And I just to say one comment about numerical things,</span> <span m="638000">with a positive definite matrix,</span> <span m="642000">you never have to do row exchanges.</span> </p>
+<p><span m="645000">You never run into unsuitably small numbers or zeroes in the</span> <span m="650000">pivot position.</span> </p>
+<p><span m="651000">They're the right -- they're the great matrixes to compute</span> <span m="655000">with, and they're the great matrixes to study.</span> </p>
+<p><span m="658000">So that's -- I wanted to take this first ten</span> <span m="663000">minutes of grab the first ten minutes away from similar</span> <span m="668000">matrixes and continue a -- this much more with positive</span> <span m="673000">definite.</span> </p>
+<p><span m="674000">I'm really at this point, now, coming close to the end of</span> <span m="679000">the heart of linear algebra.</span> </p>
+<p><span m="682000">The positive definiteness brought everything together.</span> </p>
+<p><span m="688000">Similar matrixes, which is coming the rest of</span> <span m="693000">this hour is a key topic, and please come on Monday.</span> </p>
+<p><span m="698000">Monday is about what's called the SVD, singular values.</span> </p>
+<p><span m="703000">It's the -- has become a central fact in -- a central</span> <span m="708000">part of linear algebra.</span> </p>
+<p><span m="711000">I mean, you can come after Monday</span> <span m="715000">also, but -- Monday is, -- that singular value thing</span> <span m="720000">has made it into this course.</span> </p>
+<p><span m="723000">Ten years ago, five years ago it wasn't in the</span> <span m="728000">course, now it has to be.</span> </p>
+<p><span m="731000">Okay.</span> </p>
+<p><span m="731790">So can I begin today's lecture proper with this idea</span> <span m="737000">of similar matrixes.</span> </p>
+<p><span m="739000">This is what similar matrixes mean.</span> </p>
+<p><span m="742000">So here -- let's start again.</span> </p>
+<p><span m="745000">I'll write it again.</span> </p>
+<p><span m="746000">So A and B are similar.</span> </p>
+<p><span m="748000">A and B are -- now I'm -- these matrixes -- I'm no longer</span> <span m="753000">talking about symmetric matrixes,</span> <span m="757000">in -- at least no longer expecting symmetric matrixes.</span> </p>
+<p><span m="763000">I'm talking about two square matrixes n by n.</span> </p>
+<p><span m="768000">A and B, they're n by n matrixes.</span> </p>
+<p><span m="772380">And I'm introducing this word similar.</span> </p>
+<p><span m="776000">So I'm going to say what does it mean?</span> </p>
+<p><span m="780000">It means that they're connected in the way --</span> <span m="787160">well, in the way I've written here, so let me rewrite it.</span> </p>
+<p><span m="794000">That means that for some matrix M, which has to be invertible,</span> <span m="801000">because you'll see that -- this one matrix is -- take the other</span> <span m="809000">matrix, multiply on the right by M and on the left by M inverse.</span> </p>
+<p><span m="817000">So the question is, why that combination?</span> </p>
+<p><span m="822000">But part of the answer you know already.</span> </p>
+<p><span m="827000">You remember -- we've done this -- we've taken a matrix A -- so</span> <span m="835000">let's do an example of similar.</span> </p>
+<p><span m="839000">Suppose A -- the matrix A -- suppose it has a</span> <span m="846000">full set of eigenvectors.</span> </p>
+<p><span m="848000">They go in this eigenvector matrix S.</span> </p>
+<p><span m="851930">Then what was the main point of the whole -- the main</span> <span m="856000">calculation of the whole chapter was -- is -- use that</span> <span m="861000">eigenvector matrix S and its inverse comes over there to</span> <span m="867000">produce the nicest possible matrix lambda.</span> </p>
+<p><span m="872000">Nicest possible because it's diagonal.</span> </p>
+<p><span m="876000">So in our new language, this is saying A is similar to</span> <span m="883000">lambda.</span> </p>
+<p><span m="884000">A is similar to lambda, because there is a matrix,</span> <span m="890160">and this particular -- there is an M and this particular M is</span> <span m="897000">this important guy, this eigenvector</span> <span m="903000">matrix.</span> </p>
+<p><span m="904000">But if I take a different matrix M and I look at M inverse</span> <span m="909000">A M, the result won't come out diagonal, but it will come out a</span> <span m="916000">matrix B that's similar to A.</span> </p>
+<p><span m="919370">Do you see that I'm -- what I'm doing is, like -- I'm putting</span> <span m="925590">these matrixes into families.</span> </p>
+<p><span m="929000">All the matrixes in one -- in the family are similar to each</span> </p>
+<p><span m="934000">other. They're all -- each one in this family is connected to each</span> <span m="939000">other one by some matrix M and the -- like the outstanding</span> <span m="944000">member of the family is the diagonal guy.</span> </p>
+<p><span m="947540">I mean, that's the simplest, neatest matrix in this family</span> <span m="953000">of all the matrixes that are similar to A,</span> <span m="956000">the best one is lambda.</span> </p>
+<p><span m="958000">But there are lots of others, because I can take different --</span> <span m="963250">instead of S, I can take any old matrix M,</span> <span m="966000">any old invertible matrix and -- and do it.</span> </p>
+<p><span m="970000">I'd better do an example.</span> </p>
+<p><span m="972000">Okay. Suppose I take A as the matrix two one one two.</span> </p>
+<p><span m="978000">Okay. Do you know the eigenvalue matrix for that?</span> </p>
+<p><span m="983000">The eigenvalues of that matrix are -- well, three and one.</span> </p>
+<p><span m="989000">So that -- and the eigenvectors would be easy to find.</span> </p>
+<p><span m="995000">So this matrix is similar to this one.</span> </p>
+<p><span m="1000000">But my point is -- but also, I can also take my matrix,</span> <span m="1007000">two one one two, I could multiply it by -- let's</span> <span m="1011000">see, what -- I'm just going to cook up a matrix M here.</span> </p>
+<p><span m="1015000">I'm -- I'll -- let me just invent -- one four one zero.</span> </p>
+<p><span m="1019000">And over here I'll put M inverse, and because I happened</span> <span m="1023000">to make that triangular, I know that its inverse is</span> <span m="1028000">that, right?</span> </p>
+<p><span m="1030000">So there's M inverse A M, that's going to produce some</span> <span m="1035000">matrix -- oh, well, I've got to do the</span> <span m="1038000">multiplication, so hang on a second,</span> <span m="1041000">let -- I'll just copy that one minus four zero one and multiply</span> <span m="1047000">these guys so I'm getting two nine one</span> <span m="1052000">and six, I think.</span> </p>
+<p><span m="1053000">Can you check it as I go, because you -- see I'm just --</span> <span m="1059000">so that's two minus four, I'm getting a minus two nine</span> <span m="1065000">minus 24 is a minus 15, my God, how did I get this?</span> </p>
+<p><span m="1070000">And that's probably one and six.</span> </p>
+<p><span m="1073000">So there's my matrix B.</span> </p>
+<p><span m="1075000">And there's my matrix lambda, there's my matrix A and my</span> <span m="1082000">point is these are all similar matrixes.</span> </p>
+<p><span m="1087220">They all have something in common, besides being just two</span> <span m="1093000">by two.</span> </p>
+<p><span m="1094000">They have something in common.</span> </p>
+<p><span m="1097000">And that's -- and what is it?</span> </p>
+<p><span m="1100000">What's the point about two matrixes that are built out of</span> <span m="1107000">-- the B is built out of M inverse A M.</span> </p>
+<p><span m="1112660">What is it that A and B have in common?</span> </p>
+<p><span m="1115000">That's the main -- now I'm telling you the main fact about</span> <span m="1119000">similar matrixes.</span> </p>
+<p><span m="1121070">They have the same eigenvalues.</span> </p>
+<p><span m="1123000">This is -- this chapter is about eigenvalues,</span> <span m="1126000">and that's why we're interested in this family of matrixes that</span> <span m="1131000">have the same eigenvalues.</span> </p>
+<p><span m="1134000">What are the eigenvalues in this example?</span> </p>
+<p><span m="1137000">Lambda.</span> </p>
+<p><span m="1138000">The eigenvalues of that I could compute.</span> </p>
+<p><span m="1141000">The eigenvalues of that I can compute really fast.</span> </p>
+<p><span m="1145000">So the eigenvalues are three and one -- for this for sure.</span> </p>
+<p><span m="1150000">Now did we -- do you see why the eigenvalues are</span> <span m="1156000">three and one for that one?</span> </p>
+<p><span m="1158050">If I tell you the eigenvalues are three and one,</span> <span m="1161000">you prick -- quickly process the trace, which is -- and four</span> <span m="1165000">-- agrees with four and you process the determinant,</span> <span m="1169000">three times one -- the determinant is three and you say</span> <span m="1174000">yes, it's right.</span> </p>
+<p><span m="1175000">Now I'm hoping that the eigenvalues of this thing are</span> <span m="1179840">three and one.</span> </p>
+<p><span m="1180000">May I process the trace and the determinant for that one?</span> </p>
+<p><span m="1185000">What's the trace here?</span> </p>
+<p><span m="1187000">The trace of this matrix is four minus two and six,</span> <span m="1191210">and that's what it should be.</span> </p>
+<p><span m="1193000">What's the determinant minus twelve</span> <span m="1197000">plus fifteen is three.</span> </p>
+<p><span m="1198970">The determinant is three.</span> </p>
+<p><span m="1200000">The eigenvalues of that matrix are also three and one.</span> </p>
+<p><span m="1205000">And you see I created this matrix just like -- I just took</span> <span m="1209000">any M, like, one that popped into my head and computed M</span> <span m="1214130">inverse A M, got that matrix, it didn't look anything special</span> <span m="1221000">but it's -- like A itself, it has those eigenvalues three</span> <span m="1230060">and one.</span> </p>
+<p><span m="1231000">So that's the main fact and let me write it down.</span> </p>
+<p><span m="1238000">Similar matrixes have the same eigenvalues.</span> </p>
+<p><span m="1244000">So I'll just put that as an important point.</span> </p>
+<p><span m="1250000">And think why.</span> </p>
+<p><span m="1254000">Why is that?</span> </p>
+<p><span m="1255000">So that's what that family of matrixes is.</span> </p>
+<p><span m="1259530">The matrixes that are similar to this A here are all the</span> <span m="1264000">matrixes with eigenvalues three and one.</span> </p>
+<p><span m="1268000">Every matrix with eigenvalues three and one,</span> <span m="1272000">there's some M that connects this guy to the one you think</span> <span m="1278000">of.</span> </p>
+<p><span m="1280000">And then of course, the most special guy in the</span> <span m="1283000">whole family is the diagonal one with eigenvalues three and one</span> <span m="1287840">sitting there on the diagonal.</span> </p>
+<p><span m="1289000">But also, I could find -- I mean, tell me just a couple more</span> <span m="1294000">members of the family.</span> </p>
+<p><span m="1295000">Another -- tell me another matrix that has</span> <span m="1299000">eigenvalues three and one.</span> </p>
+<p><span m="1301000">Well, let's see, I -- oh, I'll just make it</span> <span m="1306000">triangular.</span> </p>
+<p><span m="1307000">That's in the family.</span> </p>
+<p><span m="1309000">There is some M that -- that connects to this one.</span> </p>
+<p><span m="1314000">And -- and also this.</span> </p>
+<p><span m="1316000">There's some matrix M -- so that M inverse A M comes out to</span> <span m="1321000">be that.</span> </p>
+<p><span m="1323000">There's a whole family here.</span> </p>
+<p><span m="1327090">And they all share the same eigenvalues.</span> </p>
+<p><span m="1331000">So why is that?</span> </p>
+<p><span m="1333000">Okay. I'm going to start -- the only possibility is to start with Ax</span> <span m="1340000">equal lambda x.</span> </p>
+<p><span m="1342000">Okay, so suppose A has the eigenvalue lambda.</span> </p>
+<p><span m="1347000">Now I want to get B into the picture here somehow.</span> </p>
+<p><span m="1354000">You remember B is M inverse A M.</span> </p>
+<p><span m="1357000">Let's just remember that over here.</span> </p>
+<p><span m="1361000">B is M inverse A M.</span> </p>
+<p><span m="1362000">And I want to see its eigenvalues.</span> </p>
+<p><span m="1366000">How I going to get M inverse A M into this equation?</span> </p>
+<p><span m="1370000">Let me just sort of do it.</span> </p>
+<p><span m="1373000">I'll put an M times an M inverse in there,</span> <span m="1377000">right?</span> </p>
+<p><span m="1378000">That was -- I haven't changed the</span> <span m="1382000">left-hand side, so I better not change the</span> <span m="1385000">right-hand side.</span> </p>
+<p><span m="1387000">So everybody's okay so far, I just put in there -- see,</span> <span m="1391000">I want to get a -- so now I'll multiply on the left by M</span> <span m="1396000">inverse -- I have to do the same to this side and that number</span> <span m="1401000">lambda's just a number, so it factors out in the front.</span> </p>
+<p><span m="1407000">So what I have here is this was safe.</span> </p>
+<p><span m="1411000">I did the same thing to both sides.</span> </p>
+<p><span m="1414000">And now I've got B.</span> </p>
+<p><span m="1416520">There's B.</span> </p>
+<p><span m="1417000">That's B times this vector M inverse x is equal to lambda</span> <span m="1423000">times this vector M inverse x.</span> </p>
+<p><span m="1426000">So what have I learned?</span> </p>
+<p><span m="1428560">I've learned that B times some vector is lambda times that</span> <span m="1434000">vector.</span> </p>
+<p><span m="1435000">I've learned that lambda is an eigenvalue of B also.</span> </p>
+<p><span m="1439000">So this is -- if -- so this is -- if lambda's an eigenvalue of</span> <span m="1443000">A, then I can write it this way and I discover that lambda's an</span> <span m="1448000">eigenvalue of B.</span> </p>
+<p><span m="1449000">That's the end of the proof.</span> </p>
+<p><span m="1452000">The eigenvector didn't stay the same.</span> </p>
+<p><span m="1455000">Of course I don't expect the eigenvectors to stay the same.</span> </p>
+<p><span m="1460580">If all the eigenvalues are the same and all the eigenvectors</span> <span m="1465000">are the same, then probably the matrix is the</span> <span m="1469000">same.</span> </p>
+<p><span m="1469500">Here the eigenvector changes, so the eigenvector -- so the</span> <span m="1474000">point is then the eigenvector of B --</span> <span m="1478000">of B is M inverse times the eigenvector of A.</span> </p>
+<p><span m="1483000">Okay.</span> </p>
+<p><span m="1484000">That's all that this says here.</span> </p>
+<p><span m="1487000">The eigenvector of A was X, and so the M inverse -- similar</span> <span m="1494000">matrixes, then have the same eigenvalues and their</span> <span m="1500000">eigenvectors are just moved around.</span> </p>
+<p><span m="1504000">Of course, that's what we -- that's what</span> <span m="1509000">happened way back -- and the most important similar matrixes</span> <span m="1513000">are to diagonalize.</span> </p>
+<p><span m="1515000">So what was the point when we diagonalized?</span> </p>
+<p><span m="1518000">The eigenvalues stayed the same, of course.</span> </p>
+<p><span m="1521000">Three and one.</span> </p>
+<p><span m="1522000">What about the eigenvectors?</span> </p>
+<p><span m="1524730">The eigenvectors were whatever they were for the matrix A,</span> <span m="1529000">but then what were the eigenvectors for the diagonal</span> <span m="1533000">matrix?</span> </p>
+<p><span m="1534390">They're just -- what are the eigenvectors of a diagonal</span> <span m="1538580">matrix?</span> </p>
+<p><span m="1539000">They're just one zero and zero one.</span> </p>
+<p><span m="1541000">So this step made the eigenvectors nice,</span> <span m="1544000">didn't change the eigenvalues, and every time we don't change</span> <span m="1549000">the eigenvalues.</span> </p>
+<p><span m="1552000">Same eigenvalues.</span> </p>
+<p><span m="1554000">Okay. Now -- so I've got all these matrixes in -- I've got this</span> <span m="1560000">family of matrixes with eigenvalues three and one.</span> </p>
+<p><span m="1566000">Fine.</span> </p>
+<p><span m="1567000">That's a nice family.</span> </p>
+<p><span m="1569000">It's nice because those two eigenvalues are different.</span> </p>
+<p><span m="1575000">I now have to -- to get into that -- the -- into</span> <span m="1581000">the less happy possibility that the two eigenvalues could be the</span> </p>
+<p><span m="1587000">same. And then it's a little trickier, because you remember</span> <span m="1592000">when two eigenvalues are the same, what's the bad</span> <span m="1596000">possibility?</span> </p>
+<p><span m="1597000">That there might not be enough -- a full set of eigenvectors</span> <span m="1603160">and we might not be able to</span> <span m="1607000">diagonalize.</span> </p>
+<p><span m="1608000">So I need to discuss the bad case.</span> </p>
+<p><span m="1612000">So the bad -- can I just say bad?</span> </p>
+<p><span m="1616000">If lambda one equals lambda two, then the matrix might not</span> <span m="1623000">be diagonalizable.</span> </p>
+<p><span m="1625000">Suppose lambda one equals lambda two equals four,</span> </p>
+<p><span m="1631000">say. Now if I look at the family of matrixes with eigenvalues four</span> <span m="1641110">and four, well, one possibility occurs to me.</span> </p>
+<p><span m="1647000">One family with eigenvalues four and four has this matrix in</span> <span m="1655000">it, four times the identity.</span> </p>
+<p><span m="1659000">Then another -- but now I want to ask also about the matrix</span> <span m="1667000">four four one zero.</span> </p>
+<p><span m="1670000">And my point -- here's the whole point of this</span> <span m="1676000">-- of this bad stuff, is that this guy is not in the</span> <span m="1682110">same family with that one.</span> </p>
+<p><span m="1684000">The family of a -- of matrixes that have eigenvalues four and</span> <span m="1690000">four is two families.</span> </p>
+<p><span m="1693000">There's this total loner here who's in a family off -- right?</span> </p>
+<p><span m="1699000">Just by himself.</span> </p>
+<p><span m="1701000">And all the others are in with this guy.</span> </p>
+<p><span m="1706000">So the big family includes this one.</span> </p>
+<p><span m="1709000">And it includes a whole lot of other matrixes,</span> <span m="1714000">all -- in fact, in this two by two case,</span> <span m="1718000">it -- you see where -- what do I mean -- so what I using,</span> <span m="1724000">this word family -- in a family, I mean</span> <span m="1730000">they're similar.</span> </p>
+<p><span m="1731520">So my point is that the only matrix that's similar to this is</span> <span m="1736990">itself.</span> </p>
+<p><span m="1737000">The only matrix that's similar to four times the identity is</span> <span m="1743000">four times the identity.</span> </p>
+<p><span m="1745000">It's off by itself.</span> </p>
+<p><span m="1746000">Why is that?</span> </p>
+<p><span m="1748000">The -- if this is my matrix, four times the identity,</span> <span m="1752000">and I take it, I multiply on the right by</span> <span m="1757000">any matrix M, I multiply on the left by M</span> <span m="1761000">inverse, what do I get?</span> </p>
+<p><span m="1763000">This is any M, but what's the result?</span> </p>
+<p><span m="1766000">Well, factoring out a four, that's just the identity matrix</span> <span m="1771000">in there.</span> </p>
+<p><span m="1772000">So then the M inverse cancels the M, so I've just got this</span> <span m="1777000">matrix back again.</span> </p>
+<p><span m="1780710">So whatever the M is, I'm not getting any more</span> <span m="1785000">members of the family.</span> </p>
+<p><span m="1787000">So this is one small family, because it only has one person.</span> </p>
+<p><span m="1793000">One matrix, excuse me.</span> </p>
+<p><span m="1796000">I think of these matrixes as people by this point,</span> <span m="1801000">in eighteen oh six.</span> </p>
+<p><span m="1803000">Okay, the other family includes all the rest --</span> <span m="1809000">all other matrixes that have eigenvalues four and four.</span> </p>
+<p><span m="1814000">This is somehow the best one in that family.</span> </p>
+<p><span m="1817000">See, I can't make it diagonal.</span> </p>
+<p><span m="1820000">If I -- if it's diagonal, it's this one.</span> </p>
+<p><span m="1823480">It's in its own, by itself.</span> </p>
+<p><span m="1825000">So I have to think, okay, what's the nearest I can</span> <span m="1829810">get to diagonal?</span> </p>
+<p><span m="1831000">But it will not be diagonalizable.</span> </p>
+<p><span m="1834000">That -- do you know that that matrix is not diagonalizable?</span> </p>
+<p><span m="1838000">Of course, because if it was diagonalizable,</span> <span m="1842000">it would be similar to that, which it isn't.</span> </p>
+<p><span m="1845000">The eigenvalues of this are four</span> <span m="1848000">and four, but what's the catch with that matrix?</span> </p>
+<p><span m="1853060">It's only got one eigenvector.</span> </p>
+<p><span m="1855000">That's a non-diagonalizable matrix.</span> </p>
+<p><span m="1859000">Only one eigenvector.</span> </p>
+<p><span m="1861000">And somehow, if I made that one into a ten</span> <span m="1864000">or to a million, I could find an M,</span> <span m="1868000">it's in the family, it's similar.</span> </p>
+<p><span m="1871000">But the best -- so the best guy in this family</span> <span m="1876000">is this one.</span> </p>
+<p><span m="1877000">And this is called the Jordan -- so this guy Jordan picked out</span> <span m="1882000">-- so he, like, studied, these families of</span> <span m="1886000">matrixes, and each family, he picked out the nicest,</span> <span m="1891000">most diagonal one.</span> </p>
+<p><span m="1892000">But not completely diagonal, because there's nobody -- there</span> <span m="1898000">isn't a diagonal matrix in this family, so there's a one up</span> <span m="1903000">there in the Jordan form.</span> </p>
+<p><span m="1905000">Okay. I think we've got to see some more matrixes in that family.</span> </p>
+<p><span m="1910200">So, all right, let me -- let's just think of</span> <span m="1913000">some other matrixes whose eigenvalues are four and four</span> <span m="1917000">but they're not four times the identity.</span> </p>
+<p><span m="1922000">So -- and I believe that -- that this -- that all the</span> <span m="1927000">examples we pick up will be similar to each other and -- do</span> <span m="1932000">you see why -- in this topic of similar matrixes,</span> <span m="1937000">the climax is the Jordan form.</span> </p>
+<p><span m="1940000">So it says that every matrix -- I'll write down what</span> <span m="1946000">the Jordan form -- what Jordan discovered.</span> </p>
+<p><span m="1950000">He found the best looking matrix in each family.</span> </p>
+<p><span m="1954000">And that's -- then we've got -- then we've covered all matrixes</span> <span m="1960680">including the non-diagonalizable one.</span> </p>
+<p><span m="1964000">That -- that's the point, that in some way,</span> <span m="1967000">Jordan completed the diagonalization by coming as</span> <span m="1971000">near as he could, which is his Jordan form.</span> </p>
+<p><span m="1974000">And therefore, if you want to cover all</span> <span m="1976980">matrixes, you've got to get him in the picture.</span> </p>
+<p><span m="1980000">It used to be -- when I took eighteen oh six,</span> <span m="1984000">that was the climax of the course, this Jordan form stuff.</span> </p>
+<p><span m="1989000">I think it's not the climax of linear algebra anymore,</span> <span m="1994000">because -- it's not easy to find this Jordan form for a</span> <span m="2000000">general matrix, because it depends on these</span> <span m="2004060">eigenvalues being exactly the same.</span> </p>
+<p><span m="2008000">You'd have to know exactly the eigenvalues and it -- and you'd</span> <span m="2013000">have to know exactly the rank and the slightest change in</span> <span m="2018000">numbers will change those eigenvalues, change the rank and</span> <span m="2023000">therefore the whole thing is numerically not an -- a good</span> <span m="2027000">thing.</span> </p>
+<p><span m="2028000">But for algebra, it's the right thing to</span> <span m="2033000">understand this family.</span> </p>
+<p><span m="2035740">So just tell me another matrix -- a few more matrixes -- so</span> <span m="2042000">more members of the family.</span> </p>
+<p><span m="2045000">Let me put down again what the best one is.</span> </p>
+<p><span m="2050000">Okay. All right.</span> </p>
+<p><span m="2052000">Some more matrixes.</span> </p>
+<p><span m="2054000">Let's see, what I looking for?</span> </p>
+<p><span m="2058000">I'm looking for matrixes whose trace is what?</span> </p>
+<p><span m="2061000">So if I'm looking for more matrixes in the family,</span> <span m="2065000">they'll all have the same eigenvalues, four and four.</span> </p>
+<p><span m="2068000">So their trace will be eight.</span> </p>
+<p><span m="2070000">So why don't I just take, like, five and three -- I've</span> <span m="2074000">got the trace right, now the determinant</span> <span m="2078000">should be what?</span> </p>
+<p><span m="2079000">Sixteen.</span> </p>
+<p><span m="2080170">So I just fix this up -- shall I put maybe a one and a minus</span> <span m="2085000">one there?</span> </p>
+<p><span m="2086000">Okay. There's a matrix with eigenvalues four and four,</span> <span m="2090000">because the trace is eight and the determinant is sixteen.</span> </p>
+<p><span m="2096000">And I don't think it's diagonalizable.</span> </p>
+<p><span m="2100000">Do you know why it's not diagonalizable?</span> </p>
+<p><span m="2103000">Because if it was diagonalizable,</span> <span m="2106420">the diagonal form would have to be this.</span> </p>
+<p><span m="2109000">But I can't get to that form, because whatever I do with any</span> <span m="2114000">M inverse and M I stay with that form.</span> </p>
+<p><span m="2117000">I could never get -- connect those.</span> </p>
+<p><span m="2120000">So I can put down more members --</span> <span m="2124000">here -- here's another easy one.</span> </p>
+<p><span m="2126560">I could put the four and the four and a seventeen down there.</span> </p>
+<p><span m="2130640">All these matrixes are similar.</span> </p>
+<p><span m="2132000">If I'm -- I could find an M that would show that that one is</span> <span m="2136760">similar to that one.</span> </p>
+<p><span m="2138120">And in -- you can see the general picture is I can take</span> <span m="2141000">any a and any 8-a here and any -- oh,</span> <span m="2145000">I don't know, whatever you put it'd be --</span> <span m="2149120">anyway, you can see.</span> </p>
+<p><span m="2150000">I can fill this in, fill this in to make the trace</span> <span m="2155000">equal eight, the determinant equal 16, I get all that family</span> <span m="2160000">of matrixes and they're all similar.</span> </p>
+<p><span m="2164000">So we see what eigenvalues do.</span> </p>
+<p><span m="2167000">They're all similar and they all have only one eigenvector.</span> </p>
+<p><span m="2173000">So I -- if I'm -- if you were going to -- allow me to add to</span> <span m="2179000">this picture, they have the same lambdas and</span> <span m="2183000">they also have the same number of independent eigenvectors.</span> </p>
+<p><span m="2189000">Because if I get an eigenvector for x I get one for --</span> <span m="2195000">for A, I get one for B also.</span> </p>
+<p><span m="2197000">So -- and same number of eigenvectors.</span> </p>
+<p><span m="2201000">But even more than that -- even more than that -- I mean,</span> <span m="2206000">it's not enough just to count eigenvectors.</span> </p>
+<p><span m="2210000">Yes, let me give you an example why it's not even enough to</span> <span m="2215000">count eigenvectors.</span> </p>
+<p><span m="2218000">So another example.</span> </p>
+<p><span m="2219000">So here are some matrixes -- oh, let me make them four by</span> <span m="2225000">four -- okay, here -- here's a matrix.</span> </p>
+<p><span m="2229000">I mean, like if you want nightmares, think about matrixes</span> <span m="2235110">like these.</span> </p>
+<p><span m="2236000">Uh, so a one off the diagonal -- say a one there,</span> <span m="2241000">how many -- what are the eigenvalues of that matrix?</span> </p>
+<p><span m="2246000">Oh, I mean -- okay.</span> </p>
+<p><span m="2249540">What are the eigenvalues of that matrix?</span> </p>
+<p><span m="2254000">Please.</span> </p>
+<p><span m="2255000">Four 0s, right?</span> </p>
+<p><span m="2257000">So we're really getting bad matrixes now.</span> </p>
+<p><span m="2261000">So I mean, this is, like -- Jordan was a good guy,</span> <span m="2267000">but he had to think about matrixes that all --</span> <span m="2274000">that had, like -- an eigenvalue repeated four times.</span> </p>
+<p><span m="2279000">How many eigenvectors does that matrix have?</span> </p>
+<p><span m="2282000">Well, I'm -- eigenvectors will be -- since the eigenvalue is</span> <span m="2287920">zero, eigenvectors will be in the null space,</span> <span m="2291000">right?</span> </p>
+<p><span m="2292190">I'm -- eigenvectors have got to be</span> <span m="2295000">A x equal zero x.</span> </p>
+<p><span m="2297000">So what's the dimension of the null space?</span> </p>
+<p><span m="2300000">Two.</span> </p>
+<p><span m="2301270">Somebody said two.</span> </p>
+<p><span m="2302000">And that's right.</span> </p>
+<p><span m="2304000">How -- why?</span> </p>
+<p><span m="2305220">Because you ask what's the rank of that matrix,</span> <span m="2309000">the rank is obviously two.</span> </p>
+<p><span m="2311000">The number of independent rows is</span> <span m="2315000">two, the number of independent columns is two,</span> <span m="2319000">the rank is two so the null -- the dimension of the null space</span> <span m="2325000">is four minus two, so it's got two eigenvectors.</span> </p>
+<p><span m="2329000">Two eigenvectors.</span> </p>
+<p><span m="2331400">Two independent eigenvectors.</span> </p>
+<p><span m="2334000">All right.</span> </p>
+<p><span m="2335000">The dimension of the null space is two.</span> </p>
+<p><span m="2339000">Now, suppose I change this zero to a seven.</span> </p>
+<p><span m="2344000">The eigenvalues are all still zero, how -- what about -- how</span> <span m="2349000">many eigenvectors?</span> </p>
+<p><span m="2351000">What's the dimension of the -- what's the rank of this matrix</span> <span m="2357000">now?</span> </p>
+<p><span m="2358000">Still two, right?</span> </p>
+<p><span m="2359000">So it's okay.</span> </p>
+<p><span m="2361000">And actually, this would be similar to the</span> <span m="2365000">one that had a zero in there.</span> </p>
+<p><span m="2369000">But it's not as beautiful, Jordan picked this one.</span> </p>
+<p><span m="2373000">He picked -- he put ones -- we have a one on the -- above the</span> <span m="2378000">diagonal for every missing eigenvector, and here we're</span> <span m="2382000">missing two because we've got two,</span> <span m="2385840">so we've got two eigenvectors and two are missing,</span> <span m="2391000">because it's a four by four matrix.</span> </p>
+<p><span m="2395000">Okay, now -- but I was going to give you this second example.</span> </p>
+<p><span m="2403000">0 1 0 0, let me just move the one.</span> </p>
+<p><span m="2407150">Oop, not there.</span> </p>
+<p><span m="2408000">Off the diagonal and zero zero zero</span> <span m="2414000">zero zero.</span> </p>
+<p><span m="2415000">Okay.</span> </p>
+<p><span m="2416000">So now tell me about this matrix.</span> </p>
+<p><span m="2419000">Its eigenvalues are four zeroes again.</span> </p>
+<p><span m="2424180">Its rank is two again.</span> </p>
+<p><span m="2426000">So it has two eigenvectors and two missing.</span> </p>
+<p><span m="2431000">But the darn thing is not similar to that one.</span> </p>
+<p><span m="2436000">A -- a count of eigenvectors looks like these could be</span> <span m="2443000">similar, but they're not.</span> </p>
+<p><span m="2447000">Jordan -- see, this is like -- a little three</span> <span m="2451000">by three block and a little one by one block.</span> </p>
+<p><span m="2455000">And this one is like a two by two block and a two by two</span> <span m="2460000">block, and those blocks are called Jordan blocks.</span> </p>
+<p><span m="2465000">So let me say what is a Jordan block?</span> </p>
+<p><span m="2469000">J block number I has -- so a Jordan block has a repeated</span> <span m="2476000">eigenvalue, lambda I, lambda I on the diagonal.</span> </p>
+<p><span m="2482000">Zeroes below and ones above.</span> </p>
+<p><span m="2486000">So there's a block with this guy repeated,</span> <span m="2491000">but it only has one eigenvector.</span> </p>
+<p><span m="2495000">So a Jordan block has one eigenvector only.</span> </p>
+<p><span m="2502000">This one has one eigenvector, this block has one eigenvector</span> <span m="2509130">and we get two.</span> </p>
+<p><span m="2510000">This block has one eigenvector and that block has one</span> <span m="2516570">eigenvector and we get two.</span> </p>
+<p><span m="2519000">So -- but the blocks are different sizes.</span> </p>
+<p><span m="2524010">And that -- it turns out Jordan worked out -- then this is not</span> <span m="2530000">similar, not similar to this one.</span> </p>
+<p><span m="2536000">So the -- so I'm, like, giving you the whole</span> <span m="2542000">story -- well, not the whole story,</span> <span m="2547000">but the main themes of the story -- is here's Jordan's</span> <span m="2555000">theorem.</span> </p>
+<p><span m="2556000">Every square matrix A is similar to A Jordan matrix J.</span> </p>
+<p><span m="2564000">And what's a Jordan matrix J?</span> </p>
+<p><span m="2568000">It's a matrix with these blocks,</span> <span m="2575000">block -- Jordan block number one, Jordan block number two and</span> <span m="2581000">so on.</span> </p>
+<p><span m="2582000">And let's say Jordan block number d.</span> </p>
+<p><span m="2586000">And those Jordan blocks look like that, so the eigenvalues</span> <span m="2592000">are sitting on the diagonal, but we've got some of these</span> <span m="2598000">ones above the diagonal.</span> </p>
+<p><span m="2601000">We've got the number of -- so the number of blocks -- the</span> <span m="2609000">number of blocks is the number of eigenvectors,</span> <span m="2614630">because we get one eigenvector per block.</span> </p>
+<p><span m="2619000">So what I'm -- so if I summarize Jordan's idea -- start</span> <span m="2625000">with any A.</span> </p>
+<p><span m="2626000">If its eigenvalues are distinct, then what's it similar</span> </p>
+<p><span m="2633000">to? This is the good case. if I start with a matrix A and</span> <span m="2640000">it has different eigenvalues -- it's n eigenvalues,</span> <span m="2644000">none of them are repeated, then that's a diagonal --</span> <span m="2649000">diagonalizable matrix -- the Jordan blocks is -- has -- the</span> <span m="2654000">Jordan matrix is diagonal.</span> </p>
+<p><span m="2657000">It's lambda.</span> </p>
+<p><span m="2658000">So the good case -- the good case,</span> <span m="2662000">J is lambda.</span> </p>
+<p><span m="2663940">All -- there are -- d=n.</span> </p>
+<p><span m="2666000">There are n eigenvectors, n blocks, diagonal,</span> <span m="2671000">everything great.</span> </p>
+<p><span m="2673000">But Jordan covered all cases by including these cases of</span> <span m="2679000">repeated eigenvalues and missing eigenvectors.</span> </p>
+<p><span m="2684000">Okay.</span> </p>
+<p><span m="2685000">That's a description of Jordan.</span> </p>
+<p><span m="2688000">That -- that's -- I haven't told you</span> <span m="2693000">how to compute this thing, and it isn't easy.</span> </p>
+<p><span m="2697000">Whereas the good case is the -- the good case is what 18.06 is</span> </p>
+<p><span m="2702000">about. The -- this case is what 18.06 was about 20 years ago.</span> </p>
+<p><span m="2707000">So you can see you probably won't have on the final exam the</span> <span m="2713000">computation of a Jordan matrix for some horrible thing with</span> <span m="2719000">four repeated eigenvalues.</span> </p>
+<p><span m="2722000">I'm not that crazy about the Jordan form.</span> </p>
+<p><span m="2726000">But I'm very positive about positive definite matrixes and</span> <span m="2732000">about the idea that's coming Monday, the singular value</span> <span m="2738000">decomposition.</span> </p>
+<p><span m="2739000">So I'll see you on Monday, and have a great weekend.</span> </p>
+<p><span m="2746000">Bye.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 99MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/28.mp4">MP4 - 183MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/z_zYQHmrh08.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

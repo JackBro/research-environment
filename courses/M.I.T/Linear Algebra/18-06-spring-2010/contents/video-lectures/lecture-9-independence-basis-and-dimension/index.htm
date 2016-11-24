@@ -1,0 +1,1324 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 9: Independence, basis, and dimension | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 9: Independence, basis, and dimension" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 9: Independence, basis, and dimension" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-9-independence-basis-and-dimension">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 9: Independence, basis, and dimension
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 9: Independence, basis, and dimension
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-9-independence-basis-and-dimension/yjBerM5jWsc.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/09.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/yjBerM5jWsc', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-9-independence-basis-and-dimension', 'https://img.youtube.com/vi/yjBerM5jWsc/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-9-independence-basis-and-dimension/yjBerM5jWsc.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703563, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/index.htm">
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+<p> </p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/yjBerM5jWsc.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="0">OK, this is linear algebra lecture nine.</span> </p>
+<p><span m="5000">And this is a key lecture, this is where we get these</span> <span m="11000">ideas of linear independence, when a bunch of vectors are</span> <span m="18000">independent -- or dependent, that's the opposite.</span> </p>
+<p><span m="24000">The space they span.</span> </p>
+<p><span m="27000">A basis for a subspace or a basis for a vector space,</span> <span m="33650">that's a central idea.</span> </p>
+<p><span m="37850">And then the dimension of that subspace.</span> </p>
+<p><span m="42000">So this is the day that those words get assigned clear</span> <span m="47000">meanings.</span> </p>
+<p><span m="48000">And emphasize that we talk about a bunch of vectors being</span> <span m="54910">independent.</span> </p>
+<p><span m="56000">Wouldn't talk about a matrix being independent.</span> </p>
+<p><span m="62000">A bunch of vectors being independent.</span> </p>
+<p><span m="65000">A bunch of vectors spanning a space.</span> </p>
+<p><span m="68000">A bunch of vectors being a basis.</span> </p>
+<p><span m="71000">And the dimension is some number.</span> </p>
+<p><span m="74000">OK, so what are the definitions?</span> </p>
+<p><span m="77000">Can I begin with a fact, a highly important fact,</span> <span m="81000">that, I didn't call directly attention to earlier.</span> </p>
+<p><span m="87000">Suppose I have a matrix and I look at Ax equals zero.</span> </p>
+<p><span m="92000">Suppose the matrix has a lot of columns, so that n is bigger</span> <span m="98000">than m.</span> </p>
+<p><span m="99000">So I'm looking at n equations -- I mean, sorry,</span> <span m="103000">m equations, a small number of equations m,</span> <span m="107000">and more unknowns.</span> </p>
+<p><span m="109000">I have more unknowns than equations.</span> </p>
+<p><span m="113000">Let me write that down.</span> </p>
+<p><span m="116000">More unknowns than equations.</span> </p>
+<p><span m="120000">More unknown x-s than equations.</span> </p>
+<p><span m="123000">Then the conclusion is that there's something in the null</span> <span m="130000">space of A, other than just the zero vector.</span> </p>
+<p><span m="136000">The conclusion is there are some non-zero x-s such that Ax</span> <span m="143000">is zero.</span> </p>
+<p><span m="144000">There are some special solutions.</span> </p>
+<p><span m="148260">And why?</span> </p>
+<p><span m="149250">We know why.</span> </p>
+<p><span m="152470">I mean, it sort of like seems like a reasonable thing,</span> <span m="156000">more unknowns than equations, then it seems reasonable that</span> <span m="161000">we can solve them.</span> </p>
+<p><span m="163000">But we have a, a clear algorithm which starts</span> <span m="166000">with a system and does elimination, gets the thing into</span> <span m="171000">an echelon form with some pivots and pivot columns,</span> <span m="175620">and possibly some free columns that don't have pivots.</span> </p>
+<p><span m="181000">And the point is here there will be some free columns.</span> </p>
+<p><span m="189000">The reason, so the reason is there must -- there will be free</span> <span m="197000">variables, at least one.</span> </p>
+<p><span m="201000">That's the reason.</span> </p>
+<p><span m="204000">That we now have this -- a complete, algorithm,</span> <span m="210000">a complete systematic way to say, OK, we take the system Ax</span> <span m="216000">equals zero, we row reduce, we identify the free variables,</span> <span m="221000">and, since there are n variables and at most m pivots,</span> <span m="226000">there will be some free variables, at least one,</span> <span m="230000">at least n-m in fact, left over.</span> </p>
+<p><span m="234000">And those variables I can assign non-zero values to.</span> </p>
+<p><span m="237000">I don't have to set those to zero.</span> </p>
+<p><span m="240000">I can take them to be one or whatever I like,</span> <span m="243000">and then I can solve for the pivot variables.</span> </p>
+<p><span m="246000">So then it gives me a solution to Ax equals zero.</span> </p>
+<p><span m="249000">And it's a solution that isn't all zeros.</span> </p>
+<p><span m="252000">So, that's an important point that we'll use now in this</span> <span m="259000">lecture.</span> </p>
+<p><span m="260000">So now I want to say what does it mean for a bunch of vectors</span> <span m="267000">to be independent.</span> </p>
+<p><span m="269000">OK. So this is like the background that we know.</span> </p>
+<p><span m="275000">Now I want to speak about independence.</span> </p>
+<p><span m="282000">OK. Let's see.</span> </p>
+<p><span m="284000">I can give you the abstract definition, and I will,</span> <span m="293000">but I would also like to give you the direct meaning.</span> </p>
+<p><span m="302000">So the question is, when vectors x1,</span> <span m="308860">x2 up to -- Suppose I have n vectors are</span> <span m="315000">independent if.</span> </p>
+<p><span m="316000">Now I have to give you -- or linearly independent -- I'll</span> <span m="322500">often just say and write independent for short.</span> </p>
+<p><span m="327000">OK. I'll give you the full definition.</span> </p>
+<p><span m="330000">These are just vectors in some vector space.</span> </p>
+<p><span m="335000">I can take combinations of them.</span> </p>
+<p><span m="339000">The question is, do any combinations give zero?</span> </p>
+<p><span m="345000">If some combination of those vectors gives the zero vector,</span> <span m="352000">other than the combination of all zeros, then they're</span> <span m="358000">dependent.</span> </p>
+<p><span m="359000">They're independent if no combination gives the zero</span> <span m="366000">vector -- and then I have, I'll have to put in an except</span> <span m="374000">the zero combination.</span> </p>
+<p><span m="377000">So what do I mean by that?</span> </p>
+<p><span m="380000">No combination gives the zero vector.</span> </p>
+<p><span m="385000">Any combination c1 x1+c2 x2 plus, plus cn xn is not zero</span> <span m="393000">except for the zero combination.</span> </p>
+<p><span m="397000">This is when all the c-s, all the c-s are zero.</span> </p>
+<p><span m="404000">Then of course.</span> </p>
+<p><span m="406000">That combination -- I know I'll get zero.</span> </p>
+<p><span m="409000">But the question is, does any other combination give</span> <span m="413000">zero?</span> </p>
+<p><span m="414000">If not, then the vectors are independent.</span> </p>
+<p><span m="417570">If some other combination does give zero, the vectors are</span> <span m="422000">dependent.</span> </p>
+<p><span m="424000">OK.</span> </p>
+<p><span m="424330">Let's just take examples.</span> </p>
+<p><span m="426000">Suppose I'm in, say, in two dimensional space.</span> </p>
+<p><span m="431000">OK.</span> </p>
+<p><span m="432000">I give you -- I'd like to first take an example -- let me take</span> <span m="438000">an example where I have a vector and twice that vector.</span> </p>
+<p><span m="445000">So that's two vectors, V and 2V.</span> </p>
+<p><span m="447000">Are those dependent or independent?</span> </p>
+<p><span m="450000">Those are dependent for sure, right, because there's one</span> <span m="454000">vector is twice the other.</span> </p>
+<p><span m="456000">One vector is twice as long as the other, so if the word</span> <span m="461150">dependent means anything, these should be dependent.</span> </p>
+<p><span m="465000">And they are.</span> </p>
+<p><span m="467000">And in fact, I would take two of the first</span> <span m="471000">-- so here's, here is a vector V and the</span> <span m="474000">other guy is a vector 2V, that's my -- so there's a</span> <span m="479000">vector V1 and my next vector V2 is 2V1.</span> </p>
+<p><span m="483000">Of course those are dependent, because two of these first</span> <span m="488420">vectors minus the second vector is zero.</span> </p>
+<p><span m="493000">That's a combination of these two vectors that gives the zero</span> </p>
+<p><span m="498000">vector. OK, that was clear.</span> </p>
+<p><span m="500120">Suppose, suppose I have a vector -- here's another</span> </p>
+<p><span m="504000">example. It's easy example.</span> </p>
+<p><span m="506000">Suppose I have a vector and the other guy is the zero vector.</span> </p>
+<p><span m="510000">Suppose I have a vector V1 and V2 is the zero vector.</span> </p>
+<p><span m="516000">Then are those vectors dependent or independent?</span> </p>
+<p><span m="520000">They're dependent again.</span> </p>
+<p><span m="522000">You could say, well, this guy is zero times</span> <span m="526000">that one.</span> </p>
+<p><span m="527000">This one is some combination of those.</span> </p>
+<p><span m="531000">But let me write it the other way.</span> </p>
+<p><span m="534000">Let me say -- what combination,</span> <span m="538000">how many V1s and how many V2s shall I take to get the zero</span> </p>
+<p><span m="543000">vector? If, if V1 is like the vector two one and V2 is the zero</span> <span m="548000">vector, zero zero, then I would like to show that</span> <span m="552000">some combination of those gives the zero vector.</span> </p>
+<p><span m="556000">What shall I take?</span> </p>
+<p><span m="558000">How many V1s shall I take?</span> </p>
+<p><span m="561000">Zero of them.</span> </p>
+<p><span m="563000">Yeah, no, take no V1s.</span> </p>
+<p><span m="566000">But how many V2s?</span> </p>
+<p><span m="568000">Six.</span> </p>
+<p><span m="569000">OK. Or five.</span> </p>
+<p><span m="570000">Then -- in other words, the point is if the zero</span> <span m="576000">vector's in there, if the zero --</span> <span m="582000">if one of these vectors is the zero vector, independence is</span> <span m="586000">dead, right?</span> </p>
+<p><span m="587000">If one of those vectors is the zero vector then I could always</span> <span m="591000">take -- include that one and none of the others,</span> <span m="594000">and I would get the zero answer, and I would show</span> <span m="597000">dependence.</span> </p>
+<p><span m="598000">OK.</span> </p>
+<p><span m="598320">Now, let me, let me finally draw an example</span> <span m="601000">where they will be independent.</span> </p>
+<p><span m="604000">Suppose that's V1 and that's V2.</span> </p>
+<p><span m="607000">Those are surely independent, right?</span> </p>
+<p><span m="610000">Any combination of V1 and V2, will not be zero except,</span> <span m="615000">the zero combination.</span> </p>
+<p><span m="617850">So those would be independent.</span> </p>
+<p><span m="620000">But now let me, let me stick in a third vector,</span> </p>
+<p><span m="625000">V3. Independent or dependent now, those three vectors?</span> </p>
+<p><span m="631000">So now n is three here.</span> </p>
+<p><span m="633000">I'm in two dimensional space, whatever, I'm in the plane.</span> </p>
+<p><span m="639000">I have three vectors that I didn't draw so carefully.</span> </p>
+<p><span m="643000">I didn't even tell you what exactly they were.</span> </p>
+<p><span m="647000">But what's this answer on dependent or independent?</span> </p>
+<p><span m="653000">Dependent.</span> </p>
+<p><span m="654000">How do I know those are dependent?</span> </p>
+<p><span m="657000">How do I know that some combination of V1,</span> <span m="662000">V2, and V3 gives me the zero vector?</span> </p>
+<p><span m="665000">I know because of that.</span> </p>
+<p><span m="668000">That's the key fact that tells me that three vectors in the</span> <span m="674000">plane have to be dependent.</span> </p>
+<p><span m="678000">Why's that?</span> </p>
+<p><span m="679000">What's the connection between the dependence of these three</span> <span m="684000">vectors and that fact?</span> </p>
+<p><span m="686000">OK. So here's the connection.</span> </p>
+<p><span m="689000">I take the matrix A that has V1 in its first column,</span> <span m="693000">V2 in its second column, V3 in its third column.</span> </p>
+<p><span m="699000">So it's got three columns.</span> </p>
+<p><span m="702000">And V1 -- I don't know, that looks like about two one</span> </p>
+<p><span m="708000">to me. V2 looks like it might be one two.</span> </p>
+<p><span m="712000">V3 looks like it might be maybe two, maybe two and a half,</span> <span m="719000">minus one.</span> </p>
+<p><span m="720000">OK. Those are my three vectors, and I put them in the columns</span> <span m="727000">of A.</span> </p>
+<p><span m="729000">Now that matrix A is two by three.</span> </p>
+<p><span m="733000">It fits this pattern, that where we know we've got</span> <span m="740260">extra variables, we know we have some free</span> <span m="745000">variables, we know that there's some combination --</span> <span m="753000">and let me instead of x-s, let me call them c1,</span> <span m="756000">c2, and c3 -- that gives the zero vector.</span> </p>
+<p><span m="759000">Sorry that my little bit of art got in the way.</span> </p>
+<p><span m="762000">Do you see the point?</span> </p>
+<p><span m="763000">When I have a matrix, I'm interested in whether its</span> <span m="767000">columns are dependent or independent.</span> </p>
+<p><span m="769000">The columns are dependent if there is something in the null</span> <span m="773000">space.</span> </p>
+<p><span m="775230">The columns are dependent because this,</span> <span m="779310">this thing in the null space says that c1 of that plus c2 of</span> <span m="785000">that plus c3 of this is zero.</span> </p>
+<p><span m="788760">So in other words, I can go out some V1,</span> <span m="792000">out some more V2, back on V3, and end up zero.</span> </p>
+<p><span m="797780">OK.</span> </p>
+<p><span m="799000">So let -- here I've give the general, abstract definition,</span> <span m="807000">but let me repeat that definition -- this is like</span> <span m="815000">repeat -- let me call them Vs now.</span> </p>
+<p><span m="820000">V1 up to Vn are the columns of a matrix A.</span> </p>
+<p><span m="827000">In other words, this is telling me that if I'm</span> <span m="833000">in m dimensional space, like two dimensional space in</span> <span m="840000">the example, I can answer the dependence-independence question</span> <span m="847000">directly by putting those vectors in the columns of a</span> <span m="854700">matrix.</span> </p>
+<p><span m="856000">They are independent if the null space of A,</span> <span m="862000">of A, is what?</span> </p>
+<p><span m="864000">If I have a bunch of columns in a matrix, I'm looking at their</span> <span m="872000">combinations, but that's just A times the</span> <span m="878000">vector of c-s.</span> </p>
+<p><span m="879000">And these columns will be independent if the null space of</span> <span m="887000">A is the zero vector.</span> </p>
+<p><span m="891000">They are dependent if there's something else in there.</span> </p>
+<p><span m="902000">If there's something else in the null space,</span> <span m="911000">if A times c gives the zero vector for some non-zero vector</span> <span m="923000">c in the null space.</span> </p>
+<p><span m="929000">Then they're dependent, because that's telling me a</span> <span m="932000">combination of the columns gives the zero column.</span> </p>
+<p><span m="936000">I think you're with be, because we've seen,</span> <span m="938960">like, lecture after lecture, we're looking at the</span> <span m="942000">combinations of the columns and asking, do we get zero or don't</span> <span m="946000">we?</span> </p>
+<p><span m="947620">And now we're giving the official name,</span> <span m="950000">dependent if we do, independent if we don't.</span> </p>
+<p><span m="954000">So I could express this in other words now.</span> </p>
+<p><span m="957000">I could say the rank -- what's the rank in this independent</span> <span m="962000">case?</span> </p>
+<p><span m="963000">The rank r of the, of the matrix,</span> <span m="965000">in the case of independent columns, is?</span> </p>
+<p><span m="970000">So the columns are independent.</span> </p>
+<p><span m="972000">So how many pivot columns have I got.</span> </p>
+<p><span m="976000">All n. All the columns would be pivot columns, because free columns</span> <span m="981000">are telling me that they're a combination of earlier columns.</span> </p>
+<p><span m="987000">So this would be the case where the rank is n.</span> </p>
+<p><span m="992240">This would be the case where the rank is smaller than n.</span> </p>
+<p><span m="998000">So in this case the rank is n and the null space of A is only</span> <span m="1005000">the zero vector.</span> </p>
+<p><span m="1007000">And no free variables.</span> </p>
+<p><span m="1010000">No free variables.</span> </p>
+<p><span m="1012000">And this is the case yes free variables.</span> </p>
+<p><span m="1017000">If you'll allow me to stretch the English language that far.</span> </p>
+<p><span m="1025000">That's the case where we have, a combination that gives the</span> <span m="1031000">zero column.</span> </p>
+<p><span m="1032000">I'm often interested in the case when my vectors are popped</span> <span m="1039000">into a matrix.</span> </p>
+<p><span m="1040000">So the, the definition over there of independence didn't</span> <span m="1046000">talk about any matrix.</span> </p>
+<p><span m="1050000">The vectors didn't have to be vectors in N dimensional space.</span> </p>
+<p><span m="1055000">And I want to give you some examples of vectors that aren't</span> <span m="1060000">what you think of immediately as vectors.</span> </p>
+<p><span m="1064000">But most of the time, this is -- the vectors we think</span> <span m="1068000">of are columns.</span> </p>
+<p><span m="1070000">And we can put them in a matrix.</span> </p>
+<p><span m="1073000">And then independence or dependence comes back to the</span> <span m="1079000">null space.</span> </p>
+<p><span m="1080000">OK. So that's the idea of independence.</span> </p>
+<p><span m="1084000">Can I just, yeah, let me go on to spanning a</span> </p>
+<p><span m="1089000">What does it mean for a bunch of vectors to span a space?</span> <span m="1089150">space.</span> </p>
+<p><span m="1095000">Well, actually, we've seen it already.</span> </p>
+<p><span m="1101000">You remember, if we had a columns in a</span> <span m="1105000">matrix, we took all their combinations and that gave us</span> <span m="1112000">the column space.</span> </p>
+<p><span m="1114000">Those vectors that we started with span that column space.</span> </p>
+<p><span m="1121000">So spanning a space means -- so let me move that important stuff</span> <span m="1129000">right up.</span> </p>
+<p><span m="1131000">OK.</span> </p>
+<p><span m="1132000">So vectors -- let me call them, say, V1 up to -- call you some</span> <span m="1142000">different letter, say Vl -- span a space,</span> <span m="1150000">a subspace, or just a vector space I could say,</span> <span m="1158000">span a space means, means the space consists of all</span> <span m="1166000">combinations of those vectors.</span> </p>
+<p><span m="1174000">That's exactly what we did with the column space.</span> </p>
+<p><span m="1179000">So now I could say in shorthand the columns of a matrix span the</span> <span m="1186000">column space.</span> </p>
+<p><span m="1188000">So you remember it's a bunch of vectors that have this property</span> <span m="1195000">that they span a space, and actually if I give you a</span> <span m="1201000">bunch of vectors and say -- OK, let S be the space that</span> <span m="1207720">they span, in other words let S contain all their combinations,</span> <span m="1213000">that space S will be the smallest space with those</span> <span m="1217000">vectors in it, right?</span> </p>
+<p><span m="1218000">Because any space with those vectors in it must have all the</span> <span m="1224000">combinations of those vectors in it.</span> </p>
+<p><span m="1227000">And if I stop there, then I've got the smallest</span> <span m="1232000">space, and that's the space that they span.</span> </p>
+<p><span m="1237000">OK. So I'm just -- rather than, needing to say,</span> <span m="1241000">take all linear combinations and put them in a space,</span> <span m="1247250">I'm compressing that into the word span.</span> </p>
+<p><span m="1251000">Straightforward.</span> </p>
+<p><span m="1254000">So if I think of a, of the column space of a</span> </p>
+<p><span m="1254240">OK.</span> <span m="1258780">matrix.</span> </p>
+<p><span m="1259000">I've got their -- so I start with the columns.</span> </p>
+<p><span m="1263000">I take all their combinations.</span> </p>
+<p><span m="1266000">That gives me the columns space.</span> </p>
+<p><span m="1269000">They span the column space.</span> </p>
+<p><span m="1272000">Now are they independent?</span> </p>
+<p><span m="1275000">Maybe yes, maybe no.</span> </p>
+<p><span m="1278000">It depends on the particular columns that went into that</span> </p>
+<p><span m="1283000">matrix. But obviously I'm highly interested in a set of vectors</span> <span m="1288000">that spans a space and is independent.</span> </p>
+<p><span m="1291000">That's, that means like I've got the right number of vectors.</span> </p>
+<p><span m="1297290">If I didn't have all of them, I wouldn't have my whole space.</span> </p>
+<p><span m="1302000">If I had more than that, they probably wouldn't --</span> <span m="1308000">they wouldn't be independent.</span> </p>
+<p><span m="1312000">So, like, basis -- and that's the word that's coming -- is</span> <span m="1320000">just right.</span> </p>
+<p><span m="1322000">So here let me put what that word means.</span> </p>
+<p><span m="1328000">A basis for a vector space is, is a, is a sequence of vectors</span> <span m="1336000">-- shall I call them V1,</span> <span m="1340000">V2, up to let me say Vd now, I'll stop with that letters --</span> <span m="1346000">that has two properties.</span> </p>
+<p><span m="1348000">I've got enough vectors and not too many.</span> </p>
+<p><span m="1352000">It's a natural idea of a basis.</span> </p>
+<p><span m="1356000">So a basis is a bunch of vectors in the space and it's a</span> <span m="1361000">so it's a sequence of vectors with two properties,</span> <span m="1366000">with two properties.</span> </p>
+<p><span m="1369000">One, they are independent.</span> </p>
+<p><span m="1375000">And two -- you know what's coming?</span> </p>
+<p><span m="1382000">-- they span the space.</span> </p>
+<p><span m="1387000">OK. Let me take -- so time for examples, of course.</span> </p>
+<p><span m="1397000">So I'm asking you now to put definition one,</span> <span m="1406000">the definition of independence, together with definition two,</span> <span m="1417000">and let's look at examples, because this is -- this</span> <span m="1421000">combination means the set I've -- of vectors I have is just</span> <span m="1425000">right, and the -- so that this idea of a basis will be central.</span> </p>
+<p><span m="1430000">I'll always be asking you now for a basis.</span> </p>
+<p><span m="1434000">Whenever I look at a subspace, if I ask you for -- if you give</span> <span m="1438000">me a basis for that subspace, you've told me what it is.</span> </p>
+<p><span m="1442000">You've told me everything I need to know about that</span> <span m="1445000">subspace.</span> </p>
+<p><span m="1446000">Those -- I take their combinations and I know that I</span> <span m="1449000">need all the combinations.</span> </p>
+<p><span m="1451000">OK.</span> </p>
+<p><span m="1452000">Examples.</span> </p>
+<p><span m="1453000">OK, so examples of a basis.</span> </p>
+<p><span m="1457000">Let me start with two dimensional space.</span> </p>
+<p><span m="1463020">Suppose the space -- say example.</span> </p>
+<p><span m="1467000">The space is, oh, let's make it R^3.</span> </p>
+<p><span m="1472440">Real three dimensional space.</span> </p>
+<p><span m="1476000">Give me one basis.</span> </p>
+<p><span m="1479000">One basis is?</span> </p>
+<p><span m="1482000">So I want some vectors, because if I ask you for a</span> <span m="1487000">basis, I'm asking you for vectors, a little list of</span> <span m="1492000">vectors.</span> </p>
+<p><span m="1493000">And it should be just right.</span> </p>
+<p><span m="1496000">So what would be a basis for three dimensional space?</span> </p>
+<p><span m="1501000">Well, the first basis that comes to mind,</span> <span m="1505000">why don't we write that down.</span> </p>
+<p><span m="1510000">The first basis that comes to mind is this vector,</span> <span m="1515000">this vector, and this vector.</span> </p>
+<p><span m="1518000">OK. That's one basis.</span> </p>
+<p><span m="1520000">Not the only basis, that's going to be my point.</span> </p>
+<p><span m="1525000">But let's just see -- yes, that's a basis.</span> </p>
+<p><span m="1529000">Are, are those vectors independent?</span> </p>
+<p><span m="1534000">So that's the like the x, y, z axes, so if those are not</span> <span m="1538000">independent, we're in trouble.</span> </p>
+<p><span m="1540000">Certainly, they are.</span> </p>
+<p><span m="1542000">Take a combination c1 of this vector plus c2 of this vector</span> <span m="1546000">plus c3 of that vector and try to make it give the zero vector.</span> </p>
+<p><span m="1550000">What are the c-s?</span> </p>
+<p><span m="1552000">If c1 of that plus c2 of that plus c3 of that gives me 0 0 0,</span> <span m="1556000">then the c-s are all -- 0, right.</span> </p>
+<p><span m="1559000">So that's the test for independence.</span> </p>
+<p><span m="1563000">In the language of matrices, which was under that board,</span> <span m="1569000">I could make those the columns of a matrix.</span> </p>
+<p><span m="1573000">Well, it would be the identity matrix.</span> </p>
+<p><span m="1577000">Then I would ask, what's the null space of the</span> <span m="1581000">identity matrix?</span> </p>
+<p><span m="1584000">And you would say it's only the zero vector.</span> </p>
+<p><span m="1587000">And I would say, fine, then the columns are</span> <span m="1591000">independent.</span> </p>
+<p><span m="1592190">The only thing -- the identity times a vector giving zero,</span> <span m="1596000">the only vector that does that is zero.</span> </p>
+<p><span m="1600000">OK. Now that's not the only basis.</span> </p>
+<p><span m="1605000">Far from it.</span> </p>
+<p><span m="1607000">Tell me another basis, a second basis,</span> <span m="1613000">another basis.</span> </p>
+<p><span m="1615000">So, give me -- well, I'll just start it out.</span> </p>
+<p><span m="1622000">One one two.</span> </p>
+<p><span m="1624000">Two two five.</span> </p>
+<p><span m="1626000">Suppose I stopped there.</span> </p>
+<p><span m="1632690">Has that little bunch of vectors got the properties that</span> <span m="1638000">I'm asking for in a basis for R^3?</span> </p>
+<p><span m="1641000">We're looking for a basis for R^3.</span> </p>
+<p><span m="1645000">Are they independent, those two column vectors?</span> </p>
+<p><span m="1649000">Yes.</span> </p>
+<p><span m="1650000">Do they span R^3?</span> </p>
+<p><span m="1653000">No.</span> </p>
+<p><span m="1653350">Our feeling is no.</span> </p>
+<p><span m="1654000">Our feeling is no.</span> </p>
+<p><span m="1656000">Our feeling is that there're some vectors in R3 that are not</span> <span m="1661000">combinations of those.</span> </p>
+<p><span m="1663000">OK.</span> </p>
+<p><span m="1663290">So suppose I add in -- I need another vector then,</span> <span m="1667000">because these two don't span the space.</span> </p>
+<p><span m="1671000">OK. Now it would be foolish for me to put in three three seven,</span> <span m="1676000">right, as the third vector.</span> </p>
+<p><span m="1678000">That would be a goof.</span> </p>
+<p><span m="1680000">Because that, if I put in three three seven,</span> <span m="1684000">those vectors would be dependent, right?</span> </p>
+<p><span m="1688650">If I put in three three seven, it would be the sum of those</span> <span m="1692000">two, it would lie in the same plane as those.</span> </p>
+<p><span m="1696000">It wouldn't be independent.</span> </p>
+<p><span m="1698000">My attempt to create a basis would be dead.</span> </p>
+<p><span m="1701310">But if I take -- so what vector can I take?</span> </p>
+<p><span m="1705000">I can take any vector that's not in that plane.</span> </p>
+<p><span m="1709000">Let me try -- I hope that 3 3 8 would do it.</span> </p>
+<p><span m="1713000">At least it's not the sum of those two vectors.</span> </p>
+<p><span m="1717000">But I believe that's a basis.</span> </p>
+<p><span m="1720000">And what's the test then, for that to be a basis?</span> </p>
+<p><span m="1725000">Because I just picked those numbers, and if I had picked,</span> <span m="1731570">5 7 -14 how would we know do we have a basis or don't we?</span> </p>
+<p><span m="1737000">You would put them in the columns of a matrix,</span> <span m="1742000">and you would do elimination, row reduction --</span> <span m="1748000">and you would see do you get any free variables or are all</span> <span m="1755000">the columns pivot columns.</span> </p>
+<p><span m="1758000">Well now actually we have a square -- the matrix would be</span> <span m="1765000">three by three.</span> </p>
+<p><span m="1767000">So, what's the test on the matrix then?</span> </p>
+<p><span m="1773000">The matrix -- so in this case, when my space is R^3 and I have</span> <span m="1782000">three vectors, my matrix is square and what I</span> <span m="1788000">asking about that matrix in order for those columns to be a</span> <span m="1797000">basis?</span> </p>
+<p><span m="1798340">So in this -- for R^n, if I have -- n vectors give a</span> <span m="1805000">basis if the n by n matrix with those columns,</span> <span m="1812000">with those columns, is what?</span> </p>
+<p><span m="1818000">What's the requirement on that matrix?</span> </p>
+<p><span m="1821000">Invertible, right, right.</span> </p>
+<p><span m="1824000">The matrix should be invertible.</span> </p>
+<p><span m="1827000">For a square matrix, that's the, that's the perfect</span> <span m="1832000">answer.</span> </p>
+<p><span m="1833000">Is invertible.</span> </p>
+<p><span m="1834000">So that's when, that's when the space is the</span> <span m="1839000">whole space R^n.</span> </p>
+<p><span m="1842000">Let me, let me be sure you're with me here.</span> </p>
+<p><span m="1846000">Let me remove that.</span> </p>
+<p><span m="1848000">Are those two vectors a basis for any space at all?</span> </p>
+<p><span m="1854000">Is there a vector space that those really are a basis for,</span> <span m="1860000">those, that pair of vectors, this guy and this 1,</span> <span m="1866000">1 1 2 and 2 2 5?</span> </p>
+<p><span m="1868000">Is there a space for which that's a basis?</span> </p>
+<p><span m="1872000">Sure. They're independent, so they satisfy the first</span> <span m="1876000">requirement, so what space shall I take for them to be a basis</span> </p>
+<p><span m="1882000">of? What spaces will they be a basis for?</span> </p>
+<p><span m="1886000">The one they span.</span> </p>
+<p><span m="1888000">Their combinations.</span> </p>
+<p><span m="1890000">It's a plane, right?</span> </p>
+<p><span m="1891000">It'll be a plane inside R^3.</span> </p>
+<p><span m="1894000">So if I take this vector 1 1 2, say it goes there,</span> <span m="1899000">and this vector 2 2 5, say it goes there,</span> <span m="1903000">those are a basis for -- because they span a plane.</span> </p>
+<p><span m="1909000">And they're a basis for the plane, because they're</span> </p>
+<p><span m="1912000">independent. If I stick in some third guy, like 3 3 7, which is in the</span> <span m="1916000">plane -- suppose I put in, try to put in 3 3 7,</span> <span m="1918000">then the three vectors would still span the plane,</span> <span m="1921450">but they wouldn't be a basis anymore because they're not</span> <span m="1924000">independent anymore.</span> </p>
+<p><span m="1926000">So, we're looking at the question of -- again,</span> </p>
+<p><span m="1926320">OK.</span> <span m="1935000">the case with independent columns is the case where the</span> <span m="1944810">column vectors span the column space.</span> </p>
+<p><span m="1952000">They're independent, so they're a basis for the</span> <span m="1956930">column space.</span> </p>
+<p><span m="1958000">OK. So now there's one bit of intuition.</span> </p>
+<p><span m="1961000">Let me go back to all of R^n.</span> </p>
+<p><span m="1964000">So I -- where I put 3 3 8.</span> </p>
+<p><span m="1966000">OK.</span> </p>
+<p><span m="1967180">The first message is that the basis is not unique,</span> <span m="1971000">right.</span> </p>
+<p><span m="1973480">There's zillions of bases.</span> </p>
+<p><span m="1976000">I take any invertible three by three matrix,</span> <span m="1980000">its columns are a basis for R^3.</span> </p>
+<p><span m="1983000">The column space is R^3, and if those,</span> <span m="1987000">if that matrix is invertible, those columns are independent,</span> <span m="1993000">I've got a basis for R^3.</span> </p>
+<p><span m="1996000">So there're many, many bases.</span> </p>
+<p><span m="1999000">But there is something in common for all those bases.</span> </p>
+<p><span m="2004000">There's something that this basis shares with that basis and</span> <span m="2011000">every other basis for R^3.</span> </p>
+<p><span m="2013870">And what's that?</span> </p>
+<p><span m="2015000">Well, you saw it coming, because when I stopped here and</span> <span m="2021000">asked if that was a basis for R^3, you said no.</span> </p>
+<p><span m="2027000">And I know that you said no because you knew there weren't</span> <span m="2033000">enough vectors there.</span> </p>
+<p><span m="2035000">And the great fact is that there're many,</span> <span m="2039000">many bases, but -- let me put in somebody else,</span> <span m="2044000">just for variety.</span> </p>
+<p><span m="2046000">There are many, many bases, but they all have</span> <span m="2051000">the same number of vectors.</span> </p>
+<p><span m="2055000">If we're talking about the space R^3, then that number of</span> <span m="2060000">vectors is three.</span> </p>
+<p><span m="2062000">If we're talking about the space R^n, then that number of</span> <span m="2068000">vectors is n.</span> </p>
+<p><span m="2069000">If we're talking about some other space, the column space of</span> <span m="2075000">some matrix, or the null space of some matrix,</span> <span m="2080000">or some other space that we haven't even thought of,</span> <span m="2087000">then that still is true that every basis -- that there're</span> <span m="2092000">lots of bases but every basis has the same number of vectors.</span> </p>
+<p><span m="2098510">Let me write that great fact down.</span> </p>
+<p><span m="2101770">Every basis -- we're given a space.</span> </p>
+<p><span m="2105000">Given a space.</span> </p>
+<p><span m="2106000">R^3 or R^n or some other column space of a matrix or the null</span> <span m="2112000">space of a matrix or some other vector space.</span> </p>
+<p><span m="2118070">Then the great fact is that every basis for this,</span> <span m="2126000">for the space has the same number of vectors.</span> </p>
+<p><span m="2133000">If one basis has six vectors, then every other basis has six</span> <span m="2143000">vectors.</span> </p>
+<p><span m="2144000">So that number six is telling me like it's telling me how big</span> <span m="2154000">is the space.</span> </p>
+<p><span m="2158000">It's telling me how many vectors do I have to have to</span> <span m="2162000">have a basis.</span> </p>
+<p><span m="2163000">And of course we're seeing it this way.</span> </p>
+<p><span m="2165000">That number six, if we had seven vectors,</span> <span m="2168000">then we've got too many.</span> </p>
+<p><span m="2170000">If we have five vectors we haven't got enough.</span> </p>
+<p><span m="2173000">Sixes are like just right for whatever space that is.</span> </p>
+<p><span m="2178000">And what do we call that number?</span> </p>
+<p><span m="2181470">That number is -- now I'm ready for the last definition today.</span> </p>
+<p><span m="2187000">It's the dimension of that space.</span> </p>
+<p><span m="2190000">So every basis for a space has the same number of vectors in</span> </p>
+<p><span m="2196000">it. Not the same vectors, all sorts of bases --</span> <span m="2202000">but the same number of vectors is always the same,</span> <span m="2207680">and that number is the dimension.</span> </p>
+<p><span m="2211000">This is definitional.</span> </p>
+<p><span m="2213000">This number is the dimension of the space.</span> </p>
+<p><span m="2218000">OK. OK.</span> </p>
+<p><span m="2219000">Let's do some examples.</span> </p>
+<p><span m="2221000">Because now we've got definitions.</span> </p>
+<p><span m="2225710">Let me repeat the four things, the four words that have now</span> <span m="2232000">got defined.</span> </p>
+<p><span m="2235000">Independence, that looks at combinations not</span> </p>
+<p><span m="2239000">being zero. Spanning, that looks at all the combinations.</span> </p>
+<p><span m="2243000">Basis, that's the one that combines independence and</span> <span m="2247000">spanning.</span> </p>
+<p><span m="2248000">And now we've got the idea of the dimension of a space.</span> </p>
+<p><span m="2253000">It's the number of vectors in any basis, because all bases</span> <span m="2260000">have the same number.</span> </p>
+<p><span m="2262790">OK.</span> </p>
+<p><span m="2263000">Let's take examples.</span> </p>
+<p><span m="2265470">Suppose I take, my space is -- examples now --</span> <span m="2270000">space is the, say, the column space of this</span> <span m="2275000">matrix.</span> </p>
+<p><span m="2277000">Let me write down a matrix. 1 1 1, 2 1 2,</span> <span m="2281000">and I'll -- just to make it clear, I'll take the sum there,</span> <span m="2287000">3 2 3, and let me take the sum of all -- oh,</span> <span m="2292000">let me put in one -- yeah, I'll put in one one one again.</span> </p>
+<p><span m="2297000">OK.</span> </p>
+<p><span m="2299000">So that's four vectors.</span> </p>
+<p><span m="2301000">OK, do they span the column space of that matrix?</span> </p>
+<p><span m="2305740">Let me repeat, do they span the column space</span> <span m="2309000">of that matrix?</span> </p>
+<p><span m="2311000">By definition, that's what the column space --</span> </p>
+<p><span m="2311150">Yes.</span> <span m="2315720">where it comes from.</span> </p>
+<p><span m="2318000">Are they a basis for the column space?</span> </p>
+<p><span m="2321000">Are they independent?</span> </p>
+<p><span m="2322000">No, they're not independent.</span> </p>
+<p><span m="2324000">There's something in that null space.</span> </p>
+<p><span m="2327000">Maybe we can -- so let's look at the null space of the matrix.</span> </p>
+<p><span m="2331000">Tell me a vector that's in the null space of that matrix.</span> </p>
+<p><span m="2336000">So I'm looking for some vector that combines those columns and</span> <span m="2343000">produces the zero column.</span> </p>
+<p><span m="2345000">Or in other words, I'm looking for solutions to A</span> <span m="2351000">X equals zero.</span> </p>
+<p><span m="2352000">So tell me a vector in the null space.</span> </p>
+<p><span m="2357000">Maybe -- well, this was, this column was that</span> <span m="2360000">one plus that one, so maybe if I have one of those</span> <span m="2364000">and minus one of those that would be a vector in the null</span> </p>
+<p><span m="2368000">space. So, you've already told me now, are those vectors independent,</span> <span m="2372000">the answer is -- those column vectors, the answer is -- no.</span> </p>
+<p><span m="2377000">Right?</span> </p>
+<p><span m="2378000">They're not independent.</span> </p>
+<p><span m="2380000">Because -- you knew they weren't independent.</span> </p>
+<p><span m="2383330">Anyway, minus one of this minus one of this plus one of this</span> <span m="2387000">zero of that is the zero vector.</span> </p>
+<p><span m="2390000">OK, so they're not independent.</span> </p>
+<p><span m="2390030">OK.</span> </p>
+<p><span m="2392000">They span, but they're not independent.</span> </p>
+<p><span m="2396000">Tell me a basis for that column space.</span> </p>
+<p><span m="2399000">What's a basis for the column space?</span> </p>
+<p><span m="2402730">These are all the questions that the homework asks,</span> <span m="2407000">the quizzes ask, the final exam will ask.</span> </p>
+<p><span m="2410000">Find a basis for the column space of this matrix.</span> </p>
+<p><span m="2416000">OK. Now there's many answers, but give me the most natural</span> <span m="2421000">answer.</span> </p>
+<p><span m="2421670">Columns one and two.</span> </p>
+<p><span m="2423000">Columns one and two.</span> </p>
+<p><span m="2425000">That's the natural answer.</span> </p>
+<p><span m="2427000">Those are the pivot columns, because, I mean,</span> <span m="2431000">we s- we begin systematically.</span> </p>
+<p><span m="2433000">We look at the first column, it's OK.</span> </p>
+<p><span m="2437000">We can put that in the basis.</span> </p>
+<p><span m="2440000">We look at the second column, it's OK.</span> </p>
+<p><span m="2443000">We can put that in the basis.</span> </p>
+<p><span m="2446000">The third column we can't put in the basis.</span> </p>
+<p><span m="2449000">The fourth column we can't, again.</span> </p>
+<p><span m="2452000">So the rank of the matrix is -- what's the rank of our matrix?</span> </p>
+<p><span m="2458000">Two.</span> </p>
+<p><span m="2459000">Two.</span> </p>
+<p><span m="2460030">And, and now that rank is also -- we also have another word.</span> </p>
+<p><span m="2468000">We, we have a great theorem here.</span> </p>
+<p><span m="2472000">The rank of A, that rank r,</span> <span m="2475000">is the number of pivot columns and it's also -- well,</span> <span m="2482000">so now please use my new word.</span> </p>
+<p><span m="2487000">This, it's the number two, of course, two is the rank of</span> <span m="2494000">my matrix, it's the number of pivot</span> <span m="2501130">columns, those pivot columns form a basis,</span> <span m="2506900">of course, so what's two?</span> </p>
+<p><span m="2510000">It's the dimension.</span> </p>
+<p><span m="2513000">The rank of A, the number of pivot columns,</span> <span m="2519000">is the dimension of the column space.</span> </p>
+<p><span m="2524070">Of course, you say.</span> </p>
+<p><span m="2526000">It had to be.</span> </p>
+<p><span m="2528000">Right.</span> </p>
+<p><span m="2531000">But just watch, look for one moment at the,</span> <span m="2535000">the language, the way the English words get</span> <span m="2539000">involved here.</span> </p>
+<p><span m="2540000">I take the rank of a matrix, the rank of a matrix.</span> </p>
+<p><span m="2545000">It's a number of columns and it's the dimension of -- not the</span> <span m="2551000">dimension of the matrix, that's what I want to say.</span> </p>
+<p><span m="2557000">It's the dimension of a space, a subspace, the column space.</span> </p>
+<p><span m="2561000">Do you see, I don't take the dimension of A.</span> </p>
+<p><span m="2565000">That's not what I want.</span> </p>
+<p><span m="2567000">I'm looking for the dimension of the column space of A.</span> </p>
+<p><span m="2571560">If you use those words right, it shows you've got the idea</span> </p>
+<p><span m="2576000">right. Similarly here.</span> </p>
+<p><span m="2578000">I don't talk about the rank of a subspace.</span> </p>
+<p><span m="2581000">It's a matrix that has a rank.</span> </p>
+<p><span m="2583000">I talk about the rank of a matrix.</span> </p>
+<p><span m="2585000">And the beauty is that these definitions just merge so that</span> <span m="2589000">the rank of a matrix is the dimension of its column space.</span> </p>
+<p><span m="2593760">And in this example it's two.</span> </p>
+<p><span m="2595000">And then the further question is, what's a basis?</span> </p>
+<p><span m="2599000">And the first two columns are a basis.</span> </p>
+<p><span m="2602000">Tell me another basis.</span> </p>
+<p><span m="2604140">Another basis for the columns space.</span> </p>
+<p><span m="2606000">You see I just keep hammering away.</span> </p>
+<p><span m="2609000">I apologize, but it's, I have to be sure you</span> <span m="2612000">have the idea of basis.</span> </p>
+<p><span m="2613000">Tell me another basis for the column space.</span> </p>
+<p><span m="2617000">Well, you could take columns one and three.</span> </p>
+<p><span m="2622000">That would be a basis for the column space.</span> </p>
+<p><span m="2626000">Or columns two and three would be a basis.</span> </p>
+<p><span m="2630000">Or columns two and four.</span> </p>
+<p><span m="2633000">Or tell me another basis that's not made out of those columns at</span> <span m="2640000">all?</span> </p>
+<p><span m="2641000">So -- I guess I'm giving you infinitely many possibilities,</span> <span m="2645000">so I can't expect a unanimous answer here.</span> </p>
+<p><span m="2647000">I'll tell you -- but let's look at another basis,</span> <span m="2650000">though.</span> </p>
+<p><span m="2651000">I'll just -- because it's only one out of zillions,</span> <span m="2654000">I'm going to put it down and I'm going to erase it.</span> </p>
+<p><span m="2658000">Another basis for the column space would be -- let's see.</span> </p>
+<p><span m="2663000">I'll put in some things that are not there.</span> </p>
+<p><span m="2667000">Say, oh well, just to make it -- my life</span> <span m="2671000">easy, 2 2 2.</span> </p>
+<p><span m="2673000">That's in the column space.</span> </p>
+<p><span m="2675000">And, that was sort of obvious.</span> </p>
+<p><span m="2679000">Let me take the sum of those, say 6 4 6.</span> </p>
+<p><span m="2683000">Or the sum of all of the columns, 7 5 7,</span> <span m="2687450">why not.</span> </p>
+<p><span m="2688000">That's in the column space.</span> </p>
+<p><span m="2690000">Those are independent and I've got the number right,</span> <span m="2695000">I've got two.</span> </p>
+<p><span m="2697000">Actually, this is a key point.</span> </p>
+<p><span m="2700000">If you know the dimension of the space you're working with,</span> <span m="2706040">and we know that this column -- we know that the dimension,</span> <span m="2713000">DIM, the dimension of the column space is two.</span> </p>
+<p><span m="2718000">If you know the dimension, then -- and we have a couple of</span> <span m="2725550">vectors that are independent, they'll automatically be a</span> </p>
+<p><span m="2732000">basis. If we've got the number of vectors right,</span> <span m="2738000">two vectors in this case, then if they're independent,</span> <span m="2742000">they can't help but span the space.</span> </p>
+<p><span m="2745000">Because if they didn't span the space, there'd be a third guy to</span> <span m="2750380">help span the space, but it couldn't be independent.</span> </p>
+<p><span m="2754000">So, it just has to be independent if we've got the</span> <span m="2758250">numbers right.</span> </p>
+<p><span m="2760000">And they span.</span> </p>
+<p><span m="2761000">OK. Very good.</span> </p>
+<p><span m="2762000">So you got the dimension of a space.</span> </p>
+<p><span m="2765000">So this was another basis that I just invented.</span> </p>
+<p><span m="2769000">OK. Now, now I get to ask about the null space.</span> </p>
+<p><span m="2773000">What's the dimension of the null space?</span> </p>
+<p><span m="2777820">So we, we got a great fact there, the dimension of the</span> <span m="2782000">column space is the rank.</span> </p>
+<p><span m="2785000">Now I want to ask you about the null space.</span> </p>
+<p><span m="2789340">That's the other part of the lecture, and it'll go on to the</span> <span m="2795000">next lecture.</span> </p>
+<p><span m="2796000">OK.</span> </p>
+<p><span m="2796540">So we know the dimension of the column space is two,</span> <span m="2801000">the rank.</span> </p>
+<p><span m="2803000">What about the null space?</span> </p>
+<p><span m="2805000">This is a vector in the null space.</span> </p>
+<p><span m="2808000">Are there other vectors in the null space?</span> </p>
+<p><span m="2811000">Yes or no? Yes.</span> </p>
+<p><span m="2812000">So this isn't a basis because it's doesn't span,</span> <span m="2815000">right?</span> </p>
+<p><span m="2816000">There's more in the null space than we've got so far.</span> </p>
+<p><span m="2821000">I need another vector at least.</span> </p>
+<p><span m="2823000">So tell me another vector in the null space.</span> </p>
+<p><span m="2826000">Well, the natural choice, the choice you naturally think</span> <span m="2830000">of is I'm going on to the fourth column, I'm letting that free</span> <span m="2834000">variable be a one, and that free variable be a</span> <span m="2838000">zero, and I'm asking is that fourth column a combination of</span> <span m="2842000">my pivot columns?</span> </p>
+<p><span m="2844000">Yes, it is.</span> </p>
+<p><span m="2845000">And it's -- that will do.</span> </p>
+<p><span m="2848000">So what I've written there are actually the two special</span> <span m="2854000">solutions, right?</span> </p>
+<p><span m="2856000">I took the two free variables, free and free.</span> </p>
+<p><span m="2862000">I gave them the values 1 0 or 0</span> <span m="2866000">I figured out the rest.</span> </p>
+<p><span m="2868000">So do you see, let me just say it in words.</span> </p>
+<p><span m="2872000">This vector, these vectors in the null space</span> <span m="2875000">are telling me, they're telling me the</span> <span m="2878000">combinations of the columns that give zero.</span> </p>
+<p><span m="2881000">They're telling me in what way the, the columns are dependent.</span> </p>
+<p><span m="2887000">That's what the null space is doing.</span> </p>
+<p><span m="2890000">Have I got enough now?</span> </p>
+<p><span m="2891000">And what's the null space now?</span> </p>
+<p><span m="2893000">We have to think about the null space.</span> </p>
+<p><span m="2896350">These are two vectors in the null space.</span> </p>
+<p><span m="2899000">They're independent.</span> </p>
+<p><span m="2900460">Are they a basis for the null space?</span> </p>
+<p><span m="2903000">What's the dimension of the null space?</span> </p>
+<p><span m="2906350">You see that those questions just keep coming up all the</span> </p>
+<p><span m="2910000">time. Are they a basis for the null space?</span> </p>
+<p><span m="2913000">You can tell me the answer even though we haven't written out a</span> <span m="2917000">proof of that.</span> </p>
+<p><span m="2918000">Can you?</span> </p>
+<p><span m="2919000">Yes or no?</span> </p>
+<p><span m="2920000">Do these two special solutions form a basis for the null space?</span> </p>
+<p><span m="2925000">In other words, does the null space consist of</span> <span m="2928000">all combinations of those two guys?</span> </p>
+<p><span m="2930000">Yes or no?</span> </p>
+<p><span m="2931000">Yes.</span> </p>
+<p><span m="2931870">Yes.</span> </p>
+<p><span m="2932000">The null space is two dimensional.</span> </p>
+<p><span m="2934570">The null space, the dimension of the null</span> <span m="2937000">space, is the number of free variables.</span> </p>
+<p><span m="2941000">So the dimension of the null space is the number of free</span> <span m="2948000">variables.</span> </p>
+<p><span m="2949000">And at the last second, give me the formula.</span> </p>
+<p><span m="2955000">This is then the key formula that we know.</span> </p>
+<p><span m="2960000">How many free variables are there in terms of R,</span> <span m="2966000">the rank, m -- the number of rows,</span> <span m="2971000">n, the number of columns?</span> </p>
+<p><span m="2974000">What do we get?</span> </p>
+<p><span m="2976090">We have n columns, r of them are pivot columns,</span> <span m="2980000">so n-r is the number of free columns, free variables.</span> </p>
+<p><span m="2986000">And now it's the dimension of the null space.</span> </p>
+<p><span m="2990000">OK.</span> </p>
+<p><span m="2992000">That's great.</span> </p>
+<p><span m="2993600">That's the key spaces, their bases,</span> <span m="2997000">and their dimensions.</span> </p>
+<p><span m="2999000">Thanks.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 108MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/09.mp4">MP4 - 200MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/yjBerM5jWsc.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

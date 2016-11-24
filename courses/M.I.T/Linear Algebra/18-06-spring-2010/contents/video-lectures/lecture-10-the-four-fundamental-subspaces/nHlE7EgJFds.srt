@@ -1,0 +1,3509 @@
+1
+00:00:00,000 --> 00:00:04,000
+OK, here is lecture ten in
+linear algebra.
+
+2
+00:00:04,000 --> 00:00:09,000
+Two important things to do in
+this lecture.
+
+3
+00:00:09,000 --> 00:00:13,000
+One is to correct an error from
+lecture nine.
+
+4
+00:00:13,000 --> 00:00:19,000
+So the blackboard with that
+awful error is still with us.
+
+5
+00:00:19,000 --> 00:00:24,150
+And the second,
+the big thing to do is to tell
+
+6
+00:00:24,150 --> 00:00:30,000
+you about the four subspaces
+that come with a matrix.
+
+7
+00:00:30,000 --> 00:00:36,000
+We've seen two subspaces,
+the column space and the null
+
+8
+00:00:36,000 --> 00:00:37,000
+space.
+
+9
+00:00:37,000 --> 00:00:39,390
+There's two to go.
+
+10
+00:00:39,390 --> 00:00:39,000
+OK.
+
+11
+00:00:39,000 --> 00:00:44,000
+First of all,
+and this is a great way to
+
+12
+00:00:44,000 --> 00:00:50,900
+recap and correct the previous
+lecture -- so you remember I was
+
+13
+00:00:50,900 --> 00:00:53,000
+just doing R^3.
+
+14
+00:00:53,000 --> 00:00:57,000
+I couldn't have taken a simpler
+example than R^3.
+
+15
+00:00:57,000 --> 00:01:01,000
+And I wrote down the standard
+basis.
+
+16
+00:01:01,000 --> 00:01:03,000
+That's the standard basis.
+
+17
+00:01:03,000 --> 00:01:08,000
+The basis -- the obvious basis
+for the whole three dimensional
+
+18
+00:01:08,000 --> 00:01:09,000
+space.
+
+19
+00:01:09,000 --> 00:01:14,000
+And then I wanted to make the
+point that there was nothing
+
+20
+00:01:14,000 --> 00:01:18,000
+special, nothing about that
+basis that another basis
+
+21
+00:01:18,000 --> 00:01:21,000
+couldn't have.
+
+22
+00:01:21,000 --> 00:01:23,000
+It could have linear
+independence,
+
+23
+00:01:23,000 --> 00:01:25,300
+it could span a space.
+
+24
+00:01:25,300 --> 00:01:27,000
+There's lots of other bases.
+
+25
+00:01:27,000 --> 00:01:31,000
+So I started with these
+vectors, one one two and two two
+
+26
+00:01:31,000 --> 00:01:33,000
+five, and those were
+independent.
+
+27
+00:01:33,000 --> 00:01:36,000
+And then I said three three
+seven wouldn't do,
+
+28
+00:01:36,000 --> 00:01:40,000
+because three three seven is
+the sum of those.
+
+29
+00:01:40,000 --> 00:01:44,000
+So in my innocence,
+I put in three three eight.
+
+30
+00:01:44,000 --> 00:01:47,000
+I figured probably if three
+three seven is on the plane,
+
+31
+00:01:47,000 --> 00:01:51,000
+is -- which I know,
+it's in the plane with these
+
+32
+00:01:51,000 --> 00:01:55,000
+two, then probably three three
+eight sticks a little bit out of
+
+33
+00:01:55,000 --> 00:02:00,000
+the plane and it's independent
+and it gives a basis.
+
+34
+00:02:00,000 --> 00:02:02,000
+But after class,
+to my sorrow,
+
+35
+00:02:02,000 --> 00:02:05,000
+a student tells me,
+"Wait a minute,
+
+36
+00:02:05,000 --> 00:02:09,000
+that ba- that third vector,
+three three eight,
+
+37
+00:02:09,000 --> 00:02:13,620
+is not independent." And why
+did she say that?
+
+38
+00:02:13,620 --> 00:02:17,000
+She didn't actually take the
+time, didn't have to,
+
+39
+00:02:17,000 --> 00:02:23,240
+to find w- w- what combination
+of this one and this one gives
+
+40
+00:02:23,240 --> 00:02:25,000
+three three eight.
+
+41
+00:02:25,000 --> 00:02:28,000
+She did something else.
+
+42
+00:02:28,000 --> 00:02:30,000
+In other words,
+she looked ahead,
+
+43
+00:02:30,000 --> 00:02:33,000
+because she said,
+wait a minute,
+
+44
+00:02:33,000 --> 00:02:37,000
+if I look at that matrix,
+it's not invertible.
+
+45
+00:02:37,000 --> 00:02:42,000
+That third column can't be
+independent of the first two,
+
+46
+00:02:42,000 --> 00:02:47,000
+because when I look at that
+matrix, it's got two identical
+
+47
+00:02:47,000 --> 00:02:49,000
+rows.
+
+48
+00:02:49,000 --> 00:02:51,000
+I have a square matrix.
+
+49
+00:02:51,000 --> 00:02:54,000
+Its rows are obviously
+dependent.
+
+50
+00:02:54,000 --> 00:02:58,000
+And that makes the columns
+dependent.
+
+51
+00:02:58,000 --> 00:02:59,000
+So there's my error.
+
+52
+00:02:59,000 --> 00:03:05,000
+When I look at the matrix A
+that has those three columns,
+
+53
+00:03:05,000 --> 00:03:10,000
+those three columns can't be
+independent because that matrix
+
+54
+00:03:10,000 --> 00:03:16,000
+is not invertible because it's
+got two equal rows.
+
+55
+00:03:16,000 --> 00:03:22,000
+And today's lecture will reach
+the conclusion,
+
+56
+00:03:22,000 --> 00:03:28,000
+the great conclusion,
+that connects the column space
+
+57
+00:03:28,000 --> 00:03:30,000
+with the row space.
+
+58
+00:03:30,000 --> 00:03:38,000
+So those are -- the row space
+is now going to be another one
+
+59
+00:03:38,000 --> 00:03:42,000
+of my fundamental subspaces.
+
+60
+00:03:42,000 --> 00:03:46,000
+The row space of this matrix,
+or of this one -- well,
+
+61
+00:03:46,000 --> 00:03:51,000
+the row space of this one is
+OK, but the row space of this
+
+62
+00:03:51,000 --> 00:03:55,000
+one, I'm looking at the rows of
+the matrix -- oh,
+
+63
+00:03:55,000 --> 00:04:00,000
+anyway, I'll have two equal
+rows and the row space will be
+
+64
+00:04:00,000 --> 00:04:03,000
+only two dimensional.
+
+65
+00:04:03,000 --> 00:04:07,000
+The rank of the matrix with
+these columns will only be two.
+
+66
+00:04:07,000 --> 00:04:11,000
+So only two of those columns,
+columns can be independent too.
+
+67
+00:04:11,000 --> 00:04:14,390
+The rows tell me something
+about the columns,
+
+68
+00:04:14,390 --> 00:04:17,000
+in other words,
+something that I should have
+
+69
+00:04:17,000 --> 00:04:18,000
+noticed and I didn't.
+
+70
+00:04:18,000 --> 00:04:19,000
+OK.
+
+71
+00:04:19,000 --> 00:04:23,000
+So now let me pin down these
+four fundamental subspaces.
+
+72
+00:04:23,000 --> 00:04:30,000
+So here are the four
+fundamental subspaces.
+
+73
+00:04:30,000 --> 00:04:39,000
+This is really the heart of
+this approach to linear algebra,
+
+74
+00:04:39,000 --> 00:04:47,000
+to see these four subspaces,
+how they're related.
+
+75
+00:04:47,000 --> 00:04:50,000
+So what are they?
+
+76
+00:04:50,000 --> 00:04:54,000
+The column space,
+C of A.
+
+77
+00:04:54,000 --> 00:04:59,000
+The null space,
+N of A.
+
+78
+00:04:59,000 --> 00:05:02,000
+And now comes the row space,
+something new.
+
+79
+00:05:02,000 --> 00:05:05,000
+The row space,
+what's in that?
+
+80
+00:05:05,000 --> 00:05:08,000
+It's all combinations of the
+rows.
+
+81
+00:05:08,000 --> 00:05:09,000
+That's natural.
+
+82
+00:05:09,000 --> 00:05:12,000
+We want a space,
+so we have to take all
+
+83
+00:05:12,000 --> 00:05:16,000
+combinations,
+and we start with the rows.
+
+84
+00:05:16,000 --> 00:05:18,000
+So the rows span the row space.
+
+85
+00:05:18,000 --> 00:05:23,000
+Are the rows a basis for the
+row space?
+
+86
+00:05:23,000 --> 00:05:25,000
+Maybe so, maybe no.
+
+87
+00:05:25,000 --> 00:05:29,790
+The rows are a basis for the
+row space when they're
+
+88
+00:05:29,790 --> 00:05:35,000
+independent, but if they're
+dependent, as in this example,
+
+89
+00:05:35,000 --> 00:05:40,000
+my error from last time,
+they're not -- those three rows
+
+90
+00:05:40,000 --> 00:05:41,690
+are not a basis.
+
+91
+00:05:41,690 --> 00:05:47,000
+The row space wouldn't -- would
+only be two dimensional.
+
+92
+00:05:47,000 --> 00:05:50,000
+I only need two rows for a
+basis.
+
+93
+00:05:50,000 --> 00:05:52,000
+So the row space,
+now what's in it?
+
+94
+00:05:52,000 --> 00:05:55,000
+It's all combinations of the
+rows of A.
+
+95
+00:05:55,000 --> 00:05:57,000
+All combinations of the rows of
+A.
+
+96
+00:05:57,000 --> 00:06:00,000
+But I don't like working with
+row vectors.
+
+97
+00:06:00,000 --> 00:06:03,000
+All my vectors have been column
+vectors.
+
+98
+00:06:03,000 --> 00:06:07,370
+I'd like to stay with column
+vectors.
+
+99
+00:06:07,370 --> 00:06:12,000
+How can I get to column vectors
+out of these rows?
+
+100
+00:06:12,000 --> 00:06:14,000
+I transpose the matrix.
+
+101
+00:06:14,000 --> 00:06:20,000
+So if that's OK with you,
+I'm going to transpose the
+
+102
+00:06:20,000 --> 00:06:20,000
+matrix.
+I'm, I'm going to say all
+combinations of the columns of A
+
+103
+00:06:26,000 --> 00:06:27,930
+transpose.
+
+104
+00:06:27,930 --> 00:06:33,000
+And that allows me to use the
+convenient notation,
+
+105
+00:06:33,000 --> 00:06:37,000
+the column space of A
+transpose.
+
+106
+00:06:37,000 --> 00:06:42,480
+Nothing, no mathematics went on
+there.
+
+107
+00:06:42,480 --> 00:06:49,000
+We just got some vectors that
+were lying down to stand up.
+
+108
+00:06:49,000 --> 00:06:56,490
+But it means that we can use
+this column space of A
+
+109
+00:06:56,490 --> 00:07:04,000
+transpose, that's telling me in
+a nice matrix notation what the
+
+110
+00:07:04,000 --> 00:07:07,000
+row space is.
+
+111
+00:07:07,000 --> 00:07:07,000
+OK.
+And finally is another null
+space.
+
+112
+00:07:11,000 --> 00:07:18,510
+The fourth fundamental space
+will be the null space of A
+
+113
+00:07:18,510 --> 00:07:19,000
+transpose.
+
+114
+00:07:19,000 --> 00:07:25,000
+The fourth guy is the null
+space of A transpose.
+
+115
+00:07:25,000 --> 00:07:30,000
+And of course my notation is N
+of A transpose.
+
+116
+00:07:30,000 --> 00:07:36,000
+That's the null space of A
+transpose.
+
+117
+00:07:36,000 --> 00:07:44,000
+Eh, we don't have a perfect
+name for this space as a --
+
+118
+00:07:44,000 --> 00:07:51,950
+connecting with A,
+but our usual name is the left
+
+119
+00:07:51,950 --> 00:07:58,000
+null space, and I'll show you
+why in a moment.
+
+120
+00:07:58,000 --> 00:08:07,000
+So often I call this the --
+just to write that word -- the
+
+121
+00:08:07,000 --> 00:08:11,000
+left null space of A.
+
+122
+00:08:11,000 --> 00:08:17,000
+So just the way we have the row
+space of A and we switch it to
+
+123
+00:08:17,000 --> 00:08:24,000
+the column space of A transpose,
+so we have this space of guys
+
+124
+00:08:24,000 --> 00:08:29,000
+l- that I call the left null
+space of A, but the good
+
+125
+00:08:29,000 --> 00:08:34,000
+notation is it's the null space
+of A transpose.
+
+126
+00:08:34,000 --> 00:08:34,000
+OK.
+Those are four spaces.
+
+127
+00:08:36,000 --> 00:08:40,000
+Where are those spaces?
+
+128
+00:08:40,000 --> 00:08:46,000
+What, what big space are they
+in for -- when A is m by n?
+
+129
+00:08:46,000 --> 00:08:49,000
+In that case,
+the null space of A,
+
+130
+00:08:49,000 --> 00:08:53,240
+what's in the null space of A?
+
+131
+00:08:53,240 --> 00:08:59,000
+Vectors with n components,
+solutions to A x equals zero.
+
+132
+00:08:59,000 --> 00:09:02,000
+So the null space of A is in
+R^n.
+
+133
+00:09:02,000 --> 00:09:06,000
+What's in the column space of
+A?
+
+134
+00:09:06,000 --> 00:09:08,000
+Well, columns.
+
+135
+00:09:08,000 --> 00:09:13,000
+How many components dothose
+columns have?
+
+136
+00:09:13,000 --> 00:09:13,000
+m.
+So this column space is in R^m.
+
+137
+00:09:16,000 --> 00:09:22,000
+What about the column space of
+A transpose, which are just a
+
+138
+00:09:22,000 --> 00:09:26,000
+disguised way of saying the rows
+of A?
+
+139
+00:09:26,000 --> 00:09:30,000
+The rows of A,
+in this three by six matrix,
+
+140
+00:09:30,000 --> 00:09:35,000
+have six components,
+n components.
+
+141
+00:09:35,000 --> 00:09:38,450
+The column space is in R^n.
+
+142
+00:09:38,450 --> 00:09:43,000
+And the null space of A
+transpose, I see that this
+
+143
+00:09:43,000 --> 00:09:48,000
+fourth space is already getting
+second, you know,
+
+144
+00:09:48,000 --> 00:09:54,000
+second class citizen treatment
+and it doesn't deserve it.
+
+145
+00:09:54,000 --> 00:09:57,000
+It's, it should be there,
+it is there,
+
+146
+00:09:57,000 --> 00:10:00,000
+and shouldn't be squeezed.
+
+147
+00:10:00,000 --> 00:10:05,000
+The null space of A transpose
+--
+
+148
+00:10:05,000 --> 00:10:12,000
+well, if the null space of A
+had vectors with n components,
+
+149
+00:10:12,000 --> 00:10:18,000
+the null space of A transpose
+will be in R^m.
+
+150
+00:10:18,000 --> 00:10:24,720
+I want to draw a picture of the
+four spaces.
+
+151
+00:10:24,720 --> 00:10:25,000
+OK.
+
+152
+00:10:25,000 --> 00:10:25,000
+OK.
+Here are the four spaces.
+
+153
+00:10:28,000 --> 00:10:37,000
+OK, Let me put n dimensional
+space over on this side.
+
+154
+00:10:37,000 --> 00:10:41,000
+Then which were the subspaces
+in R^n?
+
+155
+00:10:41,000 --> 00:10:46,000
+The null space was and the row
+space was.
+
+156
+00:10:46,000 --> 00:10:53,000
+So here we have the -- can I
+make that picture of the row
+
+157
+00:10:53,000 --> 00:10:54,110
+space?
+
+158
+00:10:54,110 --> 00:11:00,000
+And can I make this kind of
+picture of the null space?
+
+159
+00:11:00,000 --> 00:11:06,000
+That's just meant to be a
+sketch, to remind you that
+
+160
+00:11:06,000 --> 00:11:12,000
+they're in this --
+which you know,
+
+161
+00:11:12,000 --> 00:11:17,000
+how -- what type of vectors are
+in it?
+
+162
+00:11:17,000 --> 00:11:20,000
+Vectors with n components.
+
+163
+00:11:20,000 --> 00:11:26,000
+Over here, inside,
+consisting of vectors with m
+
+164
+00:11:26,000 --> 00:11:34,800
+components, is the column space
+and what I'm calling the null
+
+165
+00:11:34,800 --> 00:11:38,000
+space of A transpose.
+
+166
+00:11:38,000 --> 00:11:41,920
+Those are the ones with m
+components.
+
+167
+00:11:41,920 --> 00:11:42,180
+OK.
+
+168
+00:11:42,180 --> 00:11:46,000
+To understand these spaces is
+our, is our job now.
+
+169
+00:11:46,000 --> 00:11:51,000
+Because by understanding those
+spaces, we know everything about
+
+170
+00:11:51,000 --> 00:11:54,000
+this half of linear algebra.
+
+171
+00:11:54,000 --> 00:11:58,000
+What do I mean by understanding
+those spaces?
+
+172
+00:11:58,000 --> 00:12:04,000
+I would like to know a basis
+for those spaces.
+
+173
+00:12:04,000 --> 00:12:11,000
+For each one of those spaces,
+how would I create -- construct
+
+174
+00:12:11,000 --> 00:12:12,000
+a basis?
+
+175
+00:12:12,000 --> 00:12:16,000
+What systematic way would
+produce a basis?
+
+176
+00:12:16,000 --> 00:12:20,000
+And what's their dimension?
+
+177
+00:12:20,000 --> 00:12:20,000
+OK.
+So for each of the four spaces,
+I have to answer those
+
+178
+00:12:26,000 --> 00:12:29,000
+questions.
+
+179
+00:12:29,000 --> 00:12:31,000
+How do I produce a basis?
+
+180
+00:12:31,000 --> 00:12:35,000
+And then -- which has a
+somewhat long answer.
+
+181
+00:12:35,000 --> 00:12:39,000
+And what's the dimension,
+which is just a number,
+
+182
+00:12:39,000 --> 00:12:42,000
+so it has a real short answer.
+
+183
+00:12:42,000 --> 00:12:46,000
+Can I give you the short answer
+first?
+
+184
+00:12:46,000 --> 00:12:50,000
+I shouldn't do it,
+but here it is.
+
+185
+00:12:50,000 --> 00:12:55,000
+I can tell you the dimension of
+the column space.
+
+186
+00:12:55,000 --> 00:12:58,000
+Let me start with this guy.
+
+187
+00:12:58,000 --> 00:13:00,000
+What's its dimension?
+
+188
+00:13:00,000 --> 00:13:03,410
+I have an m by n matrix.
+
+189
+00:13:03,410 --> 00:13:08,000
+The dimension of the column
+space is the rank,
+
+190
+00:13:08,000 --> 00:13:08,000
+r.
+We actually got to that at the
+end of the last lecture,
+
+191
+00:13:14,000 --> 00:13:18,000
+but only for an example.
+
+192
+00:13:18,000 --> 00:13:22,000
+So I really have to say,
+OK, what's going on there.
+
+193
+00:13:22,000 --> 00:13:28,000
+I should produce a basis and
+then I just look to see how many
+
+194
+00:13:28,000 --> 00:13:33,000
+vectors I needed in that basis,
+and the answer will be r.
+
+195
+00:13:33,000 --> 00:13:37,000
+Actually, I'll do that,
+before I get on to the others.
+
+196
+00:13:37,000 --> 00:13:41,000
+What's a basis for the columns
+space?
+
+197
+00:13:41,000 --> 00:13:46,820
+We've done all the work of row
+reduction, identifying the pivot
+
+198
+00:13:46,820 --> 00:13:51,280
+columns, the ones that have
+pivots, the ones that end up
+
+199
+00:13:51,280 --> 00:13:52,000
+with pivots.
+
+200
+00:13:52,000 --> 00:13:57,000
+But now I -- the pivot columns
+I'm interested in are columns of
+
+201
+00:13:57,000 --> 00:13:58,000
+A, the original A.
+
+202
+00:13:58,000 --> 00:14:03,120
+And those pivot columns,
+there are r of them.
+
+203
+00:14:03,120 --> 00:14:05,000
+The rank r counts those.
+
+204
+00:14:05,000 --> 00:14:07,000
+Those are a basis.
+
+205
+00:14:07,000 --> 00:14:12,000
+So if I answer this question
+for the column space,
+
+206
+00:14:12,000 --> 00:14:17,000
+the answer will be a basis is
+the pivot columns and the
+
+207
+00:14:17,000 --> 00:14:22,000
+dimension is the rank r,
+and there are r pivot columns
+
+208
+00:14:22,000 --> 00:14:25,000
+and everything great.
+
+209
+00:14:25,000 --> 00:14:26,330
+OK.
+
+210
+00:14:26,330 --> 00:14:30,000
+So that space we pretty well
+understand.
+
+211
+00:14:30,000 --> 00:14:36,000
+I probably have a little going
+back to see that -- to prove
+
+212
+00:14:36,000 --> 00:14:41,000
+that this is a right answer,
+but you know it's the right
+
+213
+00:14:41,000 --> 00:14:42,000
+answer.
+
+214
+00:14:42,000 --> 00:14:45,910
+Now let me look at the row
+space.
+
+215
+00:14:45,910 --> 00:14:46,000
+OK.
+
+216
+00:14:46,000 --> 00:14:52,000
+Shall I tell you the dimension
+of the row space?
+
+217
+00:14:52,000 --> 00:14:52,000
+Yes.
+Before we do even an example,
+let me tell you the dimension
+
+218
+00:14:56,000 --> 00:14:58,000
+of the row space.
+
+219
+00:14:58,000 --> 00:14:59,940
+Its dimension is also r.
+
+220
+00:14:59,940 --> 00:15:04,000
+The row space and the column
+space have the same dimension.
+
+221
+00:15:04,000 --> 00:15:06,000
+That's a wonderful fact.
+
+222
+00:15:06,000 --> 00:15:10,000
+The dimension of the column
+space of A transpose --
+
+223
+00:15:10,000 --> 00:15:15,000
+that's the row space -- is r.
+
+224
+00:15:15,000 --> 00:15:21,000
+That, that space is r
+dimensional.
+
+225
+00:15:21,000 --> 00:15:24,000
+Snd so is this one.
+
+226
+00:15:24,000 --> 00:15:25,000
+OK.
+
+227
+00:15:25,000 --> 00:15:35,000
+That's the sort of insight that
+got used in this example.
+
+228
+00:15:35,000 --> 00:15:40,000
+If those --
+are the three columns of a
+
+229
+00:15:40,000 --> 00:15:44,000
+matrix -- let me make them the
+three columns of a matrix by
+
+230
+00:15:44,000 --> 00:15:46,000
+just erasing some brackets.
+
+231
+00:15:46,000 --> 00:15:49,000
+OK, those are the three columns
+of a matrix.
+
+232
+00:15:49,000 --> 00:15:53,000
+The rank of that matrix,
+if I look at the columns,
+
+233
+00:15:53,000 --> 00:15:56,000
+it wasn't obvious to me anyway.
+
+234
+00:15:56,000 --> 00:15:59,000
+But if I look at the rows,
+now it's obvious.
+
+235
+00:15:59,000 --> 00:16:03,000
+The row space of that matrix
+obviously is two dimensional,
+
+236
+00:16:03,000 --> 00:16:06,000
+because I see a basis for the
+row space, this row and that
+
+237
+00:16:06,000 --> 00:16:07,000
+row.
+
+238
+00:16:07,000 --> 00:16:09,000
+And of course,
+strictly speaking,
+
+239
+00:16:09,000 --> 00:16:13,000
+I'm supposed to transpose those
+guys, make them stand up.
+
+240
+00:16:13,000 --> 00:16:17,240
+But the rank is two,
+and therefore the column space
+
+241
+00:16:17,240 --> 00:16:20,000
+is two dimensional by this
+wonderful fact that the row
+
+242
+00:16:20,000 --> 00:16:24,000
+space and column space have the
+same dimension.
+
+243
+00:16:24,000 --> 00:16:27,000
+And therefore there are only
+two pivot columns,
+
+244
+00:16:27,000 --> 00:16:30,000
+not three, and,
+those, the three columns are
+
+245
+00:16:30,000 --> 00:16:31,000
+dependent.
+
+246
+00:16:31,000 --> 00:16:32,000
+OK.
+
+247
+00:16:32,000 --> 00:16:38,000
+Now let me bury that error and
+talk about the row space.
+
+248
+00:16:38,000 --> 00:16:46,000
+Well, I'm going to give you the
+dimensions of all the spaces.
+
+249
+00:16:46,000 --> 00:16:50,000
+Because that's such a nice
+answer.
+
+250
+00:16:50,000 --> 00:16:50,000
+OK.
+So let me come back here.
+
+251
+00:16:55,000 --> 00:17:00,000
+So we have this great fact to
+establish, that the row space,
+
+252
+00:17:00,000 --> 00:17:03,010
+its dimension is also the rank.
+
+253
+00:17:03,010 --> 00:17:03,000
+OK.
+
+254
+00:17:03,000 --> 00:17:05,589
+What about the null space?
+
+255
+00:17:05,589 --> 00:17:08,000
+What's a basis for the null
+space?
+
+256
+00:17:08,000 --> 00:17:11,000
+What's the dimension of the
+null space?
+
+257
+00:17:11,000 --> 00:17:17,000
+Let me, I'll put that answer up
+here for the null space.
+
+258
+00:17:17,000 --> 00:17:22,000
+Well, how have we constructed
+the null space?
+
+259
+00:17:22,000 --> 00:17:27,000
+We took the matrix A,
+we did those row operations to
+
+260
+00:17:27,000 --> 00:17:32,000
+get it into a form U or,
+or even further.
+
+261
+00:17:32,000 --> 00:17:35,000
+We got it into the reduced form
+R.
+
+262
+00:17:35,000 --> 00:17:40,000
+And then we read off special
+solutions.
+
+263
+00:17:40,000 --> 00:17:42,000
+Special solutions.
+
+264
+00:17:42,000 --> 00:17:46,000
+And every special solution came
+from a free variable.
+
+265
+00:17:46,000 --> 00:17:50,000
+And those special solutions are
+in the null space,
+
+266
+00:17:50,000 --> 00:17:53,000
+and the great thing is they're
+a basis for it.
+
+267
+00:17:53,000 --> 00:17:57,000
+So for the null space,
+a basis will be the special
+
+268
+00:17:57,000 --> 00:17:59,000
+solutions.
+
+269
+00:17:59,000 --> 00:18:02,000
+And there's one for every free
+variable, right?
+
+270
+00:18:02,000 --> 00:18:06,000
+For each free variable,
+we give that variable the value
+
+271
+00:18:06,000 --> 00:18:09,660
+one, the other free variables
+zero.
+
+272
+00:18:09,660 --> 00:18:13,000
+We get the pivot variables,
+we get a vector in the -- we
+
+273
+00:18:13,000 --> 00:18:15,000
+get a special solution.
+
+274
+00:18:15,000 --> 00:18:20,000
+So we get altogether n-r of
+them, because that's the number
+
+275
+00:18:20,000 --> 00:18:22,000
+of free variables.
+
+276
+00:18:22,000 --> 00:18:26,000
+If we have r -- this is the
+dimension is r,
+
+277
+00:18:26,000 --> 00:18:29,000
+is the number of pivot
+variables.
+
+278
+00:18:29,000 --> 00:18:33,000
+This is the number of free
+variables.
+
+279
+00:18:33,000 --> 00:18:38,000
+So the beauty is that those
+special solutions do form a
+
+280
+00:18:38,000 --> 00:18:44,000
+basis and tell us immediately
+that the dimension of the null
+
+281
+00:18:44,000 --> 00:18:49,000
+space is n --
+I better write this well,
+
+282
+00:18:49,000 --> 00:18:52,000
+because it's so nice -- n-r.
+
+283
+00:18:52,000 --> 00:18:56,000
+And do you see the nice thing?
+
+284
+00:18:56,000 --> 00:19:01,000
+That the two dimensions in this
+n dimensional space,
+
+285
+00:19:01,000 --> 00:19:07,000
+one subspace is r dimensional
+-- to be proved,
+
+286
+00:19:07,000 --> 00:19:09,400
+that's the row space.
+
+287
+00:19:09,400 --> 00:19:15,000
+The other subspace is n-r
+dimensional, that's the null
+
+288
+00:19:15,000 --> 00:19:17,000
+space.
+
+289
+00:19:17,000 --> 00:19:21,000
+And the two dimensions like
+together give n.
+
+290
+00:19:21,000 --> 00:19:24,440
+The sum of r and n-R is n.
+
+291
+00:19:24,440 --> 00:19:26,000
+And that's just great.
+
+292
+00:19:26,000 --> 00:19:32,000
+It's really copying the fact
+that we have n variables,
+
+293
+00:19:32,000 --> 00:19:37,000
+r of them are pivot variables
+and n-r are free variables,
+
+294
+00:19:37,000 --> 00:19:40,000
+and n altogether.
+
+295
+00:19:40,000 --> 00:19:40,000
+OK.
+And now what's the dimension of
+this poor misbegotten fourth
+
+296
+00:19:46,000 --> 00:19:47,000
+subspace?
+
+297
+00:19:47,000 --> 00:19:49,000
+It's got to be m-r.
+
+298
+00:19:49,000 --> 00:19:55,000
+The dimension of this left null
+space, left out practically,
+
+299
+00:19:55,000 --> 00:19:56,000
+is m-r.
+
+300
+00:19:56,000 --> 00:20:01,000
+Well, that's really just saying
+that this -- again,
+
+301
+00:20:01,000 --> 00:20:06,300
+the sum of that plus that is m,
+and m is correct,
+
+302
+00:20:06,300 --> 00:20:11,000
+it's the number of columns in A
+transpose.
+
+303
+00:20:11,000 --> 00:20:16,000
+A transpose is just as good a
+matrix as A.
+
+304
+00:20:16,000 --> 00:20:19,000
+It just happens to be n by m.
+
+305
+00:20:19,000 --> 00:20:26,000
+It happens to have m columns,
+so it will have m variables
+
+306
+00:20:26,000 --> 00:20:33,000
+when I go to A x equals 0 and m
+of them, and r of them will be
+
+307
+00:20:33,000 --> 00:20:39,000
+pivot variables and m-r will be
+free variables.
+
+308
+00:20:39,000 --> 00:20:44,000
+A transpose is as good a matrix
+as A.
+
+309
+00:20:44,000 --> 00:20:50,000
+It follows the same rule that
+the this plus the dimension --
+
+310
+00:20:50,000 --> 00:20:57,000
+this dimension plus this
+dimension adds up to the number
+
+311
+00:20:57,000 --> 00:20:58,000
+of columns.
+
+312
+00:20:58,000 --> 00:21:04,000
+And over here,
+A transpose has m columns.
+
+313
+00:21:04,000 --> 00:21:04,000
+OK.
+OK.
+So I gave you the easy answer,
+the dimensions.
+
+314
+00:21:09,000 --> 00:21:13,000
+Now can I go back to check on a
+basis?
+
+315
+00:21:13,000 --> 00:21:18,000
+We would like to think that --
+say the row space,
+
+316
+00:21:18,000 --> 00:21:23,000
+because we've got a basis for
+the column space.
+
+317
+00:21:23,000 --> 00:21:30,000
+The pivot columns give a basis
+for the column space.
+
+318
+00:21:30,000 --> 00:21:34,000
+Now I'm asking you to look at
+the row space.
+
+319
+00:21:34,000 --> 00:21:38,000
+And I -- you could say,
+OK, I can produce a basis for
+
+320
+00:21:38,000 --> 00:21:43,510
+the row space by transposing my
+matrix, making those columns,
+
+321
+00:21:43,510 --> 00:21:46,000
+then doing elimination,
+row reduction,
+
+322
+00:21:46,000 --> 00:21:50,000
+and checking out the pivot
+columns in this transposed
+
+323
+00:21:50,000 --> 00:21:52,000
+matrix.
+
+324
+00:21:52,000 --> 00:21:58,000
+But that means you had to do
+all that row reduction on A
+
+325
+00:21:58,000 --> 00:21:59,000
+transpose.
+
+326
+00:21:59,000 --> 00:22:05,690
+It ought to be possible,
+if we take a matrix A -- let me
+
+327
+00:22:05,690 --> 00:22:12,000
+take the matrix -- maybe we had
+this matrix in the last lecture.
+
+328
+00:22:12,000 --> 00:22:16,000
+1 1 1, 2 1 2,
+3 2 3, 1 1 1.
+
+329
+00:22:16,000 --> 00:22:16,000
+OK.
+That, that matrix was so easy.
+
+330
+00:22:20,000 --> 00:22:24,000
+We spotted its pivot columns,
+one and two,
+
+331
+00:22:24,000 --> 00:22:28,000
+without actually doing row
+reduction.
+
+332
+00:22:28,000 --> 00:22:32,000
+But now let's do the job
+properly.
+
+333
+00:22:32,000 --> 00:22:37,000
+So I subtract this away from
+this to produce a zero.
+
+334
+00:22:37,000 --> 00:22:41,000
+So one 2 3 1 is fine.
+
+335
+00:22:41,000 --> 00:22:45,720
+Subtracting that away leaves me
+minus 1 -1 0,
+
+336
+00:22:45,720 --> 00:22:46,000
+right?
+
+337
+00:22:46,000 --> 00:22:50,000
+And subtracting that from the
+last row, oh,
+
+338
+00:22:50,000 --> 00:22:51,000
+well that's easy.
+
+339
+00:22:51,000 --> 00:22:52,260
+OK?
+
+340
+00:22:52,260 --> 00:22:54,000
+I'm doing row reduction.
+
+341
+00:22:54,000 --> 00:22:58,320
+Now I've -- the first column is
+all set.
+
+342
+00:22:58,320 --> 00:23:03,000
+The second column I now see the
+pivot.
+
+343
+00:23:03,000 --> 00:23:06,000
+And I can clean up,
+if I -- actually,
+
+344
+00:23:06,000 --> 00:23:06,000
+OK.
+Why don't I make the pivot into
+a 1.
+
+345
+00:23:10,000 --> 00:23:16,000
+I'll multiply that row through
+by by -1, and then I have 1 1.
+
+346
+00:23:16,000 --> 00:23:20,000
+That was an elementary
+operation I'm allowed,
+
+347
+00:23:20,000 --> 00:23:23,000
+multiply a row by a number.
+
+348
+00:23:23,000 --> 00:23:27,000
+And now I'll do elimination.
+
+349
+00:23:27,000 --> 00:23:33,000
+Two of those away from that
+will knock this guy out and make
+
+350
+00:23:33,000 --> 00:23:35,000
+this into a 1.
+
+351
+00:23:35,000 --> 00:23:36,000
+So that's now a 0 and that's a
+
+352
+00:23:37,000 --> 00:23:38,000
+
+
+353
+00:23:38,000 --> 00:23:38,000
+OK.
+Done.
+
+354
+00:23:39,000 --> 00:23:40,000
+That's R.
+
+355
+00:23:40,000 --> 00:23:44,000
+I'm seeing the identity matrix
+here.
+
+356
+00:23:44,000 --> 00:23:47,000
+I'm seeing zeros below.
+
+357
+00:23:47,000 --> 00:23:49,000
+And I'm seeing F there.
+
+358
+00:23:49,000 --> 00:23:50,000
+OK.
+
+359
+00:23:50,000 --> 00:23:52,000
+What about its row space?
+
+360
+00:23:52,000 --> 00:23:58,000
+What happened to its row space
+-- well, what happened -- let me
+
+361
+00:23:58,000 --> 00:24:03,000
+first ask, just because this is,
+is -- sometimes something does
+
+362
+00:24:03,000 --> 00:24:04,000
+happen.
+
+363
+00:24:04,000 --> 00:24:06,000
+Its column space changed.
+
+364
+00:24:06,000 --> 00:24:11,000
+The column space of R is not
+the column space of A,
+
+365
+00:24:11,000 --> 00:24:13,000
+right?
+
+366
+00:24:13,000 --> 00:24:18,000
+Because 1 1 1 is certainly in
+the column space of A and
+
+367
+00:24:18,000 --> 00:24:22,000
+certainly not in the column
+space of R.
+
+368
+00:24:22,000 --> 00:24:24,000
+I did row operations.
+
+369
+00:24:24,000 --> 00:24:29,000
+Those row operations preserve
+the row space.
+
+370
+00:24:29,000 --> 00:24:34,000
+So the row, so the column
+spaces are different.
+
+371
+00:24:34,000 --> 00:24:40,000
+Different column spaces,
+different column spaces.
+
+372
+00:24:40,000 --> 00:24:45,000
+But I believe that they have
+the same row space.
+
+373
+00:24:45,000 --> 00:24:47,000
+Same row space.
+
+374
+00:24:47,000 --> 00:24:55,000
+I believe that the row space of
+that matrix and the row space of
+
+375
+00:24:55,000 --> 00:24:58,000
+this matrix are identical.
+
+376
+00:24:58,000 --> 00:25:03,000
+They have exactly the same
+vectors in them.
+
+377
+00:25:03,000 --> 00:25:08,000
+Those vectors are vectors with
+four components,
+
+378
+00:25:08,000 --> 00:25:10,000
+right?
+
+379
+00:25:10,000 --> 00:25:14,000
+They're all combinations of
+those rows.
+
+380
+00:25:14,000 --> 00:25:19,990
+Or I believe you get the same
+thing by taking all combinations
+
+381
+00:25:19,990 --> 00:25:21,000
+of these rows.
+
+382
+00:25:21,000 --> 00:25:23,000
+And if true,
+what's a basis?
+
+383
+00:25:23,000 --> 00:25:29,000
+What's a basis for the row
+space of R, and it'll be a basis
+
+384
+00:25:29,000 --> 00:25:34,000
+for the row space of the
+original A, but it's obviously a
+
+385
+00:25:34,000 --> 00:25:38,000
+basis for the row space of R.
+
+386
+00:25:38,000 --> 00:25:48,000
+What's a basis for the row
+space of that matrix?
+
+387
+00:25:48,000 --> 00:25:52,130
+The first two rows.
+
+388
+00:25:52,130 --> 00:26:05,000
+So a basis for the row -- so a
+basis is, for the row space of A
+
+389
+00:26:05,000 --> 00:26:12,000
+or of R, is, is the first R rows
+of R.
+
+390
+00:26:12,000 --> 00:26:16,000
+Not of A.
+
+391
+00:26:16,000 --> 00:26:21,000
+Sometimes it's true for A,
+but not necessarily.
+
+392
+00:26:21,000 --> 00:26:27,000
+But R, we definitely have a
+matrix here whose row space we
+
+393
+00:26:27,000 --> 00:26:29,000
+can, we can identify.
+
+394
+00:26:29,000 --> 00:26:35,000
+The row space is spanned by the
+three rows, but if we want a
+
+395
+00:26:35,000 --> 00:26:38,000
+basis we want independence.
+
+396
+00:26:38,000 --> 00:26:42,000
+So out goes row three.
+
+397
+00:26:42,000 --> 00:26:46,000
+The row space is also spanned
+by the first two rows.
+
+398
+00:26:46,000 --> 00:26:49,000
+This guy didn't contribute
+anything.
+
+399
+00:26:49,000 --> 00:26:54,000
+And of course over here this 1
+2 3 1 in the bottom didn't
+
+400
+00:26:54,000 --> 00:26:56,000
+contribute anything.
+
+401
+00:26:56,000 --> 00:26:58,000
+We had it already.
+
+402
+00:26:58,000 --> 00:27:03,000
+So this, here is a basis.
+1 0 1 1 and 0 1 1 0.
+
+403
+00:27:03,000 --> 00:27:06,000
+I believe those are in the row
+space.
+
+404
+00:27:06,000 --> 00:27:08,000
+I know they're independent.
+
+405
+00:27:08,000 --> 00:27:11,000
+Why are they in the row space?
+
+406
+00:27:11,000 --> 00:27:15,000
+Why are those two vectors in
+the row space?
+
+407
+00:27:15,000 --> 00:27:20,000
+Because all those operations we
+did, which started with these
+
+408
+00:27:20,000 --> 00:27:24,000
+rows and took combinations of
+them --
+
+409
+00:27:24,000 --> 00:27:29,230
+I took this row minus this row,
+that gave me something that's
+
+410
+00:27:29,230 --> 00:27:31,000
+still in the row space.
+
+411
+00:27:31,000 --> 00:27:32,000
+That's the point.
+
+412
+00:27:32,000 --> 00:27:36,000
+When I took a row minus a
+multiple of another row,
+
+413
+00:27:36,000 --> 00:27:38,000
+I'm staying in the row space.
+
+414
+00:27:38,000 --> 00:27:40,000
+The row space is not changing.
+
+415
+00:27:40,000 --> 00:27:44,000
+My little basis for it is
+changing, and I've ended up
+
+416
+00:27:44,000 --> 00:27:47,000
+with, sort of the best basis.
+
+417
+00:27:47,000 --> 00:27:52,930
+If the columns of the identity
+matrix are the best basis for
+
+418
+00:27:52,930 --> 00:27:57,000
+R^3 or R^n, the rows of this
+matrix are the best basis for
+
+419
+00:27:57,000 --> 00:27:58,960
+the row space.
+
+420
+00:27:58,960 --> 00:28:03,000
+Best in the sense of being as
+clean as I can make it.
+
+421
+00:28:03,000 --> 00:28:08,000
+Starting off with the identity
+and then finishing up with
+
+422
+00:28:08,000 --> 00:28:10,000
+whatever has to be in there.
+
+423
+00:28:10,000 --> 00:28:11,000
+OK.
+
+424
+00:28:11,000 --> 00:28:15,000
+Do you see then that the
+dimension is r?
+
+425
+00:28:15,000 --> 00:28:20,000
+For sure, because we've got r
+pivots, r non-zero rows.
+
+426
+00:28:20,000 --> 00:28:24,000
+We've got the right number of
+vectors, r.
+
+427
+00:28:24,000 --> 00:28:28,270
+They're in the row space,
+they're independent.
+
+428
+00:28:28,270 --> 00:28:29,000
+That's it.
+
+429
+00:28:29,000 --> 00:28:33,000
+They are a basis for the row
+space.
+
+430
+00:28:33,000 --> 00:28:36,000
+And we can even pin that down
+further.
+
+431
+00:28:36,000 --> 00:28:39,000
+How do I know that every row of
+A is a combination?
+
+432
+00:28:39,000 --> 00:28:42,250
+How do I know they span the row
+space?
+
+433
+00:28:42,250 --> 00:28:45,000
+Well, somebody says,
+I've got the right number of
+
+434
+00:28:45,000 --> 00:28:47,000
+them, so they must.
+
+435
+00:28:47,000 --> 00:28:49,000
+But -- and that's true.
+
+436
+00:28:49,000 --> 00:28:53,000
+But let me just say,
+how do I know that this row is
+
+437
+00:28:53,000 --> 00:28:55,000
+a combination of these?
+
+438
+00:28:55,000 --> 00:28:59,000
+By just reversing the steps of
+row reduction.
+
+439
+00:28:59,000 --> 00:29:05,000
+If I just reverse the steps and
+go from A -- from R back to A,
+
+440
+00:29:05,000 --> 00:29:07,000
+then what do I,
+what I doing?
+
+441
+00:29:07,000 --> 00:29:12,000
+I'm starting with these rows,
+I'm taking combinations of
+
+442
+00:29:12,000 --> 00:29:14,000
+them.
+
+443
+00:29:14,000 --> 00:29:19,000
+After a couple of steps,
+undoing the subtractions that I
+
+444
+00:29:19,000 --> 00:29:21,890
+did before, I'm back to these
+rows.
+
+445
+00:29:21,890 --> 00:29:25,000
+So these rows are combinations
+of those rows.
+
+446
+00:29:25,000 --> 00:29:29,000
+Those rows are combinations of
+those rows.
+
+447
+00:29:29,000 --> 00:29:31,000
+The two row spaces are the
+same.
+
+448
+00:29:31,000 --> 00:29:33,000
+The bases are the same.
+
+449
+00:29:33,000 --> 00:29:37,000
+And the natural basis is this
+guy.
+
+450
+00:29:37,000 --> 00:29:41,000
+Is that all right for the row
+space?
+
+451
+00:29:41,000 --> 00:29:47,000
+The row space is sitting there
+in R in its cleanest possible
+
+452
+00:29:47,000 --> 00:29:48,000
+form.
+
+453
+00:29:48,000 --> 00:29:48,000
+OK.
+Now what about the fourth guy,
+the null space of A transpose?
+
+454
+00:29:55,000 --> 00:29:59,000
+First of all,
+why do I call that the left
+
+455
+00:29:59,000 --> 00:30:01,000
+null space?
+
+456
+00:30:01,000 --> 00:30:06,750
+So let me save that and bring
+that down.
+
+457
+00:30:06,750 --> 00:30:07,000
+OK.
+
+458
+00:30:07,000 --> 00:30:14,000
+So the fourth space is the null
+space of A transpose.
+
+459
+00:30:14,000 --> 00:30:21,000
+So it has in it vectors,
+let me call them y,
+
+460
+00:30:21,000 --> 00:30:25,000
+so that A transpose y equals 0.
+
+461
+00:30:25,000 --> 00:30:33,000
+If A transpose y equals 0,
+then y is in the null space of
+
+462
+00:30:33,000 --> 00:30:38,000
+A transpose, of course.
+
+463
+00:30:38,000 --> 00:30:44,000
+So this is a matrix times a
+column equaling zero.
+
+464
+00:30:44,000 --> 00:30:51,000
+And now, because I want y to
+sit on the left and I want A
+
+465
+00:30:51,000 --> 00:30:57,000
+instead of A transpose,
+I'll just transpose that
+
+466
+00:30:57,000 --> 00:30:58,000
+equation.
+
+467
+00:30:58,000 --> 00:31:01,000
+Can I just transpose that?
+
+468
+00:31:01,000 --> 00:31:06,000
+On the right,
+it makes the zero vector lie
+
+469
+00:31:06,000 --> 00:31:07,000
+down.
+
+470
+00:31:07,000 --> 00:31:11,000
+And on the left,
+it's a product,
+
+471
+00:31:11,000 --> 00:31:15,000
+A, A transpose times y.
+
+472
+00:31:15,000 --> 00:31:20,620
+If I take the transpose,
+then they come in opposite
+
+473
+00:31:20,620 --> 00:31:21,000
+order, right?
+
+474
+00:31:21,000 --> 00:31:26,000
+So that's y transpose times A
+transpose transpose.
+
+475
+00:31:26,000 --> 00:31:30,000
+But nobody's going to leave it
+like that.
+
+476
+00:31:30,000 --> 00:31:36,000
+That's -- A transpose transpose
+is just A, of course.
+
+477
+00:31:36,000 --> 00:31:42,000
+When I transposed A transpose I
+got back to A.
+
+478
+00:31:42,000 --> 00:31:45,000
+Now do you see what I have now?
+
+479
+00:31:45,000 --> 00:31:49,000
+I have a row vector,
+y transpose,
+
+480
+00:31:49,000 --> 00:31:54,000
+multiplying A,
+and multiplying from the left.
+
+481
+00:31:54,000 --> 00:31:59,000
+That's why I call it the left
+null space.
+
+482
+00:31:59,000 --> 00:32:05,000
+But by making it --
+putting it on the left,
+
+483
+00:32:05,000 --> 00:32:10,000
+I had to make it into a row
+instead of a column vector,
+
+484
+00:32:10,000 --> 00:32:15,000
+and so my convention is I
+usually don't do that.
+
+485
+00:32:15,000 --> 00:32:19,000
+I usually stay with A transpose
+y equals 0.
+
+486
+00:32:19,000 --> 00:32:20,000
+OK.
+
+487
+00:32:20,000 --> 00:32:25,000
+And you might ask,
+how do we get a basis --
+
+488
+00:32:25,000 --> 00:32:31,000
+or I might ask,
+how do we get a basis for this
+
+489
+00:32:31,000 --> 00:32:36,000
+fourth space,
+this left null space?
+
+490
+00:32:36,000 --> 00:32:36,000
+OK.
+I'll do it in the example.
+
+491
+00:32:40,000 --> 00:32:44,000
+As always -- not that one.
+
+492
+00:32:44,000 --> 00:32:51,000
+The left null space is not
+jumping out at me here.
+
+493
+00:32:51,000 --> 00:32:57,000
+I know which are the free
+variables --
+
+494
+00:32:57,000 --> 00:33:02,000
+the special solutions,
+but those are special solutions
+
+495
+00:33:02,000 --> 00:33:06,000
+to A x equals zero,
+and now I'm looking at A
+
+496
+00:33:06,000 --> 00:33:09,000
+transpose, and I'm not seeing it
+here.
+
+497
+00:33:09,000 --> 00:33:14,540
+So -- but somehow you feel that
+the work that you did which
+
+498
+00:33:14,540 --> 00:33:19,000
+simplified A to R should have
+revealed the left null space
+
+499
+00:33:19,000 --> 00:33:19,850
+too.
+
+500
+00:33:19,850 --> 00:33:25,160
+And it's slightly less
+immediate, but it's there.
+
+501
+00:33:25,160 --> 00:33:28,000
+So from A to R,
+I took some steps,
+
+502
+00:33:28,000 --> 00:33:33,000
+and I guess I'm interested in
+what were those steps,
+
+503
+00:33:33,000 --> 00:33:37,000
+or what were all of them
+together.
+
+504
+00:33:37,000 --> 00:33:42,000
+I don't -- I'm not interested
+in what particular ones they
+
+505
+00:33:42,000 --> 00:33:43,000
+were.
+
+506
+00:33:43,000 --> 00:33:49,000
+I'm interested in what was the
+whole matrix that took me from A
+
+507
+00:33:49,000 --> 00:33:50,000
+to R.
+
+508
+00:33:50,000 --> 00:33:53,000
+How would you find that?
+
+509
+00:33:53,000 --> 00:34:00,000
+Do you remember Gauss-Jordan,
+where you tack on the identity
+
+510
+00:34:00,000 --> 00:34:01,000
+matrix?
+
+511
+00:34:01,000 --> 00:34:04,000
+Let's do that again.
+
+512
+00:34:04,000 --> 00:34:07,000
+So I, I'll do it above,
+here.
+
+513
+00:34:07,000 --> 00:34:12,000
+So this is now,
+this is now the idea of -- I
+
+514
+00:34:12,000 --> 00:34:16,000
+take the matrix A,
+which is m by n.
+
+515
+00:34:16,000 --> 00:34:22,000
+In Gauss-Jordan,
+when we saw him before --
+
+516
+00:34:22,000 --> 00:34:29,429
+A was a square invertible
+matrix and we were finding its
+
+517
+00:34:29,429 --> 00:34:30,000
+inverse.
+
+518
+00:34:30,000 --> 00:34:33,000
+Now the matrix isn't square.
+
+519
+00:34:33,000 --> 00:34:36,000
+It's probably rectangular.
+
+520
+00:34:36,000 --> 00:34:42,000
+But I'll still tack on the
+identity matrix,
+
+521
+00:34:42,000 --> 00:34:49,000
+and of course since these have
+length m it better be m by m.
+
+522
+00:34:49,000 --> 00:34:56,000
+And now I'll do the reduced row
+echelon form of this matrix.
+
+523
+00:34:56,000 --> 00:35:00,000
+And what do I get?
+
+524
+00:35:00,000 --> 00:35:04,580
+The reduced row echelon form
+starts with these columns,
+
+525
+00:35:04,580 --> 00:35:08,000
+starts with the first columns,
+works like mad,
+
+526
+00:35:08,000 --> 00:35:09,000
+and produces R.
+
+527
+00:35:09,000 --> 00:35:12,000
+Of course, still that same
+size, m by n.
+
+528
+00:35:12,000 --> 00:35:14,000
+And we did it before.
+
+529
+00:35:14,000 --> 00:35:19,000
+And then whatever it did to get
+R, something else is going to
+
+530
+00:35:19,000 --> 00:35:21,000
+show up here.
+
+531
+00:35:21,000 --> 00:35:23,000
+Let me call it E,
+m by m.
+
+532
+00:35:23,000 --> 00:35:28,000
+It's whatever -- do you see
+that E is just going to contain
+
+533
+00:35:28,000 --> 00:35:30,000
+a record of what we did?
+
+534
+00:35:30,000 --> 00:35:34,000
+We did whatever it took to get
+A to become R.
+
+535
+00:35:34,000 --> 00:35:38,000
+And at the same time,
+we were doing it to the
+
+536
+00:35:38,000 --> 00:35:39,000
+identity matrix.
+
+537
+00:35:39,000 --> 00:35:45,000
+So we started with the identity
+matrix, we buzzed along.
+
+538
+00:35:45,000 --> 00:35:50,000
+So we took some -- all this row
+reduction amounted to
+
+539
+00:35:50,000 --> 00:35:56,000
+multiplying on the left by some
+matrix, some series of
+
+540
+00:35:56,000 --> 00:36:01,000
+elementary matrices that
+altogether gave us one matrix,
+
+541
+00:36:01,000 --> 00:36:03,000
+and that matrix is E.
+
+542
+00:36:03,000 --> 00:36:10,000
+So all this row reduction stuff
+amounted to multiplying by E.
+
+543
+00:36:10,000 --> 00:36:12,000
+How do I know that?
+
+544
+00:36:12,000 --> 00:36:17,000
+It certainly amounted to
+multiply it by something.
+
+545
+00:36:17,000 --> 00:36:23,000
+And that something took I to E,
+so that something was E.
+
+546
+00:36:23,000 --> 00:36:27,000
+So now look at the first part,
+E A is R.
+
+547
+00:36:27,000 --> 00:36:28,000
+No big deal.
+
+548
+00:36:28,000 --> 00:36:35,000
+All I've said is that the row
+reduction steps that we all know
+
+549
+00:36:35,000 --> 00:36:38,000
+--
+well, taking A to R,
+
+550
+00:36:38,000 --> 00:36:43,000
+are in a, in some matrix,
+and I can find out what that
+
+551
+00:36:43,000 --> 00:36:48,000
+matrix is by just tacking I on
+and seeing what comes out.
+
+552
+00:36:48,000 --> 00:36:50,000
+What comes out is E.
+
+553
+00:36:50,000 --> 00:36:54,100
+Let's just review the
+invertible square case.
+
+554
+00:36:54,100 --> 00:36:55,000
+What happened then?
+
+555
+00:36:55,000 --> 00:37:01,000
+Because I was interested in it
+in chapter two also.
+
+556
+00:37:01,000 --> 00:37:07,000
+When A was square and
+invertible, I took A I,
+
+557
+00:37:07,000 --> 00:37:11,000
+I did row, row elimination.
+
+558
+00:37:11,000 --> 00:37:16,000
+And what was the R that came
+out?
+
+559
+00:37:16,000 --> 00:37:17,000
+It was I.
+
+560
+00:37:17,000 --> 00:37:22,000
+So in chapter two,
+in chapter two,
+
+561
+00:37:22,000 --> 00:37:25,000
+R was I.
+
+562
+00:37:25,000 --> 00:37:29,000
+The row the,
+the reduced row echelon form of
+
+563
+00:37:29,000 --> 00:37:34,000
+a nice invertible square matrix
+is the identity.
+
+564
+00:37:34,000 --> 00:37:39,000
+So if R was I in that case,
+then E was -- then E was A
+
+565
+00:37:39,000 --> 00:37:42,000
+inverse, because E A is I.
+
+566
+00:37:42,000 --> 00:37:42,000
+Good.
+That's, that was good and easy.
+
+567
+00:37:46,000 --> 00:37:52,000
+Now what I'm saying is that
+there still is an E.
+
+568
+00:37:52,000 --> 00:37:56,000
+It's not A inverse any more,
+because A is rectangular.
+
+569
+00:37:56,000 --> 00:37:58,490
+It hasn't got an inverse.
+
+570
+00:37:58,490 --> 00:38:03,000
+But there is still some matrix
+E that connected this to this --
+
+571
+00:38:03,000 --> 00:38:07,000
+oh, I should have figured out in
+advanced what it was.
+
+572
+00:38:07,000 --> 00:38:08,000
+Shoot.
+
+573
+00:38:08,000 --> 00:38:14,000
+I didn't -- I did those steps
+and sort of erased as I went --
+
+574
+00:38:14,000 --> 00:38:18,000
+and, I should have done them to
+the identity too.
+
+575
+00:38:18,000 --> 00:38:19,000
+Can I do that?
+
+576
+00:38:19,000 --> 00:38:20,000
+Can I do that?
+
+577
+00:38:20,000 --> 00:38:24,000
+I'll keep the identity matrix,
+like I'm supposed to do,
+
+578
+00:38:24,000 --> 00:38:29,000
+and I'll do the same operations
+on it, and see what I end up
+
+579
+00:38:29,000 --> 00:38:29,000
+with.
+OK.
+
+580
+00:38:30,000 --> 00:38:33,900
+So I'm starting with the
+identity --
+
+581
+00:38:33,900 --> 00:38:37,000
+which I'll write in light,
+light enough,
+
+582
+00:38:37,000 --> 00:38:38,000
+but -- OK.
+
+583
+00:38:38,000 --> 00:38:39,000
+What did I do?
+
+584
+00:38:39,000 --> 00:38:44,000
+I subtracted that row from that
+one and that row from that one.
+
+585
+00:38:44,000 --> 00:38:47,000
+OK, I'll do that to the
+identity.
+
+586
+00:38:47,000 --> 00:38:51,700
+So I subtract that first row
+from row two and row three.
+
+587
+00:38:51,700 --> 00:38:52,120
+Good.
+
+588
+00:38:52,120 --> 00:38:57,000
+Then I think I multiplied --
+Do you remember?
+
+589
+00:38:57,000 --> 00:39:00,000
+I multiplied row two by minus
+one.
+
+590
+00:39:00,000 --> 00:39:02,000
+Let me just do that.
+
+591
+00:39:02,000 --> 00:39:04,000
+Then what did I do?
+
+592
+00:39:04,000 --> 00:39:09,000
+I subtracted two of row two
+away from row one.
+
+593
+00:39:09,000 --> 00:39:10,000
+I better do that.
+
+594
+00:39:10,000 --> 00:39:14,000
+Subtract two of this away from
+this.
+
+595
+00:39:14,000 --> 00:39:19,000
+That's minus one,
+two of these away leaves a plus
+
+596
+00:39:19,000 --> 00:39:21,000
+2 and 0.
+
+597
+00:39:21,000 --> 00:39:24,000
+I believe that's E.
+
+598
+00:39:24,000 --> 00:39:33,000
+The way to check is to see,
+multiply that E by this A,
+
+599
+00:39:33,000 --> 00:39:38,000
+just to see did I do it right.
+
+600
+00:39:38,000 --> 00:39:46,000
+So I believe E was -1 2 0,
+1 -1 0, and -1 0 1.
+
+601
+00:39:46,000 --> 00:39:47,000
+OK.
+
+602
+00:39:47,000 --> 00:39:51,000
+That's my E,
+that's my A,
+
+603
+00:39:51,000 --> 00:39:55,000
+and that's R.
+
+604
+00:39:55,000 --> 00:39:56,000
+All right.
+
+605
+00:39:56,000 --> 00:40:02,250
+All I'm struggling to do is
+right, the reason I wanted this
+
+606
+00:40:02,250 --> 00:40:08,000
+blasted E was so that I could
+figure out the left null space,
+
+607
+00:40:08,000 --> 00:40:13,000
+not only its dimension,
+which I know -- actually,
+
+608
+00:40:13,000 --> 00:40:19,000
+what is the dimension of the
+left null space?
+
+609
+00:40:19,000 --> 00:40:20,000
+So here's my matrix.
+
+610
+00:40:20,000 --> 00:40:22,000
+What's the rank of the matrix?
+
+611
+00:40:22,000 --> 00:40:23,000
+
+
+612
+00:40:23,000 --> 00:40:27,000
+And the dimension of the null
+-- of the left null space is
+
+613
+00:40:27,000 --> 00:40:29,000
+supposed to be m-r.
+
+614
+00:40:29,000 --> 00:40:30,000
+It's 3 -2, 1.
+
+615
+00:40:30,000 --> 00:40:34,000
+I believe that the left null
+space is one dimensional.
+
+616
+00:40:34,000 --> 00:40:38,000
+There is one combination of
+those three rows that produces
+
+617
+00:40:38,000 --> 00:40:40,000
+the zero row.
+
+618
+00:40:40,000 --> 00:40:46,000
+There's a basis -- a basis for
+the left null space has only got
+
+619
+00:40:46,000 --> 00:40:48,000
+one vector in it.
+
+620
+00:40:48,000 --> 00:40:50,000
+And what is that vector?
+
+621
+00:40:50,000 --> 00:40:53,000
+It's here in the last row of E.
+
+622
+00:40:53,000 --> 00:40:56,740
+But we could have seen it
+earlier.
+
+623
+00:40:56,740 --> 00:41:02,000
+What combination of those rows
+gives the zero row?
+
+624
+00:41:02,000 --> 00:41:04,000
+-1 of that plus one of that.
+
+625
+00:41:04,000 --> 00:41:09,780
+So a basis for the left null
+space of this matrix -- I'm
+
+626
+00:41:09,780 --> 00:41:15,000
+looking for combinations of rows
+that give the zero row if I'm
+
+627
+00:41:15,000 --> 00:41:18,000
+looking at the left null space.
+
+628
+00:41:18,000 --> 00:41:22,000
+For the null space,
+I'm looking at combinations of
+
+629
+00:41:22,000 --> 00:41:25,000
+columns to get the zero column.
+
+630
+00:41:25,000 --> 00:41:30,000
+Now I'm looking at combinations
+of these three rows to get the
+
+631
+00:41:30,000 --> 00:41:35,000
+zero row, and of course there is
+my zero row, and here is my
+
+632
+00:41:35,000 --> 00:41:40,000
+vector that produced it.
+-1 of that row and one of that
+
+633
+00:41:40,000 --> 00:41:40,000
+row.
+Obvious.
+
+634
+00:41:41,000 --> 00:41:41,000
+OK.
+So in that example --
+and actually in all examples,
+
+635
+00:41:46,000 --> 00:41:50,000
+we have seen how to produce a
+basis for the left null space.
+
+636
+00:41:50,000 --> 00:41:54,000
+I won't ask you that all the
+time, because -- it didn't come
+
+637
+00:41:54,000 --> 00:41:56,000
+out immediately from R.
+
+638
+00:41:56,000 --> 00:42:00,000
+We had to keep track of E for
+that left null space.
+
+639
+00:42:00,000 --> 00:42:04,000
+But at least it didn't require
+us to transpose the matrix and
+
+640
+00:42:04,000 --> 00:42:07,000
+start all over again.
+
+641
+00:42:07,000 --> 00:42:10,000
+OK, those are the four
+subspaces.
+
+642
+00:42:10,000 --> 00:42:12,000
+Can I review them?
+
+643
+00:42:12,000 --> 00:42:18,000
+The row space and the null
+space are in R^n.
+
+644
+00:42:18,000 --> 00:42:21,000
+Their dimensions add to n.
+
+645
+00:42:21,000 --> 00:42:27,000
+The column space and the left
+null space are in R^m,
+
+646
+00:42:27,000 --> 00:42:30,000
+and their dimensions add to m.
+
+647
+00:42:30,000 --> 00:42:32,000
+OK.
+
+648
+00:42:32,000 --> 00:42:41,000
+So let me close these last
+minutes by pushing you a little
+
+649
+00:42:41,000 --> 00:42:47,650
+bit more to a new type of vector
+space.
+
+650
+00:42:47,650 --> 00:42:55,000
+All our vector spaces,
+all the ones that we took
+
+651
+00:42:55,000 --> 00:43:03,000
+seriously, have been subspaces
+of some real three or n
+
+652
+00:43:03,000 --> 00:43:06,000
+dimensional space.
+
+653
+00:43:06,000 --> 00:43:14,000
+Now I'm going to write down
+another vector space,
+
+654
+00:43:14,000 --> 00:43:17,000
+a new vector space.
+
+655
+00:43:17,000 --> 00:43:24,960
+Say all three by three
+matrices.
+
+656
+00:43:24,960 --> 00:43:27,000
+My matrices are the vectors.
+
+657
+00:43:27,000 --> 00:43:28,000
+Is that all right?
+
+658
+00:43:28,000 --> 00:43:30,000
+I'm just naming them.
+
+659
+00:43:30,000 --> 00:43:33,000
+You can put quotes around
+vectors.
+
+660
+00:43:33,000 --> 00:43:37,000
+Every three by three matrix is
+one of my vectors.
+
+661
+00:43:37,000 --> 00:43:41,000
+Now how I entitled to call
+those things vectors?
+
+662
+00:43:41,000 --> 00:43:45,000
+I mean, they look very much
+like matrices.
+
+663
+00:43:45,000 --> 00:43:50,000
+But they are vectors in my
+vector space because they obey
+
+664
+00:43:50,000 --> 00:43:50,000
+the rules.
+All I'm supposed to be able to
+do with vectors is add them -- I
+
+665
+00:43:56,000 --> 00:44:01,000
+can add matrices -- I'm supposed
+to be able to multiply them by
+
+666
+00:44:01,000 --> 00:44:06,000
+scalar numbers like seven --
+well, I can multiply a matrix by
+
+667
+00:44:06,000 --> 00:44:06,000
+And that --
+and I can take combinations of
+
+668
+00:44:10,000 --> 00:44:14,000
+matrices, I can take three of
+one matrix minus five of another
+
+669
+00:44:14,000 --> 00:44:14,000
+matrix.
+And those combinations,
+there's a zero matrix,
+
+670
+00:44:17,000 --> 00:44:19,000
+the matrix that has all zeros
+in it.
+
+671
+00:44:19,000 --> 00:44:22,000
+If I add that to another
+matrix, it doesn't change it.
+
+672
+00:44:22,000 --> 00:44:24,000
+All the good stuff.
+
+673
+00:44:24,000 --> 00:44:28,000
+If I multiply a matrix by one
+it doesn't change it.
+
+674
+00:44:28,000 --> 00:44:33,000
+All those eight rules for a
+vector space that we never wrote
+
+675
+00:44:33,000 --> 00:44:35,000
+down, all easily satisfied.
+
+676
+00:44:35,000 --> 00:44:40,000
+So now we have a different --
+now of course you can say you
+
+677
+00:44:40,000 --> 00:44:42,000
+can multiply those matrices.
+
+678
+00:44:42,000 --> 00:44:43,000
+I don't care.
+
+679
+00:44:43,000 --> 00:44:47,000
+For the moment,
+I'm only thinking of these
+
+680
+00:44:47,000 --> 00:44:51,000
+matrices as forming a vector
+space --
+
+681
+00:44:51,000 --> 00:44:55,000
+so I only doing A plus B and c
+times A.
+
+682
+00:44:55,000 --> 00:44:59,000
+I'm not interested in A B for
+now.
+
+683
+00:44:59,000 --> 00:45:07,530
+The fact that I can multiply is
+not relevant to th- to a vector
+
+684
+00:45:07,530 --> 00:45:08,000
+space.
+
+685
+00:45:08,000 --> 00:45:08,000
+OK.
+So I have three by three
+matrices.
+
+686
+00:45:12,000 --> 00:45:15,000
+And how about subspaces?
+
+687
+00:45:15,000 --> 00:45:23,000
+What's -- tell me a subspace of
+this matrix space.
+
+688
+00:45:23,000 --> 00:45:26,000
+Let me call this matrix space
+M.
+
+689
+00:45:26,000 --> 00:45:31,000
+That's my matrix space,
+my space of all three by three
+
+690
+00:45:31,000 --> 00:45:32,000
+matrices.
+
+691
+00:45:32,000 --> 00:45:35,430
+Tell me a subspace of it.
+
+692
+00:45:35,430 --> 00:45:35,000
+OK.
+
+693
+00:45:35,000 --> 00:45:39,000
+What about the upper triangular
+matrices?
+
+694
+00:45:39,000 --> 00:45:42,000
+So subspaces.
+
+695
+00:45:42,000 --> 00:45:44,000
+Subspaces of M.
+
+696
+00:45:44,000 --> 00:45:49,000
+All, all upper triangular
+matrices.
+
+697
+00:45:49,000 --> 00:45:52,000
+Another subspace.
+
+698
+00:45:52,000 --> 00:45:55,000
+All symmetric matrices.
+
+699
+00:45:55,000 --> 00:46:03,000
+The intersection of two
+subspaces is supposed to be a
+
+700
+00:46:03,000 --> 00:46:05,000
+subspace.
+
+701
+00:46:05,000 --> 00:46:12,000
+We gave a little effort to the
+proof of that fact.
+
+702
+00:46:12,000 --> 00:46:22,000
+If I look at the matrices that
+are in this subspace --
+
+703
+00:46:22,000 --> 00:46:26,000
+they're symmetric,
+and they're also in this
+
+704
+00:46:26,000 --> 00:46:30,000
+subspace, they're upper
+triangular, what do they look
+
+705
+00:46:30,000 --> 00:46:30,450
+like?
+
+706
+00:46:30,450 --> 00:46:34,000
+Well, if they're symmetric but
+they have zeros below the
+
+707
+00:46:34,000 --> 00:46:38,000
+diagonal, they better have zeros
+above the diagonal,
+
+708
+00:46:38,000 --> 00:46:42,000
+so the intersection would be
+diagonal matrices.
+
+709
+00:46:42,000 --> 00:46:46,380
+That's another subspace,
+smaller than those.
+
+710
+00:46:46,380 --> 00:46:49,000
+How can I use the word smaller?
+
+711
+00:46:49,000 --> 00:46:53,000
+Well, I'm now entitled to use
+the word smaller.
+
+712
+00:46:53,000 --> 00:46:56,000
+I mean, well,
+one way to say is,
+
+713
+00:46:56,000 --> 00:46:59,000
+OK, these are contained in
+those.
+
+714
+00:46:59,000 --> 00:47:01,000
+These are contained in those.
+
+715
+00:47:01,000 --> 00:47:06,000
+But more precisely,
+I could give the dimension of
+
+716
+00:47:06,000 --> 00:47:08,000
+these spaces.
+
+717
+00:47:08,000 --> 00:47:12,000
+So I could -- we can compute --
+let's compute it next time,
+
+718
+00:47:12,000 --> 00:47:15,000
+the dimension of all upper --
+of the subspace of upper
+
+719
+00:47:15,000 --> 00:47:17,000
+triangular three by three
+matrices.
+
+720
+00:47:17,000 --> 00:47:21,000
+The dimension of symmetric
+three by three matrices.
+
+721
+00:47:21,000 --> 00:47:24,920
+The dimension of diagonal three
+by three matrices.
+
+722
+00:47:24,920 --> 00:47:29,000
+Well, to produce dimension,
+that means I'm supposed to
+
+723
+00:47:29,000 --> 00:47:32,000
+produce a basis,
+and then I just count how many
+
+724
+00:47:32,000 --> 00:47:35,000
+vecto- how many I needed in the
+basis.
+
+725
+00:47:35,000 --> 00:47:38,000
+Let me give you the answer for
+this one.
+
+726
+00:47:38,000 --> 00:47:40,000
+What's the dimension?
+
+727
+00:47:40,000 --> 00:47:45,000
+The dimension of this --
+say, this subspace,
+
+728
+00:47:45,000 --> 00:47:50,000
+let me call it D,
+all diagonal matrices.
+
+729
+00:47:50,000 --> 00:47:58,000
+The dimension of this subspace
+is -- as I write you're working
+
+730
+00:47:58,000 --> 00:48:00,000
+it out -- three.
+
+731
+00:48:00,000 --> 00:48:08,000
+Because here's a matrix in this
+-- it's a diagonal matrix.
+
+732
+00:48:08,000 --> 00:48:10,000
+Here's another one.
+
+733
+00:48:10,000 --> 00:48:13,000
+Here's another one.
+
+734
+00:48:13,000 --> 00:48:21,000
+Better make it diagonal,
+let me put a seven there.
+
+735
+00:48:21,000 --> 00:48:26,000
+That was not a very great
+choice, but it's three diagonal
+
+736
+00:48:26,000 --> 00:48:30,000
+matrices, and I believe that
+they're a basis.
+
+737
+00:48:30,000 --> 00:48:35,000
+I believe that those three
+matrices are independent and I
+
+738
+00:48:35,000 --> 00:48:41,000
+believe that any diagonal matrix
+is a combination of those three.
+
+739
+00:48:41,000 --> 00:48:46,000
+So they span the subspace of
+diagonal matrices.
+
+740
+00:48:46,000 --> 00:48:47,000
+Do you see that idea?
+
+741
+00:48:47,000 --> 00:48:52,000
+It's like stretching the idea
+from R^n to R^(n by n),
+
+742
+00:48:52,000 --> 00:48:53,960
+three by three.
+
+743
+00:48:53,960 --> 00:48:58,000
+But the -- we can still add,
+we can still multiply by
+
+744
+00:48:58,000 --> 00:49:03,000
+numbers, and we just ignore the
+fact that we can multiply two
+
+745
+00:49:03,000 --> 00:49:05,000
+matrices together.
+
+746
+00:49:05,000 --> 00:49:06,000
+OK, thank you.
+
+747
+00:49:06,000 --> 00:49:09,000
+That's lecture ten.

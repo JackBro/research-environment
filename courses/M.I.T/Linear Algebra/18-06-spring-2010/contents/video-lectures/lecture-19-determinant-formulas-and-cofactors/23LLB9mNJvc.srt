@@ -1,0 +1,4236 @@
+1
+00:00:00,000 --> 00:00:05,000
+OK, this is the second lecture
+on determinants.
+
+2
+00:00:05,000 --> 00:00:08,000
+There are only three.
+
+3
+00:00:08,000 --> 00:00:15,000
+With determinants it's a
+fascinating, small topic inside
+
+4
+00:00:15,000 --> 00:00:17,000
+linear algebra.
+
+5
+00:00:17,000 --> 00:00:23,000
+Used to be determinants were
+the big thing,
+
+6
+00:00:23,000 --> 00:00:28,000
+and linear algebra was the
+little thing,
+
+7
+00:00:28,000 --> 00:00:32,000
+but they --
+those changed,
+
+8
+00:00:32,000 --> 00:00:34,000
+that situation changed.
+
+9
+00:00:34,000 --> 00:00:37,000
+Now determinants is one
+specific part,
+
+10
+00:00:37,000 --> 00:00:39,000
+very neat little part.
+
+11
+00:00:39,000 --> 00:00:45,000
+And my goal today is to find a
+formula for the determinant.
+
+12
+00:00:45,000 --> 00:00:47,000
+It'll be a messy formula.
+
+13
+00:00:47,000 --> 00:00:51,000
+So that's why you didn't see it
+right away.
+
+14
+00:00:51,000 --> 00:00:55,000
+But if I'm given this n by n
+matrix
+
+15
+00:00:55,000 --> 00:00:58,000
+then I use those entries to
+create this number,
+
+16
+00:00:58,000 --> 00:00:59,000
+the determinant.
+
+17
+00:00:59,000 --> 00:01:01,000
+So there's a formula for it.
+
+18
+00:01:01,000 --> 00:01:05,000
+In fact, there's another
+formula, a second formula using
+
+19
+00:01:05,000 --> 00:01:07,000
+something called cofactors.
+
+20
+00:01:07,000 --> 00:01:10,000
+So you'll -- you have to know
+what cofactors are.
+
+21
+00:01:10,000 --> 00:01:13,000
+And then I'll apply those
+formulas for some,
+
+22
+00:01:13,000 --> 00:01:18,000
+some matrices that have a
+lot of zeros away from the
+
+23
+00:01:18,000 --> 00:01:20,000
+three diagonals.
+
+24
+00:01:20,000 --> 00:01:20,000
+OK.
+So I'm shooting now for a
+formula for the determinant.
+
+25
+00:01:25,000 --> 00:01:30,000
+You remember we started with
+these three properties,
+
+26
+00:01:30,000 --> 00:01:35,000
+three simple properties,
+but out of that we got all
+
+27
+00:01:35,000 --> 00:01:40,000
+these amazing facts,
+like the determinant of A B
+
+28
+00:01:40,000 --> 00:01:44,000
+equals determinant of A times
+determinant of B.
+
+29
+00:01:44,000 --> 00:01:49,000
+But the three facts were -- oh,
+how about I just take two by
+
+30
+00:01:49,000 --> 00:01:50,000
+twos.
+
+31
+00:01:50,000 --> 00:01:55,160
+I know, because everybody here
+knows, the determinant of a two
+
+32
+00:01:55,160 --> 00:01:59,110
+by two matrix,
+but let's get it out of
+
+33
+00:01:59,110 --> 00:02:01,000
+these three formulas.
+
+34
+00:02:01,000 --> 00:02:05,000
+OK, so here's my,
+my two by two matrix.
+
+35
+00:02:05,000 --> 00:02:09,800
+I'm looking for a formula for
+this determinant.
+
+36
+00:02:09,800 --> 00:02:11,000
+a b c d, OK.
+
+37
+00:02:11,000 --> 00:02:15,000
+So property one,
+I know what to do with the
+
+38
+00:02:15,000 --> 00:02:16,000
+identity.
+
+39
+00:02:16,000 --> 00:02:16,000
+Right?
+Property two allows me to
+exchange
+
+40
+00:02:21,000 --> 00:02:24,000
+rows, and I know what to do
+then.
+
+41
+00:02:24,000 --> 00:02:27,000
+So I know that that determinant
+is one.
+
+42
+00:02:27,000 --> 00:02:32,000
+Property two allows me to
+exchange rows and know that this
+
+43
+00:02:32,000 --> 00:02:35,000
+determinant is minus one.
+
+44
+00:02:35,000 --> 00:02:39,000
+And now I want to use property
+three to get everybody,
+
+45
+00:02:39,000 --> 00:02:41,000
+to get everybody.
+
+46
+00:02:41,000 --> 00:02:43,000
+And how will I do that?
+
+47
+00:02:43,000 --> 00:02:44,000
+OK.
+
+48
+00:02:44,000 --> 00:02:50,000
+So remember that if I keep the
+second row the same,
+
+49
+00:02:50,000 --> 00:02:55,000
+I'm allowed to use linearity in
+the first row.
+
+50
+00:02:55,000 --> 00:02:59,000
+And I'll just use it in a
+simple way.
+
+51
+00:02:59,000 --> 00:03:04,000
+I'll write this vector a b as a
+0 + 0 b.
+
+52
+00:03:04,000 --> 00:03:08,000
+So that's one step using
+property three,
+
+53
+00:03:08,000 --> 00:03:15,000
+linearity in the first row
+when the second row's the same.
+
+54
+00:03:15,000 --> 00:03:15,590
+OK.
+
+55
+00:03:15,590 --> 00:03:19,220
+But now you can guess what I'm
+going to do next.
+
+56
+00:03:19,220 --> 00:03:23,000
+I'll -- because I'd like to --
+if I can make the matrices
+
+57
+00:03:23,000 --> 00:03:26,000
+diagonal, then I'm clearly
+there.
+
+58
+00:03:26,000 --> 00:03:27,000
+So I'll take this one.
+
+59
+00:03:27,000 --> 00:03:33,000
+Now I'll keep the first row
+fixed and split the second row,
+
+60
+00:03:33,000 --> 00:03:38,000
+so that'll be an a 0 and I'll
+split that into a c 0 and,
+
+61
+00:03:38,000 --> 00:03:41,000
+keeping that first row the
+same, a 0 d.
+
+62
+00:03:41,000 --> 00:03:44,000
+I used, for this part,
+linearity.
+
+63
+00:03:44,000 --> 00:03:49,000
+And now I'll -- whoops,
+that's plus because I've got
+
+64
+00:03:49,000 --> 00:03:50,000
+more coming.
+
+65
+00:03:50,000 --> 00:03:52,000
+This one I'll do the same.
+
+66
+00:03:52,000 --> 00:03:56,000
+I'll keep this first row the
+same
+
+67
+00:03:56,000 --> 00:04:00,000
+and I'll split c d into c 0 and
+0 d.
+
+68
+00:04:00,000 --> 00:04:00,000
+OK.
+Now I've got four easy
+determinants,
+
+69
+00:04:03,000 --> 00:04:09,000
+and two of them are -- well,
+all four are extremely easy.
+
+70
+00:04:09,000 --> 00:04:13,000
+Two of them are so easy as to
+turn into zero,
+
+71
+00:04:13,000 --> 00:04:14,000
+right?
+
+72
+00:04:14,000 --> 00:04:20,000
+Which two of these determinants
+are zero right away?
+
+73
+00:04:20,000 --> 00:04:22,000
+The first guy is zero.
+
+74
+00:04:22,000 --> 00:04:23,540
+Why is he zero?
+
+75
+00:04:23,540 --> 00:04:27,000
+Why is that determinant
+nothing, forget him?
+
+76
+00:04:27,000 --> 00:04:30,000
+Well, it has a column of zeros.
+
+77
+00:04:30,000 --> 00:04:33,000
+And by the -- well,
+so one way to think is,
+
+78
+00:04:33,000 --> 00:04:36,000
+well, it's a singular matrix.
+
+79
+00:04:36,000 --> 00:04:40,000
+Oh, for, for like forty-eight
+different reasons,
+
+80
+00:04:40,000 --> 00:04:43,000
+that
+determinant is zero.
+
+81
+00:04:43,000 --> 00:04:46,000
+It's a singular matrix that has
+a column of zeros.
+
+82
+00:04:46,000 --> 00:04:48,000
+It's, it's dead.
+
+83
+00:04:48,000 --> 00:04:50,510
+And this one is about as dead
+too.
+
+84
+00:04:50,510 --> 00:04:51,000
+Column of zeros.
+
+85
+00:04:51,000 --> 00:04:51,000
+OK.
+So that's leaving us with this
+one.
+
+86
+00:04:54,000 --> 00:04:58,000
+Now what do I -- how do I know
+its determinant,
+
+87
+00:04:58,000 --> 00:05:00,440
+following the rules?
+
+88
+00:05:00,440 --> 00:05:05,000
+Well, I guess one of the
+properties that we actually got
+
+89
+00:05:05,000 --> 00:05:09,000
+to was the determinant of that
+-- diagonal matrix,
+
+90
+00:05:09,000 --> 00:05:13,000
+then -- so I,
+I'm finally getting to that
+
+91
+00:05:13,000 --> 00:05:15,000
+determinant is the a d.
+
+92
+00:05:15,000 --> 00:05:18,000
+And this determinant is what?
+
+93
+00:05:18,000 --> 00:05:19,000
+What's this one?
+
+94
+00:05:19,000 --> 00:05:26,000
+Minus -- because I would use
+property two to do a flip to
+
+95
+00:05:26,000 --> 00:05:30,000
+make it c b, then property three
+to factor out the b,
+
+96
+00:05:30,000 --> 00:05:36,000
+property c to factor out the c
+-- the property again to factor
+
+97
+00:05:36,000 --> 00:05:41,000
+out the c, and that minus,
+and of course finally I got the
+
+98
+00:05:41,000 --> 00:05:44,000
+answer that we knew we would
+get.
+
+99
+00:05:44,000 --> 00:05:47,000
+But you see the method.
+
+100
+00:05:47,000 --> 00:05:51,000
+You see the method,
+because it's method I'm looking
+
+101
+00:05:51,000 --> 00:05:56,000
+for here, not just a two by two
+answer but the method of doing
+
+102
+00:05:56,000 --> 00:06:01,000
+-- now I can do three by threes
+and four by fours and any size.
+
+103
+00:06:01,000 --> 00:06:06,850
+So if you can see the method of
+taking each row at a time -- so
+
+104
+00:06:06,850 --> 00:06:11,000
+let's -- what would happen with
+three by threes?
+
+105
+00:06:11,000 --> 00:06:15,000
+Can we mentally do it rather
+than I write everything on the
+
+106
+00:06:15,000 --> 00:06:17,000
+board for three by threes?
+
+107
+00:06:17,000 --> 00:06:21,000
+So what would we do if I had
+three by threes?
+
+108
+00:06:21,000 --> 00:06:25,000
+I would keep rows two and three
+the same and I would split the
+
+109
+00:06:25,000 --> 00:06:28,000
+first row into how many pieces?
+
+110
+00:06:28,000 --> 00:06:29,000
+Three pieces.
+
+111
+00:06:29,000 --> 00:06:32,000
+I'd have an A zero zero and a
+zero B
+
+112
+00:06:32,000 --> 00:06:38,000
+zero and a zero zero C or
+something for the first row.
+
+113
+00:06:38,000 --> 00:06:44,000
+So I would instead of going
+from one piece to two pieces to
+
+114
+00:06:44,000 --> 00:06:50,000
+four pieces, I would go from one
+piece to three pieces to -- what
+
+115
+00:06:50,000 --> 00:06:51,000
+would it be?
+
+116
+00:06:51,000 --> 00:06:56,000
+Each of those three,
+would, would it be nine?
+
+117
+00:06:56,000 --> 00:06:58,090
+Or twenty-seven?
+
+118
+00:06:58,090 --> 00:07:02,000
+Oh yeah, I've actually
+got more steps,
+
+119
+00:07:02,000 --> 00:07:02,000
+right.
+I'd go to nine but then I'd
+have another row to straighten
+
+120
+00:07:06,000 --> 00:07:07,000
+out, twenty-seven.
+
+121
+00:07:07,000 --> 00:07:07,000
+Yes, oh God.
+OK, let me say this again then.
+
+122
+00:07:09,000 --> 00:07:13,000
+If I -- if it was three by
+three, I would -- separating out
+
+123
+00:07:13,000 --> 00:07:15,000
+one row into three pieces would
+give me three,
+
+124
+00:07:15,000 --> 00:07:19,000
+separating out the second row
+into three pieces,
+
+125
+00:07:19,000 --> 00:07:23,000
+then I'd be up to nine,
+separating out the third row
+
+126
+00:07:23,000 --> 00:07:27,570
+into its three pieces,
+I'd be up to twenty-seven,
+
+127
+00:07:27,570 --> 00:07:29,000
+three cubed,
+pieces.
+
+128
+00:07:29,000 --> 00:07:31,000
+But a lot of them would be
+zero.
+
+129
+00:07:31,000 --> 00:07:34,000
+So now when would they not be
+zero?
+
+130
+00:07:34,000 --> 00:07:38,600
+Tell me the pieces that would
+not be zero.
+
+131
+00:07:38,600 --> 00:07:42,390
+Now I will write the non-zero
+ones.
+
+132
+00:07:42,390 --> 00:07:45,000
+OK, so I have this matrix.
+
+133
+00:07:45,000 --> 00:07:51,000
+I think I have to use these,
+start using these double
+
+134
+00:07:51,000 --> 00:07:57,000
+symbols here because otherwise I
+could never do n by n.
+
+135
+00:07:57,000 --> 00:07:57,000
+OK.
+OK.
+So I split this up like crazy.
+
+136
+00:08:01,000 --> 00:08:05,000
+A bunch of pieces are zero.
+
+137
+00:08:05,000 --> 00:08:09,000
+Whenever I have a column of
+zeros, I know I've got zero.
+
+138
+00:08:09,000 --> 00:08:11,000
+When do I not have zero?
+
+139
+00:08:11,000 --> 00:08:14,970
+When do I have -- what is it
+that's like these guys?
+
+140
+00:08:14,970 --> 00:08:18,000
+These are the survivors,
+two survivors there.
+
+141
+00:08:18,000 --> 00:08:22,000
+So my question for three by
+three is going to be what are
+
+142
+00:08:22,000 --> 00:08:23,000
+the survivors?
+
+143
+00:08:23,000 --> 00:08:26,000
+How many survivors are there?
+
+144
+00:08:26,000 --> 00:08:27,000
+What are they?
+
+145
+00:08:27,000 --> 00:08:30,000
+And when do I get a survivor.
+
+146
+00:08:30,000 --> 00:08:35,000
+Well, I would get a survivor --
+for example, one survivor will
+
+147
+00:08:35,000 --> 00:08:41,000
+be that one times that one times
+that one, with all zeros
+
+148
+00:08:41,000 --> 00:08:42,000
+everywhere else.
+
+149
+00:08:42,000 --> 00:08:47,690
+That would be one survivor.
+a one one zero zero zero a two
+
+150
+00:08:47,690 --> 00:08:50,620
+two zero zero zero a three
+three.
+
+151
+00:08:50,620 --> 00:08:54,000
+That's like the a d survivor.
+
+152
+00:08:54,000 --> 00:08:56,000
+Tell me another survivor.
+
+153
+00:08:56,000 --> 00:09:01,000
+What other thing -- oh,
+now here you see the clue.
+
+154
+00:09:01,000 --> 00:09:05,000
+Now can -- shall I just say the
+whole clue?
+
+155
+00:09:05,000 --> 00:09:10,000
+That I'm having -- the
+survivors have one entry from
+
+156
+00:09:10,000 --> 00:09:12,910
+each row and each column.
+
+157
+00:09:12,910 --> 00:09:16,000
+One entry from each row and
+column.
+
+158
+00:09:16,000 --> 00:09:20,000
+Because if some column is
+missing,
+
+159
+00:09:20,000 --> 00:09:23,000
+then I get a singular matrix.
+
+160
+00:09:23,000 --> 00:09:26,000
+And that, that's one of these
+guys.
+
+161
+00:09:26,000 --> 00:09:29,000
+See, you see what happened with
+-- this guy?
+
+162
+00:09:29,000 --> 00:09:32,000
+Column one never got used in 0
+b 0 d.
+
+163
+00:09:32,000 --> 00:09:36,000
+So its determinant was zero and
+I forget it.
+
+164
+00:09:36,000 --> 00:09:40,390
+So I'm going to forget those
+and
+
+165
+00:09:40,390 --> 00:09:45,000
+just put -- so tell me one more
+that would be a survivor?
+
+166
+00:09:45,000 --> 00:09:48,580
+Well -- well,
+here's another one.
+
+167
+00:09:48,580 --> 00:09:54,000
+a one one zero zero -- now OK,
+that's used up row -- row one
+
+168
+00:09:54,000 --> 00:09:54,000
+is used.
+Column one is already used so
+it better be zero.
+
+169
+00:10:00,000 --> 00:10:01,000
+What else could I have?
+
+170
+00:10:01,000 --> 00:10:06,000
+Where could I pick the guy --
+which column shall I use in row
+
+171
+00:10:06,000 --> 00:10:06,000
+two?
+Use column three,
+because here if I use column --
+
+172
+00:10:10,000 --> 00:10:13,000
+here I used column one and row
+one.
+
+173
+00:10:13,000 --> 00:10:17,000
+This was like the column --
+numbers were one two three,
+
+174
+00:10:17,000 --> 00:10:19,000
+right in order.
+
+175
+00:10:19,000 --> 00:10:22,000
+Now the column numbers are
+going to
+
+176
+00:10:22,000 --> 00:10:25,000
+be one three,
+column three,
+
+177
+00:10:25,000 --> 00:10:26,000
+and column two.
+
+178
+00:10:26,000 --> 00:10:31,000
+So the row numbers are one two
+three, of course.
+
+179
+00:10:31,000 --> 00:10:36,000
+The column numbers are some --
+OK, some permutation of one two
+
+180
+00:10:36,000 --> 00:10:41,000
+three, and here they come in the
+order one three two.
+
+181
+00:10:41,000 --> 00:10:47,340
+It's just like having a
+permutation matrix with,
+
+182
+00:10:47,340 --> 00:10:49,000
+instead of the ones,
+with numbers.
+
+183
+00:10:49,000 --> 00:10:52,000
+And actually,
+it's very close to having a
+
+184
+00:10:52,000 --> 00:10:55,000
+permutation matrix,
+because I, what I do eventually
+
+185
+00:10:55,000 --> 00:10:59,000
+is I factor out these numbers
+and then I have got.
+
+186
+00:10:59,000 --> 00:11:01,000
+So what is that determinant
+equal?
+
+187
+00:11:01,000 --> 00:11:04,000
+I factor those numbers out and
+I've
+
+188
+00:11:04,000 --> 00:11:08,000
+got a one one times a two two
+times a three three.
+
+189
+00:11:08,000 --> 00:11:11,000
+And what does this determinant
+equal?
+
+190
+00:11:11,000 --> 00:11:14,000
+Yeah, now tell me the,
+this -- I mean,
+
+191
+00:11:14,000 --> 00:11:18,000
+we're really getting to the
+heart of these formulas now.
+
+192
+00:11:18,000 --> 00:11:20,000
+What is that determinant?
+
+193
+00:11:20,000 --> 00:11:24,000
+By the laws of -- by,
+by our three properties,
+
+194
+00:11:24,000 --> 00:11:28,000
+I can factor these out,
+I can factor out the a one one,
+
+195
+00:11:28,000 --> 00:11:31,000
+the a two three,
+and the a three two.
+
+196
+00:11:31,000 --> 00:11:34,000
+They're in separate rows.
+
+197
+00:11:34,000 --> 00:11:36,540
+I can do each row separately.
+
+198
+00:11:36,540 --> 00:11:41,000
+And then I just have to decide
+is that plus sign or is that a
+
+199
+00:11:41,000 --> 00:11:42,590
+minus sign?
+
+200
+00:11:42,590 --> 00:11:45,000
+And the answer is it's a minus.
+
+201
+00:11:45,000 --> 00:11:47,020
+Why minus?
+
+202
+00:11:47,020 --> 00:11:52,000
+Because these is one row
+exchange to get it back to the
+
+203
+00:11:52,000 --> 00:11:53,000
+identity.
+
+204
+00:11:53,000 --> 00:11:54,000
+So that's a minus.
+
+205
+00:11:54,000 --> 00:11:56,000
+Now I through?
+
+206
+00:11:56,000 --> 00:11:59,530
+No, because there are other
+ways.
+
+207
+00:11:59,530 --> 00:12:03,000
+What I'm really through with,
+what I've done,
+
+208
+00:12:03,000 --> 00:12:09,000
+what I've, what I've completed
+is only the part where the a one
+
+209
+00:12:09,000 --> 00:12:11,000
+one is there.
+
+210
+00:12:11,000 --> 00:12:16,000
+But now I've got parts
+where it's a one two.
+
+211
+00:12:16,000 --> 00:12:21,000
+And now if it's a one two that
+row is used, that column is
+
+212
+00:12:21,000 --> 00:12:21,000
+used.
+You see that idea?
+
+213
+00:12:23,000 --> 00:12:26,000
+I could use this row and
+column.
+
+214
+00:12:26,000 --> 00:12:29,000
+Now that column is used,
+that column is used,
+
+215
+00:12:29,000 --> 00:12:33,000
+and this guy has to be here,
+a three three.
+
+216
+00:12:33,000 --> 00:12:36,000
+And what's that determinant?
+
+217
+00:12:36,000 --> 00:12:41,000
+That's an a one two times an a
+two one times an a three three,
+
+218
+00:12:41,000 --> 00:12:44,000
+and does it have a plus or a
+minus?
+
+219
+00:12:44,000 --> 00:12:45,000
+A minus is right.
+
+220
+00:12:45,000 --> 00:12:46,680
+It has a minus.
+
+221
+00:12:46,680 --> 00:12:50,000
+Because it's one flip away from
+an id- from the,
+
+222
+00:12:50,000 --> 00:12:53,000
+regular, the right order,
+the diagonal order.
+
+223
+00:12:53,000 --> 00:12:57,000
+And now what's the other guy
+with a --
+
+224
+00:12:57,000 --> 00:13:00,000
+with, a one two up there?
+
+225
+00:13:00,000 --> 00:13:02,000
+I could have used this row.
+
+226
+00:13:02,000 --> 00:13:07,000
+I could have put this guy here
+and this guy here.
+
+227
+00:13:07,000 --> 00:13:08,000
+Right?
+
+228
+00:13:08,000 --> 00:13:10,000
+You see the whole deal?
+
+229
+00:13:10,000 --> 00:13:14,000
+Now that's an a one two,
+a two three,
+
+230
+00:13:14,000 --> 00:13:18,000
+a three one,
+and does that go with a plus or
+
+231
+00:13:18,000 --> 00:13:20,000
+a minus?
+
+232
+00:13:20,000 --> 00:13:24,000
+Yeah, now that takes a minute
+of thinking, doesn't it,
+
+233
+00:13:24,000 --> 00:13:28,000
+because one row exchange
+doesn't get it in line.
+
+234
+00:13:28,000 --> 00:13:30,000
+So what is the answer for this?
+
+235
+00:13:30,000 --> 00:13:31,000
+Plus or minus?
+
+236
+00:13:31,000 --> 00:13:34,000
+Plus, because it takes two
+exchanges.
+
+237
+00:13:34,000 --> 00:13:39,000
+I could exchange rows one and
+three and then two and three.
+
+238
+00:13:39,000 --> 00:13:43,630
+Two exchanges makes this thing
+a plus.
+
+239
+00:13:43,630 --> 00:13:43,000
+OK.
+
+240
+00:13:43,000 --> 00:13:50,000
+And then finally we have --
+we're going to have two more.
+
+241
+00:13:50,000 --> 00:13:54,000
+Zero zero a one three,
+a two one zero zero,
+
+242
+00:13:54,000 --> 00:13:57,000
+zero a three two zero.
+
+243
+00:13:57,000 --> 00:13:59,320
+And one more guy.
+
+244
+00:13:59,320 --> 00:14:04,000
+Zero zero a one three,
+zero a two two zero,
+
+245
+00:14:04,000 --> 00:14:07,000
+A three one zero zero.
+
+246
+00:14:07,000 --> 00:14:11,000
+And let's put down what we get
+from those.
+
+247
+00:14:11,000 --> 00:14:13,000
+An a one three,
+an a two one,
+
+248
+00:14:13,000 --> 00:14:18,000
+and an a three two,
+and I think that one is a plus.
+
+249
+00:14:18,000 --> 00:14:24,000
+And this guys is a minus
+because one exchange would put
+
+250
+00:14:24,000 --> 00:14:27,000
+it -- would order it.
+
+251
+00:14:27,000 --> 00:14:29,000
+And that's a minus.
+
+252
+00:14:29,000 --> 00:14:36,000
+All right, that has taken one
+whole board just to do the three
+
+253
+00:14:36,000 --> 00:14:37,000
+by three.
+
+254
+00:14:37,000 --> 00:14:43,000
+But do you agree that we now
+have a formula for the
+
+255
+00:14:43,000 --> 00:14:49,000
+determinant which came from the
+three properties?
+
+256
+00:14:49,000 --> 00:14:51,000
+And it must be it.
+
+257
+00:14:51,000 --> 00:14:55,000
+And I'm going to keep that
+formula.
+
+258
+00:14:55,000 --> 00:15:01,000
+That's a famous --
+that three by three formula is
+
+259
+00:15:01,000 --> 00:15:05,860
+one that if, if the cameras will
+follow me back to the beginning
+
+260
+00:15:05,860 --> 00:15:10,000
+here, I, I get the ones with the
+plus sign are the ones that go
+
+261
+00:15:10,000 --> 00:15:12,000
+down like down this way.
+
+262
+00:15:12,000 --> 00:15:16,000
+And the ones with the minus
+signs are sort of the ones that
+
+263
+00:15:16,000 --> 00:15:17,000
+go this way.
+
+264
+00:15:17,000 --> 00:15:20,000
+I won't make that precise.
+
+265
+00:15:20,000 --> 00:15:23,000
+For two reasons,
+one, it would clutter up the
+
+266
+00:15:23,000 --> 00:15:28,000
+board, and second reason,
+it wouldn't be right for four
+
+267
+00:15:28,000 --> 00:15:28,000
+by fours.
+For four by four,
+let me just say right away,
+
+268
+00:15:32,000 --> 00:15:35,000
+four by four matrix -- the,
+the cross diagonal,
+
+269
+00:15:35,000 --> 00:15:41,000
+the wrong diagonal happens to
+come out with a plus sign.
+
+270
+00:15:41,000 --> 00:15:42,000
+Why is that?
+
+271
+00:15:42,000 --> 00:15:48,000
+If I have a four by four matrix
+with ones coming on the counter
+
+272
+00:15:48,000 --> 00:15:52,000
+diagonal, that determinant is
+plus.
+
+273
+00:15:52,000 --> 00:15:52,000
+Why?
+Why plus for that guy?
+
+274
+00:15:55,000 --> 00:16:01,080
+Because if I exchange rows one
+and four and then I exchange
+
+275
+00:16:01,080 --> 00:16:06,000
+rows two and three,
+I've got the identity,
+
+276
+00:16:06,000 --> 00:16:09,000
+and I did two exchanges.
+
+277
+00:16:09,000 --> 00:16:13,000
+So this down to this,
+like, you know,
+
+278
+00:16:13,000 --> 00:16:18,000
+down toward Miami and down
+toward LA stuff is,
+
+279
+00:16:18,000 --> 00:16:22,000
+like, three by three only.
+
+280
+00:16:22,000 --> 00:16:22,000
+OK.
+But I do want to get now -- I
+don't want to go through this
+
+281
+00:16:29,000 --> 00:16:31,000
+for a four by four.
+
+282
+00:16:31,000 --> 00:16:37,000
+I do want to get now
+the general formula.
+
+283
+00:16:37,000 --> 00:16:43,790
+So this is what I refer to in
+the book as the big formula.
+
+284
+00:16:43,790 --> 00:16:49,000
+So now this is the big formula
+for the determinant.
+
+285
+00:16:49,000 --> 00:16:55,740
+I'm asking you to make a jump
+from two by two and three by
+
+286
+00:16:55,740 --> 00:16:57,000
+three to n by n.
+
+287
+00:16:57,000 --> 00:17:01,000
+OK, so this will be the big
+formula.
+
+288
+00:17:01,000 --> 00:17:06,000
+That the determinant of A is
+the sum
+
+289
+00:17:06,000 --> 00:17:08,750
+of a whole lot of terms.
+
+290
+00:17:08,750 --> 00:17:10,900
+And what are those terms?
+
+291
+00:17:10,900 --> 00:17:15,000
+And, and is it a plus or a
+minus sign, and I have to tell
+
+292
+00:17:15,000 --> 00:17:20,000
+you which, which it is,
+because this came in -- in the
+
+293
+00:17:20,000 --> 00:17:23,000
+three by three case,
+I had how many terms?
+
+294
+00:17:23,000 --> 00:17:24,000
+Six.
+
+295
+00:17:24,000 --> 00:17:28,000
+And half were plus and half
+were minus.
+
+296
+00:17:28,000 --> 00:17:33,000
+How many terms are you figuring
+for four by four?
+
+297
+00:17:33,000 --> 00:17:40,000
+If I get two terms in the two
+by two case, three -- six terms
+
+298
+00:17:40,000 --> 00:17:46,000
+in the three by three case,
+what's that pattern?
+
+299
+00:17:46,000 --> 00:17:50,000
+How many terms in the four by
+four case?
+
+300
+00:17:50,000 --> 00:17:51,000
+Twenty-four.
+
+301
+00:17:51,000 --> 00:17:54,000
+Four factorial.
+
+302
+00:17:54,000 --> 00:17:56,000
+Why four factorial?
+
+303
+00:17:56,000 --> 00:18:00,790
+This will be a sum of n
+factorial terms.
+
+304
+00:18:00,790 --> 00:18:04,000
+Twenty-four,
+a hundred and twenty,
+
+305
+00:18:04,000 --> 00:18:09,000
+seven hundred and twenty,
+whatever's after that.
+
+306
+00:18:09,000 --> 00:18:09,000
+OK.
+Half plus and half minus.
+
+307
+00:18:12,000 --> 00:18:16,000
+And where do those n factorial
+--
+
+308
+00:18:16,000 --> 00:18:17,000
+terms come from?
+
+309
+00:18:17,000 --> 00:18:21,000
+This is the moment to listen to
+this lecture.
+
+310
+00:18:21,000 --> 00:18:24,000
+Where do those n factorial
+terms come from?
+
+311
+00:18:24,000 --> 00:18:29,000
+They come because the first,
+the guy in the first row can be
+
+312
+00:18:29,000 --> 00:18:31,000
+chosen n ways.
+
+313
+00:18:31,000 --> 00:18:34,000
+And after he's chosen,
+that's used up that,
+
+314
+00:18:34,000 --> 00:18:36,000
+that column.
+
+315
+00:18:36,000 --> 00:18:40,000
+So the one in the second row
+can be chosen n minus one ways.
+
+316
+00:18:40,000 --> 00:18:44,000
+And after she's chosen,
+that second column has been
+
+317
+00:18:44,000 --> 00:18:44,000
+used.
+And then the one in the third
+row can be chosen n minus two
+
+318
+00:18:49,350 --> 00:18:53,000
+ways, and after it's chosen --
+notice how I'm getting these
+
+319
+00:18:53,000 --> 00:18:55,000
+personal pronouns.
+
+320
+00:18:55,000 --> 00:18:57,000
+But I've run out.
+
+321
+00:18:57,000 --> 00:19:00,000
+And I'm not willing to stop
+with three by three,
+
+322
+00:19:00,000 --> 00:19:04,000
+so I'm just going to write the
+formula down.
+
+323
+00:19:04,000 --> 00:19:08,570
+So the one in the first row
+comes from some column alpha.
+
+324
+00:19:08,570 --> 00:19:10,000
+I don't know what alpha is.
+
+325
+00:19:10,000 --> 00:19:14,000
+And the one in the -- I
+multiply that by somebody in the
+
+326
+00:19:14,000 --> 00:19:19,500
+second row that comes from some
+different column.
+
+327
+00:19:19,500 --> 00:19:24,000
+And I multiply that by somebody
+in the third row who comes from
+
+328
+00:19:24,000 --> 00:19:26,000
+some yet different column.
+
+329
+00:19:26,000 --> 00:19:30,000
+And then in the n-th row,
+I don't know what -- I don't
+
+330
+00:19:30,000 --> 00:19:31,000
+know how to draw.
+
+331
+00:19:31,000 --> 00:19:33,000
+Maybe omega,
+for last.
+
+332
+00:19:33,000 --> 00:19:38,000
+And the whole point is then
+that -- that those column
+
+333
+00:19:38,000 --> 00:19:42,140
+numbers are different,
+that alpha, beta,
+
+334
+00:19:42,140 --> 00:19:46,000
+gamma, omega,
+that set of column numbers is
+
+335
+00:19:46,000 --> 00:19:50,000
+some permutation,
+permutation of one to n.
+
+336
+00:19:50,000 --> 00:19:55,000
+It, it, the n column numbers
+are each used once.
+
+337
+00:19:55,000 --> 00:19:58,000
+And that gives us n factorial
+terms.
+
+338
+00:19:58,000 --> 00:20:03,000
+And when I choose a term,
+that means I'm choosing
+
+339
+00:20:03,000 --> 00:20:07,000
+somebody
+from every row and column.
+
+340
+00:20:07,000 --> 00:20:12,000
+And then I just -- like the way
+I had this from row and column
+
+341
+00:20:12,000 --> 00:20:16,000
+one, row and column two,
+row and column three,
+
+342
+00:20:16,000 --> 00:20:20,000
+so that -- what was the alpha
+beta stuff in that,
+
+343
+00:20:20,000 --> 00:20:21,000
+for that term here?
+
+344
+00:20:21,000 --> 00:20:23,000
+Alpha was one,
+beta was two,
+
+345
+00:20:23,000 --> 00:20:25,000
+gamma was three.
+
+346
+00:20:25,000 --> 00:20:30,000
+The permutation was,
+was the trivial permutation,
+
+347
+00:20:30,000 --> 00:20:33,000
+one two three,
+everybody in the right order.
+
+348
+00:20:33,000 --> 00:20:35,260
+You see that formula?
+
+349
+00:20:35,260 --> 00:20:39,000
+It's -- do you see why I didn't
+want to start with that the
+
+350
+00:20:39,000 --> 00:20:41,000
+first day, Friday?
+
+351
+00:20:41,000 --> 00:20:44,000
+I'd rather we understood the
+properties.
+
+352
+00:20:44,000 --> 00:20:50,000
+Because out of this formula,
+presumably I could figure out
+
+353
+00:20:50,000 --> 00:20:51,760
+all these properties.
+
+354
+00:20:51,760 --> 00:20:56,030
+How would I know that the
+determinant of the identity
+
+355
+00:20:56,030 --> 00:20:58,000
+matrix was one,
+for example,
+
+356
+00:20:58,000 --> 00:20:59,000
+out of this formula?
+
+357
+00:20:59,000 --> 00:21:04,000
+Why is -- if A is the identity
+matrix, how does this formula
+
+358
+00:21:04,000 --> 00:21:06,000
+give me a plus one?
+
+359
+00:21:06,000 --> 00:21:08,000
+You see it, right?
+
+360
+00:21:08,000 --> 00:21:12,000
+Because, because almost all the
+terms are zeros.
+
+361
+00:21:12,000 --> 00:21:15,000
+Which term isn't zero,
+if, if A is the identity
+
+362
+00:21:15,000 --> 00:21:16,000
+matrix?
+
+363
+00:21:16,000 --> 00:21:20,000
+Almost all the terms are zero
+because almost all the As are
+
+364
+00:21:20,000 --> 00:21:20,000
+zero.
+It's only, the only time I'll
+get something is if it's a one
+
+365
+00:21:25,000 --> 00:21:28,000
+one times a two two times a
+three three.
+
+366
+00:21:28,000 --> 00:21:31,000
+Only, only the,
+only the permutation that's in
+
+367
+00:21:31,000 --> 00:21:34,000
+the right order will,
+will give me something.
+
+368
+00:21:34,000 --> 00:21:36,000
+It'll come with a plus sign.
+
+369
+00:21:36,000 --> 00:21:39,700
+And the determinant of the
+identity is one.
+
+370
+00:21:39,700 --> 00:21:43,000
+So, so we could go back from
+this formula and prove
+
+371
+00:21:43,000 --> 00:21:43,000
+everything.
+We could even try to prove that
+the
+
+372
+00:21:46,000 --> 00:21:50,000
+determinant of A B was the
+determinant of A times the
+
+373
+00:21:50,000 --> 00:21:52,000
+determinant of B.
+
+374
+00:21:52,000 --> 00:21:55,000
+But like next week we would
+still be working on it,
+
+375
+00:21:55,000 --> 00:21:59,000
+because it's not -- clear from
+-- if I took A B,
+
+376
+00:21:59,000 --> 00:21:59,000
+my God.
+You know --.
+
+377
+00:22:00,000 --> 00:22:04,000
+The entries of A B would
+be all these pieces.
+
+378
+00:22:04,000 --> 00:22:08,250
+Well, probably,
+it's probably -- historically
+
+379
+00:22:08,250 --> 00:22:11,640
+it's been done,
+but it won't be repeated in
+
+380
+00:22:11,640 --> 00:22:12,000
+eighteen oh six.
+
+381
+00:22:12,000 --> 00:22:13,000
+OK.
+
+382
+00:22:13,000 --> 00:22:18,000
+It would be possible probably
+to see, why the determinant of A
+
+383
+00:22:18,000 --> 00:22:21,000
+equals the
+determinant of A transpose.
+
+384
+00:22:21,000 --> 00:22:24,000
+That was another,
+like, miracle property at the
+
+385
+00:22:24,000 --> 00:22:25,000
+end.
+
+386
+00:22:25,000 --> 00:22:28,000
+That would, that would,
+that's an easier one,
+
+387
+00:22:28,000 --> 00:22:29,000
+which we could find.
+
+388
+00:22:29,000 --> 00:22:29,000
+OK.
+Is that all right for the big
+formula?
+
+389
+00:22:32,000 --> 00:22:37,360
+I could take you then a,
+a typical -- let me do an
+
+390
+00:22:37,360 --> 00:22:38,000
+example.
+
+391
+00:22:38,000 --> 00:22:40,000
+Which I'll just create.
+
+392
+00:22:40,000 --> 00:22:43,000
+I'll take a four by four
+matrix.
+
+393
+00:22:43,000 --> 00:22:47,000
+I'll put some,
+I'll put some ones in and some
+
+394
+00:22:47,000 --> 00:22:48,000
+zeros in.
+
+395
+00:22:48,000 --> 00:22:48,000
+OK.
+Let me -- I don't know how many
+to
+
+396
+00:22:53,130 --> 00:22:55,000
+put in, to tell the truth.
+
+397
+00:22:55,000 --> 00:22:58,000
+I've never done this before.
+
+398
+00:22:58,000 --> 00:23:02,930
+I don't know the determinant of
+that matrix.
+
+399
+00:23:02,930 --> 00:23:08,000
+So like mathematics is being
+done for the first time in,
+
+400
+00:23:08,000 --> 00:23:10,000
+in front of your eyes.
+
+401
+00:23:10,000 --> 00:23:13,000
+What's the determinant?
+
+402
+00:23:13,000 --> 00:23:18,000
+Well, a lot of -- there are
+twenty-four terms,
+
+403
+00:23:18,000 --> 00:23:20,000
+because it's four by four.
+
+404
+00:23:20,000 --> 00:23:25,000
+Many of them will be zero,
+because I've got all those
+
+405
+00:23:25,000 --> 00:23:26,000
+zeros there.
+
+406
+00:23:26,000 --> 00:23:29,000
+Maybe the whole determinant is
+zero.
+
+407
+00:23:29,000 --> 00:23:32,000
+I mean, I -- is that a singular
+matrix?
+
+408
+00:23:32,000 --> 00:23:35,000
+That possibility definitely
+exists.
+
+409
+00:23:35,000 --> 00:23:39,000
+I could, I could,
+So one way to do it would be
+
+410
+00:23:39,000 --> 00:23:40,000
+elimination.
+
+411
+00:23:40,000 --> 00:23:44,000
+Actually, that would probably
+be a fairly reasonable way.
+
+412
+00:23:44,000 --> 00:23:47,000
+I could use elimination,
+so I could use -- go back to
+
+413
+00:23:47,000 --> 00:23:50,000
+those properties,
+that -- and use elimination,
+
+414
+00:23:50,000 --> 00:23:54,000
+get down, eliminate it down,
+do I have a row of zeros at the
+
+415
+00:23:54,000 --> 00:23:56,550
+end of elimination?
+
+416
+00:23:56,550 --> 00:23:58,000
+The answer is zero.
+
+417
+00:23:58,000 --> 00:24:01,000
+I was thinking,
+shall I try this big formula?
+
+418
+00:24:01,000 --> 00:24:02,000
+OK.
+
+419
+00:24:02,000 --> 00:24:04,000
+Let's try the big formula.
+
+420
+00:24:04,000 --> 00:24:08,000
+How -- tell me one way I can go
+down the matrix,
+
+421
+00:24:08,000 --> 00:24:11,000
+taking a one,
+taking a one from
+
+422
+00:24:11,000 --> 00:24:14,000
+every row and column,
+and make it to the end?
+
+423
+00:24:14,000 --> 00:24:17,000
+So it's -- I get something that
+isn't zero.
+
+424
+00:24:17,000 --> 00:24:21,000
+Well, one way to do it,
+I could take that times that
+
+425
+00:24:21,000 --> 00:24:23,000
+times that times that times
+that.
+
+426
+00:24:23,000 --> 00:24:26,000
+That would be one and,
+and, and I just said,
+
+427
+00:24:26,000 --> 00:24:29,000
+that comes in with what sign?
+
+428
+00:24:29,000 --> 00:24:29,000
+Plus.
+That comes with a plus sign.
+
+429
+00:24:32,000 --> 00:24:38,000
+Because, because that
+permutation -- I've just written
+
+430
+00:24:38,000 --> 00:24:44,000
+the permutation about four three
+two one, and one exchange and a
+
+431
+00:24:44,000 --> 00:24:49,000
+second exchange,
+two exchanges puts it in the
+
+432
+00:24:49,000 --> 00:24:50,000
+correct order.
+
+433
+00:24:50,000 --> 00:24:53,000
+Keep walking away,
+don't....
+
+434
+00:24:53,000 --> 00:24:58,000
+OK, we're executing a
+determinant
+
+435
+00:24:58,000 --> 00:25:00,000
+formula here.
+
+436
+00:25:00,000 --> 00:25:06,000
+Uh as long as it's not
+periodic, of course.
+
+437
+00:25:06,000 --> 00:25:11,000
+If he comes back I'm in -- no.
+
+438
+00:25:11,000 --> 00:25:14,000
+All right, all right.
+
+439
+00:25:14,000 --> 00:25:19,000
+OK, so that would give me a
+plus one.
+
+440
+00:25:19,000 --> 00:25:21,000
+All right.
+
+441
+00:25:21,000 --> 00:25:24,000
+Are there any others?
+
+442
+00:25:24,000 --> 00:25:30,000
+Well, of course we see
+another one here.
+
+443
+00:25:30,000 --> 00:25:35,000
+This times this times this
+times this strikes us right
+
+444
+00:25:35,000 --> 00:25:35,000
+away.
+So that's the order three,
+the order -- let me make a
+
+445
+00:25:40,500 --> 00:25:42,000
+little different mark here.
+
+446
+00:25:42,000 --> 00:25:44,000
+Three two one four.
+
+447
+00:25:44,000 --> 00:25:49,000
+And is that a plus or a minus,
+three two one four?
+
+448
+00:25:49,000 --> 00:25:53,000
+Is that, is that permutation a
+plus
+
+449
+00:25:53,000 --> 00:25:54,780
+or a minus permutation?
+
+450
+00:25:54,780 --> 00:25:55,000
+It's a minus.
+
+451
+00:25:55,000 --> 00:25:56,000
+How do you see that?
+
+452
+00:25:56,000 --> 00:26:00,000
+What exchange shall I do to get
+it in the right order?
+
+453
+00:26:00,000 --> 00:26:04,000
+If I exchange the one and the
+three I'm in the right orders,
+
+454
+00:26:04,000 --> 00:26:08,000
+took one exchange to do it,
+so that would be a plus -- that
+
+455
+00:26:08,000 --> 00:26:10,000
+would be a minus one.
+
+456
+00:26:10,000 --> 00:26:14,000
+And now I don't know if
+there're any more here.
+
+457
+00:26:14,000 --> 00:26:14,000
+Let's see.
+Let me try again starting with
+this.
+
+458
+00:26:17,000 --> 00:26:21,000
+Now I've got to pick somebody
+from -- oh yeah,
+
+459
+00:26:21,000 --> 00:26:24,000
+see, you see what's happening.
+
+460
+00:26:24,000 --> 00:26:28,000
+If I I start there,
+OK, column three is used.
+
+461
+00:26:28,000 --> 00:26:31,000
+So then when I go to next row,
+I can't use that,
+
+462
+00:26:31,000 --> 00:26:31,000
+I must use that.
+Now columns two and three are
+used.
+
+463
+00:26:34,000 --> 00:26:36,000
+When I come to this row I must
+use that.
+
+464
+00:26:36,000 --> 00:26:37,000
+And then I must use that.
+
+465
+00:26:37,000 --> 00:26:41,000
+So if I start there,
+this is the only one I get.
+
+466
+00:26:41,000 --> 00:26:44,000
+And similarly,
+if I start there,
+
+467
+00:26:44,000 --> 00:26:46,280
+that's the only one I get.
+
+468
+00:26:46,280 --> 00:26:48,000
+So what's the determinant?
+
+469
+00:26:48,000 --> 00:26:50,000
+What's the determinant?
+
+470
+00:26:50,000 --> 00:26:50,000
+Zero.
+The determinant is zero for
+that case.
+
+471
+00:26:53,000 --> 00:26:57,760
+Because we, we were able to
+check the
+
+472
+00:26:57,760 --> 00:26:58,000
+twenty-four terms.
+
+473
+00:26:58,000 --> 00:27:00,630
+Twenty-two of them were zero.
+
+474
+00:27:00,630 --> 00:27:02,000
+One of them was plus one.
+
+475
+00:27:02,000 --> 00:27:03,000
+One of them was minus one.
+
+476
+00:27:03,000 --> 00:27:06,000
+Add up the twenty-four terms,
+zero is the answer.
+
+477
+00:27:06,000 --> 00:27:06,000
+OK.
+Well, I didn't know it would be
+zero, I -- because I wasn't,
+
+478
+00:27:10,000 --> 00:27:12,000
+like, thinking ahead.
+
+479
+00:27:12,000 --> 00:27:15,000
+I was a little scared,
+actually.
+
+480
+00:27:15,000 --> 00:27:17,000
+I said, that,
+apparition went by.
+
+481
+00:27:17,000 --> 00:27:21,000
+So and I don't know if the
+camera caught that.
+
+482
+00:27:21,000 --> 00:27:26,000
+So whether the rest of the
+world will realize that I was in
+
+483
+00:27:26,000 --> 00:27:29,000
+danger or not,
+we don't know.
+
+484
+00:27:29,000 --> 00:27:33,820
+But anyway, I guess he just
+wanted to be sure
+
+485
+00:27:33,820 --> 00:27:37,000
+that we got the right answer,
+which is determinant zero.
+
+486
+00:27:37,000 --> 00:27:41,000
+And then that makes me think,
+OK, the matrix must be,
+
+487
+00:27:41,000 --> 00:27:43,000
+the matrix must be singular.
+
+488
+00:27:43,000 --> 00:27:47,000
+And then if the matrix is
+singular, maybe there's another
+
+489
+00:27:47,000 --> 00:27:52,000
+way to see that it's singular,
+like find something in its null
+
+490
+00:27:52,000 --> 00:27:53,000
+space.
+
+491
+00:27:53,000 --> 00:27:57,000
+Or find a combination of the
+rows that gives zero.
+
+492
+00:27:57,000 --> 00:28:02,000
+And like what d- what,
+what combination of those rows
+
+493
+00:28:02,000 --> 00:28:03,000
+does give zero.
+
+494
+00:28:03,000 --> 00:28:06,000
+Suppose I add rows one and rows
+three.
+
+495
+00:28:06,000 --> 00:28:11,000
+If I add rows one and rows
+three, what do I get?
+
+496
+00:28:11,000 --> 00:28:14,000
+I get a row of all ones.
+
+497
+00:28:14,000 --> 00:28:18,000
+Then if I add rows two and rows
+four I get a row of all ones.
+
+498
+00:28:18,000 --> 00:28:22,000
+So row one minus row two plus
+row three minus row four is
+
+499
+00:28:22,000 --> 00:28:23,000
+probably the zero row.
+
+500
+00:28:23,000 --> 00:28:25,000
+It's a singular matrix.
+
+501
+00:28:25,000 --> 00:28:28,000
+And I could find something in
+its null space the same way.
+
+502
+00:28:28,000 --> 00:28:33,000
+That would be a combination of
+columns that gives zero.
+
+503
+00:28:33,000 --> 00:28:35,000
+OK, there's an example.
+
+504
+00:28:35,000 --> 00:28:35,930
+All right.
+
+505
+00:28:35,930 --> 00:28:39,000
+So that's, well,
+that shows two things.
+
+506
+00:28:39,000 --> 00:28:43,000
+That shows how we get the
+twenty-four terms and it shows
+
+507
+00:28:43,000 --> 00:28:47,000
+the great advantage of having a
+lot of zeros in there.
+
+508
+00:28:47,000 --> 00:28:47,980
+OK.
+
+509
+00:28:47,980 --> 00:28:54,000
+So we'll use this big formula,
+but I want to pick -- I want to
+
+510
+00:28:54,000 --> 00:28:57,000
+go onward now to cofactors.
+
+511
+00:28:57,000 --> 00:28:59,000
+Onward to cofactors.
+
+512
+00:28:59,000 --> 00:29:04,620
+Cofactors is a way of breaking
+up this big formula that
+
+513
+00:29:04,620 --> 00:29:11,000
+connects this n by n -- this is
+an n by n determinant that we've
+
+514
+00:29:11,000 --> 00:29:15,080
+just have a formula for,
+the big formula.
+
+515
+00:29:15,080 --> 00:29:20,000
+So cofactors is a way to
+connect this n by n determinant
+
+516
+00:29:20,000 --> 00:29:24,000
+to,
+determinants one smaller.
+
+517
+00:29:24,000 --> 00:29:25,000
+One smaller.
+
+518
+00:29:25,000 --> 00:29:32,000
+And the way we want to do it is
+actually going to show up in
+
+519
+00:29:32,000 --> 00:29:32,000
+this.
+Since the three by three is the
+one that we wrote out in full,
+
+520
+00:29:38,000 --> 00:29:44,000
+let's, let me do this three by
+-- so I'm talking about
+
+521
+00:29:44,000 --> 00:29:51,000
+cofactors, and I'm going to
+start again with three by three.
+
+522
+00:29:51,000 --> 00:29:55,000
+And I'm going to take the,
+the exact formula,
+
+523
+00:29:55,000 --> 00:30:00,000
+and I'm just going to write it
+as a one one -- this is the
+
+524
+00:30:00,000 --> 00:30:02,000
+determinant I'm writing.
+
+525
+00:30:02,000 --> 00:30:06,000
+I'm just going to say a one one
+times what?
+
+526
+00:30:06,000 --> 00:30:08,000
+A one one times what?
+
+527
+00:30:08,000 --> 00:30:14,000
+And it's a one one times a two
+two a three three minus a two
+
+528
+00:30:14,000 --> 00:30:16,000
+three a three two.
+
+529
+00:30:16,000 --> 00:30:22,000
+Then I've got the a one two
+stuff times something.
+
+530
+00:30:22,000 --> 00:30:28,000
+And I've got the a one three
+stuff times something.
+
+531
+00:30:28,000 --> 00:30:30,000
+Do you see what I'm doing?
+
+532
+00:30:30,000 --> 00:30:36,000
+I'm taking our big formula and
+I'm saying, OK,
+
+533
+00:30:36,000 --> 00:30:41,000
+choose column -- out of the
+first row,
+
+534
+00:30:41,000 --> 00:30:43,000
+choose column one.
+
+535
+00:30:43,000 --> 00:30:46,000
+And take all the possibilities.
+
+536
+00:30:46,000 --> 00:30:53,000
+And those extra factors will be
+what we'll call the cofactor,
+
+537
+00:30:53,000 --> 00:30:56,000
+co meaning going with a one
+one.
+
+538
+00:30:56,000 --> 00:31:00,000
+So this in parenthesis are,
+these are in,
+
+539
+00:31:00,000 --> 00:31:03,810
+the cofactors are in parens.
+
+540
+00:31:03,810 --> 00:31:06,000
+A one one times something.
+
+541
+00:31:06,000 --> 00:31:12,000
+And I figured out what that
+something was by just looking
+
+542
+00:31:12,000 --> 00:31:17,000
+back -- if I can walk back here
+to the, to the a one one,
+
+543
+00:31:17,000 --> 00:31:21,000
+the one that comes down the
+diagonal minus the one that
+
+544
+00:31:21,000 --> 00:31:22,000
+comes that way.
+
+545
+00:31:22,000 --> 00:31:26,760
+That's, those are the two,
+only two that used a one one.
+
+546
+00:31:26,760 --> 00:31:30,000
+So there they are,
+one with a plus and one with a
+
+547
+00:31:30,000 --> 00:31:30,000
+minus.
+And now I can write in the --
+I could look back and see what
+
+548
+00:31:36,000 --> 00:31:40,000
+used a one two and I can see
+what used a one three,
+
+549
+00:31:40,000 --> 00:31:45,000
+and those will give me the
+cofactors of a one two and a one
+
+550
+00:31:45,000 --> 00:31:45,000
+three.
+Before I do that,
+what's this number,
+
+551
+00:31:48,000 --> 00:31:50,000
+what is this cofactor?
+
+552
+00:31:50,000 --> 00:31:55,130
+What is it there that's
+multiplying a one one?
+
+553
+00:31:55,130 --> 00:32:01,000
+Tell me what a two two a three
+three minus a two three a three
+
+554
+00:32:01,000 --> 00:32:05,570
+two is, for this -- do you
+recognize that?
+
+555
+00:32:05,570 --> 00:32:11,000
+Do you recognize -- let's see,
+I can -- and I'll put it here.
+
+556
+00:32:11,000 --> 00:32:13,000
+There's the a one one.
+
+557
+00:32:13,000 --> 00:32:16,000
+That's used column one.
+
+558
+00:32:16,000 --> 00:32:21,640
+Then there's --
+the other factors involved
+
+559
+00:32:21,640 --> 00:32:23,000
+these other columns.
+
+560
+00:32:23,000 --> 00:32:25,000
+This row is used.
+
+561
+00:32:25,000 --> 00:32:27,000
+This column is used.
+
+562
+00:32:27,000 --> 00:32:32,000
+So this the only things left to
+use are these.
+
+563
+00:32:32,000 --> 00:32:37,000
+And this formula uses them,
+and what's the,
+
+564
+00:32:37,000 --> 00:32:39,000
+what's the cofactor?
+
+565
+00:32:39,000 --> 00:32:46,330
+Tell me what it is because you
+see it, and then --
+
+566
+00:32:46,330 --> 00:32:50,000
+I'll be happy you see what the
+idea of cofactors.
+
+567
+00:32:50,000 --> 00:32:54,390
+It's the determinant of this
+smaller guy.
+
+568
+00:32:54,390 --> 00:32:59,000
+A one one multiplies the
+determinant of this smaller guy.
+
+569
+00:32:59,000 --> 00:33:04,000
+That gives me all the a one one
+part of the big formula.
+
+570
+00:33:04,000 --> 00:33:05,000
+You see that?
+
+571
+00:33:05,000 --> 00:33:11,000
+This, the determinant of this
+smaller guy is a two two a
+
+572
+00:33:11,000 --> 00:33:15,000
+three three minus a two three a
+three two.
+
+573
+00:33:15,000 --> 00:33:19,000
+In other words,
+once I've used column one and
+
+574
+00:33:19,000 --> 00:33:24,000
+row one, what's left is all the
+ways to use the other n-1
+
+575
+00:33:24,000 --> 00:33:26,000
+columns and n-1 rows,
+one of each.
+
+576
+00:33:26,000 --> 00:33:32,000
+All the other -- and that's the
+determinant of the smaller guy
+
+577
+00:33:32,000 --> 00:33:34,000
+of size n-1.
+
+578
+00:33:34,000 --> 00:33:37,000
+So that's the whole idea of
+cofactors.
+
+579
+00:33:37,000 --> 00:33:42,000
+And we just have to remember
+that with determinants we've got
+
+580
+00:33:42,000 --> 00:33:46,000
+pluses and minus signs to keep
+straight.
+
+581
+00:33:46,000 --> 00:33:49,000
+Can we keep this next one
+straight?
+
+582
+00:33:49,000 --> 00:33:51,000
+Let's do the next one.
+
+583
+00:33:51,000 --> 00:33:54,000
+OK, the next one will be when I
+use a one two.
+
+584
+00:33:54,000 --> 00:34:00,000
+I'll have left --
+so I can't use that column any
+
+585
+00:34:00,000 --> 00:34:07,000
+more, but I can use a two one
+and a two three and I can use a
+
+586
+00:34:07,000 --> 00:34:10,000
+three one and a three three.
+
+587
+00:34:10,000 --> 00:34:15,000
+So this one gave me a one times
+that determinant.
+
+588
+00:34:15,000 --> 00:34:20,000
+This will give me a one two
+times this determinant,
+
+589
+00:34:20,000 --> 00:34:27,000
+a two one a three three minus a
+two three a three one.
+
+590
+00:34:27,000 --> 00:34:30,000
+So that's all the stuff
+involving a one two.
+
+591
+00:34:30,000 --> 00:34:33,460
+But have I got the sign right?
+
+592
+00:34:33,460 --> 00:34:38,000
+Is the determinant of that
+correctly given by that or is
+
+593
+00:34:38,000 --> 00:34:39,000
+there a minus sign?
+
+594
+00:34:39,000 --> 00:34:41,540
+There is a minus sign.
+
+595
+00:34:41,540 --> 00:34:43,000
+I can follow one of these.
+
+596
+00:34:43,000 --> 00:34:48,000
+If I do that times that times
+that, that was one that's
+
+597
+00:34:48,000 --> 00:34:52,000
+showing up
+here, but it should have showed
+
+598
+00:34:52,000 --> 00:34:55,000
+-- it should have been a minus.
+
+599
+00:34:55,000 --> 00:34:59,910
+So I'm going to build that
+minus sign into the cofactor.
+
+600
+00:34:59,910 --> 00:35:04,000
+So, so the cofactor -- so I'll
+put, put that minus sign in
+
+601
+00:35:04,000 --> 00:35:05,140
+here.
+
+602
+00:35:05,140 --> 00:35:09,000
+So because the cofactor is
+going to be strictly the thing
+
+603
+00:35:09,000 --> 00:35:13,000
+that multiplies the,
+the factor.
+
+604
+00:35:13,000 --> 00:35:16,000
+The factor is a one two,
+the cofactor is this,
+
+605
+00:35:16,000 --> 00:35:19,430
+is the parens,
+the stuff in parentheses.
+
+606
+00:35:19,430 --> 00:35:21,000
+So it's got the minus sign
+built in.
+
+607
+00:35:21,000 --> 00:35:25,000
+And if I did -- if I went on to
+the third guy,
+
+608
+00:35:25,000 --> 00:35:28,000
+there w- there'll be this and
+this, this and this.
+
+609
+00:35:28,000 --> 00:35:31,000
+And it would take its
+determinant.
+
+610
+00:35:31,000 --> 00:35:34,000
+It would come out plus
+the determinant.
+
+611
+00:35:34,000 --> 00:35:38,000
+So now I'm ready to say what
+cofactors are.
+
+612
+00:35:38,000 --> 00:35:42,000
+So this would be a plus and a
+one three times its cofactor.
+
+613
+00:35:42,000 --> 00:35:47,000
+And over here we had plus a one
+one times this determinant.
+
+614
+00:35:47,000 --> 00:35:51,000
+But and there we had the a one
+two times its cofactor,
+
+615
+00:35:51,000 --> 00:35:58,000
+but the -- so the point is the
+cofactor is either plus or
+
+616
+00:35:58,000 --> 00:36:00,000
+minus the determinant.
+
+617
+00:36:00,000 --> 00:36:05,000
+So let me write that underneath
+them.
+
+618
+00:36:05,000 --> 00:36:09,000
+What is the,
+what are cofactors?
+
+619
+00:36:09,000 --> 00:36:14,000
+The cofactor if any number aij,
+let's say.
+
+620
+00:36:14,000 --> 00:36:19,000
+This is, this is all the terms
+in the,
+
+621
+00:36:19,000 --> 00:36:23,000
+in the big formula that involve
+aij.
+
+622
+00:36:23,000 --> 00:36:29,000
+We're especially interested in
+a1j, the first row,
+
+623
+00:36:29,000 --> 00:36:35,000
+that's what I've been talking
+about, but any row would be all
+
+624
+00:36:35,000 --> 00:36:36,000
+right.
+
+625
+00:36:36,000 --> 00:36:40,000
+All right, so -- what terms
+involve aij?
+
+626
+00:36:40,000 --> 00:36:45,000
+So --
+it's the determinant of the n
+
+627
+00:36:45,000 --> 00:36:51,000
+minus one matrix -- with row i,
+column j erased.
+
+628
+00:36:51,000 --> 00:36:57,230
+So it's the,
+it's a matrix of size n-1 with
+
+629
+00:36:57,230 --> 00:37:02,860
+-- of course,
+because I can't use this row or
+
+630
+00:37:02,860 --> 00:37:05,000
+this column again.
+
+631
+00:37:05,000 --> 00:37:09,000
+So I have the matrix all there.
+
+632
+00:37:09,000 --> 00:37:15,000
+But now it's multiplied
+by a plus or a minus.
+
+633
+00:37:15,000 --> 00:37:19,000
+This is the cofactor,
+and I'm going to call that cij.
+
+634
+00:37:19,000 --> 00:37:25,000
+Capital, I use capital c just
+to, just to emphasize that these
+
+635
+00:37:25,000 --> 00:37:29,000
+are important and emphasize that
+they're, they're,
+
+636
+00:37:29,000 --> 00:37:32,000
+they're different from the
+(a)s.
+
+637
+00:37:32,000 --> 00:37:32,000
+OK.
+So now is it a plus
+or is it a minus?
+
+638
+00:37:36,000 --> 00:37:42,000
+Because we see that in this
+case, for a one one it was a
+
+639
+00:37:42,000 --> 00:37:46,000
+plus, for a one two I -- this is
+ij -- it was a minus.
+
+640
+00:37:46,000 --> 00:37:49,000
+For this ij it was a plus.
+
+641
+00:37:49,000 --> 00:37:54,000
+So any any guess on the rule
+for plus or minus when we see
+
+642
+00:37:54,000 --> 00:37:58,000
+those examples,
+ij equal one one or one three
+
+643
+00:37:58,000 --> 00:38:00,000
+was a plus?
+
+644
+00:38:00,000 --> 00:38:05,000
+It sounds very like i+j odd or
+even.
+
+645
+00:38:05,000 --> 00:38:12,000
+That, that's doesn't surprise
+us, and that's the right answer.
+
+646
+00:38:12,000 --> 00:38:20,000
+So it's a plus if i+j is even
+and it's a minus if i+j is odd.
+
+647
+00:38:20,000 --> 00:38:26,000
+So if I go along row one and
+look at the cofactors,
+
+648
+00:38:26,000 --> 00:38:34,000
+I just take those determinants,
+those one smaller determinants,
+
+649
+00:38:34,000 --> 00:38:38,000
+and
+they come in order plus minus
+
+650
+00:38:38,000 --> 00:38:40,000
+plus minus plus minus.
+
+651
+00:38:40,000 --> 00:38:45,000
+But if I go along row two and,
+and, and take the cofactors of
+
+652
+00:38:45,000 --> 00:38:49,000
+sub-determinants,
+they would start with a minus,
+
+653
+00:38:49,000 --> 00:38:53,000
+because the two one entry,
+two plus one is odd,
+
+654
+00:38:53,000 --> 00:38:58,000
+so the -- like there's a
+pattern plus minus plus minus
+
+655
+00:38:58,000 --> 00:39:05,000
+plus if it was five by
+five, but then if I was doing a
+
+656
+00:39:05,000 --> 00:39:12,000
+cofactor then this sign would be
+minus plus minus plus minus,
+
+657
+00:39:12,000 --> 00:39:17,000
+plus minus plus -- it's sort of
+checkerboard.
+
+658
+00:39:17,000 --> 00:39:17,000
+OK.
+OK.
+Those are the signs that,
+that are given by this rule,
+
+659
+00:39:24,130 --> 00:39:25,000
+i+j even or odd.
+
+660
+00:39:25,000 --> 00:39:31,000
+And those are built
+into the cofactors.
+
+661
+00:39:31,000 --> 00:39:36,000
+The thing is called a minor
+without th- before you've built
+
+662
+00:39:36,000 --> 00:39:40,000
+in the sign, but I don't care
+about those.
+
+663
+00:39:40,000 --> 00:39:44,020
+Build in that sign and call it
+a cofactor.
+
+664
+00:39:44,020 --> 00:39:44,000
+OK.
+
+665
+00:39:44,000 --> 00:39:47,000
+So what's the cofactor formula?
+
+666
+00:39:47,000 --> 00:39:50,000
+What's the cofactor formula
+then?
+
+667
+00:39:50,000 --> 00:39:54,000
+Let me come back to this board
+and
+
+668
+00:39:54,000 --> 00:39:58,000
+say, what's the cofactor
+formula?
+
+669
+00:39:58,000 --> 00:40:04,000
+Determinant of A is -- let's go
+along the first row.
+
+670
+00:40:04,000 --> 00:40:11,000
+It's a one one times its
+cofactor, and then the second
+
+671
+00:40:11,000 --> 00:40:18,000
+guy is a one two times its
+cofactor, and you just keep
+
+672
+00:40:18,000 --> 00:40:25,000
+going to the end of the row,
+a1n times its cofactor.
+
+673
+00:40:25,000 --> 00:40:31,000
+So that's cofactor for --
+along row one.
+
+674
+00:40:31,000 --> 00:40:38,000
+And if I went along row I,
+I would -- those ones would be
+
+675
+00:40:38,000 --> 00:40:38,000
+Is.
+That's worth putting a box
+over.
+
+676
+00:40:42,000 --> 00:40:46,000
+That's the cofactor formula.
+
+677
+00:40:46,000 --> 00:40:53,000
+Do you see that -- actually,
+this would give me another way
+
+678
+00:40:53,000 --> 00:40:59,000
+I could have started the whole
+topic of determinants.
+
+679
+00:40:59,000 --> 00:41:05,000
+And some, some people might do
+it
+
+680
+00:41:05,000 --> 00:41:07,000
+this -- choose to do it this
+way.
+
+681
+00:41:07,000 --> 00:41:11,000
+Because the cofactor formula
+would allow me to build up an n
+
+682
+00:41:11,000 --> 00:41:14,000
+by n determinant out of n-1
+sized determinants,
+
+683
+00:41:14,000 --> 00:41:17,000
+build those out of n-2,
+and so on.
+
+684
+00:41:17,000 --> 00:41:19,990
+I could boil all the way down
+to one by ones.
+
+685
+00:41:19,990 --> 00:41:23,000
+So what's the cofactor formula
+for
+
+686
+00:41:23,000 --> 00:41:24,000
+two by two matrices?
+
+687
+00:41:24,000 --> 00:41:26,000
+Yeah, tell me that.
+
+688
+00:41:26,000 --> 00:41:28,000
+What's the cofactor for us?
+
+689
+00:41:28,000 --> 00:41:32,000
+Here is the,
+here is the world's smallest
+
+690
+00:41:32,000 --> 00:41:35,000
+example, practically,
+of a cofactor formula.
+
+691
+00:41:35,000 --> 00:41:36,000
+OK.
+
+692
+00:41:36,000 --> 00:41:38,000
+Let's go along row one.
+
+693
+00:41:38,000 --> 00:41:42,000
+I take this first guy
+times its cofactor.
+
+694
+00:41:42,000 --> 00:41:46,000
+What's the cofactor of the one
+one entry?
+
+695
+00:41:46,000 --> 00:41:51,000
+d, because you strike out the
+one one row and column and
+
+696
+00:41:51,000 --> 00:41:53,000
+you're left with d.
+
+697
+00:41:53,000 --> 00:41:57,000
+Then I take this guy,
+b, times its cofactor.
+
+698
+00:41:57,000 --> 00:42:00,000
+What's the cofactor of b?
+
+699
+00:42:00,000 --> 00:42:05,000
+Is it c or it's --
+minus c, because I strike out
+
+700
+00:42:05,000 --> 00:42:10,000
+this guy, I take that
+determinant, and then I follow
+
+701
+00:42:10,000 --> 00:42:15,000
+the i+j rule and I get a minus,
+I get an odd.
+
+702
+00:42:15,000 --> 00:42:17,000
+So it's b times minus c.
+
+703
+00:42:17,000 --> 00:42:19,000
+OK, it worked.
+
+704
+00:42:19,000 --> 00:42:21,000
+Of course it,
+it worked.
+
+705
+00:42:21,000 --> 00:42:24,000
+And the three by three works.
+
+706
+00:42:24,000 --> 00:42:29,000
+So that's the cofactor formula,
+and that is,
+
+707
+00:42:29,000 --> 00:42:33,000
+that's an -- that's a good
+formula to know,
+
+708
+00:42:33,000 --> 00:42:39,000
+and now I'm feeling like,
+wow, I'm giving you a lot of
+
+709
+00:42:39,000 --> 00:42:41,000
+algebra to swallow here.
+
+710
+00:42:41,000 --> 00:42:45,000
+Last lecture gave you ten
+properties.
+
+711
+00:42:45,000 --> 00:42:51,000
+Now I'm giving you -- and by
+the way, those ten
+
+712
+00:42:51,000 --> 00:42:55,000
+properties led us to a formula
+for the determinant which was
+
+713
+00:42:55,000 --> 00:42:58,000
+very important,
+and I haven't repeated it till
+
+714
+00:42:58,000 --> 00:42:59,000
+now.
+
+715
+00:42:59,000 --> 00:43:00,000
+What was that?
+
+716
+00:43:00,000 --> 00:43:03,000
+The, the determinant is the
+product of the pivots.
+
+717
+00:43:03,000 --> 00:43:06,000
+So the pivot formula is,
+is very important.
+
+718
+00:43:06,000 --> 00:43:09,000
+The pivots have all this
+complicated
+
+719
+00:43:09,000 --> 00:43:11,000
+mess already built in.
+
+720
+00:43:11,000 --> 00:43:16,000
+As you did elimination to get
+the pivots, you built in all
+
+721
+00:43:16,000 --> 00:43:19,000
+this horrible stuff,
+quite efficiently.
+
+722
+00:43:19,000 --> 00:43:23,000
+Then the big formula with the n
+factorial terms,
+
+723
+00:43:23,000 --> 00:43:27,000
+that's got all the horrible
+stuff spread out.
+
+724
+00:43:27,000 --> 00:43:32,000
+And the cofactor formula is
+like in between.
+
+725
+00:43:32,000 --> 00:43:36,000
+It's got easy stuff times
+horrible stuff,
+
+726
+00:43:36,000 --> 00:43:37,000
+basically.
+
+727
+00:43:37,000 --> 00:43:42,000
+But it's, it shows you,
+how to get determinants from
+
+728
+00:43:42,000 --> 00:43:47,000
+smaller determinants,
+and that's the application that
+
+729
+00:43:47,000 --> 00:43:49,000
+I now want to make.
+
+730
+00:43:49,000 --> 00:43:52,700
+So may I do one more example?
+
+731
+00:43:52,700 --> 00:43:55,000
+So I remember the general idea.
+
+732
+00:43:55,000 --> 00:44:00,000
+But I'm going to use this
+cofactor
+
+733
+00:44:00,000 --> 00:44:06,000
+formula for a matrix -- so here
+is going to be my example.
+
+734
+00:44:06,000 --> 00:44:11,400
+It's -- I promised in the,
+in the lecture,
+
+735
+00:44:11,400 --> 00:44:16,000
+outline at the very beginning
+to do an example.
+
+736
+00:44:16,000 --> 00:44:22,000
+And let me do -- I'm going to
+pick tri-diagonal matrix of
+
+737
+00:44:22,000 --> 00:44:24,000
+ones.
+
+738
+00:44:24,000 --> 00:44:30,010
+I could, I'm drawing here the
+four by four.
+
+739
+00:44:30,010 --> 00:44:33,000
+So this will be the matrix.
+
+740
+00:44:33,000 --> 00:44:36,000
+I could call that A4.
+
+741
+00:44:36,000 --> 00:44:40,930
+But my real idea is to do n by
+n.
+
+742
+00:44:40,930 --> 00:44:42,000
+To do them all.
+
+743
+00:44:42,000 --> 00:44:51,000
+So A -- I could -- everybody
+understands what A1 and A2 are.
+
+744
+00:44:51,000 --> 00:44:53,000
+Yeah.
+
+745
+00:44:53,000 --> 00:44:58,630
+Maybe we should just do A1 and
+A2 and A3 just for -- so this is
+
+746
+00:44:58,630 --> 00:44:58,000
+A4.
+
+747
+00:44:58,000 --> 00:45:01,000
+What's the determinant of A1?
+
+748
+00:45:01,000 --> 00:45:04,090
+What's the determinant of A1?
+
+749
+00:45:04,090 --> 00:45:07,000
+So, so what's the matrix A1 in
+this formula?
+
+750
+00:45:07,000 --> 00:45:09,640
+It's just got that.
+
+751
+00:45:09,640 --> 00:45:11,000
+So the determinant is one.
+
+752
+00:45:11,000 --> 00:45:14,000
+What's the determinant of A2?
+
+753
+00:45:14,000 --> 00:45:18,000
+So it's just got this two by
+two,
+
+754
+00:45:18,000 --> 00:45:20,000
+and its determinant is -- zero.
+
+755
+00:45:20,000 --> 00:45:23,000
+And then the three by three.
+
+756
+00:45:23,000 --> 00:45:25,000
+Can we see its determinant?
+
+757
+00:45:25,000 --> 00:45:29,000
+Can you take the determinant of
+that three by three?
+
+758
+00:45:29,000 --> 00:45:33,000
+Well, that's not quite so
+obvious, at least not to me.
+
+759
+00:45:33,000 --> 00:45:37,000
+Being three by three,
+I don't know -- so here's a,
+
+760
+00:45:37,000 --> 00:45:40,000
+here's a good example.
+
+761
+00:45:40,000 --> 00:45:43,000
+How would you do that three by
+three determinant?
+
+762
+00:45:43,000 --> 00:45:46,000
+We've got, like,
+n factorial different ways.
+
+763
+00:45:46,000 --> 00:45:47,000
+Well, three factorial.
+
+764
+00:45:47,000 --> 00:45:49,000
+So we've got six ways.
+
+765
+00:45:49,000 --> 00:45:49,000
+OK.
+I mean, one way to do it --
+actually the way I would
+
+766
+00:45:53,000 --> 00:45:55,000
+probably do it,
+being three by three,
+
+767
+00:45:55,000 --> 00:45:58,000
+I would use the complete the
+big formula.
+
+768
+00:45:58,000 --> 00:46:00,000
+I would say,
+I've got a one from that,
+
+769
+00:46:00,000 --> 00:46:03,000
+I've got a zero from that,
+I've got a zero from that,
+
+770
+00:46:03,000 --> 00:46:05,000
+a zero from that,
+and this direction is a minus
+
+771
+00:46:05,000 --> 00:46:09,010
+one,
+that direction's a minus one.
+
+772
+00:46:09,010 --> 00:46:11,000
+I believe the answer is minus
+one.
+
+773
+00:46:11,000 --> 00:46:13,000
+Would you do it another way?
+
+774
+00:46:13,000 --> 00:46:16,000
+Here's another way to do it,
+look.
+
+775
+00:46:16,000 --> 00:46:21,000
+Subtract row three from -- I'm
+just looking at this three by
+
+776
+00:46:21,000 --> 00:46:21,000
+three.
+Everybody's looking at the
+three by three.
+
+777
+00:46:25,000 --> 00:46:28,000
+Subtract row three from row
+two.
+
+778
+00:46:28,000 --> 00:46:30,000
+Determinant doesn't change.
+
+779
+00:46:30,000 --> 00:46:32,440
+So those become zeros.
+
+780
+00:46:32,440 --> 00:46:34,000
+OK, now use the cofactor
+formula.
+
+781
+00:46:34,000 --> 00:46:35,000
+How's that?
+
+782
+00:46:35,000 --> 00:46:40,000
+How can, how -- if this was now
+zeros and I'm looking at this
+
+783
+00:46:40,000 --> 00:46:43,000
+three by three,
+use the cofactor formula.
+
+784
+00:46:43,000 --> 00:46:48,000
+Why not use the cofactor
+formula along that row?
+
+785
+00:46:48,000 --> 00:46:53,000
+Because then I take that number
+times its cofactor,
+
+786
+00:46:53,000 --> 00:46:59,000
+so I take this number -- let me
+put a box around it -- times its
+
+787
+00:46:59,000 --> 00:47:04,970
+cofactor, which is the
+determinant of that and that,
+
+788
+00:47:04,970 --> 00:47:06,000
+which is what?
+
+789
+00:47:06,000 --> 00:47:10,000
+That two by two matrix has
+determinant one.
+
+790
+00:47:10,000 --> 00:47:13,000
+So what's the cofactor?
+
+791
+00:47:13,000 --> 00:47:17,000
+What's the cofactor of this guy
+here?
+
+792
+00:47:17,000 --> 00:47:21,000
+Looking just at this three by
+three.
+
+793
+00:47:21,000 --> 00:47:25,000
+The cofactor of that one is
+this determinant,
+
+794
+00:47:25,000 --> 00:47:28,000
+which is one times negative.
+
+795
+00:47:28,000 --> 00:47:33,000
+So that's why the answer came
+out minus one.
+
+796
+00:47:33,000 --> 00:47:34,590
+OK.
+
+797
+00:47:34,590 --> 00:47:36,000
+So I did the three by three.
+
+798
+00:47:36,000 --> 00:47:39,000
+I don't know if we want to try
+the four by four.
+
+799
+00:47:39,000 --> 00:47:42,000
+Yeah, let's -- I guess that was
+the point of my example,
+
+800
+00:47:42,000 --> 00:47:44,000
+of course, so I have to try it.
+
+801
+00:47:44,000 --> 00:47:47,000
+Sorry, I'm in a good mood
+today, so you have to stand for
+
+802
+00:47:47,000 --> 00:47:49,590
+all the bad jokes.
+
+803
+00:47:49,590 --> 00:47:49,000
+OK.
+
+804
+00:47:49,000 --> 00:47:50,000
+OK.
+
+805
+00:47:50,000 --> 00:47:52,950
+So what was the matrix?
+
+806
+00:47:52,950 --> 00:47:53,000
+Ah.
+
+807
+00:47:53,000 --> 00:47:57,000
+OK, now I'm ready for four by
+four.
+
+808
+00:47:57,000 --> 00:48:04,000
+Who wants to -- who wants to
+guess the, the -- I don't know,
+
+809
+00:48:04,000 --> 00:48:10,000
+frankly, this four by four,
+what's, what's the determinant.
+
+810
+00:48:10,000 --> 00:48:14,000
+I plan to use cofactors.
+
+811
+00:48:14,000 --> 00:48:16,000
+OK, let's use cofactors.
+
+812
+00:48:16,000 --> 00:48:21,000
+The determinant of A4 is -- OK,
+let's use cofactors on the
+
+813
+00:48:21,000 --> 00:48:22,000
+first row.
+
+814
+00:48:22,000 --> 00:48:23,770
+Those are easy.
+
+815
+00:48:23,770 --> 00:48:28,000
+So I multiply this number,
+which is a convenient one,
+
+816
+00:48:28,000 --> 00:48:30,000
+times this determinant.
+
+817
+00:48:30,000 --> 00:48:34,000
+So it's, it's one times the,
+this three by three
+
+818
+00:48:34,000 --> 00:48:35,000
+determinant.
+
+819
+00:48:35,000 --> 00:48:40,000
+Now what is -- do you recognize
+that matrix?
+
+820
+00:48:40,000 --> 00:48:40,000
+It's A3.
+So it's one times the
+determinant of A3.
+
+821
+00:48:44,000 --> 00:48:49,000
+Coming along this row is a one
+times this determinant,
+
+822
+00:48:49,000 --> 00:48:52,000
+and it goes with a plus,
+right?
+
+823
+00:48:52,000 --> 00:48:55,000
+And then we have this one.
+
+824
+00:48:55,000 --> 00:48:58,000
+And what is its cofactor?
+
+825
+00:48:58,000 --> 00:49:01,000
+Now I'm looking at,
+now I'm looking at this three
+
+826
+00:49:01,000 --> 00:49:05,000
+by three, this three by three,
+so I'm looking at the three by
+
+827
+00:49:05,000 --> 00:49:07,000
+three that I haven't X-ed out.
+
+828
+00:49:07,000 --> 00:49:11,120
+What is that -- oh,
+now it, we did a plus or a --
+
+829
+00:49:11,120 --> 00:49:14,000
+is it plus this determinant,
+this three by three
+
+830
+00:49:14,000 --> 00:49:16,000
+determinant, or minus it?
+
+831
+00:49:16,000 --> 00:49:19,000
+It's minus it,
+right, because this is -- I'm
+
+832
+00:49:19,000 --> 00:49:23,000
+starting in a one two position,
+and that's a minus.
+
+833
+00:49:23,000 --> 00:49:26,000
+So I want minus this
+determinant.
+
+834
+00:49:26,000 --> 00:49:28,000
+But these guys are X-ed out.
+
+835
+00:49:28,000 --> 00:49:28,000
+OK.
+So I've got a three by three.
+
+836
+00:49:30,000 --> 00:49:32,000
+Well, let's use cofactors
+again.
+
+837
+00:49:32,000 --> 00:49:38,000
+Use cofactors of the column,
+because actually we could use
+
+838
+00:49:38,000 --> 00:49:41,000
+cofactors of columns just as
+well as rows,
+
+839
+00:49:41,000 --> 00:49:44,640
+because, because the transpose
+rule.
+
+840
+00:49:44,640 --> 00:49:48,000
+So I'll take this one,
+which is now sitting in the
+
+841
+00:49:48,000 --> 00:49:52,000
+plus position,
+times its determinant -- oh!
+
+842
+00:49:52,000 --> 00:49:52,000
+Oh, hell.
+What -- oh yeah,
+I shouldn't have said hell,
+
+843
+00:49:57,000 --> 00:49:58,000
+because it's all right.
+
+844
+00:49:58,000 --> 00:49:58,000
+OK.
+One times the determinant.
+
+845
+00:50:00,000 --> 00:50:03,000
+What is that matrix now that
+I'm taking the,
+
+846
+00:50:03,000 --> 00:50:04,000
+this smaller one of?
+
+847
+00:50:04,000 --> 00:50:06,000
+Oh, but there's a minus,
+right?
+
+848
+00:50:06,000 --> 00:50:10,400
+The minus came from,
+from the fact that this was in
+
+849
+00:50:10,400 --> 00:50:13,000
+the one two position and that's
+odd.
+
+850
+00:50:13,000 --> 00:50:20,000
+So this is a minus one times --
+and what's -- and then this one
+
+851
+00:50:20,000 --> 00:50:25,000
+is the upper left,
+that's the one one position in
+
+852
+00:50:25,000 --> 00:50:27,000
+its matrix, so plus.
+
+853
+00:50:27,000 --> 00:50:30,000
+And what's this matrix here?
+
+854
+00:50:30,000 --> 00:50:32,000
+Do you recognize that?
+
+855
+00:50:32,000 --> 00:50:36,000
+That matrix is -- yes,
+please say it -- A2.
+
+856
+00:50:36,000 --> 00:50:41,000
+And we -- that's our formula
+for any case.
+
+857
+00:50:41,000 --> 00:50:47,810
+A of any size n is equal to the
+determinant of A n minus one,
+
+858
+00:50:47,810 --> 00:50:53,000
+that's what came from taking
+the one in the upper corner,
+
+859
+00:50:53,000 --> 00:50:57,000
+the first cofactor,
+minus the determinant of A n
+
+860
+00:50:57,000 --> 00:50:58,000
+minus two.
+
+861
+00:50:58,000 --> 00:51:02,000
+What we discovered there is
+true for all n.
+
+862
+00:51:02,000 --> 00:51:08,000
+I didn't even mention it,
+but I stopped taking cofactors
+
+863
+00:51:08,000 --> 00:51:10,000
+when I got this one.
+
+864
+00:51:10,000 --> 00:51:11,000
+Why did I stop?
+
+865
+00:51:11,000 --> 00:51:15,000
+Why didn't I take the cofactor
+of this guy?
+
+866
+00:51:15,000 --> 00:51:19,000
+Because he's going to get
+multiplied by zero,
+
+867
+00:51:19,000 --> 00:51:21,000
+and no, no use wasting time.
+
+868
+00:51:21,000 --> 00:51:22,000
+Or this one too.
+
+869
+00:51:22,000 --> 00:51:27,000
+The cofactor,
+her cofactor will be whatever
+
+870
+00:51:27,000 --> 00:51:30,000
+that determinant is,
+but it'll be multiplied by
+
+871
+00:51:30,000 --> 00:51:32,000
+zero, so I won't bother.
+
+872
+00:51:32,000 --> 00:51:34,000
+OK, there is the formula.
+
+873
+00:51:34,000 --> 00:51:39,000
+And that now tells us -- I
+could figure out what A4 is now.
+
+874
+00:51:39,000 --> 00:51:42,000
+Oh yeah, finally I can get A4.
+
+875
+00:51:42,000 --> 00:51:45,000
+Because it's A3,
+which is minus one,
+
+876
+00:51:45,000 --> 00:51:49,000
+minus A2, which is zero,
+so it's minus one.
+
+877
+00:51:49,000 --> 00:51:54,000
+You see how we're getting kind
+of numbers that you might not
+
+878
+00:51:54,000 --> 00:51:55,000
+have guessed.
+
+879
+00:51:55,000 --> 00:52:00,000
+So our sequence right now is
+one zero minus one minus one.
+
+880
+00:52:00,000 --> 00:52:03,710
+What's the next one in the
+sequence, A5?
+
+881
+00:52:03,710 --> 00:52:08,000
+A5 is this minus this,
+so it is zero.
+
+882
+00:52:08,000 --> 00:52:09,000
+What's A6?
+
+883
+00:52:09,000 --> 00:52:13,000
+A6 is this minus this,
+which is one.
+
+884
+00:52:13,000 --> 00:52:14,000
+What's A7?
+
+885
+00:52:14,000 --> 00:52:22,000
+I'm, I'm going to be stopped by
+either the time runs out or the
+
+886
+00:52:22,000 --> 00:52:24,000
+board runs out.
+
+887
+00:52:24,000 --> 00:52:28,000
+OK, A7 is this minus this,
+which is one.
+
+888
+00:52:28,000 --> 00:52:33,000
+I'll stop here,
+because time is out,
+
+889
+00:52:33,000 --> 00:52:36,610
+but let me tell you what we've
+got.
+
+890
+00:52:36,610 --> 00:52:41,000
+What -- these determinants have
+this series, one zero minus one
+
+891
+00:52:41,000 --> 00:52:45,000
+minus one zero one,
+and then it starts repeating.
+
+892
+00:52:45,000 --> 00:52:47,000
+It's pretty fantastic.
+
+893
+00:52:47,000 --> 00:52:50,410
+These determinants have period
+six.
+
+894
+00:52:50,410 --> 00:52:54,000
+So the determinant of A
+sixty-one
+
+895
+00:52:54,000 --> 00:52:58,000
+would be the determinant of A1,
+which would be one.
+
+896
+00:52:58,000 --> 00:52:58,000
+OK.
+I hope you liked that example.
+
+897
+00:53:01,000 --> 00:53:05,000
+A non-trivial example of a
+tri-diagonal determinant.
+
+898
+00:53:05,000 --> 00:53:05,000
+Thanks.
+See you on Wednesday.

@@ -1,0 +1,6805 @@
+1
+00:00:00,000 --> 00:00:00,070
+
+2
+00:00:00,070 --> 00:00:02,500
+The following content is
+provided under a Creative
+
+3
+00:00:02,500 --> 00:00:04,019
+Commons license.
+
+4
+00:00:04,019 --> 00:00:06,360
+Your support will help
+MIT OpenCourseWare
+
+5
+00:00:06,360 --> 00:00:10,730
+continue to offer high-quality
+educational resources for free.
+
+6
+00:00:10,730 --> 00:00:13,340
+To make a donation or
+view additional materials
+
+7
+00:00:13,340 --> 00:00:17,217
+from hundreds of MIT courses,
+visit MIT OpenCourseWare
+
+8
+00:00:17,217 --> 00:00:17,842
+at ocw.mit.edu.
+
+9
+00:00:17,842 --> 00:00:20,152
+
+10
+00:00:20,152 --> 00:00:22,360
+PROFESSOR: All right, so
+today what we're going to do
+
+11
+00:00:22,360 --> 00:00:25,170
+is we're just start with
+a short review problem
+
+12
+00:00:25,170 --> 00:00:27,070
+on rugged landscapes,
+just so that you
+
+13
+00:00:27,070 --> 00:00:28,770
+get some sense of
+the kind of thing
+
+14
+00:00:28,770 --> 00:00:32,330
+that I would expect you to be
+able to do a week from today.
+
+15
+00:00:32,330 --> 00:00:36,680
+And then we'll get into the
+core topic of the class, which
+
+16
+00:00:36,680 --> 00:00:39,150
+is evolutionary game theory.
+
+17
+00:00:39,150 --> 00:00:41,180
+And we'll discuss
+why it is that you
+
+18
+00:00:41,180 --> 00:00:43,519
+don't need to invoke any
+notion of rationality, which
+
+19
+00:00:43,519 --> 00:00:45,560
+is kind of the traditional
+thing we do when we're
+
+20
+00:00:45,560 --> 00:00:47,685
+talking about game theory
+applied to human decision
+
+21
+00:00:47,685 --> 00:00:48,820
+making.
+
+22
+00:00:48,820 --> 00:00:50,806
+Then we'll try to
+understand this difference
+
+23
+00:00:50,806 --> 00:00:53,180
+to know what a Nash equilibrium
+is in the context of game
+
+24
+00:00:53,180 --> 00:00:56,120
+theory versus an
+evolutionary stable strategy
+
+25
+00:00:56,120 --> 00:00:57,924
+in this context.
+
+26
+00:00:57,924 --> 00:01:00,340
+And we'll say something about
+the evolution of cooperation
+
+27
+00:01:00,340 --> 00:01:04,260
+and experiments that one can
+do with microbial populations
+
+28
+00:01:04,260 --> 00:01:05,010
+in the laboratory.
+
+29
+00:01:05,010 --> 00:01:07,600
+
+30
+00:01:07,600 --> 00:01:11,045
+Are there any questions
+before I get started?
+
+31
+00:01:11,045 --> 00:01:19,312
+
+32
+00:01:19,312 --> 00:01:25,330
+All right, so just on this
+question of evolutionary paths,
+
+33
+00:01:25,330 --> 00:01:27,780
+on Tuesday we discussed
+the Weinreich paper
+
+34
+00:01:27,780 --> 00:01:31,510
+where he talked about
+sort of different models
+
+35
+00:01:31,510 --> 00:01:34,350
+that you might use to try to
+make estimates of the path
+
+36
+00:01:34,350 --> 00:01:36,480
+that evolution might take
+on that fitness landscape
+
+37
+00:01:36,480 --> 00:01:37,930
+that he measured.
+
+38
+00:01:37,930 --> 00:01:41,560
+So he measured this MIC,
+the minimum inhibitory
+
+39
+00:01:41,560 --> 00:01:45,097
+concentration, on all 2 to
+the 5 or 32 different states,
+
+40
+00:01:45,097 --> 00:01:47,305
+and then tried to say
+something about the probability
+
+41
+00:01:47,305 --> 00:01:49,370
+that different
+paths will be taken.
+
+42
+00:01:49,370 --> 00:01:51,870
+So I just want to
+explore this question
+
+43
+00:01:51,870 --> 00:01:55,162
+about paths in a
+simpler landscape, where
+
+44
+00:01:55,162 --> 00:01:57,620
+by construction here, I'm to
+going to give you some fitness
+
+45
+00:01:57,620 --> 00:02:00,130
+values just so that we
+can be clear about why
+
+46
+00:02:00,130 --> 00:02:02,194
+it is that there might
+be different paths,
+
+47
+00:02:02,194 --> 00:02:03,610
+or what determines
+the probability
+
+48
+00:02:03,610 --> 00:02:05,146
+that different paths are taken.
+
+49
+00:02:05,146 --> 00:02:06,770
+So what we want to
+do is assume that we
+
+50
+00:02:06,770 --> 00:02:12,445
+are in a population that is
+experiencing this Moran process
+
+51
+00:02:12,445 --> 00:02:18,660
+or Moran model, constant
+population size N equal to,
+
+52
+00:02:18,660 --> 00:02:21,780
+in this case, we'll say 1,000.
+
+53
+00:02:21,780 --> 00:02:27,740
+And let's say that the mutation
+rate is 10 to the minus 6.
+
+54
+00:02:27,740 --> 00:02:30,204
+So each time that an
+individual divides, it has a 1
+
+55
+00:02:30,204 --> 00:02:32,610
+in a million
+probability of mutating.
+
+56
+00:02:32,610 --> 00:02:36,785
+And that's a per base
+pair mutation rate.
+
+57
+00:02:36,785 --> 00:02:39,494
+And I'll show you
+what I mean by that.
+
+58
+00:02:39,494 --> 00:02:41,535
+And in particular, we're
+going to have genotypes.
+
+59
+00:02:41,535 --> 00:02:44,890
+
+60
+00:02:44,890 --> 00:02:46,360
+Originally when
+we discussed this,
+
+61
+00:02:46,360 --> 00:02:48,845
+we were talking about just
+mutations, maybe A's and B's.
+
+62
+00:02:48,845 --> 00:02:50,220
+But now, what
+we're going to have
+
+63
+00:02:50,220 --> 00:02:54,920
+is just a short genome
+that's string length 2.
+
+64
+00:02:54,920 --> 00:03:02,890
+So we might have 0, 0, which
+has relative fitness 1, 0, 1.
+
+65
+00:03:02,890 --> 00:03:14,880
+
+66
+00:03:14,880 --> 00:03:17,810
+So we're assuming that
+this is relative fitness
+
+67
+00:03:17,810 --> 00:03:19,380
+as compared to the 0, 0 state.
+
+68
+00:03:19,380 --> 00:03:25,350
+We're going to start in
+the 0, 0 state with 1,000
+
+69
+00:03:25,350 --> 00:03:28,390
+isogenic individuals, all 0, 0.
+
+70
+00:03:28,390 --> 00:03:32,020
+And the question is, what's
+going to happen eventually?
+
+71
+00:03:32,020 --> 00:03:34,660
+
+72
+00:03:34,660 --> 00:03:55,980
+And in particular, what path
+will be taken on this landscape
+
+73
+00:03:55,980 --> 00:03:56,480
+here?
+
+74
+00:03:56,480 --> 00:04:03,372
+
+75
+00:04:03,372 --> 00:04:04,830
+In particular, what
+we want to know
+
+76
+00:04:04,830 --> 00:04:07,000
+is the probability
+of taking this path.
+
+77
+00:04:07,000 --> 00:04:33,989
+
+78
+00:04:33,989 --> 00:04:36,030
+You can start thinking
+about it while I write out
+
+79
+00:04:36,030 --> 00:04:38,630
+some possibilities
+that we can vote for,
+
+80
+00:04:38,630 --> 00:04:40,626
+and I'll give you a
+minute to think about it.
+
+81
+00:04:40,626 --> 00:04:45,090
+So don't--
+
+82
+00:04:45,090 --> 00:05:19,350
+
+83
+00:05:19,350 --> 00:05:22,644
+Are there any questions about
+what I'm trying to ask here?
+
+84
+00:05:22,644 --> 00:05:28,299
+AUDIENCE: So this
+is the long time?
+
+85
+00:05:28,299 --> 00:05:30,480
+So we assume that
+in the long time,
+
+86
+00:05:30,480 --> 00:05:32,880
+it will go from 0, 0 to 1, 1?
+
+87
+00:05:32,880 --> 00:05:36,400
+PROFESSOR: That's right, yes,
+so if we wait long enough,
+
+88
+00:05:36,400 --> 00:05:39,900
+the population will get
+there, and the 1, 1 genotype
+
+89
+00:05:39,900 --> 00:05:42,210
+will fix in the population.
+
+90
+00:05:42,210 --> 00:05:44,490
+We can talk a bit later
+about how long it's
+
+91
+00:05:44,490 --> 00:05:46,432
+going to take to get
+there, and so forth.
+
+92
+00:05:46,432 --> 00:05:48,892
+AUDIENCE: And we're
+assuming that from 0, 1,
+
+93
+00:05:48,892 --> 00:05:52,342
+it can't go back to 0, 0?
+
+94
+00:05:52,342 --> 00:05:53,050
+PROFESSOR: Right.
+
+95
+00:05:53,050 --> 00:05:57,080
+Yeah, so we'll
+discuss the situations
+
+96
+00:05:57,080 --> 00:05:58,480
+when we have to
+worry about that,
+
+97
+00:05:58,480 --> 00:06:00,010
+and when we don't, and so forth.
+
+98
+00:06:00,010 --> 00:06:02,320
+But for now, if
+you'd like, we can
+
+99
+00:06:02,320 --> 00:06:05,400
+say that this is even just mu
+sub b, the beneficial mutation
+
+100
+00:06:05,400 --> 00:06:09,200
+rate per base pair, assuming
+that the 0's can only
+
+101
+00:06:09,200 --> 00:06:10,770
+turn into 1s.
+
+102
+00:06:10,770 --> 00:06:13,130
+Then after we think
+about this, we
+
+103
+00:06:13,130 --> 00:06:17,029
+could figure out if
+that's important,
+
+104
+00:06:17,029 --> 00:06:18,570
+or when it's important,
+and so forth.
+
+105
+00:06:18,570 --> 00:06:23,130
+
+106
+00:06:23,130 --> 00:06:23,880
+Yes.
+
+107
+00:06:23,880 --> 00:06:24,796
+AUDIENCE: [INAUDIBLE]?
+
+108
+00:06:24,796 --> 00:06:30,880
+
+109
+00:06:30,880 --> 00:06:31,540
+PROFESSOR: No.
+
+110
+00:06:31,540 --> 00:06:34,720
+All right, so we're starting
+with all 1,000 individuals
+
+111
+00:06:34,720 --> 00:06:36,770
+being in the 0, 0
+state, because now we're
+
+112
+00:06:36,770 --> 00:06:38,187
+allowing some mutation rate.
+
+113
+00:06:38,187 --> 00:06:39,141
+AUDIENCE: [INAUDIBLE].
+
+114
+00:06:39,141 --> 00:06:45,579
+
+115
+00:06:45,579 --> 00:06:47,120
+PROFESSOR: And you
+also have to think
+
+116
+00:06:47,120 --> 00:06:51,370
+about this first mutation--
+will it fix or not?
+
+117
+00:06:51,370 --> 00:06:55,128
+
+118
+00:06:55,128 --> 00:06:59,000
+AUDIENCE: But it's not
+[INAUDIBLE] first mutation,
+
+119
+00:06:59,000 --> 00:07:01,904
+the mutation of one
+element of that population
+
+120
+00:07:01,904 --> 00:07:06,141
+will go to 0, 1 [INAUDIBLE]?
+
+121
+00:07:06,141 --> 00:07:08,390
+PROFESSOR: I'm not sure if
+I understand your question.
+
+122
+00:07:08,390 --> 00:07:11,785
+AUDIENCE: So if we start out
+with all 0, 0, and then one
+
+123
+00:07:11,785 --> 00:07:12,755
+mutation [INAUDIBLE]?
+
+124
+00:07:12,755 --> 00:07:16,150
+
+125
+00:07:16,150 --> 00:07:19,545
+And if that mutation--
+are we assuming
+
+126
+00:07:19,545 --> 00:07:22,470
+that that mutation is 0, 1 and
+then figuring out [INAUDIBLE]?
+
+127
+00:07:22,470 --> 00:07:24,740
+PROFESSOR: Well, OK,
+you're asking kind
+
+128
+00:07:24,740 --> 00:07:26,902
+of what I mean by path here.
+
+129
+00:07:26,902 --> 00:07:28,230
+AUDIENCE: Yeah, I guess.
+
+130
+00:07:28,230 --> 00:07:31,180
+PROFESSOR: Yeah, all
+right, so I'll say path
+
+131
+00:07:31,180 --> 00:07:37,130
+means that that this was
+the dominant probability
+
+132
+00:07:37,130 --> 00:07:40,180
+trajectory of the
+population through there.
+
+133
+00:07:40,180 --> 00:07:43,140
+We'll also discuss
+whether it somehow
+
+134
+00:07:43,140 --> 00:07:46,690
+is very likely is going to
+kind of have to go through one
+
+135
+00:07:46,690 --> 00:07:48,930
+or the other of them.
+
+136
+00:07:48,930 --> 00:07:52,450
+The probability of getting both
+mutations in one generation
+
+137
+00:07:52,450 --> 00:07:55,230
+is going to be 10
+to the minus 12.
+
+138
+00:07:55,230 --> 00:08:00,040
+So that's going to be a very
+rare thing, at least given
+
+139
+00:08:00,040 --> 00:08:02,157
+these parameters, and so forth.
+
+140
+00:08:02,157 --> 00:08:03,990
+And then there's another
+question, which is,
+
+141
+00:08:03,990 --> 00:08:07,780
+will 0, 1 actually
+fix in the population
+
+142
+00:08:07,780 --> 00:08:12,247
+before you later
+fix this population?
+
+143
+00:08:12,247 --> 00:08:14,580
+And actually, I think the
+answers to all these questions
+
+144
+00:08:14,580 --> 00:08:16,163
+are in principal
+already on the board.
+
+145
+00:08:16,163 --> 00:08:20,330
+
+146
+00:08:20,330 --> 00:08:22,404
+Because there's a
+question of do we
+
+147
+00:08:22,404 --> 00:08:24,070
+have to worry about
+clonal interference?
+
+148
+00:08:24,070 --> 00:08:27,060
+Are these things neutral or not?
+
+149
+00:08:27,060 --> 00:08:30,500
+And really, this is in some
+ways a very simple problem.
+
+150
+00:08:30,500 --> 00:08:32,010
+But in another way,
+you have to keep
+
+151
+00:08:32,010 --> 00:08:34,110
+track of lots of
+different things,
+
+152
+00:08:34,110 --> 00:08:37,080
+and which regime
+we're in and so forth.
+
+153
+00:08:37,080 --> 00:08:40,820
+So that's what makes it such
+a wonderful exam problem.
+
+154
+00:08:40,820 --> 00:08:44,780
+If you understand
+what's going on,
+
+155
+00:08:44,780 --> 00:08:46,477
+you can answer it in a minute.
+
+156
+00:08:46,477 --> 00:08:48,310
+But if you don't
+understand what's going on,
+
+157
+00:08:48,310 --> 00:08:49,590
+it'll take you an hour.
+
+158
+00:08:49,590 --> 00:08:52,010
+
+159
+00:08:52,010 --> 00:08:52,510
+Yes?
+
+160
+00:08:52,510 --> 00:08:53,010
+No?
+
+161
+00:08:53,010 --> 00:08:53,610
+Maybe?
+
+162
+00:08:53,610 --> 00:08:57,269
+Well, I'll give you
+another 20 seconds.
+
+163
+00:08:57,269 --> 00:08:58,935
+Hopefully, you've
+been thinking about it
+
+164
+00:08:58,935 --> 00:08:59,976
+while we've been talking.
+
+165
+00:08:59,976 --> 00:09:19,305
+
+166
+00:09:19,305 --> 00:09:20,680
+All right, do you
+need more time?
+
+167
+00:09:20,680 --> 00:10:10,000
+
+168
+00:10:10,000 --> 00:10:11,470
+Why don't we go ahead and vote?
+
+169
+00:10:11,470 --> 00:10:13,820
+I think it's very
+likely that we will not
+
+170
+00:10:13,820 --> 00:10:15,889
+be at the kind of 100%
+mark, in which case
+
+171
+00:10:15,889 --> 00:10:18,222
+you'll have a chance to talk
+about it and think about it
+
+172
+00:10:18,222 --> 00:10:18,722
+some more.
+
+173
+00:10:18,722 --> 00:10:19,370
+Ready?
+
+174
+00:10:19,370 --> 00:10:21,460
+Three, two, one.
+
+175
+00:10:21,460 --> 00:10:25,476
+
+176
+00:10:25,476 --> 00:10:29,710
+OK, all right, so we do have
+a fair range of answers.
+
+177
+00:10:29,710 --> 00:10:32,050
+I'd say it might be kind
+of something like 50-50.
+
+178
+00:10:32,050 --> 00:10:33,090
+And that's great.
+
+179
+00:10:33,090 --> 00:10:35,880
+It means that there should
+be something to talk about.
+
+180
+00:10:35,880 --> 00:10:37,072
+So turn to a neighbor.
+
+181
+00:10:37,072 --> 00:10:38,530
+You should be able
+to find somebody
+
+182
+00:10:38,530 --> 00:10:40,180
+that disagrees with you.
+
+183
+00:10:40,180 --> 00:10:44,080
+And if everyone around you
+agrees, you can maybe--
+
+184
+00:10:44,080 --> 00:10:46,690
+all right, so there's a group
+of D's and a group of B's here,
+
+185
+00:10:46,690 --> 00:10:48,064
+which means that everybody--
+
+186
+00:10:48,064 --> 00:10:48,980
+AUDIENCE: Let's fight.
+
+187
+00:10:48,980 --> 00:10:49,680
+PROFESSOR: All
+right, so everybody
+
+188
+00:10:49,680 --> 00:10:50,950
+thinks that everybody
+agrees with them,
+
+189
+00:10:50,950 --> 00:10:53,366
+but you just need to look a
+little bit more long distance.
+
+190
+00:10:53,366 --> 00:10:55,270
+So turn to a pseudo-neighbor.
+
+191
+00:10:55,270 --> 00:10:58,910
+You should be able to
+find somebody there.
+
+192
+00:10:58,910 --> 00:11:02,695
+It's roughly even here, so you
+should be able to find someone.
+
+193
+00:11:02,695 --> 00:11:06,118
+[INTERPOSING VOICES]
+
+194
+00:11:06,118 --> 00:11:46,329
+
+195
+00:11:46,329 --> 00:11:48,495
+So I don't see much in the
+way of vibrant discussion
+
+196
+00:11:48,495 --> 00:11:49,280
+and argument.
+
+197
+00:11:49,280 --> 00:11:52,882
+You guys should be passionately
+defending your choice here.
+
+198
+00:11:52,882 --> 00:11:56,354
+[INTERPOSING VOICES]
+
+199
+00:11:56,354 --> 00:12:41,264
+
+200
+00:12:41,264 --> 00:12:42,680
+Yeah, that's a
+higher order point.
+
+201
+00:12:42,680 --> 00:12:43,846
+I wouldn't worry about that.
+
+202
+00:12:43,846 --> 00:12:46,089
+
+203
+00:12:46,089 --> 00:12:46,922
+[INTERPOSING VOICES]
+
+204
+00:12:46,922 --> 00:12:59,350
+
+205
+00:12:59,350 --> 00:13:02,050
+All right, it looks like people
+are having a nice discussion.
+
+206
+00:13:02,050 --> 00:13:04,350
+But I might still go
+ahead and cut it short,
+
+207
+00:13:04,350 --> 00:13:07,842
+just so that we can get on
+to evolutionary game theory.
+
+208
+00:13:07,842 --> 00:13:09,550
+But I would like to
+see where people are.
+
+209
+00:13:09,550 --> 00:13:11,730
+And we'll discuss it
+as a group, so don't
+
+210
+00:13:11,730 --> 00:13:14,960
+be too disappointed if you
+don't get finished there.
+
+211
+00:13:14,960 --> 00:13:17,140
+But I do want to see
+kind of where we are.
+
+212
+00:13:17,140 --> 00:13:18,150
+Ready?
+
+213
+00:13:18,150 --> 00:13:19,970
+Three, two, one.
+
+214
+00:13:19,970 --> 00:13:23,748
+
+215
+00:13:23,748 --> 00:13:30,090
+OK, so it still is, maybe,
+split roughly equally between D
+
+216
+00:13:30,090 --> 00:13:35,200
+and maybe a B-ish and some C's.
+
+217
+00:13:35,200 --> 00:13:38,840
+All right, does somebody want
+to volunteer their explanation?
+
+218
+00:13:38,840 --> 00:13:44,250
+
+219
+00:13:44,250 --> 00:13:45,468
+Yes.
+
+220
+00:13:45,468 --> 00:13:47,963
+AUDIENCE: I'm not
+sure how good it is,
+
+221
+00:13:47,963 --> 00:13:51,955
+but I was thinking about
+what's the probability of going
+
+222
+00:13:51,955 --> 00:13:55,448
+to 0, 1 instead of 1, 0.
+
+223
+00:13:55,448 --> 00:14:04,929
+And I just took it as the ratio
+of the extra benefit of 0, 1
+
+224
+00:14:04,929 --> 00:14:07,460
+over the benefit of 1, 0.
+
+225
+00:14:07,460 --> 00:14:09,910
+PROFESSOR: Sure, OK,
+and just to start out,
+
+226
+00:14:09,910 --> 00:14:11,510
+which answer are
+you arguing for?
+
+227
+00:14:11,510 --> 00:14:12,100
+AUDIENCE: D.
+
+228
+00:14:12,100 --> 00:14:13,130
+PROFESSOR: D, OK, all right.
+
+229
+00:14:13,130 --> 00:14:15,180
+So you're saying D. And
+you're saying, all right,
+
+230
+00:14:15,180 --> 00:14:18,500
+maybe because of the
+extra, that 1, 0 is somehow
+
+231
+00:14:18,500 --> 00:14:20,520
+more fit than 0, 1.
+
+232
+00:14:20,520 --> 00:14:24,290
+And you've taken some
+relative rates or ratios
+
+233
+00:14:24,290 --> 00:14:27,218
+for which reason?
+
+234
+00:14:27,218 --> 00:14:31,130
+AUDIENCE: Well, I took 0.02
+and then 0.1, which is 1/5.
+
+235
+00:14:31,130 --> 00:14:34,176
+And then I decided
+that that should
+
+236
+00:14:34,176 --> 00:14:36,509
+be around what it is, but
+slightly less, because there's
+
+237
+00:14:36,509 --> 00:14:40,010
+also a chance that [INAUDIBLE].
+
+238
+00:14:40,010 --> 00:14:40,810
+PROFESSOR: OK, yes.
+
+239
+00:14:40,810 --> 00:14:43,320
+I think the arguments
+there-- there's
+
+240
+00:14:43,320 --> 00:14:46,730
+a lot of truth to the
+arguments that you're saying.
+
+241
+00:14:46,730 --> 00:14:50,580
+Yeah, it's a little--
+right and another question
+
+242
+00:14:50,580 --> 00:14:55,080
+is exactly why might it
+be 1/6 instead of 1/5 is,
+
+243
+00:14:55,080 --> 00:14:58,630
+I think, a little bit
+hazy in this here.
+
+244
+00:14:58,630 --> 00:15:00,309
+It's OK, but it's close.
+
+245
+00:15:00,309 --> 00:15:02,100
+Does somebody want to
+offer an explanation?
+
+246
+00:15:02,100 --> 00:15:05,580
+So here, that was an argument
+of roughly maybe why it's D-ish.
+
+247
+00:15:05,580 --> 00:15:07,720
+Because D is very
+different from B--
+
+248
+00:15:07,720 --> 00:15:09,930
+order of magnitude different.
+
+249
+00:15:09,930 --> 00:15:13,460
+So can somebody offer why their
+neighbor thought it was B?
+
+250
+00:15:13,460 --> 00:15:14,460
+Yeah.
+
+251
+00:15:14,460 --> 00:15:18,039
+AUDIENCE: So I knew that it was
+B, because I considered the two
+
+252
+00:15:18,039 --> 00:15:20,631
+paths, both from 0, 0 to 0, 1.
+
+253
+00:15:20,631 --> 00:15:23,310
+I first checked S, N
+and it's non-neutral.
+
+254
+00:15:23,310 --> 00:15:27,766
+So probably [INAUDIBLE]
+S. So the probability
+
+255
+00:15:27,766 --> 00:15:31,378
+for that first path
+would be the S for 0, 1,
+
+256
+00:15:31,378 --> 00:15:34,820
+so it's 0.02, which is 1/50,
+multiplied by the probability
+
+257
+00:15:34,820 --> 00:15:38,800
+that the other [INAUDIBLE] 1,
+0 would die out [INAUDIBLE].
+
+258
+00:15:38,800 --> 00:15:41,360
+PROFESSOR: Right, so there
+are two related questions.
+
+259
+00:15:41,360 --> 00:15:43,150
+And I think that
+this explanation here
+
+260
+00:15:43,150 --> 00:15:45,780
+is answering a slightly
+different question.
+
+261
+00:15:45,780 --> 00:15:47,350
+OK, so let me try
+to explain what
+
+262
+00:15:47,350 --> 00:15:50,050
+the two questions are here.
+
+263
+00:15:50,050 --> 00:15:51,830
+So the question that
+you're answering
+
+264
+00:15:51,830 --> 00:15:58,410
+is, if you have kind
+of 998 individuals that
+
+265
+00:15:58,410 --> 00:16:01,860
+are 0, 0 individuals, and
+you have one that's 0, 1,
+
+266
+00:16:01,860 --> 00:16:05,200
+and you have one
+individual that is 1, 0.
+
+267
+00:16:05,200 --> 00:16:08,660
+So this is like these problems
+that we did a couple weeks ago,
+
+268
+00:16:08,660 --> 00:16:11,324
+where we said, you imagine
+in the population you have
+
+269
+00:16:11,324 --> 00:16:13,740
+a couple different kinds of
+mutants that are present maybe
+
+270
+00:16:13,740 --> 00:16:15,599
+in one copy.
+
+271
+00:16:15,599 --> 00:16:17,140
+And then we were
+asking, well, what's
+
+272
+00:16:17,140 --> 00:16:19,930
+the probability that this
+individual is going to fix?
+
+273
+00:16:19,930 --> 00:16:21,440
+And what's the probability this
+individual is going to fix?
+
+274
+00:16:21,440 --> 00:16:23,380
+And what's the probability
+that these guys are
+
+275
+00:16:23,380 --> 00:16:26,580
+going to go extinct, and
+this one will therefore fix?
+
+276
+00:16:26,580 --> 00:16:30,270
+And I think that's the
+calculation that you're
+
+277
+00:16:30,270 --> 00:16:32,440
+describing, where
+you say, OK, well,
+
+278
+00:16:32,440 --> 00:16:35,710
+in order for this
+individual to fix,
+
+279
+00:16:35,710 --> 00:16:40,840
+he has to survive stochastic
+extinction, which happens
+
+280
+00:16:40,840 --> 00:16:43,820
+with the probability of 2%.
+
+281
+00:16:43,820 --> 00:16:49,190
+And the 1, 0 individual
+has to go extinct,
+
+282
+00:16:49,190 --> 00:16:53,220
+which happens 90% of the time.
+
+283
+00:16:53,220 --> 00:16:57,340
+And so this is, indeed,
+answering the question
+
+284
+00:16:57,340 --> 00:17:02,300
+that if you had one copy of each
+of these two mutant individuals
+
+285
+00:17:02,300 --> 00:17:06,910
+in the population,
+that's the answer to what
+
+286
+00:17:06,910 --> 00:17:10,460
+is the probability
+that this 0, 1 mutant
+
+287
+00:17:10,460 --> 00:17:11,880
+would fix in the population.
+
+288
+00:17:11,880 --> 00:17:13,300
+Right?
+
+289
+00:17:13,300 --> 00:17:16,290
+But that's a slightly different
+question than if we ask,
+
+290
+00:17:16,290 --> 00:17:19,236
+we're going to start with an
+entire population at 0, 0,
+
+291
+00:17:19,236 --> 00:17:21,319
+and now these mutations
+will be occurring randomly
+
+292
+00:17:21,319 --> 00:17:22,200
+at some rate.
+
+293
+00:17:22,200 --> 00:17:23,970
+And then something's
+going to happen.
+
+294
+00:17:23,970 --> 00:17:25,250
+Somehow the population
+is going to climb up
+
+295
+00:17:25,250 --> 00:17:26,349
+this fitness landscape.
+
+296
+00:17:26,349 --> 00:17:29,230
+And we're trying to figure
+out the relative probability
+
+297
+00:17:29,230 --> 00:17:32,010
+that it's going to take
+kind of one path or another.
+
+298
+00:17:32,010 --> 00:17:37,090
+Do you see the difference
+between these two questions?
+
+299
+00:17:37,090 --> 00:17:44,550
+So indeed, this is the correct
+answer to a different question.
+
+300
+00:17:44,550 --> 00:17:47,260
+And so it's going
+to end up being D.
+
+301
+00:17:47,260 --> 00:17:50,990
+And now we want to try to
+figure out how to get there.
+
+302
+00:17:50,990 --> 00:17:54,310
+Because I think it
+is a bit tricky.
+
+303
+00:17:54,310 --> 00:17:56,580
+And in order in order to
+figure out to get there,
+
+304
+00:17:56,580 --> 00:17:59,860
+we have to make sure
+we keep track of which
+
+305
+00:17:59,860 --> 00:18:01,210
+parameter regime we're in.
+
+306
+00:18:01,210 --> 00:18:03,390
+So there are a couple of
+questions we have to ask.
+
+307
+00:18:03,390 --> 00:18:05,590
+First of all, we
+have to remember
+
+308
+00:18:05,590 --> 00:18:07,940
+that we start out with
+everybody, all 1,000
+
+309
+00:18:07,940 --> 00:18:09,190
+individuals in the 0, 0 state.
+
+310
+00:18:09,190 --> 00:18:12,210
+So there are initially no
+mutants in the population.
+
+311
+00:18:12,210 --> 00:18:14,240
+But they're just
+replicating at some rate.
+
+312
+00:18:14,240 --> 00:18:16,910
+And every now and then,
+mutation's going to occur.
+
+313
+00:18:16,910 --> 00:18:20,480
+Now one thing we have to
+answer, we have to think about,
+
+314
+00:18:20,480 --> 00:18:22,550
+is whether these are
+nearly neutral mutations.
+
+315
+00:18:22,550 --> 00:18:28,440
+
+316
+00:18:28,440 --> 00:18:29,350
+Verbally yes or no?
+
+317
+00:18:29,350 --> 00:18:29,850
+Ready?
+
+318
+00:18:29,850 --> 00:18:31,610
+Three, two, one.
+
+319
+00:18:31,610 --> 00:18:32,180
+AUDIENCE: No.
+
+320
+00:18:32,180 --> 00:18:33,570
+PROFESSOR: No, right.
+
+321
+00:18:33,570 --> 00:18:35,017
+And that's because
+we want to ask
+
+322
+00:18:35,017 --> 00:18:36,850
+for, if it's nearly
+neutral, we want to ask,
+
+323
+00:18:36,850 --> 00:18:40,510
+is the magnitude of S times
+N much greater or much less
+
+324
+00:18:40,510 --> 00:18:42,040
+than 1?
+
+325
+00:18:42,040 --> 00:18:44,450
+In particular, if they're
+much greater than 1,
+
+326
+00:18:44,450 --> 00:18:49,559
+as is the case here, then
+we're in a nice, simple regime.
+
+327
+00:18:49,559 --> 00:18:51,600
+And it's easy to get
+paralyzed in this situation,
+
+328
+00:18:51,600 --> 00:18:56,920
+because there's more than
+one S. But in both cases,
+
+329
+00:18:56,920 --> 00:18:58,260
+S times N is much larger than 1.
+
+330
+00:18:58,260 --> 00:19:01,580
+We can take the smaller
+S, which is 2 over 100,
+
+331
+00:19:01,580 --> 00:19:03,540
+and S times N is 20, right?
+
+332
+00:19:03,540 --> 00:19:10,680
+So S for the 0, 1
+state times N is 20,
+
+333
+00:19:10,680 --> 00:19:14,080
+which is much greater than 1.
+
+334
+00:19:14,080 --> 00:19:15,710
+What this tells us
+is that if we do
+
+335
+00:19:15,710 --> 00:19:19,340
+get this mutant appearing
+in the population,
+
+336
+00:19:19,340 --> 00:19:23,810
+then he or she will have a
+probability S of surviving
+
+337
+00:19:23,810 --> 00:19:24,810
+stochastic extinction.
+
+338
+00:19:24,810 --> 00:19:28,050
+
+339
+00:19:28,050 --> 00:19:34,470
+So probability of surviving
+stochastic extinction
+
+340
+00:19:34,470 --> 00:19:38,220
+if the individual
+appears is equal to S 0,
+
+341
+00:19:38,220 --> 00:19:42,450
+1, which is equal to 2%.
+
+342
+00:19:42,450 --> 00:19:57,500
+Whereas for the 1, 0 state,
+that's going to be 0.1.
+
+343
+00:19:57,500 --> 00:20:00,660
+Now, this is assuming
+that the mutation appears
+
+344
+00:20:00,660 --> 00:20:03,350
+in the population, that's the
+probability it will survive
+
+345
+00:20:03,350 --> 00:20:05,300
+stochastic extinction.
+
+346
+00:20:05,300 --> 00:20:08,730
+Now, just as a reminder,
+surviving stochastic extinction
+
+347
+00:20:08,730 --> 00:20:12,540
+roughly corresponds to this
+becoming an established idea.
+
+348
+00:20:12,540 --> 00:20:14,600
+And becoming established
+was what again?
+
+349
+00:20:14,600 --> 00:20:21,980
+
+350
+00:20:21,980 --> 00:20:22,952
+AUDIENCE: [INAUDIBLE].
+
+351
+00:20:22,952 --> 00:20:23,910
+PROFESSOR: What's that?
+
+352
+00:20:23,910 --> 00:20:26,090
+AUDIENCE: S1 is [INAUDIBLE].
+
+353
+00:20:26,090 --> 00:20:27,440
+PROFESSOR: It's when S1--
+
+354
+00:20:27,440 --> 00:20:28,380
+AUDIENCE: [INAUDIBLE].
+
+355
+00:20:28,380 --> 00:20:29,630
+PROFESSOR: Yeah, that's right.
+
+356
+00:20:29,630 --> 00:20:32,860
+All right, so established--
+when we say established,
+
+357
+00:20:32,860 --> 00:20:37,960
+what we mean is that
+this corresponds
+
+358
+00:20:37,960 --> 00:20:42,280
+to saying that this probability
+that we talked about
+
+359
+00:20:42,280 --> 00:20:47,050
+before this X sub i is
+approximately equal to 1.
+
+360
+00:20:47,050 --> 00:20:49,050
+So this question is, how
+many individuals do you
+
+361
+00:20:49,050 --> 00:20:51,910
+have to get to in the
+population before you're
+
+362
+00:20:51,910 --> 00:20:54,030
+very likely to fix?
+
+363
+00:20:54,030 --> 00:21:00,130
+And what we found is that that
+number established went as 1
+
+364
+00:21:00,130 --> 00:21:02,570
+over the selection coefficient.
+
+365
+00:21:02,570 --> 00:21:06,264
+So in this case, you would
+need to have 50 individuals
+
+366
+00:21:06,264 --> 00:21:08,430
+before you were kind of
+more likely to fix than not.
+
+367
+00:21:08,430 --> 00:21:10,013
+So if you want to
+be much more likely,
+
+368
+00:21:10,013 --> 00:21:13,420
+you might need twice that or so.
+
+369
+00:21:13,420 --> 00:21:16,242
+Do you guys remember that?
+
+370
+00:21:16,242 --> 00:21:18,450
+This is not important for
+this question, necessarily,
+
+371
+00:21:18,450 --> 00:21:22,284
+but it might be important
+at a later date.
+
+372
+00:21:22,284 --> 00:21:24,260
+AUDIENCE: And so for
+nearly neutral mutations,
+
+373
+00:21:24,260 --> 00:21:25,989
+the whole point is
+that the number needed
+
+374
+00:21:25,989 --> 00:21:29,200
+to become established is
+equal to the population.
+
+375
+00:21:29,200 --> 00:21:32,430
+PROFESSOR: Yeah, so everything
+kind of works, right?
+
+376
+00:21:32,430 --> 00:21:35,910
+
+377
+00:21:35,910 --> 00:21:37,710
+OK, so the way that we
+can think about this
+
+378
+00:21:37,710 --> 00:21:41,020
+is, now we have this
+population, 1,000 individuals.
+
+379
+00:21:41,020 --> 00:21:43,590
+They're dividing at some rate.
+
+380
+00:21:43,590 --> 00:21:45,060
+Mutations are going to appear.
+
+381
+00:21:45,060 --> 00:21:47,640
+
+382
+00:21:47,640 --> 00:21:51,270
+Now we know if they did appear,
+the probability they would fix.
+
+383
+00:21:51,270 --> 00:21:53,785
+This is assuming there's no
+clonal interference, right?
+
+384
+00:21:53,785 --> 00:22:05,375
+
+385
+00:22:05,375 --> 00:22:07,000
+Because if there's
+clonal interference,
+
+386
+00:22:07,000 --> 00:22:09,450
+then surviving
+stochastic extinction
+
+387
+00:22:09,450 --> 00:22:11,572
+is not the same thing as fixing.
+
+388
+00:22:11,572 --> 00:22:13,155
+If they both appear
+in the population,
+
+389
+00:22:13,155 --> 00:22:15,780
+and they both survive
+stochastic extinction,
+
+390
+00:22:15,780 --> 00:22:19,440
+then this mutant
+loses to this mutant.
+
+391
+00:22:19,440 --> 00:22:21,570
+That's the clonal interference.
+
+392
+00:22:21,570 --> 00:22:24,236
+Do we have to worry about clonal
+interference in this situation?
+
+393
+00:22:24,236 --> 00:22:50,330
+
+394
+00:22:50,330 --> 00:22:54,340
+So remember, this was
+comparing the two time scales.
+
+395
+00:22:54,340 --> 00:22:57,400
+This was comparing
+the time between
+
+396
+00:22:57,400 --> 00:23:06,998
+successive establishment events,
+which went as 1 over mu N S.
+
+397
+00:23:06,998 --> 00:23:11,200
+And the other one is the
+time between the time to fix,
+
+398
+00:23:11,200 --> 00:23:16,130
+which went as 1 over
+S log of NS, right?
+
+399
+00:23:16,130 --> 00:23:17,710
+So we can ignore
+clonal interference
+
+400
+00:23:17,710 --> 00:23:19,180
+if this is much
+larger than that.
+
+401
+00:23:19,180 --> 00:23:22,730
+
+402
+00:23:22,730 --> 00:23:24,820
+So no clonal
+interference corresponds
+
+403
+00:23:24,820 --> 00:23:32,960
+to mu N log NS much less than 1.
+
+404
+00:23:32,960 --> 00:23:35,860
+No clonal interference,
+same as this statement.
+
+405
+00:23:35,860 --> 00:23:36,480
+Is that right?
+
+406
+00:23:36,480 --> 00:23:40,630
+
+407
+00:23:40,630 --> 00:23:41,386
+Did I do it right?
+
+408
+00:23:41,386 --> 00:23:43,920
+OK.
+
+409
+00:23:43,920 --> 00:23:47,650
+So and once again, there
+are multiple S's, and it's
+
+410
+00:23:47,650 --> 00:23:50,220
+easy to get kind of
+upset about this.
+
+411
+00:23:50,220 --> 00:23:53,096
+But you can just use
+whichever S would be--
+
+412
+00:23:53,096 --> 00:23:54,970
+which S would you want
+to use to be kind of--
+
+413
+00:23:54,970 --> 00:23:57,221
+
+414
+00:23:57,221 --> 00:23:58,762
+AUDIENCE: Small or
+large [INAUDIBLE]?
+
+415
+00:23:58,762 --> 00:24:01,400
+
+416
+00:24:01,400 --> 00:24:04,550
+PROFESSOR: To be on the
+safe or conservative side,
+
+417
+00:24:04,550 --> 00:24:06,760
+we want to take this to
+be as big as possible.
+
+418
+00:24:06,760 --> 00:24:11,120
+So we take S actually
+as big as we can, right?
+
+419
+00:24:11,120 --> 00:24:12,250
+It's in the log.
+
+420
+00:24:12,250 --> 00:24:13,720
+So details, right?
+
+421
+00:24:13,720 --> 00:24:20,900
+But we can see we have 10
+to the minus 6, 10 to the 3,
+
+422
+00:24:20,900 --> 00:24:28,430
+and then this is the
+log of maybe 100, which
+
+423
+00:24:28,430 --> 00:24:32,012
+is, like, 4 or 5.
+
+424
+00:24:32,012 --> 00:24:32,970
+Is it closer to 4 or 5?
+
+425
+00:24:32,970 --> 00:24:35,480
+I don't know, but
+it doesn't matter.
+
+426
+00:24:35,480 --> 00:24:36,680
+We'll say 5.
+
+427
+00:24:36,680 --> 00:24:38,070
+This is indeed much less than 1.
+
+428
+00:24:38,070 --> 00:24:43,420
+
+429
+00:24:43,420 --> 00:24:45,010
+So indeed, we
+don't have to worry
+
+430
+00:24:45,010 --> 00:24:46,680
+about clonal interference.
+
+431
+00:24:46,680 --> 00:24:49,240
+This is a wonderful
+simplification.
+
+432
+00:24:49,240 --> 00:24:52,440
+What it's saying is that
+the population is dividing.
+
+433
+00:24:52,440 --> 00:24:55,760
+Every now and then, a mutation
+occurs in the population.
+
+434
+00:24:55,760 --> 00:24:58,290
+It could be either
+the 0, 1 or the 1, 0.
+
+435
+00:24:58,290 --> 00:25:01,000
+But in either case, the
+fate of that mutation
+
+436
+00:25:01,000 --> 00:25:04,039
+is resolved before the
+next mutation occurs.
+
+437
+00:25:04,039 --> 00:25:05,580
+So you don't need
+to worry about them
+
+438
+00:25:05,580 --> 00:25:06,900
+competing in the population.
+
+439
+00:25:06,900 --> 00:25:10,440
+Instead, just at some constant
+rate they're appearing.
+
+440
+00:25:10,440 --> 00:25:13,290
+And given that they appear,
+there's some probability
+
+441
+00:25:13,290 --> 00:25:14,610
+that they're going to fix.
+
+442
+00:25:14,610 --> 00:25:17,420
+So that leads to effective
+rates going to each of those two
+
+443
+00:25:17,420 --> 00:25:20,690
+steps-- going to 0, 1 or 1, 0.
+
+444
+00:25:20,690 --> 00:25:24,570
+And in particular, this is like
+a chemical reaction, where we
+
+445
+00:25:24,570 --> 00:25:29,110
+have some chemical state here.
+
+446
+00:25:29,110 --> 00:25:30,540
+We have two rates.
+
+447
+00:25:30,540 --> 00:25:35,760
+There's the k going to 0,
+1, the k going to 1, 0.
+
+448
+00:25:35,760 --> 00:25:39,410
+
+449
+00:25:39,410 --> 00:25:41,899
+And what we know is we know
+the ratio of those rates.
+
+450
+00:25:41,899 --> 00:25:43,440
+And that's everything
+we need to know
+
+451
+00:25:43,440 --> 00:25:45,481
+to calculate the relative
+probabilities of taking
+
+452
+00:25:45,481 --> 00:25:50,810
+those states, because the
+probability of going through
+
+453
+00:25:50,810 --> 00:25:53,960
+to 0, 1-- we want to go
+that direction-- 0, 1, this
+
+454
+00:25:53,960 --> 00:26:02,330
+is going to be given by k 0, 1
+divided by k 0, 1 plus k 1, 0.
+
+455
+00:26:02,330 --> 00:26:05,810
+So this is how we get
+1/6 instead of 1/5.
+
+456
+00:26:05,810 --> 00:26:10,950
+Because this thing
+is 1/5 of that.
+
+457
+00:26:10,950 --> 00:26:12,870
+So it's like 1, and then 1, 5.
+
+458
+00:26:12,870 --> 00:26:21,140
+
+459
+00:26:21,140 --> 00:26:24,270
+So this is actually, in
+principle, not quite answering
+
+460
+00:26:24,270 --> 00:26:26,320
+the question that I
+asked, because this
+
+461
+00:26:26,320 --> 00:26:30,250
+is talking about the relative
+probability of the first state,
+
+462
+00:26:30,250 --> 00:26:32,120
+the first mutant to fix.
+
+463
+00:26:32,120 --> 00:26:35,780
+In principle, it is possible
+that from there, there's
+
+464
+00:26:35,780 --> 00:26:37,040
+some rate of coming back.
+
+465
+00:26:37,040 --> 00:26:40,214
+Or they might not necessarily
+move forward on up that hill.
+
+466
+00:26:40,214 --> 00:26:42,130
+Do you guys understand
+what I'm talking about?
+
+467
+00:26:42,130 --> 00:26:43,588
+Because it goes
+from here to there.
+
+468
+00:26:43,588 --> 00:26:47,520
+Because we really want to
+know about this next step,
+
+469
+00:26:47,520 --> 00:26:49,290
+going to the 1, 1 state.
+
+470
+00:26:49,290 --> 00:26:52,980
+
+471
+00:26:52,980 --> 00:26:57,760
+But in this case do we have to
+worry about going backwards?
+
+472
+00:26:57,760 --> 00:26:58,320
+No.
+
+473
+00:26:58,320 --> 00:26:58,990
+And why not?
+
+474
+00:26:58,990 --> 00:27:02,910
+
+475
+00:27:02,910 --> 00:27:03,720
+It's very unlikely.
+
+476
+00:27:03,720 --> 00:27:05,502
+And in particular,
+you could think now
+
+477
+00:27:05,502 --> 00:27:07,710
+that you're here you can
+talk about the rate of going
+
+478
+00:27:07,710 --> 00:27:11,310
+to the 1, 1 state as compared
+to the rate of going to 0, 1.
+
+479
+00:27:11,310 --> 00:27:17,080
+And those are going to be
+exponentially different.
+
+480
+00:27:17,080 --> 00:27:19,950
+Because just as this was
+a non-neutral beneficial
+
+481
+00:27:19,950 --> 00:27:21,820
+mutation, that means
+that going from 0,
+
+482
+00:27:21,820 --> 00:27:24,260
+1 back is going to be a
+non-neutral deleterious
+
+483
+00:27:24,260 --> 00:27:25,685
+mutation.
+
+484
+00:27:25,685 --> 00:27:28,310
+So the probability of fixing it
+in the back direction is not 0,
+
+485
+00:27:28,310 --> 00:27:29,726
+but it's exponentially
+suppressed.
+
+486
+00:27:29,726 --> 00:27:36,060
+
+487
+00:27:36,060 --> 00:27:38,890
+I think it's very
+important to understand
+
+488
+00:27:38,890 --> 00:27:41,290
+all the different pieces
+of this kind of puzzle,
+
+489
+00:27:41,290 --> 00:27:44,070
+because it incorporates many
+different ideas that we've
+
+490
+00:27:44,070 --> 00:27:46,665
+talked about over
+the last few weeks.
+
+491
+00:27:46,665 --> 00:27:50,480
+If there are questions,
+please ask now.
+
+492
+00:27:50,480 --> 00:27:51,277
+Yes.
+
+493
+00:27:51,277 --> 00:27:52,818
+AUDIENCE: What about
+the [INAUDIBLE]?
+
+494
+00:27:52,818 --> 00:27:58,285
+
+495
+00:27:58,285 --> 00:28:09,219
+[INAUDIBLE] 0, 0
+to 1, 0 to 1, 1?
+
+496
+00:28:09,219 --> 00:28:13,195
+Then it seems like the benefit
+of 1, 0 versus [INAUDIBLE].
+
+497
+00:28:13,195 --> 00:28:15,700
+
+498
+00:28:15,700 --> 00:28:19,300
+PROFESSOR: All right, so
+you're wondering about--
+
+499
+00:28:19,300 --> 00:28:22,810
+so the fitness of the
+1, 1 state was 1.2.
+
+500
+00:28:22,810 --> 00:28:26,860
+So you're pointing out
+that it's actually easier
+
+501
+00:28:26,860 --> 00:28:29,700
+to go from the 0, 1
+state to the 1, 1 as
+
+502
+00:28:29,700 --> 00:28:31,645
+compared to the
+1, 0 to the 1, 1.
+
+503
+00:28:31,645 --> 00:28:34,615
+AUDIENCE: Right, which
+seems like a reason for why
+
+504
+00:28:34,615 --> 00:28:38,486
+we wouldn't care
+about [INAUDIBLE].
+
+505
+00:28:38,486 --> 00:28:39,610
+PROFESSOR: Yeah, OK, right.
+
+506
+00:28:39,610 --> 00:28:43,810
+So if anything,
+in some ways, this
+
+507
+00:28:43,810 --> 00:28:46,590
+actually provides a bias
+going towards the 0, 1 state,
+
+508
+00:28:46,590 --> 00:28:49,456
+because it's saying that
+if we do get to 0, 1,
+
+509
+00:28:49,456 --> 00:28:51,080
+it's actually easier
+to move forward as
+
+510
+00:28:51,080 --> 00:28:52,324
+compared to this other path.
+
+511
+00:28:52,324 --> 00:28:53,990
+In practice, it doesn't
+actually matter,
+
+512
+00:28:53,990 --> 00:28:56,890
+because this acts as a ratchet.
+
+513
+00:28:56,890 --> 00:28:59,220
+Because all these
+mutations are non-neutral,
+
+514
+00:28:59,220 --> 00:29:03,660
+once you fix this state or
+this one, you can't go back.
+
+515
+00:29:03,660 --> 00:29:05,980
+So the population
+will move forward
+
+516
+00:29:05,980 --> 00:29:07,835
+once it gets to one
+of those two states.
+
+517
+00:29:07,835 --> 00:29:09,960
+Now I mean, it would be a
+very interesting question
+
+518
+00:29:09,960 --> 00:29:14,920
+to ask if we instead did
+a different arrangement.
+
+519
+00:29:14,920 --> 00:29:18,060
+What would the rate of
+evolution be, and so forth?
+
+520
+00:29:18,060 --> 00:29:21,690
+Yeah, but what you're
+saying is certainly true,
+
+521
+00:29:21,690 --> 00:29:24,360
+that if this took up all
+of the benefit going here,
+
+522
+00:29:24,360 --> 00:29:25,957
+then it may not
+actually be somehow
+
+523
+00:29:25,957 --> 00:29:28,540
+an optimal path in terms of the
+rate of evolution or something
+
+524
+00:29:28,540 --> 00:29:29,039
+like that.
+
+525
+00:29:29,039 --> 00:29:32,420
+
+526
+00:29:32,420 --> 00:29:34,510
+I'll think about
+that when designing.
+
+527
+00:29:34,510 --> 00:29:36,848
+Problems.
+
+528
+00:29:36,848 --> 00:29:42,560
+AUDIENCE: In this system, 0,
+0 eventually becomes 1, 1.
+
+529
+00:29:42,560 --> 00:29:43,560
+PROFESSOR: That's right.
+
+530
+00:29:43,560 --> 00:29:46,590
+AUDIENCE: So the
+probability is 1.
+
+531
+00:29:46,590 --> 00:29:50,310
+PROFESSOR: That's right,
+so we are guaranteed
+
+532
+00:29:50,310 --> 00:29:53,470
+that we will eventually evolve
+to this peak in the fitness
+
+533
+00:29:53,470 --> 00:29:53,970
+landscape.
+
+534
+00:29:53,970 --> 00:29:57,430
+And so what we're asking here
+is which of these two paths
+
+535
+00:29:57,430 --> 00:29:58,621
+is going to be taken.
+
+536
+00:29:58,621 --> 00:30:02,058
+AUDIENCE: Yeah, so how
+to mathematically prove
+
+537
+00:30:02,058 --> 00:30:06,995
+that the system will
+go from 0, 0 to 1, 1?
+
+538
+00:30:06,995 --> 00:30:09,120
+PROFESSOR: I mean, I feel
+like I kind of proved it,
+
+539
+00:30:09,120 --> 00:30:11,411
+although I understand that
+nothing I said was rigorous.
+
+540
+00:30:11,411 --> 00:30:15,580
+
+541
+00:30:15,580 --> 00:30:18,670
+And of course, there are
+non-zero probabilities
+
+542
+00:30:18,670 --> 00:30:19,620
+of going backwards.
+
+543
+00:30:19,620 --> 00:30:22,390
+It's just that they are reduced.
+
+544
+00:30:22,390 --> 00:30:24,510
+And actually, you can
+prove, for those of you
+
+545
+00:30:24,510 --> 00:30:26,580
+who are interested
+in such things,
+
+546
+00:30:26,580 --> 00:30:31,510
+that over long time
+scales, there's
+
+547
+00:30:31,510 --> 00:30:34,260
+going to be an equilibrium
+that distribution
+
+548
+00:30:34,260 --> 00:30:40,610
+over all these states, where
+the probability of being
+
+549
+00:30:40,610 --> 00:30:47,490
+in a particular state will--
+it goes as the fitness.
+
+550
+00:30:47,490 --> 00:30:52,100
+It scales as the relative
+fitness to the Nth power.
+
+551
+00:30:52,100 --> 00:30:54,620
+
+552
+00:30:54,620 --> 00:30:57,940
+So we talk about these
+fitness landscapes
+
+553
+00:30:57,940 --> 00:30:59,670
+as energy landscapes.
+
+554
+00:30:59,670 --> 00:31:04,760
+And indeed, in this regime where
+you have small mutation rates,
+
+555
+00:31:04,760 --> 00:31:06,550
+then it's going to be
+a detailed balance.
+
+556
+00:31:06,550 --> 00:31:08,570
+And it's actually a
+thermodynamic system.
+
+557
+00:31:08,570 --> 00:31:11,930
+So then in that case, you
+can make a correspondence
+
+558
+00:31:11,930 --> 00:31:14,210
+between everything that
+we normally talk about,
+
+559
+00:31:14,210 --> 00:31:18,020
+where fitness is like
+energy and population
+
+560
+00:31:18,020 --> 00:31:20,720
+size is like temperature.
+
+561
+00:31:20,720 --> 00:31:24,610
+So the relative amplitude of
+being in this peak as compared
+
+562
+00:31:24,610 --> 00:31:27,670
+to the other states is
+going to be, in this case,
+
+563
+00:31:27,670 --> 00:31:30,150
+the ratios of those things
+is, indeed, described
+
+564
+00:31:30,150 --> 00:31:33,160
+by the ratios of the fitnesses.
+
+565
+00:31:33,160 --> 00:31:38,550
+And it's going to go as kind of
+like 1.1 to the 1,000th power,
+
+566
+00:31:38,550 --> 00:31:40,690
+which is big.
+
+567
+00:31:40,690 --> 00:31:42,760
+Which means that the
+population has really
+
+568
+00:31:42,760 --> 00:31:47,500
+cohered at this peak in
+the finished landscape.
+
+569
+00:31:47,500 --> 00:31:48,726
+Yeah.
+
+570
+00:31:48,726 --> 00:31:52,386
+AUDIENCE: So if you want to
+calculate a problem going
+
+571
+00:31:52,386 --> 00:31:57,022
+from 0, 1 to 0, 0,
+then [INAUDIBLE]
+
+572
+00:31:57,022 --> 00:32:01,440
+that would just be--
+I guess I'm not sure.
+
+573
+00:32:01,440 --> 00:32:03,225
+PROFESSOR: OK, you
+want to know the rate
+
+574
+00:32:03,225 --> 00:32:04,080
+that that's going to happen.
+
+575
+00:32:04,080 --> 00:32:04,500
+AUDIENCE: Yeah.
+
+576
+00:32:04,500 --> 00:32:04,990
+PROFESSOR: No, that's fine.
+
+577
+00:32:04,990 --> 00:32:05,690
+Let's do that.
+
+578
+00:32:05,690 --> 00:32:10,170
+
+579
+00:32:10,170 --> 00:32:13,110
+So for example,
+let's imagine that we
+
+580
+00:32:13,110 --> 00:32:23,650
+don't have-- so let's imagine
+that we just have the 0, 0
+
+581
+00:32:23,650 --> 00:32:28,190
+and the 0, 1 states, just
+so we don't have to worry
+
+582
+00:32:28,190 --> 00:32:29,980
+about going up the landscape.
+
+583
+00:32:29,980 --> 00:32:38,090
+And so what we have is we have r
+is relative fitness 1 and 1.02.
+
+584
+00:32:38,090 --> 00:32:41,200
+Now what we want to do
+is we want to ask, well,
+
+585
+00:32:41,200 --> 00:32:44,390
+what is the rate of
+going back and forth?
+
+586
+00:32:44,390 --> 00:32:51,620
+Well, so the rate
+of going forward,
+
+587
+00:32:51,620 --> 00:32:55,760
+well, we sample
+mutations at a rate mu.
+
+588
+00:32:55,760 --> 00:32:57,980
+And this is mu only
+for this one state,
+
+589
+00:32:57,980 --> 00:33:02,270
+because pretend that we're not
+going to mutate this other one.
+
+590
+00:33:02,270 --> 00:33:07,580
+So rate mu N, you have
+mutations appearing.
+
+591
+00:33:07,580 --> 00:33:10,789
+And times this s, 0.02,
+is the probability
+
+592
+00:33:10,789 --> 00:33:12,830
+that it'll actually fix
+in the forward direction.
+
+593
+00:33:12,830 --> 00:33:15,580
+
+594
+00:33:15,580 --> 00:33:19,700
+And now what we want to know
+is the rate of coming back.
+
+595
+00:33:19,700 --> 00:33:21,720
+Well, the beginning
+part's the same,
+
+596
+00:33:21,720 --> 00:33:25,640
+because we have mu N
+is the rate that you
+
+597
+00:33:25,640 --> 00:33:27,970
+get this deleterious
+mutant in the population.
+
+598
+00:33:27,970 --> 00:33:30,595
+But then we need to multiply it
+by the probability of fixation.
+
+599
+00:33:30,595 --> 00:33:33,720
+
+600
+00:33:33,720 --> 00:33:36,630
+And the probability
+of fixation is--
+
+601
+00:33:36,630 --> 00:33:43,290
+there was this thing X1, which
+was 1 minus-- now this is r,
+
+602
+00:33:43,290 --> 00:33:45,670
+but it's r in the other
+direction, so be careful.
+
+603
+00:33:45,670 --> 00:33:47,550
+Because the general
+equation was 1 over.
+
+604
+00:33:47,550 --> 00:33:52,620
+
+605
+00:33:52,620 --> 00:33:55,750
+But now r, instead of
+being 1.02, is 1/1.02.
+
+606
+00:33:55,750 --> 00:34:02,360
+
+607
+00:34:02,360 --> 00:34:05,000
+So which of these terms
+is going to be dominant?
+
+608
+00:34:05,000 --> 00:34:07,540
+This thing gets up to be
+some really big number
+
+609
+00:34:07,540 --> 00:34:09,090
+is our problem.
+
+610
+00:34:09,090 --> 00:34:11,780
+So we should be able to
+figure this out, though.
+
+611
+00:34:11,780 --> 00:34:14,389
+Because this new r is 1/1.02.
+
+612
+00:34:14,389 --> 00:34:21,300
+So we for example, have 1
+minus 1.02, 1 minus 1.02
+
+613
+00:34:21,300 --> 00:34:24,754
+to the 1,000.
+
+614
+00:34:24,754 --> 00:34:26,420
+All right, so this
+is a negative number,
+
+615
+00:34:26,420 --> 00:34:27,878
+but this is a
+negative number, too.
+
+616
+00:34:27,878 --> 00:34:37,925
+So we end up with 0.02--
+
+617
+00:34:37,925 --> 00:34:39,280
+AUDIENCE: 200.
+
+618
+00:34:39,280 --> 00:34:41,550
+PROFESSOR: Is it 200?
+
+619
+00:34:41,550 --> 00:34:44,139
+Yeah, you're keeping
+only the first,
+
+620
+00:34:44,139 --> 00:34:47,000
+which, since it's much larger
+than 1, it's bigger than 200.
+
+621
+00:34:47,000 --> 00:34:47,500
+Right?
+
+622
+00:34:47,500 --> 00:34:50,480
+I mean do you guys
+understand what I'm saying?
+
+623
+00:34:50,480 --> 00:34:52,550
+You can't keep just the
+first term in a series.
+
+624
+00:34:52,550 --> 00:34:57,070
+If the terms grow with number.
+
+625
+00:34:57,070 --> 00:35:02,340
+AUDIENCE: [INAUDIBLE]
+squared, 3.98 or something.
+
+626
+00:35:02,340 --> 00:35:03,948
+PROFESSOR: Wait, which one?
+
+627
+00:35:03,948 --> 00:35:07,760
+AUDIENCE: 1.02 to the 1,000.
+
+628
+00:35:07,760 --> 00:35:08,800
+PROFESSOR: It's 4?
+
+629
+00:35:08,800 --> 00:35:11,440
+OK, all right.
+
+630
+00:35:11,440 --> 00:35:15,040
+OK, so it's 1 minus 4.
+
+631
+00:35:15,040 --> 00:35:21,200
+So it's 2/300.
+
+632
+00:35:21,200 --> 00:35:26,430
+OK, so this is teamwork, right?
+
+633
+00:35:26,430 --> 00:35:30,859
+OK, so there's less than a
+1% probability of it fixing.
+
+634
+00:35:30,859 --> 00:35:31,650
+Is this believable?
+
+635
+00:35:31,650 --> 00:35:37,592
+
+636
+00:35:37,592 --> 00:35:39,972
+AUDIENCE: It's about right.
+
+637
+00:35:39,972 --> 00:35:47,055
+PROFESSOR: 2,
+1,000, 50-- I think
+
+638
+00:35:47,055 --> 00:35:52,465
+that you did it 1.02 to the 100
+rather than 1.02 to the 1,000.
+
+639
+00:35:52,465 --> 00:35:54,900
+AUDIENCE: OK.
+
+640
+00:35:54,900 --> 00:35:56,330
+PROFESSOR: No?
+
+641
+00:35:56,330 --> 00:35:57,987
+Do you not have it
+in front of you?
+
+642
+00:35:57,987 --> 00:35:59,448
+AUDIENCE: No, it's
+3-- [INAUDIBLE].
+
+643
+00:35:59,448 --> 00:36:02,857
+
+644
+00:36:02,857 --> 00:36:05,407
+AUDIENCE: 4 times 10 to the 8.
+
+645
+00:36:05,407 --> 00:36:07,240
+AUDIENCE: I never thought
+that my calculator
+
+646
+00:36:07,240 --> 00:36:08,710
+would become so controversial.
+
+647
+00:36:08,710 --> 00:36:10,126
+AUDIENCE: Oh, 4
+times 10 to the 8.
+
+648
+00:36:10,126 --> 00:36:18,440
+
+649
+00:36:18,440 --> 00:36:21,080
+PROFESSOR: Yes, sorry,
+I was just saying this
+
+650
+00:36:21,080 --> 00:36:23,580
+doesn't-- so this is why I'm
+saying you always check to make
+
+651
+00:36:23,580 --> 00:36:26,900
+sure that your calculation
+makes any sense at all.
+
+652
+00:36:26,900 --> 00:36:29,780
+So it's not this.
+
+653
+00:36:29,780 --> 00:36:31,817
+But it's tiny, right?
+
+654
+00:36:31,817 --> 00:36:34,620
+AUDIENCE: Yes, [INAUDIBLE].
+
+655
+00:36:34,620 --> 00:36:36,620
+PROFESSOR: Yeah, because
+this didn't make sense,
+
+656
+00:36:36,620 --> 00:36:39,520
+because this was of the
+same order as-- well,
+
+657
+00:36:39,520 --> 00:36:43,772
+this would be larger than 1 over
+N, so it's totally nonsensical.
+
+658
+00:36:43,772 --> 00:36:45,980
+Because 1 over N would be
+the probability of fixation
+
+659
+00:36:45,980 --> 00:36:47,050
+of a neutral mutation.
+
+660
+00:36:47,050 --> 00:36:49,182
+This is a deleterious mutation.
+
+661
+00:36:49,182 --> 00:36:50,390
+It's not even nearly neutral.
+
+662
+00:36:50,390 --> 00:36:54,481
+So it has to be much less
+than 1 over N, right?
+
+663
+00:36:54,481 --> 00:36:58,317
+So this whole thing
+is 10 to the minus 10,
+
+664
+00:36:58,317 --> 00:36:59,275
+or something like that?
+
+665
+00:36:59,275 --> 00:37:03,300
+
+666
+00:37:03,300 --> 00:37:08,309
+OK, 4 times 10 to the minus 8.
+
+667
+00:37:08,309 --> 00:37:09,100
+Well, OK, whatever.
+
+668
+00:37:09,100 --> 00:37:11,620
+
+669
+00:37:11,620 --> 00:37:12,630
+It's 10 to the minus 9.
+
+670
+00:37:12,630 --> 00:37:14,440
+It's something small.
+
+671
+00:37:14,440 --> 00:37:18,080
+So this times the probability of
+fixation, which is 10 minus 9--
+
+672
+00:37:18,080 --> 00:37:20,607
+this is how you would calculate
+the rate of going backwards.
+
+673
+00:37:20,607 --> 00:37:22,440
+There's some rate that
+the mutation appears,
+
+674
+00:37:22,440 --> 00:37:24,450
+and you multiply by the
+probability that it would fix.
+
+675
+00:37:24,450 --> 00:37:25,120
+And it's tiny.
+
+676
+00:37:25,120 --> 00:37:29,520
+
+677
+00:37:29,520 --> 00:37:30,020
+OK?
+
+678
+00:37:30,020 --> 00:37:32,960
+
+679
+00:37:32,960 --> 00:37:34,950
+All right, any other
+questions about how
+
+680
+00:37:34,950 --> 00:37:37,120
+to think about these sorts
+of evolutionary dynamics
+
+681
+00:37:37,120 --> 00:37:40,594
+with presence of mutation,
+fixation, everything?
+
+682
+00:37:40,594 --> 00:37:41,814
+Yeah.
+
+683
+00:37:41,814 --> 00:37:43,272
+AUDIENCE: Can we
+handle a situation
+
+684
+00:37:43,272 --> 00:37:48,350
+where [INAUDIBLE] interference
+is important at this point?
+
+685
+00:37:48,350 --> 00:37:51,150
+PROFESSOR: Yeah, so this is
+what you do in your problem set
+
+686
+00:37:51,150 --> 00:37:54,090
+with simulations.
+
+687
+00:37:54,090 --> 00:37:54,590
+Yeah.
+
+688
+00:37:54,590 --> 00:37:55,923
+AUDIENCE: [INAUDIBLE] numerical.
+
+689
+00:37:55,923 --> 00:37:59,780
+PROFESSOR: You know,
+I think that it
+
+690
+00:37:59,780 --> 00:38:01,988
+gets really messy with clonal
+interference, I'll say.
+
+691
+00:38:01,988 --> 00:38:05,059
+AUDIENCE: But,
+like, with basic--
+
+692
+00:38:05,059 --> 00:38:07,308
+I guess I was thinking about
+it and you could probably
+
+693
+00:38:07,308 --> 00:38:10,284
+imagine that [INAUDIBLE]
+calculate the probability
+
+694
+00:38:10,284 --> 00:38:14,760
+that 1, 0 doesn't arise first.
+
+695
+00:38:14,760 --> 00:38:17,500
+PROFESSOR: Right, yeah, OK,
+this is an important statement.
+
+696
+00:38:17,500 --> 00:38:20,850
+In the limit, as you get
+more and more mutations, when
+
+697
+00:38:20,850 --> 00:38:22,600
+clonal interference
+is really significant,
+
+698
+00:38:22,600 --> 00:38:24,224
+then you're pretty
+much just guaranteed
+
+699
+00:38:24,224 --> 00:38:25,600
+to take the 1, 0 path.
+
+700
+00:38:25,600 --> 00:38:29,037
+Because if you
+have many mutants,
+
+701
+00:38:29,037 --> 00:38:30,870
+the definition of clonal
+interference is you
+
+702
+00:38:30,870 --> 00:38:33,332
+have multiple mutations
+that have established.
+
+703
+00:38:33,332 --> 00:38:35,040
+And once you have
+multiple mutations that
+
+704
+00:38:35,040 --> 00:38:37,350
+have established, then it's
+likely that one of them
+
+705
+00:38:37,350 --> 00:38:38,520
+is going to be this.
+
+706
+00:38:38,520 --> 00:38:41,957
+And if it's established,
+it's going to win.
+
+707
+00:38:41,957 --> 00:38:44,540
+But the other thing is that as
+you go up in the mutation rate,
+
+708
+00:38:44,540 --> 00:38:47,260
+you don't even do
+successive fixations.
+
+709
+00:38:47,260 --> 00:38:50,785
+So it may be that neither
+state ever actually fixes,
+
+710
+00:38:50,785 --> 00:38:52,410
+because it could be
+that the 1, 0 state
+
+711
+00:38:52,410 --> 00:38:55,100
+is growing exponentially, but
+is a minority of the population.
+
+712
+00:38:55,100 --> 00:38:57,740
+And it gets another mutation
+that allows it to go to 1, 1.
+
+713
+00:38:57,740 --> 00:39:00,000
+So as you increase
+the mutation rate,
+
+714
+00:39:00,000 --> 00:39:02,450
+you don't have to actually
+take single steps.
+
+715
+00:39:02,450 --> 00:39:04,730
+You can kind of
+move through states.
+
+716
+00:39:04,730 --> 00:39:08,760
+And there's a whole literature
+of the rate at which you
+
+717
+00:39:08,760 --> 00:39:10,410
+cross fitness valleys.
+
+718
+00:39:10,410 --> 00:39:12,650
+So this is like tunneling
+in quantum mechanics or so.
+
+719
+00:39:12,650 --> 00:39:14,275
+And it has a lot of
+the same behaviors,
+
+720
+00:39:14,275 --> 00:39:17,029
+in the sense of exponential
+suppression of probabilities
+
+721
+00:39:17,029 --> 00:39:19,570
+as a function of the depth and
+the width of the valley you're
+
+722
+00:39:19,570 --> 00:39:20,390
+trying to traverse.
+
+723
+00:39:20,390 --> 00:39:22,870
+And there's some
+very nice papers,
+
+724
+00:39:22,870 --> 00:39:25,420
+if you're interested in
+looking at this stuff.
+
+725
+00:39:25,420 --> 00:39:28,775
+And one of them is actually in
+the syllabus that I mentioned.
+
+726
+00:39:28,775 --> 00:39:29,900
+I'm trying to remember who.
+
+727
+00:39:29,900 --> 00:39:32,020
+It was Journal of
+Theoretical Biology,
+
+728
+00:39:32,020 --> 00:39:34,629
+but I put it on as optional
+reading for those of you
+
+729
+00:39:34,629 --> 00:39:35,420
+who are interested.
+
+730
+00:39:35,420 --> 00:39:40,470
+
+731
+00:39:40,470 --> 00:39:41,505
+All right, OK.
+
+732
+00:39:41,505 --> 00:39:43,630
+So what I want to do now
+is I want to switch gears,
+
+733
+00:39:43,630 --> 00:39:45,330
+so we can think about this
+evolutionary game theory
+
+734
+00:39:45,330 --> 00:39:45,829
+business.
+
+735
+00:39:45,829 --> 00:39:49,950
+
+736
+00:39:49,950 --> 00:39:51,830
+And I think the
+most important thing
+
+737
+00:39:51,830 --> 00:39:54,200
+to stress when thinking about
+evolutionary game theory
+
+738
+00:39:54,200 --> 00:39:57,721
+is just that this point that we
+don't need to assume anything
+
+739
+00:39:57,721 --> 00:39:58,470
+about rationality.
+
+740
+00:39:58,470 --> 00:40:02,750
+
+741
+00:40:02,750 --> 00:40:10,270
+Because the puzzles that we like
+to give each other in your dorm
+
+742
+00:40:10,270 --> 00:40:13,600
+rooms Friday night,
+you give these logic
+
+743
+00:40:13,600 --> 00:40:15,850
+puzzles to each other.
+
+744
+00:40:15,850 --> 00:40:17,140
+Is that-- I don't know.
+
+745
+00:40:17,140 --> 00:40:18,330
+[LAUGHTER]
+
+746
+00:40:18,330 --> 00:40:21,330
+OK, let me just say, back when I
+was in college, that was, like,
+
+747
+00:40:21,330 --> 00:40:23,930
+all the cool kids were doing it.
+
+748
+00:40:23,930 --> 00:40:27,600
+But in these puzzles, you assume
+that there's hyper-rationality.
+
+749
+00:40:27,600 --> 00:40:32,130
+You assume that
+if this guy knows
+
+750
+00:40:32,130 --> 00:40:33,896
+that I did this,
+and that, and if I
+
+751
+00:40:33,896 --> 00:40:35,020
+did that, he would do that.
+
+752
+00:40:35,020 --> 00:40:36,645
+And then you end
+up, and then you
+
+753
+00:40:36,645 --> 00:40:38,270
+have the villagers
+that are jumping off
+
+754
+00:40:38,270 --> 00:40:40,625
+cliffs on the seventh day.
+
+755
+00:40:40,625 --> 00:40:42,000
+Have you guys done
+these puzzles?
+
+756
+00:40:42,000 --> 00:40:42,360
+No?
+
+757
+00:40:42,360 --> 00:40:42,720
+OK.
+
+758
+00:40:42,720 --> 00:40:42,980
+All right.
+
+759
+00:40:42,980 --> 00:40:43,480
+Well.
+
+760
+00:40:43,480 --> 00:40:45,960
+[LAUGHTER]
+
+761
+00:40:45,960 --> 00:40:49,620
+So the point was
+that people assume
+
+762
+00:40:49,620 --> 00:40:51,740
+that when we're talking
+about game theory,
+
+763
+00:40:51,740 --> 00:40:55,320
+you have to invoke this
+hyper-rationality even
+
+764
+00:40:55,320 --> 00:40:57,060
+humans don't engage in.
+
+765
+00:40:57,060 --> 00:40:59,130
+And I think that it's
+just very important
+
+766
+00:40:59,130 --> 00:41:01,379
+to remember that we're talking
+about evolutionary game
+
+767
+00:41:01,379 --> 00:41:04,990
+theory in the case of,
+well, biological evolution.
+
+768
+00:41:04,990 --> 00:41:06,840
+You don't assume anything
+about rationality.
+
+769
+00:41:06,840 --> 00:41:11,656
+Instead, you simply have
+mutations that sample
+
+770
+00:41:11,656 --> 00:41:12,530
+different strategies.
+
+771
+00:41:12,530 --> 00:41:17,550
+
+772
+00:41:17,550 --> 00:41:26,050
+And then you have
+differences in fitness
+
+773
+00:41:26,050 --> 00:41:29,470
+that just lead to evolution
+towards the same solutions
+
+774
+00:41:29,470 --> 00:41:31,080
+of the game.
+
+775
+00:41:31,080 --> 00:41:36,710
+So it's evolution to
+the game solutions,
+
+776
+00:41:36,710 --> 00:41:38,710
+so the Nash equilibrium,
+for example.
+
+777
+00:41:38,710 --> 00:41:43,020
+
+778
+00:41:43,020 --> 00:41:45,840
+So it's not that we
+think that the cells are
+
+779
+00:41:45,840 --> 00:41:50,210
+engaging in any sort of
+weird puzzle solving.
+
+780
+00:41:50,210 --> 00:41:52,290
+Instead, they're just mutations.
+
+781
+00:41:52,290 --> 00:41:56,190
+And the more fit individuals
+spread in the population.
+
+782
+00:41:56,190 --> 00:41:59,400
+And somehow, you evolve to
+the same or similar solutions,
+
+783
+00:41:59,400 --> 00:42:02,360
+to these Nash equilibria in
+the context of game theory.
+
+784
+00:42:02,360 --> 00:42:06,190
+
+785
+00:42:06,190 --> 00:42:10,040
+And we'll see how this plays
+out in a few concrete examples.
+
+786
+00:42:10,040 --> 00:42:15,130
+
+787
+00:42:15,130 --> 00:42:20,640
+Now, there are always different
+ways of looking at these games.
+
+788
+00:42:20,640 --> 00:42:23,579
+One thing I want to
+stress, though, is that all
+
+789
+00:42:23,579 --> 00:42:25,120
+the selection that
+we've been talking
+
+790
+00:42:25,120 --> 00:42:29,210
+about in the last
+few weeks, that all
+
+791
+00:42:29,210 --> 00:42:31,250
+is consistent with game
+theory in the sense
+
+792
+00:42:31,250 --> 00:42:33,500
+that the idea of
+the game theory is
+
+793
+00:42:33,500 --> 00:42:36,200
+that we allow for
+the possibility
+
+794
+00:42:36,200 --> 00:42:38,240
+that the fitness of
+individuals depends
+
+795
+00:42:38,240 --> 00:42:41,060
+upon the rest of the population.
+
+796
+00:42:41,060 --> 00:42:43,200
+Whereas in all these
+calculations we've been doing,
+
+797
+00:42:43,200 --> 00:42:47,210
+I told you, all right, I
+just gave you some fitnesses.
+
+798
+00:42:47,210 --> 00:42:50,550
+So I said, here we have a 0,
+0 state that has some fitness.
+
+799
+00:42:50,550 --> 00:42:53,090
+0, 1 has a higher
+fitness, and so forth.
+
+800
+00:42:53,090 --> 00:42:56,050
+But in general,
+these fitness values
+
+801
+00:42:56,050 --> 00:43:00,990
+may depend upon what the
+population composition is.
+
+802
+00:43:00,990 --> 00:43:03,590
+And in that situation, then you
+want to use evolutionary game
+
+803
+00:43:03,590 --> 00:43:05,910
+theory.
+
+804
+00:43:05,910 --> 00:43:08,870
+In many cases,
+people just assume
+
+805
+00:43:08,870 --> 00:43:12,950
+that you can do something like
+this-- that you can describe it
+
+806
+00:43:12,950 --> 00:43:14,290
+as some fitness landscape.
+
+807
+00:43:14,290 --> 00:43:17,950
+But you can't do that if
+there's this frequency-dependent
+
+808
+00:43:17,950 --> 00:43:20,260
+selection-- if there's any
+sort of evolutionary game
+
+809
+00:43:20,260 --> 00:43:22,340
+interactions going on.
+
+810
+00:43:22,340 --> 00:43:27,410
+So it's just important.
+
+811
+00:43:27,410 --> 00:43:32,280
+If the fitnesses
+depend on composition--
+
+812
+00:43:32,280 --> 00:43:34,990
+this is the population
+composition--
+
+813
+00:43:34,990 --> 00:43:39,610
+then you cannot even
+define a fitness landscape.
+
+814
+00:43:39,610 --> 00:43:43,250
+
+815
+00:43:43,250 --> 00:43:44,430
+Then no fitness landscape.
+
+816
+00:43:44,430 --> 00:43:47,800
+
+817
+00:43:47,800 --> 00:43:51,120
+For example, you can have
+situations where the population
+
+818
+00:43:51,120 --> 00:43:54,700
+evolves to lower fitness.
+
+819
+00:43:54,700 --> 00:43:56,510
+So you can have a
+situation where,
+
+820
+00:43:56,510 --> 00:44:00,040
+if I tell you individual
+0, you measure its growth
+
+821
+00:44:00,040 --> 00:44:05,760
+rate, whatnot, its
+fitness might be 1.
+
+822
+00:44:05,760 --> 00:44:10,680
+So this is genome,
+and this is fitness.
+
+823
+00:44:10,680 --> 00:44:13,090
+Now, if I go and I
+measure the fitness
+
+824
+00:44:13,090 --> 00:44:17,380
+of some other individual,
+different genome-- so
+
+825
+00:44:17,380 --> 00:44:20,480
+another strain of bacteria
+or yeast or whatever--
+
+826
+00:44:20,480 --> 00:44:23,650
+and you say, oh, well,
+its fitness is 1.2.
+
+827
+00:44:23,650 --> 00:44:26,730
+So this strain has higher
+fitness than this strain.
+
+828
+00:44:26,730 --> 00:44:32,160
+Now, it would be very natural
+to assume that this strain will
+
+829
+00:44:32,160 --> 00:44:34,380
+out-compete this strain.
+
+830
+00:44:34,380 --> 00:44:37,080
+And indeed, that's been the
+assumption in everything
+
+831
+00:44:37,080 --> 00:44:38,690
+we've been talking about.
+
+832
+00:44:38,690 --> 00:44:41,580
+But it's not necessarily true.
+
+833
+00:44:41,580 --> 00:44:45,840
+And that's the basic insight
+of evolutionary game theory,
+
+834
+00:44:45,840 --> 00:44:50,130
+is that just knowing the
+fitness of a pure population
+
+835
+00:44:50,130 --> 00:44:53,110
+is not actually enough
+information to know that it's
+
+836
+00:44:53,110 --> 00:44:54,600
+going to be selected for.
+
+837
+00:44:54,600 --> 00:44:57,800
+Because it's still possible
+that in a mixed population,
+
+838
+00:44:57,800 --> 00:45:00,880
+the genome 0 may actually
+have higher fitness
+
+839
+00:45:00,880 --> 00:45:01,892
+than the genome 1.
+
+840
+00:45:01,892 --> 00:45:06,050
+
+841
+00:45:06,050 --> 00:45:08,760
+And once you kind of
+study these things,
+
+842
+00:45:08,760 --> 00:45:10,430
+it's kind of clear
+that it can happen.
+
+843
+00:45:10,430 --> 00:45:12,800
+But then it's easy to
+then go back to the lab
+
+844
+00:45:12,800 --> 00:45:13,900
+and forget that it's true.
+
+845
+00:45:13,900 --> 00:45:17,930
+
+846
+00:45:17,930 --> 00:45:21,933
+And so we'll see
+how this plays out.
+
+847
+00:45:21,933 --> 00:45:25,790
+AUDIENCE: On this game
+theory, [INAUDIBLE]?
+
+848
+00:45:25,790 --> 00:45:27,530
+PROFESSOR: No.
+
+849
+00:45:27,530 --> 00:45:29,710
+That's the other
+thing, is that I
+
+850
+00:45:29,710 --> 00:45:31,842
+like to just draw these
+things as graphs, because I
+
+851
+00:45:31,842 --> 00:45:33,800
+think it's much easier
+to see what's happening.
+
+852
+00:45:33,800 --> 00:45:35,800
+And it's clear that
+things can be non-linear.
+
+853
+00:45:35,800 --> 00:45:39,940
+But the basic insights
+are all intact.
+
+854
+00:45:39,940 --> 00:45:42,800
+From my standpoint as kind
+of an experimentalist--
+
+855
+00:45:42,800 --> 00:45:47,090
+don't forget about
+the exam-- I think
+
+856
+00:45:47,090 --> 00:45:50,689
+that the more formal
+evolutionary game theory
+
+857
+00:45:50,689 --> 00:45:52,730
+thing-- these two-player
+games that you guys just
+
+858
+00:45:52,730 --> 00:45:56,200
+read about-- I think they're
+important because they tell you
+
+859
+00:45:56,200 --> 00:46:00,054
+what are the possible outcomes
+of measurements or of systems,
+
+860
+00:46:00,054 --> 00:46:02,220
+even in the most simple
+situation where everything's
+
+861
+00:46:02,220 --> 00:46:02,950
+linear.
+
+862
+00:46:02,950 --> 00:46:04,700
+Now, when things are
+not linear, of course
+
+863
+00:46:04,700 --> 00:46:06,530
+you can get even
+richer dynamics.
+
+864
+00:46:06,530 --> 00:46:10,391
+But in practice, you basically
+get the categories of outcomes
+
+865
+00:46:10,391 --> 00:46:11,140
+that we saw there.
+
+866
+00:46:11,140 --> 00:46:22,230
+
+867
+00:46:22,230 --> 00:46:27,350
+So maybe what I'll do is--
+so what we're going to do
+
+868
+00:46:27,350 --> 00:46:30,380
+is think about competition
+between two individuals
+
+869
+00:46:30,380 --> 00:46:38,260
+A and B. And often, we
+talk about these things
+
+870
+00:46:38,260 --> 00:46:41,866
+in the context of the two-player
+games, where we have A, B, C,
+
+871
+00:46:41,866 --> 00:46:47,390
+D. And because this is really
+importing the kind of approach,
+
+872
+00:46:47,390 --> 00:46:51,230
+or the nomenclature, from
+conventional game theory,
+
+873
+00:46:51,230 --> 00:46:54,020
+and then immediately applying
+it to populations where you just
+
+874
+00:46:54,020 --> 00:46:55,990
+assume that all the
+individuals have
+
+875
+00:46:55,990 --> 00:46:58,280
+equal probability of
+interacting with everybody
+
+876
+00:46:58,280 --> 00:46:59,317
+in the population.
+
+877
+00:46:59,317 --> 00:47:00,900
+So it's what you
+would get if you just
+
+878
+00:47:00,900 --> 00:47:04,850
+had some two-player game like
+they study in game theory,
+
+879
+00:47:04,850 --> 00:47:07,290
+but in a population
+of 1,000 or whatnot.
+
+880
+00:47:07,290 --> 00:47:09,790
+You just made a bunch of
+random pairwise interactions.
+
+881
+00:47:09,790 --> 00:47:10,930
+You had them play the game.
+
+882
+00:47:10,930 --> 00:47:12,846
+And then you had them
+do that again over time.
+
+883
+00:47:12,846 --> 00:47:18,550
+And then this is the
+payouts that you read about
+
+884
+00:47:18,550 --> 00:47:20,577
+in Chapter Four are kind
+of what would happen
+
+885
+00:47:20,577 --> 00:47:22,410
+in that sort of situation,
+where everybody's
+
+886
+00:47:22,410 --> 00:47:26,020
+interacting with everybody
+else with equal probability.
+
+887
+00:47:26,020 --> 00:47:28,450
+Now, remember the
+way that you read
+
+888
+00:47:28,450 --> 00:47:33,340
+this is that, depending upon
+the strategy that these guys are
+
+889
+00:47:33,340 --> 00:47:37,590
+following, you get
+different payouts.
+
+890
+00:47:37,590 --> 00:47:41,990
+And normally what we say
+is that if this could be,
+
+891
+00:47:41,990 --> 00:47:45,350
+for example, strategy one and
+two, strategy one and two.
+
+892
+00:47:45,350 --> 00:47:47,880
+And this is telling
+us about the payout
+
+893
+00:47:47,880 --> 00:47:50,670
+that the A individual gets
+depending on what he does,
+
+894
+00:47:50,670 --> 00:47:52,986
+and depending upon
+what his opponent does.
+
+895
+00:47:52,986 --> 00:47:55,360
+Now, we're not explicitly
+saying what the payout to the B
+
+896
+00:47:55,360 --> 00:47:56,785
+individual is,
+but we're assuming
+
+897
+00:47:56,785 --> 00:47:59,160
+that this is a symmetric game,
+so you could figure it out
+
+898
+00:47:59,160 --> 00:48:02,290
+by looking at the
+opposite entry.
+
+899
+00:48:02,290 --> 00:48:05,710
+So if A follows strategy
+one, B follows strategy one,
+
+900
+00:48:05,710 --> 00:48:10,420
+then individual A
+gets little a fitness,
+
+901
+00:48:10,420 --> 00:48:13,030
+whereas B also gets
+little a fitness,
+
+902
+00:48:13,030 --> 00:48:15,840
+because it's a symmetric game.
+
+903
+00:48:15,840 --> 00:48:18,930
+So the case it's different is
+when we're in the diagonals.
+
+904
+00:48:18,930 --> 00:48:22,410
+
+905
+00:48:22,410 --> 00:48:26,240
+And from this
+framework, you can see
+
+906
+00:48:26,240 --> 00:48:28,470
+that there are
+going to be already
+
+907
+00:48:28,470 --> 00:48:30,550
+a bunch of kind of
+non-trivial things
+
+908
+00:48:30,550 --> 00:48:33,470
+that can happen, even in this
+regime where everything's
+
+909
+00:48:33,470 --> 00:48:35,750
+linear.
+
+910
+00:48:35,750 --> 00:48:42,070
+And the probably best
+well-known of these
+
+911
+00:48:42,070 --> 00:48:50,500
+is this Prisoner's
+Dilemma, which
+
+912
+00:48:50,500 --> 00:48:53,770
+is the standard
+model of cooperation
+
+913
+00:48:53,770 --> 00:48:54,949
+in the field of game theory.
+
+914
+00:48:54,949 --> 00:48:56,740
+So there's a story that
+goes along with it.
+
+915
+00:48:56,740 --> 00:49:02,120
+It's this idea that-- I'm sure
+you guys watch these cop shows,
+
+916
+00:49:02,120 --> 00:49:05,110
+where you have the cops
+bring in the two accomplices.
+
+917
+00:49:05,110 --> 00:49:07,300
+And then they put them
+in separate rooms.
+
+918
+00:49:07,300 --> 00:49:09,220
+And they tell them
+that they have
+
+919
+00:49:09,220 --> 00:49:11,520
+to confess to
+committing the crime,
+
+920
+00:49:11,520 --> 00:49:13,800
+because the guy in the
+other room is confessing,
+
+921
+00:49:13,800 --> 00:49:15,300
+and if he doesn't
+confess, then he's
+
+922
+00:49:15,300 --> 00:49:16,880
+going to be in
+trouble, et cetera.
+
+923
+00:49:16,880 --> 00:49:20,470
+You've seen these cop shows?
+
+924
+00:49:20,470 --> 00:49:23,900
+And incidentally,
+in these questions,
+
+925
+00:49:23,900 --> 00:49:25,510
+when cops are
+questioning witnesses,
+
+926
+00:49:25,510 --> 00:49:31,730
+they're actually allowed to lie
+to the person being questioned,
+
+927
+00:49:31,730 --> 00:49:34,250
+which feels a little
+bit weird, actually.
+
+928
+00:49:34,250 --> 00:49:35,670
+Doesn't it?
+
+929
+00:49:35,670 --> 00:49:37,630
+I know, I know, this
+is not relevant.
+
+930
+00:49:37,630 --> 00:49:40,459
+
+931
+00:49:40,459 --> 00:49:42,000
+So the idea of the
+prisoner's dilemma
+
+932
+00:49:42,000 --> 00:49:46,787
+is that if you set up these
+jail sentences in the right way,
+
+933
+00:49:46,787 --> 00:49:48,870
+then it could be the case
+that each individual has
+
+934
+00:49:48,870 --> 00:49:52,260
+the incentive to confess, even
+though both individuals would
+
+935
+00:49:52,260 --> 00:49:57,200
+be better off if
+they cooperated.
+
+936
+00:49:57,200 --> 00:50:01,132
+And you can come up with some
+reasonable payout structure
+
+937
+00:50:01,132 --> 00:50:02,090
+that has that property.
+
+938
+00:50:02,090 --> 00:50:18,000
+
+939
+00:50:18,000 --> 00:50:24,515
+And we'll call this-- so
+this is for individual one,
+
+940
+00:50:24,515 --> 00:50:26,010
+say and individual two.
+
+941
+00:50:26,010 --> 00:50:29,550
+So there are different
+strategies you can follow.
+
+942
+00:50:29,550 --> 00:50:32,920
+And do you guys remember
+from the reading
+
+943
+00:50:32,920 --> 00:50:35,800
+slash my explanation how
+to read these charts?
+
+944
+00:50:35,800 --> 00:50:39,460
+
+945
+00:50:39,460 --> 00:50:44,510
+All right, now the question
+is, just to remind ourselves,
+
+946
+00:50:44,510 --> 00:50:47,370
+what is the Nash
+equilibrium of this game?
+
+947
+00:50:47,370 --> 00:50:51,290
+
+948
+00:50:51,290 --> 00:50:54,300
+And I know that you read
+about it last night.
+
+949
+00:50:54,300 --> 00:50:55,640
+Well, use your cards.
+
+950
+00:50:55,640 --> 00:50:59,190
+Is it C or is it D?
+
+951
+00:50:59,190 --> 00:51:02,910
+Or is there no Nash equilibrium,
+you can flash something else.
+
+952
+00:51:02,910 --> 00:51:10,590
+
+953
+00:51:10,590 --> 00:51:12,520
+AUDIENCE: Are those
+negative or positive?
+
+954
+00:51:12,520 --> 00:51:14,103
+PROFESSOR: These are
+positive fitness.
+
+955
+00:51:14,103 --> 00:51:16,670
+
+956
+00:51:16,670 --> 00:51:19,970
+I kind of don't like the
+Prisoner's Dilemma as a story,
+
+957
+00:51:19,970 --> 00:51:22,164
+because it's not very
+intuitive, because you
+
+958
+00:51:22,164 --> 00:51:23,830
+have to actually
+specify the jail terms,
+
+959
+00:51:23,830 --> 00:51:25,990
+and you have to remember that
+jail terms are bad, not good.
+
+960
+00:51:25,990 --> 00:51:27,370
+So these are good things, OK?
+
+961
+00:51:27,370 --> 00:51:30,960
+These are years off
+that you get as a result
+
+962
+00:51:30,960 --> 00:51:32,210
+of doing one thing or another.
+
+963
+00:51:32,210 --> 00:51:35,930
+
+964
+00:51:35,930 --> 00:51:37,560
+You want to get big numbers.
+
+965
+00:51:37,560 --> 00:51:38,360
+Ready?
+
+966
+00:51:38,360 --> 00:51:40,220
+Three, two, one.
+
+967
+00:51:40,220 --> 00:51:44,640
+
+968
+00:51:44,640 --> 00:51:46,980
+So at least we have a
+majority that are D,
+
+969
+00:51:46,980 --> 00:51:49,270
+but it's not all of them.
+
+970
+00:51:49,270 --> 00:51:51,300
+And I think this is
+basically a reflection--
+
+971
+00:51:51,300 --> 00:51:53,300
+and D is indeed the
+Nash equilibrium.
+
+972
+00:51:53,300 --> 00:51:56,550
+
+973
+00:51:56,550 --> 00:51:58,690
+It's to do this strategy
+D that we're saying here.
+
+974
+00:51:58,690 --> 00:52:01,060
+All right, now the
+question is why?
+
+975
+00:52:01,060 --> 00:52:03,320
+And part of the challenge
+here is just understanding
+
+976
+00:52:03,320 --> 00:52:05,540
+how to read these charts.
+
+977
+00:52:05,540 --> 00:52:09,670
+Now, first of all, the payout
+that everybody gets if everyone
+
+978
+00:52:09,670 --> 00:52:12,130
+follows strategy D is what?
+
+979
+00:52:12,130 --> 00:52:14,130
+Verbally, three, two, one.
+
+980
+00:52:14,130 --> 00:52:15,170
+AUDIENCE: One.
+
+981
+00:52:15,170 --> 00:52:17,440
+PROFESSOR: So everybody
+gets payout one.
+
+982
+00:52:17,440 --> 00:52:20,100
+Now, if you look
+at this chart, you
+
+983
+00:52:20,100 --> 00:52:23,410
+say, well, gee, that is a shame.
+
+984
+00:52:23,410 --> 00:52:28,900
+Because 1 is just not the
+biggest number you see here.
+
+985
+00:52:28,900 --> 00:52:30,820
+And indeed, the
+important point to note
+
+986
+00:52:30,820 --> 00:52:34,670
+here is that if both players
+had followed this strategy
+
+987
+00:52:34,670 --> 00:52:39,930
+C for cooperate, D for defect,
+then both individuals would be
+
+988
+00:52:39,930 --> 00:52:43,840
+getting fitness 3, or payout 3.
+
+989
+00:52:43,840 --> 00:52:46,550
+So the idea here is that
+both individuals would
+
+990
+00:52:46,550 --> 00:52:49,140
+do better if they both
+played strategy C.
+
+991
+00:52:49,140 --> 00:52:51,660
+But the problem is that that's
+not evolutionarily stable.
+
+992
+00:52:51,660 --> 00:52:53,590
+Or in the context
+of game theory,
+
+993
+00:52:53,590 --> 00:52:56,770
+that is cheatable in some ways.
+
+994
+00:52:56,770 --> 00:52:59,020
+And so the reason that
+this is a Nash equilibrium
+
+995
+00:52:59,020 --> 00:53:01,890
+is that you ask-- so a Nash
+equilibrium, what it means,
+
+996
+00:53:01,890 --> 00:53:05,070
+if you recall, is
+that if everyone's
+
+997
+00:53:05,070 --> 00:53:07,640
+playing that strategy, then
+nobody has the incentive
+
+998
+00:53:07,640 --> 00:53:09,770
+to change strategy.
+
+999
+00:53:09,770 --> 00:53:11,825
+So no incentive to
+change strategy.
+
+1000
+00:53:11,825 --> 00:53:17,902
+
+1001
+00:53:17,902 --> 00:53:19,360
+So now you just
+imagine, let's say,
+
+1002
+00:53:19,360 --> 00:53:20,390
+that you're playing
+against somebody else,
+
+1003
+00:53:20,390 --> 00:53:22,100
+or in the context
+of biology, it's
+
+1004
+00:53:22,100 --> 00:53:24,746
+a population of individuals
+following the D strategy.
+
+1005
+00:53:24,746 --> 00:53:27,740
+The question is whether
+you as an individual
+
+1006
+00:53:27,740 --> 00:53:32,040
+would have the incentive to
+switch to the other strategy?
+
+1007
+00:53:32,040 --> 00:53:34,830
+And the answer is no, because
+what you have control over
+
+1008
+00:53:34,830 --> 00:53:38,510
+is this rows.
+
+1009
+00:53:38,510 --> 00:53:41,450
+The column is specified by
+the rest of the population.
+
+1010
+00:53:41,450 --> 00:53:45,095
+So if you're in this state,
+what you have a choice of
+
+1011
+00:53:45,095 --> 00:53:47,612
+is to switch to the
+cooperate strategy, which
+
+1012
+00:53:47,612 --> 00:53:48,570
+would be to go up here.
+
+1013
+00:53:48,570 --> 00:53:53,890
+So you have a choice to
+move up to this 0 payout,
+
+1014
+00:53:53,890 --> 00:53:55,732
+but that's not to
+your advantage.
+
+1015
+00:53:55,732 --> 00:53:57,940
+Now, it's true that your
+opponent would get payout 5.
+
+1016
+00:53:57,940 --> 00:54:01,170
+So you opponent would
+actually do wonderfully.
+
+1017
+00:54:01,170 --> 00:54:02,370
+But you would do poorly.
+
+1018
+00:54:02,370 --> 00:54:05,890
+So you'd be selected
+against, if you imagine
+
+1019
+00:54:05,890 --> 00:54:07,980
+this being in the
+context of biology--
+
+1020
+00:54:07,980 --> 00:54:09,990
+that you have a genotype
+that are playing
+
+1021
+00:54:09,990 --> 00:54:13,120
+D. If you're a mutant that
+starts following this strategy
+
+1022
+00:54:13,120 --> 00:54:17,627
+C, you have lower fitness,
+so you're selected against.
+
+1023
+00:54:17,627 --> 00:54:19,835
+So that's saying that the
+strategy D is noninvadable.
+
+1024
+00:54:19,835 --> 00:54:23,050
+
+1025
+00:54:23,050 --> 00:54:25,040
+We can also think about
+what happens if we're
+
+1026
+00:54:25,040 --> 00:54:28,710
+a population of cooperators.
+
+1027
+00:54:28,710 --> 00:54:31,251
+Now everybody has high
+fitness-- fitness 3.
+
+1028
+00:54:31,251 --> 00:54:32,750
+Question is, what
+happens if there's
+
+1029
+00:54:32,750 --> 00:54:35,070
+a mutation that leads to one
+individual following the D
+
+1030
+00:54:35,070 --> 00:54:35,570
+strategy?
+
+1031
+00:54:35,570 --> 00:54:41,560
+
+1032
+00:54:41,560 --> 00:54:45,426
+Is he selected four or not?
+
+1033
+00:54:45,426 --> 00:54:46,320
+AUDIENCE: Yes.
+
+1034
+00:54:46,320 --> 00:54:48,570
+PROFESSOR: Yes,
+so the point here
+
+1035
+00:54:48,570 --> 00:54:53,410
+is that you always will
+have higher fitness,
+
+1036
+00:54:53,410 --> 00:54:57,010
+regardless of what your opponent
+does in the context of a game
+
+1037
+00:54:57,010 --> 00:54:59,260
+theory situation, or
+regardless of the distribution
+
+1038
+00:54:59,260 --> 00:55:00,910
+of cooperation and
+defection in the population.
+
+1039
+00:55:00,910 --> 00:55:02,410
+It's always better
+to be a defector.
+
+1040
+00:55:02,410 --> 00:55:05,280
+
+1041
+00:55:05,280 --> 00:55:11,308
+So the problem here is, it's
+always better to play D.
+
+1042
+00:55:11,308 --> 00:55:21,280
+
+1043
+00:55:21,280 --> 00:55:28,911
+Now, I really like drawing
+the graphs of these things,
+
+1044
+00:55:28,911 --> 00:55:30,660
+because I think it's
+just much more clear.
+
+1045
+00:55:30,660 --> 00:55:34,770
+
+1046
+00:55:34,770 --> 00:55:37,940
+And you can either
+draw the fitness
+
+1047
+00:55:37,940 --> 00:55:41,860
+of the two types minus each
+other, or just the raw fitness.
+
+1048
+00:55:41,860 --> 00:55:43,086
+Yes.
+
+1049
+00:55:43,086 --> 00:55:45,537
+AUDIENCE: So what if
+instead of 5, you have 7?
+
+1050
+00:55:45,537 --> 00:55:49,830
+Because then the population
+as a whole's fitness
+
+1051
+00:55:49,830 --> 00:55:54,123
+decreases when you [INAUDIBLE].
+
+1052
+00:55:54,123 --> 00:55:56,680
+So how does that--
+
+1053
+00:55:56,680 --> 00:55:59,236
+PROFESSOR: So you're saying
+if this 5 were a 7 instead?
+
+1054
+00:55:59,236 --> 00:55:59,930
+AUDIENCE: Yeah.
+
+1055
+00:55:59,930 --> 00:56:01,950
+PROFESSOR: Right, then
+what you're saying
+
+1056
+00:56:01,950 --> 00:56:04,020
+is that-- so it doesn't change.
+
+1057
+00:56:04,020 --> 00:56:07,940
+The Nash equilibrium
+is still defect.
+
+1058
+00:56:07,940 --> 00:56:13,600
+The subtle thing here
+is that, in general,
+
+1059
+00:56:13,600 --> 00:56:17,180
+in terms of game theory, we like
+it when the mean of these two
+
+1060
+00:56:17,180 --> 00:56:19,437
+is smaller than this one.
+
+1061
+00:56:19,437 --> 00:56:20,770
+That's why you're asking, right?
+
+1062
+00:56:20,770 --> 00:56:23,120
+Exactly, because that's right.
+
+1063
+00:56:23,120 --> 00:56:24,130
+Exactly, right.
+
+1064
+00:56:24,130 --> 00:56:27,630
+So yeah, so that's a slightly
+more complicated situation,
+
+1065
+00:56:27,630 --> 00:56:31,490
+because in that situation, then,
+if you had two rational agents,
+
+1066
+00:56:31,490 --> 00:56:34,820
+say, playing this game, then
+you could alternate cooperation
+
+1067
+00:56:34,820 --> 00:56:35,940
+and defection.
+
+1068
+00:56:35,940 --> 00:56:39,060
+And that would actually be the
+ultimate form of cooperation
+
+1069
+00:56:39,060 --> 00:56:42,030
+in such a game, because you
+could actually get a higher
+
+1070
+00:56:42,030 --> 00:56:45,180
+payout by alternating.
+
+1071
+00:56:45,180 --> 00:56:47,390
+Right, so we've
+chosen the numbers
+
+1072
+00:56:47,390 --> 00:56:54,480
+as they are so that this is
+subtlety is not an issue.
+
+1073
+00:56:54,480 --> 00:56:56,280
+Does everybody understand
+the issue there?
+
+1074
+00:56:56,280 --> 00:57:00,030
+
+1075
+00:57:00,030 --> 00:57:02,850
+So in the context of
+evolutionary game theory, what
+
+1076
+00:57:02,850 --> 00:57:07,030
+we can do is we can plot as
+a function of the fraction
+
+1077
+00:57:07,030 --> 00:57:10,610
+of the population that's
+cooperator between 0 and 1,
+
+1078
+00:57:10,610 --> 00:57:12,770
+say.
+
+1079
+00:57:12,770 --> 00:57:16,420
+And we can plot the
+payout for the cooperator
+
+1080
+00:57:16,420 --> 00:57:17,350
+and for the defector.
+
+1081
+00:57:17,350 --> 00:57:23,020
+
+1082
+00:57:23,020 --> 00:57:29,510
+For example, I'm going to draw
+a solid line for the cooperator,
+
+1083
+00:57:29,510 --> 00:57:32,450
+dashed line for the defector.
+
+1084
+00:57:32,450 --> 00:57:39,150
+Now the question is, what should
+be the y-axes on either ends
+
+1085
+00:57:39,150 --> 00:57:39,730
+and so forth?
+
+1086
+00:57:39,730 --> 00:57:40,479
+Do you understand?
+
+1087
+00:57:40,479 --> 00:57:43,030
+
+1088
+00:57:43,030 --> 00:57:45,850
+So what should these
+things look like?
+
+1089
+00:57:45,850 --> 00:57:47,780
+I'd like to encourage
+you to-- I'll
+
+1090
+00:57:47,780 --> 00:57:51,055
+give you 30 seconds
+to try to draw
+
+1091
+00:57:51,055 --> 00:57:52,180
+what this should look like.
+
+1092
+00:57:52,180 --> 00:57:59,610
+So this is the payout
+or the expected payout.
+
+1093
+00:57:59,610 --> 00:58:03,610
+So we're assuming that you're
+going to interact randomly
+
+1094
+00:58:03,610 --> 00:58:05,860
+with the other members of
+the population as a function
+
+1095
+00:58:05,860 --> 00:58:07,290
+of the fraction cooperator.
+
+1096
+00:58:07,290 --> 00:58:09,570
+So then 1 minus that will
+be the fraction defector.
+
+1097
+00:58:09,570 --> 00:58:13,170
+
+1098
+00:58:13,170 --> 00:58:15,321
+Do you understand what I'm
+trying to ask you to do?
+
+1099
+00:58:15,321 --> 00:58:17,966
+AUDIENCE: So the scale on
+the right-hand side supposed
+
+1100
+00:58:17,966 --> 00:58:20,140
+to be for the defectors?
+
+1101
+00:58:20,140 --> 00:58:21,759
+[INAUDIBLE]?
+
+1102
+00:58:21,759 --> 00:58:24,050
+PROFESSOR: This is just a
+legend, or key, or something.
+
+1103
+00:58:24,050 --> 00:58:26,630
+So I want you to draw
+something over here that's
+
+1104
+00:58:26,630 --> 00:58:28,030
+a solid line and a dashed line.
+
+1105
+00:58:28,030 --> 00:58:29,380
+AUDIENCE: All right,
+so it's just one scale.
+
+1106
+00:58:29,380 --> 00:58:30,005
+And you don't--
+
+1107
+00:58:30,005 --> 00:58:31,088
+PROFESSOR: It's one scale.
+
+1108
+00:58:31,088 --> 00:58:32,230
+AUDIENCE: [INAUDIBLE].
+
+1109
+00:58:32,230 --> 00:58:34,614
+PROFESSOR: Oh, yeah, sorry.
+
+1110
+00:58:34,614 --> 00:58:36,780
+I'm just telling you what's
+going to be a solid line
+
+1111
+00:58:36,780 --> 00:58:39,540
+and what's going to
+be a dashed line.
+
+1112
+00:58:39,540 --> 00:58:42,290
+And I'll give you a hint,
+that up here is number 5.
+
+1113
+00:58:42,290 --> 00:59:23,450
+
+1114
+00:59:23,450 --> 00:59:27,775
+This is going to be the expected
+payout for a lone individual
+
+1115
+00:59:27,775 --> 00:59:29,650
+given the rest of the
+population is following
+
+1116
+00:59:29,650 --> 00:59:31,070
+some fraction of cooperator.
+
+1117
+00:59:31,070 --> 01:00:05,630
+
+1118
+01:00:05,630 --> 01:00:08,136
+Do you guys understand
+what I'm asking you to do?
+
+1119
+01:00:08,136 --> 01:00:10,010
+Because I'm a little
+bit concerned that there
+
+1120
+01:00:10,010 --> 01:00:14,706
+are very few plots in front.
+
+1121
+01:00:14,706 --> 01:00:16,020
+AUDIENCE: What is fc?
+
+1122
+01:00:16,020 --> 01:00:17,660
+PROFESSOR: So this is the
+fraction of the population
+
+1123
+01:00:17,660 --> 01:00:18,409
+that's cooperator.
+
+1124
+01:00:18,409 --> 01:00:40,700
+
+1125
+01:00:40,700 --> 01:00:44,530
+Well, I was giving you a
+chance to think about it.
+
+1126
+01:00:44,530 --> 01:00:46,930
+But from looking around,
+I think that maybe you're
+
+1127
+01:00:46,930 --> 01:00:48,960
+not quite sure what I'm
+trying to ask you to do.
+
+1128
+01:00:48,960 --> 01:00:50,964
+So I'm trying to plot
+the expected payout
+
+1129
+01:00:50,964 --> 01:00:53,380
+for an individual that is
+either cooperating or defecting,
+
+1130
+01:00:53,380 --> 01:00:55,421
+based on the fact that
+the rest of the population
+
+1131
+01:00:55,421 --> 01:01:00,590
+has some composition between
+all cooperate or all defect.
+
+1132
+01:01:00,590 --> 01:01:03,170
+So it's the evolution
+game theory extension
+
+1133
+01:01:03,170 --> 01:01:06,460
+of this simple model.
+
+1134
+01:01:06,460 --> 01:01:11,360
+So first, we can ask, well,
+if the entire population is
+
+1135
+01:01:11,360 --> 01:01:15,460
+cooperating, we want to know
+the fitness for a cooperator
+
+1136
+01:01:15,460 --> 01:01:16,000
+or defector.
+
+1137
+01:01:16,000 --> 01:01:20,710
+Well, this is really
+just saying that we're
+
+1138
+01:01:20,710 --> 01:01:25,190
+all the way over on here, and
+we just choose between the two.
+
+1139
+01:01:25,190 --> 01:01:27,250
+And the defector is the 5 one.
+
+1140
+01:01:27,250 --> 01:01:30,390
+So this is going to be
+a dashed line that's
+
+1141
+01:01:30,390 --> 01:01:31,880
+going to start from here.
+
+1142
+01:01:31,880 --> 01:01:33,530
+And then this is 2 and 1/2, 3.
+
+1143
+01:01:33,530 --> 01:01:37,080
+
+1144
+01:01:37,080 --> 01:01:40,435
+So this is cooperator starts
+here, and defector starts here.
+
+1145
+01:01:40,435 --> 01:01:43,390
+Do you understand what I'm?
+
+1146
+01:01:43,390 --> 01:01:45,290
+Now, OK, let's see.
+
+1147
+01:01:45,290 --> 01:01:48,740
+So now this is the one where
+if everybody else is defecting,
+
+1148
+01:01:48,740 --> 01:01:51,250
+well, now, the cooperator
+line goes to what?
+
+1149
+01:01:51,250 --> 01:01:54,160
+Verbally, three, two, one.
+
+1150
+01:01:54,160 --> 01:01:54,740
+AUDIENCE: 0.
+
+1151
+01:01:54,740 --> 01:01:56,900
+PROFESSOR: 0.
+
+1152
+01:01:56,900 --> 01:01:58,410
+The defector line goes to 1.
+
+1153
+01:01:58,410 --> 01:02:09,310
+
+1154
+01:02:09,310 --> 01:02:11,640
+OK, that line, I started
+going the wrong direction,
+
+1155
+01:02:11,640 --> 01:02:13,370
+but that's supposed
+to be a line.
+
+1156
+01:02:13,370 --> 01:02:15,940
+
+1157
+01:02:15,940 --> 01:02:18,020
+So this is an
+example of what this
+
+1158
+01:02:18,020 --> 01:02:20,914
+looks like for the
+Prisoner's Dilemma.
+
+1159
+01:02:20,914 --> 01:02:22,580
+And what you see is
+the defector fitness
+
+1160
+01:02:22,580 --> 01:02:25,180
+is always above the
+cooperator fitness.
+
+1161
+01:02:25,180 --> 01:02:27,502
+So for any population
+composition,
+
+1162
+01:02:27,502 --> 01:02:29,460
+defectors have higher
+fitness than cooperators.
+
+1163
+01:02:29,460 --> 01:02:34,630
+So evolution brings you to
+the pure defecting state,
+
+1164
+01:02:34,630 --> 01:02:36,170
+where you have fitness 1.
+
+1165
+01:02:36,170 --> 01:02:40,001
+
+1166
+01:02:40,001 --> 01:02:41,500
+And if you want,
+you could calculate
+
+1167
+01:02:41,500 --> 01:02:45,230
+what the mean fitness of the
+population is, for example.
+
+1168
+01:02:45,230 --> 01:02:48,400
+And the mean fitness
+starts out over here,
+
+1169
+01:02:48,400 --> 01:02:49,830
+and ends up over here.
+
+1170
+01:02:49,830 --> 01:02:51,930
+So the mean fitness
+decreases over time.
+
+1171
+01:02:51,930 --> 01:02:54,610
+
+1172
+01:02:54,610 --> 01:03:01,240
+Now, you can imagine that in
+the simple, two-player models,
+
+1173
+01:03:01,240 --> 01:03:02,590
+all these are lines.
+
+1174
+01:03:02,590 --> 01:03:04,970
+But you can imagine that the
+only thing that's important
+
+1175
+01:03:04,970 --> 01:03:09,340
+are how these lines
+cross each other.
+
+1176
+01:03:09,340 --> 01:03:12,090
+So for example, there are
+only a few different things
+
+1177
+01:03:12,090 --> 01:03:14,160
+that can happen.
+
+1178
+01:03:14,160 --> 01:03:24,260
+You can have one
+strategy that dominates,
+
+1179
+01:03:24,260 --> 01:03:26,660
+which is what occurred here.
+
+1180
+01:03:26,660 --> 01:03:29,240
+And surprisingly,
+that does not mean
+
+1181
+01:03:29,240 --> 01:03:32,290
+that that strategy
+is higher fitness,
+
+1182
+01:03:32,290 --> 01:03:36,070
+in the sense that you may evolve
+to a state of low fitness.
+
+1183
+01:03:36,070 --> 01:03:37,166
+That's what's weird.
+
+1184
+01:03:37,166 --> 01:03:43,930
+You can have coexistence, or
+you can have bi-stability.
+
+1185
+01:03:43,930 --> 01:03:48,880
+
+1186
+01:03:48,880 --> 01:03:53,175
+So I'll give you
+another example of this.
+
+1187
+01:03:53,175 --> 01:03:59,420
+
+1188
+01:03:59,420 --> 01:04:01,990
+So now we're just going
+to have two strategies.
+
+1189
+01:04:01,990 --> 01:04:07,516
+The strategies-- we'll
+just call them A and B.
+
+1190
+01:04:07,516 --> 01:04:11,460
+
+1191
+01:04:11,460 --> 01:04:16,045
+And the question is, what
+is the Nash equilibrium?
+
+1192
+01:04:16,045 --> 01:04:22,620
+
+1193
+01:04:22,620 --> 01:04:34,500
+Is it A, B, or C should
+be neither, D is both.
+
+1194
+01:04:34,500 --> 01:04:35,950
+Do you understand?
+
+1195
+01:04:35,950 --> 01:04:38,950
+I'm going to ask, because
+if this is the game
+
+1196
+01:04:38,950 --> 01:04:41,670
+and this is the interaction,
+is the Nash equilibrium A,
+
+1197
+01:04:41,670 --> 01:04:43,400
+Nash equilibrium B?
+
+1198
+01:04:43,400 --> 01:04:47,240
+If you vote C, it means
+neither, D means both.
+
+1199
+01:04:47,240 --> 01:04:50,590
+Do you understand the question?
+
+1200
+01:04:50,590 --> 01:04:53,474
+I'll give you 30 seconds
+to think about it.
+
+1201
+01:04:53,474 --> 01:05:38,660
+
+1202
+01:05:38,660 --> 01:05:44,670
+All right, are we ready to vote?
+
+1203
+01:05:44,670 --> 01:05:47,935
+Ready, three, two, one.
+
+1204
+01:05:47,935 --> 01:05:53,621
+
+1205
+01:05:53,621 --> 01:05:55,370
+All right, so we have
+a fair distribution.
+
+1206
+01:05:55,370 --> 01:06:01,250
+I may not have us vote,
+but yeah, in this case,
+
+1207
+01:06:01,250 --> 01:06:04,970
+they're actually
+both Nash equilibria.
+
+1208
+01:06:04,970 --> 01:06:06,500
+So let's see this.
+
+1209
+01:06:06,500 --> 01:06:09,290
+If both individuals, or
+an entire population,
+
+1210
+01:06:09,290 --> 01:06:13,000
+say, is playing A,
+they're getting fitness 5.
+
+1211
+01:06:13,000 --> 01:06:14,790
+Question is, as a
+lone individual,
+
+1212
+01:06:14,790 --> 01:06:17,720
+you can choose to switch
+over and get fitness 3.
+
+1213
+01:06:17,720 --> 01:06:19,610
+Do you want to do that?
+
+1214
+01:06:19,610 --> 01:06:21,150
+No.
+
+1215
+01:06:21,150 --> 01:06:23,510
+So that means that A is going
+to be a Nash equilibrium.
+
+1216
+01:06:23,510 --> 01:06:25,010
+Incidentally, the
+difference between
+
+1217
+01:06:25,010 --> 01:06:27,780
+the so-called regular Nash
+equilibrium and the strict Nash
+
+1218
+01:06:27,780 --> 01:06:32,050
+equilibrium is that
+Nash equilibrium
+
+1219
+01:06:32,050 --> 01:06:35,630
+means that no individual has the
+incentive to change strategy.
+
+1220
+01:06:35,630 --> 01:06:40,860
+A strict Nash equilibrium means
+that any change in strategy
+
+1221
+01:06:40,860 --> 01:06:42,800
+leads to an actual
+decrease in fitness.
+
+1222
+01:06:42,800 --> 01:06:45,920
+So it's a question of whether
+you can make neutral changes
+
+1223
+01:06:45,920 --> 01:06:47,690
+in strategy or not.
+
+1224
+01:06:47,690 --> 01:06:48,440
+Do you understand?
+
+1225
+01:06:48,440 --> 01:06:51,800
+
+1226
+01:06:51,800 --> 01:06:54,540
+So A is a Nash equilibrium.
+
+1227
+01:06:54,540 --> 01:06:55,570
+What about B?
+
+1228
+01:06:55,570 --> 01:06:59,530
+Well, in that case, everybody's
+getting to fitness 1.
+
+1229
+01:06:59,530 --> 01:07:02,980
+Now, as a lone individual,
+what can you do?
+
+1230
+01:07:02,980 --> 01:07:04,850
+All you can do is switch.
+
+1231
+01:07:04,850 --> 01:07:07,050
+As an individual, you
+can only choose rows.
+
+1232
+01:07:07,050 --> 01:07:08,260
+So you go up to 0.
+
+1233
+01:07:08,260 --> 01:07:09,950
+That's a decrease of fitness.
+
+1234
+01:07:09,950 --> 01:07:14,530
+So that means that strategy
+B is also a Nash equilibrium.
+
+1235
+01:07:14,530 --> 01:07:17,410
+
+1236
+01:07:17,410 --> 01:07:19,450
+So there are two Nash
+equilibria in this game.
+
+1237
+01:07:19,450 --> 01:07:21,850
+And what does that
+mean about which regime
+
+1238
+01:07:21,850 --> 01:07:25,830
+you're in here, if you convert
+this into an evolutionary game
+
+1239
+01:07:25,830 --> 01:07:27,075
+theory scenario?
+
+1240
+01:07:27,075 --> 01:07:37,460
+
+1241
+01:07:37,460 --> 01:07:41,700
+Ready, three, two, one.
+
+1242
+01:07:41,700 --> 01:07:43,550
+OK, so a majority is saying yes.
+
+1243
+01:07:43,550 --> 01:07:47,130
+This is indeed a situation in
+which you have bi-stability.
+
+1244
+01:07:47,130 --> 01:07:50,030
+
+1245
+01:07:50,030 --> 01:07:53,417
+So what does that mean in terms
+of these lines if we draw them?
+
+1246
+01:07:53,417 --> 01:07:57,730
+
+1247
+01:07:57,730 --> 01:08:07,130
+So this is payout as a
+function of the fraction that
+
+1248
+01:08:07,130 --> 01:08:08,555
+is playing the A strategy.
+
+1249
+01:08:08,555 --> 01:08:12,000
+
+1250
+01:08:12,000 --> 01:08:13,100
+Should the lines cross?
+
+1251
+01:08:13,100 --> 01:08:13,620
+Yes or no?
+
+1252
+01:08:13,620 --> 01:08:15,997
+Ready, three, two, one.
+
+1253
+01:08:15,997 --> 01:08:16,580
+AUDIENCE: Yes.
+
+1254
+01:08:16,580 --> 01:08:20,898
+PROFESSOR: Yes, and
+indeed, in principle,
+
+1255
+01:08:20,898 --> 01:08:22,689
+the math that we do in
+all these situations
+
+1256
+01:08:22,689 --> 01:08:25,319
+is kind of super simple.
+
+1257
+01:08:25,319 --> 01:08:28,540
+Yet it's easy to get confused
+about what's going on
+
+1258
+01:08:28,540 --> 01:08:29,770
+in all these situations.
+
+1259
+01:08:29,770 --> 01:08:33,930
+So the idea here is that if
+the population is A, that
+
+1260
+01:08:33,930 --> 01:08:37,044
+means that the A here is at 5.
+
+1261
+01:08:37,044 --> 01:08:41,390
+
+1262
+01:08:41,390 --> 01:08:42,694
+But then it goes down to 0.
+
+1263
+01:08:42,694 --> 01:08:47,140
+
+1264
+01:08:47,140 --> 01:08:50,448
+Whereas over here, B here is 3.
+
+1265
+01:08:50,448 --> 01:08:51,364
+And then it goes to 1.
+
+1266
+01:08:51,364 --> 01:08:59,200
+
+1267
+01:08:59,200 --> 01:09:01,960
+Because these two
+lines cross, does that
+
+1268
+01:09:01,960 --> 01:09:06,970
+mean that you have bi-stability?
+
+1269
+01:09:06,970 --> 01:09:10,278
+Ready, yes or no,
+three, two, one,
+
+1270
+01:09:10,278 --> 01:09:10,819
+AUDIENCE: No.
+
+1271
+01:09:10,819 --> 01:09:13,780
+PROFESSOR: No, and why not?
+
+1272
+01:09:13,780 --> 01:09:15,210
+AUDIENCE: [INAUDIBLE].
+
+1273
+01:09:15,210 --> 01:09:16,120
+PROFESSOR: That's right,
+because you can also
+
+1274
+01:09:16,120 --> 01:09:18,411
+do the other thing, and then
+that leads to coexistence.
+
+1275
+01:09:18,411 --> 01:09:22,310
+
+1276
+01:09:22,310 --> 01:09:26,270
+Now, in some ways coexistence
+is the most subtle
+
+1277
+01:09:26,270 --> 01:09:27,580
+of the situations.
+
+1278
+01:09:27,580 --> 01:09:30,955
+And that's for an
+interesting reason.
+
+1279
+01:09:30,955 --> 01:09:32,746
+AUDIENCE: Sorry, sir,
+you said you can also
+
+1280
+01:09:32,746 --> 01:09:33,537
+do the other thing.
+
+1281
+01:09:33,537 --> 01:09:34,830
+What is the other thing here?
+
+1282
+01:09:34,830 --> 01:09:37,398
+
+1283
+01:09:37,398 --> 01:09:39,189
+PROFESSOR: I'm saying
+that these things can
+
+1284
+01:09:39,189 --> 01:09:42,250
+cross in the other orientation.
+
+1285
+01:09:42,250 --> 01:09:52,734
+Let me put a matrix
+out there, and then--
+
+1286
+01:09:52,734 --> 01:09:56,130
+so this is something that,
+for example, is what's
+
+1287
+01:09:56,130 --> 01:09:57,480
+known as a Hawk/Dove game.
+
+1288
+01:09:57,480 --> 01:09:58,755
+Or it has many other names.
+
+1289
+01:09:58,755 --> 01:10:12,341
+
+1290
+01:10:12,341 --> 01:10:14,840
+And we can maybe figure out
+what would be the Hawk strategy,
+
+1291
+01:10:14,840 --> 01:10:16,048
+and what's the Dove strategy.
+
+1292
+01:10:16,048 --> 01:10:19,710
+
+1293
+01:10:19,710 --> 01:10:23,080
+Now, we want to ask the
+same question-- is A a Nash
+
+1294
+01:10:23,080 --> 01:10:23,630
+equilibrium?
+
+1295
+01:10:23,630 --> 01:10:25,480
+Is B a Nash equilibrium?
+
+1296
+01:10:25,480 --> 01:10:26,440
+Is it neither?
+
+1297
+01:10:26,440 --> 01:10:27,300
+Or is it both?
+
+1298
+01:10:27,300 --> 01:10:30,104
+And maybe I shouldn't
+have covered this up,
+
+1299
+01:10:30,104 --> 01:10:32,020
+so you're not influenced,
+in case you actually
+
+1300
+01:10:32,020 --> 01:10:34,290
+did do the reading.
+
+1301
+01:10:34,290 --> 01:10:37,090
+Then I don't want to you
+to be influenced by this.
+
+1302
+01:10:37,090 --> 01:10:40,960
+
+1303
+01:10:40,960 --> 01:10:42,590
+So think about it
+for 30 seconds.
+
+1304
+01:10:42,590 --> 01:11:09,430
+
+1305
+01:11:09,430 --> 01:11:11,047
+Do you need more time?
+
+1306
+01:11:11,047 --> 01:11:12,130
+Let's go see where we are.
+
+1307
+01:11:12,130 --> 01:11:16,650
+Ready, three, two, one.
+
+1308
+01:11:16,650 --> 01:11:19,200
+All right, so most of the
+group is agreeing in this case,
+
+1309
+01:11:19,200 --> 01:11:21,320
+neither are the
+Nash equilibrium.
+
+1310
+01:11:21,320 --> 01:11:24,590
+
+1311
+01:11:24,590 --> 01:11:29,320
+So neither are a
+Nash equilibrium.
+
+1312
+01:11:29,320 --> 01:11:32,810
+Does that mean that this
+game has no Nash equilibrium?
+
+1313
+01:11:32,810 --> 01:11:36,556
+Yes or no, verbally--
+ready, three, two, one.
+
+1314
+01:11:36,556 --> 01:11:37,270
+AUDIENCE: No.
+
+1315
+01:11:37,270 --> 01:11:39,140
+PROFESSOR: No, it
+does not mean that.
+
+1316
+01:11:39,140 --> 01:11:40,920
+This game has a
+Nash equilibrium.
+
+1317
+01:11:40,920 --> 01:11:43,505
+And indeed, all games like
+this have Nash equilibria.
+
+1318
+01:11:43,505 --> 01:11:47,200
+
+1319
+01:11:47,200 --> 01:11:49,270
+And this is what Nash
+won the Nobel Prize for,
+
+1320
+01:11:49,270 --> 01:11:53,660
+so this is the famous one-page
+paper published in PNAS.
+
+1321
+01:11:53,660 --> 01:11:56,500
+If you look at it, I have
+no idea what it says.
+
+1322
+01:11:56,500 --> 01:12:00,510
+
+1323
+01:12:00,510 --> 01:12:03,930
+I mean, he basically
+just pointed out
+
+1324
+01:12:03,930 --> 01:12:07,950
+that this theorem implies
+this, implies that-- done.
+
+1325
+01:12:07,950 --> 01:12:14,390
+And so it's good that somebody
+knew what he was saying,
+
+1326
+01:12:14,390 --> 01:12:17,050
+otherwise we'd be in
+trouble, all of us.
+
+1327
+01:12:17,050 --> 01:12:20,760
+So what he proved
+is that such games,
+
+1328
+01:12:20,760 --> 01:12:26,050
+even with more players,
+more options, and so forth,
+
+1329
+01:12:26,050 --> 01:12:30,860
+they always have such a
+solution in this sense.
+
+1330
+01:12:30,860 --> 01:12:32,870
+There exists some strategy
+such as if everybody
+
+1331
+01:12:32,870 --> 01:12:34,870
+were playing in, nobody
+would have the incentive
+
+1332
+01:12:34,870 --> 01:12:36,290
+to change strategy.
+
+1333
+01:12:36,290 --> 01:12:39,330
+But you have to include
+so-called probabilistic or
+
+1334
+01:12:39,330 --> 01:12:40,180
+mixed strategies.
+
+1335
+01:12:40,180 --> 01:12:46,400
+
+1336
+01:12:46,400 --> 01:12:49,350
+And we can draw
+what this thing is.
+
+1337
+01:12:49,350 --> 01:12:53,590
+So just like always, so
+everyone else is following A,
+
+1338
+01:12:53,590 --> 01:12:55,045
+then A starts here at 3.
+
+1339
+01:12:55,045 --> 01:12:58,170
+
+1340
+01:12:58,170 --> 01:12:59,660
+And then it goes to 1.
+
+1341
+01:12:59,660 --> 01:13:04,010
+
+1342
+01:13:04,010 --> 01:13:07,830
+Whereas the B individuals
+start at 5, and they go to 0.
+
+1343
+01:13:07,830 --> 01:13:14,220
+
+1344
+01:13:14,220 --> 01:13:17,530
+So this looks very
+similar to that,
+
+1345
+01:13:17,530 --> 01:13:19,720
+but they're rather
+different, in the sense
+
+1346
+01:13:19,720 --> 01:13:26,120
+that in this situation,
+we had bi-stability.
+
+1347
+01:13:26,120 --> 01:13:31,410
+So if you look at the
+direction of evolution,
+
+1348
+01:13:31,410 --> 01:13:32,970
+depending upon
+where you start, you
+
+1349
+01:13:32,970 --> 01:13:36,330
+go to either all B
+or all A. Whereas
+
+1350
+01:13:36,330 --> 01:13:41,210
+in this situation over
+here, we have coexistence.
+
+1351
+01:13:41,210 --> 01:13:42,840
+Does not matter where you start.
+
+1352
+01:13:42,840 --> 01:13:44,940
+So long as you have some
+members of both A and B
+
+1353
+01:13:44,940 --> 01:13:47,810
+in the population, you'll always
+evolve to the same equilibrium.
+
+1354
+01:13:47,810 --> 01:13:50,860
+Now, the important thing
+here that's, I think,
+
+1355
+01:13:50,860 --> 01:13:54,220
+interesting is that
+in a population,
+
+1356
+01:13:54,220 --> 01:13:57,430
+if you have genetic A's and
+genetic B's that are each
+
+1357
+01:13:57,430 --> 01:14:00,840
+giving birth to
+their own type, then
+
+1358
+01:14:00,840 --> 01:14:05,020
+you evolve to some
+coexistence of genotypes.
+
+1359
+01:14:05,020 --> 01:14:08,020
+So here, this is some fraction.
+
+1360
+01:14:08,020 --> 01:14:17,677
+f a star is the equilibrium
+fraction, fraction
+
+1361
+01:14:17,677 --> 01:14:18,635
+of A in the population.
+
+1362
+01:14:18,635 --> 01:14:21,240
+
+1363
+01:14:21,240 --> 01:14:25,320
+So this is a case where you
+have genetic diversity that
+
+1364
+01:14:25,320 --> 01:14:28,590
+leads to phenotypic
+diversity in the population.
+
+1365
+01:14:28,590 --> 01:14:34,430
+Whereas the mixed Nash
+equilibrium-- this
+
+1366
+01:14:34,430 --> 01:14:37,560
+is a situation where
+you have, in principle,
+
+1367
+01:14:37,560 --> 01:14:41,020
+genetic homogeneity.
+
+1368
+01:14:41,020 --> 01:14:48,849
+So this is a single genotype
+that is implementing
+
+1369
+01:14:48,849 --> 01:14:49,890
+phenotypic heterogeneity.
+
+1370
+01:14:49,890 --> 01:14:58,174
+
+1371
+01:14:58,174 --> 01:14:59,840
+And indeed, one of
+the things that we've
+
+1372
+01:14:59,840 --> 01:15:01,860
+been excited about
+exploring in my group
+
+1373
+01:15:01,860 --> 01:15:09,160
+is this distinction here, where
+it's known that in many cases,
+
+1374
+01:15:09,160 --> 01:15:12,360
+isogenic populations
+of microbes can exhibit
+
+1375
+01:15:12,360 --> 01:15:15,100
+a diversity of phenotypes
+as a result of, for example,
+
+1376
+01:15:15,100 --> 01:15:17,555
+stochastic gene expression
+and bi-stability.
+
+1377
+01:15:17,555 --> 01:15:21,150
+
+1378
+01:15:21,150 --> 01:15:23,230
+So that's a molecular
+mechanism for how
+
+1379
+01:15:23,230 --> 01:15:25,400
+you might get heterogeneity.
+
+1380
+01:15:25,400 --> 01:15:28,280
+Another question is, what
+is the evolution explanation
+
+1381
+01:15:28,280 --> 01:15:31,140
+for why that behavior
+might have evolved?
+
+1382
+01:15:31,140 --> 01:15:33,820
+Now in general, we cannot
+prove why something evolved,
+
+1383
+01:15:33,820 --> 01:15:37,390
+but we can make educated
+guesses that make experimentally
+
+1384
+01:15:37,390 --> 01:15:38,684
+testable hypotheses.
+
+1385
+01:15:38,684 --> 01:15:40,100
+And for example,
+in the experiment
+
+1386
+01:15:40,100 --> 01:15:44,360
+that we've been doing, we've
+been looking at bi-modality
+
+1387
+01:15:44,360 --> 01:15:48,230
+in expression of the
+galactose genes in yeast.
+
+1388
+01:15:48,230 --> 01:15:53,815
+And that was still a
+problem set in early-- oh,
+
+1389
+01:15:53,815 --> 01:15:55,700
+no, we removed
+that one this year.
+
+1390
+01:15:55,700 --> 01:16:02,880
+Well, so experimentally
+yeast, in some environments,
+
+1391
+01:16:02,880 --> 01:16:04,840
+bimodally or
+stochastically activate
+
+1392
+01:16:04,840 --> 01:16:07,470
+the genes required to break
+down the sugar galactose.
+
+1393
+01:16:07,470 --> 01:16:09,600
+And what we've
+demonstrated is that if you
+
+1394
+01:16:09,600 --> 01:16:13,590
+make the mutants that always
+turn on or always don't
+
+1395
+01:16:13,590 --> 01:16:16,160
+turn on these genes, then
+they're actually playing game
+
+1396
+01:16:16,160 --> 01:16:20,050
+where you actually get
+this exact thing-- where
+
+1397
+01:16:20,050 --> 01:16:22,640
+you get evolution towards
+coexistence of those two
+
+1398
+01:16:22,640 --> 01:16:23,740
+strategies.
+
+1399
+01:16:23,740 --> 01:16:26,070
+So that's saying that
+maybe the wild type that
+
+1400
+01:16:26,070 --> 01:16:29,270
+follows this stochastic,
+mixed strategy-- it
+
+1401
+01:16:29,270 --> 01:16:32,210
+may be implementing the
+solution of some game that
+
+1402
+01:16:32,210 --> 01:16:34,640
+is a result of such
+frequency dependence.
+
+1403
+01:16:34,640 --> 01:16:36,720
+There are other possible
+explanations to this.
+
+1404
+01:16:36,720 --> 01:16:38,760
+In the coming weeks,
+we'll talk about this idea
+
+1405
+01:16:38,760 --> 01:16:41,801
+of bet hedging-- that given
+uncertain or fluctuating
+
+1406
+01:16:41,801 --> 01:16:43,300
+environments, it
+may be advantageous
+
+1407
+01:16:43,300 --> 01:16:46,520
+for clonal populations to have a
+variety of different strategies
+
+1408
+01:16:46,520 --> 01:16:47,890
+to cope with that uncertainty.
+
+1409
+01:16:47,890 --> 01:16:50,225
+So we'll talk about
+those models later.
+
+1410
+01:16:50,225 --> 01:16:52,350
+But since we're talking
+about mixed strategies now,
+
+1411
+01:16:52,350 --> 01:16:53,647
+I wanted to mention that.
+
+1412
+01:16:53,647 --> 01:16:54,810
+Yeah.
+
+1413
+01:16:54,810 --> 01:16:56,658
+AUDIENCE: So f a
+star, just to be sure,
+
+1414
+01:16:56,658 --> 01:16:59,440
+is going to converge to this
+probability [INAUDIBLE]?
+
+1415
+01:16:59,440 --> 01:17:04,380
+PROFESSOR: Exactly, so the
+Nash equilibrium mixed strategy
+
+1416
+01:17:04,380 --> 01:17:08,680
+plays A with probability--
+so it's p should
+
+1417
+01:17:08,680 --> 01:17:10,020
+be equal to f a star.
+
+1418
+01:17:10,020 --> 01:17:13,260
+
+1419
+01:17:13,260 --> 01:17:16,710
+Exactly, so indeed,
+the heterogeneity there
+
+1420
+01:17:16,710 --> 01:17:19,980
+can be implemented either way.
+
+1421
+01:17:19,980 --> 01:17:22,516
+It's either coexistence
+of genotypes following
+
+1422
+01:17:22,516 --> 01:17:23,890
+different strategies,
+or it could
+
+1423
+01:17:23,890 --> 01:17:25,587
+be one genotype
+implementing both,
+
+1424
+01:17:25,587 --> 01:17:27,420
+or it could be a mixture
+of those, actually.
+
+1425
+01:17:27,420 --> 01:17:30,670
+Indeed, a characteristic
+of these situations
+
+1426
+01:17:30,670 --> 01:17:38,070
+is that, let's say that you have
+a genotype-- a population has
+
+1427
+01:17:38,070 --> 01:17:40,810
+this genotype that is
+implementing the mixed Nash
+
+1428
+01:17:40,810 --> 01:17:44,680
+equilibrium choosing strategy
+A with probability p.
+
+1429
+01:17:44,680 --> 01:17:46,400
+That's that
+equilibrium fraction.
+
+1430
+01:17:46,400 --> 01:17:49,530
+What's interesting is
+that any individual
+
+1431
+01:17:49,530 --> 01:17:54,850
+in the population following any
+strategy has the same fitness.
+
+1432
+01:17:54,850 --> 01:17:58,280
+And of course, that's kind of
+why this was in equilibrium.
+
+1433
+01:17:58,280 --> 01:18:01,295
+This equilibrium is when the two
+strategies have equal fitness.
+
+1434
+01:18:01,295 --> 01:18:02,920
+But the funny thing
+is, what that means
+
+1435
+01:18:02,920 --> 01:18:05,137
+is, it doesn't matter what
+you do at the equilibrium.
+
+1436
+01:18:05,137 --> 01:18:06,970
+Depending on how you
+look at it, it's either
+
+1437
+01:18:06,970 --> 01:18:09,030
+super deep or super trivial.
+
+1438
+01:18:09,030 --> 01:18:11,630
+But it's a weird thing that
+if your at the equilibrium,
+
+1439
+01:18:11,630 --> 01:18:13,520
+or if the population
+or the opponent
+
+1440
+01:18:13,520 --> 01:18:15,942
+is playing this Nash
+equilibrium in these games,
+
+1441
+01:18:15,942 --> 01:18:17,650
+then it just does not
+matter what you do.
+
+1442
+01:18:17,650 --> 01:18:21,920
+You can do A. You can do B,
+actually, in any fraction.
+
+1443
+01:18:21,920 --> 01:18:23,810
+So since A and B have
+the same fitness,
+
+1444
+01:18:23,810 --> 01:18:26,480
+you can choose between them
+at any frequency you want,
+
+1445
+01:18:26,480 --> 01:18:29,270
+and you have the same fitness,
+if the rest of the population
+
+1446
+01:18:29,270 --> 01:18:33,330
+is playing this mixed
+Nash equilibrium.
+
+1447
+01:18:33,330 --> 01:18:37,490
+And indeed, in this
+there are nice conditions
+
+1448
+01:18:37,490 --> 01:18:42,070
+for what makes it
+this Nash equilibrium.
+
+1449
+01:18:42,070 --> 01:18:46,770
+And I'm going to just highlight
+that you should make sense
+
+1450
+01:18:46,770 --> 01:18:49,910
+of why it means what it is.
+
+1451
+01:18:49,910 --> 01:18:54,690
+So if the payout, the
+expected fitness or payout--
+
+1452
+01:18:54,690 --> 01:18:56,820
+if you're following
+the Nash equilibrium
+
+1453
+01:18:56,820 --> 01:19:03,890
+against Nash equilibrium--
+is equal to this guy.
+
+1454
+01:19:03,890 --> 01:19:07,230
+So that's what I
+just said-- that it
+
+1455
+01:19:07,230 --> 01:19:09,700
+doesn't matter what you do.
+
+1456
+01:19:09,700 --> 01:19:11,490
+If everyone else
+is doing p star,
+
+1457
+01:19:11,490 --> 01:19:14,370
+you have the same fitness.
+
+1458
+01:19:14,370 --> 01:19:16,360
+So that's saying it's
+a Nash equilibrium.
+
+1459
+01:19:16,360 --> 01:19:19,430
+
+1460
+01:19:19,430 --> 01:19:22,980
+Whereas there's another
+interesting kind of statement
+
+1461
+01:19:22,980 --> 01:19:25,010
+here, that--
+
+1462
+01:19:25,010 --> 01:19:27,435
+AUDIENCE: [INAUDIBLE]?
+
+1463
+01:19:27,435 --> 01:19:30,587
+That you can't unilaterally
+increase your fitness
+
+1464
+01:19:30,587 --> 01:19:32,770
+by switching.
+
+1465
+01:19:32,770 --> 01:19:34,900
+PROFESSOR: Right, it's
+an equality, which
+
+1466
+01:19:34,900 --> 01:19:36,250
+means it is a Nash equilibrium.
+
+1467
+01:19:36,250 --> 01:19:38,599
+Because it's saying that
+you don't have the incentive
+
+1468
+01:19:38,599 --> 01:19:39,390
+to change strategy.
+
+1469
+01:19:39,390 --> 01:19:42,080
+It's true that you're
+not dis-incentivized.
+
+1470
+01:19:42,080 --> 01:19:43,810
+So it's a Nash equilibrium.
+
+1471
+01:19:43,810 --> 01:19:45,914
+It's not a strict
+Nash equilibrium.
+
+1472
+01:19:45,914 --> 01:19:46,830
+AUDIENCE: [INAUDIBLE].
+
+1473
+01:19:46,830 --> 01:19:50,754
+
+1474
+01:19:50,754 --> 01:19:52,920
+PROFESSOR: Well, it has to
+be greater than/equal to,
+
+1475
+01:19:52,920 --> 01:19:55,084
+and it's actually equal to.
+
+1476
+01:19:55,084 --> 01:19:57,250
+The condition it has to be
+greater than or equal to,
+
+1477
+01:19:57,250 --> 01:20:00,239
+but it's equal to, which means
+it is a Nash equilibrium.
+
+1478
+01:20:00,239 --> 01:20:03,017
+AUDIENCE: [INAUDIBLE] Nash
+equilibrium for that situation,
+
+1479
+01:20:03,017 --> 01:20:04,410
+[INAUDIBLE] strategy.
+
+1480
+01:20:04,410 --> 01:20:04,710
+PROFESSOR: That's right.
+
+1481
+01:20:04,710 --> 01:20:06,293
+So this is not the
+definition of that.
+
+1482
+01:20:06,293 --> 01:20:08,070
+But this thing is
+true, which means
+
+1483
+01:20:08,070 --> 01:20:09,278
+that it's a Nash equilibrium.
+
+1484
+01:20:09,278 --> 01:20:12,500
+
+1485
+01:20:12,500 --> 01:20:18,690
+And this other thing that's
+interesting is that--
+
+1486
+01:20:18,690 --> 01:20:21,690
+so this tells us that it's
+actually one of these ESS's.
+
+1487
+01:20:21,690 --> 01:20:28,340
+And if you have questions about
+this, I'm happy to answer it.
+
+1488
+01:20:28,340 --> 01:20:30,640
+It's explained in
+the book as well.
+
+1489
+01:20:30,640 --> 01:20:32,700
+We are out of time, so
+I should let you go.
+
+1490
+01:20:32,700 --> 01:20:35,645
+But good luck on the
+exam next Thursday.
+
+1491
+01:20:35,645 --> 01:20:37,770
+If you have questions and
+you want to meet with me,
+
+1492
+01:20:37,770 --> 01:20:38,811
+I'm available on Tuesday.
+
+1493
+01:20:38,811 --> 01:20:40,940
+So please let me know.

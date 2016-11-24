@@ -1,0 +1,3296 @@
+1
+00:00:06,000 --> 00:00:07,230
+Okay.
+
+2
+00:00:07,230 --> 00:00:12,000
+This lecture is mostly about
+the idea of similar matrixes.
+
+3
+00:00:12,000 --> 00:00:17,000
+I'm going to tell you what that
+word similar means and in what
+
+4
+00:00:17,000 --> 00:00:20,000
+way two matrixes are called
+similar.
+
+5
+00:00:20,000 --> 00:00:24,000
+But before I do that,
+I have a little more to say
+
+6
+00:00:24,000 --> 00:00:27,000
+about positive definite
+matrixes.
+
+7
+00:00:27,000 --> 00:00:31,000
+You can tell this is a subject
+I
+
+8
+00:00:31,000 --> 00:00:37,000
+think is really important and I
+told you what positive definite
+
+9
+00:00:37,000 --> 00:00:41,000
+meant -- it means that this --
+this expression,
+
+10
+00:00:41,000 --> 00:00:45,000
+this quadratic form,
+x transpose I x is always
+
+11
+00:00:45,000 --> 00:00:46,000
+positive.
+
+12
+00:00:46,000 --> 00:00:51,000
+But the direct way to test it
+was with eigenvalues or pivots
+
+13
+00:00:51,000 --> 00:00:53,000
+or determinants.
+
+14
+00:00:53,000 --> 00:00:56,000
+So I --
+we know what it means,
+
+15
+00:00:56,000 --> 00:01:01,000
+we know how to test it,
+but I didn't really say where
+
+16
+00:01:01,000 --> 00:01:04,000
+positive definite matrixes come
+from.
+
+17
+00:01:04,000 --> 00:01:08,000
+And so one thing I want to say
+is that they come from least
+
+18
+00:01:08,000 --> 00:01:13,000
+squares in -- and all sorts of
+physical problems start with a
+
+19
+00:01:13,000 --> 00:01:16,000
+rectangular
+matrix -- well,
+
+20
+00:01:16,000 --> 00:01:21,000
+you remember in least squares
+the crucial combination was A
+
+21
+00:01:21,000 --> 00:01:22,000
+transpose A.
+
+22
+00:01:22,000 --> 00:01:26,000
+So I want to show that that's a
+positive definite matrix.
+
+23
+00:01:26,000 --> 00:01:30,000
+Can -- so I -- I'm going to
+speak a little more about
+
+24
+00:01:30,000 --> 00:01:35,000
+positive definite matrixes,
+just recapping -- so let me ask
+
+25
+00:01:35,000 --> 00:01:36,000
+a
+question.
+
+26
+00:01:36,000 --> 00:01:39,000
+It may be on the homework.
+
+27
+00:01:39,000 --> 00:01:42,000
+Suppose a matrix A is positive
+definite.
+
+28
+00:01:42,000 --> 00:01:47,380
+I mean by that it's all -- I'm
+assuming it's symmetric.
+
+29
+00:01:47,380 --> 00:01:50,000
+That's always built into the
+definition.
+
+30
+00:01:50,000 --> 00:01:55,000
+So we have a symmetric positive
+definite matrix.
+
+31
+00:01:55,000 --> 00:01:57,000
+What about its inverse?
+
+32
+00:01:57,000 --> 00:02:03,000
+Is the inverse of a symmetric
+positive definite matrix also
+
+33
+00:02:03,000 --> 00:02:06,000
+symmetric positive definite?
+
+34
+00:02:06,000 --> 00:02:11,000
+So you quickly think,
+okay, what do I know about the
+
+35
+00:02:11,000 --> 00:02:13,000
+pivots of the inverse matrix?
+
+36
+00:02:13,000 --> 00:02:14,000
+Not much.
+
+37
+00:02:14,000 --> 00:02:19,000
+What do I know about the
+eigenvalues of the inverse
+
+38
+00:02:19,000 --> 00:02:21,000
+matrix?
+
+39
+00:02:21,000 --> 00:02:22,000
+Everything, right?
+
+40
+00:02:22,000 --> 00:02:27,000
+The eigenvalues of the inverse
+are one over the eigenvalues of
+
+41
+00:02:27,000 --> 00:02:28,000
+the matrix.
+
+42
+00:02:28,000 --> 00:02:32,540
+So if my matrix starts out
+positive definite,
+
+43
+00:02:32,540 --> 00:02:37,000
+then right away I know that its
+inverse is positive definite,
+
+44
+00:02:37,000 --> 00:02:42,000
+because those positive
+eigenvalues -- then one over the
+
+45
+00:02:42,000 --> 00:02:45,000
+eigenvalue is
+also positive.
+
+46
+00:02:45,000 --> 00:02:52,000
+What if I know that A -- a
+matrix A and a matrix B are both
+
+47
+00:02:52,000 --> 00:02:54,000
+positive definite?
+
+48
+00:02:54,000 --> 00:02:56,690
+But let me ask you this.
+
+49
+00:02:56,690 --> 00:03:03,000
+Suppose if A and B are positive
+definite, what about -- what
+
+50
+00:03:03,000 --> 00:03:04,000
+about A plus B?
+
+51
+00:03:04,000 --> 00:03:09,000
+In some way,
+you hope that that would be
+
+52
+00:03:09,000 --> 00:03:11,000
+true.
+
+53
+00:03:11,000 --> 00:03:15,000
+It's -- positive definite for a
+matrix is kind of like positive
+
+54
+00:03:15,000 --> 00:03:16,000
+for a real number.
+
+55
+00:03:16,000 --> 00:03:20,000
+But we don't know the
+eigenvalues of A plus B.
+
+56
+00:03:20,000 --> 00:03:22,000
+We don't know the pivots of A
+plus B.
+
+57
+00:03:22,000 --> 00:03:26,410
+So we just, like,
+have to go down this list of,
+
+58
+00:03:26,410 --> 00:03:31,000
+all right, which approach to
+positive definite can we get a
+
+59
+00:03:31,000 --> 00:03:32,610
+handle on?
+
+60
+00:03:32,610 --> 00:03:34,000
+And this is a good one.
+
+61
+00:03:34,000 --> 00:03:36,000
+This is a good one.
+
+62
+00:03:36,000 --> 00:03:41,000
+Can we -- how would we decide
+that -- if A was like this and
+
+63
+00:03:41,000 --> 00:03:44,000
+if B was like this,
+then we would look at x
+
+64
+00:03:44,000 --> 00:03:46,460
+transpose A plus B x.
+
+65
+00:03:46,460 --> 00:03:49,000
+I'm sure this is in the
+homework.
+
+66
+00:03:49,000 --> 00:03:52,000
+Now -- so we have x transpose A
+x
+
+67
+00:03:52,000 --> 00:03:57,660
+bigger than zero,
+x transpose B x positive for
+
+68
+00:03:57,660 --> 00:04:02,000
+all -- for all x,
+so now I ask you about this
+
+69
+00:04:02,000 --> 00:04:02,000
+guy.
+And of course,
+you just add that and that and
+
+70
+00:04:07,000 --> 00:04:09,000
+we get what we want.
+
+71
+00:04:09,000 --> 00:04:14,000
+If A and B are positive
+definites, so is A plus B.
+
+72
+00:04:14,000 --> 00:04:17,000
+So that's what I've shown.
+
+73
+00:04:17,000 --> 00:04:18,000
+So is A plus B.
+
+74
+00:04:18,000 --> 00:04:26,000
+Just -- be sort of ready for
+all the approaches through
+
+75
+00:04:26,000 --> 00:04:30,000
+eigenvalues and through this
+expression.
+
+76
+00:04:30,000 --> 00:04:36,000
+And now, finally,
+one more thought about positive
+
+77
+00:04:36,000 --> 00:04:42,000
+definite is this combination
+that came up in least squares.
+
+78
+00:04:42,000 --> 00:04:44,000
+Can I do that?
+
+79
+00:04:44,000 --> 00:04:49,000
+So now -- now suppose A is
+rectangular, m by n.
+
+80
+00:04:49,000 --> 00:04:54,000
+I -- so I'm sorry that I've
+used
+
+81
+00:04:54,000 --> 00:04:59,000
+the same letter A for the
+positive definite matrixes in
+
+82
+00:04:59,000 --> 00:05:04,000
+the eigenvalue chapter that I
+used way back in earlier
+
+83
+00:05:04,000 --> 00:05:08,000
+chapters when the matrix was
+rectangular.
+
+84
+00:05:08,000 --> 00:05:11,000
+Now, that matrix -- a
+rectangular matrix,
+
+85
+00:05:11,000 --> 00:05:14,520
+no way its positive definite.
+
+86
+00:05:14,520 --> 00:05:16,000
+It's not symmetric.
+
+87
+00:05:16,000 --> 00:05:20,000
+It's not even square in
+general.
+
+88
+00:05:20,000 --> 00:05:27,000
+But you remember that the key
+for these rectangular ones was A
+
+89
+00:05:27,000 --> 00:05:28,000
+transpose A.
+
+90
+00:05:28,000 --> 00:05:30,000
+That's square.
+
+91
+00:05:30,000 --> 00:05:32,000
+That's symmetric.
+
+92
+00:05:32,000 --> 00:05:40,000
+Those are things we knew -- we
+knew back when we met this thing
+
+93
+00:05:40,000 --> 00:05:46,000
+in the least square stuff,
+in the projection stuff.
+
+94
+00:05:46,000 --> 00:05:54,000
+But now we know something more
+-- we can ask a more important
+
+95
+00:05:54,000 --> 00:06:00,000
+question, a deeper question --
+is it positive definite?
+
+96
+00:06:00,000 --> 00:06:02,000
+And we sort of hope so.
+
+97
+00:06:02,000 --> 00:06:07,000
+Like, we -- we might -- in
+analogy with numbers,
+
+98
+00:06:07,000 --> 00:06:12,000
+this is like -- sort of like
+the square of a number,
+
+99
+00:06:12,000 --> 00:06:14,000
+and that's positive.
+
+100
+00:06:14,000 --> 00:06:18,000
+So now I want to ask the matrix
+question.
+
+101
+00:06:18,000 --> 00:06:22,000
+Is A transpose
+A positive definite?
+
+102
+00:06:22,000 --> 00:06:27,000
+Okay, now it's -- so again,
+it's a rectangular A that I'm
+
+103
+00:06:27,000 --> 00:06:30,000
+starting with,
+but it's the combination A
+
+104
+00:06:30,000 --> 00:06:34,000
+transpose A that's the square,
+symmetric and hopefully
+
+105
+00:06:34,000 --> 00:06:36,000
+positive definite matrix.
+
+106
+00:06:36,000 --> 00:06:41,000
+So how -- how do I see that it
+is positive definite,
+
+107
+00:06:41,000 --> 00:06:44,000
+or at least positive
+semi-definite?
+
+108
+00:06:44,000 --> 00:06:46,000
+You'll see that.
+
+109
+00:06:46,000 --> 00:06:50,830
+Well, I don't know the
+eigenvalues of this product.
+
+110
+00:06:50,830 --> 00:06:54,000
+I don't want to work with the
+pivots.
+
+111
+00:06:54,000 --> 00:06:59,000
+The right thing -- the right
+quantity to look at is this,
+
+112
+00:06:59,000 --> 00:07:04,630
+x transpose Ax -- A -- x
+transpose times my matrix
+
+113
+00:07:04,630 --> 00:07:05,000
+times x.
+
+114
+00:07:05,000 --> 00:07:10,140
+I'd like to see that this thing
+-- that that expression is
+
+115
+00:07:10,140 --> 00:07:11,000
+always positive.
+
+116
+00:07:11,000 --> 00:07:16,000
+I'm not doing it with numbers,
+I'm doing it with symbols.
+
+117
+00:07:16,000 --> 00:07:20,990
+Do you see -- how do I see that
+that expression comes out
+
+118
+00:07:20,990 --> 00:07:21,000
+positive?
+
+119
+00:07:21,000 --> 00:07:25,000
+I'm taking a rectangular matrix
+A
+
+120
+00:07:25,000 --> 00:07:29,030
+and an A transpose -- that
+gives me something square
+
+121
+00:07:29,030 --> 00:07:33,000
+symmetric, but now I want to see
+that if I multiply -- that if I
+
+122
+00:07:33,000 --> 00:07:37,000
+do this -- I form this quadratic
+expression that I get this
+
+123
+00:07:37,000 --> 00:07:41,000
+positive thing that goes upwards
+when I graph it.
+
+124
+00:07:41,000 --> 00:07:44,130
+How do I see that that's
+positive,
+
+125
+00:07:44,130 --> 00:07:47,000
+or absolutely it isn't negative
+anyway?
+
+126
+00:07:47,000 --> 00:07:51,000
+We'll have to,
+like, spend a minute on the
+
+127
+00:07:51,000 --> 00:07:56,000
+question could it be zero,
+but it can't be negative.
+
+128
+00:07:56,000 --> 00:07:59,000
+Why can this never be negative?
+
+129
+00:07:59,000 --> 00:08:04,000
+The argument is -- like the one
+key idea in so many steps in
+
+130
+00:08:04,000 --> 00:08:09,000
+linear algebra -- put those
+parentheses
+
+131
+00:08:09,000 --> 00:08:11,000
+in a good way.
+
+132
+00:08:11,000 --> 00:08:18,840
+Put the parentheses around Ax
+and what's the first part?
+
+133
+00:08:18,840 --> 00:08:23,000
+What's this x transpose A
+transpose?
+
+134
+00:08:23,000 --> 00:08:26,000
+That is Ax transpose.
+
+135
+00:08:26,000 --> 00:08:28,000
+So what do we have?
+
+136
+00:08:28,000 --> 00:08:33,000
+We have the length squared of
+Ax.
+
+137
+00:08:33,000 --> 00:08:41,000
+We have -- that's the column
+vector Ax that's the row
+
+138
+00:08:41,000 --> 00:08:46,000
+vector Ax, its length squared,
+certainly greater than or
+
+139
+00:08:46,000 --> 00:08:48,000
+possibly equal to zero.
+
+140
+00:08:48,000 --> 00:08:53,000
+So we have to deal with this
+little possibility.
+
+141
+00:08:53,000 --> 00:08:54,000
+Could it be equal?
+
+142
+00:08:54,000 --> 00:08:58,650
+Well, when could the length
+squared be zero?
+
+143
+00:08:58,650 --> 00:09:02,000
+Only if the vector is zero,
+right?
+
+144
+00:09:02,000 --> 00:09:06,000
+That's the only vector that has
+length squared zero.
+
+145
+00:09:06,000 --> 00:09:11,000
+So we have -- we would like to
+-- I would like to get that
+
+146
+00:09:11,000 --> 00:09:14,030
+possibility out of there.
+
+147
+00:09:14,030 --> 00:09:17,000
+So I want to have Ax never --
+never be zero,
+
+148
+00:09:17,000 --> 00:09:20,000
+except of course for the zero
+vector.
+
+149
+00:09:20,000 --> 00:09:25,000
+How do I assure that Ax is
+never zero?
+
+150
+00:09:25,000 --> 00:09:30,000
+The -- in other words,
+how do I show that there's no
+
+151
+00:09:30,000 --> 00:09:31,910
+null space of A?
+
+152
+00:09:31,910 --> 00:09:37,000
+The rank should be -- so now
+remember -- what's the rank when
+
+153
+00:09:37,000 --> 00:09:40,000
+there's no null space?
+
+154
+00:09:40,000 --> 00:09:44,000
+By no null space,
+you know what I mean.
+
+155
+00:09:44,000 --> 00:09:47,000
+Only the zero vector in the
+null space.
+
+156
+00:09:47,000 --> 00:09:53,000
+So if I have a --
+if I have an 11 by 5 matrix --
+
+157
+00:09:53,000 --> 00:09:58,000
+so it's got 11 rows,
+5 columns, when is there no
+
+158
+00:09:58,000 --> 00:09:59,000
+null space?
+
+159
+00:09:59,000 --> 00:10:05,470
+So the columns should be
+independent -- what's the rank?
+
+160
+00:10:05,470 --> 00:10:06,920
+n 5 -- rank n.
+
+161
+00:10:06,920 --> 00:10:11,580
+Independent columns,
+when -- so if I -- then I
+
+162
+00:10:11,580 --> 00:10:14,790
+conclude yes,
+positive definite.
+
+163
+00:10:14,790 --> 00:10:21,350
+And this was the assumption --
+then A transpose A is
+
+164
+00:10:21,350 --> 00:10:27,000
+invertible -- the least squares
+equations all work fine.
+
+165
+00:10:27,000 --> 00:10:32,000
+And more than that -- the
+matrix is even positive
+
+166
+00:10:32,000 --> 00:10:33,000
+definite.
+
+167
+00:10:33,000 --> 00:10:38,000
+And I just to say one comment
+about numerical things,
+
+168
+00:10:38,000 --> 00:10:42,000
+with a positive definite
+matrix,
+
+169
+00:10:42,000 --> 00:10:45,000
+you never have to do row
+exchanges.
+
+170
+00:10:45,000 --> 00:10:50,000
+You never run into unsuitably
+small numbers or zeroes in the
+
+171
+00:10:50,000 --> 00:10:51,000
+pivot position.
+
+172
+00:10:51,000 --> 00:10:55,000
+They're the right -- they're
+the great matrixes to compute
+
+173
+00:10:55,000 --> 00:10:58,000
+with, and they're the great
+matrixes to study.
+
+174
+00:10:58,000 --> 00:11:03,000
+So that's -- I wanted to take
+this first ten
+
+175
+00:11:03,000 --> 00:11:08,000
+minutes of grab the first ten
+minutes away from similar
+
+176
+00:11:08,000 --> 00:11:13,000
+matrixes and continue a -- this
+much more with positive
+
+177
+00:11:13,000 --> 00:11:14,000
+definite.
+
+178
+00:11:14,000 --> 00:11:19,000
+I'm really at this point,
+now, coming close to the end of
+
+179
+00:11:19,000 --> 00:11:22,000
+the heart of linear algebra.
+
+180
+00:11:22,000 --> 00:11:28,000
+The positive definiteness
+brought everything together.
+
+181
+00:11:28,000 --> 00:11:33,000
+Similar matrixes,
+which is coming the rest of
+
+182
+00:11:33,000 --> 00:11:38,000
+this hour is a key topic,
+and please come on Monday.
+
+183
+00:11:38,000 --> 00:11:43,000
+Monday is about what's called
+the SVD, singular values.
+
+184
+00:11:43,000 --> 00:11:48,000
+It's the -- has become a
+central fact in -- a central
+
+185
+00:11:48,000 --> 00:11:51,000
+part of linear algebra.
+
+186
+00:11:51,000 --> 00:11:55,000
+I mean, you can come after
+Monday
+
+187
+00:11:55,000 --> 00:12:00,000
+also, but -- Monday is,
+-- that singular value thing
+
+188
+00:12:00,000 --> 00:12:03,000
+has made it into this course.
+
+189
+00:12:03,000 --> 00:12:08,000
+Ten years ago,
+five years ago it wasn't in the
+
+190
+00:12:08,000 --> 00:12:11,000
+course, now it has to be.
+
+191
+00:12:11,000 --> 00:12:11,790
+Okay.
+
+192
+00:12:11,790 --> 00:12:17,000
+So can I begin today's
+lecture proper with this idea
+
+193
+00:12:17,000 --> 00:12:19,000
+of similar matrixes.
+
+194
+00:12:19,000 --> 00:12:22,000
+This is what similar matrixes
+mean.
+
+195
+00:12:22,000 --> 00:12:25,000
+So here -- let's start again.
+
+196
+00:12:25,000 --> 00:12:26,000
+I'll write it again.
+
+197
+00:12:26,000 --> 00:12:28,000
+So A and B are similar.
+
+198
+00:12:28,000 --> 00:12:33,000
+A and B are -- now I'm -- these
+matrixes -- I'm no longer
+
+199
+00:12:33,000 --> 00:12:37,000
+talking about symmetric
+matrixes,
+
+200
+00:12:37,000 --> 00:12:43,000
+in -- at least no longer
+expecting symmetric matrixes.
+
+201
+00:12:43,000 --> 00:12:48,000
+I'm talking about two square
+matrixes n by n.
+
+202
+00:12:48,000 --> 00:12:52,380
+A and B, they're n by n
+matrixes.
+
+203
+00:12:52,380 --> 00:12:56,000
+And I'm introducing this word
+similar.
+
+204
+00:12:56,000 --> 00:13:00,000
+So I'm going to say what does
+it mean?
+
+205
+00:13:00,000 --> 00:13:07,160
+It means that they're connected
+in the way --
+
+206
+00:13:07,160 --> 00:13:14,000
+well, in the way I've written
+here, so let me rewrite it.
+
+207
+00:13:14,000 --> 00:13:21,000
+That means that for some matrix
+M, which has to be invertible,
+
+208
+00:13:21,000 --> 00:13:29,000
+because you'll see that -- this
+one matrix is -- take the other
+
+209
+00:13:29,000 --> 00:13:37,000
+matrix, multiply on the right by
+M and on the left by M inverse.
+
+210
+00:13:37,000 --> 00:13:42,000
+So the question is,
+why that combination?
+
+211
+00:13:42,000 --> 00:13:47,000
+But part of the answer you know
+already.
+
+212
+00:13:47,000 --> 00:13:55,000
+You remember -- we've done this
+-- we've taken a matrix A -- so
+
+213
+00:13:55,000 --> 00:13:59,000
+let's do an example of similar.
+
+214
+00:13:59,000 --> 00:14:06,000
+Suppose A -- the matrix A --
+suppose it has a
+
+215
+00:14:06,000 --> 00:14:08,000
+full set of eigenvectors.
+
+216
+00:14:08,000 --> 00:14:11,930
+They go in this eigenvector
+matrix S.
+
+217
+00:14:11,930 --> 00:14:16,000
+Then what was the main point of
+the whole -- the main
+
+218
+00:14:16,000 --> 00:14:21,000
+calculation of the whole chapter
+was -- is -- use that
+
+219
+00:14:21,000 --> 00:14:27,000
+eigenvector matrix S and its
+inverse comes over there to
+
+220
+00:14:27,000 --> 00:14:32,000
+produce the nicest possible
+matrix lambda.
+
+221
+00:14:32,000 --> 00:14:36,000
+Nicest possible because it's
+diagonal.
+
+222
+00:14:36,000 --> 00:14:43,000
+So in our new language,
+this is saying A is similar to
+
+223
+00:14:43,000 --> 00:14:44,000
+lambda.
+
+224
+00:14:44,000 --> 00:14:50,160
+A is similar to lambda,
+because there is a matrix,
+
+225
+00:14:50,160 --> 00:14:57,000
+and this particular -- there is
+an M and this particular M is
+
+226
+00:14:57,000 --> 00:15:03,000
+this important guy,
+this eigenvector
+
+227
+00:15:03,000 --> 00:15:04,000
+matrix.
+
+228
+00:15:04,000 --> 00:15:09,000
+But if I take a different
+matrix M and I look at M inverse
+
+229
+00:15:09,000 --> 00:15:16,000
+A M, the result won't come out
+diagonal, but it will come out a
+
+230
+00:15:16,000 --> 00:15:19,370
+matrix B that's similar to A.
+
+231
+00:15:19,370 --> 00:15:25,590
+Do you see that I'm -- what I'm
+doing is, like -- I'm putting
+
+232
+00:15:25,590 --> 00:15:29,000
+these matrixes into families.
+
+233
+00:15:29,000 --> 00:15:34,000
+All the matrixes in one -- in
+the family are similar to each
+
+234
+00:15:34,000 --> 00:15:34,000
+other.
+They're all -- each one in this
+family is connected to each
+
+235
+00:15:39,000 --> 00:15:44,000
+other one by some matrix M and
+the -- like the outstanding
+
+236
+00:15:44,000 --> 00:15:47,540
+member of the family is the
+diagonal guy.
+
+237
+00:15:47,540 --> 00:15:53,000
+I mean, that's the simplest,
+neatest matrix in this family
+
+238
+00:15:53,000 --> 00:15:56,000
+of all the matrixes that are
+similar to A,
+
+239
+00:15:56,000 --> 00:15:58,000
+the best one is lambda.
+
+240
+00:15:58,000 --> 00:16:03,250
+But there are lots of others,
+because I can take different --
+
+241
+00:16:03,250 --> 00:16:06,000
+instead of S,
+I can take any old matrix M,
+
+242
+00:16:06,000 --> 00:16:10,000
+any old invertible matrix and
+-- and do it.
+
+243
+00:16:10,000 --> 00:16:12,000
+I'd better do an example.
+
+244
+00:16:12,000 --> 00:16:12,000
+Okay.
+Suppose I take A as the
+matrix two one one two.
+
+245
+00:16:18,000 --> 00:16:18,000
+Okay.
+Do you know the eigenvalue
+matrix for that?
+
+246
+00:16:23,000 --> 00:16:29,000
+The eigenvalues of that matrix
+are -- well, three and one.
+
+247
+00:16:29,000 --> 00:16:35,000
+So that -- and the eigenvectors
+would be easy to find.
+
+248
+00:16:35,000 --> 00:16:40,000
+So this matrix is similar to
+this one.
+
+249
+00:16:40,000 --> 00:16:47,000
+But my point is -- but also,
+I can also take my matrix,
+
+250
+00:16:47,000 --> 00:16:51,000
+two one one two,
+I could multiply it by -- let's
+
+251
+00:16:51,000 --> 00:16:55,000
+see, what -- I'm just going to
+cook up a matrix M here.
+
+252
+00:16:55,000 --> 00:16:59,000
+I'm -- I'll -- let me just
+invent -- one four one zero.
+
+253
+00:16:59,000 --> 00:17:03,000
+And over here I'll put M
+inverse, and because I happened
+
+254
+00:17:03,000 --> 00:17:08,000
+to make that triangular,
+I know that its inverse is
+
+255
+00:17:08,000 --> 00:17:10,000
+that, right?
+
+256
+00:17:10,000 --> 00:17:15,000
+So there's M inverse A M,
+that's going to produce some
+
+257
+00:17:15,000 --> 00:17:18,000
+matrix -- oh,
+well, I've got to do the
+
+258
+00:17:18,000 --> 00:17:21,000
+multiplication,
+so hang on a second,
+
+259
+00:17:21,000 --> 00:17:27,000
+let -- I'll just copy that one
+minus four zero one and multiply
+
+260
+00:17:27,000 --> 00:17:32,000
+these guys so I'm getting two
+nine one
+
+261
+00:17:32,000 --> 00:17:33,000
+and six, I think.
+
+262
+00:17:33,000 --> 00:17:39,000
+Can you check it as I go,
+because you -- see I'm just --
+
+263
+00:17:39,000 --> 00:17:45,000
+so that's two minus four,
+I'm getting a minus two nine
+
+264
+00:17:45,000 --> 00:17:50,000
+minus 24 is a minus 15,
+my God, how did I get this?
+
+265
+00:17:50,000 --> 00:17:53,000
+And that's probably one and
+six.
+
+266
+00:17:53,000 --> 00:17:55,000
+So there's my matrix B.
+
+267
+00:17:55,000 --> 00:18:02,000
+And there's my matrix lambda,
+there's my matrix A and my
+
+268
+00:18:02,000 --> 00:18:07,220
+point is these are all similar
+matrixes.
+
+269
+00:18:07,220 --> 00:18:13,000
+They all have something in
+common, besides being just two
+
+270
+00:18:13,000 --> 00:18:14,000
+by two.
+
+271
+00:18:14,000 --> 00:18:17,000
+They have something in common.
+
+272
+00:18:17,000 --> 00:18:20,000
+And that's -- and what is it?
+
+273
+00:18:20,000 --> 00:18:27,000
+What's the point about two
+matrixes that are built out of
+
+274
+00:18:27,000 --> 00:18:32,660
+-- the B is built out of M
+inverse A M.
+
+275
+00:18:32,660 --> 00:18:35,000
+What is it that A and B have in
+common?
+
+276
+00:18:35,000 --> 00:18:39,000
+That's the main -- now I'm
+telling you the main fact about
+
+277
+00:18:39,000 --> 00:18:41,070
+similar matrixes.
+
+278
+00:18:41,070 --> 00:18:43,000
+They have the same eigenvalues.
+
+279
+00:18:43,000 --> 00:18:46,000
+This is -- this chapter is
+about eigenvalues,
+
+280
+00:18:46,000 --> 00:18:51,000
+and that's why we're interested
+in this family of matrixes that
+
+281
+00:18:51,000 --> 00:18:54,000
+have the same eigenvalues.
+
+282
+00:18:54,000 --> 00:18:57,000
+What are the eigenvalues in
+this example?
+
+283
+00:18:57,000 --> 00:18:58,000
+Lambda.
+
+284
+00:18:58,000 --> 00:19:01,000
+The eigenvalues of that I could
+compute.
+
+285
+00:19:01,000 --> 00:19:05,000
+The eigenvalues of that I can
+compute really fast.
+
+286
+00:19:05,000 --> 00:19:10,000
+So the eigenvalues are three
+and one -- for this for sure.
+
+287
+00:19:10,000 --> 00:19:16,000
+Now did we -- do you see why
+the eigenvalues are
+
+288
+00:19:16,000 --> 00:19:18,050
+three and one for that one?
+
+289
+00:19:18,050 --> 00:19:21,000
+If I tell you the eigenvalues
+are three and one,
+
+290
+00:19:21,000 --> 00:19:25,000
+you prick -- quickly process
+the trace, which is -- and four
+
+291
+00:19:25,000 --> 00:19:29,000
+-- agrees with four and you
+process the determinant,
+
+292
+00:19:29,000 --> 00:19:34,000
+three times one -- the
+determinant is three and you say
+
+293
+00:19:34,000 --> 00:19:35,000
+yes, it's right.
+
+294
+00:19:35,000 --> 00:19:39,840
+Now I'm hoping that the
+eigenvalues of this thing are
+
+295
+00:19:39,840 --> 00:19:40,000
+three and one.
+
+296
+00:19:40,000 --> 00:19:45,000
+May I process the trace and the
+determinant for that one?
+
+297
+00:19:45,000 --> 00:19:47,000
+What's the trace here?
+
+298
+00:19:47,000 --> 00:19:51,210
+The trace of this matrix is
+four minus two and six,
+
+299
+00:19:51,210 --> 00:19:53,000
+and that's what it should be.
+
+300
+00:19:53,000 --> 00:19:57,000
+What's the determinant minus
+twelve
+
+301
+00:19:57,000 --> 00:19:58,970
+plus fifteen is three.
+
+302
+00:19:58,970 --> 00:20:00,000
+The determinant is three.
+
+303
+00:20:00,000 --> 00:20:05,000
+The eigenvalues of that matrix
+are also three and one.
+
+304
+00:20:05,000 --> 00:20:09,000
+And you see I created this
+matrix just like -- I just took
+
+305
+00:20:09,000 --> 00:20:14,130
+any M, like, one that popped
+into my head and computed M
+
+306
+00:20:14,130 --> 00:20:21,000
+inverse A M, got that matrix,
+it didn't look anything special
+
+307
+00:20:21,000 --> 00:20:30,060
+but it's -- like A itself,
+it has those eigenvalues three
+
+308
+00:20:30,060 --> 00:20:31,000
+and one.
+
+309
+00:20:31,000 --> 00:20:38,000
+So that's the main fact and let
+me write it down.
+
+310
+00:20:38,000 --> 00:20:44,000
+Similar matrixes have the same
+eigenvalues.
+
+311
+00:20:44,000 --> 00:20:50,000
+So I'll just put that as an
+important point.
+
+312
+00:20:50,000 --> 00:20:54,000
+And think
+why.
+
+313
+00:20:54,000 --> 00:20:55,000
+Why is that?
+
+314
+00:20:55,000 --> 00:20:59,530
+So that's what that family of
+matrixes is.
+
+315
+00:20:59,530 --> 00:21:04,000
+The matrixes that are similar
+to this A here are all the
+
+316
+00:21:04,000 --> 00:21:08,000
+matrixes with eigenvalues three
+and one.
+
+317
+00:21:08,000 --> 00:21:12,000
+Every matrix with eigenvalues
+three and one,
+
+318
+00:21:12,000 --> 00:21:18,000
+there's some M that connects
+this guy to the one you think
+
+319
+00:21:18,000 --> 00:21:20,000
+of.
+
+320
+00:21:20,000 --> 00:21:23,000
+And then of course,
+the most special guy in the
+
+321
+00:21:23,000 --> 00:21:27,840
+whole family is the diagonal one
+with eigenvalues three and one
+
+322
+00:21:27,840 --> 00:21:29,000
+sitting there on the diagonal.
+
+323
+00:21:29,000 --> 00:21:34,000
+But also, I could find -- I
+mean, tell me just a couple more
+
+324
+00:21:34,000 --> 00:21:35,000
+members of the family.
+
+325
+00:21:35,000 --> 00:21:39,000
+Another -- tell me another
+matrix that has
+
+326
+00:21:39,000 --> 00:21:41,000
+eigenvalues three and one.
+
+327
+00:21:41,000 --> 00:21:46,000
+Well, let's see,
+I -- oh, I'll just make it
+
+328
+00:21:46,000 --> 00:21:47,000
+triangular.
+
+329
+00:21:47,000 --> 00:21:49,000
+That's in the family.
+
+330
+00:21:49,000 --> 00:21:54,000
+There is some M that -- that
+connects to this one.
+
+331
+00:21:54,000 --> 00:21:56,000
+And -- and also this.
+
+332
+00:21:56,000 --> 00:22:01,000
+There's some matrix M -- so
+that M inverse A M comes out to
+
+333
+00:22:01,000 --> 00:22:03,000
+be that.
+
+334
+00:22:03,000 --> 00:22:07,090
+There's a whole family here.
+
+335
+00:22:07,090 --> 00:22:11,000
+And they all share the same
+eigenvalues.
+
+336
+00:22:11,000 --> 00:22:13,000
+So why is that?
+
+337
+00:22:13,000 --> 00:22:13,000
+Okay.
+I'm going to start -- the only
+possibility is to start with Ax
+
+338
+00:22:20,000 --> 00:22:22,000
+equal lambda x.
+
+339
+00:22:22,000 --> 00:22:27,000
+Okay, so suppose A has the
+eigenvalue lambda.
+
+340
+00:22:27,000 --> 00:22:34,000
+Now I want to get B into the
+picture here somehow.
+
+341
+00:22:34,000 --> 00:22:37,000
+You remember B is M inverse A
+M.
+
+342
+00:22:37,000 --> 00:22:41,000
+Let's just remember that over
+here.
+
+343
+00:22:41,000 --> 00:22:42,000
+B is M inverse A M.
+
+344
+00:22:42,000 --> 00:22:46,000
+And I want to see its
+eigenvalues.
+
+345
+00:22:46,000 --> 00:22:50,000
+How I going to get M inverse A
+M into this equation?
+
+346
+00:22:50,000 --> 00:22:53,000
+Let me just sort of do it.
+
+347
+00:22:53,000 --> 00:22:57,000
+I'll put an M times an M
+inverse in there,
+
+348
+00:22:57,000 --> 00:22:58,000
+right?
+
+349
+00:22:58,000 --> 00:23:02,000
+That was -- I haven't changed
+the
+
+350
+00:23:02,000 --> 00:23:05,000
+left-hand side,
+so I better not change the
+
+351
+00:23:05,000 --> 00:23:07,000
+right-hand side.
+
+352
+00:23:07,000 --> 00:23:11,000
+So everybody's okay so far,
+I just put in there -- see,
+
+353
+00:23:11,000 --> 00:23:16,000
+I want to get a -- so now I'll
+multiply on the left by M
+
+354
+00:23:16,000 --> 00:23:21,000
+inverse -- I have to do the same
+to this side and that number
+
+355
+00:23:21,000 --> 00:23:27,000
+lambda's just a number,
+so it factors out in the front.
+
+356
+00:23:27,000 --> 00:23:31,000
+So what I have here is this was
+safe.
+
+357
+00:23:31,000 --> 00:23:34,000
+I did the same thing to both
+sides.
+
+358
+00:23:34,000 --> 00:23:36,520
+And now I've got B.
+
+359
+00:23:36,520 --> 00:23:37,000
+There's B.
+
+360
+00:23:37,000 --> 00:23:43,000
+That's B times this vector M
+inverse x is equal to lambda
+
+361
+00:23:43,000 --> 00:23:46,000
+times this vector M inverse x.
+
+362
+00:23:46,000 --> 00:23:48,560
+So what have I learned?
+
+363
+00:23:48,560 --> 00:23:54,000
+I've learned that B times some
+vector is lambda times that
+
+364
+00:23:54,000 --> 00:23:55,000
+vector.
+
+365
+00:23:55,000 --> 00:23:59,000
+I've learned that lambda is an
+eigenvalue of B also.
+
+366
+00:23:59,000 --> 00:24:03,000
+So this is -- if -- so this is
+-- if lambda's an eigenvalue of
+
+367
+00:24:03,000 --> 00:24:08,000
+A, then I can write it this way
+and I discover that lambda's an
+
+368
+00:24:08,000 --> 00:24:09,000
+eigenvalue of B.
+
+369
+00:24:09,000 --> 00:24:12,000
+That's the end of the proof.
+
+370
+00:24:12,000 --> 00:24:15,000
+The eigenvector didn't stay the
+same.
+
+371
+00:24:15,000 --> 00:24:20,580
+Of course I don't expect the
+eigenvectors to stay the same.
+
+372
+00:24:20,580 --> 00:24:25,000
+If all the eigenvalues are the
+same and all the eigenvectors
+
+373
+00:24:25,000 --> 00:24:29,000
+are the same,
+then probably the matrix is the
+
+374
+00:24:29,000 --> 00:24:29,500
+same.
+
+375
+00:24:29,500 --> 00:24:34,000
+Here the eigenvector changes,
+so the eigenvector -- so the
+
+376
+00:24:34,000 --> 00:24:38,000
+point is then the eigenvector of
+B --
+
+377
+00:24:38,000 --> 00:24:43,000
+of B is M inverse times the
+eigenvector of A.
+
+378
+00:24:43,000 --> 00:24:44,000
+Okay.
+
+379
+00:24:44,000 --> 00:24:47,000
+That's all that this says here.
+
+380
+00:24:47,000 --> 00:24:54,000
+The eigenvector of A was X,
+and so the M inverse -- similar
+
+381
+00:24:54,000 --> 00:25:00,000
+matrixes, then have the same
+eigenvalues and their
+
+382
+00:25:00,000 --> 00:25:04,000
+eigenvectors are just moved
+around.
+
+383
+00:25:04,000 --> 00:25:09,000
+Of course,
+that's what we -- that's what
+
+384
+00:25:09,000 --> 00:25:13,000
+happened way back -- and the
+most important similar matrixes
+
+385
+00:25:13,000 --> 00:25:15,000
+are to diagonalize.
+
+386
+00:25:15,000 --> 00:25:18,000
+So what was the point when we
+diagonalized?
+
+387
+00:25:18,000 --> 00:25:21,000
+The eigenvalues stayed the
+same, of course.
+
+388
+00:25:21,000 --> 00:25:22,000
+Three and one.
+
+389
+00:25:22,000 --> 00:25:24,730
+What about the eigenvectors?
+
+390
+00:25:24,730 --> 00:25:29,000
+The eigenvectors were whatever
+they were for the matrix A,
+
+391
+00:25:29,000 --> 00:25:33,000
+but then what were the
+eigenvectors for the diagonal
+
+392
+00:25:33,000 --> 00:25:34,390
+matrix?
+
+393
+00:25:34,390 --> 00:25:38,580
+They're just -- what are the
+eigenvectors of a diagonal
+
+394
+00:25:38,580 --> 00:25:39,000
+matrix?
+
+395
+00:25:39,000 --> 00:25:41,000
+They're just one zero and zero
+one.
+
+396
+00:25:41,000 --> 00:25:44,000
+So this step made the
+eigenvectors nice,
+
+397
+00:25:44,000 --> 00:25:49,000
+didn't change the eigenvalues,
+and every time we don't change
+
+398
+00:25:49,000 --> 00:25:52,000
+the
+eigenvalues.
+
+399
+00:25:52,000 --> 00:25:54,000
+Same eigenvalues.
+
+400
+00:25:54,000 --> 00:25:54,000
+Okay.
+Now -- so I've got all these
+matrixes in -- I've got this
+
+401
+00:26:00,000 --> 00:26:06,000
+family of matrixes with
+eigenvalues three and one.
+
+402
+00:26:06,000 --> 00:26:07,000
+Fine.
+
+403
+00:26:07,000 --> 00:26:09,000
+That's a nice family.
+
+404
+00:26:09,000 --> 00:26:15,000
+It's nice because those two
+eigenvalues are different.
+
+405
+00:26:15,000 --> 00:26:21,000
+I now have to --
+to get into that -- the -- into
+
+406
+00:26:21,000 --> 00:26:27,000
+the less happy possibility that
+the two eigenvalues could be the
+
+407
+00:26:27,000 --> 00:26:27,000
+same.
+And then it's a little
+trickier, because you remember
+
+408
+00:26:32,000 --> 00:26:36,000
+when two eigenvalues are the
+same, what's the bad
+
+409
+00:26:36,000 --> 00:26:37,000
+possibility?
+
+410
+00:26:37,000 --> 00:26:43,160
+That there might not be enough
+-- a full set of eigenvectors
+
+411
+00:26:43,160 --> 00:26:47,000
+and we
+might not be able to
+
+412
+00:26:47,000 --> 00:26:48,000
+diagonalize.
+
+413
+00:26:48,000 --> 00:26:52,000
+So I need to discuss the bad
+case.
+
+414
+00:26:52,000 --> 00:26:56,000
+So the bad -- can I just say
+bad?
+
+415
+00:26:56,000 --> 00:27:03,000
+If lambda one equals lambda
+two, then the matrix might not
+
+416
+00:27:03,000 --> 00:27:05,000
+be diagonalizable.
+
+417
+00:27:05,000 --> 00:27:11,000
+Suppose lambda one equals
+lambda two equals four,
+
+418
+00:27:11,000 --> 00:27:11,000
+say.
+Now if I look at the family of
+matrixes with eigenvalues four
+
+419
+00:27:21,110 --> 00:27:27,000
+and four, well,
+one possibility occurs to me.
+
+420
+00:27:27,000 --> 00:27:35,000
+One family with eigenvalues
+four and four has this matrix in
+
+421
+00:27:35,000 --> 00:27:39,000
+it, four times the identity.
+
+422
+00:27:39,000 --> 00:27:47,000
+Then another -- but now I want
+to ask also about the matrix
+
+423
+00:27:47,000 --> 00:27:50,000
+four four one zero.
+
+424
+00:27:50,000 --> 00:27:56,000
+And my point --
+here's the whole point of this
+
+425
+00:27:56,000 --> 00:28:02,110
+-- of this bad stuff,
+is that this guy is not in the
+
+426
+00:28:02,110 --> 00:28:04,000
+same family with that one.
+
+427
+00:28:04,000 --> 00:28:10,000
+The family of a -- of matrixes
+that have eigenvalues four and
+
+428
+00:28:10,000 --> 00:28:13,000
+four is two families.
+
+429
+00:28:13,000 --> 00:28:19,000
+There's this total loner here
+who's in a family off -- right?
+
+430
+00:28:19,000 --> 00:28:21,000
+Just by himself.
+
+431
+00:28:21,000 --> 00:28:26,000
+And all the others are in with
+this guy.
+
+432
+00:28:26,000 --> 00:28:29,000
+So the big family includes this
+one.
+
+433
+00:28:29,000 --> 00:28:34,000
+And it includes a whole lot of
+other matrixes,
+
+434
+00:28:34,000 --> 00:28:38,000
+all -- in fact,
+in this two by two case,
+
+435
+00:28:38,000 --> 00:28:44,000
+it -- you see where -- what do
+I mean -- so what I using,
+
+436
+00:28:44,000 --> 00:28:50,000
+this word family -- in a
+family, I mean
+
+437
+00:28:50,000 --> 00:28:51,520
+they're similar.
+
+438
+00:28:51,520 --> 00:28:56,990
+So my point is that the only
+matrix that's similar to this is
+
+439
+00:28:56,990 --> 00:28:57,000
+itself.
+
+440
+00:28:57,000 --> 00:29:03,000
+The only matrix that's similar
+to four times the identity is
+
+441
+00:29:03,000 --> 00:29:05,000
+four times the identity.
+
+442
+00:29:05,000 --> 00:29:06,000
+It's off by itself.
+
+443
+00:29:06,000 --> 00:29:08,000
+Why is that?
+
+444
+00:29:08,000 --> 00:29:12,000
+The -- if this is my matrix,
+four times the identity,
+
+445
+00:29:12,000 --> 00:29:17,000
+and I take
+it, I multiply on the right by
+
+446
+00:29:17,000 --> 00:29:21,000
+any matrix M,
+I multiply on the left by M
+
+447
+00:29:21,000 --> 00:29:23,000
+inverse, what do I get?
+
+448
+00:29:23,000 --> 00:29:26,000
+This is any M,
+but what's the result?
+
+449
+00:29:26,000 --> 00:29:31,000
+Well, factoring out a four,
+that's just the identity matrix
+
+450
+00:29:31,000 --> 00:29:32,000
+in there.
+
+451
+00:29:32,000 --> 00:29:37,000
+So then the M inverse cancels
+the M, so I've just got this
+
+452
+00:29:37,000 --> 00:29:40,710
+matrix back
+again.
+
+453
+00:29:40,710 --> 00:29:45,000
+So whatever the M is,
+I'm not getting any more
+
+454
+00:29:45,000 --> 00:29:47,000
+members of the family.
+
+455
+00:29:47,000 --> 00:29:53,000
+So this is one small family,
+because it only has one person.
+
+456
+00:29:53,000 --> 00:29:56,000
+One matrix, excuse me.
+
+457
+00:29:56,000 --> 00:30:01,000
+I think of these matrixes as
+people by this point,
+
+458
+00:30:01,000 --> 00:30:03,000
+in eighteen oh six.
+
+459
+00:30:03,000 --> 00:30:09,000
+Okay, the other family includes
+all the rest --
+
+460
+00:30:09,000 --> 00:30:14,000
+all other matrixes that have
+eigenvalues four and four.
+
+461
+00:30:14,000 --> 00:30:17,000
+This is somehow the best one in
+that family.
+
+462
+00:30:17,000 --> 00:30:20,000
+See, I can't make it diagonal.
+
+463
+00:30:20,000 --> 00:30:23,480
+If I -- if it's diagonal,
+it's this one.
+
+464
+00:30:23,480 --> 00:30:25,000
+It's in its own,
+by itself.
+
+465
+00:30:25,000 --> 00:30:29,810
+So I have to think,
+okay, what's the nearest I can
+
+466
+00:30:29,810 --> 00:30:31,000
+get
+to diagonal?
+
+467
+00:30:31,000 --> 00:30:34,000
+But it will not be
+diagonalizable.
+
+468
+00:30:34,000 --> 00:30:38,000
+That -- do you know that that
+matrix is not diagonalizable?
+
+469
+00:30:38,000 --> 00:30:42,000
+Of course, because if it was
+diagonalizable,
+
+470
+00:30:42,000 --> 00:30:45,000
+it would be similar to that,
+which it isn't.
+
+471
+00:30:45,000 --> 00:30:48,000
+The eigenvalues of this are
+four
+
+472
+00:30:48,000 --> 00:30:53,060
+and four, but what's the catch
+with that matrix?
+
+473
+00:30:53,060 --> 00:30:55,000
+It's only got one eigenvector.
+
+474
+00:30:55,000 --> 00:30:59,000
+That's a non-diagonalizable
+matrix.
+
+475
+00:30:59,000 --> 00:31:01,000
+Only one eigenvector.
+
+476
+00:31:01,000 --> 00:31:04,000
+And somehow,
+if I made that one into a ten
+
+477
+00:31:04,000 --> 00:31:08,000
+or to a million,
+I could find an M,
+
+478
+00:31:08,000 --> 00:31:11,000
+it's in the family,
+it's similar.
+
+479
+00:31:11,000 --> 00:31:16,000
+But the best --
+so the best guy in this family
+
+480
+00:31:16,000 --> 00:31:17,000
+is this one.
+
+481
+00:31:17,000 --> 00:31:22,000
+And this is called the Jordan
+-- so this guy Jordan picked out
+
+482
+00:31:22,000 --> 00:31:26,000
+-- so he, like,
+studied, these families of
+
+483
+00:31:26,000 --> 00:31:31,000
+matrixes, and each family,
+he picked out the nicest,
+
+484
+00:31:31,000 --> 00:31:32,000
+most diagonal one.
+
+485
+00:31:32,000 --> 00:31:38,000
+But not completely diagonal,
+because there's nobody -- there
+
+486
+00:31:38,000 --> 00:31:43,000
+isn't a diagonal matrix in this
+family, so there's a one up
+
+487
+00:31:43,000 --> 00:31:45,000
+there in the Jordan form.
+
+488
+00:31:45,000 --> 00:31:45,000
+Okay.
+I think we've got to see some
+more matrixes in that family.
+
+489
+00:31:50,200 --> 00:31:53,000
+So, all right,
+let me -- let's just think of
+
+490
+00:31:53,000 --> 00:31:57,000
+some other matrixes whose
+eigenvalues are four and four
+
+491
+00:31:57,000 --> 00:32:02,000
+but they're not
+four times the identity.
+
+492
+00:32:02,000 --> 00:32:07,000
+So -- and I believe that --
+that this -- that all the
+
+493
+00:32:07,000 --> 00:32:12,000
+examples we pick up will be
+similar to each other and -- do
+
+494
+00:32:12,000 --> 00:32:17,000
+you see why -- in this topic of
+similar matrixes,
+
+495
+00:32:17,000 --> 00:32:20,000
+the climax is the Jordan form.
+
+496
+00:32:20,000 --> 00:32:26,000
+So it says that every
+matrix -- I'll write down what
+
+497
+00:32:26,000 --> 00:32:30,000
+the Jordan form -- what Jordan
+discovered.
+
+498
+00:32:30,000 --> 00:32:34,000
+He found the best looking
+matrix in each family.
+
+499
+00:32:34,000 --> 00:32:40,680
+And that's -- then we've got --
+then we've covered all matrixes
+
+500
+00:32:40,680 --> 00:32:44,000
+including the non-diagonalizable
+one.
+
+501
+00:32:44,000 --> 00:32:47,000
+That -- that's the point,
+that in some way,
+
+502
+00:32:47,000 --> 00:32:51,000
+Jordan completed the
+diagonalization by coming as
+
+503
+00:32:51,000 --> 00:32:54,000
+near as he could,
+which is his Jordan form.
+
+504
+00:32:54,000 --> 00:32:56,980
+And therefore,
+if you want to cover all
+
+505
+00:32:56,980 --> 00:33:00,000
+matrixes, you've got to get him
+in the picture.
+
+506
+00:33:00,000 --> 00:33:04,000
+It used to be -- when I took
+eighteen oh six,
+
+507
+00:33:04,000 --> 00:33:09,000
+that was the climax of the
+course, this Jordan form stuff.
+
+508
+00:33:09,000 --> 00:33:14,000
+I think it's not the climax of
+linear algebra anymore,
+
+509
+00:33:14,000 --> 00:33:20,000
+because -- it's not easy to
+find this Jordan form for a
+
+510
+00:33:20,000 --> 00:33:24,060
+general matrix,
+because it depends on these
+
+511
+00:33:24,060 --> 00:33:28,000
+eigenvalues being exactly the
+same.
+
+512
+00:33:28,000 --> 00:33:33,000
+You'd have to know exactly the
+eigenvalues and it -- and you'd
+
+513
+00:33:33,000 --> 00:33:38,000
+have to know exactly the rank
+and the slightest change in
+
+514
+00:33:38,000 --> 00:33:43,000
+numbers will change those
+eigenvalues, change the rank and
+
+515
+00:33:43,000 --> 00:33:47,000
+therefore the whole thing is
+numerically not an -- a good
+
+516
+00:33:47,000 --> 00:33:48,000
+thing.
+
+517
+00:33:48,000 --> 00:33:53,000
+But for algebra,
+it's the right thing to
+
+518
+00:33:53,000 --> 00:33:55,740
+understand this family.
+
+519
+00:33:55,740 --> 00:34:02,000
+So just tell me another matrix
+-- a few more matrixes -- so
+
+520
+00:34:02,000 --> 00:34:05,000
+more members of the family.
+
+521
+00:34:05,000 --> 00:34:10,000
+Let me put down again what the
+best one is.
+
+522
+00:34:10,000 --> 00:34:10,000
+Okay.
+All right.
+
+523
+00:34:12,000 --> 00:34:14,000
+Some more matrixes.
+
+524
+00:34:14,000 --> 00:34:18,000
+Let's see, what I looking for?
+
+525
+00:34:18,000 --> 00:34:21,000
+I'm looking for matrixes whose
+trace is what?
+
+526
+00:34:21,000 --> 00:34:25,000
+So if I'm looking for more
+matrixes in the family,
+
+527
+00:34:25,000 --> 00:34:28,000
+they'll all have the same
+eigenvalues, four and four.
+
+528
+00:34:28,000 --> 00:34:30,000
+So their trace will be eight.
+
+529
+00:34:30,000 --> 00:34:34,000
+So why don't I just take,
+like, five and three -- I've
+
+530
+00:34:34,000 --> 00:34:38,000
+got the trace right,
+now the determinant
+
+531
+00:34:38,000 --> 00:34:39,000
+should be what?
+
+532
+00:34:39,000 --> 00:34:40,170
+Sixteen.
+
+533
+00:34:40,170 --> 00:34:45,000
+So I just fix this up -- shall
+I put maybe a one and a minus
+
+534
+00:34:45,000 --> 00:34:46,000
+one there?
+
+535
+00:34:46,000 --> 00:34:46,000
+Okay.
+There's a matrix with
+eigenvalues four and four,
+
+536
+00:34:50,000 --> 00:34:56,000
+because the trace is eight and
+the determinant is sixteen.
+
+537
+00:34:56,000 --> 00:35:00,000
+And I don't think it's
+diagonalizable.
+
+538
+00:35:00,000 --> 00:35:03,000
+Do you know why it's not
+diagonalizable?
+
+539
+00:35:03,000 --> 00:35:06,420
+Because if it was
+diagonalizable,
+
+540
+00:35:06,420 --> 00:35:09,000
+the diagonal form would have to
+be this.
+
+541
+00:35:09,000 --> 00:35:14,000
+But I can't get to that form,
+because whatever I do with any
+
+542
+00:35:14,000 --> 00:35:17,000
+M inverse and M I stay with that
+form.
+
+543
+00:35:17,000 --> 00:35:20,000
+I could never get -- connect
+those.
+
+544
+00:35:20,000 --> 00:35:24,000
+So I can put down more members
+--
+
+545
+00:35:24,000 --> 00:35:26,560
+here -- here's another easy
+one.
+
+546
+00:35:26,560 --> 00:35:30,640
+I could put the four and the
+four and a seventeen down there.
+
+547
+00:35:30,640 --> 00:35:32,000
+All these matrixes are similar.
+
+548
+00:35:32,000 --> 00:35:36,760
+If I'm -- I could find an M
+that would show that that one is
+
+549
+00:35:36,760 --> 00:35:38,120
+similar to that one.
+
+550
+00:35:38,120 --> 00:35:41,000
+And in -- you can see the
+general picture is I can take
+
+551
+00:35:41,000 --> 00:35:45,000
+any a and any 8-a
+here and any -- oh,
+
+552
+00:35:45,000 --> 00:35:49,120
+I don't know,
+whatever you put it'd be --
+
+553
+00:35:49,120 --> 00:35:50,000
+anyway, you can see.
+
+554
+00:35:50,000 --> 00:35:55,000
+I can fill this in,
+fill this in to make the trace
+
+555
+00:35:55,000 --> 00:36:00,000
+equal eight, the determinant
+equal 16, I get all that family
+
+556
+00:36:00,000 --> 00:36:04,000
+of matrixes and they're all
+similar.
+
+557
+00:36:04,000 --> 00:36:07,000
+So we see what eigenvalues do.
+
+558
+00:36:07,000 --> 00:36:13,000
+They're all similar and they
+all have only one eigenvector.
+
+559
+00:36:13,000 --> 00:36:19,000
+So I -- if I'm -- if you were
+going to -- allow me to add to
+
+560
+00:36:19,000 --> 00:36:23,000
+this picture,
+they have the same lambdas and
+
+561
+00:36:23,000 --> 00:36:29,000
+they also have the same number
+of independent eigenvectors.
+
+562
+00:36:29,000 --> 00:36:35,000
+Because if I get an eigenvector
+for x I get one for --
+
+563
+00:36:35,000 --> 00:36:37,000
+for A, I get one for B also.
+
+564
+00:36:37,000 --> 00:36:41,000
+So -- and same number of
+eigenvectors.
+
+565
+00:36:41,000 --> 00:36:46,000
+But even more than that -- even
+more than that -- I mean,
+
+566
+00:36:46,000 --> 00:36:50,000
+it's not enough just to count
+eigenvectors.
+
+567
+00:36:50,000 --> 00:36:55,000
+Yes, let me give you an example
+why it's not even enough to
+
+568
+00:36:55,000 --> 00:36:58,000
+count eigenvectors.
+
+569
+00:36:58,000 --> 00:36:59,000
+So another example.
+
+570
+00:36:59,000 --> 00:37:05,000
+So here are some matrixes --
+oh, let me make them four by
+
+571
+00:37:05,000 --> 00:37:09,000
+four -- okay,
+here -- here's a matrix.
+
+572
+00:37:09,000 --> 00:37:15,110
+I mean, like if you want
+nightmares, think about matrixes
+
+573
+00:37:15,110 --> 00:37:16,000
+like these.
+
+574
+00:37:16,000 --> 00:37:21,000
+Uh, so a one off the diagonal
+-- say a one there,
+
+575
+00:37:21,000 --> 00:37:26,000
+how many -- what are the
+eigenvalues of that matrix?
+
+576
+00:37:26,000 --> 00:37:29,540
+Oh, I mean --
+okay.
+
+577
+00:37:29,540 --> 00:37:34,000
+What are the eigenvalues of
+that matrix?
+
+578
+00:37:34,000 --> 00:37:35,000
+Please.
+
+579
+00:37:35,000 --> 00:37:37,000
+Four 0s, right?
+
+580
+00:37:37,000 --> 00:37:41,000
+So we're really getting bad
+matrixes now.
+
+581
+00:37:41,000 --> 00:37:47,000
+So I mean, this is,
+like -- Jordan was a good guy,
+
+582
+00:37:47,000 --> 00:37:54,000
+but he had to think about
+matrixes that all --
+
+583
+00:37:54,000 --> 00:37:59,000
+that had, like -- an eigenvalue
+repeated four times.
+
+584
+00:37:59,000 --> 00:38:02,000
+How many eigenvectors does that
+matrix have?
+
+585
+00:38:02,000 --> 00:38:07,920
+Well, I'm -- eigenvectors will
+be -- since the eigenvalue is
+
+586
+00:38:07,920 --> 00:38:11,000
+zero, eigenvectors will be in
+the null space,
+
+587
+00:38:11,000 --> 00:38:12,190
+right?
+
+588
+00:38:12,190 --> 00:38:15,000
+I'm -- eigenvectors have got to
+be
+
+589
+00:38:15,000 --> 00:38:17,000
+A x equal zero x.
+
+590
+00:38:17,000 --> 00:38:20,000
+So what's the dimension of the
+null space?
+
+591
+00:38:20,000 --> 00:38:21,270
+Two.
+
+592
+00:38:21,270 --> 00:38:22,000
+Somebody said two.
+
+593
+00:38:22,000 --> 00:38:24,000
+And that's right.
+
+594
+00:38:24,000 --> 00:38:25,220
+How -- why?
+
+595
+00:38:25,220 --> 00:38:29,000
+Because you ask what's the rank
+of that matrix,
+
+596
+00:38:29,000 --> 00:38:31,000
+the rank is obviously two.
+
+597
+00:38:31,000 --> 00:38:35,000
+The number of independent rows
+is
+
+598
+00:38:35,000 --> 00:38:39,000
+two, the number of independent
+columns is two,
+
+599
+00:38:39,000 --> 00:38:45,000
+the rank is two so the null --
+the dimension of the null space
+
+600
+00:38:45,000 --> 00:38:49,000
+is four minus two,
+so it's got two eigenvectors.
+
+601
+00:38:49,000 --> 00:38:51,400
+Two eigenvectors.
+
+602
+00:38:51,400 --> 00:38:54,000
+Two independent eigenvectors.
+
+603
+00:38:54,000 --> 00:38:55,000
+All right.
+
+604
+00:38:55,000 --> 00:38:59,000
+The dimension of the null space
+is two.
+
+605
+00:38:59,000 --> 00:39:04,000
+Now, suppose I change this zero
+to a seven.
+
+606
+00:39:04,000 --> 00:39:09,000
+The eigenvalues are all still
+zero, how -- what about -- how
+
+607
+00:39:09,000 --> 00:39:11,000
+many eigenvectors?
+
+608
+00:39:11,000 --> 00:39:17,000
+What's the dimension of the --
+what's the rank of this matrix
+
+609
+00:39:17,000 --> 00:39:18,000
+now?
+
+610
+00:39:18,000 --> 00:39:19,000
+Still two, right?
+
+611
+00:39:19,000 --> 00:39:21,000
+So it's okay.
+
+612
+00:39:21,000 --> 00:39:25,000
+And actually,
+this would be similar to the
+
+613
+00:39:25,000 --> 00:39:29,000
+one
+that had a zero in there.
+
+614
+00:39:29,000 --> 00:39:33,000
+But it's not as beautiful,
+Jordan picked this one.
+
+615
+00:39:33,000 --> 00:39:38,000
+He picked -- he put ones -- we
+have a one on the -- above the
+
+616
+00:39:38,000 --> 00:39:42,000
+diagonal for every missing
+eigenvector, and here we're
+
+617
+00:39:42,000 --> 00:39:45,840
+missing two because we've got
+two,
+
+618
+00:39:45,840 --> 00:39:51,000
+so we've got two eigenvectors
+and two are missing,
+
+619
+00:39:51,000 --> 00:39:55,000
+because it's a four by four
+matrix.
+
+620
+00:39:55,000 --> 00:40:03,000
+Okay, now -- but I was going to
+give you this second example.
+
+621
+00:40:03,000 --> 00:40:07,150
+0 1 0 0, let me just move the
+one.
+
+622
+00:40:07,150 --> 00:40:08,000
+Oop, not there.
+
+623
+00:40:08,000 --> 00:40:14,000
+Off the diagonal and zero zero
+zero
+
+624
+00:40:14,000 --> 00:40:15,000
+zero zero.
+
+625
+00:40:15,000 --> 00:40:16,000
+Okay.
+
+626
+00:40:16,000 --> 00:40:19,000
+So now tell me about this
+matrix.
+
+627
+00:40:19,000 --> 00:40:24,180
+Its eigenvalues are four zeroes
+again.
+
+628
+00:40:24,180 --> 00:40:26,000
+Its rank is two again.
+
+629
+00:40:26,000 --> 00:40:31,000
+So it has two eigenvectors and
+two missing.
+
+630
+00:40:31,000 --> 00:40:36,000
+But the darn thing is not
+similar to that one.
+
+631
+00:40:36,000 --> 00:40:43,000
+A -- a count of eigenvectors
+looks like these could be
+
+632
+00:40:43,000 --> 00:40:47,000
+similar,
+but they're not.
+
+633
+00:40:47,000 --> 00:40:51,000
+Jordan -- see,
+this is like -- a little three
+
+634
+00:40:51,000 --> 00:40:55,000
+by three block and a little one
+by one block.
+
+635
+00:40:55,000 --> 00:41:00,000
+And this one is like a two by
+two block and a two by two
+
+636
+00:41:00,000 --> 00:41:05,000
+block, and those blocks are
+called Jordan blocks.
+
+637
+00:41:05,000 --> 00:41:09,000
+So let me say what is a Jordan
+block?
+
+638
+00:41:09,000 --> 00:41:16,000
+J block number I has -- so a
+Jordan block has a repeated
+
+639
+00:41:16,000 --> 00:41:22,000
+eigenvalue, lambda I,
+lambda I on the diagonal.
+
+640
+00:41:22,000 --> 00:41:26,000
+Zeroes below and ones above.
+
+641
+00:41:26,000 --> 00:41:31,000
+So there's a block with this
+guy repeated,
+
+642
+00:41:31,000 --> 00:41:35,000
+but it only has one
+eigenvector.
+
+643
+00:41:35,000 --> 00:41:42,000
+So a Jordan block has one
+eigenvector only.
+
+644
+00:41:42,000 --> 00:41:49,130
+This one has one eigenvector,
+this block has one eigenvector
+
+645
+00:41:49,130 --> 00:41:50,000
+and we get two.
+
+646
+00:41:50,000 --> 00:41:56,570
+This block has one eigenvector
+and that block has one
+
+647
+00:41:56,570 --> 00:41:59,000
+eigenvector and we get two.
+
+648
+00:41:59,000 --> 00:42:04,010
+So -- but the blocks are
+different sizes.
+
+649
+00:42:04,010 --> 00:42:10,000
+And that -- it turns out Jordan
+worked out -- then this is not
+
+650
+00:42:10,000 --> 00:42:16,000
+similar, not
+similar to this one.
+
+651
+00:42:16,000 --> 00:42:22,000
+So the -- so I'm,
+like, giving you the whole
+
+652
+00:42:22,000 --> 00:42:27,000
+story -- well,
+not the whole story,
+
+653
+00:42:27,000 --> 00:42:35,000
+but the main themes of the
+story -- is here's Jordan's
+
+654
+00:42:35,000 --> 00:42:36,000
+theorem.
+
+655
+00:42:36,000 --> 00:42:44,000
+Every square matrix A is
+similar to A Jordan matrix J.
+
+656
+00:42:44,000 --> 00:42:48,000
+And what's a Jordan matrix J?
+
+657
+00:42:48,000 --> 00:42:55,000
+It's a matrix with these
+blocks,
+
+658
+00:42:55,000 --> 00:43:01,000
+block -- Jordan block number
+one, Jordan block number two and
+
+659
+00:43:01,000 --> 00:43:02,000
+so on.
+
+660
+00:43:02,000 --> 00:43:06,000
+And let's say Jordan block
+number d.
+
+661
+00:43:06,000 --> 00:43:12,000
+And those Jordan blocks look
+like that, so the eigenvalues
+
+662
+00:43:12,000 --> 00:43:18,000
+are sitting on the diagonal,
+but we've got some of these
+
+663
+00:43:18,000 --> 00:43:21,000
+ones above the diagonal.
+
+664
+00:43:21,000 --> 00:43:29,000
+We've got the number of -- so
+the number of blocks -- the
+
+665
+00:43:29,000 --> 00:43:34,630
+number of blocks is the number
+of eigenvectors,
+
+666
+00:43:34,630 --> 00:43:39,000
+because we get one eigenvector
+per block.
+
+667
+00:43:39,000 --> 00:43:45,000
+So what I'm -- so if I
+summarize Jordan's idea -- start
+
+668
+00:43:45,000 --> 00:43:46,000
+with any A.
+
+669
+00:43:46,000 --> 00:43:53,000
+If its eigenvalues are
+distinct, then what's it similar
+
+670
+00:43:53,000 --> 00:43:53,000
+to?
+This is the good case.
+if I start with a matrix A and
+
+671
+00:44:00,000 --> 00:44:04,000
+it has different eigenvalues --
+it's n eigenvalues,
+
+672
+00:44:04,000 --> 00:44:09,000
+none of them are repeated,
+then that's a diagonal --
+
+673
+00:44:09,000 --> 00:44:14,000
+diagonalizable matrix -- the
+Jordan blocks is -- has -- the
+
+674
+00:44:14,000 --> 00:44:17,000
+Jordan matrix is diagonal.
+
+675
+00:44:17,000 --> 00:44:18,000
+It's lambda.
+
+676
+00:44:18,000 --> 00:44:22,000
+So the good case --
+the good case,
+
+677
+00:44:22,000 --> 00:44:23,940
+J is lambda.
+
+678
+00:44:23,940 --> 00:44:26,000
+All -- there are -- d=n.
+
+679
+00:44:26,000 --> 00:44:31,000
+There are n eigenvectors,
+n blocks, diagonal,
+
+680
+00:44:31,000 --> 00:44:33,000
+everything great.
+
+681
+00:44:33,000 --> 00:44:39,000
+But Jordan covered all cases by
+including these cases of
+
+682
+00:44:39,000 --> 00:44:44,000
+repeated eigenvalues and missing
+eigenvectors.
+
+683
+00:44:44,000 --> 00:44:45,000
+Okay.
+
+684
+00:44:45,000 --> 00:44:48,000
+That's a description of Jordan.
+
+685
+00:44:48,000 --> 00:44:53,000
+That --
+that's -- I haven't told you
+
+686
+00:44:53,000 --> 00:44:57,000
+how to compute this thing,
+and it isn't easy.
+
+687
+00:44:57,000 --> 00:45:02,000
+Whereas the good case is the --
+the good case is what 18.06 is
+
+688
+00:45:02,000 --> 00:45:02,000
+about.
+The -- this case is what 18.06
+was about 20 years ago.
+
+689
+00:45:07,000 --> 00:45:13,000
+So you can see you probably
+won't have on the final exam the
+
+690
+00:45:13,000 --> 00:45:19,000
+computation of a Jordan matrix
+for some horrible thing with
+
+691
+00:45:19,000 --> 00:45:22,000
+four repeated eigenvalues.
+
+692
+00:45:22,000 --> 00:45:26,000
+I'm not that crazy about the
+Jordan form.
+
+693
+00:45:26,000 --> 00:45:32,000
+But I'm very positive about
+positive definite matrixes and
+
+694
+00:45:32,000 --> 00:45:38,000
+about the idea that's coming
+Monday, the singular value
+
+695
+00:45:38,000 --> 00:45:39,000
+decomposition.
+
+696
+00:45:39,000 --> 00:45:46,000
+So I'll see you on Monday,
+and have a great weekend.
+
+697
+00:45:46,000 --> 00:45:49,000
+Bye.

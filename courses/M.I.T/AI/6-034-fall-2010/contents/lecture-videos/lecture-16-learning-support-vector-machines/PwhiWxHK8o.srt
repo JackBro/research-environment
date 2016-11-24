@@ -1,0 +1,4251 @@
+1
+00:00:00,000 --> 00:00:09,234
+
+
+2
+00:00:09,234 --> 00:00:10,300
+PATRICK WINSTON: So
+where are we?
+
+3
+00:00:10,300 --> 00:00:14,962
+We started off with simple
+methods for learning stuff.
+
+4
+00:00:14,962 --> 00:00:20,730
+Then, we talked a little about
+a purchase of learning that
+
+5
+00:00:20,730 --> 00:00:24,556
+we're vaguely inspired by.
+
+6
+00:00:24,556 --> 00:00:27,300
+The fact that our heads are
+stuffed with neurons, and that
+
+7
+00:00:27,300 --> 00:00:31,095
+we seemed to have evolved
+from primates.
+
+8
+00:00:31,095 --> 00:00:34,940
+Then, we talked about looking at
+the problem and address the
+
+9
+00:00:34,940 --> 00:00:36,410
+issue of [? phrenology ?]
+
+10
+00:00:36,410 --> 00:00:40,430
+and how it's possible
+to learn concepts.
+
+11
+00:00:40,430 --> 00:00:43,700
+But now, we're coming full
+circle back to the beginning
+
+12
+00:00:43,700 --> 00:00:47,990
+and thinking about how to
+divide up a space with
+
+13
+00:00:47,990 --> 00:00:49,930
+decision boundaries.
+
+14
+00:00:49,930 --> 00:00:54,580
+But whereas, you do it with
+a neural net or a nearest
+
+15
+00:00:54,580 --> 00:00:56,510
+neighbors or a ID tree.
+
+16
+00:00:56,510 --> 00:01:02,115
+Those are very simple ideas
+that work very often.
+
+17
+00:01:02,115 --> 00:01:05,895
+Today, we're going to talk about
+a very sophisticated
+
+18
+00:01:05,895 --> 00:01:09,212
+idea that still has
+a implementation.
+
+19
+00:01:09,212 --> 00:01:13,220
+So this needs to be
+in the tool bag of
+
+20
+00:01:13,220 --> 00:01:15,506
+every civilized person.
+
+21
+00:01:15,506 --> 00:01:18,560
+This is about support
+vector machines, an
+
+22
+00:01:18,560 --> 00:01:20,735
+idea that was developed.
+
+23
+00:01:20,735 --> 00:01:22,470
+Well, I want to talk to
+you today about how
+
+24
+00:01:22,470 --> 00:01:24,705
+ideas develop, actually.
+
+25
+00:01:24,705 --> 00:01:27,150
+Because you look at stuff like
+this in a book, and you think,
+
+26
+00:01:27,150 --> 00:01:32,515
+well, Vladimir Vapnik just
+figured this out one Saturday
+
+27
+00:01:32,515 --> 00:01:35,780
+afternoon when the weather was
+too bad to go outside.
+
+28
+00:01:35,780 --> 00:01:37,185
+That's not how it happens.
+
+29
+00:01:37,185 --> 00:01:38,580
+It happens very differently.
+
+30
+00:01:38,580 --> 00:01:41,229
+I want to talk to you
+a little about that.
+
+31
+00:01:41,229 --> 00:01:46,950
+The next thing about great
+things that were done by
+
+32
+00:01:46,950 --> 00:01:49,060
+people who are still alive
+is you can ask them
+
+33
+00:01:49,060 --> 00:01:50,210
+how they did it.
+
+34
+00:01:50,210 --> 00:01:51,810
+You can't do that
+with Fourier.
+
+35
+00:01:51,810 --> 00:01:54,310
+You can't say to Fourier,
+how did you do it?
+
+36
+00:01:54,310 --> 00:01:56,946
+Did you dream it up on
+a Saturday afternoon?
+
+37
+00:01:56,946 --> 00:02:00,220
+But can call Vapnik on the phone
+and ask him questions.
+
+38
+00:02:00,220 --> 00:02:02,050
+That's the stuff I'm going
+to talk about toward
+
+39
+00:02:02,050 --> 00:02:04,186
+the end of the hour.
+
+40
+00:02:04,186 --> 00:02:06,045
+Well, it's all about decision
+boundaries.
+
+41
+00:02:06,045 --> 00:02:11,400
+And now, we have several
+techniques that we can use to
+
+42
+00:02:11,400 --> 00:02:12,620
+draw some decision boundaries.
+
+43
+00:02:12,620 --> 00:02:14,700
+And here's the same problem.
+
+44
+00:02:14,700 --> 00:02:18,329
+And if we drew decision
+boundaries in here, we might
+
+45
+00:02:18,329 --> 00:02:21,826
+get something that would
+look like maybe this.
+
+46
+00:02:21,826 --> 00:02:25,790
+If we were doing a nearest
+neighbor approach, and if
+
+47
+00:02:25,790 --> 00:02:31,522
+we're doing ID trees, we'll just
+draw in a line like that.
+
+48
+00:02:31,522 --> 00:02:34,945
+And if we're doing neural nets,
+well, you can put in a
+
+49
+00:02:34,945 --> 00:02:37,550
+lot of straight lines wherever
+you like with a neural net,
+
+50
+00:02:37,550 --> 00:02:39,110
+depending on how it's
+trained up.
+
+51
+00:02:39,110 --> 00:02:42,470
+Or if you just simply go in
+there and design it, so you
+
+52
+00:02:42,470 --> 00:02:45,554
+could do that if you wanted.
+
+53
+00:02:45,554 --> 00:02:48,110
+And you would think that after
+people have been working on
+
+54
+00:02:48,110 --> 00:02:52,500
+this sort of stuff for 50 or 75
+years that there wouldn't
+
+55
+00:02:52,500 --> 00:02:54,535
+be any tricks in the bag left.
+
+56
+00:02:54,535 --> 00:02:59,340
+And that's when everybody got
+surprised, because around the
+
+57
+00:02:59,340 --> 00:03:03,880
+early '90s Vladimir Vapnik
+introduced the ideas I'm about
+
+58
+00:03:03,880 --> 00:03:05,916
+to talk to you about.
+
+59
+00:03:05,916 --> 00:03:11,215
+So what Vapnik says is
+something like this.
+
+60
+00:03:11,215 --> 00:03:17,470
+Here you have a space, and you
+have some negative examples,
+
+61
+00:03:17,470 --> 00:03:20,436
+and you have some positive
+examples.
+
+62
+00:03:20,436 --> 00:03:22,870
+How do you divide the positive
+examples from
+
+63
+00:03:22,870 --> 00:03:24,220
+the negative examples?
+
+64
+00:03:24,220 --> 00:03:27,710
+And what he says that we want
+to do is we want to draw a
+
+65
+00:03:27,710 --> 00:03:29,140
+straight line.
+
+66
+00:03:29,140 --> 00:03:32,062
+But which straight line
+is the question.
+
+67
+00:03:32,062 --> 00:03:35,140
+Well, we want to draw
+a straight line.
+
+68
+00:03:35,140 --> 00:03:38,141
+Well, would this be a
+good straight line?
+
+69
+00:03:38,141 --> 00:03:40,492
+One that went up like that?
+
+70
+00:03:40,492 --> 00:03:42,660
+Probably not so hot.
+
+71
+00:03:42,660 --> 00:03:45,622
+How about one that's
+just right here?
+
+72
+00:03:45,622 --> 00:03:49,460
+Well, that might separate them,
+but it seems awfully
+
+73
+00:03:49,460 --> 00:03:51,765
+close to the negative
+examples.
+
+74
+00:03:51,765 --> 00:03:55,030
+So maybe what we ought to do
+is we ought to draw our
+
+75
+00:03:55,030 --> 00:03:57,220
+straight line in here,
+sort of like this.
+
+76
+00:03:57,220 --> 00:04:00,458
+
+
+77
+00:04:00,458 --> 00:04:07,590
+And that line is drawn with a
+view toward putting in the
+
+78
+00:04:07,590 --> 00:04:13,330
+widest street that separates the
+positive samples from the
+
+79
+00:04:13,330 --> 00:04:14,460
+negative samples.
+
+80
+00:04:14,460 --> 00:04:17,209
+That's why I call it the
+widest street approach.
+
+81
+00:04:17,209 --> 00:04:21,535
+So that makes way of putting
+in the decision boundary--
+
+82
+00:04:21,535 --> 00:04:25,560
+is to put in a straight line but
+in contrast with the way
+
+83
+00:04:25,560 --> 00:04:27,440
+ID tree puts in a
+straight line.
+
+84
+00:04:27,440 --> 00:04:32,165
+It tries to put the line in in
+such a way as the separation
+
+85
+00:04:32,165 --> 00:04:34,680
+between the positive and
+negative examples.
+
+86
+00:04:34,680 --> 00:04:37,236
+That street is as wide
+as possible.
+
+87
+00:04:37,236 --> 00:04:37,722
+All right.
+
+88
+00:04:37,722 --> 00:04:41,620
+So you might think to do that in
+the UROP project, and then,
+
+89
+00:04:41,620 --> 00:04:43,205
+let it go with that.
+
+90
+00:04:43,205 --> 00:04:44,730
+What's the big deal?
+
+91
+00:04:44,730 --> 00:04:47,340
+So what we've got to do is we've
+got to go through why
+
+92
+00:04:47,340 --> 00:04:49,176
+it's a big deal.
+
+93
+00:04:49,176 --> 00:04:55,170
+So first of all, we like to
+think about how you would make
+
+94
+00:04:55,170 --> 00:04:59,326
+a decision rule that would use
+that decision boundary.
+
+95
+00:04:59,326 --> 00:05:03,650
+So what I'm going to ask you to
+imagine is that we've got a
+
+96
+00:05:03,650 --> 00:05:09,650
+vector of any length that you
+like, constrained to be
+
+97
+00:05:09,650 --> 00:05:13,715
+perpendicular to the median, or
+if you like, perpendicular
+
+98
+00:05:13,715 --> 00:05:14,630
+to the gutters.
+
+99
+00:05:14,630 --> 00:05:18,280
+It's perpendicular to the median
+line of the street.
+
+100
+00:05:18,280 --> 00:05:20,540
+All right, it's drawn in such
+a way that that's true.
+
+101
+00:05:20,540 --> 00:05:23,984
+We don't know anything about
+it's length, yet.
+
+102
+00:05:23,984 --> 00:05:29,920
+Then, we also have some unknown,
+say, right here.
+
+103
+00:05:29,920 --> 00:05:35,325
+And we have a vector that
+points to it by excel.
+
+104
+00:05:35,325 --> 00:05:39,310
+So now, what we're really
+interested in is whether or
+
+105
+00:05:39,310 --> 00:05:42,920
+not that unknown is on the right
+side of the street or on
+
+106
+00:05:42,920 --> 00:05:45,062
+the left side of the street.
+
+107
+00:05:45,062 --> 00:05:47,909
+So what we'd what to do is want
+to project that vector,
+
+108
+00:05:47,909 --> 00:05:51,990
+u, down on to one that's
+perpendicular to the street.
+
+109
+00:05:51,990 --> 00:05:55,205
+Because then, we'll have the
+distance in this direction or
+
+110
+00:05:55,205 --> 00:05:58,490
+a number that's proportional
+to this in this direction.
+
+111
+00:05:58,490 --> 00:06:02,670
+And the further out we go, the
+closer we'll get to being on
+
+112
+00:06:02,670 --> 00:06:05,360
+the right side of the street,
+where the right side of the
+
+113
+00:06:05,360 --> 00:06:08,065
+street is not the correct side
+but actually the right side of
+
+114
+00:06:08,065 --> 00:06:08,985
+the street.
+
+115
+00:06:08,985 --> 00:06:14,280
+So what we can do is we can say,
+let's take w and dot it
+
+116
+00:06:14,280 --> 00:06:19,930
+with u and measure whether or
+not that number is equal to or
+
+117
+00:06:19,930 --> 00:06:22,646
+greater than some constant, c.
+
+118
+00:06:22,646 --> 00:06:25,880
+So remember that the dot
+product has taken the
+
+119
+00:06:25,880 --> 00:06:27,896
+projection onto w.
+
+120
+00:06:27,896 --> 00:06:32,150
+And the bigger that projection
+is, the further out along this
+
+121
+00:06:32,150 --> 00:06:34,255
+line the projection will lie.
+
+122
+00:06:34,255 --> 00:06:37,490
+And eventually it will be so
+big that the projection
+
+123
+00:06:37,490 --> 00:06:40,440
+crosses the median line of the
+street, and we'll say it must
+
+124
+00:06:40,440 --> 00:06:41,690
+be a positive sample.
+
+125
+00:06:41,690 --> 00:06:45,707
+
+
+126
+00:06:45,707 --> 00:06:50,880
+Or we could say, without loss
+of generality that the dot
+
+127
+00:06:50,880 --> 00:06:56,360
+product plus some constant, b,
+is equal to or greater than 0.
+
+128
+00:06:56,360 --> 00:07:03,050
+If that's true, then it's
+a positive sample.
+
+129
+00:07:03,050 --> 00:07:04,300
+So that's our decision rule.
+
+130
+00:07:04,300 --> 00:07:11,522
+
+
+131
+00:07:11,522 --> 00:07:17,300
+And this is the first in several
+elements that we're
+
+132
+00:07:17,300 --> 00:07:20,960
+going to have to line up to
+understand this idea called
+
+133
+00:07:20,960 --> 00:07:23,340
+support vector machines.
+
+134
+00:07:23,340 --> 00:07:24,730
+So that's the decision rule.
+
+135
+00:07:24,730 --> 00:07:29,460
+And the trouble is we don't know
+what constant to use, and
+
+136
+00:07:29,460 --> 00:07:32,450
+we don't know which
+w to use either.
+
+137
+00:07:32,450 --> 00:07:35,390
+We know that w has to be
+perpendicular to the median
+
+138
+00:07:35,390 --> 00:07:37,476
+line of the street.
+
+139
+00:07:37,476 --> 00:07:39,880
+But there's lot of w's that
+are perpendicular to the
+
+140
+00:07:39,880 --> 00:07:41,070
+median line of the street,
+because it
+
+141
+00:07:41,070 --> 00:07:42,740
+could be of any length.
+
+142
+00:07:42,740 --> 00:07:45,750
+So we don't have enough
+constraint here to fix a
+
+143
+00:07:45,750 --> 00:07:49,532
+particular b or a
+particular w.
+
+144
+00:07:49,532 --> 00:07:52,395
+Are you with me so far?
+
+145
+00:07:52,395 --> 00:07:55,176
+All right.
+
+146
+00:07:55,176 --> 00:07:57,990
+And this, by the way, we get
+just by saying that c
+
+147
+00:07:57,990 --> 00:07:59,240
+equals minus b.
+
+148
+00:07:59,240 --> 00:08:02,800
+
+
+149
+00:08:02,800 --> 00:08:05,790
+What we're going to do next is
+we're going to lay on some
+
+150
+00:08:05,790 --> 00:08:08,960
+additional constraints whether
+you're toward putting enough
+
+151
+00:08:08,960 --> 00:08:13,330
+constraint on the situation that
+we can actually calculate
+
+152
+00:08:13,330 --> 00:08:16,015
+a b and a w.
+
+153
+00:08:16,015 --> 00:08:21,290
+So what we're going to say is
+this, that if we look at this
+
+154
+00:08:21,290 --> 00:08:24,680
+quantity that we're checking out
+to be greater than or less
+
+155
+00:08:24,680 --> 00:08:28,040
+than 0 to make our decision,
+then, what we're going to do
+
+156
+00:08:28,040 --> 00:08:32,510
+is we're going to say that if we
+take that vector w, and we
+
+157
+00:08:32,510 --> 00:08:37,789
+take the dot product of that
+with some x plus, some
+
+158
+00:08:37,789 --> 00:08:38,929
+positive sample, now.
+
+159
+00:08:38,929 --> 00:08:39,760
+This is not an unknown.
+
+160
+00:08:39,760 --> 00:08:42,272
+This is a positive sample.
+
+161
+00:08:42,272 --> 00:08:46,500
+If we take the dot product of
+those two vectors, and we had
+
+162
+00:08:46,500 --> 00:08:50,050
+b just like in our decision
+rule, we're going to want that
+
+163
+00:08:50,050 --> 00:08:51,370
+to be equal to or
+greater than 1.
+
+164
+00:08:51,370 --> 00:08:54,220
+
+
+165
+00:08:54,220 --> 00:08:59,080
+So in other words, you can be
+an unknown anywhere in this
+
+166
+00:08:59,080 --> 00:09:02,140
+street and be just a little bit
+greater or just a little
+
+167
+00:09:02,140 --> 00:09:03,610
+bit less than 0.
+
+168
+00:09:03,610 --> 00:09:06,120
+But if you're a positive sample,
+we're going to insist
+
+169
+00:09:06,120 --> 00:09:08,550
+that this decision function
+gives the
+
+170
+00:09:08,550 --> 00:09:11,476
+value of one or greater.
+
+171
+00:09:11,476 --> 00:09:21,030
+Likewise, if w thought it was
+some negative sample is
+
+172
+00:09:21,030 --> 00:09:24,380
+provided to us, then we're going
+to say that has to be
+
+173
+00:09:24,380 --> 00:09:25,800
+equal to or less than minus 1.
+
+174
+00:09:25,800 --> 00:09:28,690
+
+
+175
+00:09:28,690 --> 00:09:29,866
+All right.
+
+176
+00:09:29,866 --> 00:09:33,790
+So if you're a minus sample,
+like one of these two guys or
+
+177
+00:09:33,790 --> 00:09:38,330
+any minus sample that may lie
+down here, this function that
+
+178
+00:09:38,330 --> 00:09:42,506
+gives us the decision rule must
+return minus 1 or less.
+
+179
+00:09:42,506 --> 00:09:45,020
+So there's a separation
+of distance here.
+
+180
+00:09:45,020 --> 00:09:46,930
+Minus 1 to plus 1 for
+all of the samples.
+
+181
+00:09:46,930 --> 00:09:50,717
+
+
+182
+00:09:50,717 --> 00:09:52,842
+So that's cool.
+
+183
+00:09:52,842 --> 00:09:58,290
+But we're not quite done,
+because carrying around two
+
+184
+00:09:58,290 --> 00:10:01,534
+equations like this,
+it's a pain.
+
+185
+00:10:01,534 --> 00:10:04,760
+So what we're going to do is
+we're going to introduce
+
+186
+00:10:04,760 --> 00:10:08,190
+another variable to make
+like a little easier.
+
+187
+00:10:08,190 --> 00:10:11,502
+
+
+188
+00:10:11,502 --> 00:10:15,210
+Like many things that we do, and
+when we develop this kind
+
+189
+00:10:15,210 --> 00:10:19,120
+of stuff, introducing this
+variable is not something that
+
+190
+00:10:19,120 --> 00:10:20,370
+God says has to be done.
+
+191
+00:10:20,370 --> 00:10:24,380
+
+
+192
+00:10:24,380 --> 00:10:25,310
+What is it?
+
+193
+00:10:25,310 --> 00:10:28,930
+We introduced this additional
+stuff to do what?
+
+194
+00:10:28,930 --> 00:10:34,140
+To make the mathematics more
+convenient, so mathematical
+
+195
+00:10:34,140 --> 00:10:35,822
+convenience.
+
+196
+00:10:35,822 --> 00:10:37,730
+So what we're going to do is
+we're going to introduce a
+
+197
+00:10:37,730 --> 00:10:53,600
+variable, y sub i, such that y
+sub i is equal to plus 1 for
+
+198
+00:10:53,600 --> 00:11:10,460
+plus samples and minus 1
+for negative samples.
+
+199
+00:11:10,460 --> 00:11:11,685
+All right.
+
+200
+00:11:11,685 --> 00:11:14,190
+So for each sample, we're going
+to have a value for this
+
+201
+00:11:14,190 --> 00:11:16,680
+new quantity we've
+introduced, y.
+
+202
+00:11:16,680 --> 00:11:19,910
+And the value of y is going to
+be determined by whether it's
+
+203
+00:11:19,910 --> 00:11:22,370
+a positive sample or
+negative sample.
+
+204
+00:11:22,370 --> 00:11:26,600
+If it's a positive sample it's
+got to be plus 1 for this
+
+205
+00:11:26,600 --> 00:11:29,280
+situation up here, and it's
+going to be minus 1 for this
+
+206
+00:11:29,280 --> 00:11:31,235
+situation down here.
+
+207
+00:11:31,235 --> 00:11:34,480
+So what we're going to do with
+this first equation is we're
+
+208
+00:11:34,480 --> 00:11:41,605
+going to multiply it by y sub
+i, and that is now x of i,
+
+209
+00:11:41,605 --> 00:11:46,430
+plus b is equal to or
+greater than 1.
+
+210
+00:11:46,430 --> 00:11:47,740
+And then, you know what
+we're going to do?
+
+211
+00:11:47,740 --> 00:11:53,030
+We're going to multiply the left
+side of this equation by
+
+212
+00:11:53,030 --> 00:11:54,770
+y sub i, as well.
+
+213
+00:11:54,770 --> 00:12:03,172
+So the second equation becomes
+y sub i times x sub i plus b.
+
+214
+00:12:03,172 --> 00:12:05,876
+And now, what does that
+do over here?
+
+215
+00:12:05,876 --> 00:12:09,480
+We multiplied this guy
+times minus 1.
+
+216
+00:12:09,480 --> 00:12:12,750
+So it used to be the case that
+that was less than minus 1.
+
+217
+00:12:12,750 --> 00:12:14,900
+So if we multiply it by minus
+1, then it has to be greater
+
+218
+00:12:14,900 --> 00:12:16,150
+than plus 1.
+
+219
+00:12:16,150 --> 00:12:18,990
+
+
+220
+00:12:18,990 --> 00:12:23,220
+The two equations are the same,
+because that introduces
+
+221
+00:12:23,220 --> 00:12:26,580
+this little mathematical
+convenience.
+
+222
+00:12:26,580 --> 00:12:35,430
+So now, we can say that y sub
+i times x sub i plus b.
+
+223
+00:12:35,430 --> 00:12:37,986
+
+
+224
+00:12:37,986 --> 00:12:41,826
+Well, what we're going to do--
+
+225
+00:12:41,826 --> 00:12:42,675
+Brett?
+
+226
+00:12:42,675 --> 00:12:44,255
+STUDENT: What happened
+to the w?
+
+227
+00:12:44,255 --> 00:12:45,450
+PATRICK WINSTON: Oh, did
+I leave out a w?
+
+228
+00:12:45,450 --> 00:12:46,050
+I'm sorry.
+
+229
+00:12:46,050 --> 00:12:48,612
+Thank you.
+
+230
+00:12:48,612 --> 00:12:51,561
+Yeah, I wouldn't have gotten
+very far with that.
+
+231
+00:12:51,561 --> 00:12:54,210
+So that's dot it with
+w, dot it with w.
+
+232
+00:12:54,210 --> 00:12:55,605
+Thank you, Brett.
+
+233
+00:12:55,605 --> 00:12:56,710
+Those are all vectors.
+
+234
+00:12:56,710 --> 00:13:00,010
+I'll pretty soon forget to put
+the little vector marks on
+
+235
+00:13:00,010 --> 00:13:01,090
+there, but you know
+what I mean.
+
+236
+00:13:01,090 --> 00:13:05,256
+So that's w plus b.
+
+237
+00:13:05,256 --> 00:13:09,660
+And now, let me bring that 1
+over to the left side, and
+
+238
+00:13:09,660 --> 00:13:11,010
+that's equal to or
+greater than 0.
+
+239
+00:13:11,010 --> 00:13:13,535
+
+
+240
+00:13:13,535 --> 00:13:14,730
+All right.
+
+241
+00:13:14,730 --> 00:13:17,440
+With Brett's correction, I
+think everything's OK.
+
+242
+00:13:17,440 --> 00:13:21,010
+But we're going to take one more
+step, and we're going to
+
+243
+00:13:21,010 --> 00:13:31,270
+say that y sub i times x sub
+i times w plus b minus 1.
+
+244
+00:13:31,270 --> 00:13:33,885
+
+
+245
+00:13:33,885 --> 00:13:35,760
+It's always got to be equal
+to or greater than 0.
+
+246
+00:13:35,760 --> 00:13:42,492
+But what I'm going to
+say is if we're for
+
+247
+00:13:42,492 --> 00:13:44,550
+x sub i in a gutter.
+
+248
+00:13:44,550 --> 00:13:49,092
+
+
+249
+00:13:49,092 --> 00:13:51,140
+So there's always going to be
+greater than 0, but we're
+
+250
+00:13:51,140 --> 00:13:53,540
+going to add the additional
+constraint that it's going to
+
+251
+00:13:53,540 --> 00:13:58,300
+be exactly 0 for all the samples
+that end up in the
+
+252
+00:13:58,300 --> 00:14:00,190
+gutters here of the street.
+
+253
+00:14:00,190 --> 00:14:03,010
+So the value of that expression
+is going to be
+
+254
+00:14:03,010 --> 00:14:08,390
+exactly 0 for that sample, 0
+for this sample and this
+
+255
+00:14:08,390 --> 00:14:10,460
+sample, not 0 for that sample.
+
+256
+00:14:10,460 --> 00:14:12,180
+It's got to be greater than 1.
+
+257
+00:14:12,180 --> 00:14:13,846
+All right?
+
+258
+00:14:13,846 --> 00:14:16,760
+So that's step number two.
+
+259
+00:14:16,760 --> 00:14:25,319
+
+
+260
+00:14:25,319 --> 00:14:27,140
+And this is step number one.
+
+261
+00:14:27,140 --> 00:14:31,454
+
+
+262
+00:14:31,454 --> 00:14:31,950
+OK.
+
+263
+00:14:31,950 --> 00:14:34,340
+So now, we've just got some
+expressions to talk about,
+
+264
+00:14:34,340 --> 00:14:36,415
+some constraints.
+
+265
+00:14:36,415 --> 00:14:37,870
+Now, what are we trying
+to do here?
+
+266
+00:14:37,870 --> 00:14:39,922
+I forgot.
+
+267
+00:14:39,922 --> 00:14:41,320
+Oh, I remember now.
+
+268
+00:14:41,320 --> 00:14:45,500
+We're trying to figure out how
+to arrange for the line to be
+
+269
+00:14:45,500 --> 00:14:48,790
+such at the street separating
+the pluses from the minuses as
+
+270
+00:14:48,790 --> 00:14:51,121
+wide as possible.
+
+271
+00:14:51,121 --> 00:14:54,300
+So maybe we better figure out
+how we can express the
+
+272
+00:14:54,300 --> 00:14:56,130
+distance between the
+two gutters.
+
+273
+00:14:56,130 --> 00:15:03,645
+
+
+274
+00:15:03,645 --> 00:15:06,822
+Let's just repeat our drawing.
+
+275
+00:15:06,822 --> 00:15:12,030
+We've got some minuses here, got
+pluses out here, and we've
+
+276
+00:15:12,030 --> 00:15:17,021
+got gutters that are
+going down here.
+
+277
+00:15:17,021 --> 00:15:22,290
+And now, we've got a vector here
+to a minus, and we've got
+
+278
+00:15:22,290 --> 00:15:27,091
+a vector here to a plus.
+
+279
+00:15:27,091 --> 00:15:33,950
+So we'll call that x plus
+and this x minus.
+
+280
+00:15:33,950 --> 00:15:36,730
+So what's the width
+of the street?
+
+281
+00:15:36,730 --> 00:15:37,600
+I don't know, yet.
+
+282
+00:15:37,600 --> 00:15:40,360
+But what we can do is we can
+take the difference of those
+
+283
+00:15:40,360 --> 00:15:44,120
+two vectors, and that will
+be a vector that
+
+284
+00:15:44,120 --> 00:15:46,346
+looks like this, right?
+
+285
+00:15:46,346 --> 00:15:52,016
+So that's x plus
+minus x minus.
+
+286
+00:15:52,016 --> 00:15:56,280
+So now, if I only had a unit
+normal that's normal to the
+
+287
+00:15:56,280 --> 00:16:00,320
+median line of the street, if
+it's a unit normal, then I
+
+288
+00:16:00,320 --> 00:16:02,120
+could just take the dot product
+or that unit normal
+
+289
+00:16:02,120 --> 00:16:03,975
+and this difference vector, and
+that would be the width of
+
+290
+00:16:03,975 --> 00:16:05,980
+the street, right?
+
+291
+00:16:05,980 --> 00:16:13,090
+So in other words, if I had a
+unit vector in that direction,
+
+292
+00:16:13,090 --> 00:16:15,530
+then I could just dot the two
+together, and that would be
+
+293
+00:16:15,530 --> 00:16:17,896
+the width of the street.
+
+294
+00:16:17,896 --> 00:16:21,550
+So let me write that down
+before I forget.
+
+295
+00:16:21,550 --> 00:16:31,625
+So the width is equal to
+x plus minus x minus.
+
+296
+00:16:31,625 --> 00:16:34,396
+OK.
+
+297
+00:16:34,396 --> 00:16:35,580
+That's the difference vector.
+
+298
+00:16:35,580 --> 00:16:37,510
+And now, I've got to multiple
+it by unit vector.
+
+299
+00:16:37,510 --> 00:16:38,180
+But wait a minute.
+
+300
+00:16:38,180 --> 00:16:41,590
+I said that that w is
+a normal, right?
+
+301
+00:16:41,590 --> 00:16:44,032
+The w is a normal.
+
+302
+00:16:44,032 --> 00:16:50,018
+So what I can do is I can
+multiply this times w, and
+
+303
+00:16:50,018 --> 00:16:54,156
+then, we'll divide by the
+magnitude of w, and that will
+
+304
+00:16:54,156 --> 00:16:56,591
+make it a unit vector.
+
+305
+00:16:56,591 --> 00:17:05,650
+So that dot product, not a
+product, that dot product is,
+
+306
+00:17:05,650 --> 00:17:10,329
+in fact, a scalar, and it's
+the width of the street.
+
+307
+00:17:10,329 --> 00:17:14,730
+It doesn't do as much good,
+because it doesn't look like
+
+308
+00:17:14,730 --> 00:17:17,053
+we get much out of it.
+
+309
+00:17:17,053 --> 00:17:18,220
+Oh, but I don't know.
+
+310
+00:17:18,220 --> 00:17:21,371
+Let's see, what can
+we get out of it?
+
+311
+00:17:21,371 --> 00:17:25,954
+Oh gee, we've got this equation
+over here, this
+
+312
+00:17:25,954 --> 00:17:28,594
+equation that constrains
+the samples
+
+313
+00:17:28,594 --> 00:17:31,310
+that lie in the gutter.
+
+314
+00:17:31,310 --> 00:17:35,610
+So if we have a positive sample,
+for example, then this
+
+315
+00:17:35,610 --> 00:17:38,530
+is plus 1, and we have
+this equation.
+
+316
+00:17:38,530 --> 00:17:41,150
+
+
+317
+00:17:41,150 --> 00:17:53,900
+So it says that x plus times w
+is equal to, oh, 1 minus b.
+
+318
+00:17:53,900 --> 00:17:58,492
+
+
+319
+00:17:58,492 --> 00:18:02,210
+See, I'm just taking this part
+here, this vector here, and
+
+320
+00:18:02,210 --> 00:18:04,880
+I'm dotting it with x plus.
+
+321
+00:18:04,880 --> 00:18:08,650
+So that's this piece
+right here.
+
+322
+00:18:08,650 --> 00:18:11,230
+y is 1 for this kind
+of sample.
+
+323
+00:18:11,230 --> 00:18:13,600
+So I'll just take the 1 and the
+b back over to the other
+
+324
+00:18:13,600 --> 00:18:16,212
+side, and I've got 1 minus b.
+
+325
+00:18:16,212 --> 00:18:18,592
+OK?
+
+326
+00:18:18,592 --> 00:18:22,241
+Well, we can do the same
+trick with x minus.
+
+327
+00:18:22,241 --> 00:18:24,806
+If we've got a negative sample,
+
+328
+00:18:24,806 --> 00:18:28,572
+then y sub i is negative.
+
+329
+00:18:28,572 --> 00:18:34,296
+That gives us our negative
+w times dot over x sub i.
+
+330
+00:18:34,296 --> 00:18:37,190
+But now, we take this stuff back
+over to the right side,
+
+331
+00:18:37,190 --> 00:18:40,540
+and we get 1 plus b.
+
+332
+00:18:40,540 --> 00:18:45,252
+
+
+333
+00:18:45,252 --> 00:18:50,200
+So that all licenses to rewrite
+this thing as 2 over
+
+334
+00:18:50,200 --> 00:18:52,646
+the magnitude of w.
+
+335
+00:18:52,646 --> 00:18:54,210
+How did I get there?
+
+336
+00:18:54,210 --> 00:18:59,270
+Well, I decided I was going to
+enforce this constraint.
+
+337
+00:18:59,270 --> 00:19:03,540
+I noted that the width of the
+street has got to be this
+
+338
+00:19:03,540 --> 00:19:06,105
+difference vector times
+a unit vector.
+
+339
+00:19:06,105 --> 00:19:09,400
+Then, I used the constraint to
+plug back some values here.
+
+340
+00:19:09,400 --> 00:19:12,480
+And I discovered to my delight
+and amazement that the width
+
+341
+00:19:12,480 --> 00:19:15,350
+of the street is 2 over
+the magnitude of w.
+
+342
+00:19:15,350 --> 00:19:18,340
+
+
+343
+00:19:18,340 --> 00:19:20,388
+Yes, Brett?
+
+344
+00:19:20,388 --> 00:19:23,881
+STUDENT: So your first x
+plus is minus b, and x
+
+345
+00:19:23,881 --> 00:19:25,378
+minus is 1 plus b.
+
+346
+00:19:25,378 --> 00:19:25,877
+PATRICK WINSTON: Yeah.
+
+347
+00:19:25,877 --> 00:19:26,875
+STUDENT: So you're
+subtracting it?
+
+348
+00:19:26,875 --> 00:19:27,750
+PATRICK WINSTON: Let's see.
+
+349
+00:19:27,750 --> 00:19:31,855
+If I've got a minus here, then
+that makes that minus, and
+
+350
+00:19:31,855 --> 00:19:33,810
+then, the b is minus, and when I
+take the b over to the other
+
+351
+00:19:33,810 --> 00:19:35,579
+side it becomes plus.
+
+352
+00:19:35,579 --> 00:19:38,573
+STUDENT: Yeah, so if you
+subtract the left with the
+
+353
+00:19:38,573 --> 00:19:41,068
+right [INAUDIBLE].
+
+354
+00:19:41,068 --> 00:19:41,670
+PATRICK WINSTON: No.
+
+355
+00:19:41,670 --> 00:19:42,320
+No, sorry.
+
+356
+00:19:42,320 --> 00:19:46,981
+This expression here
+is 1 plus b.
+
+357
+00:19:46,981 --> 00:19:48,870
+Trust me it works.
+
+358
+00:19:48,870 --> 00:19:51,370
+I haven't got my legs all
+tangled up like last Friday,
+
+359
+00:19:51,370 --> 00:19:53,786
+well, not yet, anyway.
+
+360
+00:19:53,786 --> 00:19:55,340
+It's possible.
+
+361
+00:19:55,340 --> 00:19:58,958
+There's going to be a lot of
+algebra here eventually.
+
+362
+00:19:58,958 --> 00:20:04,995
+So this quantity here, this
+is miracle number three.
+
+363
+00:20:04,995 --> 00:20:09,731
+This quantity here is the
+width of the street.
+
+364
+00:20:09,731 --> 00:20:13,570
+And what we're trying to
+do is we're trying to
+
+365
+00:20:13,570 --> 00:20:17,158
+maximize that, right?
+
+366
+00:20:17,158 --> 00:20:27,170
+So we want to maximize 2 over
+the magnitude of w if we're to
+
+367
+00:20:27,170 --> 00:20:29,300
+get the widest street under
+the constraints that we've
+
+368
+00:20:29,300 --> 00:20:32,210
+decided that we're going
+to work with.
+
+369
+00:20:32,210 --> 00:20:33,050
+All right.
+
+370
+00:20:33,050 --> 00:20:46,281
+So that means that it's OK to
+maximize 1 over w, instead.
+
+371
+00:20:46,281 --> 00:20:48,250
+We just drop the constant.
+
+372
+00:20:48,250 --> 00:20:53,550
+And that means that it's
+OK to minimize the
+
+373
+00:20:53,550 --> 00:20:56,150
+magnitude of w, right?
+
+374
+00:20:56,150 --> 00:20:59,572
+
+
+375
+00:20:59,572 --> 00:21:08,710
+And that means that it's OK
+to minimize 1/2 times the
+
+376
+00:21:08,710 --> 00:21:12,070
+magnitude of w squared.
+
+377
+00:21:12,070 --> 00:21:13,675
+Right, Brett?
+
+378
+00:21:13,675 --> 00:21:16,075
+Why did I do that?
+
+379
+00:21:16,075 --> 00:21:19,010
+Why did I multiply by
+1/2 and square it?
+
+380
+00:21:19,010 --> 00:21:19,970
+STUDENT: Because it's
+mathematically convenient.
+
+381
+00:21:19,970 --> 00:21:20,930
+PATRICK WINSTON: It's
+mathematically convenient.
+
+382
+00:21:20,930 --> 00:21:22,850
+Thank you.
+
+383
+00:21:22,850 --> 00:21:27,840
+So this is point number three
+in the development.
+
+384
+00:21:27,840 --> 00:21:28,950
+So where do we go?
+
+385
+00:21:28,950 --> 00:21:31,170
+We decided that was going
+to be our decision rule.
+
+386
+00:21:31,170 --> 00:21:33,530
+We're going to see which side
+of the line we're on.
+
+387
+00:21:33,530 --> 00:21:36,420
+We decided to constrain the
+situation, so the value of the
+
+388
+00:21:36,420 --> 00:21:40,750
+decision rule is plus 1 in the
+gutters for the positive
+
+389
+00:21:40,750 --> 00:21:42,820
+samples and minus 1
+in the gutters for
+
+390
+00:21:42,820 --> 00:21:44,070
+the negative samples.
+
+391
+00:21:44,070 --> 00:21:47,470
+And then, we discovered that
+maximizing the width of the
+
+392
+00:21:47,470 --> 00:21:51,090
+street led us to an expression
+like that,
+
+393
+00:21:51,090 --> 00:21:52,340
+which we wish to maximize.
+
+394
+00:21:52,340 --> 00:21:57,425
+
+
+395
+00:21:57,425 --> 00:21:58,350
+Should we take a break?
+
+396
+00:21:58,350 --> 00:21:59,460
+Should we get coffee?
+
+397
+00:21:59,460 --> 00:22:02,365
+Too bad, we can't do that in
+this kind of situation.
+
+398
+00:22:02,365 --> 00:22:04,400
+But we would if we could.
+
+399
+00:22:04,400 --> 00:22:07,090
+And I'm sure when Vapnik
+got to this point, he
+
+400
+00:22:07,090 --> 00:22:09,826
+went out for coffee.
+
+401
+00:22:09,826 --> 00:22:13,820
+So now, we back up, and we say,
+well, let's let these
+
+402
+00:22:13,820 --> 00:22:17,252
+expressions start developing
+into a song.
+
+403
+00:22:17,252 --> 00:22:21,030
+Not like that, that's vapid,
+speaking of Vapnik.
+
+404
+00:22:21,030 --> 00:22:29,760
+
+
+405
+00:22:29,760 --> 00:22:31,970
+What song is it going to sing?
+
+406
+00:22:31,970 --> 00:22:35,680
+We've got an expression here
+that we'd like to find the
+
+407
+00:22:35,680 --> 00:22:38,236
+minimum of, the extremum of.
+
+408
+00:22:38,236 --> 00:22:41,790
+And we've got some constraints
+here that we
+
+409
+00:22:41,790 --> 00:22:44,040
+would like to honor.
+
+410
+00:22:44,040 --> 00:22:45,290
+What are we going to do?
+
+411
+00:22:45,290 --> 00:22:47,600
+
+
+412
+00:22:47,600 --> 00:22:49,300
+Let me put what we're going
+to do to you in
+
+413
+00:22:49,300 --> 00:22:52,385
+the form of a puzzle.
+
+414
+00:22:52,385 --> 00:22:58,900
+Is it got something to
+do with Legendre?
+
+415
+00:22:58,900 --> 00:23:04,270
+Has it got something
+to do with Laplace?
+
+416
+00:23:04,270 --> 00:23:07,375
+Or does it have something
+to do with Lagrange?
+
+417
+00:23:07,375 --> 00:23:09,400
+She says Lagrange.
+
+418
+00:23:09,400 --> 00:23:12,850
+Actually, all three were said
+to be on Fourier's Doctoral
+
+419
+00:23:12,850 --> 00:23:15,590
+Defense Committee-- must have
+been quite an example.
+
+420
+00:23:15,590 --> 00:23:18,960
+But we want to talk about
+Lagrange, because we've got a
+
+421
+00:23:18,960 --> 00:23:20,605
+situation here.
+
+422
+00:23:20,605 --> 00:23:22,060
+Is this 1801?
+
+423
+00:23:22,060 --> 00:23:22,840
+1802?
+
+424
+00:23:22,840 --> 00:23:25,000
+1802.
+
+425
+00:23:25,000 --> 00:23:28,462
+We learned in 1802 that if we
+going to find the extremum of
+
+426
+00:23:28,462 --> 00:23:33,840
+a function with constraints,
+then we're going to have to
+
+427
+00:23:33,840 --> 00:23:35,922
+use Lagrange multipliers.
+
+428
+00:23:35,922 --> 00:23:39,820
+That would give us a new
+expression, which we can
+
+429
+00:23:39,820 --> 00:23:43,350
+maximize or minimize without
+thinking about
+
+430
+00:23:43,350 --> 00:23:45,090
+the constraints anymore.
+
+431
+00:23:45,090 --> 00:23:47,755
+That's how Lagrange
+multipliers work.
+
+432
+00:23:47,755 --> 00:23:52,440
+So this brings us to miracle
+number four, developmental
+
+433
+00:23:52,440 --> 00:23:53,770
+piece number four.
+
+434
+00:23:53,770 --> 00:23:56,420
+And it works like this.
+
+435
+00:23:56,420 --> 00:23:58,210
+We're going to say that L--
+
+436
+00:23:58,210 --> 00:24:00,720
+the thing we're going to try
+to maximize in order to
+
+437
+00:24:00,720 --> 00:24:02,660
+maximize the width
+of the street--
+
+438
+00:24:02,660 --> 00:24:08,235
+is equal to 1/2 times the
+magnitude of that vector, w,
+
+439
+00:24:08,235 --> 00:24:12,476
+squared minus.
+
+440
+00:24:12,476 --> 00:24:16,230
+And now, we've got to have
+a summation over all the
+
+441
+00:24:16,230 --> 00:24:17,480
+constraints.
+
+442
+00:24:17,480 --> 00:24:18,880
+
+
+443
+00:24:18,880 --> 00:24:21,460
+And each or those constraints is
+going to have a multiplier,
+
+444
+00:24:21,460 --> 00:24:23,412
+alpha sub i.
+
+445
+00:24:23,412 --> 00:24:26,106
+And then, we write down
+the constraint.
+
+446
+00:24:26,106 --> 00:24:27,575
+And when we write down
+a constraint,
+
+447
+00:24:27,575 --> 00:24:29,100
+there it is up there.
+
+448
+00:24:29,100 --> 00:24:31,690
+And I've got to be hyper
+careful here, because,
+
+449
+00:24:31,690 --> 00:24:33,830
+otherwise, I'll get lost
+in the algebra.
+
+450
+00:24:33,830 --> 00:24:42,520
+So the constraint is y sub i
+times vector, w, dotted with
+
+451
+00:24:42,520 --> 00:24:49,030
+vector x sub i plus b, and
+now, I've got a closing
+
+452
+00:24:49,030 --> 00:24:52,315
+parenthesis, a minus 1.
+
+453
+00:24:52,315 --> 00:24:56,690
+That's the end of my constraint,
+like so.
+
+454
+00:24:56,690 --> 00:25:00,330
+
+
+455
+00:25:00,330 --> 00:25:03,380
+I sure hope I've got that right,
+because I'll be in deep
+
+456
+00:25:03,380 --> 00:25:04,730
+trouble if that's wrong.
+
+457
+00:25:04,730 --> 00:25:05,940
+Anybody see any bugs in that?
+
+458
+00:25:05,940 --> 00:25:08,250
+That looks right. doesn't it?
+
+459
+00:25:08,250 --> 00:25:10,310
+We've got the original thing
+we're trying to work with.
+
+460
+00:25:10,310 --> 00:25:14,425
+Now, we've got Lagrange
+multipliers all multiplied.
+
+461
+00:25:14,425 --> 00:25:16,300
+It's back to that constraint
+up there, where each
+
+462
+00:25:16,300 --> 00:25:20,512
+constraint is constrained
+to be 0.
+
+463
+00:25:20,512 --> 00:25:24,770
+Well, there's a little bit of
+mathematical slight of hand
+
+464
+00:25:24,770 --> 00:25:27,810
+here, because in the end, the
+ones that are going to be 0,
+
+465
+00:25:27,810 --> 00:25:31,210
+the Lagrange multipliers here.
+
+466
+00:25:31,210 --> 00:25:33,795
+The ones that are going to be
+non 0 are going to be the ones
+
+467
+00:25:33,795 --> 00:25:36,120
+connected with vectors that
+lie in the gutter.
+
+468
+00:25:36,120 --> 00:25:39,848
+The rest are going to be 0.
+
+469
+00:25:39,848 --> 00:25:43,380
+But in any event, we can pretend
+that this is what
+
+470
+00:25:43,380 --> 00:25:44,630
+we're doing.
+
+471
+00:25:44,630 --> 00:25:46,550
+
+
+472
+00:25:46,550 --> 00:25:48,350
+I don't care whether it's
+a maximum or minimum.
+
+473
+00:25:48,350 --> 00:25:49,550
+I've lost track.
+
+474
+00:25:49,550 --> 00:25:51,290
+But what we're going to do is
+we're going to try to find an
+
+475
+00:25:51,290 --> 00:25:52,360
+extremum of that.
+
+476
+00:25:52,360 --> 00:25:53,730
+So what do we do?
+
+477
+00:25:53,730 --> 00:25:58,330
+What does 1801 teach us about?
+
+478
+00:25:58,330 --> 00:25:59,465
+Finding the maximum--
+
+479
+00:25:59,465 --> 00:26:04,760
+well, we've got to find the
+derivatives and set them to 0.
+
+480
+00:26:04,760 --> 00:26:06,500
+And then, after we've done that,
+a little bit of that
+
+481
+00:26:06,500 --> 00:26:08,760
+manipulation, we're going
+to see a wonderful
+
+482
+00:26:08,760 --> 00:26:10,850
+song start to emerge.
+
+483
+00:26:10,850 --> 00:26:12,890
+So let's see if we can do it.
+
+484
+00:26:12,890 --> 00:26:17,160
+Let's take the partial of L, the
+Lagrangian, with respect
+
+485
+00:26:17,160 --> 00:26:19,190
+to the vector, w.
+
+486
+00:26:19,190 --> 00:26:21,430
+Oh my God, how do you
+differentiate with
+
+487
+00:26:21,430 --> 00:26:22,680
+respect to a vector?
+
+488
+00:26:22,680 --> 00:26:25,255
+
+
+489
+00:26:25,255 --> 00:26:28,050
+It turns out that it has a form
+that looks exactly like
+
+490
+00:26:28,050 --> 00:26:30,450
+differentiating with respect
+to a scalar.
+
+491
+00:26:30,450 --> 00:26:32,580
+And the way you prove that to
+yourself is you just expand
+
+492
+00:26:32,580 --> 00:26:35,530
+everything in terms of all of
+the vector's components.
+
+493
+00:26:35,530 --> 00:26:37,660
+You differentiate those with
+respect to what you're
+
+494
+00:26:37,660 --> 00:26:40,140
+differentiating with respect
+to, and everything
+
+495
+00:26:40,140 --> 00:26:42,380
+turns out the same.
+
+496
+00:26:42,380 --> 00:26:44,880
+So what you get when you
+differentiate this with
+
+497
+00:26:44,880 --> 00:26:52,280
+respect to the vector, w, is 2
+comes down, and we have just
+
+498
+00:26:52,280 --> 00:26:53,833
+magnitude of w.
+
+499
+00:26:53,833 --> 00:26:56,090
+Was it the magnitude of w?
+
+500
+00:26:56,090 --> 00:26:58,000
+Yeah, like so.
+
+501
+00:26:58,000 --> 00:27:01,629
+
+
+502
+00:27:01,629 --> 00:27:02,910
+Was it the magnitude of w?
+
+503
+00:27:02,910 --> 00:27:06,510
+Oh, it's not the
+magnitude of w.
+
+504
+00:27:06,510 --> 00:27:12,396
+It's just w, like so, no
+magnitude involved.
+
+505
+00:27:12,396 --> 00:27:16,480
+Then, we've got a w over here,
+so we've got to differentiate
+
+506
+00:27:16,480 --> 00:27:18,270
+this part with respect
+to w, as well.
+
+507
+00:27:18,270 --> 00:27:19,690
+But that part's a lot easier,
+because all we
+
+508
+00:27:19,690 --> 00:27:21,310
+have there is a w.
+
+509
+00:27:21,310 --> 00:27:22,350
+There's no magnitude.
+
+510
+00:27:22,350 --> 00:27:24,002
+It's not raised to any power.
+
+511
+00:27:24,002 --> 00:27:26,290
+So what's w multiplied by?
+
+512
+00:27:26,290 --> 00:27:31,954
+Well, it's multiplied by x and
+y sub i and alpha sub i.
+
+513
+00:27:31,954 --> 00:27:32,610
+All right.
+
+514
+00:27:32,610 --> 00:27:36,605
+So that means that this
+expression, this derivative of
+
+515
+00:27:36,605 --> 00:27:41,660
+the Lagrangian, with respect to
+w is going to be equal to w
+
+516
+00:27:41,660 --> 00:27:51,820
+minus the sum of alpha sub i,
+y sub i, x sub i, and that's
+
+517
+00:27:51,820 --> 00:27:54,240
+got to be set to 0.
+
+518
+00:27:54,240 --> 00:28:02,250
+And that implies that w is equal
+to the sum of some alpha
+
+519
+00:28:02,250 --> 00:28:06,980
+i, some scalars, times this
+minus 1 or plus 1 variable
+
+520
+00:28:06,980 --> 00:28:11,332
+times x sub i over i.
+
+521
+00:28:11,332 --> 00:28:14,430
+And now, the math is
+beginning to sing.
+
+522
+00:28:14,430 --> 00:28:19,490
+Because it tells us that the
+vector w is a linear sum of
+
+523
+00:28:19,490 --> 00:28:24,492
+the samples, all the samples
+or some of the sample.
+
+524
+00:28:24,492 --> 00:28:27,786
+It didn't have to be that way.
+
+525
+00:28:27,786 --> 00:28:29,230
+It could have been raised
+to a power.
+
+526
+00:28:29,230 --> 00:28:31,160
+It could have been
+a logarithm.
+
+527
+00:28:31,160 --> 00:28:33,010
+All sorts of horrible
+things could have
+
+528
+00:28:33,010 --> 00:28:34,320
+happened when we did this.
+
+529
+00:28:34,320 --> 00:28:39,210
+But when we did this, we
+discovered that w is going to
+
+530
+00:28:39,210 --> 00:28:44,620
+be equal to a linear some
+of these vectors here.
+
+531
+00:28:44,620 --> 00:28:49,060
+Some of the vectors in the
+sample set, and I say some,
+
+532
+00:28:49,060 --> 00:28:51,260
+because for some alpha
+will be 0.
+
+533
+00:28:51,260 --> 00:28:54,265
+
+
+534
+00:28:54,265 --> 00:28:55,515
+All right.
+
+535
+00:28:55,515 --> 00:29:01,560
+So this is something that we
+want to take note of as
+
+536
+00:29:01,560 --> 00:29:05,402
+something important.
+
+537
+00:29:05,402 --> 00:29:09,760
+Now, of course, we've got to
+differentiate L with respect
+
+538
+00:29:09,760 --> 00:29:12,900
+to anything else it might
+vary, so we've got to
+
+539
+00:29:12,900 --> 00:29:15,180
+differentiate L with respect
+to b, as well.
+
+540
+00:29:15,180 --> 00:29:18,436
+
+
+541
+00:29:18,436 --> 00:29:21,222
+So what's that going
+to be equal to?
+
+542
+00:29:21,222 --> 00:29:25,705
+Well, there's no b in here, so
+that makes no contribution.
+
+543
+00:29:25,705 --> 00:29:28,750
+This part here doesn't have a
+b in it, so that makes no
+
+544
+00:29:28,750 --> 00:29:29,335
+contribution.
+
+545
+00:29:29,335 --> 00:29:32,270
+There's no b over here, so that
+makes no contribution.
+
+546
+00:29:32,270 --> 00:29:37,210
+So we've got alpha i times
+y sub i times b.
+
+547
+00:29:37,210 --> 00:29:39,365
+That has a contribution.
+
+548
+00:29:39,365 --> 00:29:46,470
+So that's going to be the sum
+of alpha i times y sub i.
+
+549
+00:29:46,470 --> 00:29:48,570
+And then, we're differentiating
+with respect
+
+550
+00:29:48,570 --> 00:29:50,635
+to b, so that disappears.
+
+551
+00:29:50,635 --> 00:29:55,440
+There's a minus sign here, and
+that's equal to 0, or that
+
+552
+00:29:55,440 --> 00:29:59,490
+implies that the sum of the
+alpha i times y sub
+
+553
+00:29:59,490 --> 00:30:03,012
+i is equal to 0.
+
+554
+00:30:03,012 --> 00:30:05,100
+Hm, that looks like that might
+be helpful somewhere.
+
+555
+00:30:05,100 --> 00:30:10,460
+
+
+556
+00:30:10,460 --> 00:30:12,755
+And now, it's time
+for more coffee.
+
+557
+00:30:12,755 --> 00:30:15,520
+By the way, these coffee
+periods take months.
+
+558
+00:30:15,520 --> 00:30:16,905
+You stare at it.
+
+559
+00:30:16,905 --> 00:30:18,980
+You work on something else.
+
+560
+00:30:18,980 --> 00:30:22,000
+You've got to worry
+about your finals.
+
+561
+00:30:22,000 --> 00:30:24,020
+And you think about
+it some more.
+
+562
+00:30:24,020 --> 00:30:25,740
+And eventually, you come
+back from coffee
+
+563
+00:30:25,740 --> 00:30:28,930
+and do the next thing.
+
+564
+00:30:28,930 --> 00:30:31,640
+Oh, what is the next thing?
+
+565
+00:30:31,640 --> 00:30:34,180
+Well, we've still got this
+expression that we're trying
+
+566
+00:30:34,180 --> 00:30:41,020
+to find the minimum for.
+
+567
+00:30:41,020 --> 00:30:43,500
+And you say to yourself, this
+is really a job for the
+
+568
+00:30:43,500 --> 00:30:44,480
+numerical analysts.
+
+569
+00:30:44,480 --> 00:30:47,205
+Those guys know about
+this sort of stuff.
+
+570
+00:30:47,205 --> 00:30:49,620
+Because of that little power
+in there, that square.
+
+571
+00:30:49,620 --> 00:30:54,772
+This is a so-called quadratic
+optimization problem.
+
+572
+00:30:54,772 --> 00:30:57,480
+So at this point, you would be
+inclined to hand this problem
+
+573
+00:30:57,480 --> 00:30:59,290
+over to a numerical analysts.
+
+574
+00:30:59,290 --> 00:31:01,410
+They'll come back in a few
+weeks with an algorithm.
+
+575
+00:31:01,410 --> 00:31:03,100
+You implement the algorithm.
+
+576
+00:31:03,100 --> 00:31:04,120
+And maybe things work.
+
+577
+00:31:04,120 --> 00:31:04,890
+Maybe they don't converge.
+
+578
+00:31:04,890 --> 00:31:08,325
+But any case, you don't
+worry about it.
+
+579
+00:31:08,325 --> 00:31:10,360
+But we're not going to do that,
+because we want to do a
+
+580
+00:31:10,360 --> 00:31:12,680
+little bit more math, because
+we're interested
+
+581
+00:31:12,680 --> 00:31:14,890
+in stuff like this.
+
+582
+00:31:14,890 --> 00:31:18,770
+We're interested in the fact
+that the decision vector is a
+
+583
+00:31:18,770 --> 00:31:21,265
+linear sum of the samples.
+
+584
+00:31:21,265 --> 00:31:24,030
+So we're going to work a little
+harder on this stuff.
+
+585
+00:31:24,030 --> 00:31:27,730
+And in particular, now that
+we've got an expression for w,
+
+586
+00:31:27,730 --> 00:31:31,010
+this one right here, we're
+going to plug it back in
+
+587
+00:31:31,010 --> 00:31:34,870
+there, and we're going to plug
+it back in here and see what
+
+588
+00:31:34,870 --> 00:31:37,440
+happens to that thing
+we're trying to find
+
+589
+00:31:37,440 --> 00:31:38,690
+the extremum of.
+
+590
+00:31:38,690 --> 00:31:46,817
+
+
+591
+00:31:46,817 --> 00:31:51,220
+Is everybody relaxed,
+taking deep breath?
+
+592
+00:31:51,220 --> 00:31:52,530
+Actually, this is the
+easiest part.
+
+593
+00:31:52,530 --> 00:31:55,755
+This is just doing a little
+bit of the algebra.
+
+594
+00:31:55,755 --> 00:31:58,830
+So the think we're trying
+to maximize or
+
+595
+00:31:58,830 --> 00:32:03,465
+minimize is equal to 1/2.
+
+596
+00:32:03,465 --> 00:32:10,570
+And now, we've got to
+have this vector
+
+597
+00:32:10,570 --> 00:32:16,781
+here in there twice.
+
+598
+00:32:16,781 --> 00:32:17,190
+Right?
+
+599
+00:32:17,190 --> 00:32:21,295
+Because we're multiplying
+the two together.
+
+600
+00:32:21,295 --> 00:32:22,970
+So let's see.
+
+601
+00:32:22,970 --> 00:32:26,860
+We've got from that expression
+up there, one of those w's
+
+602
+00:32:26,860 --> 00:32:33,670
+will just be the sum of the
+alpha i times y sub i times
+
+603
+00:32:33,670 --> 00:32:36,265
+the vector x sub i.
+
+604
+00:32:36,265 --> 00:32:38,320
+And then, we've got the
+other one, too.
+
+605
+00:32:38,320 --> 00:32:41,620
+So that's just going to
+be the sum of alpha.
+
+606
+00:32:41,620 --> 00:32:45,280
+Now, I'm going to, actually,
+eventually, squish those two
+
+607
+00:32:45,280 --> 00:32:48,050
+sums together into a double
+summation, so I have to keep
+
+608
+00:32:48,050 --> 00:32:49,990
+the indexes straight.
+
+609
+00:32:49,990 --> 00:32:53,786
+So I'm just going to write
+that as alpha sub j, y
+
+610
+00:32:53,786 --> 00:32:57,726
+sub j, x sub j.
+
+611
+00:32:57,726 --> 00:32:59,760
+So those are my two vectors and
+I'm going to take the dot
+
+612
+00:32:59,760 --> 00:33:00,850
+product of those.
+
+613
+00:33:00,850 --> 00:33:04,310
+That's the first piece, right?
+
+614
+00:33:04,310 --> 00:33:07,345
+Boy, this is hard.
+
+615
+00:33:07,345 --> 00:33:13,760
+So minus, and now, the next term
+looks like alpha i, y sub
+
+616
+00:33:13,760 --> 00:33:17,395
+i, x sub i times w.
+
+617
+00:33:17,395 --> 00:33:19,640
+So you've got a whole
+bunch of these.
+
+618
+00:33:19,640 --> 00:33:26,996
+We've got a sum of alpha i times
+y sub i times x sub i,
+
+619
+00:33:26,996 --> 00:33:30,425
+and then, that gets multiplied
+times w.
+
+620
+00:33:30,425 --> 00:33:39,160
+So we'll put this like this, the
+sum of alpha j, y sub j, x
+
+621
+00:33:39,160 --> 00:33:41,630
+sub j in there like that.
+
+622
+00:33:41,630 --> 00:33:44,345
+And then, that's the dot
+product like that.
+
+623
+00:33:44,345 --> 00:33:45,890
+That wasn't as bad
+as I thought.
+
+624
+00:33:45,890 --> 00:33:49,731
+
+
+625
+00:33:49,731 --> 00:33:54,150
+Now, I've got to deal with the
+next term, the alpha i times y
+
+626
+00:33:54,150 --> 00:33:55,740
+sub i times b.
+
+627
+00:33:55,740 --> 00:33:58,475
+
+
+628
+00:33:58,475 --> 00:34:07,746
+So that's minus sub of alpha
+i times y sub i times b.
+
+629
+00:34:07,746 --> 00:34:13,949
+And then, to finish it off, we
+have plus the sum of alpha sub
+
+630
+00:34:13,949 --> 00:34:18,320
+i minus 1 up there, minus 1 in
+front of the summation, such
+
+631
+00:34:18,320 --> 00:34:20,059
+as the sum of the alphas.
+
+632
+00:34:20,059 --> 00:34:21,605
+Are you with me so far?
+
+633
+00:34:21,605 --> 00:34:24,096
+Just a little algebra.
+
+634
+00:34:24,096 --> 00:34:24,860
+It looks good.
+
+635
+00:34:24,860 --> 00:34:28,838
+I think I haven't
+mucked it, yet.
+
+636
+00:34:28,838 --> 00:34:30,952
+Let's see.
+
+637
+00:34:30,952 --> 00:34:34,364
+alpha i times y sub i times
+b. b is a constant.
+
+638
+00:34:34,364 --> 00:34:37,409
+So pull that out there, and
+then, I just got the sum of
+
+639
+00:34:37,409 --> 00:34:41,078
+alpha sub i times y sub i.
+
+640
+00:34:41,078 --> 00:34:42,250
+Oh, that's good.
+
+641
+00:34:42,250 --> 00:34:43,500
+That's 0.
+
+642
+00:34:43,500 --> 00:34:48,304
+
+
+643
+00:34:48,304 --> 00:34:51,900
+Now, so for every one of these
+terms, we dot it with this
+
+644
+00:34:51,900 --> 00:34:53,150
+whole expression.
+
+645
+00:34:53,150 --> 00:34:54,966
+
+
+646
+00:34:54,966 --> 00:35:00,050
+So that's just like taking this
+thing here and dotting
+
+647
+00:35:00,050 --> 00:35:02,145
+those two things together,
+right?
+
+648
+00:35:02,145 --> 00:35:04,240
+Oh, but that's just the same
+thing we've got here.
+
+649
+00:35:04,240 --> 00:35:07,324
+
+
+650
+00:35:07,324 --> 00:35:11,140
+So now, what we can do is we
+can say that we can rewrite
+
+651
+00:35:11,140 --> 00:35:15,560
+this Lagrangian as--
+
+652
+00:35:15,560 --> 00:35:19,566
+we've got that sum of alpha i.
+
+653
+00:35:19,566 --> 00:35:22,256
+That's the positive element.
+
+654
+00:35:22,256 --> 00:35:25,680
+And then, we've got one of
+these and half of these.
+
+655
+00:35:25,680 --> 00:35:28,865
+So that's minus 1/2.
+
+656
+00:35:28,865 --> 00:35:30,980
+And now, I'll just convert that
+whole works into a double
+
+657
+00:35:30,980 --> 00:35:43,230
+sum over both i and j of alpha
+i times alpha j times y sub i
+
+658
+00:35:43,230 --> 00:35:49,760
+times y sub j times x sub
+i dotted with x of j.
+
+659
+00:35:49,760 --> 00:35:52,670
+
+
+660
+00:35:52,670 --> 00:35:55,560
+We sure went through a lot of
+trouble to get there, but now,
+
+661
+00:35:55,560 --> 00:35:56,210
+we've got it.
+
+662
+00:35:56,210 --> 00:35:59,200
+And we know that what we're
+trying to do is we're trying
+
+663
+00:35:59,200 --> 00:36:03,320
+to find a maximum of
+that expression.
+
+664
+00:36:03,320 --> 00:36:07,212
+
+
+665
+00:36:07,212 --> 00:36:08,910
+And that's the one we're
+going to had off to
+
+666
+00:36:08,910 --> 00:36:11,010
+the numerical analysts.
+
+667
+00:36:11,010 --> 00:36:13,090
+So if we're going to had this
+off to the numerical analysts
+
+668
+00:36:13,090 --> 00:36:16,136
+anyway, why did I go to
+all this trouble?
+
+669
+00:36:16,136 --> 00:36:19,200
+Good question.
+
+670
+00:36:19,200 --> 00:36:22,626
+Do you have any idea why I
+went to all this trouble?
+
+671
+00:36:22,626 --> 00:36:25,440
+Because I wanted to find out
+the dependence of this
+
+672
+00:36:25,440 --> 00:36:26,950
+expression.
+
+673
+00:36:26,950 --> 00:36:28,120
+Wanda is telling me.
+
+674
+00:36:28,120 --> 00:36:29,450
+I'm translating as I go.
+
+675
+00:36:29,450 --> 00:36:31,555
+She's telling me in Romanian.
+
+676
+00:36:31,555 --> 00:36:35,510
+I want to find what this
+maximization depends on with
+
+677
+00:36:35,510 --> 00:36:41,160
+respect these vectors, the
+x, the sample vectors.
+
+678
+00:36:41,160 --> 00:36:46,480
+And what I've discovered is that
+the optimization depends
+
+679
+00:36:46,480 --> 00:36:53,976
+only on the dot product
+of pairs of samples.
+
+680
+00:36:53,976 --> 00:36:55,300
+And that's something we
+want to keep in mind.
+
+681
+00:36:55,300 --> 00:36:56,620
+That's why I put it
+in royal purple.
+
+682
+00:36:56,620 --> 00:36:59,350
+
+
+683
+00:36:59,350 --> 00:37:02,920
+Now, up here, so let's see.
+
+684
+00:37:02,920 --> 00:37:04,210
+What do we call that
+one up there?
+
+685
+00:37:04,210 --> 00:37:05,715
+That's two.
+
+686
+00:37:05,715 --> 00:37:10,505
+I guess, we'll call this
+piece here three.
+
+687
+00:37:10,505 --> 00:37:12,600
+This piece here is four.
+
+688
+00:37:12,600 --> 00:37:15,060
+And now, there's
+one more piece.
+
+689
+00:37:15,060 --> 00:37:20,080
+Because I want to take that w,
+and not only stick it back
+
+690
+00:37:20,080 --> 00:37:22,700
+into that Lagrangian, I want
+to stick it back into the
+
+691
+00:37:22,700 --> 00:37:24,446
+decision rule.
+
+692
+00:37:24,446 --> 00:37:29,030
+So now, my decision rule with
+this expression for w is going
+
+693
+00:37:29,030 --> 00:37:31,410
+to be w plugged into
+that thing.
+
+694
+00:37:31,410 --> 00:37:37,000
+So the decision rule is going to
+look like the sum of alpha
+
+695
+00:37:37,000 --> 00:37:45,960
+i times y sub i times x sub
+i dotted with the unknown
+
+696
+00:37:45,960 --> 00:37:47,840
+vector, like so.
+
+697
+00:37:47,840 --> 00:37:51,536
+And we're going to,
+I guess, add b.
+
+698
+00:37:51,536 --> 00:37:53,770
+And we're going to say, if
+that's greater than or equal
+
+699
+00:37:53,770 --> 00:37:57,660
+to 0, then plus.
+
+700
+00:37:57,660 --> 00:38:00,560
+
+
+701
+00:38:00,560 --> 00:38:04,750
+So you see why the math is
+beginning to sing to us now.
+
+702
+00:38:04,750 --> 00:38:08,840
+Because now, we discover that
+the decision rule, also,
+
+703
+00:38:08,840 --> 00:38:12,700
+depends only on the dot product
+of those sample
+
+704
+00:38:12,700 --> 00:38:15,340
+vectors and the unknown.
+
+705
+00:38:15,340 --> 00:38:18,640
+So the total of dependence
+of all of the
+
+706
+00:38:18,640 --> 00:38:21,106
+math on the dot products.
+
+707
+00:38:21,106 --> 00:38:24,034
+All right.
+
+708
+00:38:24,034 --> 00:38:27,160
+And now, I hear a whisper.
+
+709
+00:38:27,160 --> 00:38:30,410
+Someone is saying, I
+don't believe that
+
+710
+00:38:30,410 --> 00:38:31,720
+mathematicians can do it.
+
+711
+00:38:31,720 --> 00:38:33,850
+I don't think those numerical
+analysts can find the
+
+712
+00:38:33,850 --> 00:38:35,100
+optimization.
+
+713
+00:38:35,100 --> 00:38:37,360
+
+
+714
+00:38:37,360 --> 00:38:38,925
+I want to be sure of it.
+
+715
+00:38:38,925 --> 00:38:40,850
+Give me ocular proof.
+
+716
+00:38:40,850 --> 00:38:42,360
+So I'd like to run a
+demonstration of it.
+
+717
+00:38:42,360 --> 00:38:56,596
+
+
+718
+00:38:56,596 --> 00:38:57,090
+OK.
+
+719
+00:38:57,090 --> 00:38:58,060
+There's our sample problem.
+
+720
+00:38:58,060 --> 00:38:59,800
+The one I started the
+hour out with.
+
+721
+00:38:59,800 --> 00:39:05,430
+Now, if the optimization
+algorithm doesn't get stuck in
+
+722
+00:39:05,430 --> 00:39:07,720
+a local maximum or something,
+it should find a nice,
+
+723
+00:39:07,720 --> 00:39:10,900
+straight line separating those
+two guys to finding the widest
+
+724
+00:39:10,900 --> 00:39:14,445
+street between the minuses
+and the pluses.
+
+725
+00:39:14,445 --> 00:39:16,880
+So in just a couple of steps,
+you can see down
+
+726
+00:39:16,880 --> 00:39:18,150
+there in step 11.
+
+727
+00:39:18,150 --> 00:39:20,630
+It's decided that it's done
+as much as it can on the
+
+728
+00:39:20,630 --> 00:39:22,406
+optimization.
+
+729
+00:39:22,406 --> 00:39:25,480
+And it's got three alphas.
+
+730
+00:39:25,480 --> 00:39:30,970
+And you can see that the two
+negative samples both figure
+
+731
+00:39:30,970 --> 00:39:34,575
+into the solution, the weights
+on the Lagrangian multipliers
+
+732
+00:39:34,575 --> 00:39:36,820
+are given by those little
+yellow bars.
+
+733
+00:39:36,820 --> 00:39:40,030
+So the two negatives participate
+in the solution as
+
+734
+00:39:40,030 --> 00:39:42,040
+one of the positives, but the
+other positive doesn't.
+
+735
+00:39:42,040 --> 00:39:45,500
+So it has a 0 weight.
+
+736
+00:39:45,500 --> 00:39:47,700
+So everything worked out well.
+
+737
+00:39:47,700 --> 00:39:50,440
+Now, I said, as long as it
+doesn't get stuck on a local
+
+738
+00:39:50,440 --> 00:39:55,095
+maximum, guess what, those
+mathematical friends of ours
+
+739
+00:39:55,095 --> 00:39:58,120
+can tell us and prove
+to us that this
+
+740
+00:39:58,120 --> 00:40:00,420
+thing is a convex space.
+
+741
+00:40:00,420 --> 00:40:04,042
+That means it can never get
+stuck in a local maximum.
+
+742
+00:40:04,042 --> 00:40:07,780
+So in contrast with things like
+neural nets, where you
+
+743
+00:40:07,780 --> 00:40:11,160
+have a plague of local maxima,
+this guy never gets stuck in a
+
+744
+00:40:11,160 --> 00:40:12,355
+local maxima.
+
+745
+00:40:12,355 --> 00:40:15,536
+Let's try some other examples.
+
+746
+00:40:15,536 --> 00:40:17,250
+Here's two vertical points--
+
+747
+00:40:17,250 --> 00:40:20,920
+no surprises there, right?
+
+748
+00:40:20,920 --> 00:40:22,470
+Well, you say, well,
+maybe it can't deal
+
+749
+00:40:22,470 --> 00:40:24,165
+with diagonal points.
+
+750
+00:40:24,165 --> 00:40:26,830
+Sure it can.
+
+751
+00:40:26,830 --> 00:40:32,091
+How about this thing here?
+
+752
+00:40:32,091 --> 00:40:38,510
+Yeah, it only needed two of the
+points since any two, a
+
+753
+00:40:38,510 --> 00:40:41,820
+plus or minus, will
+define the street.
+
+754
+00:40:41,820 --> 00:40:44,580
+Let's try this guy.
+
+755
+00:40:44,580 --> 00:40:46,526
+Oh.
+
+756
+00:40:46,526 --> 00:40:47,110
+What do you think?
+
+757
+00:40:47,110 --> 00:40:50,046
+What happened here?
+
+758
+00:40:50,046 --> 00:40:51,345
+Well, we're screwed, right?
+
+759
+00:40:51,345 --> 00:40:52,595
+Because it's linearly
+inseparable--
+
+760
+00:40:52,595 --> 00:40:56,629
+
+
+761
+00:40:56,629 --> 00:40:57,879
+bad news.
+
+762
+00:40:57,879 --> 00:41:00,175
+
+
+763
+00:41:00,175 --> 00:41:04,250
+So in situations where it's
+linearly inseparable, the
+
+764
+00:41:04,250 --> 00:41:07,060
+mechanism struggles, and
+eventually, it will just slow
+
+765
+00:41:07,060 --> 00:41:08,570
+down and you truncate
+it, because it's
+
+766
+00:41:08,570 --> 00:41:09,510
+not making any progress.
+
+767
+00:41:09,510 --> 00:41:14,765
+And you see the red dots there
+are ones that it got wrong.
+
+768
+00:41:14,765 --> 00:41:17,480
+So you say, well, too bad for
+our side-- doesn't look like
+
+769
+00:41:17,480 --> 00:41:19,502
+it's all that good anyway.
+
+770
+00:41:19,502 --> 00:41:26,020
+But then, a powerful idea comes
+to the rescue, when
+
+771
+00:41:26,020 --> 00:41:28,896
+stuck switch to another
+perspective.
+
+772
+00:41:28,896 --> 00:41:31,850
+So if we don't like the space
+that we're in, because it
+
+773
+00:41:31,850 --> 00:41:37,680
+gives examples that are not
+linearly separable, then we
+
+774
+00:41:37,680 --> 00:41:39,705
+can say, oh, shoot.
+
+775
+00:41:39,705 --> 00:41:42,052
+Here's our space.
+
+776
+00:41:42,052 --> 00:41:43,302
+Here are two points.
+
+777
+00:41:43,302 --> 00:41:49,486
+
+
+778
+00:41:49,486 --> 00:41:52,944
+Here are two other points.
+
+779
+00:41:52,944 --> 00:41:54,630
+We can't separate them.
+
+780
+00:41:54,630 --> 00:41:57,740
+But if we could somehow get them
+into another space, maybe
+
+781
+00:41:57,740 --> 00:42:06,600
+we can separate them, because
+they look like this in the
+
+782
+00:42:06,600 --> 00:42:08,925
+other space, and they're
+easy to separate.
+
+783
+00:42:08,925 --> 00:42:12,820
+So what we need, then, is a
+transformation that will take
+
+784
+00:42:12,820 --> 00:42:16,070
+us from the space we're in into
+a space where things are
+
+785
+00:42:16,070 --> 00:42:17,590
+more convenient, so we're
+going to call that
+
+786
+00:42:17,590 --> 00:42:22,745
+transformation phi
+with a vector, x.
+
+787
+00:42:22,745 --> 00:42:23,855
+That's the transformation.
+
+788
+00:42:23,855 --> 00:42:26,290
+And now, here's the reason
+for all the magic.
+
+789
+00:42:26,290 --> 00:42:28,950
+
+
+790
+00:42:28,950 --> 00:42:34,880
+I said, that the maximization
+only depends on dot products.
+
+791
+00:42:34,880 --> 00:42:38,810
+So all I need to do the
+maximization is the
+
+792
+00:42:38,810 --> 00:42:43,975
+transformation of one vector
+dotted with the transformation
+
+793
+00:42:43,975 --> 00:42:47,235
+of another vector, like so.
+
+794
+00:42:47,235 --> 00:42:51,260
+That's what I need to maximize,
+or to find the
+
+795
+00:42:51,260 --> 00:42:52,510
+maximum on.
+
+796
+00:42:52,510 --> 00:42:55,216
+Then, in order to recognize--
+
+797
+00:42:55,216 --> 00:42:57,706
+where did it go?
+
+798
+00:42:57,706 --> 00:42:59,260
+Underneath the chalkboard.
+
+799
+00:42:59,260 --> 00:43:05,290
+
+
+800
+00:43:05,290 --> 00:43:06,002
+Oh, yes.
+
+801
+00:43:06,002 --> 00:43:06,900
+Here it is.
+
+802
+00:43:06,900 --> 00:43:09,620
+To recognize, all I need
+is dot products, too.
+
+803
+00:43:09,620 --> 00:43:17,025
+So for that one I need phi of
+x dotted with phi of u.
+
+804
+00:43:17,025 --> 00:43:19,300
+And just to make this a little
+bit more consistent, the
+
+805
+00:43:19,300 --> 00:43:22,750
+notation, I'll call that
+x j and this x sub i.
+
+806
+00:43:22,750 --> 00:43:23,550
+And that's x sub i.
+
+807
+00:43:23,550 --> 00:43:27,595
+Those are the quantities I
+need in order to do it.
+
+808
+00:43:27,595 --> 00:43:34,540
+So that means that if I have a
+function, let's call it k of x
+
+809
+00:43:34,540 --> 00:43:45,370
+sub i and x sub j, that's equal
+to phi of x sub i dotted
+
+810
+00:43:45,370 --> 00:43:49,191
+with phi of x sub j.
+
+811
+00:43:49,191 --> 00:43:50,215
+Then, I'm done.
+
+812
+00:43:50,215 --> 00:43:52,306
+This is what I need.
+
+813
+00:43:52,306 --> 00:43:54,020
+I don't actually need this.
+
+814
+00:43:54,020 --> 00:43:56,955
+
+
+815
+00:43:56,955 --> 00:44:00,990
+All I need is that function, k,
+which happens to be called
+
+816
+00:44:00,990 --> 00:44:04,650
+a kernel function, which
+provides me with the dot
+
+817
+00:44:04,650 --> 00:44:07,745
+product of those two vectors
+in another space.
+
+818
+00:44:07,745 --> 00:44:09,310
+I don't have to know
+the transformation
+
+819
+00:44:09,310 --> 00:44:11,200
+into the other space.
+
+820
+00:44:11,200 --> 00:44:15,935
+And that's the reason that
+this stuff is a miracle.
+
+821
+00:44:15,935 --> 00:44:19,595
+So what are some of the kernels
+that are popular?
+
+822
+00:44:19,595 --> 00:44:27,200
+One is the linear kernel that
+says that u dotted with v plus
+
+823
+00:44:27,200 --> 00:44:32,515
+1 to the n-th is such a kernel,
+because it's got u in
+
+824
+00:44:32,515 --> 00:44:35,190
+it and v in it, the
+two vectors.
+
+825
+00:44:35,190 --> 00:44:38,060
+And this is what the dot product
+is in the other space.
+
+826
+00:44:38,060 --> 00:44:39,550
+So that's one choice.
+
+827
+00:44:39,550 --> 00:44:42,450
+Another choice is a kernel
+that looks like
+
+828
+00:44:42,450 --> 00:44:46,295
+this, e to the minus.
+
+829
+00:44:46,295 --> 00:44:50,440
+Let's take the dot product
+of the difference
+
+830
+00:44:50,440 --> 00:44:51,690
+of those two guys.
+
+831
+00:44:51,690 --> 00:44:53,880
+
+
+832
+00:44:53,880 --> 00:44:56,360
+Let's take the magnitude
+of that and
+
+833
+00:44:56,360 --> 00:44:57,660
+divide it by some sigma.
+
+834
+00:44:57,660 --> 00:45:01,160
+That's a second kind of kernel
+that we can use.
+
+835
+00:45:01,160 --> 00:45:04,350
+So let's go back and see if we
+can solve this problem by
+
+836
+00:45:04,350 --> 00:45:06,350
+transforming it into another
+space where we have another
+
+837
+00:45:06,350 --> 00:45:07,600
+perspective.
+
+838
+00:45:07,600 --> 00:45:10,082
+
+
+839
+00:45:10,082 --> 00:45:15,618
+So that's it.
+
+840
+00:45:15,618 --> 00:45:17,760
+That's another kernel.
+
+841
+00:45:17,760 --> 00:45:18,870
+And so sure, we can.
+
+842
+00:45:18,870 --> 00:45:21,280
+And that's the answer when
+transformed back into the
+
+843
+00:45:21,280 --> 00:45:22,905
+original space.
+
+844
+00:45:22,905 --> 00:45:24,690
+We can also try doing that
+with a so-called
+
+845
+00:45:24,690 --> 00:45:25,780
+radial basis kernel.
+
+846
+00:45:25,780 --> 00:45:28,112
+That's the one with the
+exponential in it.
+
+847
+00:45:28,112 --> 00:45:29,310
+We can learn on that one.
+
+848
+00:45:29,310 --> 00:45:30,480
+Boom.
+
+849
+00:45:30,480 --> 00:45:33,346
+No problem.
+
+850
+00:45:33,346 --> 00:45:36,860
+So we've got a general method
+that's convex and guaranteed
+
+851
+00:45:36,860 --> 00:45:39,245
+to produce a global solution.
+
+852
+00:45:39,245 --> 00:45:42,950
+We've got a mechanism that
+easily allows us to transform
+
+853
+00:45:42,950 --> 00:45:45,470
+this into another space.
+
+854
+00:45:45,470 --> 00:45:47,695
+So it works like a charm.
+
+855
+00:45:47,695 --> 00:45:50,736
+Of course, it doesn't remove
+all possible problems.
+
+856
+00:45:50,736 --> 00:45:53,650
+Look at that exponential
+thing here.
+
+857
+00:45:53,650 --> 00:45:59,890
+If we choose a sigma that is
+small enough, then those
+
+858
+00:45:59,890 --> 00:46:02,760
+sigmas are essentially shrunk
+right around the sample
+
+859
+00:46:02,760 --> 00:46:06,092
+points, and we could
+get overfitting.
+
+860
+00:46:06,092 --> 00:46:09,385
+So it doesn't immunize us
+against overfitting, but it
+
+861
+00:46:09,385 --> 00:46:12,500
+does immunize us against local
+maxima and does provide us
+
+862
+00:46:12,500 --> 00:46:16,820
+with a general mechanism for
+doing a transformation into
+
+863
+00:46:16,820 --> 00:46:18,935
+another space with a
+better perspective.
+
+864
+00:46:18,935 --> 00:46:22,435
+Now, the history lesson, all
+this stuff feels fairly new.
+
+865
+00:46:22,435 --> 00:46:25,746
+It feels like it's younger
+than you are.
+
+866
+00:46:25,746 --> 00:46:27,822
+Here's the history of it.
+
+867
+00:46:27,822 --> 00:46:31,060
+Vapnik immigrated from the
+Soviet Union to the United
+
+868
+00:46:31,060 --> 00:46:33,760
+States in about 1991.
+
+869
+00:46:33,760 --> 00:46:36,795
+Nobody ever heard of this stuff
+before he immigrated.
+
+870
+00:46:36,795 --> 00:46:40,200
+He actually had done this work
+on the basic support vector
+
+871
+00:46:40,200 --> 00:46:44,355
+idea in his Ph.D. thesis
+at Moscow University
+
+872
+00:46:44,355 --> 00:46:46,590
+in the early '60s.
+
+873
+00:46:46,590 --> 00:46:49,470
+But it wasn't possible for him
+to do anything with it,
+
+874
+00:46:49,470 --> 00:46:51,220
+because they didn't have any
+computers they could try
+
+875
+00:46:51,220 --> 00:46:53,010
+anything out with.
+
+876
+00:46:53,010 --> 00:46:57,460
+So he spent the next 25 years at
+some oncology institute in
+
+877
+00:46:57,460 --> 00:47:00,660
+the Soviet Union doing
+applications.
+
+878
+00:47:00,660 --> 00:47:03,440
+Somebody from Bell Labs
+discovers him, invites him
+
+879
+00:47:03,440 --> 00:47:05,445
+over to the United States
+where, subsequently, he
+
+880
+00:47:05,445 --> 00:47:07,466
+decides to immigrate.
+
+881
+00:47:07,466 --> 00:47:13,580
+In 1992, or thereabouts, Vapnik
+submits three papers to
+
+882
+00:47:13,580 --> 00:47:17,115
+NIPS, the Neural Information
+Processing Systems journal.
+
+883
+00:47:17,115 --> 00:47:19,065
+All of them were rejected.
+
+884
+00:47:19,065 --> 00:47:23,570
+He's still sore about it,
+but it's motivating.
+
+885
+00:47:23,570 --> 00:47:27,060
+So around 1992, 1993, Bell
+Labs was interested in
+
+886
+00:47:27,060 --> 00:47:28,420
+hand-written character
+recognition
+
+887
+00:47:28,420 --> 00:47:30,456
+and in neural nets.
+
+888
+00:47:30,456 --> 00:47:33,270
+Vapnik thinks that
+neural nets--
+
+889
+00:47:33,270 --> 00:47:36,295
+what would be a good
+word to use?
+
+890
+00:47:36,295 --> 00:47:38,410
+I can think of the vernacular,
+but he thinks that
+
+891
+00:47:38,410 --> 00:47:40,150
+they're not very good.
+
+892
+00:47:40,150 --> 00:47:44,320
+So he bets a colleague a good
+dinner that support vector
+
+893
+00:47:44,320 --> 00:47:46,385
+machines will eventually do
+better at handwriting
+
+894
+00:47:46,385 --> 00:47:50,356
+recognition then neural nets.
+
+895
+00:47:50,356 --> 00:47:51,690
+And it's a dinner bet, right?
+
+896
+00:47:51,690 --> 00:47:52,600
+It's not that big of deal.
+
+897
+00:47:52,600 --> 00:47:55,280
+But as Napoleon said, it's
+amazing what a soldier will do
+
+898
+00:47:55,280 --> 00:47:57,641
+for a bit of ribbon.
+
+899
+00:47:57,641 --> 00:48:01,380
+So that makes colleague, who's
+working on this problem with
+
+900
+00:48:01,380 --> 00:48:06,730
+handwritten recognition, decides
+to try a support
+
+901
+00:48:06,730 --> 00:48:12,700
+vector machine with a kernel,
+in which n equals 2, just
+
+902
+00:48:12,700 --> 00:48:14,820
+slightly nonlinear, works
+like a charm.
+
+903
+00:48:14,820 --> 00:48:17,530
+
+
+904
+00:48:17,530 --> 00:48:19,890
+Was this the first time anybody
+tried a kernel?
+
+905
+00:48:19,890 --> 00:48:23,070
+Vapnik actually had the idea in
+his thesis but never though
+
+906
+00:48:23,070 --> 00:48:25,560
+it was very important.
+
+907
+00:48:25,560 --> 00:48:29,670
+As soon as it was shown to work
+in the early '90s on the
+
+908
+00:48:29,670 --> 00:48:32,090
+problem handwriting recognition,
+Vapnik
+
+909
+00:48:32,090 --> 00:48:35,190
+resuscitated the idea of the
+kernel, began to develop it,
+
+910
+00:48:35,190 --> 00:48:38,270
+and became an essential part of
+the whole approach of using
+
+911
+00:48:38,270 --> 00:48:39,920
+support vector machines.
+
+912
+00:48:39,920 --> 00:48:43,980
+So the main point about this
+is that it was 30 years in
+
+913
+00:48:43,980 --> 00:48:47,380
+between the concept and anybody
+ever hearing about it.
+
+914
+00:48:47,380 --> 00:48:52,360
+It was 30 years between Vapnik's
+understanding of
+
+915
+00:48:52,360 --> 00:48:55,840
+kernels and his appreciation
+of their importance.
+
+916
+00:48:55,840 --> 00:48:59,870
+And that's the way things often
+go, great ideas followed
+
+917
+00:48:59,870 --> 00:49:03,320
+by long periods of nothing
+happening, followed by an
+
+918
+00:49:03,320 --> 00:49:06,640
+epiphanous moment when the
+original idea seemed to have
+
+919
+00:49:06,640 --> 00:49:09,320
+great power with just a
+little bit of a twist.
+
+920
+00:49:09,320 --> 00:49:10,960
+And then, the world
+never looks back.
+
+921
+00:49:10,960 --> 00:49:14,780
+And Vapnik, who nobody ever
+heard of until the early '90s,
+
+922
+00:49:14,780 --> 00:49:18,380
+becomes famous for something
+that everybody knows about
+
+923
+00:49:18,380 --> 00:49:19,630
+today who does machine
+learning.
+
+924
+00:49:19,630 --> 00:49:33,807

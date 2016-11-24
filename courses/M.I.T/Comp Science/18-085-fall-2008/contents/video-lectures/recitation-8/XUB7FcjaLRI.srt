@@ -1,0 +1,3433 @@
+1
+00:00:00,000 --> 00:00:01,120
+
+
+2
+00:00:01,120 --> 00:00:03,610
+provided under a
+Creative Commons license.
+
+3
+00:00:03,610 --> 00:00:05,450
+Your support will help
+MIT OpenCourseWare
+
+4
+00:00:05,450 --> 00:00:10,050
+continue to offer high quality
+educational resources for free.
+
+5
+00:00:10,050 --> 00:00:12,530
+To make a donation, or to
+view additional materials
+
+6
+00:00:12,530 --> 00:00:15,870
+from hundreds of MIT courses,
+visit MIT OpenCourseWare
+
+7
+00:00:15,870 --> 00:00:19,390
+at ocw.mit.edu.
+
+8
+00:00:19,390 --> 00:00:23,700
+PROFESSOR STRANG: Okay, shall
+we start on this review session?
+
+9
+00:00:23,700 --> 00:00:28,360
+And I'm figuring that the main
+topic would be finite elements,
+
+10
+00:00:28,360 --> 00:00:33,840
+because the last review session
+focused on the truss problems.
+
+11
+00:00:33,840 --> 00:00:37,850
+One note about codes.
+
+12
+00:00:37,850 --> 00:00:43,920
+So probably you've looked
+at the CSE page, where
+
+13
+00:00:43,920 --> 00:00:48,270
+some codes that we had
+earlier are put there,
+
+14
+00:00:48,270 --> 00:00:50,270
+section by section.
+
+15
+00:00:50,270 --> 00:00:53,630
+Now people are
+contributing a truss code,
+
+16
+00:00:53,630 --> 00:00:57,640
+so I don't see any reason
+why that shouldn't eventually
+
+17
+00:00:57,640 --> 00:00:59,960
+go onto the CSE page.
+
+18
+00:00:59,960 --> 00:01:05,450
+If you have other codes,
+like finite element
+
+19
+00:01:05,450 --> 00:01:10,570
+codes, for specific
+problems, think about,
+
+20
+00:01:10,570 --> 00:01:12,630
+if you get them
+with some comments,
+
+21
+00:01:12,630 --> 00:01:15,210
+if they're appropriate
+to go on the CSE page,
+
+22
+00:01:15,210 --> 00:01:16,730
+that's certainly a possibility.
+
+23
+00:01:16,730 --> 00:01:19,260
+And the homework
+solutions, which
+
+24
+00:01:19,260 --> 00:01:28,750
+are now on the 18.085 page,
+will migrate to the CSE page,
+
+25
+00:01:28,750 --> 00:01:30,710
+for their permanent status.
+
+26
+00:01:30,710 --> 00:01:34,480
+So that's just to say, this
+is a page that's growing,
+
+27
+00:01:34,480 --> 00:01:40,450
+and any help is
+very, very welcome.
+
+28
+00:01:40,450 --> 00:01:45,170
+So, I'm ready for questions
+about finite elements, maybe
+
+29
+00:01:45,170 --> 00:01:49,770
+specifically, or
+other things, too.
+
+30
+00:01:49,770 --> 00:01:50,940
+Thanks.
+
+31
+00:01:50,940 --> 00:01:52,620
+Yeah, lots to say
+about finite elements.
+
+32
+00:01:52,620 --> 00:01:53,120
+Yeah?
+
+33
+00:01:53,120 --> 00:01:58,887
+AUDIENCE: [UNINTELLIGIBLE]
+
+34
+00:01:58,887 --> 00:02:00,720
+PROFESSOR STRANG: So
+this is finite elements
+
+35
+00:02:00,720 --> 00:02:02,010
+for heat transfer.
+
+36
+00:02:02,010 --> 00:02:04,770
+Okay, which course was that?
+
+37
+00:02:04,770 --> 00:02:11,170
+AUDIENCE: [UNINTELLIGIBLE]
+
+38
+00:02:11,170 --> 00:02:14,350
+PROFESSOR STRANG: Okay.
+
+39
+00:02:14,350 --> 00:02:18,310
+Right, free or fixed
+boundary conditions.
+
+40
+00:02:18,310 --> 00:02:23,850
+Okay, I see.
+
+41
+00:02:23,850 --> 00:02:29,520
+So the question is, how do
+we handle boundary conditions
+
+42
+00:02:29,520 --> 00:02:32,400
+which are not
+something equal zero,
+
+43
+00:02:32,400 --> 00:02:36,390
+but something equals a
+constant, or something is given.
+
+44
+00:02:36,390 --> 00:02:36,890
+Right.
+
+45
+00:02:36,890 --> 00:02:41,560
+Good point.
+
+46
+00:02:41,560 --> 00:02:45,720
+So, somehow when
+we're given numbers,
+
+47
+00:02:45,720 --> 00:02:49,180
+they're going to--
+Input, source terms,
+
+48
+00:02:49,180 --> 00:02:51,740
+they're going to show up
+on the right-hand side.
+
+49
+00:02:51,740 --> 00:02:52,400
+Right?
+
+50
+00:02:52,400 --> 00:02:57,930
+Eventually, they'll be part
+of the right side vector F,
+
+51
+00:02:57,930 --> 00:02:59,320
+in some appropriate way.
+
+52
+00:02:59,320 --> 00:03:03,680
+So that we'll be solving
+KU=F, where U will represent
+
+53
+00:03:03,680 --> 00:03:10,900
+the unknown displacements,
+whatever they are
+
+54
+00:03:10,900 --> 00:03:13,160
+in the problem.
+
+55
+00:03:13,160 --> 00:03:23,150
+So let's see, what do I say
+about getting things correctly
+
+56
+00:03:23,150 --> 00:03:25,720
+onto the right hand side?
+
+57
+00:03:25,720 --> 00:03:32,660
+My general thought would
+be, so we create a matrix
+
+58
+00:03:32,660 --> 00:03:36,120
+that I might call K_0.
+
+59
+00:03:36,120 --> 00:03:38,030
+That's a matrix where
+we have not knocked
+
+60
+00:03:38,030 --> 00:03:39,640
+out any rows or columns.
+
+61
+00:03:39,640 --> 00:03:44,300
+It's probably, almost
+surely singular.
+
+62
+00:03:44,300 --> 00:03:51,850
+It's got all possible
+unknowns, even those that
+
+63
+00:03:51,850 --> 00:04:02,030
+are not actually unknown,
+associated with the columns
+
+64
+00:04:02,030 --> 00:04:03,080
+of that matrix.
+
+65
+00:04:03,080 --> 00:04:05,150
+So we start with that.
+
+66
+00:04:05,150 --> 00:04:07,010
+Start with that.
+
+67
+00:04:07,010 --> 00:04:08,250
+Okay.
+
+68
+00:04:08,250 --> 00:04:14,940
+Now, suppose-- Let's take
+things in order then.
+
+69
+00:04:14,940 --> 00:04:19,800
+Suppose U_7 is set to zero.
+
+70
+00:04:19,800 --> 00:04:23,620
+So what will that
+do to our matrix K?
+
+71
+00:04:23,620 --> 00:04:26,150
+How do we-- Having
+created this matrix K,
+
+72
+00:04:26,150 --> 00:04:30,970
+let's suppose we've got
+it, how do we include in it
+
+73
+00:04:30,970 --> 00:04:33,890
+the boundary condition U_7=0?
+
+74
+00:04:33,890 --> 00:04:41,120
+Okay, well that column of
+the matrix, the column number
+
+75
+00:04:41,120 --> 00:04:45,600
+seven, I guess, or the column
+corresponding to that unknown,
+
+76
+00:04:45,600 --> 00:04:46,880
+is going to go.
+
+77
+00:04:46,880 --> 00:04:48,420
+Is that right?
+
+78
+00:04:48,420 --> 00:04:50,200
+Yes.
+
+79
+00:04:50,200 --> 00:04:52,860
+That's what we've done,
+we've struck out a column.
+
+80
+00:04:52,860 --> 00:04:56,560
+And we should also, I
+guess, strike out a row.
+
+81
+00:04:56,560 --> 00:05:01,660
+We would really like to end up
+with symmetric, and normally
+
+82
+00:05:01,660 --> 00:05:05,780
+positive definite, matrices.
+
+83
+00:05:05,780 --> 00:05:10,950
+So this would be a column
+row-- I'm speaking roughly,
+
+84
+00:05:10,950 --> 00:05:14,350
+because I didn't have advanced
+preparation on this question.
+
+85
+00:05:14,350 --> 00:05:19,440
+So column/row removed.
+
+86
+00:05:19,440 --> 00:05:26,100
+Okay, now suppose
+U_7 has some value
+
+87
+00:05:26,100 --> 00:05:31,670
+A. How do we account for that?
+
+88
+00:05:31,670 --> 00:05:32,740
+So what do we do?
+
+89
+00:05:32,740 --> 00:05:39,200
+U_7 isn't still unknown, so
+we want to get that column out
+
+90
+00:05:39,200 --> 00:05:40,620
+of our matrix.
+
+91
+00:05:40,620 --> 00:05:46,120
+But something has to happen
+to account for the A.
+
+92
+00:05:46,120 --> 00:05:49,050
+So what is that?
+
+93
+00:05:49,050 --> 00:05:56,260
+So my picture is that in my
+original K_0, which had--
+
+94
+00:05:56,260 --> 00:06:03,550
+My original K_0, and then all
+the U's equal all the F's.
+
+95
+00:06:03,550 --> 00:06:14,040
+So this had a column for
+everybody, including U_7.
+
+96
+00:06:14,040 --> 00:06:17,420
+So there was the other
+U's, including U_7,
+
+97
+00:06:17,420 --> 00:06:26,070
+and these F's maybe came
+from body forces, stuff
+
+98
+00:06:26,070 --> 00:06:27,620
+inside the interval.
+
+99
+00:06:27,620 --> 00:06:30,790
+Now here comes perhaps
+a boundary condition.
+
+100
+00:06:30,790 --> 00:06:33,100
+Oh, I wrote it in
+the middle anyway.
+
+101
+00:06:33,100 --> 00:06:37,340
+So what happens
+when I set U_7 to A?
+
+102
+00:06:37,340 --> 00:06:42,160
+So I think that becomes,
+I strike out that unknown,
+
+103
+00:06:42,160 --> 00:06:47,060
+strike out that column,
+strike out that row, I think.
+
+104
+00:06:47,060 --> 00:06:49,130
+But what should happen?
+
+105
+00:06:49,130 --> 00:06:50,750
+How does the A come in?
+
+106
+00:06:50,750 --> 00:06:54,880
+Well that A multiplied
+that column, right?
+
+107
+00:06:54,880 --> 00:06:59,640
+That A multiplied-- This
+equation expressed equilibrium.
+
+108
+00:06:59,640 --> 00:07:06,110
+Those equations were all valid.
+
+109
+00:07:06,110 --> 00:07:09,380
+You could say we haven't imposed
+the boundary conditions yet.
+
+110
+00:07:09,380 --> 00:07:13,880
+Now when we do-- So that
+A multiplies that column.
+
+111
+00:07:13,880 --> 00:07:17,720
+So what happens now, what
+do you think should I do?
+
+112
+00:07:17,720 --> 00:07:22,620
+It seems to me that I should
+bring A times that column over
+
+113
+00:07:22,620 --> 00:07:26,330
+to the other side, with
+a minus, of course,
+
+114
+00:07:26,330 --> 00:07:29,120
+because I put it on the
+other side of the equation.
+
+115
+00:07:29,120 --> 00:07:37,140
+So I would think I do
+this: A times column seven.
+
+116
+00:07:37,140 --> 00:07:38,450
+I think.
+
+117
+00:07:38,450 --> 00:07:41,120
+I think that would seem right.
+
+118
+00:07:41,120 --> 00:07:45,705
+Now you're going to ask about --
+you unfortunately did ask about
+
+119
+00:07:45,705 --> 00:07:47,870
+-- a free condition.
+
+120
+00:07:47,870 --> 00:07:55,380
+Say u'-- So what
+am I going to do?
+
+121
+00:07:55,380 --> 00:07:57,760
+I'd better think here.
+
+122
+00:07:57,760 --> 00:07:59,550
+What's cooking now?
+
+123
+00:07:59,550 --> 00:08:06,550
+So I could prescribe u',
+let me say one, equal zero,
+
+124
+00:08:06,550 --> 00:08:11,710
+let's just think about that.
+
+125
+00:08:11,710 --> 00:08:16,400
+What happens with that?
+
+126
+00:08:16,400 --> 00:08:20,650
+Hmm.
+
+127
+00:08:20,650 --> 00:08:22,420
+So let's see.
+
+128
+00:08:22,420 --> 00:08:30,470
+Well, so u' was
+not one of our U's,
+
+129
+00:08:30,470 --> 00:08:35,350
+so this isn't just simply,
+OK assign a value, zero or A,
+
+130
+00:08:35,350 --> 00:08:42,430
+to a U. u' being zero, well that
+came in as a natural boundary
+
+131
+00:08:42,430 --> 00:08:43,820
+condition, right?
+
+132
+00:08:43,820 --> 00:08:46,150
+If I remember my own lectures.
+
+133
+00:08:46,150 --> 00:08:52,620
+So that u'=0 came in as a
+natural boundary condition.
+
+134
+00:08:52,620 --> 00:08:54,460
+And what did that mean?
+
+135
+00:08:54,460 --> 00:09:01,310
+That meant that I don't
+have to impose it.
+
+136
+00:09:01,310 --> 00:09:05,960
+The finite element method
+should deal with that.
+
+137
+00:09:05,960 --> 00:09:08,540
+This is really our w.
+
+138
+00:09:08,540 --> 00:09:11,390
+Our dual unknown, w.
+
+139
+00:09:11,390 --> 00:09:13,650
+It's better to think of it as w.
+
+140
+00:09:13,650 --> 00:09:19,930
+Maybe cu' is what it is, but
+it's good to think of it as w.
+
+141
+00:09:19,930 --> 00:09:22,210
+Okay, so I think of
+that as something we
+
+142
+00:09:22,210 --> 00:09:24,420
+don't have to impose.
+
+143
+00:09:24,420 --> 00:09:27,400
+In other words, the
+way I'm thinking now,
+
+144
+00:09:27,400 --> 00:09:33,300
+I don't have to
+think about that.
+
+145
+00:09:33,300 --> 00:09:40,100
+I've got trial functions
+whose combinations will get
+
+146
+00:09:40,100 --> 00:09:42,660
+me close to the correct answer.
+
+147
+00:09:42,660 --> 00:09:51,970
+And the equations will
+naturally do that.
+
+148
+00:09:51,970 --> 00:09:58,650
+Okay, now you're asking
+this serious question?
+
+149
+00:09:58,650 --> 00:09:59,620
+What about w=A?
+
+150
+00:09:59,620 --> 00:10:02,130
+
+
+151
+00:10:02,130 --> 00:10:05,000
+What about that?
+
+152
+00:10:05,000 --> 00:10:11,880
+Or B. Let me make it
+something different.
+
+153
+00:10:11,880 --> 00:10:13,290
+Okay.
+
+154
+00:10:13,290 --> 00:10:22,770
+Let me say right off, without
+having prepared a good answer
+
+155
+00:10:22,770 --> 00:10:26,490
+to this question, I'm not going
+to do it as well as I should.
+
+156
+00:10:26,490 --> 00:10:29,790
+So maybe what my real
+answer should be,
+
+157
+00:10:29,790 --> 00:10:37,040
+let me think through the best
+answer and do it another time.
+
+158
+00:10:37,040 --> 00:10:48,660
+It's going to contribute
+some term, some new term.
+
+159
+00:10:48,660 --> 00:10:53,460
+When we integrated by parts
+to get to the weak form,
+
+160
+00:10:53,460 --> 00:10:55,630
+this guy just showed up.
+
+161
+00:10:55,630 --> 00:10:59,240
+And up to now, we've just
+assume that B was zero,
+
+162
+00:10:59,240 --> 00:11:01,310
+and we didn't worry.
+
+163
+00:11:01,310 --> 00:11:03,890
+But somewhere in that
+integration by parts,
+
+164
+00:11:03,890 --> 00:11:08,950
+a term is going to appear
+that I can't just throw away.
+
+165
+00:11:08,950 --> 00:11:09,450
+Yeah.
+
+166
+00:11:09,450 --> 00:11:11,730
+So let me think about
+that more properly.
+
+167
+00:11:11,730 --> 00:11:14,280
+I mean that's a
+very good question,
+
+168
+00:11:14,280 --> 00:11:19,930
+and the lectures
+didn't allow for that.
+
+169
+00:11:19,930 --> 00:11:23,330
+Okay, if I can put that one
+off and give you a good answer.
+
+170
+00:11:23,330 --> 00:11:24,900
+Because it deserves it.
+
+171
+00:11:24,900 --> 00:11:26,910
+Okay, other questions.
+
+172
+00:11:26,910 --> 00:11:28,400
+Other discussion.
+
+173
+00:11:28,400 --> 00:11:29,192
+Yeah, you have one?
+
+174
+00:11:29,192 --> 00:11:30,858
+AUDIENCE: I have maybe
+a silly question.
+
+175
+00:11:30,858 --> 00:11:33,041
+PROFESSOR STRANG: You
+have a silly question?
+
+176
+00:11:33,041 --> 00:11:33,540
+Good.
+
+177
+00:11:33,540 --> 00:11:34,080
+Okay.
+
+178
+00:11:34,080 --> 00:11:43,042
+AUDIENCE: [UNINTELLIGIBLE]
+
+179
+00:11:43,042 --> 00:11:44,750
+PROFESSOR STRANG:
+Compare finite elements
+
+180
+00:11:44,750 --> 00:11:45,940
+with finite differences.
+
+181
+00:11:45,940 --> 00:11:47,790
+Okay, yeah.
+
+182
+00:11:47,790 --> 00:11:55,960
+That's not a silly question.
+
+183
+00:11:55,960 --> 00:11:57,790
+So finite differences
+is certainly
+
+184
+00:11:57,790 --> 00:12:01,770
+associated with
+values at a mesh.
+
+185
+00:12:01,770 --> 00:12:03,800
+Here would be one
+way to think of it.
+
+186
+00:12:03,800 --> 00:12:06,340
+So the question is,
+finite elements,
+
+187
+00:12:06,340 --> 00:12:13,160
+finite element method versus
+finite difference method.
+
+188
+00:12:13,160 --> 00:12:15,610
+And of course, there
+are other methods, too.
+
+189
+00:12:15,610 --> 00:12:25,710
+Okay, I could think
+about finite differences.
+
+190
+00:12:25,710 --> 00:12:30,160
+One way of seeing
+them together is,
+
+191
+00:12:30,160 --> 00:12:36,700
+I could think about finite
+differences this way.
+
+192
+00:12:36,700 --> 00:12:40,480
+My test functions, you
+remember, which I always
+
+193
+00:12:40,480 --> 00:12:43,010
+integrate against.
+
+194
+00:12:43,010 --> 00:12:45,060
+Instead of taking
+the test functions
+
+195
+00:12:45,060 --> 00:12:47,380
+to be the trial functions,
+which is giving us
+
+196
+00:12:47,380 --> 00:12:55,550
+our standard finite element K,
+I could take the test functions
+
+197
+00:12:55,550 --> 00:12:57,230
+to be delta functions.
+
+198
+00:12:57,230 --> 00:13:00,810
+What would happen
+if I take the-- So,
+
+199
+00:13:00,810 --> 00:13:03,420
+again just think about that.
+
+200
+00:13:03,420 --> 00:13:11,860
+Suppose my solution U is
+a combination of the phis,
+
+201
+00:13:11,860 --> 00:13:13,180
+as always.
+
+202
+00:13:13,180 --> 00:13:16,630
+As before.
+
+203
+00:13:16,630 --> 00:13:32,380
+But my test functions, V, are
+delta functions at mesh points.
+
+204
+00:13:32,380 --> 00:13:34,400
+Because up to now,
+we've always taking
+
+205
+00:13:34,400 --> 00:13:36,280
+the V's to be the
+same as the phis.
+
+206
+00:13:36,280 --> 00:13:41,930
+So the V_i, the test functions,
+and I'll want n of them.
+
+207
+00:13:41,930 --> 00:13:44,300
+I'll have n mesh points.
+
+208
+00:13:44,300 --> 00:13:49,190
+My n mesh points, those will
+give me n delta functions,
+
+209
+00:13:49,190 --> 00:13:50,810
+n test functions.
+
+210
+00:13:50,810 --> 00:13:58,050
+And what happens then, when
+I look at the integral?
+
+211
+00:13:58,050 --> 00:14:08,030
+The finite element deal
+says, take the weak form.
+
+212
+00:14:08,030 --> 00:14:12,770
+Well, OK.
+
+213
+00:14:12,770 --> 00:14:17,070
+And you'll see why, I'm going
+to take the weak form before I
+
+214
+00:14:17,070 --> 00:14:20,480
+take the integration by parts.
+
+215
+00:14:20,480 --> 00:14:22,180
+Why is that?
+
+216
+00:14:22,180 --> 00:14:25,180
+Because when I
+integrated by parts,
+
+217
+00:14:25,180 --> 00:14:27,050
+do you remember
+what the effect was?
+
+218
+00:14:27,050 --> 00:14:30,620
+The effect was to take
+a derivative off of U
+
+219
+00:14:30,620 --> 00:14:34,020
+and throw it onto
+the test function V.
+
+220
+00:14:34,020 --> 00:14:38,640
+But now that I'm choosing delta
+functions for the V's, it's
+
+221
+00:14:38,640 --> 00:14:40,800
+too risky.
+
+222
+00:14:40,800 --> 00:14:42,850
+I don't want a derivative
+of a delta function.
+
+223
+00:14:42,850 --> 00:14:44,660
+I better keep it all over here.
+
+224
+00:14:44,660 --> 00:14:53,340
+So I'll have -cU'', times V.
+This is what I had originally.
+
+225
+00:14:53,340 --> 00:14:57,560
+I just took the
+equation, you remember
+
+226
+00:14:57,560 --> 00:14:59,110
+how we got these equations?
+
+227
+00:14:59,110 --> 00:15:05,270
+I just took the strong form,
+multiplied by V, integrated,
+
+228
+00:15:05,270 --> 00:15:08,840
+and now I usually
+integrated by parts,
+
+229
+00:15:08,840 --> 00:15:10,680
+but I'm backing off of that.
+
+230
+00:15:10,680 --> 00:15:20,280
+Because my V is too
+singular to do it.
+
+231
+00:15:20,280 --> 00:15:21,890
+So again, what would I do?
+
+232
+00:15:21,890 --> 00:15:28,210
+My U would be a combination,
+as always, of these.
+
+233
+00:15:28,210 --> 00:15:31,710
+And what will I get
+for these integrals?
+
+234
+00:15:31,710 --> 00:15:34,800
+What will I get for
+those integrals?
+
+235
+00:15:34,800 --> 00:15:37,500
+Well, of course, if
+that's a delta function
+
+236
+00:15:37,500 --> 00:15:40,390
+at a mesh point, when
+I integrate something
+
+237
+00:15:40,390 --> 00:15:44,420
+against a delta
+function, I get--
+
+238
+00:15:44,420 --> 00:15:47,290
+What do I get when I integrate
+against a delta function?
+
+239
+00:15:47,290 --> 00:15:55,360
+If V_i is the delta function
+at a particular mesh point i,
+
+240
+00:15:55,360 --> 00:16:00,170
+as always I get the
+value of that at i.
+
+241
+00:16:00,170 --> 00:16:01,340
+At i.
+
+242
+00:16:01,340 --> 00:16:06,950
+So I'll get -cU'' will
+be whatever it is.
+
+243
+00:16:06,950 --> 00:16:10,790
+It will be the sum of
+U_i's, the unknown constant,
+
+244
+00:16:10,790 --> 00:16:13,100
+times the phi_i double prime.
+
+245
+00:16:13,100 --> 00:16:16,500
+
+
+246
+00:16:16,500 --> 00:16:21,660
+And what will I get on
+the right-hand side?
+
+247
+00:16:21,660 --> 00:16:24,690
+When I integrate f times V_i?
+
+248
+00:16:24,690 --> 00:16:28,280
+I'll get f at that
+mesh point, f_i.
+
+249
+00:16:28,280 --> 00:16:34,240
+In other words, I think what
+I've got there is essentially
+
+250
+00:16:34,240 --> 00:16:37,720
+a difference equation.
+
+251
+00:16:37,720 --> 00:16:40,280
+I'm back pretty much
+to finite differences.
+
+252
+00:16:40,280 --> 00:16:44,680
+I'm taking the value f, not
+integrated now, but just
+
+253
+00:16:44,680 --> 00:16:46,740
+its value at i,
+because that's what I
+
+254
+00:16:46,740 --> 00:16:49,050
+get when I do a delta function.
+
+255
+00:16:49,050 --> 00:16:50,160
+And I'm taking this.
+
+256
+00:16:50,160 --> 00:16:52,970
+Notice, a lot of things
+are different here.
+
+257
+00:16:52,970 --> 00:16:55,290
+And there's a name for this.
+
+258
+00:16:55,290 --> 00:17:00,760
+This is called collocation.
+
+259
+00:17:00,760 --> 00:17:04,680
+I guess what I'm saying
+is collocation, this idea,
+
+260
+00:17:04,680 --> 00:17:07,620
+is somewhere in between.
+
+261
+00:17:07,620 --> 00:17:17,290
+I'm interpolating -- collocation
+-- between the finite element,
+
+262
+00:17:17,290 --> 00:17:21,040
+the Galerkin principle,
+and finite differences,
+
+263
+00:17:21,040 --> 00:17:23,600
+where I don't even think
+about trial functions.
+
+264
+00:17:23,600 --> 00:17:27,320
+In between is something
+that really looks like--
+
+265
+00:17:27,320 --> 00:17:35,900
+[SOFT MUSIC] [LAUGHTER] I don't
+know if that wonderful music
+
+266
+00:17:35,900 --> 00:17:39,750
+comes through on the
+OpenCourseWare tape,
+
+267
+00:17:39,750 --> 00:17:41,310
+but anyway.
+
+268
+00:17:41,310 --> 00:17:42,360
+This is MIT.
+
+269
+00:17:42,360 --> 00:17:45,700
+We get a brass band here.
+
+270
+00:17:45,700 --> 00:18:04,500
+Okay, that would be a very
+finite-difference-looking set
+
+271
+00:18:04,500 --> 00:18:09,450
+of equations to approximate the
+original differential equation.
+
+272
+00:18:09,450 --> 00:18:13,640
+The point I want to
+make, this gives me
+
+273
+00:18:13,640 --> 00:18:16,630
+a chance to make a point here.
+
+274
+00:18:16,630 --> 00:18:19,410
+Could I use hat functions?
+
+275
+00:18:19,410 --> 00:18:25,100
+Could I use hat functions in
+this as my trial functions,
+
+276
+00:18:25,100 --> 00:18:29,310
+if I was not going to
+integrate by parts?
+
+277
+00:18:29,310 --> 00:18:31,360
+When are hat functions allowed?
+
+278
+00:18:31,360 --> 00:18:33,500
+Because hat functions
+have a jump in the slope.
+
+279
+00:18:33,500 --> 00:18:34,750
+Right?
+
+280
+00:18:34,750 --> 00:18:37,220
+Hat functions have
+a jump in the slope.
+
+281
+00:18:37,220 --> 00:18:42,210
+Then my answer, you can
+see it coming, is no.
+
+282
+00:18:42,210 --> 00:18:47,620
+Hat functions, they don't
+have good second derivatives.
+
+283
+00:18:47,620 --> 00:18:50,880
+So I wanted to make that
+point, also, for beam bending.
+
+284
+00:18:50,880 --> 00:18:56,460
+And let me make it.
+
+285
+00:18:56,460 --> 00:18:59,270
+So your question is
+leading me to another topic
+
+286
+00:18:59,270 --> 00:19:04,440
+that I wanted to mention.
+
+287
+00:19:04,440 --> 00:19:16,000
+That hat functions, phi' is OK.
+
+288
+00:19:16,000 --> 00:19:19,150
+Phi double prime, second
+derivatives of hat functions,
+
+289
+00:19:19,150 --> 00:19:27,460
+are basically, let me just
+say it in a word, not OK.
+
+290
+00:19:27,460 --> 00:19:33,910
+So this is OK, this is for
+second order equations.
+
+291
+00:19:33,910 --> 00:19:38,460
+Well, second order equations
+have a second derivative.
+
+292
+00:19:38,460 --> 00:19:39,310
+Looking bad.
+
+293
+00:19:39,310 --> 00:19:47,690
+But when I integrate by parts--
+After integration by parts.
+
+294
+00:19:47,690 --> 00:19:50,460
+And that's exactly
+how we've used them.
+
+295
+00:19:50,460 --> 00:19:53,020
+We've used them for our
+second order equation.
+
+296
+00:19:53,020 --> 00:19:54,660
+We integrated by parts.
+
+297
+00:19:54,660 --> 00:20:03,030
+We had terms like cu'--
+c phi primes times V'.
+
+298
+00:20:03,030 --> 00:20:07,350
+First derivatives, no problem.
+
+299
+00:20:07,350 --> 00:20:18,910
+But not OK for
+collocation, this method
+
+300
+00:20:18,910 --> 00:20:20,710
+that I've just spoken about.
+
+301
+00:20:20,710 --> 00:20:24,200
+Because we're not
+integrating by parts.
+
+302
+00:20:24,200 --> 00:20:27,290
+Our test function V,
+the delta, was not
+
+303
+00:20:27,290 --> 00:20:29,900
+smooth enough to move a
+derivative over there.
+
+304
+00:20:29,900 --> 00:20:38,280
+And, now my additional
+not OK, for bending.
+
+305
+00:20:38,280 --> 00:20:42,640
+So this is just bringing
+us into today's lecture,
+
+306
+00:20:42,640 --> 00:20:47,060
+but maybe it completes a point.
+
+307
+00:20:47,060 --> 00:20:52,390
+So in bending we did
+integrate by parts.
+
+308
+00:20:52,390 --> 00:20:55,810
+So what did we get?
+
+309
+00:20:55,810 --> 00:21:01,750
+Our bending weak form,
+our fourth order equation
+
+310
+00:21:01,750 --> 00:21:02,860
+weak form.
+
+311
+00:21:02,860 --> 00:21:07,000
+Say u fourth
+derivative equal f(x).
+
+312
+00:21:07,000 --> 00:21:10,200
+When I integrated
+by parts twice,
+
+313
+00:21:10,200 --> 00:21:17,070
+you remember, I had
+u fourth times a v,
+
+314
+00:21:17,070 --> 00:21:20,070
+times a test function, dx.
+
+315
+00:21:20,070 --> 00:21:24,500
+And my idea, so really
+we're seeing it here
+
+316
+00:21:24,500 --> 00:21:28,750
+for the first time, was to
+do two integrations by parts,
+
+317
+00:21:28,750 --> 00:21:36,320
+get two derivatives off
+of u, put them onto v,
+
+318
+00:21:36,320 --> 00:21:39,620
+and maybe there's a
+c(x) in here, too.
+
+319
+00:21:39,620 --> 00:21:44,900
+This was our
+integral to be done.
+
+320
+00:21:44,900 --> 00:21:51,390
+That's the basic integral that
+leads to all the entries of K.
+
+321
+00:21:51,390 --> 00:21:55,120
+But the trouble is-- So
+that's in the bending problem.
+
+322
+00:21:55,120 --> 00:21:58,050
+In the fourth order
+problem, our integrals
+
+323
+00:21:58,050 --> 00:21:59,640
+are going to look like that.
+
+324
+00:21:59,640 --> 00:22:03,460
+And we have to use functions
+that are good enough.
+
+325
+00:22:03,460 --> 00:22:07,270
+So if I use hat functions,
+they're not good enough.
+
+326
+00:22:07,270 --> 00:22:07,890
+Why's that?
+
+327
+00:22:07,890 --> 00:22:10,380
+If you suppose u
+and v are the same,
+
+328
+00:22:10,380 --> 00:22:13,980
+then I'm integrating the
+second derivative squared.
+
+329
+00:22:13,980 --> 00:22:16,850
+And what is the second
+derivative, what's its square,
+
+330
+00:22:16,850 --> 00:22:19,010
+and what's the integral?
+
+331
+00:22:19,010 --> 00:22:26,220
+This is really
+worth recognizing.
+
+332
+00:22:26,220 --> 00:22:32,970
+So suppose phi is the same as
+v, and it's the hat function.
+
+333
+00:22:32,970 --> 00:22:36,750
+And if I want to
+integrate some constant,
+
+334
+00:22:36,750 --> 00:22:45,690
+or some nice function times
+phi'' times v'', what do I get?
+
+335
+00:22:45,690 --> 00:22:47,660
+What's the second derivative?
+
+336
+00:22:47,660 --> 00:22:52,900
+What's the first derivative
+of my hat function?
+
+337
+00:22:52,900 --> 00:22:54,790
+It's up, right?
+
+338
+00:22:54,790 --> 00:22:56,350
+It's the first derivative.
+
+339
+00:22:56,350 --> 00:23:01,830
+So let me do phi'*v', is,
+let me draw its graph.
+
+340
+00:23:01,830 --> 00:23:05,850
+The first derivative
+is zero up to there,
+
+341
+00:23:05,850 --> 00:23:09,690
+then the first derivative
+jumps up to something high,
+
+342
+00:23:09,690 --> 00:23:11,000
+up to the middle.
+
+343
+00:23:11,000 --> 00:23:14,110
+Then it drops to the negative.
+
+344
+00:23:14,110 --> 00:23:15,800
+And then it comes back to zero.
+
+345
+00:23:15,800 --> 00:23:18,010
+Right?
+
+346
+00:23:18,010 --> 00:23:21,090
+That's my first derivative.
+
+347
+00:23:21,090 --> 00:23:24,510
+I'm OK integrating that.
+
+348
+00:23:24,510 --> 00:23:27,450
+I'm OK squaring it
+and integrating.
+
+349
+00:23:27,450 --> 00:23:32,390
+But the second derivative, if
+I graph phi'', which will be
+
+350
+00:23:32,390 --> 00:23:36,300
+the same as v'', what's the
+second derivative of that
+
+351
+00:23:36,300 --> 00:23:37,160
+function?
+
+352
+00:23:37,160 --> 00:23:42,130
+It's zero, and then what
+is it at this point?
+
+353
+00:23:42,130 --> 00:23:44,300
+The derivative now?
+
+354
+00:23:44,300 --> 00:23:45,520
+Delta, right?
+
+355
+00:23:45,520 --> 00:23:47,030
+Spikes up.
+
+356
+00:23:47,030 --> 00:23:50,280
+Then nothing until this point.
+
+357
+00:23:50,280 --> 00:23:52,900
+At that point what happens?
+
+358
+00:23:52,900 --> 00:23:55,730
+Spikes down twice as far.
+
+359
+00:23:55,730 --> 00:23:57,260
+Really way down.
+
+360
+00:23:57,260 --> 00:24:01,870
+And then finally
+there's a spike up.
+
+361
+00:24:01,870 --> 00:24:02,610
+Okay.
+
+362
+00:24:02,610 --> 00:24:07,690
+I can integrate spikes
+times nice functions.
+
+363
+00:24:07,690 --> 00:24:12,430
+What I can't integrate
+is a spike times a spike.
+
+364
+00:24:12,430 --> 00:24:16,990
+So the answer for
+this integral is what?
+
+365
+00:24:16,990 --> 00:24:18,220
+It's infinite.
+
+366
+00:24:18,220 --> 00:24:20,340
+The integral is no good.
+
+367
+00:24:20,340 --> 00:24:30,660
+If I have a spike times a spike,
+you see-- Delta functions,
+
+368
+00:24:30,660 --> 00:24:41,930
+I'm OK with a nice function,
+f(x) times a delta, is OK.
+
+369
+00:24:41,930 --> 00:24:48,910
+But not OK for the integral of
+delta of x times delta of x.
+
+370
+00:24:48,910 --> 00:24:51,130
+That's not OK.
+
+371
+00:24:51,130 --> 00:24:53,660
+That one is infinite.
+
+372
+00:24:53,660 --> 00:24:57,640
+That one is not in
+our space of functions
+
+373
+00:24:57,640 --> 00:24:59,140
+that we can integrate.
+
+374
+00:24:59,140 --> 00:24:59,640
+OK.
+
+375
+00:24:59,640 --> 00:25:10,460
+So this is the difficulty
+you meet with higher order
+
+376
+00:25:10,460 --> 00:25:14,530
+problems, is that
+your functions, some
+
+377
+00:25:14,530 --> 00:25:19,960
+of the old functions that
+worked fine, are no longer OK.
+
+378
+00:25:19,960 --> 00:25:24,970
+I need two derivatives.
+
+379
+00:25:24,970 --> 00:25:28,990
+Or I need to be
+able to integrate
+
+380
+00:25:28,990 --> 00:25:31,760
+the second derivative squared.
+
+381
+00:25:31,760 --> 00:25:36,020
+It can have a jump, but
+it can't have a spike.
+
+382
+00:25:36,020 --> 00:25:41,700
+So what functions
+have we chosen?
+
+383
+00:25:41,700 --> 00:25:43,740
+How would we deal
+with bending problems?
+
+384
+00:25:43,740 --> 00:25:47,910
+And I guess that'll probably
+come, maybe quickly,
+
+385
+00:25:47,910 --> 00:25:49,740
+into Friday's lecture.
+
+386
+00:25:49,740 --> 00:25:53,880
+How would I do finite
+elements for bending?
+
+387
+00:25:53,880 --> 00:26:01,630
+I'm not allowed to use
+hats, so what will I use?
+
+388
+00:26:01,630 --> 00:26:06,120
+Do you remember that
+construction, Monday?
+
+389
+00:26:06,120 --> 00:26:08,030
+Those cubics.
+
+390
+00:26:08,030 --> 00:26:14,020
+Remember those cubics, those
+C^1 cubics would be OK.
+
+391
+00:26:14,020 --> 00:26:14,800
+Why's that?
+
+392
+00:26:14,800 --> 00:26:18,060
+Because they have a
+continuous derivative.
+
+393
+00:26:18,060 --> 00:26:21,710
+They're one degree smoother
+than hat functions.
+
+394
+00:26:21,710 --> 00:26:24,640
+These were C^0 hat functions.
+
+395
+00:26:24,640 --> 00:26:28,300
+And they were still C^0
+when I put bubbles in there.
+
+396
+00:26:28,300 --> 00:26:33,100
+I had to get up to that
+extra degree of smoothness,
+
+397
+00:26:33,100 --> 00:26:35,680
+this continuous slope.
+
+398
+00:26:35,680 --> 00:26:38,880
+Then I can take the
+second derivative.
+
+399
+00:26:38,880 --> 00:26:41,620
+The second derivative
+may have a jump.
+
+400
+00:26:41,620 --> 00:26:43,200
+Jumps are OK.
+
+401
+00:26:43,200 --> 00:26:46,760
+A jump in the second derivative
+there and a jump there,
+
+402
+00:26:46,760 --> 00:26:50,950
+I can multiply two jump
+functions and integrate.
+
+403
+00:26:50,950 --> 00:26:54,550
+So those C^1 cubics
+that we constructed,
+
+404
+00:26:54,550 --> 00:27:00,060
+you remember at every
+node I had two unknowns,
+
+405
+00:27:00,060 --> 00:27:01,190
+the height and the slope.
+
+406
+00:27:01,190 --> 00:27:05,880
+So there were two cubics
+for each mesh point.
+
+407
+00:27:05,880 --> 00:27:12,590
+But the key idea was that they
+had this extra continuity.
+
+408
+00:27:12,590 --> 00:27:15,820
+And let me just
+say, looking ahead,
+
+409
+00:27:15,820 --> 00:27:19,230
+these splines that
+are also coming Friday
+
+410
+00:27:19,230 --> 00:27:21,830
+have one more degree of freedom.
+
+411
+00:27:21,830 --> 00:27:24,670
+I'm sorry, one
+more, there's C^2.
+
+412
+00:27:24,670 --> 00:27:31,030
+So splines, cubic splines
+-- I'll just put it here
+
+413
+00:27:31,030 --> 00:27:41,480
+because it fits -- C^2 for cubic
+splines, that's coming Monday.
+
+414
+00:27:41,480 --> 00:27:44,600
+That's functions that have
+two continuous derivatives,
+
+415
+00:27:44,600 --> 00:27:47,000
+and the jump is in
+the third derivative.
+
+416
+00:27:47,000 --> 00:27:50,130
+So those could be
+used, well, they
+
+417
+00:27:50,130 --> 00:27:52,730
+could be used for
+sixth order problems.
+
+418
+00:27:52,730 --> 00:27:56,870
+Of course we're never going
+to see a sixth order problem.
+
+419
+00:27:56,870 --> 00:27:57,730
+I hope.
+
+420
+00:27:57,730 --> 00:27:59,630
+But they could be used there.
+
+421
+00:27:59,630 --> 00:28:04,645
+Or they could be used in
+collocation for fourth order--
+
+422
+00:28:04,645 --> 00:28:06,770
+Well, could they be used
+for fourth order problems?
+
+423
+00:28:06,770 --> 00:28:08,170
+I'm not sure.
+
+424
+00:28:08,170 --> 00:28:15,570
+Anyway, the more smoothness,
+as I go up in the derivatives,
+
+425
+00:28:15,570 --> 00:28:22,290
+I have to get more smoothness
+in all the finite element
+
+426
+00:28:22,290 --> 00:28:23,480
+constructions.
+
+427
+00:28:23,480 --> 00:28:25,630
+And it gets a lot harder.
+
+428
+00:28:25,630 --> 00:28:29,420
+Actually, I can do it in 1-D,
+but it gets seriously hard
+
+429
+00:28:29,420 --> 00:28:34,410
+in two dimensions to figure
+out function surfaces
+
+430
+00:28:34,410 --> 00:28:38,960
+that-- This is what CAD
+is all about, actually.
+
+431
+00:28:38,960 --> 00:28:41,950
+Is figuring out, how do
+you get smooth surfaces?
+
+432
+00:28:41,950 --> 00:28:48,990
+The whole CAD/CAM world of NURBS
+and piecewise, rational things.
+
+433
+00:28:48,990 --> 00:28:52,030
+It's a very complicated
+construction,
+
+434
+00:28:52,030 --> 00:28:57,060
+to get the shape of
+some engineering piece
+
+435
+00:28:57,060 --> 00:29:00,040
+approximated, including
+its curved boundary,
+
+436
+00:29:00,040 --> 00:29:07,330
+by smooth piecewise polynomials,
+or piecewise something.
+
+437
+00:29:07,330 --> 00:29:14,500
+That whole world of CAD is
+not trivial, to do that.
+
+438
+00:29:14,500 --> 00:29:18,330
+Well, OK, that's my speech.
+
+439
+00:29:18,330 --> 00:29:21,050
+You got me started
+with your question.
+
+440
+00:29:21,050 --> 00:29:22,797
+Did I answer your
+question in some way?
+
+441
+00:29:22,797 --> 00:29:23,880
+AUDIENCE: [UNINTELLIGIBLE]
+
+442
+00:29:23,880 --> 00:29:25,838
+PROFESSOR STRANG: It went
+beyond your question.
+
+443
+00:29:25,838 --> 00:29:27,760
+Yes it did.
+
+444
+00:29:27,760 --> 00:29:28,610
+That's right.
+
+445
+00:29:28,610 --> 00:29:32,120
+These are things
+that I may not have
+
+446
+00:29:32,120 --> 00:29:35,740
+time to develop in
+Friday's lecture,
+
+447
+00:29:35,740 --> 00:29:39,180
+because I really have to
+get on to two dimensions,
+
+448
+00:29:39,180 --> 00:29:44,190
+and gradients and divergences,
+all that good stuff
+
+449
+00:29:44,190 --> 00:29:45,610
+has to start Monday.
+
+450
+00:29:45,610 --> 00:29:50,510
+So we'll see something
+about splines Friday.
+
+451
+00:29:50,510 --> 00:29:56,250
+But the whole world
+of different elements
+
+452
+00:29:56,250 --> 00:29:57,640
+is sort of interesting.
+
+453
+00:29:57,640 --> 00:30:04,380
+Actually, can I say one more
+thing about the elements
+
+454
+00:30:04,380 --> 00:30:06,540
+that we've already constructed.
+
+455
+00:30:06,540 --> 00:30:10,330
+I want to say one more
+point that occurs to me.
+
+456
+00:30:10,330 --> 00:30:17,490
+And then I really will
+stop and answer questions.
+
+457
+00:30:17,490 --> 00:30:21,080
+This extra point occurred to me.
+
+458
+00:30:21,080 --> 00:30:28,070
+You remember our example
+where we had hat functions,
+
+459
+00:30:28,070 --> 00:30:31,730
+and then we also had
+bubble functions.
+
+460
+00:30:31,730 --> 00:30:32,690
+Right?
+
+461
+00:30:32,690 --> 00:30:36,180
+So where did the bubble go?
+
+462
+00:30:36,180 --> 00:30:44,390
+These were only C^0, hats plus
+bubbles, plus parabola bubbles,
+
+463
+00:30:44,390 --> 00:30:47,560
+quadratic bubbles.
+
+464
+00:30:47,560 --> 00:30:50,900
+Parabola bubble functions.
+
+465
+00:30:50,900 --> 00:30:54,030
+So how did those go?
+
+466
+00:30:54,030 --> 00:30:59,455
+Between two mesh
+points-- Sorry, I'd
+
+467
+00:30:59,455 --> 00:31:05,960
+better leave myself more
+space for that bubble.
+
+468
+00:31:05,960 --> 00:31:09,970
+OK, so one of these
+guys goes up, down.
+
+469
+00:31:09,970 --> 00:31:14,150
+One of these guys, another
+hat goes up and down.
+
+470
+00:31:14,150 --> 00:31:20,700
+And then between two I threw
+in a bubble function, like so.
+
+471
+00:31:20,700 --> 00:31:22,760
+Right?
+
+472
+00:31:22,760 --> 00:31:28,110
+So those were all in my list
+of trial functions and test
+
+473
+00:31:28,110 --> 00:31:29,240
+functions.
+
+474
+00:31:29,240 --> 00:31:33,860
+Two kinds, hats and bubbles.
+
+475
+00:31:33,860 --> 00:31:36,300
+Now, that's all fine.
+
+476
+00:31:36,300 --> 00:31:38,750
+And we can do these integrals.
+
+477
+00:31:38,750 --> 00:31:44,190
+But one point I
+sort of went past.
+
+478
+00:31:44,190 --> 00:31:51,260
+So let's call this phi left,
+phi bubble, and phi right.
+
+479
+00:31:51,260 --> 00:31:54,090
+OK.
+
+480
+00:31:54,090 --> 00:32:00,050
+So my trial functions, my
+approximate solution, U,
+
+481
+00:32:00,050 --> 00:32:05,380
+is going to be some
+amount of that left hat,
+
+482
+00:32:05,380 --> 00:32:14,130
+some amount of the bubble,
+some amount of the right hat.
+
+483
+00:32:14,130 --> 00:32:21,580
+And more functions
+on other intervals.
+
+484
+00:32:21,580 --> 00:32:26,200
+Now, my point is
+just a simple one.
+
+485
+00:32:26,200 --> 00:32:33,050
+When we only had hats, then U
+and the coefficient of this hat
+
+486
+00:32:33,050 --> 00:32:36,600
+was exactly the value
+of U at that mesh point.
+
+487
+00:32:36,600 --> 00:32:37,530
+Why was that?
+
+488
+00:32:37,530 --> 00:32:40,410
+Because all the other
+hats were zero there.
+
+489
+00:32:40,410 --> 00:32:45,940
+So when I only had hats,
+these U's, U left and U right,
+
+490
+00:32:45,940 --> 00:32:51,330
+were exactly the values of my
+approximation at the nodes.
+
+491
+00:32:51,330 --> 00:32:55,430
+That's why it looked so much
+like finite differences.
+
+492
+00:32:55,430 --> 00:33:01,220
+What I want to ask you is, so
+if I take the halfway point
+
+493
+00:33:01,220 --> 00:33:05,660
+as the sort of mesh
+point for the bubble,
+
+494
+00:33:05,660 --> 00:33:09,520
+what is the value of
+U of my approximation,
+
+495
+00:33:09,520 --> 00:33:14,030
+at that halfway point?
+
+496
+00:33:14,030 --> 00:33:16,560
+I just want to plug
+in halfway point,
+
+497
+00:33:16,560 --> 00:33:19,030
+evaluate everything
+at the halfway point.
+
+498
+00:33:19,030 --> 00:33:22,800
+So I want to find U
+at this halfway point.
+
+499
+00:33:22,800 --> 00:33:25,540
+Right there.
+
+500
+00:33:25,540 --> 00:33:26,900
+Do you see what's happening?
+
+501
+00:33:26,900 --> 00:33:29,860
+U bubble, what is U
+bubble, or phi bubble
+
+502
+00:33:29,860 --> 00:33:32,140
+at the halfway point?
+
+503
+00:33:32,140 --> 00:33:33,260
+One.
+
+504
+00:33:33,260 --> 00:33:35,890
+The bubble goes up to
+one at the halfway point.
+
+505
+00:33:35,890 --> 00:33:39,740
+So the coefficient that
+multiplies it multiplies one.
+
+506
+00:33:39,740 --> 00:33:40,540
+And you think, ah.
+
+507
+00:33:40,540 --> 00:33:43,940
+You might think, all
+right, that's the value
+
+508
+00:33:43,940 --> 00:33:48,910
+of my approximation
+at the halfway point.
+
+509
+00:33:48,910 --> 00:33:51,660
+But that's wrong, correct?
+
+510
+00:33:51,660 --> 00:33:54,410
+What is the value
+of my approximation
+
+511
+00:33:54,410 --> 00:33:56,370
+at the halfway point, here?
+
+512
+00:33:56,370 --> 00:34:01,170
+Well, this guy is not
+zero at the halfway point.
+
+513
+00:34:01,170 --> 00:34:02,790
+This one is not zero.
+
+514
+00:34:02,790 --> 00:34:08,030
+This should have been R, sorry.
+
+515
+00:34:08,030 --> 00:34:12,900
+These hats are not zero there.
+
+516
+00:34:12,900 --> 00:34:15,870
+My basis is not
+quite as beautiful.
+
+517
+00:34:15,870 --> 00:34:19,690
+It's not quite as beautiful,
+because my trial functions
+
+518
+00:34:19,690 --> 00:34:23,670
+are not one trial
+function per mesh point,
+
+519
+00:34:23,670 --> 00:34:30,380
+including halfway
+points, as before.
+
+520
+00:34:30,380 --> 00:34:31,290
+No problem.
+
+521
+00:34:31,290 --> 00:34:35,480
+I can do all the integrals,
+I can get the values,
+
+522
+00:34:35,480 --> 00:34:39,240
+I can solve KU=F to
+find the weights.
+
+523
+00:34:39,240 --> 00:34:44,520
+And then I just have to remember
+that my basis is not as perfect
+
+524
+00:34:44,520 --> 00:34:47,840
+as before, because
+at that mesh point,
+
+525
+00:34:47,840 --> 00:34:52,000
+three functions
+are contributing.
+
+526
+00:34:52,000 --> 00:34:55,960
+Probably I'm making this
+sound like a big deal.
+
+527
+00:34:55,960 --> 00:34:57,520
+It isn't a big
+deal, but you have
+
+528
+00:34:57,520 --> 00:34:59,700
+to remember that
+that's the case,
+
+529
+00:34:59,700 --> 00:35:01,680
+that that coefficient
+of the bubble
+
+530
+00:35:01,680 --> 00:35:04,010
+is not your solution
+at that point.
+
+531
+00:35:04,010 --> 00:35:08,180
+You have to remember that the
+left hat and the right hat
+
+532
+00:35:08,180 --> 00:35:14,740
+are also contributing
+at that point.
+
+533
+00:35:14,740 --> 00:35:21,930
+Or I could rethink my
+functions, and make them-- Now
+
+534
+00:35:21,930 --> 00:35:23,060
+that's the cool thing.
+
+535
+00:35:23,060 --> 00:35:24,710
+So that's the idea.
+
+536
+00:35:24,710 --> 00:35:30,200
+Just so you see that
+I could do that.
+
+537
+00:35:30,200 --> 00:35:34,250
+Here is my left point,
+here's my halfway point,
+
+538
+00:35:34,250 --> 00:35:36,370
+and here's my right point.
+
+539
+00:35:36,370 --> 00:35:42,340
+So I'm going to have the
+same combinations, which
+
+540
+00:35:42,340 --> 00:35:53,810
+are the piecewise parabolas that
+are continuous at the nodes.
+
+541
+00:35:53,810 --> 00:35:56,220
+Let me show it to you.
+
+542
+00:35:56,220 --> 00:36:00,660
+I could change from
+hats and bubbles to,
+
+543
+00:36:00,660 --> 00:36:02,370
+I'll keep the bubble,
+because that's
+
+544
+00:36:02,370 --> 00:36:06,310
+one at the halfway point.
+
+545
+00:36:06,310 --> 00:36:08,200
+That's good.
+
+546
+00:36:08,200 --> 00:36:12,820
+But I have to fix
+those hat functions.
+
+547
+00:36:12,820 --> 00:36:19,000
+If I want the hat
+functions to be focused--
+
+548
+00:36:19,000 --> 00:36:23,330
+If I want the phi left function,
+I call that a hat function,
+
+549
+00:36:23,330 --> 00:36:29,020
+but it's going to change shape,
+it won't be a conical hat.
+
+550
+00:36:29,020 --> 00:36:31,480
+If I want a phi
+function, I want it
+
+551
+00:36:31,480 --> 00:36:35,810
+to be one at that point,
+its own home point,
+
+552
+00:36:35,810 --> 00:36:38,120
+but what else do I want?
+
+553
+00:36:38,120 --> 00:36:40,450
+I want it to be zero there.
+
+554
+00:36:40,450 --> 00:36:42,230
+I don't want it to
+contribute there,
+
+555
+00:36:42,230 --> 00:36:45,220
+if I want this perfection.
+
+556
+00:36:45,220 --> 00:36:46,070
+Or there.
+
+557
+00:36:46,070 --> 00:36:52,460
+So you see my hat, instead
+of coming down like that
+
+558
+00:36:52,460 --> 00:36:59,190
+and being 1/2 at that
+point, what shall I do?
+
+559
+00:36:59,190 --> 00:37:02,060
+I replace that hat
+by some combination
+
+560
+00:37:02,060 --> 00:37:08,470
+of the hat and the bubble to
+make a parabola that does that.
+
+561
+00:37:08,470 --> 00:37:15,910
+And of course, this other
+way will be the same.
+
+562
+00:37:15,910 --> 00:37:17,490
+So that's not a hat anymore.
+
+563
+00:37:17,490 --> 00:37:19,780
+What name should I give it?
+
+564
+00:37:19,780 --> 00:37:24,240
+Anybody suggest a name?
+
+565
+00:37:24,240 --> 00:37:26,611
+It's sort of a hat.
+
+566
+00:37:26,611 --> 00:37:27,110
+Sombrero.
+
+567
+00:37:27,110 --> 00:37:30,820
+Sombrero. [LAUGHTER]
+OK, so I now
+
+568
+00:37:30,820 --> 00:37:34,270
+have sombrero functions, right?
+
+569
+00:37:34,270 --> 00:37:34,990
+OK.
+
+570
+00:37:34,990 --> 00:37:36,630
+Good.
+
+571
+00:37:36,630 --> 00:37:40,653
+And there'll be a sombrero
+function, instead of the hat,
+
+572
+00:37:40,653 --> 00:37:43,360
+it was replaced by a better hat.
+
+573
+00:37:43,360 --> 00:37:45,060
+Now what about the one here?
+
+574
+00:37:45,060 --> 00:37:47,680
+Just tell me, how
+do I draw that one?
+
+575
+00:37:47,680 --> 00:37:52,890
+What's that function?
+
+576
+00:37:52,890 --> 00:37:55,970
+I'll do it with dashed
+lines, it's zero,
+
+577
+00:37:55,970 --> 00:38:02,640
+it should be zero at its
+nodes-- at the nodes that
+
+578
+00:38:02,640 --> 00:38:04,150
+are not its nodes.
+
+579
+00:38:04,150 --> 00:38:09,680
+So you see each one is going
+to come down and back up.
+
+580
+00:38:09,680 --> 00:38:13,290
+Really, I'm just saying you
+have the freedom to do this.
+
+581
+00:38:13,290 --> 00:38:16,410
+By using combinations
+of those functions,
+
+582
+00:38:16,410 --> 00:38:18,780
+I get exactly the
+same as combinations
+
+583
+00:38:18,780 --> 00:38:20,140
+of these functions.
+
+584
+00:38:20,140 --> 00:38:26,700
+The only difference is that with
+these new sombrero functions--
+
+585
+00:38:26,700 --> 00:38:32,140
+So now I have a U left sombrero
+times a phi left sombrero,
+
+586
+00:38:32,140 --> 00:38:36,570
+and a U bubble times its
+own bubble, I didn't change.
+
+587
+00:38:36,570 --> 00:38:41,500
+And a U right sombrero times
+its phi right sombrero.
+
+588
+00:38:41,500 --> 00:38:45,720
+And the only point is that,
+at that halfway point,
+
+589
+00:38:45,720 --> 00:38:50,580
+what does this equal
+at the halfway point?
+
+590
+00:38:50,580 --> 00:38:52,151
+It equals that.
+
+591
+00:38:52,151 --> 00:38:52,650
+Right.
+
+592
+00:38:52,650 --> 00:38:56,760
+I've just done a little
+change of variables.
+
+593
+00:38:56,760 --> 00:38:59,940
+I've changed the
+function, so that
+
+594
+00:38:59,940 --> 00:39:05,520
+would change its coefficients,
+but it's still the same space
+
+595
+00:39:05,520 --> 00:39:06,480
+of test functions.
+
+596
+00:39:06,480 --> 00:39:08,360
+I didn't change that.
+
+597
+00:39:08,360 --> 00:39:10,390
+My space of test
+functions, these
+
+598
+00:39:10,390 --> 00:39:15,350
+are all still
+piecewise parabolas.
+
+599
+00:39:15,350 --> 00:39:18,360
+They always were piecewise
+parabolas, but some of them
+
+600
+00:39:18,360 --> 00:39:20,040
+were straight parabolas.
+
+601
+00:39:20,040 --> 00:39:25,050
+Now they're more
+interesting parabolas.
+
+602
+00:39:25,050 --> 00:39:31,200
+OK, that may be a point you
+didn't think about, anyway.
+
+603
+00:39:31,200 --> 00:39:42,380
+But it shows you that in
+constructing finite elements,
+
+604
+00:39:42,380 --> 00:39:45,760
+it's really what
+combinations you
+
+605
+00:39:45,760 --> 00:39:51,730
+get, more than what
+individual hats or not,
+
+606
+00:39:51,730 --> 00:39:53,810
+or sombreros you might use.
+
+607
+00:39:53,810 --> 00:39:56,950
+In other words, you could
+use either of those.
+
+608
+00:39:56,950 --> 00:39:59,840
+If you use the hat
+functions, then you
+
+609
+00:39:59,840 --> 00:40:04,600
+could build on easy integrals.
+
+610
+00:40:04,600 --> 00:40:08,710
+Those integrals would be a
+little trickier, not seriously.
+
+611
+00:40:08,710 --> 00:40:13,530
+And then the solution would be
+like a finite difference thing.
+
+612
+00:40:13,530 --> 00:40:16,690
+Every U would link
+to a mesh point.
+
+613
+00:40:16,690 --> 00:40:19,330
+OK.
+
+614
+00:40:19,330 --> 00:40:21,650
+I'll leave that
+and hope you guys
+
+615
+00:40:21,650 --> 00:40:23,240
+have some questions
+about homework.
+
+616
+00:40:23,240 --> 00:40:23,740
+Thanks.
+
+617
+00:40:23,740 --> 00:40:24,950
+AUDIENCE: [UNINTELLIGIBLE]
+
+618
+00:40:24,950 --> 00:40:30,410
+PROFESSOR STRANG: Oh,
+a question about this?
+
+619
+00:40:30,410 --> 00:40:33,070
+AUDIENCE: [UNINTELLIGIBLE]
+
+620
+00:40:33,070 --> 00:40:41,940
+PROFESSOR STRANG: Yeah, when
+I say better accuracy, when
+
+621
+00:40:41,940 --> 00:40:44,900
+I put the hats and
+the bubbles together,
+
+622
+00:40:44,900 --> 00:40:48,690
+the improvement would
+be noticed in between.
+
+623
+00:40:48,690 --> 00:40:49,190
+Yeah.
+
+624
+00:40:49,190 --> 00:40:55,580
+AUDIENCE: [UNINTELLIGIBLE]
+
+625
+00:40:55,580 --> 00:40:58,150
+PROFESSOR STRANG:
+These guys, you mean?
+
+626
+00:40:58,150 --> 00:40:58,770
+Well yeah.
+
+627
+00:40:58,770 --> 00:41:01,160
+I didn't change a thing.
+
+628
+00:41:01,160 --> 00:41:03,630
+The answer would
+still be the same.
+
+629
+00:41:03,630 --> 00:41:08,140
+My capital U that would come
+out would be no different.
+
+630
+00:41:08,140 --> 00:41:10,730
+It's just I've chosen
+a different basis,
+
+631
+00:41:10,730 --> 00:41:13,470
+you could say, to represent it.
+
+632
+00:41:13,470 --> 00:41:15,910
+But there wouldn't
+be any difference,
+
+633
+00:41:15,910 --> 00:41:19,450
+and it would still be-- So
+what would be the accuracy now?
+
+634
+00:41:19,450 --> 00:41:22,160
+This is like a good review.
+
+635
+00:41:22,160 --> 00:41:25,510
+How close will U be
+to the true solution?
+
+636
+00:41:25,510 --> 00:41:30,100
+Well, I've got up to
+quadratic, second degree,
+
+637
+00:41:30,100 --> 00:41:33,680
+so I would expect h cubed error.
+
+638
+00:41:33,680 --> 00:41:36,400
+Because that's the
+term I'm missing.
+
+639
+00:41:36,400 --> 00:41:39,660
+And that's the term that
+the cubics would get.
+
+640
+00:41:39,660 --> 00:41:40,710
+Right.
+
+641
+00:41:40,710 --> 00:41:41,670
+Yes?
+
+642
+00:41:41,670 --> 00:41:51,920
+AUDIENCE: [UNINTELLIGIBLE]
+PROFESSOR STRANG:
+
+643
+00:41:51,920 --> 00:41:58,120
+The question is, why did
+I pick-- So I had my hats.
+
+644
+00:41:58,120 --> 00:42:00,430
+I guess essentially,
+I wanted to throw
+
+645
+00:42:00,430 --> 00:42:03,430
+in some additional
+functions, the bubbles, that
+
+646
+00:42:03,430 --> 00:42:10,470
+would up the accuracy without
+serious increase in work.
+
+647
+00:42:10,470 --> 00:42:14,210
+And the natural
+construction was that one.
+
+648
+00:42:14,210 --> 00:42:14,710
+Yeah.
+
+649
+00:42:14,710 --> 00:42:26,690
+Then I got piecewise parabolas.
+
+650
+00:42:26,690 --> 00:42:29,120
+You look for a construction
+of finite elements
+
+651
+00:42:29,120 --> 00:42:34,210
+that kind of comes out
+neatly, and this one did.
+
+652
+00:42:34,210 --> 00:42:35,370
+There was another question.
+
+653
+00:42:35,370 --> 00:42:40,682
+AUDIENCE: [UNINTELLIGIBLE]
+
+654
+00:42:40,682 --> 00:42:42,890
+PROFESSOR STRANG: Oh, these
+parabolas would produce--
+
+655
+00:42:42,890 --> 00:42:44,190
+That's a good question.
+
+656
+00:42:44,190 --> 00:42:47,530
+Yeah, these parabolas would
+produce a delta function
+
+657
+00:42:47,530 --> 00:42:49,420
+right there.
+
+658
+00:42:49,420 --> 00:42:51,990
+You see, they have
+a jump in slope.
+
+659
+00:42:51,990 --> 00:42:58,360
+Even if they're parabolas,
+they don't have smooth slope.
+
+660
+00:42:58,360 --> 00:43:04,290
+So this could not be used
+for a bending problem.
+
+661
+00:43:04,290 --> 00:43:06,020
+Or let me say it a
+little differently,
+
+662
+00:43:06,020 --> 00:43:09,660
+because people commit crimes.
+
+663
+00:43:09,660 --> 00:43:12,490
+I call them variational crimes.
+
+664
+00:43:12,490 --> 00:43:14,497
+People have tried.
+
+665
+00:43:14,497 --> 00:43:16,080
+You know, it's a
+heck of a lot of work
+
+666
+00:43:16,080 --> 00:43:20,220
+to construct smoother
+trial functions.
+
+667
+00:43:20,220 --> 00:43:23,900
+So people say, well, just
+ignore that delta function.
+
+668
+00:43:23,900 --> 00:43:28,700
+Put it in anyway, integrate
+elsewhere, and just skip
+
+669
+00:43:28,700 --> 00:43:29,920
+the delta function.
+
+670
+00:43:29,920 --> 00:43:34,610
+So that would be called
+a nonconforming function.
+
+671
+00:43:34,610 --> 00:43:38,530
+There's a very famous way to
+create nonconforming function.
+
+672
+00:43:38,530 --> 00:43:40,810
+And that's very hot
+stuff, actually.
+
+673
+00:43:40,810 --> 00:43:48,680
+Professor Peraire and others in
+Aero are world experts on that.
+
+674
+00:43:48,680 --> 00:43:51,790
+Those are called
+discontinuous Galerkin.
+
+675
+00:43:51,790 --> 00:43:54,350
+Discontinuous Galerkin.
+
+676
+00:43:54,350 --> 00:43:55,300
+This is fun.
+
+677
+00:43:55,300 --> 00:43:57,290
+You see what this
+world is about.
+
+678
+00:43:57,290 --> 00:43:59,910
+So what's
+discontinuous Galerkin?
+
+679
+00:43:59,910 --> 00:44:07,590
+Those will be ones where
+there's a jump in the function.
+
+680
+00:44:07,590 --> 00:44:10,210
+Here I don't need
+much space to show
+
+681
+00:44:10,210 --> 00:44:12,150
+you discontinuous Galerkin.
+
+682
+00:44:12,150 --> 00:44:16,040
+So there's a mesh point,
+there's a mesh point.
+
+683
+00:44:16,040 --> 00:44:21,560
+Discontinuous Galerkin
+might do this.
+
+684
+00:44:21,560 --> 00:44:23,060
+Oh no, not there.
+
+685
+00:44:23,060 --> 00:44:26,140
+That's continuous, sorry.
+
+686
+00:44:26,140 --> 00:44:35,120
+Discontinuous Galerkin would use
+half hats inside the interval.
+
+687
+00:44:35,120 --> 00:44:39,330
+It would use that one.
+
+688
+00:44:39,330 --> 00:44:41,100
+And then another
+one it would use
+
+689
+00:44:41,100 --> 00:44:45,530
+would be one that
+jumped this way.
+
+690
+00:44:45,530 --> 00:44:53,130
+In other words, it sticks
+within an interval,
+
+691
+00:44:53,130 --> 00:44:58,910
+it uses two functions
+instead of one.
+
+692
+00:44:58,910 --> 00:45:05,370
+There are two unknowns.
+
+693
+00:45:05,370 --> 00:45:07,460
+Do you see what's happening now?
+
+694
+00:45:07,460 --> 00:45:14,610
+My space of trial functions
+is going to have jumps.
+
+695
+00:45:14,610 --> 00:45:18,650
+Up to now, all my good hat--
+my ordinary hat functions
+
+696
+00:45:18,650 --> 00:45:19,950
+were all continuous.
+
+697
+00:45:19,950 --> 00:45:21,820
+They were all C zero.
+
+698
+00:45:21,820 --> 00:45:26,290
+Now I'm dropping
+back to C minus 1.
+
+699
+00:45:26,290 --> 00:45:28,720
+Somehow my functions have jumps.
+
+700
+00:45:28,720 --> 00:45:32,600
+So this is called DG,
+discontinuous Galerkin.
+
+701
+00:45:32,600 --> 00:45:39,340
+And how could it be justified?
+
+702
+00:45:39,340 --> 00:45:40,030
+I mean, right?
+
+703
+00:45:40,030 --> 00:45:43,500
+These are functions--
+Now I've got
+
+704
+00:45:43,500 --> 00:45:47,710
+a function that's not allowed
+in my second order problem.
+
+705
+00:45:47,710 --> 00:45:48,550
+Right?
+
+706
+00:45:48,550 --> 00:45:51,000
+If I looked at my
+list here, what was OK
+
+707
+00:45:51,000 --> 00:45:56,710
+and what was not OK, if I
+look at interior half hats,
+
+708
+00:45:56,710 --> 00:45:59,720
+if I look at functions
+that have a jump,
+
+709
+00:45:59,720 --> 00:46:04,440
+jump functions, shall
+I say, jump functions.
+
+710
+00:46:04,440 --> 00:46:08,740
+Those would be C^(-1),
+jump functions.
+
+711
+00:46:08,740 --> 00:46:15,800
+And phi' is not OK.
+
+712
+00:46:15,800 --> 00:46:21,770
+So I won't tell you, and I
+wouldn't be able to do it well,
+
+713
+00:46:21,770 --> 00:46:24,170
+how do they rescue that?
+
+714
+00:46:24,170 --> 00:46:28,220
+However Professor Peraire
+and others, others,
+
+715
+00:46:28,220 --> 00:46:32,220
+Professor Darmofal, a
+whole group in Aero,
+
+716
+00:46:32,220 --> 00:46:36,900
+computing with functions
+that have jumps.
+
+717
+00:46:36,900 --> 00:46:40,050
+And the way they
+manage to do it is,
+
+718
+00:46:40,050 --> 00:46:43,180
+they have to add some
+penalty term that
+
+719
+00:46:43,180 --> 00:46:46,300
+penalizes the jumps,
+that controls the jumps.
+
+720
+00:46:46,300 --> 00:46:49,650
+If they just took
+the standard set up,
+
+721
+00:46:49,650 --> 00:46:52,540
+as we have, and tried
+their functions,
+
+722
+00:46:52,540 --> 00:46:54,490
+it would fail completely.
+
+723
+00:46:54,490 --> 00:47:00,570
+So they adjust the
+energy to penalize jumps.
+
+724
+00:47:00,570 --> 00:47:04,450
+Anyway, somebody
+might sometime end up
+
+725
+00:47:04,450 --> 00:47:09,160
+working on some
+project with them,
+
+726
+00:47:09,160 --> 00:47:14,160
+and DG would be very possible.
+
+727
+00:47:14,160 --> 00:47:18,000
+So you didn't ask me about
+any homework problems yet.
+
+728
+00:47:18,000 --> 00:47:20,180
+Last chance.
+
+729
+00:47:20,180 --> 00:47:22,260
+Anything to ask about?
+
+730
+00:47:22,260 --> 00:47:25,660
+You got a lecture about
+crazy stuff today.
+
+731
+00:47:25,660 --> 00:47:31,340
+Sorry about that, in a way,
+but I hope it was all right.
+
+732
+00:47:31,340 --> 00:47:41,180
+So homework is now posted,
+with a MATLAB question using
+
+733
+00:47:41,180 --> 00:47:44,570
+the elements that we've talked
+about and some questions
+
+734
+00:47:44,570 --> 00:47:47,100
+from the text.
+
+735
+00:47:47,100 --> 00:47:49,850
+And don't forget, then,
+my original comment
+
+736
+00:47:49,850 --> 00:47:54,830
+that if we end up with some
+good codes for CSE that
+
+737
+00:47:54,830 --> 00:48:00,531
+could be used by other people,
+I'm very grateful to get them.
+
+738
+00:48:00,531 --> 00:48:01,030
+OK.
+
+739
+00:48:01,030 --> 00:48:05,450
+Let's end today a little
+early, and I'll see you Friday
+
+740
+00:48:05,450 --> 00:48:06,587
+for splines.
+
+741
+00:48:06,587 --> 00:48:07,087

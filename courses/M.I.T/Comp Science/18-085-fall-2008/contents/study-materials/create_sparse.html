@@ -1,0 +1,24 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0092)http://ocwcms.mit.edu/NR/rdonlyres/4EF8C6EC-B466-45F5-8180-EFECF22566AD/0/create_sparse.html -->
+<HTML><HEAD><TITLE>MIT Course 18.085 - Matlab Code</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META content="MSHTML 6.00.2900.3199" name=GENERATOR></HEAD>
+<BODY>
+<H3>THIS IS THE CODE TO CREATE K,T,B,C AS SPARSE MATRICES</H3>
+<P>Then Matlab will not operate on all the zeros! 
+<P style="FONT-SIZE: 12px; FONT-FAMILY: Courier, Courier New, serif">function 
+K=KTBC(type,n,sparse)<BR>% KTBC Create finite difference model matrix.<BR>% 
+K=KTBC(TYPE,N,SPARSE) creates model matrix TYPE of size N-by-N.<BR>% TYPE is one 
+of the characters 'K', 'T', 'B', or 'C'.<BR>% The command K = KTBC('K', 100, 1) 
+gives a sparse representation<BR>% K=KTBC uses the defaults TYPE='K', N=10, and 
+SPARSE=false.<BR>% Change the 3rd argument from 1 to 0 for dense 
+representation!<BR>% If no 3rd argument is given, the default is dense<BR>% If 
+no argument at all, KTBC will give 10 by 10 matrix K<BR><BR>if nargin&lt;1, 
+type='K'; end<BR>if nargin&lt;2, n=10; 
+end<BR><BR>e=ones(n,1);<BR>K=spdiags([-e,2*e,-e],-1:1,n,n);<BR>switch 
+type<BR>&nbsp; case 'K'<BR>&nbsp; case 'T'<BR>&nbsp;&nbsp; K(1,1)=1;<BR>&nbsp; 
+case 'B'<BR>&nbsp;&nbsp; K(1,1)=1;<BR>&nbsp;&nbsp; K(n,n)=1;<BR>&nbsp; case 
+'C'<BR>&nbsp;&nbsp; K(1,n)=-1;<BR>&nbsp;&nbsp; K(n,1)=-1;<BR>&nbsp; otherwise 
+<BR>&nbsp;&nbsp; error('Unknown matrix type.');<BR>end<BR><BR>if nargin&lt;3 | 
+~sparse<BR>&nbsp; K=full(K);<BR>end <BR><BR>
+</BODY></HTML>

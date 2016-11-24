@@ -1,0 +1,3811 @@
+1
+00:00:04,550 --> 00:00:04,890
+OK.
+
+2
+00:00:04,890 --> 00:00:11,000
+So this is the first lecture on
+eigenvalues and eigenvectors,
+
+3
+00:00:11,000 --> 00:00:18,000
+and that's a big subject that
+will take up most of the rest of
+
+4
+00:00:18,000 --> 00:00:19,000
+the course.
+
+5
+00:00:19,000 --> 00:00:24,000
+It's, again,
+matrices are square and we're
+
+6
+00:00:24,000 --> 00:00:29,000
+looking now for some special
+numbers,
+
+7
+00:00:29,000 --> 00:00:33,000
+the eigenvalues,
+and some special vectors,
+
+8
+00:00:33,000 --> 00:00:35,000
+the eigenvectors.
+
+9
+00:00:35,000 --> 00:00:40,000
+And so this lecture is mostly
+about what are these numbers,
+
+10
+00:00:40,000 --> 00:00:46,000
+and then the other lectures are
+about how do we use them,
+
+11
+00:00:46,000 --> 00:00:48,000
+why do we want them.
+
+12
+00:00:48,000 --> 00:00:50,000
+OK, so what's an eigenvector?
+
+13
+00:00:50,000 --> 00:00:55,000
+Maybe I'll start with
+eigenvector.
+
+14
+00:00:55,000 --> 00:00:57,000
+What's an eigenvector?
+
+15
+00:00:57,000 --> 00:01:00,000
+So I have a matrix A.
+
+16
+00:01:00,000 --> 00:01:00,000
+OK.
+What does a matrix do?
+
+17
+00:01:03,000 --> 00:01:06,000
+It acts on vectors.
+
+18
+00:01:06,000 --> 00:01:09,000
+It multiplies vectors x.
+
+19
+00:01:09,000 --> 00:01:16,000
+So the way that matrix acts is
+in goes a vector x and out comes
+
+20
+00:01:16,000 --> 00:01:18,320
+a vector Ax.
+
+21
+00:01:18,320 --> 00:01:20,000
+It's like a function.
+
+22
+00:01:20,000 --> 00:01:27,000
+With a function in calculus,
+in goes a number x,
+
+23
+00:01:27,000 --> 00:01:28,000
+out comes f(x).
+
+24
+00:01:28,000 --> 00:01:33,000
+Here in linear algebra we're up
+in more dimensions.
+
+25
+00:01:33,000 --> 00:01:36,000
+In goes a vector x,
+out comes a vector Ax.
+
+26
+00:01:36,000 --> 00:01:42,000
+And the vectors I'm specially
+interested in are the ones the
+
+27
+00:01:42,000 --> 00:01:46,270
+come out in the same direction
+that they went in.
+
+28
+00:01:46,270 --> 00:01:48,210
+That won't be typical.
+
+29
+00:01:48,210 --> 00:01:52,000
+Most vectors,
+Ax is in -- points in
+
+30
+00:01:52,000 --> 00:01:56,000
+some different direction.
+
+31
+00:01:56,000 --> 00:02:04,000
+But there are certain vectors
+where Ax comes out parallel to
+
+32
+00:02:04,000 --> 00:02:05,000
+x.
+
+33
+00:02:05,000 --> 00:02:09,000
+And those are the eigenvectors.
+
+34
+00:02:09,000 --> 00:02:12,000
+So Ax parallel to x.
+
+35
+00:02:12,000 --> 00:02:16,000
+Those are the eigenvectors.
+
+36
+00:02:16,000 --> 00:02:21,000
+And what do I mean by parallel?
+
+37
+00:02:21,000 --> 00:02:29,000
+Oh, much easier to just state
+it in an equation.
+
+38
+00:02:29,000 --> 00:02:34,000
+Ax is some multiple -- and
+everybody calls that multiple
+
+39
+00:02:34,000 --> 00:02:36,000
+lambda -- of x.
+
+40
+00:02:36,000 --> 00:02:38,000
+That's our big equation.
+
+41
+00:02:38,000 --> 00:02:44,000
+We look for special vectors --
+and remember most vectors won't
+
+42
+00:02:44,000 --> 00:02:49,010
+be eigenvectors -- that -- for
+which Ax is in the same
+
+43
+00:02:49,010 --> 00:02:53,079
+direction as x,
+and by same direction I allow
+
+44
+00:02:53,079 --> 00:02:57,000
+it to
+be the very opposite direction,
+
+45
+00:02:57,000 --> 00:03:01,000
+I allow lambda to be negative
+or zero.
+
+46
+00:03:01,000 --> 00:03:06,000
+Well, I guess we've met the
+eigenvectors that have
+
+47
+00:03:06,000 --> 00:03:08,020
+eigenvalue zero.
+
+48
+00:03:08,020 --> 00:03:13,000
+Those are in the same
+direction, but they're -- in a
+
+49
+00:03:13,000 --> 00:03:15,000
+kind of very special way.
+
+50
+00:03:15,000 --> 00:03:19,000
+So this --
+the eigenvector x.
+
+51
+00:03:19,000 --> 00:03:23,000
+Lambda, whatever this
+multiplying factor is,
+
+52
+00:03:23,000 --> 00:03:28,000
+whether it's six or minus six
+or zero or even some imaginary
+
+53
+00:03:28,000 --> 00:03:31,000
+number, that's the eigenvalue.
+
+54
+00:03:31,000 --> 00:03:35,000
+So there's the eigenvalue,
+there's the eigenvector.
+
+55
+00:03:35,000 --> 00:03:40,000
+Let's just take a second on
+eigenvalue zero.
+
+56
+00:03:40,000 --> 00:03:44,000
+From the point of view of
+eigenvalues, that's no special
+
+57
+00:03:44,000 --> 00:03:44,000
+deal.
+That's, we have an eigenvector.
+
+58
+00:03:46,000 --> 00:03:50,000
+If the eigenvalue happened to
+be zero, that would mean that Ax
+
+59
+00:03:50,000 --> 00:03:53,000
+was zero x, in other words zero.
+
+60
+00:03:53,000 --> 00:03:56,000
+So what would x,
+where would we look for -- what
+
+61
+00:03:56,000 --> 00:03:57,000
+are the x-s?
+
+62
+00:03:57,000 --> 00:04:01,000
+What are the eigenvectors with
+eigenvalue zero?
+
+63
+00:04:01,000 --> 00:04:07,000
+They're the guys in the null
+space, Ax equals zero.
+
+64
+00:04:07,000 --> 00:04:13,000
+So if our matrix is singular,
+let me write this down.
+
+65
+00:04:13,000 --> 00:04:19,000
+If, if A is singular,
+then that -- what does singular
+
+66
+00:04:19,000 --> 00:04:20,000
+mean?
+
+67
+00:04:20,000 --> 00:04:25,000
+It means that it takes some
+vector x into zero.
+
+68
+00:04:25,000 --> 00:04:32,000
+Some non-zero vector,
+that's why -- will be the
+
+69
+00:04:32,000 --> 00:04:34,000
+eigenvector into zero.
+
+70
+00:04:34,000 --> 00:04:38,000
+Then lambda equals zero is an
+eigenvalue.
+
+71
+00:04:38,000 --> 00:04:42,000
+But we're interested in all
+eigenvalues now,
+
+72
+00:04:42,000 --> 00:04:47,000
+lambda equals zero is not,
+like, so special anymore.
+
+73
+00:04:47,000 --> 00:04:47,000
+OK.
+So the question is,
+how do we find these x-s and
+
+74
+00:04:52,000 --> 00:04:53,000
+lambdas?
+
+75
+00:04:53,000 --> 00:05:00,000
+And notice -- we don't have
+an equation Ax equal B anymore.
+
+76
+00:05:00,000 --> 00:05:02,000
+I can't use elimination.
+
+77
+00:05:02,000 --> 00:05:07,000
+I've got two unknowns,
+and in fact they're multiplied
+
+78
+00:05:07,000 --> 00:05:08,000
+together.
+
+79
+00:05:08,000 --> 00:05:11,000
+Lambda and x are both unknowns
+here.
+
+80
+00:05:11,000 --> 00:05:16,000
+So, we need to,
+we need a good idea of how to
+
+81
+00:05:16,000 --> 00:05:17,180
+find them.
+
+82
+00:05:17,180 --> 00:05:20,000
+But before I,
+before I
+
+83
+00:05:20,000 --> 00:05:25,000
+do that, and that's where
+determinant will come in,
+
+84
+00:05:25,000 --> 00:05:28,000
+can I just give you some
+matrices?
+
+85
+00:05:28,000 --> 00:05:30,000
+Like here you go.
+
+86
+00:05:30,000 --> 00:05:33,000
+Take the matrix,
+a projection matrix.
+
+87
+00:05:33,000 --> 00:05:34,000
+OK.
+
+88
+00:05:34,000 --> 00:05:39,000
+So suppose we have a plane and
+our matrix P is -- what I've
+
+89
+00:05:39,000 --> 00:05:45,440
+called A, now I'm going to call
+it P for the
+
+90
+00:05:45,440 --> 00:05:51,000
+moment, because it's -- I'm
+thinking OK, let's look at a
+
+91
+00:05:51,000 --> 00:05:53,000
+projection matrix.
+
+92
+00:05:53,000 --> 00:05:58,000
+What are the eigenvalues of a
+projection matrix?
+
+93
+00:05:58,000 --> 00:06:00,000
+So that's my question.
+
+94
+00:06:00,000 --> 00:06:03,000
+What are the x-s,
+the eigenvectors,
+
+95
+00:06:03,000 --> 00:06:07,000
+and the lambdas,
+the eigenvalues,
+
+96
+00:06:07,000 --> 00:06:12,000
+for -- and now let me say a
+projection matrix.
+
+97
+00:06:12,000 --> 00:06:16,000
+My,
+my point is that we -- before
+
+98
+00:06:16,000 --> 00:06:22,000
+we get into determinants and,
+and formulas and all that
+
+99
+00:06:22,000 --> 00:06:28,000
+stuff, let's take some matrices
+where we know what they do.
+
+100
+00:06:28,000 --> 00:06:34,159
+We know that if we take a
+vector b, what this matrix does
+
+101
+00:06:34,159 --> 00:06:37,000
+is it projects it down to Pb.
+
+102
+00:06:37,000 --> 00:06:42,000
+So is b an eigenvector in,
+in that picture?
+
+103
+00:06:42,000 --> 00:06:45,000
+Is that vector b an
+eigenvector?
+
+104
+00:06:45,000 --> 00:06:46,000
+No.
+
+105
+00:06:46,000 --> 00:06:51,000
+Not so, so b is not an
+eigenvector c- because Pb,
+
+106
+00:06:51,000 --> 00:06:55,000
+its projection,
+is in a different direction.
+
+107
+00:06:55,000 --> 00:07:00,000
+So now tell me what vectors are
+eigenvectors of P?
+
+108
+00:07:00,000 --> 00:07:07,000
+What vectors do get projected
+in the same direction that they
+
+109
+00:07:07,000 --> 00:07:07,000
+start?
+So, so answer,
+tell me some x-s.
+
+110
+00:07:12,000 --> 00:07:17,000
+In this picture,
+where could I start with a
+
+111
+00:07:17,000 --> 00:07:21,000
+vector b or x,
+do its projection,
+
+112
+00:07:21,000 --> 00:07:25,000
+and end up in the same
+direction?
+
+113
+00:07:25,000 --> 00:07:33,000
+Well, that would happen if the
+vector was right in that plane
+
+114
+00:07:33,000 --> 00:07:34,000
+already.
+
+115
+00:07:34,000 --> 00:07:42,000
+If the vector x was -- so let
+the vector x -- so any vector,
+
+116
+00:07:42,000 --> 00:07:46,000
+any x in the plane will be an
+eigenvector.
+
+117
+00:07:46,000 --> 00:07:50,000
+And what will happen when I
+multiply by P,
+
+118
+00:07:50,000 --> 00:07:54,000
+when I project a vector x -- I
+called it b here,
+
+119
+00:07:54,000 --> 00:07:59,000
+because this is our familiar
+picture, but now I'm going to
+
+120
+00:07:59,000 --> 00:08:05,000
+say that b was no good for,
+for the, for our purposes.
+
+121
+00:08:05,000 --> 00:08:09,000
+I'm interested in a vector x
+that's actually in the plane,
+
+122
+00:08:09,000 --> 00:08:13,000
+and I project it,
+and what do I get back?
+
+123
+00:08:13,000 --> 00:08:14,000
+x, of course.
+
+124
+00:08:14,000 --> 00:08:15,390
+Doesn't move.
+
+125
+00:08:15,390 --> 00:08:18,000
+So any x in the plane is
+unchanged by P,
+
+126
+00:08:18,000 --> 00:08:20,000
+and what's that telling me?
+
+127
+00:08:20,000 --> 00:08:25,000
+That's telling me that x is an
+eigenvector,
+
+128
+00:08:25,000 --> 00:08:29,000
+and it's also telling me what's
+the eigenvalue,
+
+129
+00:08:29,000 --> 00:08:32,940
+which is -- just compare it
+with that.
+
+130
+00:08:32,940 --> 00:08:35,000
+The eigenvalue,
+the multiplier,
+
+131
+00:08:35,000 --> 00:08:36,850
+is just one.
+
+132
+00:08:36,850 --> 00:08:37,000
+Good.
+
+133
+00:08:37,000 --> 00:08:41,000
+So we have actually a whole
+plane of eigenvectors.
+
+134
+00:08:41,000 --> 00:08:47,000
+Now I ask, are there any other
+eigenvectors?
+
+135
+00:08:47,000 --> 00:08:51,000
+And I expect the answer to be
+yes, because I would like to get
+
+136
+00:08:51,000 --> 00:08:55,000
+three, if I'm in three
+dimensions, I would like to hope
+
+137
+00:08:55,000 --> 00:08:58,000
+for three independent
+eigenvectors,
+
+138
+00:08:58,000 --> 00:09:01,000
+two of them in the plane and
+one not in the plane.
+
+139
+00:09:01,000 --> 00:09:01,000
+OK.
+So this guy b that I drew there
+was
+
+140
+00:09:05,000 --> 00:09:06,350
+not any good.
+
+141
+00:09:06,350 --> 00:09:10,710
+What's the right eigenvector
+that's not in the plane?
+
+142
+00:09:10,710 --> 00:09:15,000
+The, the good one is the one
+that's perpendicular to the
+
+143
+00:09:15,000 --> 00:09:15,000
+plane.
+There's an, another good x,
+because what's the projection?
+
+144
+00:09:20,000 --> 00:09:23,000
+So these are eigenvectors.
+
+145
+00:09:23,000 --> 00:09:28,000
+Another guy here would be
+another eigenvector.
+
+146
+00:09:28,000 --> 00:09:31,000
+But now here is another one.
+
+147
+00:09:31,000 --> 00:09:38,000
+Any x that's perpendicular to
+the plane, what's Px for that,
+
+148
+00:09:38,000 --> 00:09:40,000
+for that, vector?
+
+149
+00:09:40,000 --> 00:09:44,000
+What's the projection of this
+guy
+
+150
+00:09:44,000 --> 00:09:47,000
+perpendicular to the plane?
+
+151
+00:09:47,000 --> 00:09:49,000
+It is zero, of course.
+
+152
+00:09:49,000 --> 00:09:52,000
+So -- there's the null space.
+
+153
+00:09:52,000 --> 00:09:57,000
+Px and n- for those guys are
+zero, or zero x if we like,
+
+154
+00:09:57,000 --> 00:09:59,000
+and the eigenvalue is zero.
+
+155
+00:09:59,000 --> 00:10:05,000
+So my answer to the question
+is, what are the eigenvalues for
+
+156
+00:10:05,000 --> 00:10:08,000
+a
+projection matrix?
+
+157
+00:10:08,000 --> 00:10:09,000
+There they are.
+
+158
+00:10:09,000 --> 00:10:11,000
+One and zero.
+
+159
+00:10:11,000 --> 00:10:11,000
+OK.
+We know projection matrices.
+
+160
+00:10:14,000 --> 00:10:19,000
+We can write them down as that
+A, A transpose,
+
+161
+00:10:19,000 --> 00:10:25,000
+A inverse, A transpose thing,
+but without doing that
+
+162
+00:10:25,000 --> 00:10:30,000
+from the picture we could see
+what are the eigenvectors.
+
+163
+00:10:30,000 --> 00:10:31,260
+OK.
+
+164
+00:10:31,260 --> 00:10:33,000
+Are there other matrices?
+
+165
+00:10:33,000 --> 00:10:36,000
+Let me take a second example.
+
+166
+00:10:36,000 --> 00:10:39,000
+How about a permutation matrix?
+
+167
+00:10:39,000 --> 00:10:44,000
+What about the matrix,
+I'll call it A now.
+
+168
+00:10:44,000 --> 00:10:47,000
+Zero one, one zero.
+A equals zero one one zero,
+that had eigenvalue one and
+
+169
+00:10:47,000 --> 00:10:52,000
+Can you tell me a vector x --
+see, we'll have a system soon
+
+170
+00:10:52,000 --> 00:10:57,000
+enough, so I,
+I would like to just do these
+
+171
+00:10:57,000 --> 00:11:03,000
+e- these couple of examples,
+just to see the picture before
+
+172
+00:11:03,000 --> 00:11:08,000
+we, before we let it all,
+go into a system where
+
+173
+00:11:08,000 --> 00:11:12,000
+that, matrix isn't anything
+special.
+
+174
+00:11:12,000 --> 00:11:14,000
+Because it is special.
+
+175
+00:11:14,000 --> 00:11:20,000
+And what, so what vector could
+I multiply by and end up in the
+
+176
+00:11:20,000 --> 00:11:21,000
+same direction?
+
+177
+00:11:21,000 --> 00:11:25,000
+Can you spot an eigenvector for
+this guy?
+
+178
+00:11:25,000 --> 00:11:30,500
+That's a matrix that permutes
+x1 and x2,
+
+179
+00:11:30,500 --> 00:11:31,000
+right?
+
+180
+00:11:31,000 --> 00:11:34,000
+It switches the two components
+of x.
+
+181
+00:11:34,000 --> 00:11:40,000
+How could the vector with its
+x2 x1, with -- permuted turn out
+
+182
+00:11:40,000 --> 00:11:46,000
+to be a multiple of x1 x2,
+the vector we start with?
+
+183
+00:11:46,000 --> 00:11:51,180
+Can you tell me an eigenvector
+here for this guy?
+
+184
+00:11:51,180 --> 00:11:58,000
+x equal -- what is -- actually,
+can you tell me one vector that
+
+185
+00:11:58,000 --> 00:11:59,000
+has eigenvalue one?
+
+186
+00:11:59,000 --> 00:12:04,000
+So what, what vector would have
+eigenvalue one,
+
+187
+00:12:04,000 --> 00:12:07,000
+so that if I,
+if I permute it it doesn't
+
+188
+00:12:07,000 --> 00:12:08,150
+change?
+right?
+
+189
+00:12:08,150 --> 00:12:11,000
+There, that could be one one,
+thanks.
+
+190
+00:12:11,000 --> 00:12:13,000
+One one.
+
+191
+00:12:13,000 --> 00:12:15,000
+OK, take that vector one one.
+
+192
+00:12:15,000 --> 00:12:21,000
+That will be an eigenvector,
+because if I do Ax I get one
+
+193
+00:12:21,000 --> 00:12:22,000
+one.
+
+194
+00:12:22,000 --> 00:12:25,000
+So that's the eigenvalue is
+one.
+
+195
+00:12:25,000 --> 00:12:25,000
+Great.
+That's one eigenvalue.
+
+196
+00:12:27,000 --> 00:12:33,000
+But I have here a two by two
+matrix, and I figure there's
+
+197
+00:12:33,000 --> 00:12:38,000
+going to be a second eigenvalue.
+
+198
+00:12:38,000 --> 00:12:39,000
+And eigenvector.
+
+199
+00:12:39,000 --> 00:12:41,000
+Now, what about that?
+
+200
+00:12:41,000 --> 00:12:45,000
+What's a vector,
+OK, maybe we can just,
+
+201
+00:12:45,000 --> 00:12:47,000
+like, guess it.
+
+202
+00:12:47,000 --> 00:12:52,000
+A vector that the other --
+actually, this one that I'm
+
+203
+00:12:52,000 --> 00:12:59,000
+thinking of is going to be a
+vector that has eigenvalue minus
+
+204
+00:12:59,000 --> 00:13:00,000
+one.
+
+205
+00:13:00,000 --> 00:13:04,000
+That's going to be my other
+eigenvalue for this matrix.
+
+206
+00:13:04,000 --> 00:13:07,000
+It's a -- notice the nice
+positive or not negative matrix,
+
+207
+00:13:07,000 --> 00:13:11,000
+but an eigenvalue is going to
+come out negative.
+
+208
+00:13:11,000 --> 00:13:14,000
+And can you guess,
+spot the x that will work for
+
+209
+00:13:14,000 --> 00:13:15,000
+that?
+
+210
+00:13:15,000 --> 00:13:17,000
+So I want a,
+a vector.
+
+211
+00:13:17,000 --> 00:13:22,000
+When I multiply by A,
+which reverses the two
+
+212
+00:13:22,000 --> 00:13:29,000
+components, I want the thing to
+come out minus the original.
+
+213
+00:13:29,000 --> 00:13:33,000
+So what shall I send in in that
+case?
+
+214
+00:13:33,000 --> 00:13:38,000
+If I send in negative one one.
+
+215
+00:13:38,000 --> 00:13:45,000
+Then when I apply A,
+I get I do that multiplication,
+
+216
+00:13:45,000 --> 00:13:51,000
+and I get one negative one,
+so it reversed sign.
+
+217
+00:13:51,000 --> 00:13:53,000
+So Ax is -x.
+
+218
+00:13:53,000 --> 00:13:56,000
+Lambda is minus one.
+
+219
+00:13:56,000 --> 00:14:03,000
+Ax -- so Ax was x there and Ax
+is minus x here.
+
+220
+00:14:03,000 --> 00:14:09,000
+Can I just mention,
+like, jump ahead,
+
+221
+00:14:09,000 --> 00:14:15,000
+and point out a special little
+fact about eigenvalues.
+
+222
+00:14:15,000 --> 00:14:19,000
+n by n matrices will have n
+eigenvalues.
+
+223
+00:14:19,000 --> 00:14:25,000
+And it's not like -- suppose n
+is three or four or more.
+
+224
+00:14:25,000 --> 00:14:30,000
+It's not so easy to find them.
+
+225
+00:14:30,000 --> 00:14:35,000
+We'd have a third degree or a
+fourth degree or an n-th degree
+
+226
+00:14:35,000 --> 00:14:36,000
+equation.
+
+227
+00:14:36,000 --> 00:14:38,000
+But here's one nice fact.
+
+228
+00:14:38,000 --> 00:14:41,000
+There, there's one pleasant
+fact.
+
+229
+00:14:41,000 --> 00:14:45,000
+That the sum of the eigenvalues
+equals the sum down the
+
+230
+00:14:45,000 --> 00:14:46,000
+diagonal.
+
+231
+00:14:46,000 --> 00:14:52,000
+That's called the trace,
+and I put that in the lecture
+
+232
+00:14:52,000 --> 00:14:54,000
+content specifically.
+
+233
+00:14:54,000 --> 00:14:59,000
+So this is a neat fact,
+the fact that sthe sum of the
+
+234
+00:14:59,000 --> 00:15:04,000
+lambdas, add up the lambdas,
+equals the sum -- what would
+
+235
+00:15:04,000 --> 00:15:08,000
+you like me to,
+shall I write that down?
+
+236
+00:15:08,000 --> 00:15:13,000
+What I'm want to say in words
+is the sum down
+
+237
+00:15:13,000 --> 00:15:16,000
+the diagonal of A.
+
+238
+00:15:16,000 --> 00:15:19,000
+Shall I write a11+a22+...+ ann.
+
+239
+00:15:19,000 --> 00:15:23,000
+That's add up the diagonal
+entries.
+
+240
+00:15:23,000 --> 00:15:26,000
+In this example,
+it's zero.
+
+241
+00:15:26,000 --> 00:15:31,000
+In other words,
+once I found this eigenvalue of
+
+242
+00:15:31,000 --> 00:15:37,000
+one, I knew the other one had to
+be minus
+
+243
+00:15:37,000 --> 00:15:43,000
+one in this two by two case,
+because in the two by two case,
+
+244
+00:15:43,000 --> 00:15:46,000
+which is a good one to,
+to, play with,
+
+245
+00:15:46,000 --> 00:15:52,000
+the trace tells you right away
+what the other eigenvalue is.
+
+246
+00:15:52,000 --> 00:15:57,000
+So if I tell you one
+eigenvalue, you can tell me the
+
+247
+00:15:57,000 --> 00:15:57,000
+other one.
+We'll,
+we'll have that -- we'll,
+
+248
+00:16:02,000 --> 00:16:04,000
+we'll see that again.
+
+249
+00:16:04,000 --> 00:16:04,000
+OK.
+Now can I -- I could give more
+examples, but maybe it's time to
+
+250
+00:16:11,000 --> 00:16:16,000
+face the, the equation,
+Ax equal lambda x,
+
+251
+00:16:16,000 --> 00:16:21,000
+and figure how are we going to
+find x and lambda.
+
+252
+00:16:21,000 --> 00:16:23,000
+OK.
+
+253
+00:16:23,000 --> 00:16:31,000
+So this, so the question now is
+how to find eigenvalues and
+
+254
+00:16:31,000 --> 00:16:33,000
+eigenvectors.
+
+255
+00:16:33,000 --> 00:16:39,000
+How to solve,
+how to solve Ax equal lambda x
+
+256
+00:16:39,000 --> 00:16:45,790
+when we've got two unknowns both
+in the equation.
+
+257
+00:16:45,790 --> 00:16:46,000
+OK.
+
+258
+00:16:46,000 --> 00:16:48,600
+Here's the trick.
+
+259
+00:16:48,600 --> 00:16:50,000
+Simple idea.
+
+260
+00:16:50,000 --> 00:16:55,000
+Bring this onto the
+same side.
+
+261
+00:16:55,000 --> 00:16:56,000
+Rewrite.
+
+262
+00:16:56,000 --> 00:17:02,000
+Bring this over as A minus
+lambda times the identity x
+
+263
+00:17:02,000 --> 00:17:03,000
+equals zero.
+
+264
+00:17:03,000 --> 00:17:03,000
+Right?
+I have Ax minus lambda x,
+so I brought that over and I've
+
+265
+00:17:09,000 --> 00:17:14,000
+got zero left on the,
+on the right-hand side.
+
+266
+00:17:14,000 --> 00:17:14,000
+OK.
+I don't know lambda and I don't
+know x, but I do know something
+
+267
+00:17:22,000 --> 00:17:22,000
+here.
+What I know is if I,
+if I'm going to be able to
+
+268
+00:17:26,000 --> 00:17:30,000
+solve this thing,
+for some x that's not the zero
+
+269
+00:17:30,000 --> 00:17:35,000
+vector, that's not,
+that's a useless eigenvector,
+
+270
+00:17:35,000 --> 00:17:36,000
+doesn't count.
+
+271
+00:17:36,000 --> 00:17:41,000
+What I know now is that
+this matrix must be what?
+
+272
+00:17:41,000 --> 00:17:47,000
+If I'm going to be -- if there
+is an x -- I don't -- right now
+
+273
+00:17:47,000 --> 00:17:49,000
+I don't know what it is.
+
+274
+00:17:49,000 --> 00:17:53,000
+I'm going to find lambda first,
+actually.
+
+275
+00:17:53,000 --> 00:17:59,000
+And -- but if there is an x,
+it tells me that this matrix,
+
+276
+00:17:59,000 --> 00:18:05,000
+this special combination,
+which is like the matrix A with
+
+277
+00:18:05,000 --> 00:18:10,000
+lambda -- shifted by lambda,
+shifted by lambda I,
+
+278
+00:18:10,000 --> 00:18:13,000
+that it has to be singular.
+
+279
+00:18:13,000 --> 00:18:19,000
+This matrix must be singular,
+otherwise the only x would be
+
+280
+00:18:19,000 --> 00:18:23,000
+the zero x, and zero matrix.OK.
+
+281
+00:18:23,000 --> 00:18:25,000
+So this is singular.
+
+282
+00:18:25,000 --> 00:18:30,000
+And what do I now know about
+singular matrices?
+
+283
+00:18:30,000 --> 00:18:32,000
+Their determinant is zero.
+
+284
+00:18:32,000 --> 00:18:38,000
+So I've -- so from the fact
+that that has to be singular,
+
+285
+00:18:38,000 --> 00:18:46,000
+I know that the determinant of
+A minus lambda I has to be zero.
+
+286
+00:18:46,000 --> 00:18:49,000
+And that, now I've got x out of
+it.
+
+287
+00:18:49,000 --> 00:18:54,000
+I've got an equation for
+lambda, that the key equation --
+
+288
+00:18:54,000 --> 00:19:00,350
+it's called the characteristic
+equation or the eigenvalue
+
+289
+00:19:00,350 --> 00:19:01,000
+equation.
+
+290
+00:19:01,000 --> 00:19:06,000
+And that -- in other words,
+I'm now in a position to find
+
+291
+00:19:06,000 --> 00:19:09,000
+lambda first.
+
+292
+00:19:09,000 --> 00:19:14,000
+So -- the idea will be to find
+lambda first.
+
+293
+00:19:14,000 --> 00:19:18,670
+And actually,
+I won't find one lambda,
+
+294
+00:19:18,670 --> 00:19:22,000
+I'll find N different lambdas.
+
+295
+00:19:22,000 --> 00:19:27,000
+Well, n lambdas,
+maybe not n different
+
+296
+00:19:27,000 --> 00:19:28,000
+ones.
+
+297
+00:19:28,000 --> 00:19:30,000
+A lambda could be repeated.
+
+298
+00:19:30,000 --> 00:19:36,000
+A repeated lambda is the source
+of all trouble in 18.06.
+
+299
+00:19:36,000 --> 00:19:41,000
+So, let's hope for the moment
+that they're not repeated.
+
+300
+00:19:41,000 --> 00:19:45,000
+There, there they were
+different, right?
+
+301
+00:19:45,000 --> 00:19:51,000
+One and minus one in that,
+in that, for that permutation.
+
+302
+00:19:51,000 --> 00:19:51,000
+OK.
+So and after I found this
+lambda, can I just look ahead?
+
+303
+00:19:56,000 --> 00:19:59,000
+How I going to find x?
+
+304
+00:19:59,000 --> 00:20:05,000
+After I have found this lambda,
+the lambda being this -- one of
+
+305
+00:20:05,000 --> 00:20:10,000
+the numbers that makes this
+matrix singular.
+
+306
+00:20:10,000 --> 00:20:13,000
+Then of course finding x is
+just by elimination.
+
+307
+00:20:13,000 --> 00:20:13,000
+Right?
+It's just -- now I've got a
+singular matrix,
+
+308
+00:20:17,030 --> 00:20:19,000
+I'm looking for the null space.
+
+309
+00:20:19,000 --> 00:20:22,000
+We're experts at finding the
+null space.
+
+310
+00:20:22,000 --> 00:20:25,000
+You know, you do elimination,
+you identify the,
+
+311
+00:20:25,000 --> 00:20:28,000
+the, the pivot columns and so
+on,
+
+312
+00:20:28,000 --> 00:20:32,000
+you're -- and,
+give values to the free
+
+313
+00:20:32,000 --> 00:20:33,000
+variables.
+
+314
+00:20:33,000 --> 00:20:37,830
+Probably there'll only be one
+free variable.
+
+315
+00:20:37,830 --> 00:20:41,000
+We'll give it the value one,
+like there.
+
+316
+00:20:41,000 --> 00:20:44,000
+And we find the other variable.
+
+317
+00:20:44,000 --> 00:20:45,000
+OK.
+
+318
+00:20:45,000 --> 00:20:51,210
+So let's -- find the x second
+will be a doable job.
+
+319
+00:20:51,210 --> 00:20:56,650
+Let's go, let's look at the
+first job of finding lambda.
+
+320
+00:20:56,650 --> 00:20:56,000
+OK.
+
+321
+00:20:56,000 --> 00:20:59,000
+Can I take another example?
+
+322
+00:20:59,000 --> 00:21:02,000
+And let's, let's work that one
+out.
+
+323
+00:21:02,000 --> 00:21:03,000
+OK.
+
+324
+00:21:03,000 --> 00:21:08,000
+So let me take the example,
+say, let me make it easy.
+it's just sitting there.
+
+325
+00:21:08,000 --> 00:21:11,000
+Three
+three one and one.
+what do you know about the
+complex numbers?
+
+326
+00:21:11,000 --> 00:21:14,000
+So I've made it easy.
+
+327
+00:21:14,000 --> 00:21:16,000
+I've made it two by two.
+
+328
+00:21:16,000 --> 00:21:18,000
+I've made it symmetric.
+
+329
+00:21:18,000 --> 00:21:23,000
+And I even made it constant
+down the diagonal.
+That a matrix,
+a perfectly real matrix could
+
+330
+00:21:23,000 --> 00:21:28,000
+So that -- so the more,
+like, special properties I
+
+331
+00:21:28,000 --> 00:21:34,000
+stick into the matrix,
+the more special outcome I
+
+332
+00:21:34,000 --> 00:21:36,000
+get for the eigenvalues.
+
+333
+00:21:36,000 --> 00:21:40,000
+For example,
+this symmetric matrix,
+
+334
+00:21:40,000 --> 00:21:44,000
+I know that it'll come out with
+real eigenvalues.
+
+335
+00:21:44,000 --> 00:21:49,000
+The eigenvalues will turn out
+to be nice real numbers.
+
+336
+00:21:49,000 --> 00:21:56,000
+And up in our previous example,
+that was a symmetric matrix.
+
+337
+00:21:56,000 --> 00:22:00,000
+Actually, while we're at it,
+that was a symmetric matrix.
+
+338
+00:22:00,000 --> 00:22:05,000
+Its eigenvalues were nice real
+numbers, one and minus one.
+
+339
+00:22:05,000 --> 00:22:08,000
+And do you notice anything
+about its eigenvectors?
+
+340
+00:22:08,000 --> 00:22:13,000
+Anything particular about those
+two vectors, one one and minus
+And now comes that thing that I
+wanted to be reminded of.
+
+341
+00:22:13,000 --> 00:22:15,000
+one one?
+
+342
+00:22:15,000 --> 00:22:19,000
+They just happen to be -- no,
+I can't say they just happen to
+
+343
+00:22:19,000 --> 00:22:23,000
+be, because that's the whole
+point, is that they had to be --
+
+344
+00:22:23,000 --> 00:22:23,460
+what?
+
+345
+00:22:23,460 --> 00:22:24,000
+What are they?
+
+346
+00:22:24,000 --> 00:22:25,000
+They're perpendicular.
+
+347
+00:22:25,000 --> 00:22:30,500
+The vector, when I -- if I see
+a vector one one and a one --
+
+348
+00:22:30,500 --> 00:22:34,000
+and a minus one one,
+my mind immediately takes that
+
+349
+00:22:34,000 --> 00:22:34,000
+dot product.
+It's zero.
+what's the determinant of that
+matrix?
+
+350
+00:22:35,000 --> 00:22:37,000
+Those vectors are
+perpendicular.
+
+351
+00:22:37,000 --> 00:22:39,000
+That'll happen here too.
+
+352
+00:22:39,000 --> 00:22:41,000
+Well, let's find the
+eigenvalues.
+
+353
+00:22:41,000 --> 00:22:45,000
+Actually, oh,
+my example's too easy.
+
+354
+00:22:45,000 --> 00:22:47,000
+My example is too easy.
+
+355
+00:22:47,000 --> 00:22:51,000
+Let me tell you in advance
+what's going to happen.
+
+356
+00:22:51,000 --> 00:22:52,130
+May I?
+
+357
+00:22:52,130 --> 00:22:56,000
+Or shall I do the determinant
+of A minus lambda,
+
+358
+00:22:56,000 --> 00:22:59,000
+and then point out at the end?
+
+359
+00:22:59,000 --> 00:23:04,000
+Will you remind me at the --
+after I've found the
+
+360
+00:23:04,000 --> 00:23:11,050
+eigenvalues to say why they
+were -- why they were easy from
+
+361
+00:23:11,050 --> 00:23:14,000
+the, from the example we did?
+
+362
+00:23:14,000 --> 00:23:17,000
+OK, let's do the job here.
+
+363
+00:23:17,000 --> 00:23:22,000
+Let's compute determinant of A
+minus lambda I.
+
+364
+00:23:22,000 --> 00:23:25,000
+So that's a determinant.
+
+365
+00:23:25,000 --> 00:23:29,000
+And what's,
+what is this thing?
+
+366
+00:23:29,000 --> 00:23:34,000
+It's the matrix A with lambda
+removed from the diagonal.
+
+367
+00:23:34,000 --> 00:23:40,000
+So the diagonal matrix is
+shifted, and then I'm taking the
+
+368
+00:23:40,000 --> 00:23:41,000
+determinant.
+
+369
+00:23:41,000 --> 00:23:42,000
+OK.
+
+370
+00:23:42,000 --> 00:23:44,450
+So I multiply this out.
+
+371
+00:23:44,450 --> 00:23:47,000
+So what is that determinant?
+
+372
+00:23:47,000 --> 00:23:52,000
+Do you notice,
+I didn't take lambda away from
+
+373
+00:23:52,000 --> 00:23:54,000
+all the entries.
+
+374
+00:23:54,000 --> 00:23:57,000
+It's lambda I,
+so it's lambda along the
+
+375
+00:23:57,000 --> 00:23:58,000
+diagonal.
+
+376
+00:23:58,000 --> 00:24:03,000
+So I get three minus lambda
+squared and then minus one,
+
+377
+00:24:03,000 --> 00:24:04,000
+right?
+
+378
+00:24:04,000 --> 00:24:08,000
+And I want that to be zero.
+
+379
+00:24:08,000 --> 00:24:13,000
+Well, I'm going to simplify it.
+
+380
+00:24:13,000 --> 00:24:16,000
+And what will I get?
+
+381
+00:24:16,000 --> 00:24:25,300
+So if I multiply this out,
+I get lambda squared minus six
+
+382
+00:24:25,300 --> 00:24:28,000
+lambda plus what?
+
+383
+00:24:28,000 --> 00:24:29,000
+Plus eight.
+But it's out there.
+
+384
+00:24:29,000 --> 00:24:35,000
+And that I'm going to set to
+zero.
+
+385
+00:24:35,000 --> 00:24:39,000
+And I'm
+going to solve it.
+
+386
+00:24:39,000 --> 00:24:42,000
+So and it's,
+it's a quadratic equation.
+
+387
+00:24:42,000 --> 00:24:45,000
+I can use factorization,
+I can use the quadratic
+
+388
+00:24:45,000 --> 00:24:46,000
+formula.
+
+389
+00:24:46,000 --> 00:24:48,000
+I'll get two lambdas.
+
+390
+00:24:48,000 --> 00:24:51,000
+Before I do it,
+tell me what's that number six
+
+391
+00:24:51,000 --> 00:24:55,000
+that's showing up in this
+equation?
+
+392
+00:24:55,000 --> 00:24:56,000
+It's the trace.
+
+393
+00:24:56,000 --> 00:24:59,000
+That number six is three plus
+three.
+
+394
+00:24:59,000 --> 00:25:03,000
+And while we're at it,
+what's the number eight that's
+
+395
+00:25:03,000 --> 00:25:06,000
+showing up in this equation?
+
+396
+00:25:06,000 --> 00:25:08,000
+It's the determinant.
+
+397
+00:25:08,000 --> 00:25:11,410
+That our matrix has determinant
+eight.
+
+398
+00:25:11,410 --> 00:25:15,950
+So in a two by two case,
+it's really nice.
+
+399
+00:25:15,950 --> 00:25:20,000
+It's lambda squared minus the
+trace times lambda -- the trace
+
+400
+00:25:20,000 --> 00:25:25,000
+is the linear coefficient -- and
+plus the determinant,
+
+401
+00:25:25,000 --> 00:25:26,000
+the constant term.
+
+402
+00:25:26,000 --> 00:25:26,000
+OK.
+So let's -- can,
+can we find the roots?
+
+403
+00:25:29,000 --> 00:25:34,000
+I guess the easy way is to
+factor that as something times
+
+404
+00:25:34,000 --> 00:25:36,000
+something.
+
+405
+00:25:36,000 --> 00:25:41,000
+If we couldn't factor it,
+then we'd have to use the old
+
+406
+00:25:41,000 --> 00:25:45,000
+b^2-4ac formula,
+but I, I think we can factor
+
+407
+00:25:45,000 --> 00:25:50,000
+that into lambda minus what
+times lambda minus what?
+
+408
+00:25:50,000 --> 00:25:53,000
+Can you do that factorization?
+
+409
+00:25:53,000 --> 00:25:54,000
+Four and two?
+
+410
+00:25:54,000 --> 00:25:59,000
+Lambda minus four times lambda
+minus two.
+
+411
+00:25:59,000 --> 00:26:02,610
+So the, the eigenvalues are
+four and two.
+
+412
+00:26:02,610 --> 00:26:07,000
+So the eigenvalues are -- one
+eigenvalue, lambda one,
+
+413
+00:26:07,000 --> 00:26:09,000
+let's say, is four.
+
+414
+00:26:09,000 --> 00:26:12,000
+Lambda two, the other
+eigenvalue, is two.
+
+415
+00:26:12,000 --> 00:26:15,000
+The eigenvalues are four and
+two.
+
+416
+00:26:15,000 --> 00:26:19,000
+And then I can go for the
+eigenvectors.
+Suppose I have a matrix A,
+and Ax equal lambda x.
+
+417
+00:26:19,000 --> 00:26:23,000
+You see I got the eigenvalues
+first.
+
+418
+00:26:23,000 --> 00:26:24,000
+Four and two.
+
+419
+00:26:24,000 --> 00:26:26,000
+Now for the eigenvectors.
+
+420
+00:26:26,000 --> 00:26:29,000
+So what are the eigenvectors?
+
+421
+00:26:29,000 --> 00:26:34,000
+They're these guys in the null
+space when I take away,
+
+422
+00:26:34,000 --> 00:26:38,000
+when I make the matrix singular
+by
+
+423
+00:26:38,000 --> 00:26:41,000
+taking four I or two I away.
+
+424
+00:26:41,000 --> 00:26:45,000
+So we're -- we got to do those
+separately.
+
+425
+00:26:45,000 --> 00:26:51,000
+I'll -- let me find the
+eigenvector for four first.
+
+426
+00:26:51,000 --> 00:26:56,000
+So I'll subtract four,
+so A minus four I is -- so
+
+427
+00:26:56,000 --> 00:27:00,000
+taking four away will put minus
+ones there.
+
+428
+00:27:00,000 --> 00:27:05,000
+And what's the point
+about that matrix?
+
+429
+00:27:05,000 --> 00:27:09,840
+If four is an eigenvalue,
+then A minus four I had better
+
+430
+00:27:09,840 --> 00:27:11,000
+be a what kind of matrix?
+
+431
+00:27:11,000 --> 00:27:12,000
+Singular.
+
+432
+00:27:12,000 --> 00:27:16,000
+If that matrix isn't singular,
+the four wasn't correct.
+
+433
+00:27:16,000 --> 00:27:19,000
+But we're OK,
+that matrix is singular.
+
+434
+00:27:19,000 --> 00:27:21,000
+And what's the x now?
+
+435
+00:27:21,000 --> 00:27:24,000
+The x is in the null
+space.
+
+436
+00:27:24,000 --> 00:27:30,080
+So what's the x1 that goes
+with, with the lambda one?
+eigenvalue, eigenvector,
+eigenvalue for this,
+
+437
+00:27:30,080 --> 00:27:36,000
+So that A -- so this is -- now
+I'm doing A x1 is lambda one x1.
+
+438
+00:27:36,000 --> 00:27:42,000
+So I took A minus lambda one I,
+that's this matrix,
+
+439
+00:27:42,000 --> 00:27:47,000
+and now I'm looking for the x1
+in its null space,
+
+440
+00:27:47,000 --> 00:27:48,000
+and who is he?
+
+441
+00:27:48,000 --> 00:27:51,000
+What's the vector x in the null
+space?
+
+442
+00:27:51,000 --> 00:27:53,000
+Of course it's one one.
+
+443
+00:27:53,000 --> 00:27:57,000
+So that's the eigenvector that
+goes with that eigenvalue.
+
+444
+00:27:57,000 --> 00:28:01,000
+Now how about the eigenvector
+that goes with the other
+
+445
+00:28:01,000 --> 00:28:02,700
+eigenvalue?
+
+446
+00:28:02,700 --> 00:28:05,000
+Can I do that with,
+with erasing?
+
+447
+00:28:05,000 --> 00:28:07,000
+I take A minus two I.
+
+448
+00:28:07,000 --> 00:28:11,940
+So now I take two away from the
+diagonal, and that leaves me
+
+449
+00:28:11,940 --> 00:28:13,000
+with a one and a one.
+
+450
+00:28:13,000 --> 00:28:18,000
+So A minus two I has again
+produced a singular matrix,
+
+451
+00:28:18,000 --> 00:28:19,000
+as it had to.
+
+452
+00:28:19,000 --> 00:28:23,000
+I'm looking for the null space
+of that guy.
+
+453
+00:28:23,000 --> 00:28:25,000
+What vector is in its null
+space?
+
+454
+00:28:25,000 --> 00:28:28,000
+Well, of course,
+a whole line of vectors.
+
+455
+00:28:28,000 --> 00:28:32,000
+So when I say the eigenvector,
+I'm not speaking correctly.
+
+456
+00:28:32,000 --> 00:28:36,000
+There's a whole line of
+eigenvectors,
+
+457
+00:28:36,000 --> 00:28:39,000
+and you just -- I just want a
+basis.
+
+458
+00:28:39,000 --> 00:28:41,000
+And for a line I just want one
+vector.
+
+459
+00:28:41,000 --> 00:28:45,000
+But -- You could,
+you're -- there's some freedom
+
+460
+00:28:45,000 --> 00:28:49,140
+in choosing that one,
+but choose a reasonable one.
+
+461
+00:28:49,140 --> 00:28:53,000
+What's a vector in the null
+space of that?
+
+462
+00:28:53,000 --> 00:28:58,000
+Well, the natural vector to
+pick as the eigenvector with,
+
+463
+00:28:58,000 --> 00:29:00,000
+with lambda two is minus one
+one.
+
+464
+00:29:00,000 --> 00:29:05,000
+If I did elimination on that
+vector and set that,
+
+465
+00:29:05,000 --> 00:29:10,530
+the free variable to be one,
+I would get minus one and get
+
+466
+00:29:10,530 --> 00:29:12,000
+that eigenvector.
+
+467
+00:29:12,000 --> 00:27:24,000
+So you see then that
+I've got eigenvector,
+
+468
+00:23:32,000 --> 00:22:08,000
+for this matrix?
+
+469
+00:17:13,000 --> 00:12:02,240
+What's the relation between
+that problem and -- let me write
+
+470
+00:12:02,240 --> 00:10:44,000
+just above what we2
+found here.
+
+471
+00:15:59,000 --> 00:21:43,000
+minus one and eigenvectors one
+one and eigenvector minus one
+
+472
+00:21:43,000 --> 00:22:06,000
+one.
+
+473
+00:22:06,000 --> 00:24:20,000
+And what do you notice?
+
+474
+00:24:20,000 --> 00:30:11,000
+What's -- how is this matrix
+related to that matrix?
+
+475
+00:30:11,000 --> 00:30:14,000
+How are those two matrices
+related?
+
+476
+00:30:14,000 --> 00:30:18,000
+Well, one is just three I more
+than the other one,
+
+477
+00:30:18,000 --> 00:30:19,000
+right?
+two.
+
+478
+00:30:19,000 --> 00:30:24,000
+I just took that matrix and I
+-- I took this matrix and I
+
+479
+00:30:24,000 --> 00:30:25,000
+added three I.
+
+480
+00:30:25,000 --> 00:30:28,000
+So my question is,
+what happened to the
+
+481
+00:30:28,000 --> 00:30:32,000
+eigenvalues and
+what happened to the
+
+482
+00:30:32,000 --> 00:30:33,000
+eigenvectors?
+
+483
+00:30:33,000 --> 00:30:36,000
+That's the, that's like the
+question we keep asking now in
+
+484
+00:30:36,000 --> 00:30:37,000
+this chapter.
+
+485
+00:30:37,000 --> 00:30:41,000
+If I, if I do something to the
+matrix, what happens if I -- or
+
+486
+00:30:41,000 --> 00:30:45,000
+I know something about the
+matrix, what's the what's the
+
+487
+00:30:45,000 --> 00:30:48,000
+conclusion for its eigenvectors
+and
+
+488
+00:30:48,000 --> 00:30:49,000
+eigenvalues?
+
+489
+00:30:49,000 --> 00:30:53,000
+Because -- those eigenvalues
+and eigenvectors are going to
+
+490
+00:30:53,000 --> 00:30:57,280
+tell us important information
+about the matrix.
+
+491
+00:30:57,280 --> 00:30:59,000
+And here what are we seeing?
+
+492
+00:30:59,000 --> 00:31:03,000
+What's happening to these
+eigenvalues, one and minus one,
+
+493
+00:31:03,000 --> 00:31:06,000
+when I add three
+I?
+
+494
+00:31:06,000 --> 00:31:09,000
+It just added three to the
+eigenvalues.
+
+495
+00:31:09,000 --> 00:31:13,000
+I got four and two,
+three more than one and minus
+
+496
+00:31:13,000 --> 00:31:13,000
+one.
+What happened to the
+eigenvectors?
+
+497
+00:31:16,000 --> 00:31:17,000
+Nothing at all.
+
+498
+00:31:17,000 --> 00:31:22,750
+One one is -- and minus -- and
+one -- and minus
+
+499
+00:31:22,750 --> 00:31:26,000
+one one are -- is still the
+eigenvectors.
+
+500
+00:31:26,000 --> 00:31:30,000
+In other words,
+simple but useful observation.
+
+501
+00:31:30,000 --> 00:31:36,000
+If I add three I to a matrix,
+its eigenvectors don't change
+
+502
+00:31:36,000 --> 00:31:39,920
+and its eigenvalues are three
+bigger.
+
+503
+00:31:39,920 --> 00:31:42,000
+Let's, let's just see why.
+
+504
+00:31:42,000 --> 00:26:15,000
+Let me keep all
+this on the same board.
+
+505
+00:14:48,000 --> 00:07:10,000
+Now I add three I to that
+matrix.
+
+506
+00:07:10,000 --> 00:05:46,000
+Do you see what3
+so it's if Ax equals lambda x,
+
+507
+00:05:46,000 --> 00:11:54,000
+then this, this other new
+matrix, I just have an Ax,
+
+508
+00:11:54,000 --> 00:16:36,000
+which is lambda x,
+and I have a three x,
+
+509
+00:16:36,000 --> 00:21:03,000
+from the three x,
+so it's just I mean,
+
+510
+00:23:56,000 --> 00:26:20,000
+Lambda plus three x.
+
+511
+00:26:20,000 --> 00:32:36,000
+So if they, if this had
+eigenvalue lambda,
+
+512
+00:32:36,000 --> 00:32:40,000
+this has eigenvalue lambda plus
+three.
+
+513
+00:32:40,000 --> 00:32:45,000
+And x, the eigenvector,
+is the same x for both
+
+514
+00:32:45,000 --> 00:32:46,840
+matrices.
+
+515
+00:32:46,840 --> 00:32:47,000
+OK.
+
+516
+00:32:47,000 --> 00:32:49,000
+So that's, great.
+
+517
+00:32:49,000 --> 00:32:52,000
+Of course, it's special.
+
+518
+00:32:52,000 --> 00:32:57,750
+We got the new matrix by adding
+three I.
+
+519
+00:32:57,750 --> 00:33:01,000
+Suppose I had added another
+matrix.
+
+520
+00:33:01,000 --> 00:33:07,000
+Suppose I know the eigenvalues
+and eigenvectors of A.
+
+521
+00:33:07,000 --> 00:33:13,000
+So this is, this,
+this little board here is going
+
+522
+00:33:13,000 --> 00:33:15,000
+to be not so great.
+
+523
+00:33:15,000 --> 00:33:23,000
+Suppose I have a matrix A and
+it has an eigenvector x with
+
+524
+00:33:23,000 --> 00:33:25,000
+an eigenvalue lambda.
+You remember,
+I solve A minus lambda I x
+
+525
+00:33:25,000 --> 00:33:28,000
+And now I add on some other
+matrix.
+
+526
+00:33:28,000 --> 00:33:33,000
+So, so what I'm asking you is,
+if you know the eigenvalues of
+
+527
+00:33:33,000 --> 00:33:39,590
+A and you know the eigenvalues
+of B, let me say suppose B -- so
+
+528
+00:33:39,590 --> 00:33:42,000
+this is if -- let me put an if
+here.
+
+529
+00:33:42,000 --> 00:33:46,000
+If Ax equals lambda x,
+fine, and B has,
+
+530
+00:33:46,000 --> 00:33:52,000
+eigenvalues,
+has eigenvalues -- what shall
+
+531
+00:33:52,000 --> 00:33:54,000
+we call them?
+
+532
+00:33:54,000 --> 00:34:02,000
+Alpha, alpha one and alpha --
+let's say -- I'll use alpha for
+
+533
+00:34:02,000 --> 00:34:08,000
+the eigenvalues of B for no good
+reason.
+
+534
+00:34:08,000 --> 00:34:18,000
+What a- you see what I'm going
+to ask is, how about A plus B?
+
+535
+00:34:18,000 --> 00:34:22,000
+Let me, let me give you the,
+let me give you,
+
+536
+00:34:22,000 --> 00:34:25,000
+what you might think first.
+
+537
+00:34:25,000 --> 00:34:26,000
+OK.
+
+538
+00:34:26,000 --> 00:34:32,310
+If Ax equals lambda x and if B
+has an eigenvalue alpha,
+
+539
+00:34:32,310 --> 00:34:39,130
+then I allowed to say -- what's
+the matter with this argument?
+
+540
+00:34:39,130 --> 00:34:41,000
+It's wrong.
+
+541
+00:34:41,000 --> 00:34:44,420
+What I'm going to write up is
+wrong.
+
+542
+00:34:44,420 --> 00:34:47,000
+I'm going to say Bx is alpha x.
+
+543
+00:34:47,000 --> 00:34:50,000
+Add those up,
+and you get A plus B x equals
+
+544
+00:34:50,000 --> 00:34:52,000
+lambda plus alpha x.
+
+545
+00:34:52,000 --> 00:34:57,000
+So you would think that if you
+know the eigenvalues of A and
+
+546
+00:34:57,000 --> 00:35:02,660
+you knew the eigenvalues of B,
+then if you added you would
+
+547
+00:35:02,660 --> 00:35:06,500
+know the eigenvalues of A plus
+B.
+
+548
+00:35:06,500 --> 00:35:08,000
+But that's false.
+
+549
+00:35:08,000 --> 00:35:13,000
+A plus B -- well,
+when B was three I,
+
+550
+00:35:13,000 --> 00:35:15,000
+that worked great.
+
+551
+00:35:15,000 --> 00:35:19,000
+But this is not so great.
+
+552
+00:35:19,000 --> 00:35:25,000
+And what's the matter with that
+argument there?
+
+553
+00:35:25,000 --> 00:35:33,050
+We have no reason to believe
+that x is also an eigenvector of
+
+554
+00:35:33,050 --> 00:35:33,000
+B.
+
+555
+00:35:33,000 --> 00:35:36,940
+B has some
+eigenvalues,
+
+556
+00:35:36,940 --> 00:35:40,480
+but it's got some different
+eigenvectors normally.
+
+557
+00:35:40,480 --> 00:35:42,000
+It's a different matrix.
+
+558
+00:35:42,000 --> 00:35:44,000
+I don't know anything special.
+
+559
+00:35:44,000 --> 00:35:48,000
+If I don't know anything
+special, then as far as I know,
+
+560
+00:35:48,000 --> 00:35:51,000
+it's got some different
+eigenvector y,
+
+561
+00:35:51,000 --> 00:35:54,000
+and when I add I
+get just rubbish.
+
+562
+00:35:54,000 --> 00:36:00,000
+I mean, I get -- I can add,
+but I don't learn anything.
+
+563
+00:36:00,000 --> 00:36:03,000
+So not so great is A plus B.
+
+564
+00:36:03,000 --> 00:36:05,000
+Or A times B.
+
+565
+00:36:05,000 --> 00:36:11,000
+Normally the eigenvalues of A
+plus B or A times B are not
+
+566
+00:36:11,000 --> 00:36:16,320
+eigenvalues of A plus
+eigenvalues of B.
+
+567
+00:36:16,320 --> 00:36:19,000
+Ei- eigenvalues are not,
+like, linear.
+
+568
+00:36:19,000 --> 00:36:22,000
+Or -- and they don't multiply.
+
+569
+00:36:22,000 --> 00:36:27,000
+Because, eigenvectors are
+usually different and,
+
+570
+00:36:27,000 --> 00:36:32,000
+and there's just no way to find
+out what A plus B does to affect
+
+571
+00:36:32,000 --> 00:36:33,000
+it.
+
+572
+00:36:33,000 --> 00:36:33,000
+OK.
+So that's, like,
+a caution.
+
+573
+00:36:37,000 --> 00:36:40,000
+Don't, if B is a multiple of
+the identity,
+
+574
+00:36:40,000 --> 00:36:47,000
+great, but if B is some general
+matrix, then for A plus B you've
+
+575
+00:36:47,000 --> 00:36:52,510
+got to find -- you've got to
+solve the eigenvalue problem.
+
+576
+00:36:52,510 --> 00:36:52,000
+OK.
+
+577
+00:36:52,000 --> 00:36:58,000
+Now I want to do another
+example that brings out a,
+
+578
+00:36:58,000 --> 00:37:02,000
+another point about
+eigenvalues.
+
+579
+00:37:02,000 --> 00:37:08,440
+Let me make this example a
+rotation matrix.
+
+580
+00:37:08,440 --> 00:37:08,850
+OK.
+
+581
+00:37:08,850 --> 00:37:12,000
+So here's another example.
+
+582
+00:37:12,000 --> 00:37:17,000
+So a rotate -- oh,
+I'd better call it Q.
+
+583
+00:37:17,000 --> 00:37:23,990
+I often use Q for,
+for, rotations because those
+
+584
+00:37:23,990 --> 00:37:29,000
+are the, like,
+very important examples of
+
+585
+00:37:29,000 --> 00:37:31,000
+orthogonal matrices.
+
+586
+00:37:31,000 --> 00:37:35,000
+Let me make it a ninety degree
+rotation.
+
+587
+00:37:35,000 --> 00:37:41,000
+So -- my matrix is going to be
+the one that rotates every
+
+588
+00:37:41,000 --> 00:37:43,000
+vector by ninety degrees.
+
+589
+00:37:43,000 --> 00:37:47,000
+So do you remember
+that matrix?
+
+590
+00:37:47,000 --> 00:37:52,000
+It's the cosine of ninety
+degrees, which is zero,
+
+591
+00:37:52,000 --> 00:37:57,000
+the sine of ninety degrees,
+which is one,
+
+592
+00:37:57,000 --> 00:38:02,000
+minus the sine of ninety,
+the cosine of ninety.
+
+593
+00:38:02,000 --> 00:38:06,000
+So that matrix deserves the
+letter Q.
+
+594
+00:38:06,000 --> 00:38:12,000
+It's an orthogonal matrix,
+very, very orthogonal matrix.
+
+595
+00:38:12,000 --> 00:38:17,000
+Now I'm interested in its
+eigenvalues and eigenvectors.
+
+596
+00:38:17,000 --> 00:38:21,000
+Two by two, it can't be that
+tough.
+
+597
+00:38:21,000 --> 00:38:24,000
+We know that the eigenvalues
+add to zero.
+
+598
+00:38:24,000 --> 00:38:28,000
+Actually, we know something
+already here.
+
+599
+00:38:28,000 --> 00:38:33,000
+The eigen- what's the sum of
+the two eigenvalues?
+
+600
+00:38:33,000 --> 00:38:36,000
+Just tell
+me what I just said.
+
+601
+00:38:36,000 --> 00:38:37,000
+Zero, right.
+
+602
+00:38:37,000 --> 00:38:39,000
+From that trace business.
+
+603
+00:38:39,000 --> 00:38:43,000
+The sum of the eigenvalues is,
+is going to come out zero.
+
+604
+00:38:43,000 --> 00:38:47,000
+And the product of the
+eigenvalues, did I tell you
+
+605
+00:38:47,000 --> 00:38:51,390
+about the determinant
+being the product of the
+
+606
+00:38:51,390 --> 00:38:52,000
+eigenvalues?
+
+607
+00:38:52,000 --> 00:38:52,000
+No.
+But that's a good thing to
+know.
+
+608
+00:38:55,000 --> 00:38:59,000
+We pointed out how that eight
+appeared in the,
+
+609
+00:38:59,000 --> 00:39:02,000
+in the quadratic equation.
+
+610
+00:39:02,000 --> 00:39:04,000
+So let me just say this.
+
+611
+00:39:04,000 --> 00:37:36,000
+The trace is zero plus zero,
+obviously.
+
+612
+00:37:36,000 --> 00:30:18,000
+And that's the sum,
+that's lambda one plus lambda
+
+613
+00:29:42,000 --> 00:22:34,000
+Now the other neat fact is that
+the determinant,
+
+614
+00:16:56,710 --> 00:16:20,000
+One.
+
+615
+00:16:20,000 --> 00:09:30,000
+And that is lambda one times
+lambda3
+
+616
+00:09:30,000 --> 00:10:00,000
+two.
+
+617
+00:10:00,000 --> 00:14:40,000
+In our example,
+the one we worked out,
+
+618
+00:14:40,000 --> 00:20:06,030
+we -- the eigenvalues came out
+four and two.
+
+619
+00:20:06,030 --> 00:23:07,000
+Their product was eight.
+
+620
+00:23:07,000 --> 00:30:26,000
+That -- it had to be eight,
+because we factored into lambda
+
+621
+00:30:26,000 --> 00:34:36,000
+minus four times lambda minus
+two.
+
+622
+00:34:36,000 --> 00:39:48,000
+That gave us the constant term
+eight.
+
+623
+00:39:48,000 --> 00:39:51,000
+And that was the determinant.
+
+624
+00:39:51,000 --> 00:39:52,000
+OK.
+
+625
+00:39:52,000 --> 00:40:00,000
+What I'm leading up to with
+this example is that something's
+
+626
+00:40:00,000 --> 00:40:02,000
+going to go wrong.
+
+627
+00:40:02,000 --> 00:40:09,000
+Something goes wrong for
+rotation because what vector can
+
+628
+00:40:09,000 --> 00:40:17,000
+come out parallel to itself
+after a rotation?
+
+629
+00:40:17,000 --> 00:40:22,230
+If this matrix rotates every
+vector by ninety degrees,
+
+630
+00:40:22,230 --> 00:40:25,000
+what could be an eigenvector?
+
+631
+00:40:25,000 --> 00:40:29,000
+Do you see we're,
+we're, we're going to have
+
+632
+00:40:29,000 --> 00:40:32,000
+trouble.
+eigenvectors are -- Well.
+
+633
+00:40:32,000 --> 00:40:35,750
+Our, our picture of
+eigenvectors,
+
+634
+00:40:35,750 --> 00:40:41,000
+of, of coming out in the same
+direction that they went in,
+
+635
+00:40:41,000 --> 00:40:43,410
+there won't be it.
+
+636
+00:40:43,410 --> 00:40:48,000
+And with, and with eigenvalues
+we're going to have trouble.
+
+637
+00:40:48,000 --> 00:40:49,000
+From these equations.
+
+638
+00:40:49,000 --> 00:40:50,000
+Let's see.
+
+639
+00:40:50,000 --> 00:40:52,000
+Why I expecting trouble?
+
+640
+00:40:52,000 --> 00:40:56,500
+The, the first equation says
+that the
+
+641
+00:40:56,500 --> 00:40:58,000
+eigenvalues add to zero.
+
+642
+00:40:58,000 --> 00:41:01,910
+So there's a plus and a minus.
+
+643
+00:41:01,910 --> 00:41:07,000
+But then the second equation
+says that the product is plus
+
+644
+00:41:07,000 --> 00:41:08,000
+one.
+
+645
+00:41:08,000 --> 00:41:09,000
+We're in trouble.
+
+646
+00:41:09,000 --> 00:41:11,000
+But there's a way out.
+
+647
+00:41:11,000 --> 00:41:15,000
+So how -- let's do the usual
+stuff.
+
+648
+00:41:15,000 --> 00:41:20,000
+Look at determinant of Q minus
+lambda I.
+
+649
+00:41:20,000 --> 00:41:25,000
+So I'll just follow the rules,
+take the determinant,
+
+650
+00:41:25,000 --> 00:41:29,000
+subtract lambda from the
+diagonal, where I had zeros,
+
+651
+00:41:29,000 --> 00:41:31,000
+the rest is the same.
+
+652
+00:41:31,000 --> 00:41:34,000
+Rest of Q is just copied.
+
+653
+00:41:34,000 --> 00:41:36,000
+Compute that determinant.
+
+654
+00:41:36,000 --> 00:41:40,000
+OK, so what does that
+determinant equal?
+
+655
+00:41:40,000 --> 00:41:45,000
+Lambda squared minus minus one
+plus what?
+
+656
+00:41:45,000 --> 00:41:46,000
+What's up?
+
+657
+00:41:46,000 --> 00:41:49,000
+There's my equation.
+
+658
+00:41:49,000 --> 00:41:56,000
+My equation for the eigenvalues
+is lambda squared plus one
+
+659
+00:41:56,000 --> 00:41:57,000
+equals zero.
+
+660
+00:41:57,000 --> 00:42:03,000
+What are the eigenvalues lambda
+one
+
+661
+00:42:03,000 --> 00:42:07,000
+and lambda two?
+
+662
+00:42:07,000 --> 00:42:19,000
+They're I, whatever that is,
+and minus it,
+
+663
+00:42:19,000 --> 00:42:21,000
+right.
+
+664
+00:42:21,000 --> 00:42:30,750
+Those are the right numbers.
+
+665
+00:42:30,750 --> 00:42:36,000
+To be real numbers even though
+the matrix was perfectly real.
+
+666
+00:42:36,000 --> 00:42:38,000
+So this can happen.
+
+667
+00:42:38,000 --> 00:42:45,000
+Complex numbers are going to --
+have to enter eighteen oh six at
+
+668
+00:42:45,000 --> 00:42:46,000
+this moment.
+
+669
+00:42:46,000 --> 00:42:47,000
+Boo, right.
+
+670
+00:42:47,000 --> 00:42:48,000
+All right.
+
+671
+00:42:48,000 --> 00:39:01,150
+If I just choose good
+matrices that have real
+
+672
+00:39:01,150 --> 00:31:59,000
+eigenvalues, we can postpone
+that evil day,
+
+673
+00:31:59,000 --> 00:24:28,000
+but just so you see -- so I'll
+try to do that.
+
+674
+00:14:06,000 --> 00:06:05,000
+have, give a perfectly
+innocent-looking quadratic
+
+675
+00:06:05,000 --> 00:08:14,670
+thing,4
+but the roots of that quadratic
+
+676
+00:08:14,670 --> 00:11:57,000
+can be complex numbers.
+
+677
+00:11:57,000 --> 00:21:08,000
+And of course you -- everybody
+knows that they're -- what,
+
+678
+00:27:54,020 --> 00:37:05,000
+So, so now -- Let's just spend
+one more minute on this bad
+
+679
+00:37:05,000 --> 00:43:31,000
+possibility of complex numbers.
+
+680
+00:43:31,000 --> 00:43:37,000
+We do know a little information
+about the, the two complex
+
+681
+00:43:37,000 --> 00:43:38,080
+numbers.
+
+682
+00:43:38,080 --> 00:43:42,000
+They're complex conjugates of
+each other.
+
+683
+00:43:42,000 --> 00:43:46,000
+If, if lambda is an eigenvalue,
+then when I change,
+
+684
+00:43:46,000 --> 00:43:53,000
+when I go -- you remember what
+complex conjugates are?
+
+685
+00:43:53,000 --> 00:43:56,000
+You switch the sign of the
+imaginary part.
+
+686
+00:43:56,000 --> 00:43:59,000
+Well, this was only imaginary,
+had no real part,
+
+687
+00:43:59,000 --> 00:44:02,000
+so we just switched its sign.
+
+688
+00:44:02,000 --> 00:44:05,000
+So that eigenvalues come in
+pairs like that,
+
+689
+00:44:05,000 --> 00:44:06,000
+but they're complex.
+
+690
+00:44:06,000 --> 00:44:08,000
+A complex conjugate pair.
+
+691
+00:44:08,000 --> 00:44:13,000
+And that can happen
+with a perfectly real matrix.
+
+692
+00:44:13,000 --> 00:44:17,000
+And as a matter of fact -- so
+that was my, my point earlier,
+
+693
+00:44:17,000 --> 00:44:21,000
+that if a matrix was symmetric,
+it wouldn't happen.
+
+694
+00:44:21,000 --> 00:44:25,570
+So if we stick to matrices that
+are symmetric or,
+
+695
+00:44:25,570 --> 00:44:29,000
+like, close to symmetric,
+then the eigenvalues will stay
+
+696
+00:44:29,000 --> 00:44:30,000
+real.
+
+697
+00:44:30,000 --> 00:44:35,000
+But if we move far away
+from symmetric -- and that's as
+
+698
+00:44:35,000 --> 00:44:39,000
+far as you can move,
+because that matrix is -- how
+
+699
+00:44:39,000 --> 00:44:42,000
+is Q transpose related to Q for
+that matrix?
+
+700
+00:44:42,000 --> 00:44:45,000
+That matrix is anti-symmetric.
+
+701
+00:44:45,000 --> 00:44:46,000
+Q transpose is minus Q.
+
+702
+00:44:46,000 --> 00:44:50,500
+That's the very opposite of
+symmetry.
+
+703
+00:44:50,500 --> 00:44:54,000
+When I flip across the diagonal
+I get -- I reverse all the
+
+704
+00:44:54,000 --> 00:44:55,000
+signs.
+
+705
+00:44:55,000 --> 00:44:59,000
+Those are the guys that have
+pure imaginary eigenvalues.
+
+706
+00:44:59,000 --> 00:45:01,000
+So they're the extreme case.
+
+707
+00:45:01,000 --> 00:45:05,000
+And in between are,
+are matrices that are not
+
+708
+00:45:05,000 --> 00:45:09,000
+symmetric or anti-symmetric but,
+but they have partly a
+
+709
+00:45:09,000 --> 00:45:13,000
+symmetric
+part and an anti-symmetric
+
+710
+00:45:13,000 --> 00:45:13,000
+part.
+OK.
+
+711
+00:45:14,200 --> 00:45:19,000
+So I'm doing a bunch of
+examples here to show the
+
+712
+00:45:19,000 --> 00:45:20,000
+possibilities.
+
+713
+00:45:20,000 --> 00:45:26,000
+The good possibilities being
+perpendicular eigenvectors,
+
+714
+00:45:26,000 --> 00:45:28,000
+real eigenvalues.
+
+715
+00:45:28,000 --> 00:45:34,000
+The bad possibilities being
+complex eigenvalues.
+
+716
+00:45:34,000 --> 00:45:37,000
+We could say that's bad.
+
+717
+00:45:37,000 --> 00:45:40,000
+There's another even worse.
+
+718
+00:45:40,000 --> 00:45:46,000
+I'm getting through the,
+the bad things here today.
+
+719
+00:45:46,000 --> 00:45:53,000
+Then, then the next lecture
+can, can, can be like pure
+
+720
+00:45:53,000 --> 00:45:54,000
+happiness.
+
+721
+00:45:54,000 --> 00:45:54,000
+OK.
+Here's one more bad thing
+that could happen.
+
+722
+00:46:00,000 --> 00:46:04,000
+So I, again,
+I'll do it with an example.
+
+723
+00:46:04,000 --> 00:46:09,000
+Suppose my matrix is,
+suppose I take this three three
+
+724
+00:46:09,000 --> 00:46:13,000
+one and I change that guy to
+zero.
+
+725
+00:46:13,000 --> 00:46:17,180
+What are the eigenvalues of
+that matrix?
+
+726
+00:46:17,180 --> 00:46:19,000
+What are the eigenvectors?
+
+727
+00:46:19,000 --> 00:46:23,000
+This is
+always our question.
+
+728
+00:46:23,000 --> 00:46:27,540
+Of course, the next section
+we're going to show why are,
+
+729
+00:46:27,540 --> 00:46:28,000
+why do we care.
+
+730
+00:46:28,000 --> 00:46:32,000
+But for the moment,
+this lecture is introducing
+
+731
+00:46:32,000 --> 00:46:32,000
+them.
+And let's just find them.
+
+732
+00:46:34,000 --> 00:46:34,000
+OK.
+What are the eigenvalues of
+that matrix?
+
+733
+00:46:38,000 --> 00:46:43,000
+Let me tell you -- at a glance
+we could answer that question.
+
+734
+00:46:43,000 --> 00:46:46,000
+Because the matrix is
+triangular.
+
+735
+00:46:46,000 --> 00:46:51,000
+It's really useful to know --
+if you've got properties like a
+
+736
+00:46:51,000 --> 00:46:52,000
+triangular matrix.
+
+737
+00:46:52,000 --> 00:46:57,000
+It's very useful to know you
+can read the eigenvalues
+
+738
+00:46:57,000 --> 00:46:57,000
+off.
+They're right on the diagonal.
+
+739
+00:47:00,000 --> 00:47:03,000
+So the eigenvalue is three and
+also three.
+
+740
+00:47:03,000 --> 00:47:05,430
+Three is a repeated eigenvalue.
+
+741
+00:47:05,430 --> 00:47:07,000
+But let's see that happen.
+
+742
+00:47:07,000 --> 00:47:08,000
+Let me do it right.
+
+743
+00:47:08,000 --> 00:47:12,000
+The determinant of A minus
+lambda I, what I always have to
+
+744
+00:47:12,000 --> 00:47:15,000
+do is this
+determinant.
+
+745
+00:47:15,000 --> 00:47:19,000
+I take away lambda from the
+diagonal.
+
+746
+00:47:19,000 --> 00:47:21,000
+I leave the rest.
+
+747
+00:47:21,000 --> 00:47:27,000
+I compute the determinant,
+so I get a three minus lambda
+
+748
+00:47:27,000 --> 00:47:30,000
+times a three minus lambda.
+
+749
+00:47:30,000 --> 00:47:31,000
+And nothing.
+
+750
+00:47:31,000 --> 00:47:37,000
+So that's where the triangular
+part came in.
+
+751
+00:47:37,000 --> 00:47:40,000
+Triangular part,
+the one thing we know about
+
+752
+00:47:40,000 --> 00:47:44,000
+triangular matrices is the
+determinant is just the product
+
+753
+00:47:44,000 --> 00:47:46,000
+down the diagonal.
+
+754
+00:47:46,000 --> 00:47:48,000
+And in this case,
+it's this same,
+
+755
+00:47:48,000 --> 00:47:51,000
+repeated -- so lambda one is
+one -- sorry,
+
+756
+00:47:51,000 --> 00:47:56,000
+lambda one is three and lambda
+two is three.
+
+757
+00:47:56,000 --> 00:47:57,000
+That was easy.
+
+758
+00:47:57,000 --> 00:48:02,000
+I mean, no -- why should I be
+pessimistic about a matrix whose
+
+759
+00:48:02,000 --> 00:48:06,070
+eigenvalues can be read off
+right away?
+
+760
+00:48:06,070 --> 00:48:10,000
+The problem with this matrix is
+in the eigenvectors.
+
+761
+00:48:10,000 --> 00:48:13,000
+So let's go to the
+eigenvectors.
+
+762
+00:48:13,000 --> 00:48:17,300
+So how do I find the
+eigenvectors?
+
+763
+00:48:17,300 --> 00:41:01,000
+I'm looking for a couple of
+eigenvectors.
+
+764
+00:41:01,000 --> 00:36:28,000
+So I take the eigenvalue.
+
+765
+00:36:28,000 --> 00:33:23,000
+What do I do now?
+
+766
+00:26:17,000 --> 00:24:06,000
+equals zero.
+
+767
+00:24:06,000 --> 00:18:28,000
+And what is A minus lambda I x?
+
+768
+00:18:28,000 --> 00:14:18,000
+So, so take three away.
+
+769
+00:14:18,000 --> 00:12:07,000
+And I get this matrix4
+zero zero zero one,
+
+770
+00:13:12,000 --> 00:20:50,000
+Times x is supposed to give me
+zero, right?
+
+771
+00:20:50,000 --> 00:26:06,000
+That's my big equation for x.
+
+772
+00:26:06,000 --> 00:33:01,010
+Now I'm looking for x,
+the eigenvector.
+
+773
+00:33:01,010 --> 00:43:11,000
+So I took A minus lambda I x,
+and what kind of a matrix I
+
+774
+00:43:11,000 --> 00:49:00,480
+supposed to have here?
+
+775
+00:49:00,480 --> 00:49:01,000
+Singular, right?
+
+776
+00:49:01,000 --> 00:49:03,000
+It's supposed to be singular.
+
+777
+00:49:03,000 --> 00:49:07,000
+And then it's got some vectors
+-- which it is.
+
+778
+00:49:07,000 --> 00:49:10,000
+So it's got some vector x in
+the null space.
+
+779
+00:49:10,000 --> 00:49:14,000
+And what, what's the,
+what's -- give me a basis for
+
+780
+00:49:14,000 --> 00:49:17,000
+the null space for that guy.
+
+781
+00:49:17,000 --> 00:49:21,000
+Tell me, what's a vector x in
+the null space,
+
+782
+00:49:21,000 --> 00:49:26,000
+so that'll be the,
+the eigenvector that goes with
+
+783
+00:49:26,000 --> 00:49:28,000
+lambda one equals three.
+
+784
+00:49:28,000 --> 00:49:33,000
+The eigenvector is -- so what's
+in the null space?
+
+785
+00:49:33,000 --> 00:49:35,000
+One zero, is it?
+
+786
+00:49:35,000 --> 00:49:37,000
+Great.
+
+787
+00:49:37,000 --> 00:49:39,000
+Now, what's the other
+eigenvector?
+
+788
+00:49:39,000 --> 00:49:44,000
+What's, what's the eigenvector
+that goes with lambda two?
+
+789
+00:49:44,000 --> 00:49:47,000
+Well, lambda two is three
+again.
+
+790
+00:49:47,000 --> 00:49:50,000
+So I get the same thing again.
+
+791
+00:49:50,000 --> 00:49:54,000
+Give me another vector -- I
+want it to be independent.
+
+792
+00:49:54,000 --> 00:50:00,440
+If I'm going to write
+down an x2, I'm never going to
+
+793
+00:50:00,440 --> 00:50:03,000
+let it be dependent on x1.
+
+794
+00:50:03,000 --> 00:50:07,000
+I'm looking for independent
+eigenvectors,
+
+795
+00:50:07,000 --> 00:50:10,000
+and what's the conclusion?
+
+796
+00:50:10,000 --> 00:50:11,000
+There isn't one.
+
+797
+00:50:11,000 --> 00:50:14,660
+This is a degenerate matrix.
+
+798
+00:50:14,660 --> 00:50:21,000
+It's only got one line of
+eigenvectors instead of two.
+
+799
+00:50:21,000 --> 00:50:28,000
+It's this possibility of a
+repeated eigenvalue opens this
+
+800
+00:50:28,000 --> 00:50:34,000
+further possibility of a
+shortage of eigenvectors.
+
+801
+00:50:34,000 --> 00:50:40,000
+And so there's no second
+independent eigenvector x2.
+
+802
+00:50:40,000 --> 00:50:46,090
+So it's a matrix,
+it's a two by two matrix,
+
+803
+00:50:46,090 --> 00:50:49,000
+but with
+only one independent
+
+804
+00:50:49,000 --> 00:50:50,000
+eigenvector.
+
+805
+00:50:50,000 --> 00:50:56,000
+So that will be -- the matrices
+that -- where eigenvectors are
+
+806
+00:50:56,000 --> 00:50:58,000
+-- don't give the complete
+story.
+
+807
+00:50:58,000 --> 00:50:59,000
+OK.
+
+808
+00:50:59,000 --> 00:51:04,000
+My lecture on Monday will give
+the complete story for all the
+
+809
+00:51:04,000 --> 00:51:06,000
+other matrices.
+
+810
+00:51:06,000 --> 00:51:07,000
+Thanks.
+
+811
+00:51:07,000 --> 00:51:08,960
+Have a good weekend.
+
+812
+00:51:08,960 --> 00:51:11,000
+A real New England weekend.

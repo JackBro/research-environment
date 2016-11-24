@@ -1,0 +1,2780 @@
+1
+00:00:11,000 --> 00:00:12,000
+Okay.
+
+2
+00:00:12,000 --> 00:00:19,000
+This is the lecture on the
+singular value decomposition.
+
+3
+00:00:19,000 --> 00:00:23,000
+But everybody calls it the SVD.
+
+4
+00:00:23,000 --> 00:00:31,000
+So this is the final and best
+factorization of a matrix.
+
+5
+00:00:31,000 --> 00:00:35,000
+Let me tell you what's coming.
+
+6
+00:00:35,000 --> 00:00:40,000
+The factors will be,
+orthogonal matrix,
+
+7
+00:00:40,000 --> 00:00:46,000
+diagonal matrix,
+orthogonal matrix.
+
+8
+00:00:46,000 --> 00:00:50,000
+So it's things that we've seen
+before, these special good
+
+9
+00:00:50,000 --> 00:00:52,000
+matrices, orthogonal diagonal.
+
+10
+00:00:52,000 --> 00:00:55,000
+The new point is that we need
+two orthogonal matrices.
+
+11
+00:00:55,000 --> 00:00:57,000
+A can be any matrix whatsoever.
+
+12
+00:00:57,000 --> 00:01:01,000
+Any matrix whatsoever has this
+singular value decomposition,
+
+13
+00:01:01,000 --> 00:01:05,480
+so a diagonal one in the
+middle, but I need two different
+
+14
+00:01:05,480 --> 00:01:10,000
+-- probably different orthogonal
+matrices to be able to do this.
+
+15
+00:01:10,000 --> 00:01:10,000
+Okay.
+And this factorization has
+jumped into importance and is
+
+16
+00:01:16,000 --> 00:01:21,100
+properly, I think,
+maybe the bringing together of
+
+17
+00:01:21,100 --> 00:01:23,650
+everything in this course.
+
+18
+00:01:23,650 --> 00:01:29,000
+One thing we'll bring together
+is the very good family of
+
+19
+00:01:29,000 --> 00:01:34,000
+matrices that we just studied,
+symmetric, positive,
+
+20
+00:01:34,000 --> 00:01:36,000
+definite.
+
+21
+00:01:36,000 --> 00:01:39,000
+Do you remember the stories
+with those guys?
+
+22
+00:01:39,000 --> 00:01:44,000
+Because they were symmetric,
+their eigenvectors were
+
+23
+00:01:44,000 --> 00:01:50,370
+orthogonal, so I could produce
+an orthogonal matrix -- this is
+
+24
+00:01:50,370 --> 00:01:51,000
+my usual one.
+
+25
+00:01:51,000 --> 00:01:56,000
+My usual one is the
+eigenvectors and eigenvalues
+
+26
+00:01:56,000 --> 00:02:00,000
+In the symmetric case,
+the eigenvectors are
+
+27
+00:02:00,000 --> 00:02:07,000
+orthogonal, so I've got the good
+-- my ordinary s has become an
+
+28
+00:02:07,000 --> 00:02:08,000
+especially good Q.
+
+29
+00:02:08,000 --> 00:02:14,000
+And positive definite,
+my ordinary lambda has become a
+
+30
+00:02:14,000 --> 00:02:16,000
+positive lambda.
+
+31
+00:02:16,000 --> 00:02:21,960
+So that's the singular value
+decomposition in case our matrix
+
+32
+00:02:21,960 --> 00:02:26,000
+is symmetric positive definite
+-- in that case,
+
+33
+00:02:26,000 --> 00:02:31,000
+I don't need two -- U and a V
+-- one orthogonal matrix will do
+
+34
+00:02:31,000 --> 00:02:33,000
+for both sides.
+
+35
+00:02:33,000 --> 00:02:40,000
+So this would be no good in
+general, because usually the
+
+36
+00:02:40,000 --> 00:02:44,000
+eigenvector matrix isn't
+orthogonal.
+
+37
+00:02:44,000 --> 00:02:47,660
+So that's not what I'm after.
+
+38
+00:02:47,660 --> 00:02:55,000
+I'm looking for orthogonal
+times diagonal times orthogonal.
+
+39
+00:02:55,000 --> 00:03:01,000
+And let me show you what that
+means and where it comes from.
+
+40
+00:03:01,000 --> 00:03:02,000
+Okay.
+
+41
+00:03:02,000 --> 00:03:03,000
+What does it mean?
+
+42
+00:03:03,000 --> 00:03:09,000
+You remember the picture of any
+linear transformation.
+
+43
+00:03:09,000 --> 00:03:13,000
+This was, like,
+the most important figure in
+
+44
+00:03:13,000 --> 00:03:14,000
+
+
+45
+00:03:14,000 --> 00:03:14,000
+And what I looking for now?
+
+46
+00:03:17,000 --> 00:03:21,890
+A typical vector in the row
+space
+
+47
+00:03:21,000 --> 00:03:27,000
+-- typical vector,
+let me call it v1,
+
+48
+00:03:27,350 --> 00:03:34,000
+gets taken over to some vector
+in the column space,
+
+49
+00:03:34,000 --> 00:03:35,000
+say u1.
+
+50
+00:03:35,000 --> 00:03:37,000
+So u1 is Av1.
+
+51
+00:03:37,000 --> 00:03:38,000
+Okay.
+
+52
+00:03:38,000 --> 00:03:46,000
+Now, another vector gets taken
+over here somewhere.
+
+53
+00:03:46,000 --> 00:03:50,000
+What I looking for?
+
+54
+00:03:50,000 --> 00:03:53,000
+In this SVD,
+this singular value
+
+55
+00:03:53,000 --> 00:03:57,660
+decomposition,
+what I'm looking for is an
+
+56
+00:03:57,660 --> 00:04:03,000
+orthogonal basis here that gets
+knocked over into an orthogonal
+
+57
+00:04:03,000 --> 00:04:05,000
+basis over there.
+
+58
+00:04:05,000 --> 00:04:10,000
+See that's pretty special,
+to have an orthogonal basis in
+
+59
+00:04:10,000 --> 00:04:17,350
+the row space that goes over
+into an orthogonal basis --
+
+60
+00:04:17,350 --> 00:04:21,000
+so this is like a right angle
+and this is a right angle --
+
+61
+00:04:21,000 --> 00:04:25,000
+into an orthogonal basis in the
+column space.
+
+62
+00:04:25,000 --> 00:04:28,000
+So that's our goal,
+is to find -- do you see how
+
+63
+00:04:28,000 --> 00:04:31,000
+things are coming together?
+
+64
+00:04:31,000 --> 00:04:34,000
+First of all,
+can I find an orthogonal basis
+
+65
+00:04:34,000 --> 00:04:36,750
+for this row space?
+
+66
+00:04:36,750 --> 00:04:37,000
+Of course.
+
+67
+00:04:37,000 --> 00:04:39,000
+No big deal to find an
+orthogonal basis.
+
+68
+00:04:39,000 --> 00:04:42,000
+Graham Schmidt tells me how to
+do it.
+
+69
+00:04:42,000 --> 00:04:45,000
+Start with any old basis and
+grind through Graham Schmidt,
+
+70
+00:04:45,000 --> 00:04:47,000
+out comes an orthogonal basis.
+
+71
+00:04:47,000 --> 00:04:50,610
+But then, if I just take any
+old orthogonal basis,
+
+72
+00:04:50,610 --> 00:04:54,000
+then when I multiply by A,
+there's no reason why it should
+
+73
+00:04:54,000 --> 00:04:56,000
+be orthogonal over here.
+
+74
+00:04:56,000 --> 00:05:04,000
+So I'm looking for this special
+set up where A takes these basis
+
+75
+00:05:04,000 --> 00:05:10,000
+vectors into orthogonal vectors
+over there.
+
+76
+00:05:10,000 --> 00:05:17,000
+Now, you might have noticed
+that the null space I didn't
+
+77
+00:05:17,000 --> 00:05:18,000
+include.
+
+78
+00:05:18,000 --> 00:05:22,000
+Why don't I stick that in?
+
+79
+00:05:22,000 --> 00:05:27,000
+You remember our usual figure
+had a little null space and a
+
+80
+00:05:27,000 --> 00:05:29,000
+little null space.
+
+81
+00:05:29,000 --> 00:05:31,000
+And those are no problems.
+
+82
+00:05:31,000 --> 00:05:36,000
+Those null spaces are going to
+show up as zeroes on the
+
+83
+00:05:36,000 --> 00:05:40,000
+diagonal of sigma,
+so that doesn't present any
+
+84
+00:05:40,000 --> 00:05:41,000
+difficulty.
+
+85
+00:05:41,000 --> 00:05:44,000
+Our difficulty is to find
+these.
+
+86
+00:05:44,000 --> 00:05:48,640
+So do you see what this will
+mean?
+
+87
+00:05:48,640 --> 00:05:53,000
+This will mean that A times
+these v-s, v1,
+
+88
+00:05:53,000 --> 00:05:59,000
+v2, up to -- what's the
+dimension of this row space?
+
+89
+00:05:59,000 --> 00:05:59,000
+Vr.
+Sorry, make that V a little
+smaller -- up to vr.
+
+90
+00:06:04,000 --> 00:06:10,000
+So that's -- Av1 is going to be
+the first column,
+
+91
+00:06:10,000 --> 00:06:15,000
+so here's what I'm achieving.
+
+92
+00:06:15,000 --> 00:06:20,000
+Oh, I'm not only going to make
+these orthogonal,
+
+93
+00:06:20,000 --> 00:06:24,410
+but why not make them
+orthonormal?
+
+94
+00:06:24,410 --> 00:06:27,000
+Make them unit vectors.
+
+95
+00:06:27,000 --> 00:06:32,000
+So maybe the unit vector is
+here, is the u1,
+
+96
+00:06:32,000 --> 00:06:37,000
+and this might be a multiple of
+it.
+
+97
+00:06:37,000 --> 00:06:42,000
+So really, what's happening is
+Av1 is some multiple of u1,
+
+98
+00:06:42,000 --> 00:06:42,000
+right?
+These guys will be unit vectors
+and they'll go over into
+
+99
+00:06:47,000 --> 00:06:53,000
+multiples of unit vectors and
+the multiple I'm not going to
+
+100
+00:06:53,000 --> 00:06:55,000
+call lambda anymore.
+
+101
+00:06:55,000 --> 00:06:57,000
+I'm calling it sigma.
+
+102
+00:06:57,000 --> 00:07:01,000
+So that's the number -- the
+stretching number.
+
+103
+00:07:01,000 --> 00:07:05,000
+And similarly,
+Av2 is sigma two u2.
+
+104
+00:07:05,000 --> 00:07:06,000
+This is my goal.
+
+105
+00:07:06,000 --> 00:07:11,000
+And now I want to express that
+goal in matrix language.
+
+106
+00:07:11,000 --> 00:07:14,000
+That's the usual step.
+
+107
+00:07:14,000 --> 00:07:20,000
+Think of what you want and then
+express it as a matrix
+
+108
+00:07:20,000 --> 00:07:21,000
+multiplication.
+
+109
+00:07:21,000 --> 00:07:26,000
+So Av1 is sigma one u1 --
+actually, here we go.
+
+110
+00:07:26,000 --> 00:07:32,000
+Let me pull out these -- u1,
+u2 to ur and then a matrix with
+
+111
+00:07:32,000 --> 00:07:33,970
+the sigmas.
+
+112
+00:07:33,970 --> 00:07:39,000
+Everything now is going to be
+in that little part of the
+
+113
+00:07:39,000 --> 00:07:42,000
+blackboard.
+
+114
+00:07:42,000 --> 00:07:50,020
+Do you see that this equation
+says what I'm trying to do with
+
+115
+00:07:50,020 --> 00:07:51,000
+my figure.
+
+116
+00:07:51,000 --> 00:07:59,000
+A times the first basis vector
+should be sigma one times the
+
+117
+00:07:59,000 --> 00:08:05,000
+other basis -- the other first
+basis vector.
+
+118
+00:08:05,000 --> 00:08:09,000
+These are the basis vectors in
+the row space,
+
+119
+00:08:09,000 --> 00:08:14,000
+these are the basis vectors in
+the column space and these are
+
+120
+00:08:14,000 --> 00:08:16,000
+the multiplying factors.
+
+121
+00:08:16,000 --> 00:08:21,000
+So Av2 is sigma two times u2,
+Avr is sigma r times ur.
+
+122
+00:08:21,000 --> 00:08:26,000
+And then we've got a whole lot
+of zeroes and maybe some zeroes
+
+123
+00:08:26,000 --> 00:08:30,000
+at the end, but that's the heart
+of it.
+
+124
+00:08:30,000 --> 00:08:36,000
+And now if I express that in --
+as matrices, because you knew
+
+125
+00:08:36,000 --> 00:08:40,000
+that was coming -- that's what I
+have.
+
+126
+00:08:40,000 --> 00:08:45,000
+So, this is my goal,
+to find an orthogonal basis in
+
+127
+00:08:45,000 --> 00:08:50,000
+the orthonormal,
+even -- basis in the row space
+
+128
+00:08:50,000 --> 00:08:56,000
+and an orthonormal basis in the
+column space so that I've sort
+
+129
+00:08:56,000 --> 00:09:00,000
+of diagonalized the matrix.
+
+130
+00:09:00,000 --> 00:09:03,000
+The matrix A is,
+like, getting converted to this
+
+131
+00:09:03,000 --> 00:09:04,000
+diagonal matrix sigma.
+
+132
+00:09:04,000 --> 00:09:08,000
+And you notice that usually I
+have to allow myself two
+
+133
+00:09:08,000 --> 00:09:09,000
+different bases.
+
+134
+00:09:09,000 --> 00:09:13,000
+My little comment about
+symmetric positive definite was
+
+135
+00:09:13,000 --> 00:09:15,000
+the one case where it's A Q
+equal Q sigma,
+
+136
+00:09:15,000 --> 00:09:18,000
+where V and U are the same Q.
+
+137
+00:09:18,000 --> 00:09:25,000
+But mostly, you know,
+I'm going to take a matrix like
+
+138
+00:09:25,000 --> 00:09:33,000
+-- oh, let me take a matrix like
+four four minus three three.
+
+139
+00:09:33,000 --> 00:09:34,000
+Okay.
+
+140
+00:09:34,000 --> 00:09:38,360
+There's a two by two matrix.
+
+141
+00:09:38,360 --> 00:09:44,000
+It's invertible,
+so it has rank two.
+
+142
+00:09:44,000 --> 00:09:49,000
+So I'm going to look for two
+vectors, v1 and v2 in the row
+
+143
+00:09:49,000 --> 00:09:54,000
+space, and U -- so I'm going to
+look for v1, v2 in the row
+
+144
+00:09:54,000 --> 00:09:56,000
+space, which of course is R^2.
+
+145
+00:09:56,000 --> 00:10:01,000
+And I'm going to look for u1,
+u2 in the column space,
+
+146
+00:10:01,000 --> 00:10:06,000
+which of course is also R^2,
+and I'm going to look for
+
+147
+00:10:06,000 --> 00:10:12,000
+numbers sigma one and sigma two
+so that it all comes out right.
+
+148
+00:10:12,000 --> 00:10:20,000
+So these guys are orthonormal,
+these guys are orthonormal and
+
+149
+00:10:20,000 --> 00:10:23,000
+these are the scaling factors.
+
+150
+00:10:23,000 --> 00:10:30,000
+So I'll do that example as soon
+as I get the matrix picture
+
+151
+00:10:30,000 --> 00:10:31,000
+straight.
+
+152
+00:10:31,000 --> 00:10:32,000
+Okay.
+
+153
+00:10:32,000 --> 00:10:38,000
+Do you see that this expresses
+what I want?
+
+154
+00:10:38,000 --> 00:10:43,000
+Can I just say two words about
+null spaces?
+
+155
+00:10:43,000 --> 00:10:48,000
+If there's some null space,
+then we want to stick in a
+
+156
+00:10:48,000 --> 00:10:50,000
+basis for those,
+for that.
+
+157
+00:10:50,000 --> 00:10:56,000
+So here comes a basis for the
+null space, v(r+1) down to vm.
+
+158
+00:10:56,000 --> 00:11:01,000
+So if we only had an r
+dimensional row space and the
+
+159
+00:11:01,000 --> 00:11:07,000
+other n-r dimensions were in the
+null space --
+
+160
+00:11:07,000 --> 00:11:12,000
+okay, we'll take an orthogonal
+-- orthonormal basis there.
+
+161
+00:11:12,000 --> 00:11:12,000
+No problem.
+And then we'll just get zeroes.
+
+162
+00:11:15,000 --> 00:11:19,000
+So, actually,
+w- those zeroes will come out
+
+163
+00:11:19,000 --> 00:11:21,000
+on the diagonal matrix.
+
+164
+00:11:21,000 --> 00:11:26,000
+So I'll complete that to an
+orthonormal basis for the whole
+
+165
+00:11:26,000 --> 00:11:28,000
+space, R^m.
+
+166
+00:11:28,000 --> 00:11:32,000
+I complete this to an
+orthonormal basis for the whole
+
+167
+00:11:32,000 --> 00:11:35,000
+space R^n and I complete that
+with zeroes.
+
+168
+00:11:35,000 --> 00:11:38,000
+Null spaces are no problem
+here.
+
+169
+00:11:38,000 --> 00:11:42,660
+So really the true problem is
+in a matrix like that,
+
+170
+00:11:42,660 --> 00:11:45,980
+which isn't symmetric,
+so I can't use its
+
+171
+00:11:45,980 --> 00:11:49,000
+eigenvectors,
+they're not orthogonal -- but
+
+172
+00:11:49,000 --> 00:11:53,000
+somehow I have to get these
+orthogonal --
+
+173
+00:11:53,000 --> 00:12:00,000
+in fact, orthonormal guys that
+make it work.
+
+174
+00:12:00,000 --> 00:12:06,000
+I have to find these
+orthonormal guys,
+
+175
+00:12:06,000 --> 00:12:14,000
+these orthonormal guys and I
+want Av1 to be sigma one u1 and
+
+176
+00:12:14,000 --> 00:12:19,000
+Av2 to be sigma two u2.
+
+177
+00:12:19,000 --> 00:12:19,000
+Okay.
+That's my goal.
+
+178
+00:12:21,310 --> 00:12:26,000
+Here's the matrices that are
+going to get me there.
+
+179
+00:12:26,000 --> 00:12:29,170
+Now these are orthogonal
+matrices.
+
+180
+00:12:29,170 --> 00:12:34,000
+I can put that -- if I multiply
+on both sides by V inverse,
+
+181
+00:12:34,000 --> 00:12:39,000
+I have A equals U sigma V
+inverse, and of course you know
+
+182
+00:12:39,000 --> 00:12:44,000
+the other way I can write V
+inverse.
+
+183
+00:12:44,000 --> 00:12:52,000
+This is one of those square
+orthogonal matrices,
+
+184
+00:12:52,000 --> 00:12:58,000
+so it's the same as U sigma V
+transpose.
+
+185
+00:12:58,000 --> 00:12:59,000
+Okay.
+
+186
+00:12:59,000 --> 00:13:02,000
+Here's my problem.
+
+187
+00:13:02,000 --> 00:13:08,000
+I've got two orthogonal
+matrices here.
+
+188
+00:13:08,000 --> 00:13:16,000
+And I don't want to find them
+both at once.
+
+189
+00:13:16,000 --> 00:13:21,000
+So I want to cook up some
+expression that will make the Us
+
+190
+00:13:21,000 --> 00:13:22,000
+disappear.
+
+191
+00:13:22,000 --> 00:13:27,000
+I would like to make the Us
+disappear and leave me only with
+
+192
+00:13:27,000 --> 00:13:28,000
+the Vs.
+
+193
+00:13:28,000 --> 00:13:30,000
+And here's how to do it.
+
+194
+00:13:30,000 --> 00:13:35,000
+It's the same combination that
+keeps showing up whenever we
+
+195
+00:13:35,000 --> 00:13:40,000
+have a general rectangular
+matrix, then it's A transpose A,
+
+196
+00:13:40,000 --> 00:13:43,000
+that's the great matrix.
+
+197
+00:13:43,000 --> 00:13:45,000
+That's the great matrix.
+
+198
+00:13:45,000 --> 00:13:49,000
+That's the matrix that's
+symmetric, and in fact positive
+
+199
+00:13:49,000 --> 00:13:52,920
+definite or at least positive
+semi-definite.
+
+200
+00:13:52,920 --> 00:13:57,000
+This is the matrix with nice
+properties, so let's see what
+
+201
+00:13:57,000 --> 00:13:57,000
+will it be?
+So if I took the transpose,
+then, I would have -- A
+
+202
+00:14:01,000 --> 00:14:04,280
+transpose A will be what?
+
+203
+00:14:04,280 --> 00:14:05,000
+What do I have?
+
+204
+00:14:05,000 --> 00:14:11,000
+If I transpose that I have V
+sigma transpose U transpose,
+
+205
+00:14:11,000 --> 00:14:13,000
+that's the A transpose.
+
+206
+00:14:13,000 --> 00:14:17,050
+Now the A -- and what have I
+got?
+
+207
+00:14:17,050 --> 00:14:21,000
+Looks like worse,
+because it's got six things now
+
+208
+00:14:21,000 --> 00:14:27,590
+together, but it's going to
+collapse into something good.
+
+209
+00:14:27,590 --> 00:14:32,000
+What does U transpose U
+collapse into?
+
+210
+00:14:32,000 --> 00:14:33,000
+I, the identity.
+
+211
+00:14:33,000 --> 00:14:35,000
+So that's the key point.
+
+212
+00:14:35,000 --> 00:14:38,000
+This is the identity and we
+don't have U anymore.
+
+213
+00:14:38,000 --> 00:14:42,000
+And sigma transpose times
+sigma, those are diagonal
+
+214
+00:14:42,000 --> 00:14:45,000
+matrixes, so their product is
+just going to have sigma
+
+215
+00:14:45,000 --> 00:14:47,000
+squareds on the diagonal.
+
+216
+00:14:47,000 --> 00:14:49,000
+So do you see what we've got
+here?
+
+217
+00:14:49,000 --> 00:14:53,000
+This is V times this easy
+matrix sigma one squared sigma
+
+218
+00:14:53,000 --> 00:14:56,000
+two squared times V transpose.
+
+219
+00:14:56,000 --> 00:15:00,000
+This is the A transpose A.
+
+220
+00:15:00,000 --> 00:15:07,000
+This is -- let me copy down --
+A transpose A is that.
+
+221
+00:15:07,000 --> 00:15:11,000
+Us are out of the picture,
+now.
+
+222
+00:15:11,000 --> 00:15:18,000
+I'm only having to choose the
+Vs, and what are these Vs?
+
+223
+00:15:18,000 --> 00:15:23,000
+And what are these sigmas?
+
+224
+00:15:23,000 --> 00:15:25,600
+Do you know what the Vs are?
+
+225
+00:15:25,600 --> 00:15:30,000
+They're the eigenvectors that
+-- see, this is a perfect
+
+226
+00:15:30,000 --> 00:15:35,320
+eigenvector, eigenvalue,
+Q lambda Q transpose for the
+
+227
+00:15:35,320 --> 00:15:37,000
+matrix A transpose A.
+
+228
+00:15:37,000 --> 00:15:39,000
+A itself is nothing special.
+
+229
+00:15:39,000 --> 00:15:42,000
+But A transpose A will be
+special.
+
+230
+00:15:42,000 --> 00:15:47,000
+It'll be symmetric positive
+definite, so this will be its
+
+231
+00:15:47,000 --> 00:15:53,000
+eigenvectors and this'll be its
+eigenvalues.
+
+232
+00:15:53,000 --> 00:15:58,000
+And the eigenvalues'll be
+positive because this thing's
+
+233
+00:15:58,000 --> 00:16:00,000
+positive definite.
+
+234
+00:16:00,000 --> 00:16:02,000
+So this is my method.
+
+235
+00:16:02,000 --> 00:16:05,000
+This tells me what the Vs are.
+
+236
+00:16:05,000 --> 00:16:09,000
+And how I going to find the Us?
+
+237
+00:16:09,000 --> 00:16:13,000
+Well, one way would be to look
+at A A transpose.
+
+238
+00:16:13,000 --> 00:16:19,000
+Multiply A by A transpose in
+the opposite order.
+
+239
+00:16:19,000 --> 00:16:24,480
+That will stick the Vs in the
+middle, knock them out,
+
+240
+00:16:24,480 --> 00:16:26,000
+and leave me with the Us.
+
+241
+00:16:26,000 --> 00:16:29,000
+So here's the overall picture,
+then.
+
+242
+00:16:29,000 --> 00:16:33,000
+The Vs are the eigenvectors of
+A transpose A.
+
+243
+00:16:33,000 --> 00:16:37,000
+The Us are the eigenvectors of
+A A transpose,
+
+244
+00:16:37,000 --> 00:16:40,000
+which are different.
+
+245
+00:16:40,000 --> 00:16:47,090
+And the sigmas are the square
+roots of these and the positive
+
+246
+00:16:47,090 --> 00:16:51,000
+square roots,
+so we have positive sigmas.
+
+247
+00:16:51,000 --> 00:16:54,000
+Let me do it for that example.
+
+248
+00:16:54,000 --> 00:17:01,000
+This is really what you should
+know and be able to do for the
+
+249
+00:17:01,000 --> 00:17:01,570
+SVD.
+
+250
+00:17:01,570 --> 00:17:02,110
+Okay.
+
+251
+00:17:02,110 --> 00:17:04,000
+Let me take that matrix.
+
+252
+00:17:04,000 --> 00:17:08,000
+So what's my first step?
+
+253
+00:17:08,000 --> 00:17:12,000
+Compute A transpose A,
+because I want its
+
+254
+00:17:12,000 --> 00:17:13,000
+eigenvectors.
+
+255
+00:17:13,000 --> 00:17:13,000
+Okay.
+So I have to compute A
+transpose A.
+
+256
+00:17:16,000 --> 00:17:20,000
+So A transpose is four four
+minus three three,
+
+257
+00:17:20,000 --> 00:17:25,000
+and A is four four minus three
+three, and I do that
+
+258
+00:17:25,000 --> 00:17:30,000
+multiplication and I get sixteen
+-- I get twenty five -- I get
+
+259
+00:17:30,000 --> 00:17:35,000
+sixteen minus nine -- is that
+seven?
+
+260
+00:17:35,000 --> 00:17:38,000
+And it better come out
+symmetric.
+
+261
+00:17:38,000 --> 00:17:42,000
+And -- oh, okay,
+and then it comes out 25.
+
+262
+00:17:42,000 --> 00:17:42,000
+Okay.
+So, I want its eigenvectors and
+its eigenvalues.
+
+263
+00:17:47,000 --> 00:17:53,000
+Its eigenvectors will be the
+Vs, its eigenvalues will be the
+
+264
+00:17:53,000 --> 00:17:55,000
+squares of the sigmas.
+
+265
+00:17:55,000 --> 00:17:55,000
+Okay.
+What are the eigenvalues and
+eigenvectors of this guy?
+
+266
+00:18:02,000 --> 00:18:09,000
+Have you seen that two by two
+example enough to recognize that
+
+267
+00:18:09,000 --> 00:18:16,000
+the eigenvectors are -- that one
+one is an eigenvector?
+
+268
+00:18:16,000 --> 00:18:19,000
+So this here is A transpose A.
+
+269
+00:18:19,000 --> 00:18:24,000
+I'm looking for its
+eigenvectors.
+
+270
+00:18:24,000 --> 00:18:29,000
+So its eigenvectors,
+I think, are one one and one
+
+271
+00:18:29,000 --> 00:18:34,000
+minus one, because if I multiply
+that matrix by one one,
+
+272
+00:18:34,000 --> 00:18:36,000
+what do I get?
+
+273
+00:18:36,000 --> 00:18:41,000
+If I multiply that matrix by
+one one, I get 32 32,
+
+274
+00:18:41,000 --> 00:18:43,000
+which is 32 of one one.
+
+275
+00:18:43,000 --> 00:18:48,000
+So there's the first
+eigenvector, and there's the
+
+276
+00:18:48,000 --> 00:18:52,000
+eigenvalue for A transpose A.
+
+277
+00:18:52,000 --> 00:18:56,000
+So I'm going to take its square
+root for sigma.
+
+278
+00:18:56,000 --> 00:18:57,000
+Okay.
+
+279
+00:18:57,000 --> 00:19:02,000
+What's the eigenvector that
+goes -- eigenvalue that goes
+
+280
+00:19:02,000 --> 00:19:04,000
+with this one?
+
+281
+00:19:04,000 --> 00:19:08,000
+If I do that multiplication,
+what do I get?
+
+282
+00:19:08,000 --> 00:19:13,000
+I get some multiple of one
+minus one, and what is that
+
+283
+00:19:13,000 --> 00:19:14,000
+multiple?
+
+284
+00:19:14,000 --> 00:19:16,000
+Looks like 18.
+
+285
+00:19:16,000 --> 00:19:17,000
+Okay.
+
+286
+00:19:17,000 --> 00:19:21,000
+So those are the two
+eigenvectors,
+
+287
+00:19:21,000 --> 00:19:26,000
+but -- oh, just a moment,
+I didn't normalize them.
+
+288
+00:19:26,000 --> 00:19:33,000
+To make everything absolutely
+right, I ought to normalize
+
+289
+00:19:33,000 --> 00:19:37,000
+these eigenvectors,
+divide by their length,
+
+290
+00:19:37,000 --> 00:19:40,000
+square root of two.
+
+291
+00:19:40,000 --> 00:19:46,000
+So all these guys should be
+true unit vectors and,
+
+292
+00:19:46,000 --> 00:19:53,000
+of course, that normalization
+didn't change the 32 and the 18.
+
+293
+00:19:53,000 --> 00:19:54,000
+Okay.
+
+294
+00:19:54,000 --> 00:19:57,000
+So I'm happy with the Vs.
+
+295
+00:19:57,000 --> 00:19:59,000
+Here are the Vs.
+
+296
+00:19:59,000 --> 00:20:04,000
+So now let me put together the
+pieces here.
+
+297
+00:20:04,000 --> 00:20:05,000
+Here's my A.
+
+298
+00:20:05,000 --> 00:20:06,000
+Here's my A.
+
+299
+00:20:06,000 --> 00:20:11,000
+Let me write down A again.
+
+300
+00:20:11,000 --> 00:20:14,000
+If life is right,
+we should get U,
+
+301
+00:20:14,000 --> 00:20:18,000
+which I don't yet know -- U I
+don't yet know,
+
+302
+00:20:18,000 --> 00:20:20,000
+sigma I do now know.
+
+303
+00:20:20,000 --> 00:20:21,000
+What's sigma?
+
+304
+00:20:21,000 --> 00:20:25,350
+So I'm looking for a U sigma V
+transpose.
+
+305
+00:20:25,350 --> 00:20:28,000
+U, the diagonal guy and V
+transpose.
+
+306
+00:20:28,000 --> 00:20:29,000
+Okay.
+
+307
+00:20:29,000 --> 00:20:32,000
+Let's just see that come out
+right.
+
+308
+00:20:32,000 --> 00:20:35,000
+So what are the sigmas?
+
+309
+00:20:35,000 --> 00:20:40,000
+They're the square roots of
+these things.
+
+310
+00:20:40,000 --> 00:20:45,000
+So square root of 32 and square
+root of 18.
+
+311
+00:20:45,000 --> 00:20:46,000
+Zero zero.
+
+312
+00:20:46,000 --> 00:20:47,000
+Okay.
+
+313
+00:20:47,000 --> 00:20:49,000
+What are the Vs?
+
+314
+00:20:49,000 --> 00:20:51,000
+They're these two.
+
+315
+00:20:51,000 --> 00:20:58,120
+And I have to transpose --
+maybe that just leaves me with
+
+316
+00:20:58,120 --> 00:21:02,000
+ones --
+with one over square root of
+
+317
+00:21:02,000 --> 00:21:06,000
+two in that row and the other
+one is one over square root of
+
+318
+00:21:06,000 --> 00:21:09,000
+two minus one over square root
+of two.
+
+319
+00:21:09,000 --> 00:21:11,000
+Now finally,
+I've got to know the Us.
+
+320
+00:21:11,000 --> 00:21:14,000
+Well, actually,
+one way to do -- since I now
+
+321
+00:21:14,000 --> 00:21:18,000
+know all the other pieces,
+I could put those together and
+
+322
+00:21:18,000 --> 00:21:21,000
+figure out what the Us are.
+
+323
+00:21:21,000 --> 00:21:26,000
+But let me do it the A A
+transpose way.
+
+324
+00:21:26,000 --> 00:21:26,000
+Okay.
+Find the Us now.
+u1 and u2.
+
+325
+00:21:30,110 --> 00:21:32,000
+And what are they?
+
+326
+00:21:32,000 --> 00:21:39,000
+I look at A A transpose -- so A
+is supposed to be U sigma V
+
+327
+00:21:39,000 --> 00:21:46,000
+transpose, and then when I
+transpose that I get V sigma
+
+328
+00:21:46,000 --> 00:21:50,000
+transpose U transpose.
+
+329
+00:21:50,000 --> 00:21:55,000
+So I'm just doing it in the
+opposite order,
+
+330
+00:21:55,000 --> 00:22:00,000
+A times A transpose,
+and what's the good part here?
+
+331
+00:22:00,000 --> 00:22:05,000
+That in the middle,
+V transpose V is going to be
+
+332
+00:22:05,000 --> 00:22:07,000
+the identity.
+
+333
+00:22:07,000 --> 00:22:13,000
+So this is just U sigma sigma
+transpose, that's some diagonal
+
+334
+00:22:13,000 --> 00:22:19,000
+matrix with sigma squareds and U
+transpose.
+
+335
+00:22:19,000 --> 00:22:21,000
+So what I seeing here?
+
+336
+00:22:21,000 --> 00:22:25,010
+I'm seeing here,
+again, a symmetric positive
+
+337
+00:22:25,010 --> 00:22:29,000
+definite or at least
+semi-definite matrix and I'm
+
+338
+00:22:29,000 --> 00:22:33,000
+seeing its eigenvectors and its
+eigenvalues.
+
+339
+00:22:33,000 --> 00:22:38,000
+So if I compute A A transpose,
+its eigenvectors will be the
+
+340
+00:22:38,000 --> 00:22:41,000
+things that go into U.
+
+341
+00:22:41,000 --> 00:22:46,000
+Okay, so I need to compute A A
+transpose.
+
+342
+00:22:46,000 --> 00:22:53,000
+I guess I'm going to have to go
+-- can I move that up just a
+
+343
+00:22:53,000 --> 00:22:54,000
+little?
+
+344
+00:22:54,000 --> 00:22:59,000
+Maybe a little more and do A A
+transpose.
+
+345
+00:22:59,000 --> 00:23:00,000
+So what's A?
+
+346
+00:23:00,000 --> 00:23:05,000
+Four four minus three and
+three.
+
+347
+00:23:05,000 --> 00:23:08,000
+And what's A transpose?
+
+348
+00:23:08,000 --> 00:23:12,000
+Four four minus three and
+three.
+
+349
+00:23:12,000 --> 00:23:16,000
+And when I do that
+multiplication,
+
+350
+00:23:16,000 --> 00:23:17,000
+what do I get?
+
+351
+00:23:17,000 --> 00:23:21,610
+Sixteen and sixteen,
+thirty two.
+
+352
+00:23:21,610 --> 00:23:25,000
+Uh, that one comes out zero.
+
+353
+00:23:25,000 --> 00:23:32,000
+Oh, so this is a lucky case and
+that one comes out 18.
+
+354
+00:23:32,000 --> 00:23:38,000
+So this is an accident that A A
+transpose happens to come out
+
+355
+00:23:38,000 --> 00:23:43,000
+diagonal, so we know easily its
+eigenvectors and eigenvalues.
+
+356
+00:23:43,000 --> 00:23:48,000
+So its eigenvectors -- what's
+the first eigenvector for this A
+
+357
+00:23:48,000 --> 00:23:50,000
+A transpose matrix?
+
+358
+00:23:50,000 --> 00:23:53,000
+It's just one zero,
+and when I do that
+
+359
+00:23:53,000 --> 00:23:57,000
+multiplication,
+I get 32 times one zero.
+
+360
+00:23:57,000 --> 00:24:03,000
+And the other eigenvector is
+just zero one and when I
+
+361
+00:24:03,000 --> 00:24:06,000
+multiply by that I get 18.
+
+362
+00:24:06,000 --> 00:24:09,000
+So this is A A transpose.
+
+363
+00:24:09,000 --> 00:24:13,000
+Multiplying that gives me the
+32 A A transpose.
+
+364
+00:24:13,000 --> 00:24:15,000
+Multiplying this guy gives me
+
+365
+00:24:16,000 --> 00:24:17,000
+
+
+366
+00:24:17,000 --> 00:24:21,200
+First of all,
+I got 32 and 18 again.
+
+367
+00:24:21,200 --> 00:24:22,000
+Am I surprised?
+
+368
+00:24:22,000 --> 00:24:28,300
+You know, it's clearly not an
+accident.
+
+369
+00:24:28,300 --> 00:24:32,000
+The eigenvalues of A A
+transpose were exactly the same
+
+370
+00:24:32,000 --> 00:24:36,000
+as the eigenvalues of -- this
+one was A transpose A.
+
+371
+00:24:36,000 --> 00:24:39,000
+That's no surprise at all.
+
+372
+00:24:39,000 --> 00:24:44,000
+The eigenvalues of A B are the
+same as the eigenvalues of B A.
+
+373
+00:24:44,100 --> 00:24:48,000
+That's a very nice fact,
+that eigenvalues stay the same
+
+374
+00:24:48,000 --> 00:24:52,000
+if I switch the order of
+multiplication.
+
+375
+00:24:52,000 --> 00:24:53,000
+So no surprise to see 32 and
+
+376
+00:24:54,000 --> 00:24:55,000
+
+
+377
+00:24:55,000 --> 00:25:00,000
+What I learned -- first the
+check that things were
+
+378
+00:25:00,000 --> 00:25:04,000
+numerically correct,
+but now I've learned these
+
+379
+00:25:04,000 --> 00:25:08,000
+eigenvectors,
+and actually they're about as
+
+380
+00:25:08,000 --> 00:25:09,770
+nice as can be.
+
+381
+00:25:09,770 --> 00:25:15,000
+They're the best orthogonal
+matrix, just the identity.
+
+382
+00:25:15,000 --> 00:25:16,000
+Okay.
+
+383
+00:25:16,000 --> 00:25:22,000
+So my claim is that it ought to
+all fit together,
+
+384
+00:25:22,000 --> 00:25:27,000
+that these numbers should come
+out right.
+
+385
+00:25:27,000 --> 00:25:34,000
+The numbers should come out
+right because the matrix
+
+386
+00:25:34,000 --> 00:25:40,000
+multiplications use the
+properties that we want.
+
+387
+00:25:40,000 --> 00:25:40,000
+Okay.
+Shall we just check that?
+
+388
+00:25:45,440 --> 00:25:48,000
+Here's the identity,
+so not doing anything -- square
+
+389
+00:25:48,000 --> 00:25:52,850
+root of 32 is multiplying that
+row, so that square root of 32
+
+390
+00:25:52,850 --> 00:25:56,000
+divided by square root of two
+means square root of 16,
+
+391
+00:25:56,000 --> 00:25:57,000
+four, correct?
+
+392
+00:25:57,000 --> 00:26:00,000
+And square root of 18 is
+divided by square root of two,
+
+393
+00:26:00,000 --> 00:26:04,000
+so that leaves me square root
+of 9, which is three,
+
+394
+00:26:04,000 --> 00:26:08,000
+but --
+well, Professor Strang,
+
+395
+00:26:08,000 --> 00:26:11,000
+you see the problem?
+
+396
+00:26:11,000 --> 00:26:14,660
+Why is that -- okay.
+
+397
+00:26:14,660 --> 00:26:23,000
+Why I getting minus three three
+here and here I'm getting three
+
+398
+00:26:23,000 --> 00:26:25,000
+minus three?
+
+399
+00:26:25,000 --> 00:26:26,000
+Phooey.
+
+400
+00:26:26,000 --> 00:26:28,000
+I don't know why.
+
+401
+00:26:28,000 --> 00:26:35,000
+It shouldn't have happened,
+but it did.
+
+402
+00:26:35,000 --> 00:26:40,000
+Now, okay, you could say,
+well, just -- the eigenvector
+
+403
+00:26:40,000 --> 00:26:46,000
+there could have -- I could have
+had the minus sign here for that
+
+404
+00:26:46,000 --> 00:26:50,000
+eigenvector, but I'm not happy
+about that.
+
+405
+00:26:50,000 --> 00:26:51,000
+Hmm.
+
+406
+00:26:51,000 --> 00:26:51,000
+Okay.
+So I realize there's a little
+catch here somewhere and I may
+
+407
+00:26:56,000 --> 00:27:00,000
+not see it until Wednesday.
+
+408
+00:27:00,000 --> 00:27:06,000
+Which then gives you a very
+important reason to come back on
+
+409
+00:27:06,000 --> 00:27:10,000
+Wednesday, to catch that sine
+difference.
+
+410
+00:27:10,000 --> 00:27:13,000
+So what did I do illegally?
+
+411
+00:27:13,000 --> 00:27:18,000
+I think I put the eigenvectors
+in that matrix V transpose --
+
+412
+00:27:18,000 --> 00:27:22,000
+okay, I'm going to have to
+think.
+
+413
+00:27:22,000 --> 00:27:28,000
+Why did that come out with with
+the opposite sines?
+
+414
+00:27:28,000 --> 00:27:33,000
+So you see -- I mean,
+if I had a minus there,
+
+415
+00:27:33,000 --> 00:27:39,000
+I would be all right,
+but I don't want that.
+
+416
+00:27:39,000 --> 00:27:46,000
+I want positive entries down
+the diagonal of sigma squared.
+
+417
+00:27:46,000 --> 00:27:47,000
+Okay.
+
+418
+00:27:47,000 --> 00:27:53,000
+It'll come to me,
+but, I'm going to leave this
+
+419
+00:27:53,000 --> 00:27:56,000
+example to finish.
+
+420
+00:27:56,000 --> 00:27:57,000
+Okay.
+
+421
+00:27:57,000 --> 00:28:03,000
+And the beauty of,
+these sliding boards is I can
+
+422
+00:28:03,000 --> 00:28:05,000
+make that go away.
+
+423
+00:28:05,000 --> 00:28:10,000
+Can I,-- let me not do it,
+though, yet.
+
+424
+00:28:10,000 --> 00:28:14,000
+Let me take a second example.
+
+425
+00:28:14,000 --> 00:28:22,000
+Let me take a second example
+where the matrix is singular.
+
+426
+00:28:22,000 --> 00:28:24,000
+So rank one.
+
+427
+00:28:24,000 --> 00:28:33,000
+Okay, so let me take as an
+example two, where my matrix A
+
+428
+00:28:33,000 --> 00:28:41,000
+is going to be rectangular again
+-- let me just make it four
+
+429
+00:28:41,000 --> 00:28:43,000
+three eight six.
+
+430
+00:28:43,000 --> 00:28:44,000
+Okay.
+
+431
+00:28:44,000 --> 00:28:48,000
+That's a rank one matrix.
+
+432
+00:28:48,000 --> 00:28:56,000
+So that has a null space and
+only a one dimensional row space
+
+433
+00:28:56,000 --> 00:29:00,000
+and column space.
+
+434
+00:29:00,000 --> 00:29:04,000
+So actually,
+my picture becomes easy for
+
+435
+00:29:04,000 --> 00:29:10,000
+this matrix, because what's my
+row space for this one?
+
+436
+00:29:10,000 --> 00:29:12,000
+So this is two by two.
+
+437
+00:29:12,000 --> 00:29:16,000
+So my pictures are both two
+dimensional.
+
+438
+00:29:16,000 --> 00:29:22,000
+My row space is all multiples
+of that vector four three.
+
+439
+00:29:22,000 --> 00:29:27,000
+So the whole -- the row space
+is just a line,
+
+440
+00:29:27,000 --> 00:29:28,000
+right?
+
+441
+00:29:28,000 --> 00:29:30,000
+That's the row space.
+
+442
+00:29:30,000 --> 00:29:35,000
+And the null space,
+of course, is the perpendicular
+
+443
+00:29:35,000 --> 00:29:36,000
+line.
+
+444
+00:29:36,000 --> 00:29:41,000
+So the row space for this
+matrix is multiples of four
+
+445
+00:29:41,000 --> 00:29:42,000
+three.
+
+446
+00:29:42,000 --> 00:29:43,000
+Typical row.
+
+447
+00:29:43,000 --> 00:29:43,970
+Okay.
+
+448
+00:29:43,970 --> 00:29:46,000
+What's the column space?
+
+449
+00:29:46,000 --> 00:29:50,980
+The columns are all multiples
+of four eight,
+
+450
+00:29:50,980 --> 00:29:54,000
+three six, one two.
+
+451
+00:29:54,000 --> 00:29:58,000
+The column space,
+then, goes in,
+
+452
+00:29:58,000 --> 00:30:00,000
+like, this direction.
+
+453
+00:30:00,000 --> 00:30:05,000
+So the column space -- when I
+look at those columns,
+
+454
+00:30:05,000 --> 00:30:11,060
+the column space -- so it's
+only one dimensional,
+
+455
+00:30:11,060 --> 00:30:13,670
+because the rank is one.
+
+456
+00:30:13,670 --> 00:30:17,000
+It's multiples of four eight.
+
+457
+00:30:17,000 --> 00:30:18,000
+Okay.
+
+458
+00:30:18,000 --> 00:30:23,000
+And what's the null space of A
+transpose?
+
+459
+00:30:23,000 --> 00:30:26,000
+It's the perpendicular guy.
+
+460
+00:30:26,000 --> 00:30:33,000
+So this was the null space of A
+and this is the null space of A
+
+461
+00:30:33,000 --> 00:30:34,000
+transpose.
+
+462
+00:30:34,000 --> 00:30:35,000
+Okay.
+
+463
+00:30:35,000 --> 00:30:42,000
+What I want to say here is that
+choosing these orthogonal bases
+
+464
+00:30:42,000 --> 00:30:47,000
+for the row space and the column
+space is, like,
+
+465
+00:30:47,000 --> 00:30:50,000
+no problem.
+
+466
+00:30:50,000 --> 00:30:53,000
+They're only one dimensional.
+
+467
+00:30:53,000 --> 00:30:55,000
+So what should V be?
+
+468
+00:30:55,000 --> 00:30:58,840
+V should be -- v1,
+but -- yes, v1,
+
+469
+00:30:58,840 --> 00:31:03,000
+rather -- v1 is supposed to be
+a unit vector.
+
+470
+00:31:03,000 --> 00:31:09,000
+There's only one v1 to choose
+here, only one dimension in the
+
+471
+00:31:09,000 --> 00:31:11,000
+row space.
+
+472
+00:31:11,000 --> 00:31:15,000
+I just want to make it a unit
+vector.
+
+473
+00:31:15,000 --> 00:31:22,000
+So v1 will be -- it'll be this
+vector, but made into a unit
+
+474
+00:31:22,000 --> 00:31:27,000
+vector, so four -- point eight
+point six.
+
+475
+00:31:27,000 --> 00:31:30,000
+Four fifths,
+three fifths.
+
+476
+00:31:30,000 --> 00:31:35,460
+And what will be u1?
+u1 will be the unit vector
+
+477
+00:31:35,460 --> 00:31:37,000
+there.
+
+478
+00:31:37,000 --> 00:31:41,950
+So I want to turn four eight or
+one two into a unit vector,
+
+479
+00:31:41,950 --> 00:31:45,000
+so u1 will be -- let's see,
+if it's one two,
+
+480
+00:31:45,000 --> 00:31:48,000
+then what multiple of one two
+do I want?
+
+481
+00:31:48,000 --> 00:31:52,000
+That has length square root of
+five, so I have to divide by
+
+482
+00:31:52,000 --> 00:31:54,000
+square root of five.
+
+483
+00:31:54,000 --> 00:31:58,000
+Let me complete the singular
+value decomposition for this
+
+484
+00:31:58,000 --> 00:32:00,000
+matrix.
+
+485
+00:32:00,000 --> 00:32:05,000
+So this matrix,
+four three eight six,
+
+486
+00:32:05,000 --> 00:32:15,000
+is -- so I know what u1 --
+here's A and I want to get U the
+
+487
+00:32:15,000 --> 00:32:19,000
+basis in the column space.
+
+488
+00:32:19,000 --> 00:32:28,000
+And it has to start with this
+guy, one over square root of
+
+489
+00:32:28,000 --> 00:32:35,000
+five two over square root of
+five.
+
+490
+00:32:35,000 --> 00:32:38,000
+Then I want the sigma.
+
+491
+00:32:38,000 --> 00:32:38,000
+Okay.
+What are we expecting now for
+sigma?
+
+492
+00:32:43,000 --> 00:32:47,000
+This is only a rank one matrix.
+
+493
+00:32:47,000 --> 00:32:54,000
+We're only expecting a sigma
+one, which I have to find,
+
+494
+00:32:54,000 --> 00:32:56,000
+but zeroes here.
+
+495
+00:32:56,000 --> 00:32:57,000
+Okay.
+
+496
+00:32:57,000 --> 00:32:59,000
+So what's sigma one?
+
+497
+00:32:59,000 --> 00:33:07,000
+It should be the -- where did
+these sigmas come from?
+
+498
+00:33:07,000 --> 00:33:14,220
+They came from A transpose A,
+so I -- can I do that little
+
+499
+00:33:14,220 --> 00:33:16,000
+calculation over here?
+
+500
+00:33:16,000 --> 00:33:23,000
+A transpose A is four three --
+four three eight six times four
+
+501
+00:33:23,000 --> 00:33:25,000
+three eight six.
+
+502
+00:33:25,000 --> 00:33:30,000
+This had better -- this is a
+rank one matrix,
+
+503
+00:33:30,000 --> 00:33:36,000
+this is going to be --
+the whole thing will have rank
+
+504
+00:33:36,000 --> 00:33:41,000
+one, that's 16 and 64 is 80,
+12 and 48 is 60,
+
+505
+00:33:41,000 --> 00:33:44,000
+12 and 48 is 60,
+9 and 36 is 45.
+
+506
+00:33:44,000 --> 00:33:45,000
+Okay.
+
+507
+00:33:45,000 --> 00:33:47,000
+It's a rank one matrix.
+
+508
+00:33:47,000 --> 00:33:48,000
+Of course.
+
+509
+00:33:48,000 --> 00:33:52,000
+Every row is a multiple of four
+three.
+
+510
+00:33:52,000 --> 00:33:58,000
+And what's the eigen -- what
+are the eigenvalues of that
+
+511
+00:33:58,000 --> 00:34:00,000
+matrix?
+
+512
+00:34:00,000 --> 00:34:04,000
+So this is the calculation --
+this is like practicing,
+
+513
+00:34:04,000 --> 00:34:04,000
+now.
+What are the eigenvalues of
+this rank one matrix?
+
+514
+00:34:07,000 --> 00:34:11,000
+Well, tell me one eigenvalue,
+since the rank is only one,
+
+515
+00:34:11,000 --> 00:34:14,000
+one eigenvalue is going to be
+zero.
+
+516
+00:34:14,000 --> 00:34:18,179
+And then you know that the
+other eigenvalue is going to be
+
+517
+00:34:18,179 --> 00:34:20,000
+a hundred and twenty five.
+
+518
+00:34:20,000 --> 00:34:26,000
+So that's sigma squared,
+right, in A transpose A.
+
+519
+00:34:26,000 --> 00:34:34,000
+So this will be the square root
+of a hundred and twenty five.
+
+520
+00:34:34,000 --> 00:34:40,000
+And then finally,
+the V transpose -- the Vs will
+
+521
+00:34:40,000 --> 00:34:44,000
+be -- there's v1,
+and what's v2?
+
+522
+00:34:44,000 --> 00:34:51,090
+What's v2 in the -- how do I
+make this into an orthonormal
+
+523
+00:34:51,090 --> 00:34:53,000
+basis?
+
+524
+00:34:53,000 --> 00:34:56,000
+Well, v2 is,
+in the null space direction.
+
+525
+00:34:56,000 --> 00:35:02,000
+It's perpendicular to that,
+so point six and minus point
+
+526
+00:35:02,000 --> 00:35:02,000
+eight.
+So those are the Vs that go in
+here.
+
+527
+00:35:06,000 --> 00:35:09,990
+Point eight,
+point six and point six minus
+
+528
+00:35:09,990 --> 00:35:11,000
+point eight.
+
+529
+00:35:11,000 --> 00:35:11,000
+Okay.
+And I guess I better finish
+this guy.
+
+530
+00:35:15,000 --> 00:35:18,000
+So this guy,
+all I want is to complete the
+
+531
+00:35:18,000 --> 00:35:24,000
+orthonormal basis --
+it'll be coming from there.
+
+532
+00:35:24,000 --> 00:35:30,000
+It'll be a two over square root
+of five and a minus one over
+
+533
+00:35:30,000 --> 00:35:32,000
+square root of five.
+
+534
+00:35:32,000 --> 00:35:38,000
+Let me take square root of five
+out of that matrix to make it
+
+535
+00:35:38,000 --> 00:35:39,000
+look better.
+
+536
+00:35:39,000 --> 00:35:45,000
+So one over square root of five
+times one two two minus one.
+
+537
+00:35:45,000 --> 00:35:46,000
+Okay.
+
+538
+00:35:46,000 --> 00:35:52,000
+So there I have -- including
+the square root of five --
+
+539
+00:35:52,000 --> 00:35:58,000
+that's an orthogonal matrix,
+that's an orthogonal matrix,
+
+540
+00:35:58,000 --> 00:36:03,000
+that's a diagonal matrix and
+its rank is only one.
+
+541
+00:36:03,000 --> 00:36:07,000
+And now if I do that
+multiplication,
+
+542
+00:36:07,000 --> 00:36:11,000
+I pray that it comes out right.
+
+543
+00:36:11,000 --> 00:36:17,000
+The square root of five will
+cancel into that square root of
+
+544
+00:36:17,000 --> 00:36:22,000
+one twenty five and leave me
+with the square root of 25,
+
+545
+00:36:22,000 --> 00:36:26,000
+which is five,
+and five will multiply these
+
+546
+00:36:26,000 --> 00:36:31,000
+numbers and I'll get whole
+numbers and out will come A.
+
+547
+00:36:31,000 --> 00:36:32,000
+Okay.
+
+548
+00:36:32,000 --> 00:36:39,000
+That's like a second example
+showing how the null space guy
+
+549
+00:36:39,000 --> 00:36:46,000
+-- so this -- this vector and
+this one were multiplied by this
+
+550
+00:36:46,000 --> 00:36:47,000
+zero.
+
+551
+00:36:47,000 --> 00:36:50,000
+So they were easy to deal with.
+
+552
+00:36:50,000 --> 00:36:57,000
+Tthe key ones are the ones in
+the column space and the row
+
+553
+00:36:57,000 --> 00:36:59,000
+space.
+
+554
+00:36:59,000 --> 00:37:03,000
+Do you see how I'm getting
+columns here,
+
+555
+00:37:03,000 --> 00:37:08,000
+diagonal here,
+rows here, coming together to
+
+556
+00:37:08,000 --> 00:37:09,000
+produce A.
+
+557
+00:37:09,000 --> 00:37:13,000
+Okay, that's the singular value
+decomposition.
+
+558
+00:37:13,000 --> 00:37:19,000
+So, let me think what I want to
+add to complete this topic.
+
+559
+00:37:19,000 --> 00:37:22,000
+So that's two examples.
+
+560
+00:37:22,000 --> 00:37:28,130
+And now let's think what we're
+really doing.
+
+561
+00:37:28,130 --> 00:37:41,000
+We're choosing the right basis
+for the four subspaces of linear
+
+562
+00:37:41,000 --> 00:37:43,000
+algebra.
+
+563
+00:37:43,000 --> 00:37:48,000
+Let me write this down.
+
+564
+00:37:48,000 --> 00:37:59,000
+So v1 up to vr is an
+orthonormal basis for the row
+
+565
+00:37:59,000 --> 00:38:06,000
+space.
+u1 up to ur is an orthonormal
+
+566
+00:38:06,000 --> 00:38:14,000
+basis for the column space.
+
+567
+00:38:14,000 --> 00:38:20,000
+And then I just finish those
+out by v(r+1),
+
+568
+00:38:20,000 --> 00:38:28,000
+the rest up to vn is an
+orthonormal basis for the null
+
+569
+00:38:28,000 --> 00:38:29,000
+space.
+
+570
+00:38:29,000 --> 00:38:35,000
+And finally,
+u(r+1) up to is an orthonormal
+
+571
+00:38:35,000 --> 00:38:41,000
+basis for the null space of A
+transpose.
+
+572
+00:38:41,000 --> 00:38:49,000
+Do you see that we finally got
+the bases right?
+
+573
+00:38:49,000 --> 00:38:55,000
+They're right because they're
+orthonormal, and also -- again,
+
+574
+00:38:55,000 --> 00:39:01,000
+Graham Schmidt would have done
+this in chapter four.
+
+575
+00:39:01,000 --> 00:39:07,000
+Here we needed eigenvalues,
+because these bases make the
+
+576
+00:39:07,000 --> 00:39:08,000
+matrix diagonal.
+
+577
+00:39:08,000 --> 00:39:12,000
+A times V I is a multiple of U
+I.
+
+578
+00:39:12,000 --> 00:39:19,000
+So I'll put "and" -- the matrix
+has been made diagonal.
+
+579
+00:39:19,000 --> 00:39:24,000
+When we choose these bases,
+there's no coupling between Vs
+
+580
+00:39:24,000 --> 00:39:26,800
+and no coupling between Us.
+
+581
+00:39:26,800 --> 00:39:31,000
+Each A -- A times each V is in
+the direction of the
+
+582
+00:39:31,000 --> 00:39:32,000
+corresponding U.
+
+583
+00:39:32,000 --> 00:39:37,760
+So it's exactly the right basis
+for the four fundamental
+
+584
+00:39:37,760 --> 00:39:38,000
+subspaces.
+
+585
+00:39:38,000 --> 00:39:42,470
+And of course,
+their dimensions are what we
+
+586
+00:39:42,470 --> 00:39:44,010
+know.
+
+587
+00:39:44,010 --> 00:39:47,650
+The dimension of the row space
+is the rank r,
+
+588
+00:39:47,650 --> 00:39:51,000
+and so is the dimension of the
+column space.
+
+589
+00:39:51,000 --> 00:39:56,000
+The dimension of the null space
+is n-r, that's how many vectors
+
+590
+00:39:56,000 --> 00:40:00,000
+we need, and m-r basis vectors
+for the left null space,
+
+591
+00:40:00,000 --> 00:40:04,000
+the null space of A transpose.
+
+592
+00:40:04,000 --> 00:40:04,000
+Okay.
+I'm going to stop there.
+
+593
+00:40:06,000 --> 00:40:11,390
+I could develop further from
+the SVD, but we'll see it again
+
+594
+00:40:11,390 --> 00:40:14,000
+in the very last lectures of the
+course.
+
+595
+00:40:14,000 --> 00:40:16,000
+So there's the SVD.
+
+596
+00:40:16,000 --> 00:40:19,000
+Thanks.

@@ -1,0 +1,297 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     12249,        288]
+NotebookOptionsPosition[     11458,        257]
+NotebookOutlinePosition[     12058,        279]
+CellTagsIndexPosition[     12015,        276]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Wave Packet Velocity", "Title",
+ CellChangeTimes->{{3.569793962808854*^9, 3.569793974991797*^9}, {
+  3.569888523968155*^9, 3.569888537321383*^9}, {3.5702829844229813`*^9, 
+  3.570282988773786*^9}}],
+
+Cell["\<\
+Here we\[CloseCurlyQuote]ll explore the differnece between the \
+\[OpenCurlyDoubleQuote]phase velocity\[CloseCurlyDoubleQuote] and the \
+\[OpenCurlyDoubleQuote]group velocity\[CloseCurlyDoubleQuote] of a \
+wave-packet.\
+\>", "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697983030322847`*^9, 
+  3.569798311606552*^9}, {3.5699243901910543`*^9, 3.569924445070657*^9}, {
+  3.569925058260975*^9, 3.569925059911274*^9}, {3.570283004300826*^9, 
+  3.570283044851673*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+The wave packet as a collection of waves\
+\>", "Subtitle",
+ CellFrame->{{0, 0}, {0, 2}},
+ CellChangeTimes->{{3.569794954466889*^9, 3.569794980703898*^9}, {
+  3.569888566129101*^9, 3.569888577206916*^9}, {3.570283516413086*^9, 
+  3.570283520012992*^9}}],
+
+Cell["\<\
+We start with a wave packet made up of a finite collection of cosine waves of \
+the form Cos[k x - \[Omega] t], note the time dependence.\
+\>", "Text",
+ CellChangeTimes->{{3.5697940524157553`*^9, 3.569794054293025*^9}, {
+  3.569794827861635*^9, 3.569794925241199*^9}, {3.5697952008114567`*^9, 
+  3.569795274589776*^9}, {3.5697954776101522`*^9, 3.569795496557946*^9}, {
+  3.569795551983498*^9, 3.5697955522346697`*^9}, {3.569795611245623*^9, 
+  3.5697958197081547`*^9}, {3.569797877028349*^9, 3.569797885972062*^9}, {
+  3.5697979303163643`*^9, 3.569797940706061*^9}, {3.569797972756374*^9, 
+  3.5697979985762463`*^9}, {3.5697980889533*^9, 3.569798091405786*^9}, {
+  3.569801453490944*^9, 3.5698014789829884`*^9}, {3.5698902432315817`*^9, 
+  3.5698902613582363`*^9}, {3.5699244695049*^9, 3.56992451634505*^9}, {
+  3.570283098242824*^9, 3.570283108577293*^9}, {3.5702846798703947`*^9, 
+  3.570284710561784*^9}, {3.570287107410779*^9, 3.570287149118004*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PsiWave", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cos", "[", 
+      RowBox[{
+       RowBox[{"k", " ", "x"}], " ", "-", " ", 
+       RowBox[{"\[Omega]", " ", "t"}]}], "]"}], "/.", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"k", "\[Rule]", 
+        RowBox[{"k0", "+", 
+         RowBox[{"dk", "#"}]}]}], ",", 
+       RowBox[{"\[Omega]", "\[Rule]", 
+        RowBox[{"\[Omega]0", "+", 
+         RowBox[{"vg", " ", "dk", " ", "#"}]}]}]}], "}"}]}], "&"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SumPsiWave", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Sum", "[", 
+      RowBox[{
+       RowBox[{"PsiWave", "[", "n", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", 
+         RowBox[{"-", "#"}], ",", "#"}], "}"}]}], "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", "#"}], " ", "+", "1"}], ")"}]}], "&"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"SumPsiWave", "[", "5", "]"}], " ", "/.", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"k0", "\[Rule]", 
+         SubscriptBox["k", "0"]}], ",", 
+        RowBox[{"dk", "\[Rule]", 
+         RowBox[{"10", "^", "logDk"}]}], ",", 
+        RowBox[{"\[Omega]0", "\[Rule]", 
+         SubscriptBox["k", "0"]}], ",", 
+        RowBox[{"vg", "\[Rule]", "vgr"}], ",", 
+        RowBox[{"t", "\[Rule]", "tNow"}]}], "}"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "2"}], ",", "1"}], "}"}]}], ",", 
+     RowBox[{"PerformanceGoal", "\[Rule]", "Quality"}], ",", 
+     RowBox[{"Filling", "\[Rule]", "Bottom"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["k", "0"], ",", "3"}], "}"}], ",", "1", ",", "5", ",", 
+     "0.5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"logDk", ",", 
+       RowBox[{"-", "0.8"}]}], "}"}], ",", 
+     RowBox[{"-", "2"}], ",", "1", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"vgr", ",", "1"}], "}"}], ",", 
+     RowBox[{"-", "1"}], ",", "2", ",", "0.1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tNow", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "10"}], ",", "10", ",", "0.5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.569794997985655*^9, 3.569795002096586*^9}, {
+   3.569795175125039*^9, 3.5697951863391533`*^9}, {3.569795487724008*^9, 
+   3.5697954885137577`*^9}, {3.569797831594491*^9, 3.5697978387551203`*^9}, {
+   3.569797956380327*^9, 3.569797968164699*^9}, {3.5697983270167513`*^9, 
+   3.569798348423245*^9}, {3.569798389425069*^9, 3.569798431877515*^9}, {
+   3.5697993122366037`*^9, 3.569799425424567*^9}, {3.569799584091559*^9, 
+   3.569799584211434*^9}, {3.569799649178732*^9, 3.569799706904767*^9}, {
+   3.569799913988449*^9, 3.569799935358078*^9}, {3.5698000286066093`*^9, 
+   3.5698000456126957`*^9}, {3.5698001372982273`*^9, 3.569800160569306*^9}, {
+   3.5698001933213453`*^9, 3.569800194584214*^9}, {3.569800252734565*^9, 
+   3.5698002824532633`*^9}, {3.569800398488742*^9, 3.569800407471616*^9}, {
+   3.569800440297349*^9, 3.569800474806767*^9}, {3.569800610330573*^9, 
+   3.5698006866035767`*^9}, {3.5698007191850567`*^9, 3.569800763151011*^9}, {
+   3.569800825910396*^9, 3.5698008932184563`*^9}, {3.5698009306916227`*^9, 
+   3.569800936812134*^9}, {3.569800986457678*^9, 3.569801057312224*^9}, {
+   3.5698011951397867`*^9, 3.569801259559914*^9}, {3.569801302655377*^9, 
+   3.569801312128417*^9}, 3.5698013588435307`*^9, {3.569801667781753*^9, 
+   3.5698016881717443`*^9}, {3.569802057455226*^9, 3.569802079690357*^9}, {
+   3.56989028485849*^9, 3.569890337600644*^9}, {3.570283072430764*^9, 
+   3.570283088916214*^9}, 3.570283138261794*^9, {3.570283525020225*^9, 
+   3.570283637229053*^9}, {3.5702836674616957`*^9, 3.57028385643149*^9}, {
+   3.5702839309446907`*^9, 3.5702840765523853`*^9}, {3.5702841122807703`*^9, 
+   3.570284120970633*^9}, {3.570284153399745*^9, 3.57028415347165*^9}, {
+   3.5702844414298687`*^9, 3.5702844779322653`*^9}, 3.570284543635992*^9, {
+   3.5702845856890306`*^9, 3.570284589664616*^9}, {3.570284810862166*^9, 
+   3.570284811096512*^9}, {3.570284892649536*^9, 3.570285073601227*^9}, {
+   3.5702852046439943`*^9, 3.570285204945694*^9}, {3.570285238844778*^9, 
+   3.570285238909026*^9}, {3.5702853334656143`*^9, 3.570285334712215*^9}, 
+   3.570285429631051*^9, {3.570285523484614*^9, 3.5702855369561872`*^9}, {
+   3.570285600273522*^9, 3.5702856005191727`*^9}, {3.570285810786808*^9, 
+   3.570285814194366*^9}, {3.5702858523165627`*^9, 3.570285865684751*^9}, {
+   3.570285963552347*^9, 3.57028599817697*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`logDk$$ = -0.8, $CellContext`tNow$$ = 
+    0, $CellContext`vgr$$ = 1, $CellContext`$1647$$ = 3, Typeset`show$$ = 
+    True, Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`$1647$$], 3, 
+       RawBoxes[
+        TagBox[
+         SubscriptBox["k", "0"], HoldForm]]}, 1, 5, 0.5}, {{
+       Hold[$CellContext`logDk$$], -0.8}, -2, 1, 0.1}, {{
+       Hold[$CellContext`vgr$$], 1}, -1, 2, 0.1}, {{
+       Hold[$CellContext`tNow$$], 0}, -10, 10, 0.5}}, Typeset`size$$ = {
+    540., {169., 179.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`$1647$137230$$ = 
+    0, $CellContext`logDk$137231$$ = 0, $CellContext`vgr$137232$$ = 
+    0, $CellContext`tNow$137233$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`logDk$$ = -0.8, $CellContext`tNow$$ = 
+        0, $CellContext`vgr$$ = 1, $CellContext`$1647$$ = 3}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`$1647$$, $CellContext`$1647$137230$$, 0], 
+        Hold[$CellContext`logDk$$, $CellContext`logDk$137231$$, 0], 
+        Hold[$CellContext`vgr$$, $CellContext`vgr$137232$$, 0], 
+        Hold[$CellContext`tNow$$, $CellContext`tNow$137233$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        ReplaceAll[
+         $CellContext`SumPsiWave[
+         5], {$CellContext`k0 -> $CellContext`$1647$$, $CellContext`dk -> 
+          10^$CellContext`logDk$$, $CellContext`\[Omega]0 -> \
+$CellContext`$1647$$, $CellContext`vg -> $CellContext`vgr$$, $CellContext`t -> \
+$CellContext`tNow$$}], {$CellContext`x, -10, 10}, PlotRange -> {-2, 1}, 
+        PerformanceGoal -> $CellContext`Quality, Filling -> Bottom], 
+      "Specifications" :> {{{$CellContext`$1647$$, 3, 
+          RawBoxes[
+           TagBox[
+            SubscriptBox["k", "0"], HoldForm]]}, 1, 5, 0.5, Appearance -> 
+         "Labeled"}, {{$CellContext`logDk$$, -0.8}, -2, 1, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`vgr$$, 1}, -1, 2, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`tNow$$, 0}, -10, 10, 0.5, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{604., {295., 303.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.570283138694652*^9, {3.570283776428707*^9, 3.570283857356391*^9}, {
+   3.570283933098175*^9, 3.570283981559461*^9}, 3.570284077402313*^9, 
+   3.5702841214765368`*^9, 3.570284155984768*^9, 3.5702844793808737`*^9, {
+   3.570284560735188*^9, 3.570284590629347*^9}, 3.570284815087933*^9, 
+   3.570284956407813*^9, {3.5702850290148582`*^9, 3.570285074608403*^9}, 
+   3.570285208404708*^9, 3.570285240121863*^9, 3.570285336829103*^9, 
+   3.5702854309577007`*^9, 3.570285537912551*^9, 3.570285601825048*^9, 
+   3.570285815354413*^9, {3.5702858541519413`*^9, 3.57028586720437*^9}, {
+   3.570285967375802*^9, 3.570285999012072*^9}, 3.570287166645616*^9, 
+   3.57029362072358*^9, 3.570359401968561*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1067, 990},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+CellContext->Notebook,
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (August 26, \
+2012)",
+StyleDefinitions->FrontEnd`FileName[{"Creative"}, "PastelColor.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 203, 3, 90, "Title"],
+Cell[785, 27, 556, 10, 39, "Text"],
+Cell[CellGroupData[{
+Cell[1366, 41, 262, 6, 46, "Subtitle"],
+Cell[1631, 49, 964, 14, 62, "Text"],
+Cell[CellGroupData[{
+Cell[2620, 67, 5115, 115, 242, "Input"],
+Cell[7738, 184, 3680, 68, 637, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

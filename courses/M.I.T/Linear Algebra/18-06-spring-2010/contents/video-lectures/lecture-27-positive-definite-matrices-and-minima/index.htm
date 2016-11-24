@@ -1,0 +1,1175 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture 27: Positive definite matrices and minima | Video Lectures | Linear Algebra | Mathematics | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="18-06-linear-algebra-spring-2010" name="WT.cg_n">
+<meta content="Lecture 27: Positive definite matrices and minima" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Strang, Gilbert" name="Author">
+<meta content="matrix theory,linear algebra,systems of equations,vector spaces,determinants,eigenvalues,similarity,positive definite matrices,least-squares approximations,stability of differential equations,networks,Fourier transforms,Markov processes,Linear Algebra" name="keywords">
+<meta content="18.06 Linear Algebra | Lecture 27: Positive definite matrices and minima" name="Search_Display">
+<meta content="Linear Algebra" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.jscrollpane.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/media_tabs.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-27-positive-definite-matrices-and-minima">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery-ui.min.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.jscrollpane.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $("#tabs").tabs();
+        IpadScroller();
+      });
+    </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center_media">
+      	<div id="grid">
+      		<div id="left">
+        		<nav id="breadcrumb_media" aria-label="Breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/mathematics">Mathematics</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Linear Algebra</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/video-lectures/index.htm">Video Lectures</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture 27: Positive definite matrices and minima
+         
+    
+</p>
+
+            	</nav><div class="clear"></div>
+        		<div id="media_title">
+        		<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture 27: Positive definite matrices and minima
+        </span>
+    </h1>
+        		</div>
+           		<div class="clear"></div>
+           		<div id="course_wrapper_media">
+           			<nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_media" aria-labelledby="media_title"><div class="" id="parent-fieldname-text">
+            
+            
+        </div>
+    
+      					 
+
+<script type="text/javascript">var caption_embed_1 ={'English - US': '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-27-positive-definite-matrices-and-minima/vF7eyJ2g3kU.srt'}</script><div id="media-embed">
+         <div class="attention_message" id="embed_1">
+<p>Flash and JavaScript are required for this feature.</p>
+<p>Download the video from <a href="https://itunes.apple.com/us/itunes-u/id354869137">iTunes U</a> or the <a href="http://www.archive.org/download/MIT18.06S05_MP4/27.mp4">Internet Archive</a>.</p>
+</div>
+     </div>
+    
+     <script type="text/javascript">ocw_embed_chapter_media('embed_1', 'https://www.youtube.com/v/vF7eyJ2g3kU', 'youtube', '/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-27-positive-definite-matrices-and-minima', 'https://img.youtube.com/vi/vF7eyJ2g3kU/0.jpg',0,0, 'https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/video-lectures/lecture-27-positive-definite-matrices-and-minima/vF7eyJ2g3kU.srt')</script><div id="transcript1"></div>
+				 <script type="text/javascript">createThreePlayParams(2, 703582, "embed_1", 0, 0)</script><div id="media_resource_next_prev_nav" style="margin-top: 1em;">
+        <p>
+        
+            <a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+                <img src="../../../common/images/btn_previous_resource.png" style="margin: 0 30px 0 50px;" alt="Previous track" title="Previous track"></a>
+     	
+     	
+        
+            <a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm"> 
+                <img src="../../../common/images/btn_next_resource.png" alt="Next track" title="Next track"></a>
+       
+       </p>
+     </div>
+ 
+
+
+<script type="text/javascript">
+		window.onload=function(){
+		init();
+		
+		}
+		var tabLinks = new Array();
+		var contentDivs = new Array();
+		function init() {
+		  // Grab the tab links and content divs from the page
+		  var tabListItems = document.getElementById('tabs').childNodes;
+		  for ( var i = 0; i < tabListItems.length; i++ ) {
+			if ( tabListItems[i].nodeName == "LI" ) {
+			  var tabLink = getFirstChildWithTagName( tabListItems[i], 'A' );
+			  var id = getHash( tabLink.getAttribute('href') );
+			  tabLinks[id] = tabLink;
+			  contentDivs[id] = document.getElementById( id );
+			}
+		  }
+		  // Assign onclick events to the tab links, and
+		  // highlight the first tab
+		  var i = 0;
+		  for ( var id in tabLinks ) {
+			tabLinks[id].onclick = showTab;
+			tabLinks[id].onfocus = function() { this.blur() };
+			if ( i == 0 ) tabLinks[id].className = 'selected';
+			i++;
+		  }
+		  // Hide all content divs except the first
+		  var i = 0;
+		  for ( var id in contentDivs ) {
+			if ( i != 0 ) contentDivs[id].className = 'tabContent hide';
+			i++;
+		  }
+		}
+		function showTab() {
+		  var selectedId = getHash( this.getAttribute('href') );
+		  // Highlight the selected tab, and dim all others.
+		  // Also show the selected content div, and hide all others.
+		  for ( var id in contentDivs ) {
+			if ( id == selectedId ) {
+			  tabLinks[id].className = 'selected';
+			  contentDivs[id].className = 'tabContent';
+			} else {
+			  tabLinks[id].className = '';
+			  contentDivs[id].className = 'tabContent hide';
+			}
+		  }
+		  // Stop the browser following the link
+		  return false;
+		}
+		function getFirstChildWithTagName( element, tagName ) {
+		  for ( var i = 0; i < element.childNodes.length; i++ ) {
+			if ( element.childNodes[i].nodeName == tagName ) return element.childNodes[i];
+		  }
+		}
+		function getHash( url ) {
+		  var hashPos = url.lastIndexOf ( '#' );
+		  return url.substring( hashPos + 1 );
+		}
+ </script><div id="media_tabs">
+     
+        <ul id="tabs">
+<li class="first">
+                <a href="#vid_about" class="selected">About this Video</a>
+            </li>
+            <li class="">
+                <a href="#vid_index" class="">Playlist</a>
+            </li>
+            <li class="">
+                <a href="#vid_playlist" class="">Related Resources</a>
+            </li>
+            <li class="">
+                <a href="#vid_related" class="">Transcript</a>
+            </li>
+            <li class="">
+                <a href="#vid_transcript" class="">Download this Video</a>
+            </li>
+        </ul>
+<div id="vid_about" itemprop="description" class="tabContent"><div class="vidpad">
+<p>These video lectures of Professor Gilbert Strang teaching 18.06 were  recorded in Fall 1999 and do not correspond precisely to the current  edition of the textbook. However, this book is still the best reference  for more information on the topics covered in each lecture.</p>
+<p style="margin-bottom: 20px;"><a href="http://www.amazon.com/exec/obidos/ASIN/0980232716/ref=nosim/mitopencourse-20" target="_blank"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Amazon logo"></a> Strang, Gilbert. <a href="http://math.mit.edu/linearalgebra/" target="_blank"><em>Introduction to Linear Algebra</em></a>. 4th ed. Wellesley, MA: <a href="http://www.wellesleycambridge.com/" target="_blank">Wellesley-Cambridge Press</a>, February 2009. ISBN: 9780980232714.</p>
+<p><strong>Instructor/speaker:</strong> Prof. Gilbert Strang</p>
+</div></div>
+        <div id="vid_index" itemprop="description" class="tabContent hide">
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/index.htm">
+<img src="../../../contents/video-lectures/lecture-1-the-geometry-of-linear-equations/18.06_L01.jpg" title="Lecture 1: The geometry of linear equations" alt="Lecture 1: The geometry of linear equations"><p>Lecture 1: The geometry of ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-2-elimination-with-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-2-elimination-with-matrices/18.06_L02.jpg" title="Lecture 2: Elimination with matrices" alt="Lecture 2: Elimination with matrices"><p>Lecture 2: Elimination with...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-3-multiplication-and-inverse-matrices/18.06_L03.jpg" title="Lecture 3: Multiplication and inverse matrices" alt="Lecture 3: Multiplication and inverse matrices"><p>Lecture 3: Multiplication a...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/index.htm">
+<img src="../../../contents/video-lectures/lecture-4-factorization-into-a-lu/18.06_L04.jpg" title="Lecture 4: Factorization into A = LU" alt="Lecture 4: Factorization into A = LU"><p>Lecture 4: Factorization in...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/index.htm">
+<img src="../../../contents/video-lectures/lecture-5-transposes-permutations-spaces-r-n/18.06_L05.jpg" title="Lecture 5: Transposes, permutations, spaces R^n" alt="Lecture 5: Transposes, permutations, spaces R^n"><p>Lecture 5: Transposes, perm...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/index.htm">
+<img src="../../../contents/video-lectures/lecture-6-column-space-and-nullspace/18.06_L06.jpg" title="Lecture 6: Column space and nullspace" alt="Lecture 6: Column space and nullspace"><p>Lecture 6: Column space and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/index.htm">
+<img src="../../../contents/video-lectures/lecture-7-solving-ax-0-pivot-variables-special-solutions/18.06_L07.jpg" title="Lecture 7: Solving Ax = 0: pivot variables, special solutions" alt="Lecture 7: Solving Ax = 0: pivot variables, special solutions"><p>Lecture 7: Solving Ax = 0: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/index.htm">
+<img src="../../../contents/video-lectures/lecture-8-solving-ax-b-row-reduced-form-r/18.06_L08.jpg" title="Lecture 8: Solving Ax = b: row reduced form R" alt="Lecture 8: Solving Ax = b: row reduced form R"><p>Lecture 8: Solving Ax = b: ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/index.htm">
+<img src="../../../contents/video-lectures/lecture-9-independence-basis-and-dimension/18.06_L09.jpg" title="Lecture 9: Independence, basis, and dimension" alt="Lecture 9: Independence, basis, and dimension"><p>Lecture 9: Independence, ba...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-10-the-four-fundamental-subspaces/18.06_L10.jpg" title="Lecture 10: The four fundamental subspaces" alt="Lecture 10: The four fundamental subspaces"><p>Lecture 10: The four fundam...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/index.htm">
+<img src="../../../contents/video-lectures/lecture-11-matrix-spaces-rank-1-small-world-graphs/18.06_L11.jpg" title="Lecture 11: Matrix spaces; rank 1; small world graphs" alt="Lecture 11: Matrix spaces; rank 1; small world graphs"><p>Lecture 11: Matrix spaces; ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-12-graphs-networks-incidence-matrices/18.06_L12.jpg" title="Lecture 12: Graphs, networks, incidence matrices" alt="Lecture 12: Graphs, networks, incidence matrices"><p>Lecture 12: Graphs, network...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-13-quiz-1-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-13-quiz-1-review/18.06_L13.jpg" title="Lecture 13: Quiz 1 review" alt="Lecture 13: Quiz 1 review"><p>Lecture 13: Quiz 1 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-14-orthogonal-vectors-and-subspaces/18.06_L14.jpg" title="Lecture 14: Orthogonal vectors and subspaces" alt="Lecture 14: Orthogonal vectors and subspaces"><p>Lecture 14: Orthogonal vect...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/index.htm">
+<img src="../../../contents/video-lectures/lecture-15-projections-onto-subspaces/18.06_L15.jpg" title="Lecture 15: Projections onto subspaces" alt="Lecture 15: Projections onto subspaces"><p>Lecture 15: Projections ont...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/index.htm">
+<img src="../../../contents/video-lectures/lecture-16-projection-matrices-and-least-squares/18.06_L16.jpg" title="Lecture 16: Projection matrices and least squares" alt="Lecture 16: Projection matrices and least squares"><p>Lecture 16: Projection matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/index.htm">
+<img src="../../../contents/video-lectures/lecture-17-orthogonal-matrices-and-gram-schmidt/18.06_L17.jpg" title="Lecture 17: Orthogonal matrices and Gram-Schmidt" alt="Lecture 17: Orthogonal matrices and Gram-Schmidt"><p>Lecture 17: Orthogonal matr...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-18-properties-of-determinants/index.htm">
+<img src="../../../contents/video-lectures/lecture-18-properties-of-determinants/18.06_L18.jpg" title="Lecture 18: Properties of determinants" alt="Lecture 18: Properties of determinants"><p>Lecture 18: Properties of d...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/index.htm">
+<img src="../../../contents/video-lectures/lecture-19-determinant-formulas-and-cofactors/18.06_L19.jpg" title="Lecture 19: Determinant formulas and cofactors" alt="Lecture 19: Determinant formulas and cofactors"><p>Lecture 19: Determinant for...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/index.htm">
+<img src="../../../contents/video-lectures/lecture-20-cramers-rule-inverse-matrix-and-volume/18.06_L20.jpg" title="Lecture 20: Cramer's rule, inverse matrix, and volume" alt="Lecture 20: Cramer's rule, inverse matrix, and volume"><p>Lecture 20: Cramer's rule, ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/index.htm">
+<img src="../../../contents/video-lectures/lecture-21-eigenvalues-and-eigenvectors/18.06_L21.jpg" title="Lecture 21: Eigenvalues and eigenvectors" alt="Lecture 21: Eigenvalues and eigenvectors"><p>Lecture 21: Eigenvalues and...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/index.htm">
+<img src="../../../contents/video-lectures/lecture-22-diagonalization-and-powers-of-a/18.06_L22.jpg" title="Lecture 22: Diagonalization and powers of A" alt="Lecture 22: Diagonalization and powers of A"><p>Lecture 22: Diagonalization...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/index.htm">
+<img src="../../../contents/video-lectures/lecture-23-differential-equations-and-exp-at/18.06_L23.jpg" title="Lecture 23: Differential equations and exp(At)" alt="Lecture 23: Differential equations and exp(At)"><p>Lecture 23: Differential eq...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/index.htm">
+<img src="../../../contents/video-lectures/lecture-24-markov-matrices-fourier-series/18.06_L24.jpg" title="Lecture 24: Markov matrices; fourier series" alt="Lecture 24: Markov matrices; fourier series"><p>Lecture 24: Markov matrices...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-24b-quiz-2-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-24b-quiz-2-review/18.06_L24b.jpg" title="Lecture 24b: Quiz 2 review" alt="Lecture 24b: Quiz 2 review"><p>Lecture 24b: Quiz 2 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/index.htm">
+<img src="../../../contents/video-lectures/lecture-25-symmetric-matrices-and-positive-definiteness/18.06_L25.jpg" title="Lecture 25: Symmetric matrices and positive definiteness" alt="Lecture 25: Symmetric matrices and positive definiteness"><p>Lecture 25: Symmetric matri...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/index.htm">
+<img src="../../../contents/video-lectures/lecture-26-complex-matrices-fast-fourier-transform/18.06_L26.jpg" title="Lecture 26: Complex matrices; fast fourier transform" alt="Lecture 26: Complex matrices; fast fourier transform"><p>Lecture 26: Complex matrice...</p></a>
+</div>
+<div class="related-media-thumbnail-nolink">
+<div class="now-playing-resource">Now Playing</div>
+<img src="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/18.06_L27.jpg" title="Lecture 27: Positive definite matrices and minima" alt="Lecture 27: Positive definite matrices and minima"><p>Lecture 27: Positive defini...</p>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/index.htm">
+<img src="../../../contents/video-lectures/lecture-28-similar-matrices-and-jordan-form/18.06_L28.jpg" title="Lecture 28: Similar matrices and jordan form" alt="Lecture 28: Similar matrices and jordan form"><p>Lecture 28: Similar matrice...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-29-singular-value-decomposition/index.htm">
+<img src="../../../contents/video-lectures/lecture-29-singular-value-decomposition/18.06_L29.jpg" title="Lecture 29: Singular value decomposition" alt="Lecture 29: Singular value decomposition"><p>Lecture 29: Singular value ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/index.htm">
+<img src="../../../contents/video-lectures/lecture-30-linear-transformations-and-their-matrices/18.06_L30.jpg" title="Lecture 30: Linear transformations and their matrices" alt="Lecture 30: Linear transformations and their matrices"><p>Lecture 30: Linear transfor...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/index.htm">
+<img src="../../../contents/video-lectures/lecture-31-change-of-basis-image-compression/18.06_L31.jpg" title="Lecture 31: Change of basis; image compression" alt="Lecture 31: Change of basis; image compression"><p>Lecture 31: Change of basis...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-32-quiz-3-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-32-quiz-3-review/18.06_L32.jpg" title="Lecture 32: Quiz 3 review" alt="Lecture 32: Quiz 3 review"><p>Lecture 32: Quiz 3 review</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/index.htm">
+<img src="../../../contents/video-lectures/lecture-33-left-and-right-inverses-pseudoinverse/18.06_L33.jpg" title="Lecture 33: Left and right inverses; pseudoinverse" alt="Lecture 33: Left and right inverses; pseudoinverse"><p>Lecture 33: Left and right ...</p></a>
+</div>
+<div class="related-media-thumbnail">
+<a href="../../../contents/video-lectures/lecture-34-final-course-review/index.htm">
+<img src="../../../contents/video-lectures/lecture-34-final-course-review/18.06_L34.jpg" title="Lecture 34: Final course review" alt="Lecture 34: Final course review"><p>Lecture 34: Final course re...</p></a>
+</div>
+</div>
+        <div id="vid_playlist" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Related Resources</h2>
+<p><a href="../../../contents/readings/index.htm" target="_blank">Readings</a><br><a href="../../../contents/readings#Table_of_Contents" target="_blank">Table of Contents</a></p>
+</div>
+        <div id="vid_related" itemprop="description" class="tabContent hide">
+<ul><li><a class="transcript-link" title="Open in a new window." alt="Open in a new window." style="text-decoration: none; font-size: 1.0em;" target="_blank" text-decoration: none font-size: href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/vF7eyJ2g3kU.pdf"> Download this transcript - PDF (English - US)</a></li></ul>
+<p><span m="0">OK, this is the lecture on positive definite matrices.</span> </p>
+<p><span m="6000">I made a start on those briefly in a previous lecture.</span> </p>
+<p><span m="12000">One point I wanted to make was the way that this topic brings</span> <span m="19000">the whole course together, pivots, determinants,</span> <span m="25000">eigenvalues, and something new- four plot</span> <span m="29000">instability and then something new</span> <span m="34000">in this expression, x transpose Ax,</span> <span m="38000">actually that's the guy to watch in this lecture.</span> </p>
+<p><span m="43000">So, so the topic is positive definite matrix,</span> <span m="47000">and what's my goal?</span> </p>
+<p><span m="49000">First, first goal is, how can I tell if a matrix is</span> <span m="54000">positive definite?</span> </p>
+<p><span m="56000">So I would like to have tests to see</span> <span m="61000">if you give me a, a five by five matrix,</span> <span m="64000">how do I tell if it's positive definite?</span> </p>
+<p><span m="67000">More important is, what does it mean?</span> </p>
+<p><span m="70000">Why are we so interested in this property of positive</span> <span m="74000">definiteness?</span> </p>
+<p><span m="75000">And then, at the end comes some geometry.</span> </p>
+<p><span m="78000">Ellipses are connected with positive definite things.</span> </p>
+<p><span m="84000">Hyperbolas are not connected with positive definite things,</span> <span m="89000">so we- it's this, we, there's a geometry too,</span> <span m="92000">but mostly it's linear algebra and -- this application of how</span> <span m="98000">do you recognize 'em when you have a minim is pretty neat.</span> </p>
+<p><span m="103000">OK.</span> </p>
+<p><span m="103330">I'm gonna begin with two by two.</span> </p>
+<p><span m="107000">All matrices are symmetric, right?</span> </p>
+<p><span m="110000">That's understood; the matrix is symmetric,</span> <span m="114000">now my question is, is it positive definite?</span> </p>
+<p><span m="119000">Now, here are some -- each one of these is a complete test for</span> <span m="125000">positive definiteness.</span> </p>
+<p><span m="127000">If I know the eigenvalues, my test is are they positive?</span> </p>
+<p><span m="134000">Are they all positive?</span> </p>
+<p><span m="136000">If I know these -- so, A is really -- I look at that</span> <span m="141000">number A, here, as the, as the one by one</span> <span m="145000">determinant, and here's the two by two determinant.</span> </p>
+<p><span m="150000">So this is the determinant test.</span> </p>
+<p><span m="154000">This is the eigenvalue test, this is the determinant test.</span> </p>
+<p><span m="159110">Are the determinants growing in s- of all, of all end,</span> <span m="163000">sort of, can I call them leading submatrices,</span> <span m="167000">they're the first ones the northwest,</span> <span m="171000">Seattle submatrices coming down from from there,</span> <span m="175000">they all, all those determinants have to be</span> <span m="179600">positive, and then another test is the pivots.</span> </p>
+<p><span m="183000">The pivots of a two by two matrix are the number A for</span> <span m="188000">sure, and, since the product is the determinant,</span> <span m="193000">the second pivot must be the determinant divided by A.</span> </p>
+<p><span m="198000">And then in here is gonna come my favorite and my new idea,</span> <span m="204000">the, the, the the one to catch, about x transpose Ax being</span> <span m="210000">positive.</span> </p>
+<p><span m="211000">But we'll have to look at this guy.</span> </p>
+<p><span m="214000">This gets, like a star, because for most,</span> <span m="219000">presentations, the definition of positive</span> <span m="223000">definiteness would be this number four and these numbers</span> <span m="228000">one two three would be test four.</span> </p>
+<p><span m="231000">OK. Maybe I'll tuck this, where, you know,</span> </p>
+<p><span m="235000">OK. So I'll have to look at this x transpose Ax.</span> </p>
+<p><span m="239000">Can you, can we just be sure, how do we know that the</span> <span m="244000">eigenvalue test and the determinant test,</span> <span m="250000">pick out the same matrices, and let me, let's just do a few</span> <span m="258000">examples.</span> </p>
+<p><span m="259000">Some examples.</span> </p>
+<p><span m="261000">Let me pick the matrix two, six, six, tell me,</span> <span m="267000">what number do I have to put there for the matrix to be</span> <span m="274820">positive definite?</span> </p>
+<p><span m="278000">Tell me a sufficiently large number that would make it</span> <span m="282000">positive definite?</span> </p>
+<p><span m="283000">Let's just practice with these conditions in the two by two</span> <span m="287000">case.</span> </p>
+<p><span m="288000">Now, when I ask you that, you don't wanna find the</span> <span m="291000">eigenvalues, you would use the determinant test for that,</span> <span m="295000">so, the first or the pivot test,</span> <span m="299000">that, that guy is certainly positive, that had to happen,</span> <span m="304000">and it's OK.</span> </p>
+<p><span m="305000">How large a number here -- the number had better be more than</span> </p>
+<p><span m="310000">what? More than eighteen, right, because if it's eight --</span> </p>
+<p><span m="315000">no. More than what?</span> </p>
+<p><span m="316000">Nineteen, is it?</span> </p>
+<p><span m="319000">If I have a nineteen here, is that positive definite?</span> </p>
+<p><span m="325000">I get thirty eight minus thirty six, that's OK.</span> </p>
+<p><span m="330000">If I had an eighteen, let me play it really close.</span> </p>
+<p><span m="336000">If I have an eighteen there, then I positive definite?</span> </p>
+<p><span m="342000">Not quite.</span> </p>
+<p><span m="343480">I would call this guy positive, so it's useful just to see that</span> <span m="351000">this the borderline.</span> </p>
+<p><span m="353000">That matrix is on the borderline, I would call that</span> <span m="358000">matrix positive semi-definite.</span> </p>
+<p><span m="361000">And what are the eigenvalues of that matrix, just since we're</span> <span m="367000">given eigenvalues of two by twos, when it's semi-definite,</span> <span m="374000">but not definite, then the -- I'm squeezing this</span> <span m="378000">eigenvalue test down, -- what's the eigenvalue that I</span> <span m="384000">know this matrix has?</span> </p>
+<p><span m="386000">What kind of a matrix have I got here?</span> </p>
+<p><span m="390000">It's a singular matrix, one of its eigenvalues is zero.</span> </p>
+<p><span m="396000">That has an eigenvalue zero, and the other eigenvalue is --</span> <span m="402000">from the trace, twenty.</span> </p>
+<p><span m="404000">OK. So that, that matrix has eigenvalues greater than or</span> <span m="409000">equal to zero, and it's that "equal to" that</span> <span m="412000">brought this word "semi-definite" in.</span> </p>
+<p><span m="415000">And, the what are the pivots of that matrix?</span> </p>
+<p><span m="420470">So the pivots, so the eigenvalues are zero and</span> <span m="424000">twenty, the pivots are, well, the pivot is two,</span> <span m="429000">and what's the next pivot?</span> </p>
+<p><span m="431000">There isn't one.</span> </p>
+<p><span m="433000">We got a singular matrix here, it'll only have one pivot.</span> </p>
+<p><span m="438000">You see that that's a rank one matrix, two six is a -- six</span> <span m="445000">eighteen is a multiple of two six, the matrix is singular it</span> <span m="452000">only has one pivot, so the pivot test doesn't quite</span> </p>
+<p><span m="458000">The -- let me do the x transpose Ax.</span> <span m="458210">pass.</span> </p>
+<p><span m="462000">Now this is -- the novelty now.</span> </p>
+<p><span m="466000">OK. What I looking at when I look at this new combination,</span> <span m="474060">x transpose Ax. x is any vector now,</span> <span m="477000">so lemme compute, so any vector,</span> <span m="481000">lemme call its components x1 and x2, so that's x.</span> </p>
+<p><span m="486000">And I put in here A.</span> </p>
+<p><span m="488000">Let's, let's use this example two six, six eighteen,</span> <span m="495370">and here's x transposed, so x1 x2.</span> </p>
+<p><span m="498000">We're back to real matrices, after that last lecture that-</span> <span m="504000">that said what to do in the complex case,</span> <span m="507000">let's come back to real matrices.</span> </p>
+<p><span m="510000">So here's x transpose Ax, and what I'm interested in is,</span> <span m="516000">what do I get if I multiply those together?</span> </p>
+<p><span m="521000">I get some function of x1 and x2, and what is it?</span> </p>
+<p><span m="526000">Let's see, if I do this multiplication,</span> <span m="530620">so I do it, lemme, just, I'll just do it slowly,</span> <span m="535000">x1, x2, if I multiply that matrix, this is 2x1,</span> <span m="540000">and 6x2s, and the next row is 6x1s and 18x2s,</span> <span m="546000">and now I do this final step and what do I have?</span> </p>
+<p><span m="550000">I've got 2x1 squareds, got 2X1 squareds is coming from</span> <span m="555920">this two, I've got this one gives me eighteen,</span> <span m="560000">well, shall I do the ones in the middle?</span> </p>
+<p><span m="564000">How many x1 x2s do I have?</span> </p>
+<p><span m="566000">Let's see, x1 times that 6x2 would be six</span> <span m="571000">of 'em, and then x2 times this one will be six more,</span> <span m="576000">I get twelve.</span> </p>
+<p><span m="578000">So, in here is going, this is the number a,</span> <span m="582000">this is the number 2b, and in here is -- x2 times</span> <span m="587000">eighteen x2 will be eighteen x2 squareds and this</span> <span m="593000">is the number c.</span> </p>
+<p><span m="595000">So it's ax1 -- it's like ax squared.</span> </p>
+<p><span m="599000">2bxy and cy squared.</span> </p>
+<p><span m="601230">For my first point that I wanted to make by just doing out</span> <span m="607000">a multiplication is, that is as soon as you give me</span> <span m="612000">the matrix, as soon as you give me the matrix,</span> <span m="617000">I can -- those are the numbers that</span> <span m="621000">appear in -- I'll call this thing a quadratic,</span> <span m="625000">you see, it's not linear anymore.</span> </p>
+<p><span m="627000">Ax is linear, but now I've got an x transpose</span> <span m="631000">coming in, I'm up to degree two, up to degree two,</span> <span m="635000">maybe quadratic is the -- use the word.</span> </p>
+<p><span m="639000">A quadratic form.</span> </p>
+<p><span m="640000">It's purely degree two, there's no linear part,</span> <span m="644000">there's no constant part, there certainly no cubes or</span> <span m="649000">fourth powers, it's all second degree.</span> </p>
+<p><span m="653000">And my question is -- is that quantity positive or not?</span> </p>
+<p><span m="658000">That's -- for every x1 and x2, that is my new definition --</span> <span m="664000">that's my definition of a positive definite matrix.</span> </p>
+<p><span m="670000">If this quantity is positive, if, if, if, it's positive for</span> <span m="676000">all x's and y's, all x1 x2s, then I call them --</span> <span m="681000">then that's the matrix is positive definite.</span> </p>
+<p><span m="686000">Now, is this guy passing our test?</span> </p>
+<p><span m="691000">Well we have, we anticipated the answer here</span> <span m="696000">by, by asking first about eigenvalues and pivots,</span> <span m="701870">and what happened?</span> </p>
+<p><span m="703970">It failed.</span> </p>
+<p><span m="705000">It barely failed.</span> </p>
+<p><span m="707000">If I had made this eighteen down to a seven,</span> <span m="712000">it would've totally failed.</span> </p>
+<p><span m="715000">I do that with the eraser, and then I'll put back</span> <span m="721000">eighteen, because, seven is such a total disaster,</span> <span m="726000">but if -- I'll keep seven for a second.</span> </p>
+<p><span m="730000">Is that thing in any way positive definite?</span> </p>
+<p><span m="734000">No, absolutely not.</span> </p>
+<p><span m="736000">I don't know its eigenvalues, but I know for sure one of them</span> <span m="742000">is negative.</span> </p>
+<p><span m="742980">Its pivots are two and then the next pivot would be the</span> <span m="746000">determinant over two, and the determinant is -- what,</span> <span m="750000">what's the determinant of this thing?</span> </p>
+<p><span m="753000">Fourteen minus thirty six, I've got a determinant minus</span> <span m="757000">twenty two.</span> </p>
+<p><span m="758000">The next pivot will be -- the pivots</span> <span m="761000">now, of this thing are two and minus eleven or something.</span> </p>
+<p><span m="765000">Their product being minus twenty two the determinant.</span> </p>
+<p><span m="769000">This thing is not positive definite.</span> </p>
+<p><span m="772000">What would be -- let me look at the x transpose Ax for this guy.</span> </p>
+<p><span m="776000">What's -- if I do out this multiplication,</span> <span m="779000">this eighteen is temporarily changing to a seven.</span> </p>
+<p><span m="784500">This eighteen is temporarily changing to a seven,</span> <span m="790000">and I know that there's some numbers x1 and x2 for which that</span> <span m="797000">thing, that function, is negative.</span> </p>
+<p><span m="801000">And I'm desperately trying to think what they are.</span> </p>
+<p><span m="806000">Maybe you can see.</span> </p>
+<p><span m="809000">Can you tell me a value of x1 and x2 that makes this quantity</span> <span m="816000">negative?</span> </p>
+<p><span m="817000">Oh, maybe one and minus one?</span> </p>
+<p><span m="820000">Yes, that's -- in this case, that, will work,</span> <span m="824000">right, if I took x1 to be one, and x2 to be minus one,</span> <span m="829000">then I always get something positive, the two,</span> <span m="834000">and the seven minus one squared, but this would be</span> <span m="839000">minus twelve and the whole thing would be negative;</span> <span m="844000">I would have two minus twelve plus seven, a negative.</span> </p>
+<p><span m="850000">If I drew the graph, can I get the little picture in</span> </p>
+<p><span m="855000">here? If I draw the graph of this thing?</span> </p>
+<p><span m="858000">So, graphs, of the function f(x,y),</span> <span m="863000">or f(x), so I say here f(x,y) equal this -- x transpose Ax,</span> <span m="871000">this, this this ax squared, 2bxy, and cy squared.</span> </p>
+<p><span m="877000">And, let's take the example, with these numbers.</span> </p>
+<p><span m="884000">OK, so here's the x axis, here's the y axis,</span> <span m="889000">and here's -- up is the function.</span> </p>
+<p><span m="894000">z, if you like, or f.</span> </p>
+<p><span m="898180">I apologize, and let me, just once in my</span> <span m="901000">life here, put an arrow over these, these,</span> <span m="905000">axes so you see them.</span> </p>
+<p><span m="907000">That's the vector and I just, see, instead of x1 and x2,</span> <span m="913000">I made them x- the components x and y.</span> </p>
+<p><span m="916000">OK. So, so, what's a graph of 2x squared,</span> <span m="921000">twelve xy, and seven y squared?</span> </p>
+<p><span m="925000">I'd like to see -- I not the greatest artist,</span> <span m="930000">but let's -- tell me something about this graph of this</span> <span m="937000">function.</span> </p>
+<p><span m="938870">Whoa, tell me one point that it goes through.</span> </p>
+<p><span m="944000">The origin.</span> </p>
+<p><span m="945000">Right?</span> </p>
+<p><span m="946000">Even this artist can get this thing</span> <span m="952000">to go through the origin, when these are zero,</span> <span m="956000">I, I certainly get zero.</span> </p>
+<p><span m="958000">OK. Some more points.</span> </p>
+<p><span m="960000">If x is one and y is zero, then I'm going upwards,</span> <span m="964000">so I'm going up this way, and I'm, I'm going up,</span> <span m="968000">like, two x squared in that direction.</span> </p>
+<p><span m="973000">So -- that's meant to be a parabola.</span> </p>
+<p><span m="976000">And, suppose x stays zero and y increases.</span> </p>
+<p><span m="979000">Well, y could be positive or negative; it's seven y squared.</span> </p>
+<p><span m="984000">Is this function going upward?</span> </p>
+<p><span m="987420">In the x direction it's going upward, and in the y direction</span> <span m="992000">it's going upwards, and if x equals y then the</span> <span m="997000">forty-five degree direction is certainly going upwards;</span> <span m="1002000">because then we'd have what, about, everything would be</span> <span m="1007000">positive, but what?</span> </p>
+<p><span m="1009000">This function -- what's the graph of this function?</span> </p>
+<p><span m="1014000">Look like?</span> </p>
+<p><span m="1015000">Tell me the word that describes the graph of this</span> <span m="1019000">function.</span> </p>
+<p><span m="1020000">This is the non-positive definite here,</span> <span m="1023000">everybody's with me here, for some reason got started in</span> <span m="1026000">a negative direction, your case that isn't positive</span> <span m="1030000">definite.</span> </p>
+<p><span m="1031000">And what's the graph look like that goes up,</span> <span m="1033000">but does it -- do we have a minimum here,</span> <span m="1037000">does it go from, from the origin?</span> </p>
+<p><span m="1040000">Completely?</span> </p>
+<p><span m="1041579">No, because we just checked that this thing failed.</span> </p>
+<p><span m="1045000">It failed along the direction when x was minus y -- we have a</span> <span m="1051000">saddle point, let me put myself,</span> <span m="1053000">let me, to the least, tell you the word.</span> </p>
+<p><span m="1058000">This thing, goes up in some directions, but down in other</span> <span m="1066000">directions, and if we actually knew what a saddle looked like</span> <span m="1075000">or thinks saddles do that -- the way your legs go is,</span> <span m="1082000">like, down, up, the way,</span> <span m="1087000">you, looking like, forward, and,</span> <span m="1090000">the, and drawing the thing is even worse than describing --</span> <span m="1096000">I'm just going to say in some directions we go up and in other</span> <span m="1102000">directions, there is, a saddle -- Now I'm sorry I put</span> <span m="1108000">that on the front board, you have no way to cover it,</span> <span m="1114000">but it's a saddle.</span> </p>
+<p><span m="1116000">OK. And, and this is a saddle point, it's the,</span> <span m="1120480">it's the point that's at the maximum in some directions and</span> <span m="1125000">at the minimum in other directions.</span> </p>
+<p><span m="1129000">And actually, the perfect directions to look</span> <span m="1133000">are the eigenvector directions.</span> </p>
+<p><span m="1136000">We'll see that.</span> </p>
+<p><span m="1137000">So this is, not a positive definite matrix.</span> </p>
+<p><span m="1143000">OK. Now I'm coming back to this example, getting rid of this</span> <span m="1148000">seven, let's move it up to twenty.</span> </p>
+<p><span m="1152000">Let's, let's let's make the thing really positive definite.</span> </p>
+<p><span m="1158000">OK. So this is, this number's now twenty.</span> </p>
+<p><span m="1162000">c is now twenty.</span> </p>
+<p><span m="1163000">OK.</span> </p>
+<p><span m="1164000">Now that passes the test, which I haven't proved,</span> <span m="1170000">of course, it passes the test for positive pivots.</span> </p>
+<p><span m="1173000">It passes the test for positive eigenvalues.</span> </p>
+<p><span m="1177000">How can you tell that the eigenvalues of that matrix are</span> <span m="1181000">positive without actually finding them?</span> </p>
+<p><span m="1184000">Of course, two by two I could find them,</span> <span m="1188000">but can you see -- how do I know they're positive?</span> </p>
+<p><span m="1191000">I know that their product is -- I know that lambda one times</span> <span m="1195000">lambda two is positive, why?</span> </p>
+<p><span m="1196000">Because that's the determinant, right, lambda one times lambda</span> <span m="1200000">two is the determinant, which is forty minus thirty-six</span> <span m="1204000">is four.</span> </p>
+<p><span m="1205000">So the determinant is four.</span> </p>
+<p><span m="1208000">And the trace, the sum down the diagonal,</span> <span m="1212000">is twenty-two.</span> </p>
+<p><span m="1213440">So, they multiply to give four.</span> </p>
+<p><span m="1216000">So that leaves the possibility they're either both positive or</span> <span m="1222000">both negative.</span> </p>
+<p><span m="1223000">But if they're both negative, the trace couldn't be</span> </p>
+<p><span m="1229000">So they're both positive.</span> <span m="1229080">twenty-two.</span> </p>
+<p><span m="1231000">So both of the eigenvalues that are positive,</span> <span m="1235000">both of the pivots are positive -- the determinants are</span> <span m="1239730">positive, and I believe that this function is positive</span> <span m="1243000">everywhere except at zero, zero, of course.</span> </p>
+<p><span m="1247000">When I write down this condition,</span> <span m="1250000">So I believe that x transposed, let me copy,</span> <span m="1255000">x transpose Ax is positive, except, of course,</span> <span m="1260000">at the minimum point, at zero, of course,</span> <span m="1264000">I don't expect miracles.</span> </p>
+<p><span m="1267000">So what does its graph look like, and how do I check,</span> <span m="1272000">and how do I check that this really is positive?</span> </p>
+<p><span m="1278000">So we take it's graph for a minute.</span> </p>
+<p><span m="1283000">What would be the graph of that function -- it does not have a</span> <span m="1288000">saddle point.</span> </p>
+<p><span m="1289000">Let me -- I'll raise the board, here, and stay with this</span> <span m="1294000">example for a while.</span> </p>
+<p><span m="1296000">So I want to do the graph of -- here's my function,</span> <span m="1300000">two x squared, twelve xy-s,</span> <span m="1302000">that could be positive or negative, and twenty y squared.</span> </p>
+<p><span m="1308690">But my point is, so you're seeing the underlying</span> <span m="1312620">point is, that, the things are positive</span> <span m="1315000">definite when in some way, these, these pure squares,</span> <span m="1320000">squares we know to be positive, and when those kind of</span> <span m="1324000">overwhelm this guy, who could be m- positive or</span> <span m="1328000">negative, because some like or have same</span> <span m="1332000">or have same or different signs, when these are big enough they</span> <span m="1338000">overwhelm this guy and make the total thing positive,</span> <span m="1344000">and what would the graph now look like?</span> </p>
+<p><span m="1347000">Let me draw the x - well, let me draw the x direction,</span> <span m="1352000">the y direction, and the origin,</span> <span m="1356000">at zero, zero, I'm there, where do I go as I</span> <span m="1361000">move away from the origin?</span> </p>
+<p><span m="1364000">Where do I go as I move away from the origin?</span> </p>
+<p><span m="1369000">I'm sure that I go up.</span> </p>
+<p><span m="1372000">The origin, the center point here, is a minim because this</span> <span m="1378000">thing I believe, and we better see why,</span> <span m="1382000">it's, the graph is like a bowl, the</span> <span m="1388000">graph is like a bowl shape, it's -- here's the minimum.</span> </p>
+<p><span m="1393000">And because we've got a pure quadratic, we know it sits at</span> <span m="1399000">the origin, we know it's tangent plane, the first derivatives are</span> <span m="1406000">zero, so, we know, first derivatives,</span> <span m="1409000">First derivatives are all zero, but that's not enough for a</span> <span m="1416000">minimum.</span> </p>
+<p><span m="1417000">It's first derivatives were zero here.</span> </p>
+<p><span m="1420000">So, the partial derivatives, the first derivatives,</span> <span m="1425000">are zero.</span> </p>
+<p><span m="1426000">Again, because first derivatives are gonna have an x</span> <span m="1431000">or an a y, or a y in them, they'll be zero at the origin.</span> </p>
+<p><span m="1436000">It's the second derivatives that</span> <span m="1440000">control everything.</span> </p>
+<p><span m="1442000">It's the second derivatives that this matrix is telling us,</span> <span m="1447000">and somehow -- here's my point.</span> </p>
+<p><span m="1449000">You remember in Calculus, how did you decide on a</span> <span m="1453000">minimum?</span> </p>
+<p><span m="1454000">First requirement was, that the derivative had to be</span> </p>
+<p><span m="1458000">zero. But then you didn't know if you had</span> <span m="1462000">a minimum or a maximum.</span> </p>
+<p><span m="1464000">To know that you had a minimum, you had to look at the second</span> <span m="1468000">derivative.</span> </p>
+<p><span m="1469670">The second derivative had to be positive, the slope had to be</span> <span m="1474000">increasing as you went through the minimum point.</span> </p>
+<p><span m="1477000">The curvature had to go upwards, and that's what we're</span> <span m="1481000">doing now in two dimensions,</span> <span m="1485100">and in n dimensions.</span> </p>
+<p><span m="1487000">So we're doing what we did in Calculus.</span> </p>
+<p><span m="1490000">Second derivative positive, m- will now become that the</span> <span m="1496000">matrix of second derivatives is positive definite.</span> </p>
+<p><span m="1500000">Can I just -- like a translation of -- this is how</span> <span m="1505000">minimum are coming in, ithe beginning of Calculus --</span> <span m="1512520">we had a minimum was associated with second derivative,</span> <span m="1519000">being positive.</span> </p>
+<p><span m="1521000">And first derivative zero, of course.</span> </p>
+<p><span m="1526000">Derivative, first derivative, but it was the second</span> <span m="1532000">derivative that told us we had a minimum.</span> </p>
+<p><span m="1538000">And now, in 18.06, in linear algebra,</span> <span m="1542000">we'll have a minim for our function now,</span> <span m="1547000">our function will have, for your function be a function</span> <span m="1553000">not of just x but several variables, the way functions</span> <span m="1558000">really are in real life, the minimum will be when the</span> <span m="1564000">matrix of second derivatives, the matrix here was one by one,</span> <span m="1572000">there was just one second derivative, now we've got lots.</span> </p>
+<p><span m="1578830">Is positive definite.</span> </p>
+<p><span m="1581000">So positive for a number translates into positive</span> <span m="1586490">definite for a matrix.</span> </p>
+<p><span m="1588000">And it this brings everything you check pivots,</span> <span m="1594040">you check determinants, you check all your values,</span> <span m="1599480">or you check this minimum stuff.</span> </p>
+<p><span m="1604000">OK. Let me come back to this graph.</span> </p>
+<p><span m="1607000">That graph goes upwards.</span> </p>
+<p><span m="1609000">And I'll have to see why.</span> </p>
+<p><span m="1611000">How do I know that this, that this function is always</span> <span m="1616810">positive?</span> </p>
+<p><span m="1617000">Can you look at that and tell that it's always positive?</span> </p>
+<p><span m="1622000">Maybe two by two, you could feel pretty sure,</span> <span m="1626000">but what's the good way to show that this thing is always</span> </p>
+<p><span m="1633000">If we can express it, as, in terms of squares,</span> <span m="1633020">positive?</span> <span m="1637000">because that's what we know for any x and y, whatever,</span> <span m="1642000">if we're squaring something we certainly are not negative.</span> </p>
+<p><span m="1647000">So I believe that this expression, this function,</span> <span m="1651000">could be written as a sum of squares.</span> </p>
+<p><span m="1655530">Can you tell me -- see, because all the problems,</span> <span m="1659000">the headaches are coming from this xy term.</span> </p>
+<p><span m="1663000">If we can get expressions -- if we can get that inside a square,</span> <span m="1668000">so actually, what we're doing is something</span> <span m="1672000">called, that you've seen called completing the square.</span> </p>
+<p><span m="1677000">Let me start the square and you complete it.</span> </p>
+<p><span m="1681000">OK, I think we have two of x plus, now I don't remember how</span> <span m="1687000">many y-s we need, but you'll figure it out,</span> <span m="1691000">squared.</span> </p>
+<p><span m="1692410">How many y-s should I put in here, to make -- what do I want</span> <span m="1698000">to do, the two x squared-s will be correct, right?</span> </p>
+<p><span m="1702000">What I want to do is put in the right number of y-s to get</span> <span m="1709500">the twelve xy correct.</span> </p>
+<p><span m="1711390">And what is that number of y-s?</span> </p>
+<p><span m="1714000">Let's see, I've got two times, and so I really want six xy-s</span> <span m="1719000">to come out of here, I think maybe if I put three</span> <span m="1723000">there, does that look right to you?</span> </p>
+<p><span m="1726000">I have two- this is, we can mentally,</span> <span m="1729000">multiply out, that's X squared,</span> <span m="1732000">that's right, that's six X Y,</span> <span m="1735000">times the two gives from, right, and how many Y squareds</span> <span m="1740000">have I now got?</span> </p>
+<p><span m="1741000">How many Y squareds have I now got from this term?</span> </p>
+<p><span m="1745000">Eighteen.</span> </p>
+<p><span m="1746000">Eighteen was the key number, remember?</span> </p>
+<p><span m="1749000">Now if I want to make it twenty,</span> <span m="1753000">then I've got two left.</span> </p>
+<p><span m="1756000">Two y squared-s.</span> </p>
+<p><span m="1757000">That's completing the square, and it's, now I can see that</span> <span m="1764000">that function is positive, because it's all squares.</span> </p>
+<p><span m="1770000">I've got two squares, added together,</span> <span m="1774070">I couldn't go negative.</span> </p>
+<p><span m="1776640">What if I went back to that seven?</span> </p>
+<p><span m="1781000">If instead of twenty that number was a seven,</span> <span m="1784000">then what would happen?</span> </p>
+<p><span m="1786000">This would still be correct, I'd still have this square,</span> <span m="1790000">to get the two x squared and the twelve xy,</span> <span m="1793000">and I'd have eighteen y squared and then what would I do here?</span> </p>
+<p><span m="1797000">I'd have to remove eleven y squared-s, right,</span> <span m="1800000">if I only had a seven here, then instead of -- when I had a</span> <span m="1805000">twenty I had two more to put in,</span> <span m="1809000">when I had an eighteen, which was the marginal case,</span> <span m="1815000">I had no more to put in.</span> </p>
+<p><span m="1818000">When I had a seven, which was the case below zero,</span> <span m="1823000">the indefinite case, I had minus eleven.</span> </p>
+<p><span m="1828000">Now, so, you can see now, that this thing is a bowl.</span> </p>
+<p><span m="1828510">OK.</span> </p>
+<p><span m="1835000">It's going upwards, if I cut it at a plane,</span> <span m="1839000">z equal to one, say, I would get,</span> <span m="1842250">I would get a curve, what would be the equation for</span> <span m="1846000">that curve?</span> </p>
+<p><span m="1847000">If I cut it at height one, the equation would be this</span> <span m="1852000">thing equal to one.</span> </p>
+<p><span m="1855570">And that curve would be an ellipse.</span> </p>
+<p><span m="1858000">So actually, already, I've blocked into the</span> <span m="1862000">lecture, the different pieces that we're aiming for.</span> </p>
+<p><span m="1867000">We're aiming for the tests, which this passed;</span> <span m="1871000">we're aiming for the connection to a minimum,</span> <span m="1875000">which this -- which we see in the graph,</span> <span m="1879640">and if we chop it up, if we set this thing equal to</span> <span m="1884000">one, if I set that thing equal to one, that -- what that gives</span> <span m="1889000">me is, the cross-section.</span> </p>
+<p><span m="1891000">It gives me this, this curve, and its equation is</span> <span m="1896000">this thing equals one, and that's an ellipse.</span> </p>
+<p><span m="1899000">Whereas if I cut through a saddle</span> <span m="1903000">point, I get a hyperbola.</span> </p>
+<p><span m="1906000">But this minimum stuff is really what I'm most interested</span> </p>
+<p><span m="1906090">OK.</span> </p>
+<p><span m="1911000">in. OK.</span> </p>
+<p><span m="1912000">By -- I just have to ask, do you recognize,</span> <span m="1915000">I mean, these numbers here, the two that appeared outside,</span> <span m="1921000">the three that appeared inside, the two that appeared there --</span> <span m="1927000">actually, those numbers come from elimination.</span> </p>
+<p><span m="1932000">Completing the square is our good old method of Gaussian</span> <span m="1938000">elimination, in expressed in terms of these squares.</span> </p>
+<p><span m="1944000">The -- let me show you what I mean.</span> </p>
+<p><span m="1947000">I just think those numbers are no accident,</span> <span m="1953000">If I take my matrix two, six, six, and twenty,</span> <span m="1958000">and I do elimination, then the pivot is two and I</span> <span m="1963000">take three, what's the multiplier?</span> </p>
+<p><span m="1966000">How much of row one do I take away from row two?</span> </p>
+<p><span m="1971410">Three.</span> </p>
+<p><span m="1972000">So what you're seeing in this, completing the square,</span> <span m="1978000">is the pivots outside and the multiplier inside.</span> </p>
+<p><span m="1982000">Just do that again?</span> </p>
+<p><span m="1984000">The pivot is two, three -- three of those away</span> <span m="1987000">from that gives me two, six, zero, and what's the</span> <span m="1991000">second pivot?</span> </p>
+<p><span m="1992000">Three of this away from this, three sixes'll be eighteen,</span> <span m="1997000">and the second pivot will also be a</span> </p>
+<p><span m="2001000">two. So that's the U, this is the A,</span> <span m="2006000">and of course the L was one, zero, one, and the multiplier</span> <span m="2014850">was three.</span> </p>
+<p><span m="2016340">So, completing the square is elimination.</span> </p>
+<p><span m="2022000">Why I happy to see, happy to see that coming</span> <span m="2028000">together?</span> </p>
+<p><span m="2030000">Because I know about elimination</span> <span m="2036000">for m by m matrices.</span> </p>
+<p><span m="2038000">I just started talking about completing the square,</span> <span m="2043000">here, for two by twos.</span> </p>
+<p><span m="2045000">But now I see what's going on.</span> </p>
+<p><span m="2048000">Completing the square really amounts to splitting this thing</span> <span m="2053000">into a sum of squares, so what's the critical thing --</span> <span m="2058000">I have a lot of squares, and inside those squares are</span> <span m="2064000">multipliers but they're squares, and the question is,</span> <span m="2068000">what's outside these squares?</span> </p>
+<p><span m="2071370">When I complete the square, what are the numbers that go</span> </p>
+<p><span m="2076000">outside? They're the pivots.</span> </p>
+<p><span m="2078000">They're the pivots, and that's why positive pivots</span> <span m="2083000">give me sum of squares.</span> </p>
+<p><span m="2086000">Positive pivots, those pivots are the numbers</span> <span m="2089550">that go outside the squares, so positive pivots,</span> <span m="2093000">sum of squares, everything positive,</span> <span m="2096000">graph goes up, a minimum at the origin,</span> <span m="2099000">it's all connected together; all connected together.</span> </p>
+<p><span m="2103000">And in the two by two case, you can see those connections,</span> <span m="2107000">but linear algebra now can go up to</span> <span m="2111000">three by three, m by m.</span> </p>
+<p><span m="2113000">Let's do that next.</span> </p>
+<p><span m="2115000">Can I just, before I leave two by two, I've written this</span> <span m="2120520">expression "matrix of second derivatives." What's the matrix</span> <span m="2126000">of second derivatives?</span> </p>
+<p><span m="2128000">That's one second derivative now, but if I'm in two</span> <span m="2132000">dimensions, I have a two by two matrix,</span> <span m="2137000">it's the second x derivative, the second x derivative goes</span> <span m="2144040">there -- shall I write it -- fxx, if you like,</span> <span m="2148880">fxx, that means the second derivative of f in the x</span> <span m="2154000">direction. fyy, second derivative in the y</span> <span m="2159000">direction.</span> </p>
+<p><span m="2160000">Those are the pure derivatives, second derivatives.</span> </p>
+<p><span m="2165000">They have to be positive.</span> </p>
+<p><span m="2167000">For a minimum.</span> </p>
+<p><span m="2169000">This number has to be positive for a minimum.</span> </p>
+<p><span m="2173000">That number has to be positive for a minimum.</span> </p>
+<p><span m="2177750">But, that's not enough.</span> </p>
+<p><span m="2179000">Those numbers have to somehow be big enough to overcome this</span> <span m="2186000">cross-derivative, Why is the matrix symmetric?</span> </p>
+<p><span m="2190000">Because the second derivative f with respect to x and y is equal</span> <span m="2195000">to -- I can, that's the beautiful fact about second</span> <span m="2200000">derivatives, is I can do those in either order and I get the</span> <span m="2205000">same thing.</span> </p>
+<p><span m="2206000">So this is the same as that, and so, that's the matrix of</span> <span m="2212000">second derivatives.</span> </p>
+<p><span m="2214000">And the test is, it has to be positive definite.</span> </p>
+<p><span m="2218000">You might remember, from, tucked in somewhere near</span> <span m="2222720">the end of eighteen o' two or at least in the book,</span> <span m="2227000">was the condition for a minimum, For a function of two</span> <span m="2232000">variables.</span> </p>
+<p><span m="2233900">Let's -- when do you have a minimum?</span> </p>
+<p><span m="2236000">For a function of two variables, believe me,</span> <span m="2240000">that's what Calculus is for.</span> </p>
+<p><span m="2242000">The condition is first derivatives have to be zero.</span> </p>
+<p><span m="2246000">And the matrix of second derivatives has to be positive</span> <span m="2250000">definite.</span> </p>
+<p><span m="2251000">So you maybe remember there was an fxx times an fyy</span> <span m="2256000">that had to be bigger than an an fxy squared,</span> <span m="2260000">that's just our determinant, two by two.</span> </p>
+<p><span m="2264000">But now, we now know the answer for three by three,</span> <span m="2269000">m by m, because we can do elimination by m by m matrices,</span> <span m="2275000">we can connect eigenvalues of m by m matrices,</span> <span m="2280000">we can do sum of squares, sum of m squares instead of</span> <span m="2288000">only two squares; and so let's take a,</span> <span m="2295000">let me go over here to do a three by three example.</span> </p>
+<p><span m="2304000">So, three by three example.</span> </p>
+<p><span m="2309000">OK. Oh, let me -- shall I use my favorite matrix?</span> </p>
+<p><span m="2317000">You've seen this matrix before.</span> </p>
+<p><span m="2325000">Yes, let's use the good matrix, four by one,</span> <span m="2330000">oops, open.</span> </p>
+<p><span m="2331000">Is that matrix positive definite?</span> </p>
+<p><span m="2334000">What's -- so I'm going to ask questions about this matrix,</span> <span m="2341000">is it positive definite, first of all?</span> </p>
+<p><span m="2345000">What's the function associated with that matrix,</span> <span m="2350000">what's the x transpose Ax?</span> </p>
+<p><span m="2354000">Is -- do we have a minimum for that function,</span> </p>
+<p><span m="2358000">at zero? And then even what's the geometry?</span> </p>
+<p><span m="2361000">OK. First of all, is the matrix positive</span> <span m="2364000">definite, now I've given you the numbers there so you can take</span> <span m="2369000">the determinants, maybe that's the quickest,</span> <span m="2372000">is that what you would do mentally,</span> <span m="2376000">if I give you all a matrix on a quiz and say is it positive</span> <span m="2380000">definite or not?</span> </p>
+<p><span m="2382020">I would take that determinant and I'd give the answer two.</span> </p>
+<p><span m="2386000">I would take that determinant and I would give the answer for</span> <span m="2390000">that two by two determinant, I'd give the answer three,</span> <span m="2395000">and anybody remember the answer for</span> <span m="2398000">the three by three determinant?</span> </p>
+<p><span m="2401000">It was four, you remember for these special</span> <span m="2406000">matrices, when we do determinants,</span> <span m="2410040">they went up two, three, four,</span> <span m="2413000">five, six, they just went up linearly.</span> </p>
+<p><span m="2417000">So that matrix has -- the determinants are two,</span> <span m="2422000">three, and four.</span> </p>
+<p><span m="2424000">Pivots.</span> </p>
+<p><span m="2426000">What are the pivots for that matrix?</span> </p>
+<p><span m="2428000">I'll tell you, they're -- the first pivot is</span> <span m="2432000">two, the next pivot is three over two, the next pivot is four</span> <span m="2437000">over three.</span> </p>
+<p><span m="2438000">Because, the product of the pivots has to give me those</span> <span m="2442000">determinants.</span> </p>
+<p><span m="2443000">The product of these two pivots gives me that determinant;</span> <span m="2447000">the product of all the pivots gives</span> <span m="2453000">me that determinant.</span> </p>
+<p><span m="2455000">What are the eigenvalues?</span> </p>
+<p><span m="2459000">Oh, I don't know.</span> </p>
+<p><span m="2461000">The eigenvalues I've got, what do I have a cubic equation</span> <span m="2469000">-- a degree three equation?</span> </p>
+<p><span m="2472000">There are three eigenvalues to find.</span> </p>
+<p><span m="2477000">If I believe what I've said today, what do I know about</span> <span m="2484000">these eigenvalues,</span> <span m="2487910">even though I don't know the exact numbers.</span> </p>
+<p><span m="2491000">I -- I remember the numbers.</span> </p>
+<p><span m="2494000">Because these matrices are so important that people figure</span> <span m="2499000">them.</span> </p>
+<p><span m="2500000">But -- what do you believe to be true about these three</span> <span m="2505000">eigenvalues -- you believe that they are all positive.</span> </p>
+<p><span m="2511000">They're all positive.</span> </p>
+<p><span m="2512000">I think that they are two minus square root of two,</span> <span m="2516000">two, and two plus the square root of two.</span> </p>
+<p><span m="2519000">I think.</span> </p>
+<p><span m="2520000">Let me just -- I can't write those numbers down without</span> <span m="2524000">checking the simple checks, what the first simple check is</span> <span m="2529000">the trace, so if I add those numbers I</span> <span m="2533000">get six and if I add those numbers I get six.</span> </p>
+<p><span m="2536000">The other simple test is the determinant, if I -- can you do</span> <span m="2541000">this, can you multiply those numbers together?</span> </p>
+<p><span m="2544000">I guess we can multiply by two out there.</span> </p>
+<p><span m="2547000">What's two minus square root of two times two plus square root</span> <span m="2552000">of two, that'll be four minus two,</span> <span m="2555000">that'll be two, yeah, two times two,</span> <span m="2559070">that's got the determinant, right, so it's got,</span> <span m="2563000">it's got a chance of being correct and I think it is.</span> </p>
+<p><span m="2567000">Now, what's the x transpose Ax?</span> </p>
+<p><span m="2570000">I better give myself enough room</span> <span m="2574070">for that. x transpose Ax for this guy.</span> </p>
+<p><span m="2577000">It's two x1 squareds, and two x2 squareds,</span> <span m="2581000">and two x3 squareds.</span> </p>
+<p><span m="2583000">Those come from the diagonal, those were easy.</span> </p>
+<p><span m="2588000">Now off the diagonal there's a minus and a minus,</span> <span m="2592000">they come together there'll be a minus two</span> <span m="2597000">minus two whats?</span> </p>
+<p><span m="2599000">Are coming from this one two and two one position,</span> <span m="2603000">is the x1 x2.</span> </p>
+<p><span m="2604000">I'm doing mentally a multiplication of this matrix</span> <span m="2609000">times a row vector on the left times a column vector on the</span> <span m="2614000">right, and I know that these numbers show up in the answer.</span> </p>
+<p><span m="2620900">The diagonal is the perfect square, this off diagonal is a</span> <span m="2626000">minus two x1 x2, and there are no x1 x3-s,</span> <span m="2630000">and there're minus two x2 x3-s.</span> </p>
+<p><span m="2634000">And I believe that that expression is always positive.</span> </p>
+<p><span m="2639480">I believe that that curve, that graph, really,</span> <span m="2644000">of that function, this is my function f,</span> <span m="2649000">and I'm in more dimensions now than I can draw,</span> <span m="2654000">it -- but the graph of that function goes upwards.</span> </p>
+<p><span m="2660000">It's a bowl.</span> </p>
+<p><span m="2662000">Or maybe the right word is -- just forgot, what's a long word</span> <span m="2669000">for bowl?</span> </p>
+<p><span m="2670870">Hm, maybe paraboloid, I think, paraboloid comes in.</span> </p>
+<p><span m="2678000">I'll edit the tape and get that word in.</span> </p>
+<p><span m="2682000">Bowl, let's say, is, that, so that,</span> <span m="2685000">and if I can -- I could complete the squares,</span> <span m="2689000">I could write that as the sum of three squares,</span> <span m="2694000">and those three squares would get multiplied by the three</span> <span m="2699000">pivots.</span> </p>
+<p><span m="2700000">And the pivots are all positive.</span> </p>
+<p><span m="2704000">So I would have positive pivots times squares,</span> <span m="2707000">the net result would be a positive function and a bowl</span> <span m="2712000">which goes upwards.</span> </p>
+<p><span m="2713000">And then, finally, if I cut -- if I slice through</span> <span m="2717290">this bowl, if I -- now I'm asking you to stretch your</span> <span m="2721000">visualization here, because I'm in four dimensions,</span> <span m="2725000">I've got x1 x2 x3 in the base,</span> <span m="2729000">and this function is z, or f, or something.</span> </p>
+<p><span m="2733260">And its graph is going up.</span> </p>
+<p><span m="2735000">But I'm in four dimensions, because I've got three in the</span> <span m="2741000">base and then the upward direction, but now if I cut</span> <span m="2746000">through this four-dimensional picture, at level one,</span> <span m="2751000">so, suppose I cut through this thing at height</span> <span m="2757000">one.</span> </p>
+<p><span m="2758000">So I take all the points that are at height one.</span> </p>
+<p><span m="2763000">That gives me -- it gave me an ellipse over there,</span> <span m="2768000">in that two by two case, in this case,</span> <span m="2773000">this will be the equation of an ellipsoid, a football in other</span> <span m="2779000">words.</span> </p>
+<p><span m="2780000">Well, not quite a football.</span> </p>
+<p><span m="2784000">A lopsided football.</span> </p>
+<p><span m="2786000">What would be, can I try to describe to you</span> <span m="2790000">what the ellipsoid will look like, this ellipsoid,</span> <span m="2795180">I'm sorry that the, that I've ended the matrix</span> <span m="2799000">right -- at the point, let's -- let me be sure you've</span> <span m="2804000">seen the equation.</span> </p>
+<p><span m="2805000">Two x1 squared, two x2 squared,</span> <span m="2808620">two x3 squared, minus two of the cross</span> <span m="2814000">parts, equal what?</span> </p>
+<p><span m="2817000">That is the equation of a football, so what do I mean by a</span> <span m="2824990">football or an ellipsoid?</span> </p>
+<p><span m="2828000">I mean that, well, I'll draw a few.</span> </p>
+<p><span m="2833000">It's like that, it's got a center,</span> <span m="2837000">and it's got it's got three principal directions.</span> </p>
+<p><span m="2844000">This ellipsoid.</span> </p>
+<p><span m="2846000">So -- you see what I'm saying, if we have a sphere then all</span> <span m="2852000">directions would be the same.</span> </p>
+<p><span m="2855000">If we had a true football, or it's closer to a rugby ball,</span> <span m="2861000">really, because it's more curved than a football,</span> <span m="2866000">it would have one long direction and the other two</span> <span m="2872000">would be equal.</span> </p>
+<p><span m="2873000">That would be like having a matrix that had one eigenvalue</span> <span m="2878000">repeated.</span> </p>
+<p><span m="2879000">And then one other different.</span> </p>
+<p><span m="2881000">So this sphere comes from, like, the identity matrix,</span> <span m="2886000">all eigenvalues the same.</span> </p>
+<p><span m="2888000">Our rugby ball comes from a case where --</span> <span m="2892990">three, the three, two of the three eigenvalues</span> <span m="2897050">are the same.</span> </p>
+<p><span m="2898000">But we know how the case where -- the typical case,</span> <span m="2902000">where the three eigenvalues were all different.</span> </p>
+<p><span m="2906000">So this will have -- How do I say it, if I look at this</span> <span m="2911000">ellipsoid correctly, it'll have a major axis,</span> <span m="2916000">it'll have a middle axis, and it'll have a minor axis.</span> </p>
+<p><span m="2921000">And those three axes will be in the direction of the</span> <span m="2925000">eigenvectors.</span> </p>
+<p><span m="2927110">And the lengths of those axes will be determined by the</span> <span m="2931000">eigenvalues.</span> </p>
+<p><span m="2932000">I can get -- turn this all into linear algebra,</span> <span m="2937000">because we have -- the right thing we know about</span> <span m="2942300">eigenvectors and eigenvalues, for that matrix is what?</span> </p>
+<p><span m="2947000">Of -- let me just tell you that, repeat the main linear</span> <span m="2952000">algebra point.</span> </p>
+<p><span m="2953000">How could we turn what I said into algebra;</span> <span m="2957500">we would write this A as Q, the eigenvector matrix,</span> <span m="2962000">times lambda, the eigenvalue matrix</span> <span m="2966360">times Q transposed.</span> </p>
+<p><span m="2967000">The principal axis theorem, we'll call it,</span> </p>
+<p><span m="2971000">now. The eigenvectors tell us the directions of the principal</span> </p>
+<p><span m="2976000">axes. The eigenvalues tell us the lengths of those axes,</span> <span m="2980880">actually the lengths, or the half-lengths,</span> <span m="2984000">or one over the eigenvalues, it turns out.</span> </p>
+<p><span m="2988000">And that is the matrix factorization which is the most</span> <span m="2993620">important matrix factorization in our eigenvalue material so</span> <span m="2998000">far.</span> </p>
+<p><span m="2999000">That's diagonalization for a symmetric matrix,</span> <span m="3003000">so instead of the inverse I can write the transposed.</span> </p>
+<p><span m="3008000">OK.</span> </p>
+<p><span m="3009000">I've -- so what I've tried today is to tell you the --</span> <span m="3013000">what's going on with positive definite matrices.</span> </p>
+<p><span m="3018000">Ah, you see all how all these pieces are there and linear</span> <span m="3023000">algebra connects them.</span> </p>
+<p><span m="3025000">OK. See you on Friday.</span> </p>
+</div>
+        <div id="vid_transcript" itemprop="description" class="tabContent hide">
+<h2 class="subhead">Free Downloads</h2>
+<h3 class="subsubhead">Video</h3>
+<ul>
+<li>iTunes U (<a href="https://itunes.apple.com/us/itunes-u/id354869137">MP4 - 109MB</a>)</li>
+<li>Internet Archive (<a href="http://www.archive.org/download/MIT18.06S05_MP4/27.mp4">MP4 - 202MB</a>)</li>
+</ul>
+<br><h3 class="subsubhead">Free Streaming</h3>
+<ul><li><a href="http://videolectures.net/mit1806s05_linear_algebra/">VideoLectures.net</a></li></ul>
+<br><h3 class="subsubhead">Subtitle</h3>
+<ul><li>English - US (<a href="../../../contents/video-lectures/lecture-27-positive-definite-matrices-and-minima/vF7eyJ2g3kU.srt">SRT</a>)</li></ul>
+</div>
+    
+   </div>  
+
+
+
+      					 
+        <div class="" id="parent-fieldname-bottom_html_area">
+            
+            
+        </div>
+    
+               </main><!--Course_inner_media tag close -->
+</div>
+<!--Course_wrapper tag close -->
+            </div>
+<!--left tag close -->
+            <aside id="right"><!--Begin Right Portion --><div>
+    
+<div id="portletwrapper-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465" class="portletWrapper kssattr-portlethash-6f63772e7269676874746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a646f6e617465">
+<div class="portletStaticText portlet-static-donate"><p class="zero"><a href="http://ocw.mit.edu/donate"><img src="../../../common/images/button_donate-now.png" alt="Donate Now." class="donate"></a></p></div>
+
+</div>
+
+
+
+
+</div>
+
+                	<div>
+    
+
+
+
+</div>
+
+
+        <div class="" id="parent-fieldname-rsi_top_html_area">
+            
+            
+        </div>
+    
+
+<!-- RSI google ad space-->
+
+
+<div id="google_ads">    
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script><script type="text/javascript">GS_googleAddAdSenseService("ca-pub-6588555046597237");GS_googleEnableAllServices();</script><script type="text/javascript">GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_A_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_B_DL");GA_googleAddSlot("ca-pub-6588555046597237", "VIDEO_INDIVIDUAL_SLOT_C_DL");</script><script type="text/javascript">GA_googleFetchAds();</script><script language="javascript" type="text/javascript">
+GA_googleAddAttr("TYPE","HOUSE");
+GA_googleAddAttr("DEPARTMENT","18");
+GA_googleAddAttr("CRS_BEG2","06");
+GA_googleAddAttr("CRS_END","");
+GA_googleAddAttr("SESSION","S");
+GA_googleAddAttr("YEAR","10");
+</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_A_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_B_DL");</script><script type="text/javascript">GA_googleFillSlot("VIDEO_INDIVIDUAL_SLOT_C_DL");</script>
+</div>
+
+<!-- End RSI ads--> 
+
+<div>
+    
+
+
+
+</div>
+
+            </aside><!--Right div close --><div class="clear"></div>
+        </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

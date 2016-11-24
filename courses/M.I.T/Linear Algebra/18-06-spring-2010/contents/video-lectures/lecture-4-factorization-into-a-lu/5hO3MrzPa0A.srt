@@ -1,0 +1,3475 @@
+1
+00:00:10,000 --> 00:00:13,000
+Are we ready?
+
+2
+00:00:13,000 --> 00:00:19,000
+Okay, ready for me to start.
+
+3
+00:00:19,000 --> 00:00:28,000
+Ready for the taping to start
+in a minute.
+
+4
+00:00:28,000 --> 00:00:39,000
+He's going to raise his hand
+and signal when I'm on.
+
+5
+00:00:39,000 --> 00:00:50,000
+Just a minute,
+though, let them settle.0
+
+6
+00:00:50,000 --> 00:00:51,000
+Okay, guys.
+
+7
+00:00:51,000 --> 00:00:57,000
+Okay, give me the signal,
+then, when you want me to
+
+8
+00:00:57,000 --> 00:00:57,000
+start.
+Okay, this is linear algebra,
+lecture four.
+
+9
+00:01:02,000 --> 00:01:09,000
+And, the first thing I have to
+do is something that was on the
+
+10
+00:01:09,000 --> 00:01:14,000
+list for last time,
+but here it is now.
+
+11
+00:01:14,000 --> 00:01:19,000
+What's the inverse of a
+product?
+
+12
+00:01:19,000 --> 00:01:24,000
+If I multiply two matrices
+together and I know their
+
+13
+00:01:24,000 --> 00:01:29,000
+inverses, how do I get the
+inverse of A times B?
+
+14
+00:01:29,000 --> 00:01:35,000
+So I know what inverses mean
+for a single matrix A and for a
+
+15
+00:01:35,000 --> 00:01:36,000
+matrix B.
+
+16
+00:01:36,000 --> 00:01:42,000
+What matrix do I multiply by to
+get the identity if I have A B?
+
+17
+00:01:42,000 --> 00:01:47,190
+Okay, that'll be simple but so
+basic.
+
+18
+00:01:47,190 --> 00:01:51,870
+Then I'm going to use that to
+-- I will have a product of
+
+19
+00:01:51,870 --> 00:01:56,000
+matrices and the product that
+we'll meet will be these
+
+20
+00:01:56,000 --> 00:02:01,000
+elimination matrices and the net
+result of today's lectures is
+
+21
+00:02:01,000 --> 00:02:06,000
+the big formula for elimination,
+so the net result of today's
+
+22
+00:02:06,000 --> 00:02:12,000
+lecture is this great way to
+look at Gaussian elimination.
+
+23
+00:02:12,000 --> 00:02:16,000
+We know that we get from A to U
+by elimination.
+
+24
+00:02:16,000 --> 00:02:23,000
+We know the steps -- but now we
+get the right way to look at it,
+
+25
+00:02:23,000 --> 00:02:24,000
+A equals L U.
+
+26
+00:02:24,000 --> 00:02:27,000
+So that's the high point for
+today.
+
+27
+00:02:27,000 --> 00:02:28,000
+Okay.
+
+28
+00:02:28,000 --> 00:02:34,000
+Can I take the easy part,
+the first step first?
+
+29
+00:02:34,000 --> 00:02:39,000
+So, suppose A is invertible --
+and of course it's going to be a
+
+30
+00:02:39,000 --> 00:02:43,000
+big question,
+when is the matrix invertible?
+
+31
+00:02:43,000 --> 00:02:48,000
+But let's say A is invertible
+and B is invertible,
+
+32
+00:02:48,000 --> 00:02:52,000
+then what matrix gives me the
+inverse of A B?
+
+33
+00:02:52,000 --> 00:02:56,000
+So that's the direct question.
+
+34
+00:02:56,000 --> 00:02:58,000
+What's the inverse of A B?
+
+35
+00:02:58,000 --> 00:03:01,000
+Do I multiply those separate
+inverses?
+
+36
+00:03:01,000 --> 00:03:01,000
+Yes.
+I multiply the two matrices A
+inverse and B inverse,
+
+37
+00:03:06,000 --> 00:03:08,000
+but what order do I multiply?
+
+38
+00:03:08,000 --> 00:03:10,000
+In reverse order.
+
+39
+00:03:10,000 --> 00:03:11,000
+And you see why.
+
+40
+00:03:11,000 --> 00:03:16,000
+So the right thing to put here
+is B inverse A inverse.
+
+41
+00:03:16,000 --> 00:03:19,000
+That's the inverse I'm after.
+
+42
+00:03:19,000 --> 00:03:24,000
+We can just check that A B
+times that matrix gives the
+
+43
+00:03:24,000 --> 00:03:25,000
+identity.
+
+44
+00:03:25,000 --> 00:03:26,000
+Okay.
+
+45
+00:03:26,000 --> 00:03:30,000
+So why -- once again,
+it's this fact that I can move
+
+46
+00:03:30,000 --> 00:03:32,000
+parentheses around.
+
+47
+00:03:32,000 --> 00:03:38,000
+I can just erase them all and
+do the multiplications any way I
+
+48
+00:03:38,000 --> 00:03:40,000
+want to.
+
+49
+00:03:40,000 --> 00:03:44,490
+So what's the right
+multiplication to do first?
+
+50
+00:03:44,490 --> 00:03:46,100
+B times B inverse.
+
+51
+00:03:46,100 --> 00:03:49,000
+This product here I is the
+identity.
+
+52
+00:03:49,000 --> 00:03:54,510
+Then A times the identity is
+the identity and then finally A
+
+53
+00:03:54,510 --> 00:03:57,000
+times A inverse gives the
+identity.
+
+54
+00:03:57,000 --> 00:04:02,000
+So forgive the dumb example in
+the book.
+
+55
+00:04:02,000 --> 00:04:08,010
+Why do you, do the inverse
+things in reverse order?
+
+56
+00:04:08,010 --> 00:04:15,000
+It's just like -- you take off
+your shoes, you take off your
+
+57
+00:04:15,000 --> 00:04:21,000
+socks, then the good way to
+invert that process is socks
+
+58
+00:04:21,000 --> 00:04:24,000
+back on first,
+then shoes.
+
+59
+00:04:24,000 --> 00:04:27,000
+Sorry, okay.
+
+60
+00:04:27,000 --> 00:04:28,000
+I'm sorry that's on the tape.
+
+61
+00:04:28,000 --> 00:04:31,000
+And, of course,
+on the other side we should
+
+62
+00:04:31,000 --> 00:04:35,000
+really just check -- on the
+other side I have B inverse,
+
+63
+00:04:35,000 --> 00:04:35,000
+A inverse.
+That does multiply A B,
+and this time it's these guys
+
+64
+00:04:38,000 --> 00:04:41,000
+that give the identity,
+squeeze down,
+
+65
+00:04:41,000 --> 00:04:44,000
+they give the identity,
+we're in shape.
+
+66
+00:04:44,000 --> 00:04:44,000
+Okay.
+So there's the inverse.
+
+67
+00:04:47,000 --> 00:04:47,000
+Good.
+While we're at it,
+let me do a transpose,
+
+68
+00:04:52,000 --> 00:04:57,000
+because the next lecture has
+got a lot to -- involves
+
+69
+00:04:57,000 --> 00:04:59,000
+transposes.
+
+70
+00:04:59,000 --> 00:05:04,000
+So how do I -- if I transpose a
+matrix,
+
+71
+00:05:04,000 --> 00:05:10,000
+I'm talking about square,
+invertible matrices right now.
+
+72
+00:05:10,000 --> 00:05:14,000
+If I transpose one,
+what's its inverse?
+
+73
+00:05:14,000 --> 00:05:18,000
+Well, the nice formula is --
+let's see.
+
+74
+00:05:18,000 --> 00:05:24,000
+Let me start from A,
+A inverse equal the identity.
+So -- give me a first row.
+
+75
+00:05:24,000 --> 00:05:28,000
+And let me transpose both
+sides.
+
+76
+00:05:28,000 --> 00:05:32,000
+That will bring a transpose
+into the picture.
+
+77
+00:05:32,000 --> 00:05:38,000
+So if I transpose the identity
+matrix, what do I have?
+
+78
+00:05:38,000 --> 00:05:39,000
+The identity,
+right?
+
+79
+00:05:39,000 --> 00:05:45,470
+If I exchange rows and columns,
+the identity is a symmetric
+
+80
+00:05:45,470 --> 00:05:46,000
+matrix.
+
+81
+00:05:46,000 --> 00:05:50,000
+It doesn't know the difference.
+
+82
+00:05:50,000 --> 00:05:53,000
+If I transpose these guys,
+that product,
+
+83
+00:05:53,000 --> 00:05:58,000
+then again it turns out that I
+have to reverse the order.
+
+84
+00:05:58,000 --> 00:06:03,000
+I can transpose them
+separately, but when I multiply,
+
+85
+00:06:03,000 --> 00:06:07,000
+those transposes come in the
+opposite order.
+
+86
+00:06:07,000 --> 00:06:11,000
+So it's A inverse transpose
+times A transpose giving the
+
+87
+00:06:11,000 --> 00:06:13,680
+identity.
+
+88
+00:06:13,680 --> 00:06:18,000
+So that's -- this equation is
+-- just comes directly from that
+
+89
+00:06:18,000 --> 00:06:18,000
+one.
+But this equation tells me what
+I wanted to know,
+
+90
+00:06:22,000 --> 00:06:25,000
+namely what is the inverse of
+this guy A transpose?
+
+91
+00:06:25,000 --> 00:06:29,730
+What's the inverse of that --
+if I transpose a matrix,
+
+92
+00:06:29,730 --> 00:06:33,000
+what'ss the inverse of the
+result?
+
+93
+00:06:33,000 --> 00:06:38,000
+And this equation tells me that
+here it is.
+
+94
+00:06:38,000 --> 00:06:42,000
+This is the inverse of A
+transpose.
+
+95
+00:06:42,000 --> 00:06:45,000
+Inverse of A transpose.
+
+96
+00:06:45,000 --> 00:06:47,000
+Of A transpose.
+
+97
+00:06:47,000 --> 00:06:55,000
+So I'll put a big circle around
+that, because that's the answer,
+
+98
+00:06:55,000 --> 00:07:01,000
+that's the best answer we could
+hope for.
+
+99
+00:07:01,000 --> 00:07:07,000
+That if you want to know the
+inverse of A transpose and you
+
+100
+00:07:07,000 --> 00:07:13,000
+know the inverse of A,
+then you just transpose that.
+
+101
+00:07:13,000 --> 00:07:19,000
+So in a -- to put it another
+way, transposing and inversing
+
+102
+00:07:19,000 --> 00:07:25,000
+you can do in either order for a
+single matrix.
+
+103
+00:07:25,000 --> 00:07:25,000
+Okay.
+So these are like basic facts
+that we can now use,
+
+104
+00:07:30,000 --> 00:07:33,540
+all right -- so now I put it to
+use.
+
+105
+00:07:33,540 --> 00:07:38,470
+I put it to use by thinking --
+we're really completing,
+
+106
+00:07:38,470 --> 00:07:40,000
+the subject of elimination.
+
+107
+00:07:40,000 --> 00:07:46,140
+Actually, -- the thing about
+elimination is it's the right
+
+108
+00:07:46,140 --> 00:07:50,000
+way to understand what the
+matrix has got.
+
+109
+00:07:50,000 --> 00:08:00,000
+This A equal L U is the most
+basic factorization of a matrix.
+
+110
+00:08:00,000 --> 00:08:09,000
+I always worry that you will
+think this course is all
+
+111
+00:08:09,000 --> 00:08:11,000
+elimination.
+
+112
+00:08:11,000 --> 00:08:15,000
+It's just row operations.
+
+113
+00:08:15,000 --> 00:08:19,000
+And please don't.
+
+114
+00:08:19,000 --> 00:08:23,000
+We'll be beyond that,
+but it's the right algebra to
+
+115
+00:08:23,000 --> 00:08:24,000
+do first.
+
+116
+00:08:24,000 --> 00:08:24,000
+Okay.
+So, now I'm coming near the end
+of it, but I want to get it in a
+
+117
+00:08:30,000 --> 00:08:31,000
+decent form.
+
+118
+00:08:31,000 --> 00:08:34,600
+So my decent form is matrix
+form.
+
+119
+00:08:34,600 --> 00:08:38,000
+I have a matrix A,
+let's suppose it's a good
+
+120
+00:08:38,000 --> 00:08:44,000
+matrix, I can do elimination,
+no row exchanges --
+
+121
+00:08:44,000 --> 00:08:47,000
+So no row exchanges for now.
+
+122
+00:08:47,000 --> 00:08:52,000
+Pivots all fine,
+nothing zero in the pivot
+
+123
+00:08:52,000 --> 00:08:53,250
+position.
+
+124
+00:08:53,250 --> 00:08:57,000
+I get to the very end,
+which is U.
+
+125
+00:08:57,000 --> 00:08:59,000
+So I get from A to U.
+
+126
+00:08:59,000 --> 00:09:05,350
+And I want to know what's the
+connection?
+
+127
+00:09:05,350 --> 00:09:07,000
+How is A related to U?
+
+128
+00:09:07,000 --> 00:09:13,640
+And this is going to tell me
+that there's a matrix L that
+
+129
+00:09:13,640 --> 00:09:15,000
+connects them.
+
+130
+00:09:15,000 --> 00:09:15,660
+Okay.
+
+131
+00:09:15,660 --> 00:09:19,000
+Can I do it for a two by two
+first?
+
+132
+00:09:19,000 --> 00:09:19,000
+Okay.
+Two by two, elimination.
+
+133
+00:09:22,000 --> 00:09:25,000
+Okay, so I'll do it under here.
+
+134
+00:09:25,000 --> 00:09:26,000
+Okay.
+
+135
+00:09:26,000 --> 00:09:31,000
+So let my matrix A be --
+We'll keep it simple,
+
+136
+00:09:31,000 --> 00:09:35,000
+say two and an eight,
+so we know that the first pivot
+
+137
+00:09:35,000 --> 00:09:39,000
+is a two, and the multiplier's
+going to be a four and then let
+
+138
+00:09:39,000 --> 00:09:43,000
+me put a one here and what
+number do I not want to put
+
+139
+00:09:43,000 --> 00:09:44,000
+there?
+
+140
+00:09:44,000 --> 00:09:44,000
+Four.
+I don't want a four there,
+because in that case,
+
+141
+00:09:48,140 --> 00:09:54,000
+the second pivot would not --
+we wouldn't have a second
+
+142
+00:09:54,000 --> 00:09:54,890
+pivot.
+
+143
+00:09:54,890 --> 00:10:00,000
+The matrix would be singular,
+general screw-up.
+
+144
+00:10:00,000 --> 00:10:01,000
+Okay.
+
+145
+00:10:01,000 --> 00:10:06,000
+So let me put some other number
+here like seven.
+
+146
+00:10:06,000 --> 00:10:07,000
+Okay.
+
+147
+00:10:07,000 --> 00:10:07,000
+Okay.
+Now I want to operate on that
+with my elementary matrix.
+
+148
+00:10:15,000 --> 00:10:18,000
+So what's the elementary
+matrix?
+
+149
+00:10:18,000 --> 00:10:22,000
+Strictly speaking,
+it's E21, because it's the guy
+
+150
+00:10:22,000 --> 00:10:25,000
+that's going to produce a zero
+in that position.
+
+151
+00:10:25,000 --> 00:10:30,000
+And it's going to produce U in
+one shot, because it's just a
+
+152
+00:10:30,000 --> 00:10:32,000
+two by two matrix.
+
+153
+00:10:32,000 --> 00:10:37,460
+So two one and I'm going to
+take four of those away from
+
+154
+00:10:37,460 --> 00:10:41,390
+those, produce that zero and
+leave a three there.
+
+155
+00:10:41,390 --> 00:10:42,000
+And that's U.
+
+156
+00:10:42,000 --> 00:10:45,000
+And what's the matrix that did
+it?
+
+157
+00:10:45,000 --> 00:10:46,000
+Quick review,
+then.
+
+158
+00:10:46,000 --> 00:10:50,000
+What's the elimination
+elementary matrix E21 -- it's
+
+159
+00:10:50,000 --> 00:10:52,000
+one zero, thanks.
+
+160
+00:10:52,000 --> 00:10:55,000
+And --
+negative four one,
+
+161
+00:10:55,000 --> 00:10:55,000
+right.
+Good.
+
+162
+00:10:56,000 --> 00:10:56,000
+Okay.
+So that -- you see the
+difference between this and what
+
+163
+00:11:01,710 --> 00:11:03,000
+I'm shooting for.
+
+164
+00:11:03,000 --> 00:11:08,000
+I'm shooting for A on one side
+and the other matrices on the
+
+165
+00:11:08,000 --> 00:11:11,000
+other side of the equation.
+
+166
+00:11:11,000 --> 00:11:12,000
+Okay.
+
+167
+00:11:12,000 --> 00:11:15,000
+So I can do that right away.
+
+168
+00:11:15,000 --> 00:11:19,000
+Now here's going to be my A
+equals L U.
+
+169
+00:11:19,000 --> 00:11:26,000
+And you won't have any trouble
+telling me what -- so A is still
+
+170
+00:11:26,000 --> 00:11:28,000
+two one eight seven.
+
+171
+00:11:28,000 --> 00:11:34,000
+L is what you're going to tell
+me and U is still two one zero
+
+172
+00:11:34,000 --> 00:11:35,000
+three.
+
+173
+00:11:35,000 --> 00:11:35,000
+Okay.
+So what's L in this case?
+
+174
+00:11:39,700 --> 00:11:43,000
+Well, first -- so how is L
+related to this E guy?
+
+175
+00:11:43,000 --> 00:11:47,000
+It's the inverse,
+because I want to multiply
+
+176
+00:11:47,000 --> 00:11:52,000
+through by the inverse of this,
+which will put the identity
+
+177
+00:11:52,000 --> 00:11:58,000
+here, and the inverse will show
+up there and I'll call it L.
+
+178
+00:11:58,000 --> 00:12:01,000
+So what is the inverse of this?
+
+179
+00:12:01,000 --> 00:12:10,000
+Remember those elimination
+matrices are easy to invert.
+
+180
+00:12:10,000 --> 00:12:20,000
+The inverse matrix for this one
+is 1 0 4 1, it's actually flip
+
+181
+00:12:20,000 --> 00:12:22,000
+sign.
+
+182
+00:12:22,000 --> 00:12:22,000
+Okay.
+Do you want -- if we did the
+numbers right,
+
+183
+00:12:25,930 --> 00:12:28,000
+we must -- this should be
+correct.
+
+184
+00:12:28,000 --> 00:12:28,000
+Okay.
+And of course it is.
+
+185
+00:12:30,000 --> 00:12:34,000
+That says the first row's
+right, four times the first row
+
+186
+00:12:34,000 --> 00:12:37,000
+plus the second row is eight
+seven.
+
+187
+00:12:37,000 --> 00:12:38,040
+Good.
+
+188
+00:12:38,040 --> 00:12:38,000
+Okay.
+
+189
+00:12:38,000 --> 00:12:41,000
+That's simple,
+two by two.
+
+190
+00:12:41,000 --> 00:12:45,000
+But it already shows the form
+that we're headed for.
+
+191
+00:12:45,000 --> 00:12:48,450
+It shows -- so what's the L
+stand for?
+
+192
+00:12:48,450 --> 00:12:49,000
+Why the letter L?
+
+193
+00:12:49,000 --> 00:12:53,000
+If U stood for upper
+triangular, then of course L
+
+194
+00:12:53,000 --> 00:12:55,000
+stands for lower triangular.
+
+195
+00:12:55,000 --> 00:12:58,000
+And actually,
+it has ones on the diagonal,
+
+196
+00:12:58,000 --> 00:13:03,000
+where this thing has the pivots
+on the diagonal.
+
+197
+00:13:03,000 --> 00:13:08,000
+Oh, sometimes we may want to
+separate out the pivots,
+
+198
+00:13:08,000 --> 00:13:14,000
+so can I just mention that
+sometimes we could also write
+
+199
+00:13:14,000 --> 00:13:20,000
+this as -- we could have this
+one zero four one -- I'll just
+
+200
+00:13:20,000 --> 00:13:27,000
+show you how I would divide out
+this matrix of pivots -- two
+
+201
+00:13:27,000 --> 00:13:28,000
+three.
+
+202
+00:13:28,000 --> 00:13:31,000
+There's a diagonal matrix.
+
+203
+00:13:31,000 --> 00:13:34,000
+And I just -- whatever is left
+is here.
+
+204
+00:13:34,000 --> 00:13:36,000
+Now what's left?
+
+205
+00:13:36,000 --> 00:13:40,000
+If I divide this first row by
+two to pull out the two,
+
+206
+00:13:40,000 --> 00:13:43,000
+then I have a one and a one
+half.
+
+207
+00:13:43,000 --> 00:13:49,000
+And if I divide the second row
+by three to pull out the three,
+
+208
+00:13:49,000 --> 00:13:52,000
+then I have a one.
+
+209
+00:13:52,000 --> 00:13:57,000
+So if this is L U,
+this is maybe called L D or
+
+210
+00:13:57,000 --> 00:13:58,050
+pivot U.
+
+211
+00:13:58,050 --> 00:14:04,000
+And now it's a little more
+balanced, because we have ones
+
+212
+00:14:04,000 --> 00:14:07,000
+on the diagonal here and here.
+
+213
+00:14:07,000 --> 00:14:12,090
+And the diagonal matrix in the
+middle.
+
+214
+00:14:12,090 --> 00:14:14,000
+So both of those...
+
+215
+00:14:14,000 --> 00:14:19,000
+Matlab would produce either
+one.
+
+216
+00:14:19,000 --> 00:14:21,000
+I'll basically stay with L U.
+
+217
+00:14:21,000 --> 00:14:22,000
+Okay.
+
+218
+00:14:22,000 --> 00:14:26,000
+Now I have to think about
+bigger than two by two.
+
+219
+00:14:26,000 --> 00:14:30,000
+But right now,
+this was just like easy
+
+220
+00:14:30,000 --> 00:14:31,000
+exercise.
+
+221
+00:14:31,000 --> 00:14:36,000
+And, to tell the truth,
+this one was a minus sign and
+
+222
+00:14:36,000 --> 00:14:38,000
+this one was a plus sign.
+
+223
+00:14:38,000 --> 00:14:42,000
+I mean, that's the only
+difference.
+
+224
+00:14:42,000 --> 00:14:49,000
+But, with three by three,
+there's a more significant
+
+225
+00:14:49,000 --> 00:14:50,000
+difference.
+
+226
+00:14:50,000 --> 00:14:54,000
+Let me show you how that works.
+
+227
+00:14:54,000 --> 00:15:02,000
+Let me move up to a three by
+three, let's say some matrix A,
+
+228
+00:15:02,000 --> 00:15:03,030
+okay?
+
+229
+00:15:03,030 --> 00:15:08,000
+Let's imagine it's three by
+three.
+
+230
+00:15:08,000 --> 00:15:11,000
+I won't write numbers down for
+now.
+
+231
+00:15:11,000 --> 00:15:15,000
+So what's the first elimination
+step that I do,
+
+232
+00:15:15,000 --> 00:15:21,000
+the first matrix I multiply it
+by, what letter will I use for
+
+233
+00:15:21,000 --> 00:15:21,000
+that?
+It'll be E two one,
+because it's --
+
+234
+00:15:25,000 --> 00:15:30,000
+the first step will be to get a
+zero in that two one position.
+
+235
+00:15:30,000 --> 00:15:34,990
+And then the next step will be
+to get a zero in the three one
+
+236
+00:15:34,990 --> 00:15:35,000
+position.
+
+237
+00:15:35,000 --> 00:15:40,170
+And the final step will be to
+get a zero in the three two
+
+238
+00:15:40,170 --> 00:15:40,000
+position.
+
+239
+00:15:40,000 --> 00:15:45,000
+That's what elimination is,
+and it produced U.
+
+240
+00:15:45,000 --> 00:15:48,040
+And again, no row exchanges.
+
+241
+00:15:48,040 --> 00:15:52,690
+I'm taking the nice case,
+now, the typical case,
+
+242
+00:15:52,690 --> 00:15:57,000
+too -- when I don't have to do
+any row exchange,
+
+243
+00:15:57,000 --> 00:16:00,000
+all I do is these elimination
+steps.
+
+244
+00:16:00,000 --> 00:16:01,000
+Okay.
+
+245
+00:16:01,000 --> 00:16:07,000
+Now, suppose I want that stuff
+over on the right-hand side,
+
+246
+00:16:07,000 --> 00:16:09,610
+as I really do.
+
+247
+00:16:09,610 --> 00:16:12,000
+That's, like,
+my point here.
+
+248
+00:16:12,000 --> 00:16:16,700
+I can multiply these together
+to get a matrix E,
+
+249
+00:16:16,700 --> 00:16:19,000
+but I want it over on the
+right.
+
+250
+00:16:19,000 --> 00:16:22,000
+I want its inverse over there.
+
+251
+00:16:22,000 --> 00:16:26,000
+So what's the right expression
+now?
+
+252
+00:16:26,000 --> 00:16:30,380
+If I write A and U,
+what goes there?
+
+253
+00:16:30,380 --> 00:16:30,000
+Okay.
+
+254
+00:16:30,000 --> 00:16:37,000
+So I've got the inverse of
+this, I've got three matrices in
+
+255
+00:16:37,000 --> 00:16:38,000
+a row now.
+
+256
+00:16:38,000 --> 00:16:43,000
+And it's their inverses that
+are going to show up,
+
+257
+00:16:43,000 --> 00:16:48,000
+because each one is easy to
+invert.
+
+258
+00:16:48,000 --> 00:16:50,000
+Question is,
+what about the whole bunch?
+
+259
+00:16:50,000 --> 00:16:53,000
+How easy is it to invert the
+whole bunch?
+
+260
+00:16:53,000 --> 00:16:56,000
+So, that's what we know how to
+do.
+
+261
+00:16:56,000 --> 00:17:00,000
+We know how to invert,
+we should take the separate
+
+262
+00:17:00,000 --> 00:17:03,000
+inverses, but they go in the
+opposite order.
+
+263
+00:17:03,000 --> 00:17:05,500
+So what goes here?
+
+264
+00:17:05,500 --> 00:17:09,000
+E three two inverse,
+right, because I'll multiply
+
+265
+00:17:09,000 --> 00:17:14,000
+from the left by E three two
+inverse, then I'll pop it up
+
+266
+00:17:14,000 --> 00:17:15,700
+next to U.
+
+267
+00:17:15,700 --> 00:17:19,099
+And then will come E three one
+inverse.
+
+268
+00:17:19,099 --> 00:17:24,109
+And then this'll be the only
+guy left standing and that's
+
+269
+00:17:24,109 --> 00:17:28,000
+gone when Ido an E two one
+inverse.
+
+270
+00:17:28,000 --> 00:17:29,000
+So there is L.
+
+271
+00:17:29,000 --> 00:17:31,000
+That's L U.
+
+272
+00:17:31,000 --> 00:17:34,000
+L is product of inverses.
+
+273
+00:17:34,000 --> 00:17:41,000
+Now you still can ask why is
+this guy preferring inverses?
+
+274
+00:17:41,000 --> 00:17:43,000
+And let me explain why.
+
+275
+00:17:43,000 --> 00:17:50,000
+Let me explain why is this
+product nicer than this one?
+
+276
+00:17:50,000 --> 00:17:57,380
+This product turns out to be
+better than this one.
+
+277
+00:17:57,380 --> 00:18:00,000
+Let me take a typical case
+here.
+
+278
+00:18:00,000 --> 00:18:03,000
+Let me take a typical case.
+
+279
+00:18:03,000 --> 00:18:10,000
+So let me -- I have to do three
+by three for you to see the
+
+280
+00:18:10,000 --> 00:18:11,890
+improvement.
+
+281
+00:18:11,890 --> 00:18:17,000
+Two by two, it was just one E,
+no problem.
+
+282
+00:18:17,000 --> 00:18:21,000
+But let me go up to this case.
+
+283
+00:18:21,000 --> 00:18:29,000
+Suppose my matrices E21 --
+suppose E21 has a minus two in
+
+284
+00:18:29,000 --> 00:18:30,000
+there.
+
+285
+00:18:30,000 --> 00:18:39,000
+Suppose that -- and now suppose
+-- oh, I'll even suppose E31 is
+
+286
+00:18:39,000 --> 00:18:41,000
+the identity.
+
+287
+00:18:41,000 --> 00:18:46,000
+I'm going to make the point
+with just a couple of these.
+
+288
+00:18:46,000 --> 00:18:47,000
+Okay.
+
+289
+00:18:47,000 --> 00:18:52,000
+Now this guy will have -- do
+something -- now let's suppose
+
+290
+00:18:52,000 --> 00:18:53,000
+minus five one.
+
+291
+00:18:53,000 --> 00:18:53,000
+Okay.
+There's typical.
+
+292
+00:18:55,000 --> 00:18:59,770
+That's a typical case in which
+we didn't need an E31.
+
+293
+00:18:59,770 --> 00:19:04,000
+Maybe we already had a zero in
+that three one position.
+
+294
+00:19:04,000 --> 00:19:06,000
+Okay.
+
+295
+00:19:06,000 --> 00:19:09,000
+Let me see -- is that going to
+be enough to,
+
+296
+00:19:09,000 --> 00:19:10,000
+show my point?
+
+297
+00:19:10,000 --> 00:19:13,180
+Let me do that multiplication.
+
+298
+00:19:13,180 --> 00:19:13,000
+Okay.
+
+299
+00:19:13,000 --> 00:19:18,000
+So if I do that multiplication
+it's like good practice to
+
+300
+00:19:18,000 --> 00:19:20,000
+multiply these matrices.
+
+301
+00:19:20,000 --> 00:19:24,000
+Tell me what's above the
+diagonal when I do this
+
+302
+00:19:24,000 --> 00:19:26,220
+multiplication?
+
+303
+00:19:26,220 --> 00:19:27,000
+All zeroes.
+
+304
+00:19:27,000 --> 00:19:33,000
+When I do this multiplication,
+I'm going to get ones on the
+
+305
+00:19:33,000 --> 00:19:35,000
+diagonal and zeroes above.
+
+306
+00:19:35,000 --> 00:19:38,000
+Because -- what does that say?
+
+307
+00:19:38,000 --> 00:19:44,000
+That says that I'm subtracting
+rows from lower rows.
+
+308
+00:19:44,000 --> 00:19:48,000
+So nothing is moving upwards as
+it did last time in
+
+309
+00:19:48,000 --> 00:19:49,000
+Gauss-Jordan.
+
+310
+00:19:49,000 --> 00:19:50,000
+Okay.
+
+311
+00:19:50,000 --> 00:19:54,000
+Now -- so really,
+what I have to do is check this
+
+312
+00:19:54,000 --> 00:19:57,000
+minus two one zero,
+now this is -- what's that
+
+313
+00:19:57,000 --> 00:19:58,490
+number?
+
+314
+00:19:58,490 --> 00:20:03,000
+This is the number that I'm
+really have in mind.
+
+315
+00:20:03,000 --> 00:20:05,000
+That number is ten.
+
+316
+00:20:05,000 --> 00:20:09,000
+And this one is -- what goes
+here?
+
+317
+00:20:09,000 --> 00:20:16,000
+Row three against column two,
+it looks like the minus five.
+
+318
+00:20:16,000 --> 00:20:17,000
+It's that ten.
+
+319
+00:20:17,000 --> 00:20:21,000
+How did that ten get in there?
+
+320
+00:20:21,000 --> 00:20:23,000
+I don't like that ten.
+
+321
+00:20:23,000 --> 00:20:28,000
+I mean -- of course,
+I don't want to erase it,
+
+322
+00:20:28,000 --> 00:20:32,000
+because it's right.
+
+323
+00:20:32,000 --> 00:20:34,000
+But I don't want it there.
+
+324
+00:20:34,000 --> 00:20:40,000
+It's because -- the ten got in
+there because I subtracted two
+
+325
+00:20:40,000 --> 00:20:46,000
+of row one from row two,
+and then I subtracted five of
+
+326
+00:20:46,000 --> 00:20:49,560
+that new row two from row three.
+
+327
+00:20:49,560 --> 00:20:54,000
+So doing it in that order,
+how did row one effect row
+
+328
+00:20:54,000 --> 00:20:56,000
+three?
+
+329
+00:20:56,000 --> 00:20:59,000
+Well, it did,
+because two of it got removed
+
+330
+00:20:59,000 --> 00:21:04,000
+from row two and then five of
+those got removed from row
+
+331
+00:21:04,000 --> 00:21:04,770
+three.
+
+332
+00:21:04,770 --> 00:21:09,000
+So altogether ten of row one
+got thrown into row three.
+
+333
+00:21:09,000 --> 00:21:14,000
+Now my point is in the reverse
+direction -- so now I can do it
+
+334
+00:21:14,000 --> 00:21:17,000
+-- below it I'll do the
+inverses.
+
+335
+00:21:17,000 --> 00:21:18,000
+Okay.
+
+336
+00:21:18,000 --> 00:21:21,000
+And, of course,
+opposite order.
+
+337
+00:21:21,000 --> 00:21:22,000
+Reverse order.
+
+338
+00:21:22,000 --> 00:21:24,000
+Reverse order.
+
+339
+00:21:24,000 --> 00:21:24,000
+Okay.
+So now this is going to -- this
+is the E that goes on the left
+
+340
+00:21:30,000 --> 00:21:31,000
+side.
+
+341
+00:21:31,000 --> 00:21:32,000
+Left of A.
+
+342
+00:21:32,000 --> 00:21:38,000
+Now I'm going to do the
+inverses in the opposite order,
+
+343
+00:21:38,000 --> 00:21:43,000
+so what's the --
+So the opposite order means I
+
+344
+00:21:43,000 --> 00:21:45,000
+put this inverse first.
+
+345
+00:21:45,000 --> 00:21:47,000
+And what is its inverse?
+
+346
+00:21:47,000 --> 00:21:50,000
+What's the inverse of E21?
+
+347
+00:21:50,000 --> 00:21:53,170
+Same thing with a plus sign,
+right?
+
+348
+00:21:53,170 --> 00:21:58,000
+For the individual matrices,
+instead of taking away two I
+
+349
+00:21:58,000 --> 00:22:03,000
+add back two of row one to row
+two, so no problem.
+
+350
+00:22:03,000 --> 00:22:09,000
+And now, in reverse order,
+I want to invert that.
+
+351
+00:22:09,000 --> 00:22:11,000
+Just right?
+
+352
+00:22:11,000 --> 00:22:14,000
+I'm doing just this,
+this.
+
+353
+00:22:14,000 --> 00:22:23,000
+So now the inverse is again the
+same thing, but add in the five.
+
+354
+00:22:23,000 --> 00:22:29,000
+And now I'll do that
+multiplication and I'll get a
+
+355
+00:22:29,000 --> 00:22:31,000
+happy result.
+
+356
+00:22:31,000 --> 00:22:32,000
+I hope.
+
+357
+00:22:32,000 --> 00:22:37,000
+Did I do it right so far?
+
+358
+00:22:37,000 --> 00:22:38,000
+Yes, okay.
+
+359
+00:22:38,000 --> 00:22:40,000
+Let me do the multiplication.
+
+360
+00:22:40,000 --> 00:22:42,000
+I believe this comes out.
+
+361
+00:22:42,000 --> 00:22:46,530
+So row one of the answer is one
+zero zero.
+
+362
+00:22:46,530 --> 00:22:50,000
+Oh, I know that all this is
+going to be left,
+
+363
+00:22:50,000 --> 00:22:50,000
+right?
+Then I have two one zero.
+
+364
+00:22:53,000 --> 00:22:57,000
+So I get two one zero there,
+right?
+
+365
+00:22:57,000 --> 00:23:02,000
+And what's the third row?
+
+366
+00:23:02,000 --> 00:23:10,000
+What's the third row in this
+product?
+
+367
+00:23:10,000 --> 00:23:19,000
+Just read it out to me,
+the third row?
+
+368
+00:23:19,000 --> 00:23:22,000
+And this is my matrix L.
+
+369
+00:23:22,000 --> 00:23:28,000
+And it's the one that goes on
+the left of U.
+
+370
+00:23:28,000 --> 00:23:32,000
+It goes into -- what do I mean
+here?
+
+371
+00:23:32,000 --> 00:23:39,000
+Maybe rather than saying left
+of A, left of U,
+
+372
+00:23:39,000 --> 00:23:43,000
+let me right down again what I
+mean.
+
+373
+00:23:43,000 --> 00:23:48,000
+E A is U, whereas A is L U.
+
+374
+00:23:48,000 --> 00:23:49,000
+Okay.
+
+375
+00:23:49,000 --> 00:23:53,000
+Let me make the point now in
+words.
+
+376
+00:23:53,000 --> 00:24:01,000
+The order that the matrices
+come for L is the right order.
+
+377
+00:24:01,000 --> 00:24:09,000
+The two and the five don't sort
+of interfere to produce this ten
+
+378
+00:24:09,000 --> 00:24:16,000
+in the right order,
+the multipliers just sit in the
+
+379
+00:24:16,000 --> 00:24:18,000
+matrix L.
+
+380
+00:24:18,000 --> 00:24:24,000
+That's the point -- that if I
+want to know L,
+
+381
+00:24:24,000 --> 00:24:27,000
+I have no work to do.
+
+382
+00:24:27,000 --> 00:24:34,000
+I just keep a record of what
+those multipliers were,
+
+383
+00:24:34,000 --> 00:24:37,000
+and that gives me L.
+
+384
+00:24:37,000 --> 00:24:42,000
+So I'll draw the -- let me say
+it.
+
+385
+00:24:42,000 --> 00:24:45,000
+So this is the A=L U.
+
+386
+00:24:45,000 --> 00:24:53,000
+So if no row exchanges,
+the multipliers that those
+
+387
+00:24:53,000 --> 00:25:01,000
+numbers that we multiplied rows
+by and subtracted,
+
+388
+00:25:01,000 --> 00:25:11,000
+when we did an elimination step
+-- the multipliers go directly
+
+389
+00:25:11,000 --> 00:25:13,000
+into L.
+
+390
+00:25:13,000 --> 00:25:14,650
+Okay.
+
+391
+00:25:14,650 --> 00:25:22,000
+So L is -- this is the way,
+to look at elimination.
+
+392
+00:25:22,000 --> 00:25:31,000
+You go through the elimination
+steps, and actually if you do it
+
+393
+00:25:31,000 --> 00:25:39,000
+right, you can throw away A as
+you create L U.
+
+394
+00:25:39,000 --> 00:25:46,000
+If you think about it,
+those steps of elimination,
+
+395
+00:25:46,000 --> 00:25:51,220
+as when you've finished with
+row two of A,
+
+396
+00:25:51,220 --> 00:25:58,000
+you've created a new row two of
+U, which you have to save,
+
+397
+00:25:58,000 --> 00:26:05,000
+and you've created the
+multipliers that you used --
+
+398
+00:26:05,000 --> 00:26:11,000
+which you have to save,
+and then you can forget A.
+
+399
+00:26:11,000 --> 00:26:15,000
+So because it's all there in L
+and U.
+
+400
+00:26:15,000 --> 00:26:21,000
+So that's -- this moment is
+maybe the new insight in
+
+401
+00:26:21,000 --> 00:26:27,000
+elimination that comes from
+matrix --
+
+402
+00:26:27,000 --> 00:26:29,000
+doing it in matrix form.
+
+403
+00:26:29,000 --> 00:26:36,420
+So it was -- the product of Es
+is -- we can't see what that
+
+404
+00:26:36,420 --> 00:26:38,320
+product of Es is.
+
+405
+00:26:38,320 --> 00:26:43,000
+The matrix E is not a
+particularly attractive one.
+
+406
+00:26:43,000 --> 00:26:50,500
+What's great is when we put
+them on the other side --
+
+407
+00:26:50,500 --> 00:26:56,000
+their inverses in the opposite
+order, there the L comes out
+
+408
+00:26:56,000 --> 00:26:58,040
+just right.
+
+409
+00:26:58,040 --> 00:26:58,000
+Okay.
+
+410
+00:26:58,000 --> 00:27:02,520
+Now -- oh gosh,
+so today's a sort of,
+
+411
+00:27:02,520 --> 00:27:04,000
+like, practical day.
+
+412
+00:27:04,000 --> 00:27:10,170
+Can we think together how
+expensive is elimination?
+
+413
+00:27:10,170 --> 00:27:14,000
+How many operations do we do?
+
+414
+00:27:14,000 --> 00:27:25,000
+So this is now a kind of new
+topic which I didn't list as --
+
+415
+00:27:25,000 --> 00:27:31,000
+on the program,
+but here it came.
+
+416
+00:27:31,000 --> 00:27:39,000
+How many operations on an n by
+n matrix A.
+
+417
+00:27:39,000 --> 00:27:47,000
+I mean, it's a very practical
+question.
+
+418
+00:27:47,000 --> 00:27:54,000
+Can we solve systems of order a
+thousand, in a second or a
+
+419
+00:27:54,000 --> 00:27:56,000
+minute or a week?
+
+420
+00:27:56,000 --> 00:28:03,000
+Can we solve systems of order a
+million in a second or an hour
+
+421
+00:28:03,000 --> 00:28:04,000
+or a week?
+
+422
+00:28:04,000 --> 00:28:10,000
+I mean, what's the -- if it's n
+by n, we often want to take n
+
+423
+00:28:10,000 --> 00:28:12,000
+bigger.
+
+424
+00:28:12,000 --> 00:28:16,000
+I mean, we've put in more
+information.
+
+425
+00:28:16,000 --> 00:28:21,000
+We make the whole thing is more
+accurate for the bigger matrix.
+
+426
+00:28:21,000 --> 00:28:26,820
+But it's more expensive,
+too, and the question is how
+
+427
+00:28:26,820 --> 00:28:29,000
+much more expensive?
+
+428
+00:28:29,000 --> 00:28:32,000
+If I have matrices of order a
+hundred.
+
+429
+00:28:32,000 --> 00:28:35,000
+Let's say a hundred by a
+hundred.
+
+430
+00:28:35,000 --> 00:28:38,000
+Let me take n to be a hundred.
+
+431
+00:28:38,000 --> 00:28:40,000
+Say n equal a hundred.
+
+432
+00:28:40,000 --> 00:28:42,000
+How many steps are we doing?
+
+433
+00:28:42,000 --> 00:28:48,000
+How many operations are we
+actually doing that we --
+
+434
+00:28:48,000 --> 00:28:54,000
+And let's suppose there aren't
+any zeroes, because of course if
+
+435
+00:28:54,000 --> 00:28:59,100
+a matrix has got a lot of zeroes
+in good places,
+
+436
+00:28:59,100 --> 00:29:03,000
+we don't have to do those
+operations, and,
+
+437
+00:29:03,000 --> 00:29:05,000
+it'll be much faster.
+It's going to move -- it's
+going to change all rows,
+
+438
+00:29:05,000 --> 00:29:11,000
+But -- so just think for a
+moment about the first step.
+
+439
+00:29:11,000 --> 00:29:17,000
+So here's our matrix A,
+hundred by a hundred.
+
+440
+00:29:17,000 --> 00:29:25,000
+And the first step will be --
+that column, is got zeroes down
+
+441
+00:29:25,000 --> 00:29:25,000
+here.
+So it's down to 99 by 99,
+right?
+
+442
+00:29:29,000 --> 00:29:37,000
+That's really like the first
+stage of elimination,
+
+443
+00:29:37,000 --> 00:29:41,000
+to get from this hundred by
+hundred non-zero matrix to this
+
+444
+00:29:41,000 --> 00:29:46,000
+stage where the first pivot is
+sitting up here and the first
+
+445
+00:29:46,000 --> 00:29:49,000
+row's okay the first column is
+okay.
+
+446
+00:29:49,000 --> 00:29:53,000
+So, eventually -- how many
+steps did that take?
+
+447
+00:29:53,000 --> 00:29:57,000
+You see, I'm trying to get an
+idea.
+
+448
+00:29:57,000 --> 00:29:59,000
+Is the answer proportional to
+n?
+
+449
+00:29:59,000 --> 00:30:03,000
+Is the total number of steps in
+elimination, the total number,
+
+450
+00:30:03,000 --> 00:30:07,000
+is it proportional to n -- in
+which case if I double n from a
+
+451
+00:30:07,000 --> 00:30:11,000
+hundred to two hundred -- does
+it take me twice as long?
+
+452
+00:30:11,000 --> 00:30:14,000
+Does it square,
+so it would take me four times
+
+453
+00:30:14,000 --> 00:30:16,000
+as long?
+
+454
+00:30:16,000 --> 00:30:20,000
+Does it cube so it would take
+me eight times as long?
+
+455
+00:30:20,000 --> 00:30:24,000
+Or is it n factorial,
+so it would take me a hundred
+
+456
+00:30:24,000 --> 00:30:25,000
+times as long?
+
+457
+00:30:25,000 --> 00:30:29,000
+I think, you know,
+from a practical point of view,
+
+458
+00:30:29,000 --> 00:30:33,000
+we have to have some idea of
+the cost, here.
+
+459
+00:30:33,000 --> 00:30:38,000
+So these are the questions that
+I'm -- let me ask those
+
+460
+00:30:38,000 --> 00:30:40,000
+questions again.
+
+461
+00:30:40,000 --> 00:30:45,000
+Is it proportional -- does it
+go like N, like N squared,
+
+462
+00:30:45,000 --> 00:30:50,000
+like N cubed -- or some higher
+power of N?
+
+463
+00:30:50,000 --> 00:30:55,000
+Like N factorial where every
+step up multiplies by a hundred
+
+464
+00:30:55,000 --> 00:31:00,000
+and then by a hundred and one
+and then by a hundred and two --
+
+465
+00:31:00,000 --> 00:31:01,000
+which is it?
+
+466
+00:31:01,000 --> 00:31:06,000
+Okay, so that's the only way I
+know to answer that is to think
+
+467
+00:31:06,000 --> 00:31:08,000
+through what we actually had to
+do.
+
+468
+00:31:08,000 --> 00:31:09,000
+Okay.
+
+469
+00:31:09,000 --> 00:31:11,000
+So what was the cost here?
+
+470
+00:31:11,000 --> 00:31:13,000
+Well, let's see.
+
+471
+00:31:13,000 --> 00:31:16,000
+What do I mean by an operation?
+
+472
+00:31:16,000 --> 00:31:20,000
+I guess I mean,
+well an addition or -- yeah.
+
+473
+00:31:20,000 --> 00:31:21,000
+No big deal.
+
+474
+00:31:21,000 --> 00:31:26,000
+I guess I mean an addition or a
+subtraction or a multiplication
+
+475
+00:31:26,000 --> 00:31:27,000
+or a division.
+
+476
+00:31:27,000 --> 00:31:28,000
+Okay.
+
+477
+00:31:28,000 --> 00:31:32,000
+And actually,
+what operation I doing all the
+
+478
+00:31:32,000 --> 00:31:33,000
+time?
+
+479
+00:31:33,000 --> 00:31:40,000
+When I multiply row one by
+multiplier L and I subtract from
+
+480
+00:31:40,000 --> 00:31:41,680
+row six.
+
+481
+00:31:41,680 --> 00:31:45,000
+What's happening there
+individually?
+
+482
+00:31:45,000 --> 00:31:47,000
+What's going on?
+
+483
+00:31:47,000 --> 00:31:54,000
+If I multiply -- I do a
+multiplication by L and then a
+
+484
+00:31:54,000 --> 00:31:56,000
+subtraction.
+
+485
+00:31:56,000 --> 00:32:02,000
+So I guess operation -- Can I
+count that for the moment as,
+
+486
+00:32:02,000 --> 00:32:03,000
+like, one operation?
+
+487
+00:32:03,000 --> 00:32:07,000
+Or you may want to count them
+separately.
+
+488
+00:32:07,000 --> 00:32:11,000
+The typical operation is
+multiply plus a subtract.
+
+489
+00:32:11,000 --> 00:32:16,000
+So if I count those together,
+my answer's going to come out
+
+490
+00:32:16,000 --> 00:32:21,000
+half as many as if --
+I mean, if I count them
+
+491
+00:32:21,000 --> 00:32:27,000
+separately, I'd have a certain
+number of multiplies,
+
+492
+00:32:27,000 --> 00:32:29,000
+certain number of subtracts.
+
+493
+00:32:29,000 --> 00:32:32,440
+That's really want to do.
+
+494
+00:32:32,440 --> 00:32:32,000
+Okay.
+
+495
+00:32:32,000 --> 00:32:35,000
+How many have I got here?
+
+496
+00:32:35,000 --> 00:32:38,000
+So, I think -- let's see.
+
+497
+00:32:38,000 --> 00:32:42,070
+It's about -- well,
+how many, roughly?
+
+498
+00:32:42,070 --> 00:32:45,000
+How many operations to get from
+here to here?
+
+499
+00:32:45,000 --> 00:32:51,000
+Well, maybe one way to look at
+it is all these numbers had to
+
+500
+00:32:51,000 --> 00:32:52,000
+get changed.
+
+501
+00:32:52,000 --> 00:32:57,000
+The first row didn't get
+changed, but all the other rows
+
+502
+00:32:57,000 --> 00:33:00,000
+got changed at this step.
+
+503
+00:33:00,000 --> 00:33:06,000
+So this step -- well,
+I guess maybe -- shall I say it
+
+504
+00:33:06,000 --> 00:33:09,000
+cost about a hundred squared.
+
+505
+00:33:09,000 --> 00:33:16,000
+I mean, if I had changed the
+first row, then it would have
+
+506
+00:33:16,000 --> 00:33:21,000
+been exactly hundred squared,
+because --
+
+507
+00:33:21,000 --> 00:33:24,000
+because that's how many numbers
+are here.
+
+508
+00:33:24,000 --> 00:33:29,000
+A hundred squared numbers is
+the total count of the entry,
+
+509
+00:33:29,000 --> 00:33:33,000
+and all but this insignificant
+first row got changed.
+
+510
+00:33:33,000 --> 00:33:36,000
+So I would say about a hundred
+squared.
+
+511
+00:33:36,000 --> 00:33:37,000
+Okay.
+
+512
+00:33:37,000 --> 00:33:40,000
+Now, what about the next step?
+
+513
+00:33:40,000 --> 00:33:43,000
+So now the first row is fine.
+
+514
+00:33:43,000 --> 00:33:46,000
+The second row is fine.
+
+515
+00:33:46,000 --> 00:33:51,000
+And I'm changing these zeroes
+are all fine,
+
+516
+00:33:51,000 --> 00:33:55,830
+so what's up with the second
+step?
+
+517
+00:33:55,830 --> 00:33:58,000
+And then you're with me.
+
+518
+00:33:58,000 --> 00:34:02,000
+Roughly, what's the cost?
+
+519
+00:34:02,000 --> 00:34:06,000
+If this first step cost a
+hundred squared,
+
+520
+00:34:06,000 --> 00:34:12,000
+about, operations then this
+one, which is really working on
+
+521
+00:34:12,000 --> 00:34:16,000
+this guy to produce this,
+costs about what?
+
+522
+00:34:16,000 --> 00:34:19,000
+How many operations to fix?
+
+523
+00:34:19,000 --> 00:34:23,000
+About ninety-nine squared,
+or ninety-nine times
+
+524
+00:34:23,000 --> 00:34:25,000
+ninety-eight.
+
+525
+00:34:25,000 --> 00:34:26,000
+But less, right?
+
+526
+00:34:26,000 --> 00:34:29,000
+Less, because our problem's
+getting smaller.
+
+527
+00:34:29,000 --> 00:34:30,000
+About ninety-nine squared.
+
+528
+00:34:30,000 --> 00:34:33,000
+And then I go down and down and
+the next one will be
+
+529
+00:34:33,000 --> 00:34:36,000
+ninety-eight squared,
+the next ninety-seven squared
+
+530
+00:34:36,000 --> 00:34:40,000
+and finally I'm down around one
+squared or --
+
+531
+00:34:40,000 --> 00:34:43,000
+where it's just like the little
+numbers.
+
+532
+00:34:43,000 --> 00:34:45,000
+The big numbers are here.
+
+533
+00:34:45,000 --> 00:34:50,310
+So the number of operations is
+about n squared plus that was n,
+
+534
+00:34:50,310 --> 00:34:52,000
+right?
+n was a hundred?
+
+535
+00:34:52,000 --> 00:34:56,000
+n squared for the first step,
+then n minus one squared,
+
+536
+00:34:56,000 --> 00:35:00,000
+then n minus two squared,
+finally down to three squared
+
+537
+00:35:00,000 --> 00:35:04,000
+and two squared and even one
+squared.
+
+538
+00:35:04,000 --> 00:35:13,000
+No way I should have written
+that -- squeezed that in.
+
+539
+00:35:13,000 --> 00:35:22,000
+Let me try it so the count is N
+squared plus N minus one squared
+
+540
+00:35:22,000 --> 00:35:28,870
+plus -- all the way down to one
+squared.
+
+541
+00:35:28,870 --> 00:35:34,000
+That's a pretty decent count.
+
+542
+00:35:34,000 --> 00:35:41,290
+Admittedly, we didn't catch
+every single tiny operation,
+
+543
+00:35:41,290 --> 00:35:46,000
+but we got the right leading
+term here.
+
+544
+00:35:46,000 --> 00:35:49,520
+And what do those add up to?
+
+545
+00:35:49,520 --> 00:35:55,000
+Okay, so now we're coming to
+the punch of this,
+
+546
+00:35:55,000 --> 00:36:00,000
+question, this operation count.
+
+547
+00:36:00,000 --> 00:36:06,000
+So the operations on the left
+side, on the matrix A to finally
+
+548
+00:36:06,000 --> 00:36:07,000
+get to U.
+
+549
+00:36:07,000 --> 00:36:12,000
+And anybody -- so which of
+these quantities is the right
+
+550
+00:36:12,000 --> 00:36:15,000
+ballpark for that count?
+
+551
+00:36:15,000 --> 00:36:20,980
+If I add a hundred squared to
+ninety nine squared to ninety
+
+552
+00:36:20,980 --> 00:36:25,000
+eight squared --
+ninety seven squared,
+
+553
+00:36:25,000 --> 00:36:30,000
+all the way down to two squared
+then one squared,
+
+554
+00:36:30,000 --> 00:36:33,000
+what have I got,
+about?
+
+555
+00:36:33,000 --> 00:36:38,000
+It's just one of these -- let's
+identify it first.
+
+556
+00:36:38,000 --> 00:36:39,000
+Is it N?
+
+557
+00:36:39,000 --> 00:36:42,000
+Certainly not.
+
+558
+00:36:42,000 --> 00:36:43,000
+Is it n factorial?
+
+559
+00:36:43,000 --> 00:36:44,110
+No.
+
+560
+00:36:44,110 --> 00:36:49,000
+If it was n factorial,
+we would -- with determinants,
+
+561
+00:36:49,000 --> 00:36:51,000
+it is n factorial.
+
+562
+00:36:51,000 --> 00:36:55,000
+I'll put in a bad mark against
+determinants,
+
+563
+00:36:55,000 --> 00:36:58,000
+because that -- okay,
+so what is it?
+
+564
+00:36:58,000 --> 00:37:03,510
+It's n -- well,
+this is the answer.
+
+565
+00:37:03,510 --> 00:37:06,000
+It's this order -- n cubed.
+
+566
+00:37:06,000 --> 00:37:10,000
+It's like I have n terms,
+right?
+
+567
+00:37:10,000 --> 00:37:13,000
+I've got n terms in this sum.
+
+568
+00:37:13,000 --> 00:37:16,000
+And the biggest one is N
+squared.
+
+569
+00:37:16,000 --> 00:37:23,000
+So the worst it could be would
+be n cubed, but it's not as bad
+
+570
+00:37:23,000 --> 00:37:30,000
+as -- it's N cubed times --
+it's about one third of n
+
+571
+00:37:30,000 --> 00:37:31,110
+cubed.
+
+572
+00:37:31,110 --> 00:37:34,000
+That's the magic operation
+count.
+
+573
+00:37:34,000 --> 00:37:40,000
+Somehow that one third takes
+account of the fact that the
+
+574
+00:37:40,000 --> 00:37:43,000
+numbers are getting smaller.
+
+575
+00:37:43,000 --> 00:37:48,000
+If they weren't getting
+smaller, we would have n terms
+
+576
+00:37:48,000 --> 00:37:53,000
+times n squared,
+but it would be exactly n
+
+577
+00:37:53,000 --> 00:37:54,000
+cubed.
+
+578
+00:37:54,000 --> 00:37:58,000
+But our numbers are getting
+smaller -- actually,
+
+579
+00:37:58,000 --> 00:38:02,000
+do you remember where does one
+third come in this -- I'll even
+
+580
+00:38:02,000 --> 00:38:05,000
+allow a mention of calculus.
+
+581
+00:38:05,000 --> 00:38:09,000
+So calculus can be mentioned,
+integration can be mentioned
+
+582
+00:38:09,000 --> 00:38:13,000
+now in the next minute and not
+again for weeks.
+
+583
+00:38:13,000 --> 00:38:21,000
+It's not that I don't like
+18.01, but18.06 is better.
+
+584
+00:38:21,000 --> 00:38:21,000
+Okay.
+So, -- so what's -- what's the
+calculus formula that looks
+
+585
+00:38:30,000 --> 00:38:32,000
+like?
+
+586
+00:38:32,000 --> 00:38:37,310
+It looks like -- if we were in
+calculus instead of summing
+
+587
+00:38:37,310 --> 00:38:39,000
+stuff, we would integrate.
+
+588
+00:38:39,000 --> 00:38:45,000
+So I would integrate x squared
+and I would get one third x
+
+589
+00:38:45,000 --> 00:38:45,000
+cubed.
+So if that was like an integral
+from one to N,
+
+590
+00:38:49,000 --> 00:38:53,000
+of x squared b x,
+if the answer would be one
+
+591
+00:38:53,000 --> 00:38:58,000
+third n cubed --
+and it's correct for the sum
+
+592
+00:38:58,000 --> 00:39:01,000
+also, because that's,
+like, the whole point of
+
+593
+00:39:01,000 --> 00:39:02,000
+calculus.
+
+594
+00:39:02,000 --> 00:39:06,000
+The whole point of calculus is
+-- oh, I don't want to tell you
+
+595
+00:39:06,000 --> 00:39:10,000
+the whole -- I mean,
+you know the whole point of
+
+596
+00:39:10,000 --> 00:39:11,000
+calculus.
+
+597
+00:39:11,000 --> 00:39:15,000
+Calculus is like sums except
+it's continuous.
+
+598
+00:39:15,000 --> 00:39:15,000
+Okay.
+And algebra is discreet.
+
+599
+00:39:17,000 --> 00:39:18,000
+Okay.
+
+600
+00:39:18,000 --> 00:39:21,000
+So the answer is one third n
+cubed.
+
+601
+00:39:21,000 --> 00:39:27,000
+Now I'll just -- let me say one
+more thing about operations.
+
+602
+00:39:27,000 --> 00:39:30,000
+What about the right-hand side?
+
+603
+00:39:30,000 --> 00:39:34,000
+This was what it cost on the
+left side.
+
+604
+00:39:34,000 --> 00:39:35,000
+This is on A.
+
+605
+00:39:35,000 --> 00:39:40,000
+Because this is A that we're
+working with.
+
+606
+00:39:40,000 --> 00:39:46,000
+But what's the cost on the
+extra column vector b that we're
+
+607
+00:39:46,000 --> 00:39:48,000
+hanging around here?
+
+608
+00:39:48,000 --> 00:39:53,000
+So b costs a lot less,
+obviously, because it's just
+
+609
+00:39:53,000 --> 00:39:55,000
+one column.
+
+610
+00:39:55,000 --> 00:40:01,000
+We carry it through elimination
+and then actually we do back
+
+611
+00:40:01,000 --> 00:40:03,000
+substitution.
+
+612
+00:40:03,000 --> 00:40:07,000
+Let me just tell you the answer
+there.
+
+613
+00:40:07,000 --> 00:40:08,000
+It's n squared.
+
+614
+00:40:08,000 --> 00:40:14,000
+So the cost for every right
+hand side is n squared.
+
+615
+00:40:14,000 --> 00:40:19,690
+So let me -- I'll just fit that
+in here --
+
+616
+00:40:19,690 --> 00:40:24,000
+for the the cost of b turns out
+to be n squared.
+
+617
+00:40:24,000 --> 00:40:27,000
+So you see if we have,
+as we often have,
+
+618
+00:40:27,000 --> 00:40:31,000
+a a matrix A and several
+right-hand sides,
+
+619
+00:40:31,000 --> 00:40:37,420
+then we pay the price on A,
+the higher price on A to get it
+
+620
+00:40:37,420 --> 00:40:41,000
+split up into L and U to do
+elimination on A,
+
+621
+00:40:41,000 --> 00:40:48,250
+but then we can process every
+right-hand side at low cost.
+
+622
+00:40:48,250 --> 00:40:49,000
+Okay.
+
+623
+00:40:49,000 --> 00:41:00,000
+So the -- We really have
+discussed the most fundamental
+
+624
+00:41:00,000 --> 00:41:08,000
+algorithm for a system of
+equations.
+
+625
+00:41:08,000 --> 00:41:09,000
+Okay.
+
+626
+00:41:09,000 --> 00:41:18,000
+So, I'm ready to allow row
+exchanges.
+
+627
+00:41:18,000 --> 00:41:23,470
+I'm ready to allow -- now what
+happens to this whole -- today's
+
+628
+00:41:23,470 --> 00:41:26,000
+lecture if there are row
+exchanges?
+
+629
+00:41:26,000 --> 00:41:28,530
+When would there be row
+exchanges?
+
+630
+00:41:28,530 --> 00:41:33,000
+There are row -- we need to do
+row exchanges if a zero shows up
+
+631
+00:41:33,000 --> 00:41:34,000
+in the pivot position.
+
+632
+00:41:34,000 --> 00:41:38,000
+So moving then into the final
+section of this chapter,
+
+633
+00:41:38,000 --> 00:41:46,000
+which is about transposes --
+well, we've already seen some
+
+634
+00:41:46,000 --> 00:41:53,000
+transposes, and -- the title of
+this section is,
+
+635
+00:41:53,000 --> 00:41:58,000
+"Transposes and Permutations."
+
+636
+00:41:58,000 --> 00:41:58,000
+Okay.
+So can I say,
+now, where does a permutation
+
+637
+00:42:05,000 --> 00:42:07,000
+come in?
+
+638
+00:42:07,000 --> 00:42:11,000
+Let me talk a little about
+permutations.
+
+639
+00:42:11,000 --> 00:42:15,000
+So that'll be up here,
+permutations.
+
+640
+00:42:15,000 --> 00:42:21,000
+So these are the matrices that
+I need to do row exchanges.
+
+641
+00:42:21,000 --> 00:42:26,000
+And I may have to do two row
+exchanges.
+
+642
+00:42:26,000 --> 00:42:32,000
+Can you invent a matrix where I
+would have to do two row
+
+643
+00:42:32,000 --> 00:42:37,000
+exchanges and then would come
+out fine?
+
+644
+00:42:37,000 --> 00:42:44,000
+Yeah let's just,
+for the heck of it -- so I'll
+
+645
+00:42:44,000 --> 00:42:45,000
+put it here.
+
+646
+00:42:45,000 --> 00:42:49,000
+Let me do three by threes.
+
+647
+00:42:49,000 --> 00:42:56,000
+Actually, why don't I just
+plain list all the three by
+
+648
+00:42:56,000 --> 00:43:01,000
+three permutation matrices.
+
+649
+00:43:01,000 --> 00:43:05,000
+There're a nice little group of
+them.
+
+650
+00:43:05,000 --> 00:43:10,000
+What are all the matrices that
+exchange no rows at all?
+
+651
+00:43:10,000 --> 00:43:14,000
+Well, I'll include the
+identity.
+
+652
+00:43:14,000 --> 00:43:19,000
+So that's a permutation matrix
+that doesn't do anything.
+
+653
+00:43:19,000 --> 00:43:25,000
+Now what's the permutation
+matrix that exchanges -- what is
+
+654
+00:43:25,000 --> 00:43:27,000
+P12?
+
+655
+00:43:27,000 --> 00:43:33,000
+The permutation matrix that
+exchanges rows one and two would
+
+656
+00:43:33,000 --> 00:43:36,000
+be -- 0 1 0 -- 1 0 0,
+right.
+
+657
+00:43:36,000 --> 00:43:42,000
+I just exchanged those rows of
+the identity and I've got it.
+
+658
+00:43:42,000 --> 00:43:42,000
+Okay.
+Actually, I'll -- yes.
+
+659
+00:43:45,000 --> 00:43:48,000
+Let me clutter this up.
+
+660
+00:43:48,000 --> 00:43:48,000
+Okay.
+Give me a complete list of all
+the row exchange matrices.
+
+661
+00:43:53,000 --> 00:43:55,000
+So what are they?
+
+662
+00:43:55,000 --> 00:44:00,000
+They're all the ways I can take
+the identity matrix and
+
+663
+00:44:00,000 --> 00:44:01,000
+rearrange its rows.
+
+664
+00:44:01,000 --> 00:44:04,000
+How many will there be?
+
+665
+00:44:04,000 --> 00:44:08,000
+How many three by three
+permutation matrices?
+
+666
+00:44:08,000 --> 00:44:13,000
+Shall we keep going and get the
+answer?
+
+667
+00:44:13,000 --> 00:44:16,000
+So tell me some more.
+
+668
+00:44:16,000 --> 00:44:20,000
+What one are you going to do
+now?
+
+669
+00:44:20,000 --> 00:44:26,000
+I'm going to switch rows one
+and --
+
+670
+00:44:26,000 --> 00:44:28,000
+One and three,
+okay.
+
+671
+00:44:28,000 --> 00:44:31,310
+One and three,
+leaving two alone.
+
+672
+00:44:31,310 --> 00:44:31,000
+Okay.
+
+673
+00:44:31,000 --> 00:44:33,000
+Now what else?
+
+674
+00:44:33,000 --> 00:44:38,000
+Switch -- what would be the
+next easy one -- is switch two
+
+675
+00:44:38,000 --> 00:44:40,530
+and three, good.
+
+676
+00:44:40,530 --> 00:44:46,000
+So I'll leave one zero zero
+alone and I'll switch --
+
+677
+00:44:46,000 --> 00:44:50,000
+I'll move number three up and
+number two down.
+
+678
+00:44:50,000 --> 00:44:50,000
+Okay.
+Those are the ones that just
+exchange single -- a pair of
+
+679
+00:44:55,000 --> 00:44:55,000
+rows.
+This guy, this guy and this guy
+exchanges a pair of rows,
+
+680
+00:45:00,000 --> 00:45:04,250
+but now there are more
+possibilities.
+
+681
+00:45:04,250 --> 00:41:52,000
+What's left?
+
+682
+00:41:52,000 --> 00:32:15,000
+So tell -- there is another one
+here.
+
+683
+00:32:15,000 --> 00:29:03,000
+What's that?
+
+684
+00:15:26,000 --> 00:13:50,000
+right?
+
+685
+00:13:50,000 --> 00:05:18,000
+Where shall we put them?4
+
+686
+00:09:01,400 --> 00:12:19,000
+STUDENT: Zero one zero?
+
+687
+00:12:19,000 --> 00:15:28,000
+STRANG: Zero one zero.
+
+688
+00:15:28,000 --> 00:24:03,000
+Okay, now a second row -- say
+zero zero one and the third guy
+
+689
+00:24:03,000 --> 00:26:03,000
+one zero zero.
+
+690
+00:26:03,000 --> 00:29:30,000
+So that is like a cycle.
+
+691
+00:29:30,000 --> 00:37:57,000
+That puts row two moves up to
+row one, row three moves up to
+
+692
+00:37:57,000 --> 00:45:41,000
+row two and row one moves down
+to row three.
+
+693
+00:45:41,000 --> 00:45:45,000
+And there's one more,
+which is -- let's see.
+
+694
+00:45:45,000 --> 00:45:47,000
+What's left?
+
+695
+00:45:47,000 --> 00:45:48,000
+I'm lost.
+
+696
+00:45:48,000 --> 00:45:51,000
+STUDENT: Is it zero zero one?
+
+697
+00:45:51,000 --> 00:45:52,000
+STRANG: Okay.
+
+698
+00:45:52,000 --> 00:45:55,000
+STUDENT: One zero zero.
+
+699
+00:45:55,000 --> 00:45:59,000
+STRANG: One zero zero,
+okay.
+
+700
+00:45:59,000 --> 00:46:00,950
+Zero one zero.
+
+701
+00:46:00,950 --> 00:46:01,000
+Okay.
+
+702
+00:46:01,000 --> 00:46:02,000
+Great.
+
+703
+00:46:02,000 --> 00:46:02,000
+Six.
+Six of them.
+
+704
+00:46:04,000 --> 00:46:04,000
+Six P.
+And they're sort of nice,
+because what happens if I
+
+705
+00:46:11,000 --> 00:46:15,000
+write, multiply two of them
+together?
+
+706
+00:46:15,000 --> 00:46:20,000
+If I multiply two of these
+matrices together,
+
+707
+00:46:20,000 --> 00:46:27,000
+what can you tell me about the
+answer?
+
+708
+00:46:27,000 --> 00:46:28,000
+It's on the list.
+
+709
+00:46:28,000 --> 00:46:34,000
+If I do some row exchanges and
+then I do some more row
+
+710
+00:46:34,000 --> 00:46:39,940
+exchanges, then all together
+I've done row exchanges.
+
+711
+00:46:39,940 --> 00:46:44,570
+So if I multiply -- but,
+I don't know.
+
+712
+00:46:44,570 --> 00:46:47,000
+And if I invert,
+then I'm just doing row
+
+713
+00:46:47,000 --> 00:46:50,000
+exchanges to get back again.
+
+714
+00:46:50,000 --> 00:46:52,900
+So the inverses are all there.
+
+715
+00:46:52,900 --> 00:46:57,000
+It's a little family of
+matrices that -- they've got
+
+716
+00:46:57,000 --> 00:47:02,000
+their own -- if I multiply,
+I'm still inside this group.
+
+717
+00:47:02,000 --> 00:47:05,000
+If I invert I'm inside this
+group --
+
+718
+00:47:05,000 --> 00:47:09,000
+actually, group is the right
+name for this subject.
+
+719
+00:47:09,000 --> 00:47:14,000
+It's a group of six matrices,
+and what about the inverses?
+
+720
+00:47:14,000 --> 00:47:17,000
+What's the inverse of this guy,
+for example?
+
+721
+00:47:17,000 --> 00:47:21,000
+What's the inverse -- if I
+exchange rows one and two,
+
+722
+00:47:21,000 --> 00:47:24,000
+what's the inverse matrix?
+
+723
+00:47:24,000 --> 00:47:26,000
+Just tell me fast.
+
+724
+00:47:26,000 --> 00:47:31,000
+The inverse of that matrix is
+-- if I exchange rows one and
+
+725
+00:47:31,000 --> 00:47:37,000
+two, then what I should do to
+get back to where I started is
+
+726
+00:47:37,000 --> 00:47:38,000
+the same thing.
+
+727
+00:47:38,000 --> 00:47:41,000
+So this thing is its own
+inverse.
+
+728
+00:47:41,000 --> 00:47:44,000
+That's probably its own
+inverse.
+
+729
+00:47:44,000 --> 00:47:50,000
+This is probably not --
+actually, I think these are
+
+730
+00:47:50,000 --> 00:47:52,000
+inverses of each other.
+
+731
+00:47:52,000 --> 00:47:56,000
+Oh, yeah, actually -- the
+inverse is the transpose.
+
+732
+00:47:56,000 --> 00:48:01,000
+There's a curious fact about
+permutations matrices,
+
+733
+00:48:01,000 --> 00:48:04,000
+that the inverses are the
+transposes.
+
+734
+00:48:04,000 --> 00:48:09,000
+And final moment -- how many
+are there if I --
+
+735
+00:48:09,000 --> 00:48:12,000
+how many four by four
+permutations?
+
+736
+00:48:12,000 --> 00:48:16,680
+So let me take four by four --
+how many Ps?
+
+737
+00:48:16,680 --> 00:48:17,000
+Well, okay.
+
+738
+00:48:17,000 --> 00:48:19,000
+Make a good guess.
+
+739
+00:48:19,000 --> 00:48:21,000
+Twenty four,
+right.
+
+740
+00:48:21,000 --> 00:48:22,000
+Twenty four Ps.
+
+741
+00:48:22,000 --> 00:48:22,000
+Okay.
+So, we've got these permutation
+matrices, and in the next
+
+742
+00:48:28,000 --> 00:48:31,000
+lecture, we'll use them.

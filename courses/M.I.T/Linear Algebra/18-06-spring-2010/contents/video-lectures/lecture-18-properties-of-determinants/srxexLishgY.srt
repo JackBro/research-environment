@@ -1,0 +1,3478 @@
+1
+00:00:00,000 --> 00:00:07,000
+OK, this lecture is like the
+beginning of the second half of
+this is to prove.
+
+2
+00:00:07,000 --> 00:00:14,000
+this course because up to now we
+paid a lot of attention to
+
+3
+00:00:14,000 --> 00:00:16,000
+rectangular matrices.
+
+4
+00:00:16,000 --> 00:00:23,000
+Now, concentrating on square
+matrices, so we're at two big
+
+5
+00:00:23,000 --> 00:00:24,000
+topics.
+
+6
+00:00:24,000 --> 00:00:31,000
+The determinant of a square
+matrix, so this is the first
+
+7
+00:00:31,000 --> 00:00:37,000
+lecture in that
+new chapter on determinants,
+
+8
+00:00:37,000 --> 00:00:40,690
+and the reason,
+the big reason we need the
+
+9
+00:00:40,690 --> 00:00:43,000
+determinants is for the Eigen
+values.
+
+10
+00:00:43,000 --> 00:00:47,900
+So this is really determinants
+and Eigen values,
+
+11
+00:00:47,900 --> 00:00:50,680
+the next big,
+big chunk of 18.06.
+
+12
+00:00:50,680 --> 00:00:55,000
+OK, so the determinant is a
+number associated with every
+
+13
+00:00:55,000 --> 00:01:01,000
+square matrix,
+so every square matrix has this
+
+14
+00:01:01,000 --> 00:01:06,000
+number associated with called
+the, its determinant.
+
+15
+00:01:06,000 --> 00:01:12,000
+I'll often write it as D E T A
+or often also I'll write it as,
+
+16
+00:01:12,000 --> 00:01:17,000
+A with vertical bars,
+so that's going to mean the
+
+17
+00:01:17,000 --> 00:01:20,000
+determinant of the matrix.
+
+18
+00:01:20,000 --> 00:01:26,000
+That's going to mean this one,
+like, magic number.
+
+19
+00:01:26,000 --> 00:01:32,000
+Well, one number can't tell you
+what the whole matrix was.
+
+20
+00:01:32,000 --> 00:01:35,000
+But this one number,
+just packs in as much
+
+21
+00:01:35,000 --> 00:01:39,000
+information as possible into a
+single number,
+
+22
+00:01:39,000 --> 00:01:45,000
+and of course the one fact that
+you've seen before and we have
+
+23
+00:01:45,000 --> 00:01:51,000
+to see it again is the matrix is
+invertible when the determinant
+
+24
+00:01:51,000 --> 00:01:53,000
+is not zero.
+
+25
+00:01:53,000 --> 00:01:57,000
+The matrix is singular when the
+determinant is zero.
+
+26
+00:01:57,000 --> 00:02:01,000
+So the determinant will be a
+test for invertibility,
+
+27
+00:02:01,000 --> 00:02:06,000
+but the determinant's got a lot
+more to it than that,
+
+28
+00:02:06,000 --> 00:02:07,000
+so let me start.
+
+29
+00:02:07,000 --> 00:02:10,000
+OK, now the question is how to
+start.
+
+30
+00:02:10,000 --> 00:02:14,000
+Do I give you a big formula for
+the determinant,
+
+31
+00:02:14,000 --> 00:02:17,000
+all in one
+gulp?
+
+32
+00:02:17,000 --> 00:02:18,700
+I don't think so!
+
+33
+00:02:18,700 --> 00:02:23,000
+That big formula has got too
+much packed in it.
+
+34
+00:02:23,000 --> 00:02:28,000
+I would rather start with three
+properties of the determinant,
+
+35
+00:02:28,000 --> 00:02:31,000
+three properties that it has.
+
+36
+00:02:31,000 --> 00:02:34,000
+And let me tell you property
+one.
+
+37
+00:02:34,000 --> 00:02:38,000
+The determinant of the identity
+is one.
+
+38
+00:02:38,000 --> 00:02:38,000
+OK.
+I...
+
+39
+00:02:39,130 --> 00:02:45,000
+I wish the other two
+properties were as easy to tell
+
+40
+00:02:45,000 --> 00:02:46,000
+you as that.
+
+41
+00:02:46,000 --> 00:02:51,000
+But actually the second
+property is pretty
+
+42
+00:02:51,000 --> 00:02:56,000
+straightforward too,
+and then once we get the third
+
+43
+00:02:56,000 --> 00:03:00,620
+we will actually have the
+determinant.
+
+44
+00:03:00,620 --> 00:03:06,000
+Those three properties define
+the determinant and we can --
+
+45
+00:03:06,000 --> 00:03:13,000
+then we can figure out,
+well, what is the determinant?
+
+46
+00:03:13,000 --> 00:03:17,000
+What's a formula for it?
+
+47
+00:03:17,000 --> 00:03:26,000
+Now, the second property is
+what happens if you exchange two
+
+48
+00:03:26,000 --> 00:03:28,000
+rows of a matrix.
+
+49
+00:03:28,000 --> 00:03:33,000
+What happens to the
+determinant?
+
+50
+00:03:33,000 --> 00:03:42,000
+So, property two is exchange
+rows, reverse the sign of the
+
+51
+00:03:42,000 --> 00:03:44,000
+determinant.
+
+52
+00:03:44,000 --> 00:03:48,000
+A lot of plus and minus signs.
+
+53
+00:03:48,000 --> 00:03:55,000
+I even wrote here,
+"plus and minus
+
+54
+00:03:55,000 --> 00:03:59,000
+signs," because this is,
+like, that's what you have to
+
+55
+00:03:59,000 --> 00:04:04,000
+pay attention to in the formulas
+and properties of determinants.
+
+56
+00:04:04,000 --> 00:04:08,000
+So that -- you see what I mean
+by a property here?
+
+57
+00:04:08,000 --> 00:04:12,000
+I haven't yet told you what the
+determinant is,
+
+58
+00:04:12,000 --> 00:04:17,000
+but whatever it is,
+if I exchange two rows to get a
+
+59
+00:04:17,000 --> 00:04:21,000
+different matrix that reverses
+the sign of the determinant.
+
+60
+00:04:21,000 --> 00:04:25,000
+And so now, actually,
+what matrices do we now know
+
+61
+00:04:25,000 --> 00:04:27,000
+the determinant of?
+
+62
+00:04:27,000 --> 00:04:30,000
+From one and two,
+I now know the determinant.
+
+63
+00:04:30,000 --> 00:04:35,000
+Well, I certainly know the
+determinant of the identity
+
+64
+00:04:35,000 --> 00:04:39,000
+matrix and now I know the
+determinant of
+
+65
+00:04:39,000 --> 00:04:44,000
+every other matrix that comes
+from row exchanges from the
+
+66
+00:04:44,000 --> 00:04:45,000
+identities still.
+
+67
+00:04:45,000 --> 00:04:49,000
+So what matrices have I gotten
+at this point?
+
+68
+00:04:49,000 --> 00:04:51,000
+The permutations,
+right.
+
+69
+00:04:51,000 --> 00:04:55,000
+At this point I know every
+permutation matrix,
+
+70
+00:04:55,000 --> 00:05:00,000
+so now I'm saying the
+determinant of a permutation
+
+71
+00:05:00,000 --> 00:05:04,000
+matrix is one or minus one.
+
+72
+00:05:04,000 --> 00:05:09,000
+One or minus one,
+depending whether the number of
+
+73
+00:05:09,000 --> 00:05:14,000
+exchanges was even or the number
+of exchanges was odd.
+
+74
+00:05:14,000 --> 00:05:19,000
+So this is the determinant of a
+permutation.
+
+75
+00:05:19,000 --> 00:05:23,000
+Now, P is back to standing for
+permutation.
+
+76
+00:05:23,000 --> 00:05:28,000
+OK.
+if I could carry on this board,
+
+77
+00:05:28,000 --> 00:05:31,000
+I could, like,
+do the two-by-two's.
+
+78
+00:05:31,000 --> 00:05:35,000
+So, property one tells me that
+this two-by-two matrix.
+
+79
+00:05:35,000 --> 00:05:40,000
+Oh, I better write absolute --
+I mean, I'd better write
+
+80
+00:05:40,000 --> 00:05:42,000
+vertical bars,
+not brackets,
+
+81
+00:05:42,000 --> 00:05:44,000
+for that determinant.
+
+82
+00:05:44,000 --> 00:05:47,000
+Property one said,
+in the two-by-two case,
+
+83
+00:05:47,000 --> 00:05:51,000
+that this matrix has
+determinant one.
+
+84
+00:05:51,000 --> 00:05:59,000
+Property two tells me that this
+matrix has determinant -- what?
+
+85
+00:05:59,000 --> 00:06:00,000
+Negative one.
+
+86
+00:06:00,000 --> 00:06:03,000
+This is, like,
+two-by-twos.
+
+87
+00:06:03,000 --> 00:06:10,320
+Now, I finally want to get --
+well, ultimately I want to get
+
+88
+00:06:10,320 --> 00:06:14,000
+to, the formula that we all
+know.
+
+89
+00:06:14,000 --> 00:06:20,000
+Let me put that way over here,
+that the determinant of a
+
+90
+00:06:20,000 --> 00:06:24,750
+general
+two-by-two is ad-bc.
+
+91
+00:06:24,750 --> 00:06:25,000
+OK.
+
+92
+00:06:25,000 --> 00:06:31,000
+I'm going to leave that up,
+like, as the two by two case
+
+93
+00:06:31,000 --> 00:06:35,000
+that we already know,
+so that every property,
+
+94
+00:06:35,000 --> 00:06:40,000
+I can, like,
+check that it's correct for
+
+95
+00:06:40,000 --> 00:06:41,000
+two-by-twos.
+
+96
+00:06:41,000 --> 00:06:48,000
+But the whole point of these
+properties is that they're going
+
+97
+00:06:48,000 --> 00:06:52,000
+to give me a formula for n-by-n.
+
+98
+00:06:52,000 --> 00:06:54,000
+That's the whole point.
+
+99
+00:06:54,000 --> 00:06:59,000
+They're going to give me this
+number that's a test for
+
+100
+00:06:59,000 --> 00:07:05,000
+invertibility and other great
+properties for any size matrix.
+
+101
+00:07:05,000 --> 00:07:09,000
+OK, now you see I'm like,
+slowing down because property
+
+102
+00:07:09,000 --> 00:07:12,000
+three is the key property.
+
+103
+00:07:12,000 --> 00:07:16,000
+Property three is the key
+property and can I somehow
+
+104
+00:07:16,000 --> 00:07:23,000
+describe it --
+maybe I'll separate it into 3A
+
+105
+00:07:23,000 --> 00:07:24,000
+and 3B.
+
+106
+00:07:24,000 --> 00:07:31,000
+Property 3A says that if I
+multiply one of the rows,
+
+107
+00:07:31,000 --> 00:07:38,000
+say the first row,
+by a number T -- I'm going to
+
+108
+00:07:38,000 --> 00:07:40,230
+erase that.
+
+109
+00:07:40,230 --> 00:07:46,000
+That's, like,
+what I'm headed for but I'm not
+
+110
+00:07:46,000 --> 00:07:49,000
+there yet.
+
+111
+00:07:49,000 --> 00:07:55,000
+It's the one we know and you'll
+see that it's checked out by
+
+112
+00:07:55,000 --> 00:07:57,000
+each property.
+
+113
+00:07:57,000 --> 00:08:00,000
+OK, so this is for any matrix.
+
+114
+00:08:00,000 --> 00:08:05,000
+For any matrix,
+if I multiply one row by T and
+
+115
+00:08:05,000 --> 00:08:12,000
+leave the other row or other n-1
+rows alone, what happens to the
+
+116
+00:08:12,000 --> 00:08:13,000
+determinant?
+
+117
+00:08:13,000 --> 00:08:15,000
+The factor T comes out.
+
+118
+00:08:15,000 --> 00:08:20,000
+It's T times this determinant.
+
+119
+00:08:20,000 --> 00:08:21,000
+That's not hard.
+
+120
+00:08:21,000 --> 00:08:27,000
+I shouldn't have made a big
+deal out of property 3A,
+
+121
+00:08:27,000 --> 00:08:31,000
+and 3B is that,
+if is, is if I keep -- I'm
+
+122
+00:08:31,000 --> 00:08:37,000
+always keeping this second row
+the same, or that last n-1 rows
+
+123
+00:08:37,000 --> 00:08:39,000
+are all staying the same.
+
+124
+00:08:39,000 --> 00:08:45,840
+I'm just working -- I'm just
+looking inside the first
+
+125
+00:08:45,840 --> 00:08:51,000
+row and if I have an a+a' there
+and a b+b' there -- sorry,
+
+126
+00:08:51,000 --> 00:08:52,000
+I didn't.
+
+127
+00:08:52,000 --> 00:08:52,000
+Ahh.
+Why don't -- I'll use an
+eraser, do it right.
+
+128
+00:08:57,150 --> 00:08:58,000
+b+b' there.
+
+129
+00:08:58,000 --> 00:09:00,000
+You see what I'm doing?
+
+130
+00:09:00,000 --> 00:09:06,000
+This property and this property
+are about linear combinations,
+
+131
+00:09:06,000 --> 00:09:11,000
+of the first row only,
+leaving the
+
+132
+00:09:11,000 --> 00:09:13,000
+other rows unchanged.
+
+133
+00:09:13,000 --> 00:09:16,000
+They'll copy along.
+
+134
+00:09:16,000 --> 00:09:23,000
+Then, then I get the sum --
+this breaks up into the sum of
+
+135
+00:09:23,000 --> 00:09:27,000
+this determinant and this one.
+
+136
+00:09:27,000 --> 00:09:30,000
+I'm putting up formulas.
+
+137
+00:09:30,000 --> 00:09:34,000
+Maybe I can try to say it in
+words.
+
+138
+00:09:34,000 --> 00:09:38,000
+The determinant is a linear
+function.
+
+139
+00:09:38,000 --> 00:09:47,000
+It behaves like a linear
+function of first row if all the
+
+140
+00:09:47,000 --> 00:09:50,000
+other rows stay the same.
+
+141
+00:09:50,000 --> 00:09:54,000
+I not saying that -- let me
+emphasize.
+
+142
+00:09:54,000 --> 00:10:00,000
+I not saying that the
+determinant of A plus B is
+
+143
+00:10:00,000 --> 00:10:04,000
+determinant of A plus
+determinant of B.
+
+144
+00:10:04,000 --> 00:10:06,000
+I not saying that.
+
+145
+00:10:06,000 --> 00:10:13,530
+I'd better -- can I -- how do I
+get it onto tape that I'm not
+
+146
+00:10:13,530 --> 00:10:16,000
+saying that?
+
+147
+00:10:16,000 --> 00:10:21,000
+You see, this would allow all
+the rows -- you know,
+
+148
+00:10:21,000 --> 00:10:27,000
+A to have a bunch of rows,
+B to have a bunch of rows.
+
+149
+00:10:27,000 --> 00:10:30,000
+That's not the linearity I'm
+after.
+
+150
+00:10:30,000 --> 00:10:34,450
+I'm only after linearity in
+each row.
+
+151
+00:10:34,450 --> 00:10:36,000
+Linear for each row.
+
+152
+00:10:36,000 --> 00:10:41,000
+Well, you may say I only talked
+about the first row,
+
+153
+00:10:41,000 --> 00:10:46,000
+but I claim it's also linear in
+the
+
+154
+00:10:46,000 --> 00:10:51,000
+second row, if I had this --
+but not, I can't,
+
+155
+00:10:51,000 --> 00:10:56,240
+I can't have a combination in
+both first and second.
+
+156
+00:10:56,240 --> 00:11:01,000
+If I had a combination in the
+second row, then I could use
+
+157
+00:11:01,000 --> 00:11:07,000
+rule two to put it up in the
+first row, use my property and
+
+158
+00:11:07,000 --> 00:11:11,000
+then use rule two again to put
+it back,
+
+159
+00:11:11,000 --> 00:11:15,000
+so each row is OK,
+not only the first row,
+
+160
+00:11:15,000 --> 00:11:18,240
+but each row separately.
+
+161
+00:11:18,240 --> 00:11:22,000
+OK, those are the three
+properties, and from those
+
+162
+00:11:22,000 --> 00:11:27,000
+properties, so that's properties
+one, two, three.
+
+163
+00:11:27,000 --> 00:11:33,000
+From those, I want to get all
+-- I'm going to learn a lot more
+
+164
+00:11:33,000 --> 00:11:35,000
+about the determinant.
+
+165
+00:11:35,000 --> 00:11:38,000
+Let me take an example.
+
+166
+00:11:38,000 --> 00:11:42,440
+What would I like to learn?
+
+167
+00:11:42,440 --> 00:11:49,000
+I would like to learn that --
+so here's our property four.
+
+168
+00:11:49,000 --> 00:11:54,000
+Let me use the same numbering
+as here.
+
+169
+00:11:54,000 --> 00:12:02,000
+Property four is if two rows
+are equal, the determinant is
+
+170
+00:12:02,000 --> 00:12:03,000
+zero.
+
+171
+00:12:03,000 --> 00:12:05,000
+OK, so property four.
+
+172
+00:12:05,000 --> 00:12:11,950
+Two equal rows lead to
+determinant equals zero.
+
+173
+00:12:11,950 --> 00:12:12,000
+Right.
+
+174
+00:12:12,000 --> 00:12:20,000
+Now, of course I can --
+in the two-by-two case I can
+
+175
+00:12:20,000 --> 00:12:25,000
+check, sure, the determinant of
+ab ab comes out zero.
+
+176
+00:12:25,000 --> 00:12:29,000
+But I want to see why it's true
+for n-by-n.
+
+177
+00:12:29,000 --> 00:12:34,000
+Suppose row one equals row
+three for a seven-by-seven
+
+178
+00:12:34,000 --> 00:12:34,000
+matrix.
+So two rows are the same in a
+big matrix.
+
+179
+00:12:38,790 --> 00:12:43,000
+And all I have to work with is
+these properties.
+
+180
+00:12:43,000 --> 00:12:48,000
+The exchange property,
+which flips the sign,
+
+181
+00:12:48,000 --> 00:12:52,000
+and the linearity property
+which works in each row
+
+182
+00:12:52,000 --> 00:12:53,000
+separately.
+
+183
+00:12:53,000 --> 00:12:55,000
+OK, can you see the reason?
+
+184
+00:12:55,000 --> 00:12:58,000
+How do I get this one out of
+properties one,
+
+185
+00:12:58,000 --> 00:12:59,000
+two, three?
+
+186
+00:12:59,000 --> 00:13:03,190
+Because -- that's all I have to
+work with.
+
+187
+00:13:03,190 --> 00:13:06,000
+Everything has to come from
+properties one,
+
+188
+00:13:06,000 --> 00:13:08,000
+two, three.
+
+189
+00:13:08,000 --> 00:13:14,000
+OK, so suppose I have a matrix,
+and two rows are even.
+
+190
+00:13:14,000 --> 00:13:20,000
+How do I see that its
+determinant has to be zero from
+
+191
+00:13:20,000 --> 00:13:22,000
+these properties?
+
+192
+00:13:22,000 --> 00:13:24,000
+I do an exchange.
+
+193
+00:13:24,000 --> 00:13:28,000
+Property two is just set up for
+this.
+
+194
+00:13:28,000 --> 00:13:30,000
+Use property two.
+
+195
+00:13:30,000 --> 00:13:33,900
+Use exchange -- exchange rows.
+
+196
+00:13:33,900 --> 00:13:40,000
+Exchange those rows,
+and I get the same matrix.
+
+197
+00:13:40,000 --> 00:13:44,220
+Of course, because those rows
+were equal.
+
+198
+00:13:44,220 --> 00:13:47,000
+So the determinant didn't
+change.
+
+199
+00:13:47,000 --> 00:13:52,000
+But on the other hand,
+property two says that the sign
+
+200
+00:13:52,000 --> 00:13:53,000
+did change.
+
+201
+00:13:53,000 --> 00:13:57,350
+So the -- so I,
+I have a determinant whose sign
+
+202
+00:13:57,350 --> 00:14:02,000
+doesn't change and does change,
+and the only possibility then
+
+203
+00:14:02,000 --> 00:14:06,000
+is that the determinant is zero.
+
+204
+00:14:06,000 --> 00:14:09,000
+You see the reasoning there?
+
+205
+00:14:09,000 --> 00:14:10,000
+Straightforward.
+
+206
+00:14:10,000 --> 00:14:15,000
+Property two just told us,
+hey, if we've got two equal
+
+207
+00:14:15,000 --> 00:00:00,000
+rows we.
+we've got a zero determinant.
+
+208
+00:14:18,000 --> 00:14:23,000
+And of course in our minds,
+that matches the fact that if I
+
+209
+00:14:23,000 --> 00:14:27,000
+have two equal rows the matrix
+isn't invertible.
+
+210
+00:14:27,000 --> 00:14:33,000
+If I have two equal rows,
+I know that the rank is less
+
+211
+00:14:33,000 --> 00:14:34,000
+than n.
+
+212
+00:14:34,000 --> 00:14:38,000
+OK, ready for property five.
+
+213
+00:14:38,000 --> 00:14:44,000
+Now, property five you'll
+recognize as P.
+
+214
+00:14:44,000 --> 00:14:51,000
+It says that the elimination
+step that I'm always doing,
+
+215
+00:14:51,000 --> 00:14:58,000
+subtract a multiple,
+subtract some multiple l times
+
+216
+00:14:58,000 --> 00:15:04,000
+row one from another row,
+row k, let's say.
+
+217
+00:15:04,000 --> 00:15:08,000
+You remember why I did that.
+
+218
+00:15:08,000 --> 00:15:14,000
+In elimination I'm always
+choosing
+
+219
+00:15:14,000 --> 00:15:19,000
+this multiplier so as to
+produce zero in that position.
+
+220
+00:15:19,000 --> 00:15:24,000
+Or row I from row k,
+maybe I should just make very
+
+221
+00:15:24,000 --> 00:15:29,000
+clear that there's nothing
+special about row one here.
+
+222
+00:15:29,000 --> 00:15:32,000
+OK, so that,
+you can see why I want that
+
+223
+00:15:32,000 --> 00:15:38,230
+one, because that will allow me
+to start with this full matrix
+
+224
+00:15:38,230 --> 00:15:43,000
+whose
+determinant I don't know,
+
+225
+00:15:43,000 --> 00:15:48,000
+and I can do elimination and
+clean it out.
+
+226
+00:15:48,000 --> 00:15:55,000
+I can get zeroes below the
+diagonal by these elimination
+
+227
+00:15:55,000 --> 00:16:03,000
+steps and the point is that the
+determinant, the determinant
+
+228
+00:16:03,000 --> 00:16:05,000
+doesn't change.
+
+229
+00:16:05,000 --> 00:16:12,000
+So all those steps of
+elimination are OK not changing
+
+230
+00:16:12,000 --> 00:16:15,000
+the determinant.
+
+231
+00:16:15,000 --> 00:16:20,000
+In our language in the early
+chapter the determinant of A is
+
+232
+00:16:20,000 --> 00:16:24,000
+going to be the same as the
+determinant of U,
+
+233
+00:16:24,000 --> 00:16:26,000
+the upper triangular one.
+
+234
+00:16:26,000 --> 00:16:29,000
+It just has the pivots on the
+diagonal.
+
+235
+00:16:29,000 --> 00:16:31,000
+That's why we'll want this
+property.
+
+236
+00:16:31,000 --> 00:16:35,000
+OK, do you see where that
+property's coming from?
+
+237
+00:16:35,000 --> 00:16:39,000
+Let me do the two-by-two case.
+
+238
+00:16:39,000 --> 00:16:42,000
+Let me do the two-by-two case
+here.
+
+239
+00:16:42,000 --> 00:16:47,100
+So, I'll keep property five
+going along.
+
+240
+00:16:47,100 --> 00:16:48,000
+So what I doing?
+
+241
+00:16:48,000 --> 00:16:53,000
+I'm going to keep -- I'm going
+to have ab cd,
+
+242
+00:16:53,000 --> 00:16:59,000
+but I'm going to subtract l
+times the first row from the
+
+243
+00:16:59,000 --> 00:17:00,000
+second row.
+
+244
+00:17:00,000 --> 00:17:05,000
+And that's the determinant and
+of
+
+245
+00:17:05,000 --> 00:17:09,000
+course I can multiply that out
+and figure out,
+
+246
+00:17:09,000 --> 00:17:13,000
+sure enough,
+ad-bc is there and this minus
+
+247
+00:17:13,000 --> 00:17:17,000
+ALB plus ALB cancels out,
+but I just cheated,
+
+248
+00:17:17,000 --> 00:17:17,000
+right?
+I've got to use the properties.
+
+249
+00:17:20,000 --> 00:17:22,000
+So what property?
+
+250
+00:17:22,000 --> 00:17:25,000
+Well, of course,
+this is a com -- I'm keeping
+
+251
+00:17:25,000 --> 00:17:30,000
+the first row the same and the
+second
+
+252
+00:17:30,000 --> 00:17:34,000
+row has a c and a d,
+and then there's the
+
+253
+00:17:34,000 --> 00:17:39,000
+determinant of the A and the B,
+and the minus LA,
+
+254
+00:17:39,000 --> 00:17:41,000
+and the minus LB.
+
+255
+00:17:41,000 --> 00:17:44,000
+So what property was that?
+3B.
+
+256
+00:17:44,000 --> 00:17:50,000
+I kept one row the same and I
+had a combination in the second,
+
+257
+00:17:50,000 --> 00:17:56,000
+in the other row,
+and I just separated it out.
+
+258
+00:17:56,000 --> 00:17:59,000
+OK, so that's property 3.
+
+259
+00:17:59,000 --> 00:18:02,000
+That's by number 3,
+3B if you like.
+
+260
+00:18:02,000 --> 00:18:03,000
+OK, now use 3A.
+
+261
+00:18:03,000 --> 00:18:08,000
+How do you use 3A,
+which says I can factor out an
+
+262
+00:18:08,000 --> 00:18:12,000
+l, I can factor out a minus l
+here.
+
+263
+00:18:12,000 --> 00:18:17,000
+I can factor a minus l out from
+this row, no problem.
+
+264
+00:18:17,000 --> 00:18:18,520
+That was 3A.
+
+265
+00:18:18,520 --> 00:18:26,000
+So now I've used property three
+and now I'm ready for the kill.
+
+266
+00:18:26,000 --> 00:18:30,000
+Property four says that this
+determinant is zero,
+
+267
+00:18:30,000 --> 00:18:31,000
+has two equal rows.
+
+268
+00:18:31,000 --> 00:18:34,000
+You see how that would always
+work?
+
+269
+00:18:34,000 --> 00:18:38,000
+I subtract a multiple of one
+row from another one.
+
+270
+00:18:38,000 --> 00:18:44,000
+It gives me a combination in
+row k of the old row and l times
+
+271
+00:18:44,000 --> 00:18:50,000
+this copy of the higher row,
+and then if -- since I have two
+
+272
+00:18:50,000 --> 00:18:56,000
+equal rows, that's zero,
+so the determinant after
+
+273
+00:18:56,000 --> 00:19:00,000
+elimination is the same as
+before.
+
+274
+00:19:00,000 --> 00:19:01,000
+Good.
+
+275
+00:19:01,000 --> 00:19:01,000
+OK.
+Now, let's see -- if I rescue
+my glasses, I can see what's
+
+276
+00:19:09,220 --> 00:19:10,000
+property six.
+
+277
+00:19:10,000 --> 00:19:15,000
+Oh, six is easy,
+plenty of space.
+
+278
+00:19:15,000 --> 00:19:23,000
+Row of zeroes leads to
+determinant of A equals zero.
+
+279
+00:19:23,000 --> 00:19:25,000
+A complete row of zeroes.
+
+280
+00:19:25,000 --> 00:19:27,000
+So I'm again,
+this is like,
+
+281
+00:19:27,000 --> 00:19:31,000
+something I'll use in the
+singular case.
+
+282
+00:19:31,000 --> 00:19:36,000
+Actually, you can look ahead to
+why I need these properties.
+
+283
+00:19:36,000 --> 00:19:40,000
+So I'm going to use property
+five, the elimination,
+
+284
+00:19:40,000 --> 00:19:45,000
+use this stuff to say that this
+determinant is the same as that
+
+285
+00:19:45,000 --> 00:19:50,000
+determinant and I'll
+produce a zero there.
+
+286
+00:19:50,000 --> 00:19:52,000
+But what if I also produce a
+zero there?
+
+287
+00:19:52,000 --> 00:19:56,000
+What if elimination gives a row
+of zeroes?
+
+288
+00:19:56,000 --> 00:19:59,000
+That, that used to be my test
+for, mmm, singular,
+
+289
+00:19:59,000 --> 00:20:03,000
+not invertible,
+rank two -- rank less than N,
+
+290
+00:20:03,000 --> 00:20:06,000
+and now I'm seeing it's also
+gives determinant zero.
+
+291
+00:20:06,000 --> 00:20:11,000
+How do I get that one from the
+previous properties?
+
+292
+00:20:11,000 --> 00:20:17,000
+'Cause I -- this is not a new
+law, this has got to come from
+
+293
+00:20:17,000 --> 00:20:18,000
+the old ones.
+
+294
+00:20:18,000 --> 00:20:20,000
+So what shall I do?
+
+295
+00:20:20,000 --> 00:20:23,000
+Yeah, use -- that's brilliant.
+
+296
+00:20:23,000 --> 00:20:26,000
+If you use 3A with T equals
+zero.
+
+297
+00:20:26,000 --> 00:20:27,000
+Right.
+
+298
+00:20:27,000 --> 00:20:32,000
+So I have this zero zero cd,
+and I'm trying to show that
+
+299
+00:20:32,000 --> 00:20:35,000
+that
+determinant is zero.
+
+300
+00:20:35,000 --> 00:20:42,000
+OK, so the zero is the same is
+-- five, can I take T equals
+
+301
+00:20:42,000 --> 00:20:46,000
+five, just to,
+like, pin it down?
+
+302
+00:20:46,000 --> 00:20:49,000
+I'll multiply this row by five.
+
+303
+00:20:49,000 --> 00:20:54,000
+Five, well then,
+five of this should -- if I,
+
+304
+00:20:54,000 --> 00:21:01,000
+if there's a factor five in
+that, you see what -- so this is
+
+305
+00:21:01,000 --> 00:21:06,520
+property 3A, with taking T as
+five.
+
+306
+00:21:06,520 --> 00:21:11,000
+If I multiply a row by five,
+out comes a five.
+
+307
+00:21:11,000 --> 00:21:13,000
+So why I doing this?
+
+308
+00:21:13,000 --> 00:21:17,000
+Oh, because that's still zero
+zero, right?
+
+309
+00:21:17,000 --> 00:21:22,580
+So that's this determinant
+equals five times this
+
+310
+00:21:22,580 --> 00:21:27,000
+determinant, and the determinant
+has to be zero.
+
+311
+00:21:27,000 --> 00:21:31,000
+I think I didn't do that the
+very best way.
+
+312
+00:21:31,000 --> 00:21:37,000
+You were, yeah,
+you had the idea better.
+
+313
+00:21:37,000 --> 00:21:41,000
+Multiply, yeah,
+take T equals zero.
+
+314
+00:21:41,000 --> 00:21:43,000
+Was that your idea?
+
+315
+00:21:43,000 --> 00:21:46,000
+Take T equals zero in rule 3B.
+
+316
+00:21:46,000 --> 00:21:52,490
+If T is zero in rule 3B,
+and I bring the camera back to
+
+317
+00:21:52,490 --> 00:21:54,000
+rule 3B -- sorry.
+
+318
+00:21:54,000 --> 00:21:59,000
+If T is zero,
+then I have a zero zero there
+
+319
+00:21:59,000 --> 00:22:03,000
+and the determinant is zero.
+
+320
+00:22:03,000 --> 00:22:08,000
+OK, one way or another,
+a row of zeroes means zero
+
+321
+00:22:08,000 --> 00:22:09,000
+determinant.
+
+322
+00:22:09,000 --> 00:22:13,000
+OK, now I have to get serious.
+
+323
+00:22:13,000 --> 00:22:19,000
+The next properties are the
+ones that we're building up to.
+
+324
+00:22:19,000 --> 00:22:22,000
+OK, so I can do elimination.
+
+325
+00:22:22,000 --> 00:22:28,000
+I can reduce to a triangular
+matrix and now what's the
+
+326
+00:22:28,000 --> 00:22:33,000
+determinant of that triangular
+matrix?
+
+327
+00:22:33,000 --> 00:22:37,000
+Suppose, suppose I -- all
+right, rule seven.
+
+328
+00:22:37,000 --> 00:22:41,750
+So suppose my matrix is now
+triangular.
+
+329
+00:22:41,750 --> 00:22:47,000
+So it's got -- so I even give
+these the names of the pivots,
+
+330
+00:22:47,000 --> 00:22:51,000
+d1, d2, to dn,
+and stuff is up here,
+
+331
+00:22:51,000 --> 00:22:58,000
+I don't know what that is,
+but what I do know is this is
+
+332
+00:22:58,000 --> 00:22:59,140
+all zeroes.
+
+333
+00:22:59,140 --> 00:23:03,000
+That's all zeroes,
+and I would like to know the
+
+334
+00:23:03,000 --> 00:23:09,000
+determinant, because elimination
+will get me to this.
+
+335
+00:23:09,000 --> 00:23:13,840
+So once I'm here,
+what's the determinant then?
+
+336
+00:23:13,840 --> 00:23:18,260
+Let me use an eraser to get
+those,
+
+337
+00:23:18,260 --> 00:23:23,000
+get that vertical bar again,
+so that I'm taking the
+
+338
+00:23:23,000 --> 00:23:29,000
+determinant of U so that,
+so, what is the determinant of
+
+339
+00:23:29,000 --> 00:23:32,000
+an upper triangular matrix?
+
+340
+00:23:32,000 --> 00:23:35,000
+Do you know the answer?
+
+341
+00:23:35,000 --> 00:23:38,970
+It's just the product of the
+d's.
+
+342
+00:23:38,970 --> 00:23:45,000
+The -- these things that I
+don't even put in letters for,
+
+343
+00:23:45,000 --> 00:23:51,000
+because they don't matter,
+the determinant is d1 times d2
+
+344
+00:23:51,000 --> 00:23:53,000
+times
+dn.
+
+345
+00:23:53,000 --> 00:24:00,000
+If I have a triangular matrix,
+then the diagonal is all I have
+
+346
+00:24:00,000 --> 00:24:01,000
+to work with.
+
+347
+00:24:01,000 --> 00:24:05,000
+And that's, that's telling us
+then.
+
+348
+00:24:05,000 --> 00:24:11,000
+We now have the way that
+MATLAB, any reasonable software,
+
+349
+00:24:11,000 --> 00:24:14,000
+would compute a determinant.
+
+350
+00:24:14,000 --> 00:24:19,000
+If I have a matrix of size a
+hundred, the way I would
+
+351
+00:24:19,000 --> 00:24:25,000
+actually compute its
+determinant would be
+
+352
+00:24:25,000 --> 00:24:32,000
+elimination, make it triangular,
+multiply the pivots together,
+
+353
+00:24:32,000 --> 00:24:38,000
+the product of the pivots,
+the product of pivots.
+
+354
+00:24:38,000 --> 00:24:44,000
+Now, there's always in
+determinants a plus or minus
+
+355
+00:24:44,000 --> 00:24:46,000
+sign to remember.
+
+356
+00:24:46,000 --> 00:24:51,000
+Where -- where does that come
+into this rule?
+
+357
+00:24:51,000 --> 00:24:57,000
+Could it be,
+could the determinant be minus
+
+358
+00:24:57,000 --> 00:24:59,000
+the product of the pivots?
+
+359
+00:24:59,000 --> 00:25:02,000
+The determinant is d1,
+d2, to dn.
+
+360
+00:25:02,000 --> 00:25:03,740
+No doubt about that.
+
+361
+00:25:03,740 --> 00:25:08,730
+But to get to this triangular
+form, we may have had to do a
+
+362
+00:25:08,730 --> 00:25:12,000
+row exchange,
+so, so this -- it's the product
+
+363
+00:25:12,000 --> 00:25:16,000
+of the pivots if there were no
+row exchanges.
+
+364
+00:25:16,000 --> 00:25:20,000
+If, if SLU code,
+the simple LU code,
+
+365
+00:25:20,000 --> 00:25:23,000
+the square LU went right
+through.
+
+366
+00:25:23,000 --> 00:25:29,000
+If we had to do some row
+exchanges, then we've got to
+
+367
+00:25:29,000 --> 00:25:31,000
+watch plus or minus.
+
+368
+00:25:31,000 --> 00:25:35,000
+OK, but though -- this law is
+simply that.
+
+369
+00:25:35,000 --> 00:25:37,000
+OK, how do I prove that?
+
+370
+00:25:37,000 --> 00:25:42,000
+Let's see, let me suppose that
+d's are not
+
+371
+00:25:42,000 --> 00:25:43,000
+zeroes.
+
+372
+00:25:43,000 --> 00:25:45,000
+The pivots are not zeroes.
+
+373
+00:25:45,000 --> 00:25:49,000
+And tell me,
+how do I show that none of this
+
+374
+00:25:49,000 --> 00:25:52,700
+upper stuff makes any
+difference?
+
+375
+00:25:52,700 --> 00:25:55,000
+How do I get zeroes there?
+
+376
+00:25:55,000 --> 00:25:56,000
+By elimination,
+right?
+
+377
+00:25:56,000 --> 00:26:00,900
+I just multiply this row by the
+right number,
+
+378
+00:26:00,900 --> 00:26:03,000
+subtract from that row,
+kills that.
+
+379
+00:26:03,000 --> 00:26:08,000
+I multiply this row by the
+right
+
+380
+00:26:08,000 --> 00:26:11,000
+number, kills that,
+by the right number,
+
+381
+00:26:11,000 --> 00:26:12,000
+kills that.
+
+382
+00:26:12,000 --> 00:26:16,000
+Now, you kill every one of
+these off-diagonal terms,
+
+383
+00:26:16,000 --> 00:26:20,600
+no problem and I'm just left
+with the diagonal.
+
+384
+00:26:20,600 --> 00:26:25,000
+Well, strictly speaking,
+I still have to figure out why
+
+385
+00:26:25,000 --> 00:26:29,000
+is, for a diagonal matrix now,
+why is that the right
+
+386
+00:26:29,000 --> 00:26:31,000
+determinant?
+
+387
+00:26:31,000 --> 00:26:34,000
+I mean, we sure hope it is,
+but why?
+
+388
+00:26:34,000 --> 00:26:38,000
+I have to go back to properties
+one, two, three.
+
+389
+00:26:38,000 --> 00:26:43,000
+Why is -- now that the matrix
+is suddenly diagonal,
+
+390
+00:26:43,000 --> 00:26:47,000
+how do I know that the
+determinant is just a product of
+That's my proof,
+really, that once I've got
+
+391
+00:26:47,000 --> 00:26:50,000
+those diagonal entries?
+
+392
+00:26:50,000 --> 00:26:52,000
+Well, what I going to use?
+
+393
+00:26:52,000 --> 00:26:56,000
+I'm going to use property 3A,
+is
+
+394
+00:26:56,000 --> 00:26:57,010
+that right?
+
+395
+00:26:57,010 --> 00:26:59,000
+I'll factor this,
+I'll factor this,
+
+396
+00:26:59,000 --> 00:27:04,000
+I'll factor that d1 out and
+have one and have the first row
+
+397
+00:27:04,000 --> 00:27:05,000
+will be that.
+
+398
+00:27:05,000 --> 00:27:10,000
+And then I'll factor out the
+d2, shall I shall I put the d2
+
+399
+00:27:10,000 --> 00:27:13,000
+here, and the second row will
+look like that,
+
+400
+00:27:13,000 --> 00:27:14,000
+and so on.
+
+401
+00:27:14,000 --> 00:27:18,000
+So I've factored out all the
+d's and
+
+402
+00:27:18,000 --> 00:27:20,000
+what I left with?
+
+403
+00:27:20,000 --> 00:27:21,000
+The identity.
+
+404
+00:27:21,000 --> 00:27:24,000
+And what rule do I finally get
+to use?
+
+405
+00:27:24,000 --> 00:27:25,000
+Rule one.
+
+406
+00:27:25,000 --> 00:27:30,590
+Finally, this is the point
+where rule one finally chips in
+
+407
+00:27:30,590 --> 00:27:35,000
+and says that this determinant
+is one, so it's the product of
+
+408
+00:27:35,000 --> 00:27:36,000
+the d's.
+
+409
+00:27:36,000 --> 00:27:40,000
+So this was rules five,
+to do elimination,
+
+410
+00:27:40,000 --> 00:27:44,150
+3A to factor out
+the D's, and,
+
+411
+00:27:44,150 --> 00:27:46,000
+and our best friend,
+rule one.
+
+412
+00:27:46,000 --> 00:27:51,000
+And possibly rule two,
+the exchanges may have been
+
+413
+00:27:51,000 --> 00:27:52,000
+needed also.
+
+414
+00:27:52,000 --> 00:27:53,000
+OK.
+
+415
+00:27:53,000 --> 00:27:59,000
+Now I guess I have to consider
+also the case if some d is zero,
+
+416
+00:27:59,000 --> 00:28:04,000
+because I was assuming I could
+use the d's to clean out and
+
+417
+00:28:04,000 --> 00:28:09,000
+make a diagonal,
+but what if --
+
+418
+00:28:09,000 --> 00:28:13,000
+what if one of those diagonal
+entries is zero?
+
+419
+00:28:13,000 --> 00:28:19,000
+Well, then with elimination we
+know that we can get a row of
+
+420
+00:28:19,000 --> 00:28:24,000
+zeroes, and for a row of zeroes
+I'm using rule six,
+
+421
+00:28:24,000 --> 00:28:28,730
+the determinant is zero,
+and that's right.
+
+422
+00:28:28,730 --> 00:28:31,950
+So I can check the singular
+case.
+
+423
+00:28:31,950 --> 00:28:37,000
+In fact, I can now get to the
+key point that determinant of A
+
+424
+00:28:37,000 --> 00:28:41,000
+is zero,
+exactly when,
+
+425
+00:28:41,000 --> 00:28:44,000
+exactly when A is singular.
+
+426
+00:28:44,000 --> 00:28:51,000
+And otherwise is not singular,
+so that the determinant is a
+
+427
+00:28:51,000 --> 00:28:56,000
+fair test for invertibility or
+non-invertibility.
+
+428
+00:28:56,000 --> 00:29:03,000
+So, I must be close to that
+because I can take any matrix
+
+429
+00:29:03,000 --> 00:29:04,000
+and get there.
+
+430
+00:29:04,000 --> 00:29:08,000
+Do I -- did I have anything to
+say?
+
+431
+00:29:08,000 --> 00:29:13,000
+The, the proofs,
+it starts by saying by
+
+432
+00:29:13,000 --> 00:29:16,000
+elimination go from A to U.
+
+433
+00:29:16,000 --> 00:29:17,000
+Oh, yeah.
+
+434
+00:29:17,000 --> 00:29:22,000
+Actually looks to me like I
+don't -- haven't said anything
+
+435
+00:29:22,000 --> 00:29:26,000
+brand-new here,
+that, that really,
+
+436
+00:29:26,000 --> 00:29:30,320
+I've got this,
+because let's just remember the
+
+437
+00:29:30,320 --> 00:29:30,000
+reason.
+
+438
+00:29:30,000 --> 00:29:35,400
+By elimination,
+I can go from the original A to
+
+439
+00:29:35,400 --> 00:29:35,000
+U.
+
+440
+00:29:35,000 --> 00:29:40,000
+Well, OK, now suppose the
+matrix is
+
+441
+00:29:40,000 --> 00:29:41,000
+singular.
+
+442
+00:29:41,000 --> 00:29:45,000
+If the matrix is singular,
+what happens?
+
+443
+00:29:45,000 --> 00:29:51,000
+Then by elimination I get a row
+of zeroes and therefore the
+
+444
+00:29:51,000 --> 00:29:53,000
+determinant is zero.
+
+445
+00:29:53,000 --> 00:29:58,000
+And if the matrix is not
+singular, I don't get zero,
+
+446
+00:29:58,000 --> 00:30:03,000
+so maybe -- do you want me to
+put this, like,
+
+447
+00:30:03,000 --> 00:30:04,740
+in two parts?
+
+448
+00:30:04,740 --> 00:30:09,000
+The determinant of A is not
+zero
+
+449
+00:30:09,000 --> 00:30:11,000
+when A is invertible.
+
+450
+00:30:11,000 --> 00:30:17,000
+Because I've already -- in
+chapter two we figured out when
+
+451
+00:30:17,000 --> 00:30:19,000
+is the matrix invertible.
+
+452
+00:30:19,000 --> 00:30:25,140
+It's invertible when
+elimination produces a full set
+
+453
+00:30:25,140 --> 00:30:29,000
+of pivots and now,
+and we now, we know the
+
+454
+00:30:29,000 --> 00:30:34,000
+determinant is the product of
+those non-zero numbers.
+
+455
+00:30:34,000 --> 00:30:38,000
+So those are the two cases.
+
+456
+00:30:38,000 --> 00:30:43,000
+If it's singular,
+I go to a row of zeroes.
+
+457
+00:30:43,000 --> 00:30:48,000
+If it's invertible,
+I go to U and then to the
+
+458
+00:30:48,000 --> 00:30:53,000
+diagonal D, and then which --
+and then to d1,
+
+459
+00:30:53,000 --> 00:30:54,000
+d2, up to dn.
+
+460
+00:30:54,000 --> 00:30:59,000
+As the formula -- so we have a
+formula now.
+
+461
+00:30:59,000 --> 00:31:05,000
+We have a formula for the
+determinant and it's actually a
+
+462
+00:31:05,000 --> 00:31:11,000
+very much more practical formula
+than the
+
+463
+00:31:11,000 --> 00:31:12,000
+ad-bc formula.
+
+464
+00:31:12,000 --> 00:31:17,000
+Is it correct,
+maybe you should just -- let's
+
+465
+00:31:17,000 --> 00:31:18,000
+just check that.
+
+466
+00:31:18,000 --> 00:31:19,000
+Two-by-two.
+
+467
+00:31:19,000 --> 00:31:23,000
+What are the pivots of a
+two-by-two matrix?
+
+468
+00:31:23,000 --> 00:31:28,000
+What does elimination do with a
+two-by-two matrix?
+
+469
+00:31:28,000 --> 00:31:31,000
+It -- there's the first pivot,
+fine.
+
+470
+00:31:31,000 --> 00:31:33,000
+What's the second pivot?
+
+471
+00:31:33,000 --> 00:31:39,000
+We subtract,
+so I'm putting it in this upper
+
+472
+00:31:39,000 --> 00:31:41,000
+triangular form.
+
+473
+00:31:41,000 --> 00:31:46,000
+What do I -- my multiplier is c
+over a, right?
+
+474
+00:31:46,000 --> 00:31:53,000
+I multiply that row by c over a
+and I subtract to get that zero,
+
+475
+00:31:53,000 --> 00:31:57,630
+and here I have d minus c over
+a times b.
+
+476
+00:31:57,630 --> 00:32:02,000
+That's the elimination on a
+two-by-two.
+
+477
+00:32:02,000 --> 00:32:08,000
+So I've finally discovered that
+the determinant of this matrix
+
+478
+00:32:08,000 --> 00:32:13,000
+-- I've got it from the
+properties, not by knowing the
+
+479
+00:32:13,000 --> 00:32:17,000
+answer from last year,
+that the determinant of this
+
+480
+00:32:17,000 --> 00:32:23,000
+two-by-two is the product of A
+times that, and of course when I
+
+481
+00:32:23,000 --> 00:32:28,000
+multiply A by that,
+the product of that and that
+
+482
+00:32:28,000 --> 00:32:32,000
+is ad minus,
+the a is canceled,
+
+483
+00:32:32,000 --> 00:32:32,000
+bc.
+So that's great,
+provided a isn't zero.
+
+484
+00:32:36,000 --> 00:32:41,000
+If a was zero,
+that step wasn't allowed,
+
+485
+00:32:41,000 --> 00:32:43,000
+zero wasn't a pivot.
+
+486
+00:32:43,000 --> 00:32:48,000
+So that's what I -- I've
+covered all the bases.
+
+487
+00:32:48,000 --> 00:32:56,580
+I have to -- if a is zero,
+then I have to do the exchange,
+
+488
+00:32:56,580 --> 00:33:02,000
+and if the exchange doesn't
+work, it's because a is
+
+489
+00:33:02,000 --> 00:33:03,000
+singular.
+
+490
+00:33:03,000 --> 00:33:09,000
+OK, those are -- those are the
+direct properties of the
+
+491
+00:33:09,000 --> 00:33:10,590
+determinant.
+
+492
+00:33:10,590 --> 00:33:14,000
+And now, finally,
+I've got two more,
+
+493
+00:33:14,000 --> 00:33:15,970
+nine and ten.
+
+494
+00:33:15,970 --> 00:33:19,000
+And that's -- I think you
+can...
+
+495
+00:33:19,000 --> 00:33:25,000
+Like, the ones
+we've got here are totally
+
+496
+00:33:25,000 --> 00:33:31,000
+connected with our elimination
+process and whether pivots are
+
+497
+00:33:31,000 --> 00:33:36,460
+available and whether we get a
+row of zeroes.
+
+498
+00:33:36,460 --> 00:33:41,000
+I think all that you can
+swallow in one shot.
+
+499
+00:33:41,000 --> 00:33:45,000
+Let me tell you properties nine
+and ten.
+
+500
+00:33:45,000 --> 00:33:48,000
+They're quick to write down.
+
+501
+00:33:48,000 --> 00:33:51,000
+They're very,
+very useful.
+
+502
+00:33:51,000 --> 00:33:57,000
+So I'll just write them down
+and use them.
+
+503
+00:33:57,000 --> 00:34:03,360
+Property nine says that the
+determinant of a product -- if I
+That's the, like,
+concrete proof that,
+
+504
+00:34:03,360 --> 00:34:05,000
+multiply two matrices.
+
+505
+00:34:05,000 --> 00:34:12,000
+So if I multiply two matrices,
+A and B, that the determinant
+
+506
+00:34:12,000 --> 00:34:18,199
+of the product is determinant of
+A times determinant of B,
+
+507
+00:34:18,199 --> 00:34:23,000
+and for me that one is like,
+that's a very valuable
+
+508
+00:34:23,000 --> 00:34:29,000
+property, and it's sort of like
+partly coming
+
+509
+00:34:29,000 --> 00:34:33,000
+out of the blue,
+because we haven't been
+
+510
+00:34:33,000 --> 00:34:38,000
+multiplying matrices and here
+suddenly this determinant has
+
+511
+00:34:38,000 --> 00:34:40,000
+this multiplying property.
+
+512
+00:34:40,000 --> 00:34:44,000
+Remember, it didn't have the
+linear property,
+
+513
+00:34:44,000 --> 00:34:47,000
+it didn't have the adding
+property.
+
+514
+00:34:47,000 --> 00:34:54,670
+The determinant of A plus B is
+not the sum of the determinants,
+
+515
+00:34:54,670 --> 00:35:00,570
+but the determinant of A times
+B is the product,
+
+516
+00:35:00,570 --> 00:35:04,000
+is the product of the
+determinants.
+
+517
+00:35:04,000 --> 00:35:10,000
+OK, so for example,
+what's the determinant of A
+
+518
+00:35:10,000 --> 00:35:11,000
+inverse?
+
+519
+00:35:11,000 --> 00:35:14,000
+Using that property nine.
+
+520
+00:35:14,000 --> 00:35:21,000
+Let me, let me put that under
+here because the camera is
+
+521
+00:35:21,000 --> 00:35:26,000
+happier if it can focus on both
+at once.
+
+522
+00:35:26,000 --> 00:35:31,000
+So let me put it underneath.
+
+523
+00:35:31,000 --> 00:35:37,000
+The determinant of A inverse,
+because property ten will come
+
+524
+00:35:37,000 --> 00:35:39,000
+in that space.
+
+525
+00:35:39,000 --> 00:35:44,000
+What does this tell me about A
+inverse, its determinant?
+
+526
+00:35:44,000 --> 00:35:48,000
+OK, well, what do I know about
+A inverse?
+
+527
+00:35:48,000 --> 00:35:52,000
+I know that A inverse times A
+is odd.
+
+528
+00:35:52,000 --> 00:35:54,000
+So what I going to do?
+
+529
+00:35:54,000 --> 00:35:59,000
+I'm going to take determinants
+of
+
+530
+00:35:59,000 --> 00:36:00,000
+both sides.
+
+531
+00:36:00,000 --> 00:36:05,780
+The determinant of I is one,
+and what's the determinant of A
+
+532
+00:36:05,780 --> 00:36:06,000
+inverse A?
+
+533
+00:36:06,000 --> 00:36:10,000
+That's a product of two
+matrices, A and B.
+
+534
+00:36:10,000 --> 00:36:16,000
+So it's the product of the
+determinant, so what I learning?
+
+535
+00:36:16,000 --> 00:36:20,850
+I'm learning that the
+determinant of A inverse times
+
+536
+00:36:20,850 --> 00:36:25,000
+the determinant of A is the
+determinant of
+
+537
+00:36:25,000 --> 00:36:28,000
+I, that's this one.
+
+538
+00:36:28,000 --> 00:36:33,000
+Again, I happily use property
+one.
+
+539
+00:36:33,000 --> 00:36:41,000
+OK, so that tells me that the
+determinant of A inverse is one
+
+540
+00:36:41,000 --> 00:36:42,000
+over.
+
+541
+00:36:42,000 --> 00:36:49,000
+Here's my -- here's my
+conclusion -- is one over the
+
+542
+00:36:49,000 --> 00:36:51,000
+determinant of A.
+
+543
+00:36:51,000 --> 00:36:58,000
+I guess that that --
+I, I always try to think,
+
+544
+00:36:58,000 --> 00:37:01,000
+well, do we know some cases of
+that?
+
+545
+00:37:01,000 --> 00:37:06,000
+Of course, we know it's right
+already if A is diagonal.
+
+546
+00:37:06,000 --> 00:37:11,000
+If A is a diagonal matrix,
+then its determinant is just a
+
+547
+00:37:11,000 --> 00:37:13,000
+product of those numbers.
+
+548
+00:37:13,000 --> 00:37:19,000
+So if A is, for example,
+two-three, then we know that
+
+549
+00:37:19,000 --> 00:37:24,000
+A-inverse is one-half
+one-third, and sure enough,
+
+550
+00:37:24,000 --> 00:37:28,000
+that has determinant six,
+and that has determinant
+
+551
+00:37:28,000 --> 00:37:29,000
+one-sixth.
+
+552
+00:37:29,000 --> 00:37:31,840
+And our rule checks.
+
+553
+00:37:31,840 --> 00:37:37,000
+So somehow this proof,
+this property has to -- somehow
+
+554
+00:37:37,000 --> 00:37:43,000
+the proof of that property -- if
+we can boil it down to diagonal
+
+555
+00:37:43,000 --> 00:37:47,000
+matrices then we can read it
+off,
+
+556
+00:37:47,000 --> 00:37:52,000
+whether it's A and A-inverse,
+or two different diagonal
+
+557
+00:37:52,000 --> 00:37:53,000
+matrices A and B.
+
+558
+00:37:53,000 --> 00:37:56,000
+For diagonal -- so what I
+saying?
+
+559
+00:37:56,000 --> 00:37:59,000
+I'm saying for a diagonal
+matrices, check.
+
+560
+00:37:59,000 --> 00:38:04,000
+But we'd have to do elimination
+steps, we'd have to patiently do
+
+561
+00:38:04,000 --> 00:38:10,000
+the, the, argument if we want to
+use these previous properties to
+
+562
+00:38:10,000 --> 00:38:13,000
+get it
+for other matrices.
+
+563
+00:38:13,000 --> 00:38:18,000
+And it also tells me -- what,
+just let's, see what else it's
+
+564
+00:38:18,000 --> 00:38:19,000
+telling me.
+
+565
+00:38:19,000 --> 00:38:23,000
+What's the determinant of,
+of A-squared?
+
+566
+00:38:23,000 --> 00:38:25,000
+If I take a matrix and square
+it?
+
+567
+00:38:25,000 --> 00:38:29,000
+Then the determinant just got
+squared.
+
+568
+00:38:29,000 --> 00:38:29,000
+Right?
+The determinant of A-squared is
+the
+
+569
+00:38:33,000 --> 00:38:37,000
+determinant of A times the
+determinant of A.
+
+570
+00:38:37,000 --> 00:38:42,000
+So if I square the matrix,
+I square the determinant.
+
+571
+00:38:42,000 --> 00:38:46,000
+If I double the matrix,
+what do I do to the
+
+572
+00:38:46,000 --> 00:38:47,000
+determinant?
+
+573
+00:38:47,000 --> 00:38:49,000
+Think about that one.
+
+574
+00:38:49,000 --> 00:38:54,000
+If I double the matrix,
+what -- so the determinant of
+
+575
+00:38:54,000 --> 00:38:59,000
+A, since I'm writing down,
+like, facts
+
+576
+00:38:59,000 --> 00:39:04,000
+that follow,
+the determinant of A-squared is
+
+577
+00:39:04,000 --> 00:39:08,000
+the determinant of A,
+all squared.
+
+578
+00:39:08,000 --> 00:39:11,000
+The determinant of 2A is what?
+
+579
+00:39:11,000 --> 00:39:13,000
+That's A plus A.
+
+580
+00:39:13,000 --> 00:39:18,000
+But wait, er,
+I don't want the answer to
+
+581
+00:39:18,000 --> 00:39:20,830
+determinant of A here.
+
+582
+00:39:20,830 --> 00:39:22,000
+That's wrong.
+
+583
+00:39:22,000 --> 00:39:28,000
+It's not two determinant of A,
+What is it?
+
+584
+00:39:28,000 --> 00:39:33,630
+what's the number that I have
+to multiply determinant of A by
+
+585
+00:39:33,630 --> 00:39:38,000
+if I double the whole matrix,
+if I double every entry in the
+
+586
+00:39:38,000 --> 00:39:39,000
+matrix?
+
+587
+00:39:39,000 --> 00:39:42,000
+What happens to the
+determinant?
+If that were possible,
+that would be a bad thing,
+
+588
+00:39:42,000 --> 00:39:45,000
+Supposed it's an n-by-n matrix.
+
+589
+00:39:45,000 --> 00:39:46,000
+Two to the n,
+right.
+
+590
+00:39:46,000 --> 00:39:48,000
+Two to the nth.
+
+591
+00:39:48,000 --> 00:39:53,000
+Now, why is it two to the nth,
+and not just two?
+
+592
+00:39:53,000 --> 00:39:56,000
+So why is it two to the nth?
+
+593
+00:39:56,000 --> 00:39:59,000
+Because I'm factoring out two
+from every row.
+
+594
+00:39:59,000 --> 00:40:04,000
+There's a factor -- this has a
+factor two in every row,
+
+595
+00:40:04,000 --> 00:40:07,000
+so I can factor two out of the
+first row.
+
+596
+00:40:07,000 --> 00:40:12,000
+I factor a different two out of
+the second row,
+
+597
+00:40:12,000 --> 00:40:17,990
+a different two out of the nth
+row, so I've got all those twos
+
+598
+00:40:17,990 --> 00:40:19,000
+coming out.
+
+599
+00:40:19,000 --> 00:40:23,000
+So it's like volume,
+really, and that's one of the
+
+600
+00:40:23,000 --> 00:40:26,000
+great applications of
+determinants.
+
+601
+00:40:26,000 --> 00:40:31,000
+If I -- if I have a box and I
+double all the sides,
+
+602
+00:40:31,000 --> 00:40:36,000
+I multiply the volume by two to
+the nth.
+
+603
+00:40:36,000 --> 00:40:42,000
+If it's a box in three
+dimensions, I multiply the
+
+604
+00:40:42,000 --> 00:40:43,000
+volume by 8.
+
+605
+00:40:43,000 --> 00:40:46,000
+So this is rule 3A here.
+
+606
+00:40:46,000 --> 00:40:48,000
+This is rule nine.
+
+607
+00:40:48,000 --> 00:40:55,000
+And notice the way this rule
+sort of checks out with the
+
+608
+00:40:55,000 --> 00:41:01,000
+singular/non-singular stuff,
+that if A is invertible,
+
+609
+00:41:01,000 --> 00:41:06,000
+what does that mean about its
+determinant?
+
+610
+00:41:06,000 --> 00:41:11,000
+It's not zero,
+and therefore this makes sense.
+
+611
+00:41:11,000 --> 00:41:17,000
+The case when determinant of A
+is zero, that's the case where
+
+612
+00:41:17,000 --> 00:41:19,000
+my formula doesn't work anymore.
+
+613
+00:41:19,000 --> 00:41:23,000
+If determinant of A is zero,
+this is ridiculous,
+
+614
+00:41:23,000 --> 00:41:25,000
+and that's ridiculous.
+
+615
+00:41:25,000 --> 00:41:30,000
+A-inverse doesn't exist,
+and one over zero doesn't make
+
+616
+00:41:30,000 --> 00:41:31,130
+sense.
+
+617
+00:41:31,130 --> 00:41:34,000
+So don't miss this property.
+
+618
+00:41:34,000 --> 00:41:39,000
+It's sort of,
+like, amazing that it can...
+
+619
+00:41:39,000 --> 00:41:46,000
+And the tenth property is
+equally simple to state,
+
+620
+00:41:46,000 --> 00:41:52,000
+that the determinant of A
+transposed equals the
+
+621
+00:41:52,000 --> 00:41:54,000
+determinant of A.
+
+622
+00:41:54,000 --> 00:42:00,000
+And of course,
+let's just check it on the ab
+
+623
+00:42:00,000 --> 00:42:01,000
+cd guy.
+
+624
+00:42:01,000 --> 00:42:06,000
+We could check that sure
+enough, that's ab cd,
+
+625
+00:42:06,000 --> 00:42:09,000
+it works.
+
+626
+00:42:09,000 --> 00:42:12,000
+It's ad - bc,
+it's ad - bc,
+
+627
+00:42:12,000 --> 00:42:14,000
+sure enough.
+
+628
+00:42:14,000 --> 00:42:19,000
+So that transposing did not
+change the determinant.
+
+629
+00:42:19,000 --> 00:42:26,000
+But what it does change is --
+well, what it does is it lists,
+
+630
+00:42:26,000 --> 00:42:30,000
+so all -- I've been working
+with rows.
+
+631
+00:42:30,000 --> 00:42:37,000
+If a row is all zeroes,
+the determinant is zero.
+
+632
+00:42:37,000 --> 00:42:41,000
+But now, with rule ten,
+I know what to do is a column
+
+633
+00:42:41,000 --> 00:42:42,000
+is all zero.
+
+634
+00:42:42,000 --> 00:42:46,000
+If a column is all zero,
+what's the determinant?
+
+635
+00:42:46,000 --> 00:42:47,000
+Zero, again.
+
+636
+00:42:47,000 --> 00:42:52,000
+So, like all those properties
+about rows, exchanging two rows
+
+637
+00:42:52,000 --> 00:42:53,000
+reverses the sign.
+
+638
+00:42:53,000 --> 00:42:57,000
+Now, exchanging two columns
+reverses the sign,
+
+639
+00:42:57,000 --> 00:43:02,000
+because I can always,
+if I want to see why,
+
+640
+00:43:02,000 --> 00:43:05,000
+I can transpose,
+those columns become rows,
+
+641
+00:43:05,000 --> 00:43:08,000
+I do the exchange,
+I transpose back.
+
+642
+00:43:08,000 --> 00:43:11,000
+And I've done a column
+operation.
+
+643
+00:43:11,000 --> 00:43:15,000
+So, in, in conclusion,
+there was nothing special about
+
+644
+00:43:15,000 --> 00:43:20,000
+row one, 'cause I could exchange
+rows, and now there's nothing
+
+645
+00:43:20,000 --> 00:43:25,090
+special about rows that isn't
+equally true for
+
+646
+00:43:25,090 --> 00:43:28,000
+columns because this is the
+same.
+
+647
+00:43:28,000 --> 00:43:28,000
+OK.
+And again, maybe I won't -- oh,
+let's see.
+
+648
+00:43:33,000 --> 00:43:34,000
+Do we...?
+
+649
+00:43:34,000 --> 00:43:40,000
+Maybe it's worth seeing a quick
+proof of this number ten,
+
+650
+00:43:40,000 --> 00:43:44,000
+quick, quick,
+er, proof of number ten.
+
+651
+00:43:44,000 --> 00:43:48,000
+Er, let me take the -- this is
+number ten.
+
+652
+00:43:48,000 --> 00:43:52,000
+A transposed
+equals A.
+
+653
+00:43:52,000 --> 00:43:59,990
+Determinate of A transposed
+equals determinate of A.
+
+654
+00:43:59,990 --> 00:44:04,000
+That's what I should have said.
+
+655
+00:44:04,000 --> 00:44:05,000
+OK.
+
+656
+00:44:05,000 --> 00:44:07,000
+So, let's just,
+er.
+
+657
+00:44:07,000 --> 00:44:13,000
+A typical matrix A,
+if I use elimination,
+
+658
+00:44:13,000 --> 00:44:16,000
+this factors into LU.
+
+659
+00:44:16,000 --> 00:44:23,000
+And the transpose is U
+transpose, l transpose.
+
+660
+00:44:23,000 --> 00:44:25,210
+Er...
+let me.
+
+661
+00:44:25,210 --> 00:00:00,000
+
+
+662
+00:44:30,000 --> 00:44:33,000
+So this is proof,
+this is proof number ten,
+
+663
+00:44:33,000 --> 00:44:37,000
+using -- well,
+I don't know which ones I'll
+
+664
+00:44:37,000 --> 00:44:40,000
+use, so I'll put 'em all in,
+one to nine.
+
+665
+00:44:40,000 --> 00:44:40,000
+OK.
+I'm going to prove number ten
+by using one to nine.
+
+666
+00:44:44,000 --> 00:44:49,000
+I won't cover every case,
+but I'll cover almost every
+
+667
+00:44:49,000 --> 00:44:49,000
+case.
+So in almost every case,
+A can
+
+668
+00:44:52,000 --> 00:44:57,000
+factor into LU,
+and A transposed can factor
+
+669
+00:44:57,000 --> 00:44:58,000
+into that.
+
+670
+00:44:58,000 --> 00:45:00,000
+Now, what do I do next?
+
+671
+00:45:00,000 --> 00:45:04,000
+So I want to prove that these
+are the same.
+
+672
+00:45:04,000 --> 00:45:06,000
+I see a product here.
+
+673
+00:45:06,000 --> 00:45:08,000
+So I use rule nine.
+
+674
+00:45:08,000 --> 00:45:14,000
+So, now what I want to prove
+is, so now I know that this is
+
+675
+00:45:14,000 --> 00:45:19,000
+LU, this is U transposed and l
+transposed.
+
+676
+00:45:19,000 --> 00:45:23,000
+Now, just for a practice,
+what are all those
+
+677
+00:45:23,000 --> 00:45:25,000
+determinants?
+
+678
+00:45:25,000 --> 00:45:28,000
+So this is, this is,
+this is prove this,
+
+679
+00:45:28,000 --> 00:45:33,000
+prove this, prove this,
+and now I'm ready to do it.
+
+680
+00:45:33,000 --> 00:45:35,000
+What's the determinant of l?
+
+681
+00:45:35,000 --> 00:45:39,000
+You remember what l is,
+it's this lower triangular
+
+682
+00:45:39,000 --> 00:45:44,000
+matrix with ones on the
+diagonals.
+
+683
+00:45:44,000 --> 00:45:47,000
+So what is the determinant of
+that guy?
+
+684
+00:45:47,000 --> 00:45:48,000
+I- It's one.
+
+685
+00:45:48,000 --> 00:45:53,000
+Any time I have this triangular
+matrix, I can get rid of all the
+
+686
+00:45:53,000 --> 00:45:56,980
+non-zeroes, down to the diagonal
+case.
+
+687
+00:45:56,980 --> 00:45:59,000
+The determinate of l is one.
+
+688
+00:45:59,000 --> 00:46:02,000
+How about the determinant of l
+transposed?
+
+689
+00:46:02,000 --> 00:46:06,500
+That's triangular also,
+right?
+
+690
+00:46:06,500 --> 00:38:45,000
+Still got those ones on the
+diagonal, it's just the
+
+691
+00:38:45,000 --> 00:31:07,000
+non-zeroes flipped to the other
+side of the diagonal,
+
+692
+00:31:07,000 --> 00:26:43,000
+but they didn't matter anyway.
+
+693
+00:20:33,000 --> 00:14:49,000
+triangular matrices,
+l and l transposed,
+
+694
+00:14:49,000 --> 00:06:27,000
+or U and U transposed,
+when they're triangular,4
+
+695
+00:06:27,000 --> 00:15:30,000
+I'm down to the product of the
+diagonal and if I transpose,
+
+696
+00:15:30,000 --> 00:17:04,000
+who cares?
+
+697
+00:17:04,000 --> 00:24:43,000
+OK, that's not -- I didn't put
+in every comma and,
+
+698
+00:24:43,000 --> 00:33:00,000
+and cross every T in that
+proof, but that's really the
+
+699
+00:33:00,000 --> 00:33:57,000
+proof.
+
+700
+00:39:44,000 --> 00:46:55,000
+that gets -- get down to
+triangular
+
+701
+00:46:55,000 --> 00:39:25,000
+matrices and then get down to
+diagonal matrices.
+
+702
+00:39:25,000 --> 00:32:33,000
+OK, one more coming,
+which I I have to make,
+
+703
+00:32:33,000 --> 00:23:36,000
+because all math professors
+watching this will be waiting
+
+704
+00:23:36,000 --> 00:22:29,000
+for it.
+
+705
+00:22:29,000 --> 00:15:18,000
+OK, so they had to wait until
+the last minute.
+
+706
+00:15:18,000 --> 00:07:20,000
+What I -- way,
+way back in property two,4
+
+707
+00:07:20,000 --> 00:14:29,140
+I said that if you do a row
+exchange, the determinant
+
+708
+00:14:29,140 --> 00:16:16,000
+changes sign.
+
+709
+00:16:16,000 --> 00:24:31,000
+So if I do seven row exchanges,
+the determinant changes sign,
+
+710
+00:24:31,000 --> 00:32:38,000
+but it -- would it be possible
+t- to produce the same matrix
+
+711
+00:32:38,000 --> 00:39:39,000
+with seven row exchanges and
+with ten row exchanges?
+
+712
+00:47:46,000 --> 00:47:46,000
+right?
+If If I could -- why would it
+be bad?
+
+713
+00:47:49,000 --> 00:47:52,000
+My whole lecture would die,
+right?
+
+714
+00:47:52,000 --> 00:47:56,000
+Because rule two said that if
+you do seven row exchanges,
+
+715
+00:47:56,000 --> 00:48:00,000
+then the sign of the
+determinant reverses.
+
+716
+00:48:00,000 --> 00:48:04,000
+But if you do ten row
+exchanges, the sign of the
+
+717
+00:48:04,000 --> 00:48:08,000
+determinant stays the same,
+because minus one
+
+718
+00:48:08,000 --> 00:48:10,000
+ten times is plus one.
+
+719
+00:48:10,000 --> 00:48:15,000
+OK, so there's a hidden fact
+here, that every -- like,
+
+720
+00:48:15,000 --> 00:48:19,000
+every permutation,
+the permutations are either odd
+
+721
+00:48:19,000 --> 00:48:20,000
+or even.
+
+722
+00:48:20,000 --> 00:48:25,000
+I could get the permutation
+with seven row exchanges,
+
+723
+00:48:25,000 --> 00:48:29,000
+then I could probably get it
+with twenty-one,
+
+724
+00:48:29,000 --> 00:48:32,000
+or twenty-three,
+or a hundred and one,
+
+725
+00:48:32,000 --> 00:48:34,000
+if it's an odd one.
+
+726
+00:48:34,000 --> 00:48:36,000
+Or an even number of
+permutations,
+
+727
+00:48:36,000 --> 00:48:41,000
+so, but that's the key fact
+that just takes another little
+
+728
+00:48:41,000 --> 00:48:44,000
+algebraic trick to see,
+and that means that the
+
+729
+00:48:44,000 --> 00:48:48,000
+determinant is well-defined by
+properties one,
+
+730
+00:48:48,000 --> 00:48:51,000
+two, three and it's got
+properties
+
+731
+00:48:51,000 --> 00:48:52,000
+four to ten.
+
+732
+00:48:52,000 --> 00:48:56,000
+OK, that's today and I'll try
+to get the homework for next
+
+733
+00:48:56,000 --> 00:48:59,000
+Wednesday onto the web this
+afternoon.
+
+734
+00:48:59,000 --> 00:49:02,000
+Thanks.
