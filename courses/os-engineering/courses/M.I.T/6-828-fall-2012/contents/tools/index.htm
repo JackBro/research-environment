@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Tools | Operating System Engineering | Electrical Engineering and Computer Science | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="6-828-operating-system-engineering-fall-2012" name="WT.cg_n">
+<meta content="Tools" name="WT.cg_s">
+<meta content="This section describes the required software for the course." name="Description">
+<meta content="Kaashoek, Frans" name="Author">
+<meta content="operating system,OS,UNIX,virtual memory,threads,context switches,kernels,interrupts,system calls,interprocess communication,C,x86 assembly,programming,Operating Systems,Software Design and Engineering" name="keywords">
+<meta content="6.828 Operating System Engineering | Tools" name="Search_Display">
+<meta content="Operating Systems" itemprop="about">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses_new.css">
+<link href="http://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-828-operating-system-engineering-fall-2012/tools">
+<link rel="apple-touch-icon" href="../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <div id="top">
+			<div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" role="banner" id="banner"><a href="http://ocw.mit.edu/"><img class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology" src="../../common/images/ocw_mast.png"></a></div>
+<div class="grid_6 omega" role="form toolbar" id="subscribe">
+<div class="module">
+<table class="social"><tbody><tr>
+<td class="socialbutton"><a href="http://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a href="https://plus.google.com/104567381989352550847/posts"><img alt="Click to visit our Google+ page." src="../../common/images/icon_gp.png"></a><a href="https://www.pinterest.com/mitocw/pins/"><img alt="Click to visit our Pinterest page." src="../../common/images/icon_pin.png"></a><a href="http://facebook.com/mitocw"><img alt="Click to visit our Facebook page." src="../../common/images/icon_fb.png"></a><a href="http://twitter.com/mitocw"><img alt="Click to visit our Twitter feed." src="../../common/images/icon_tw.png"></a>
+</td>
+        </tr></tbody></table>
+</div>
+<p class="helplinks"><a href="http://ocw.mit.edu/help">Help</a>   |   <a href="../../common/jsp/feedback.htm">Contact Us</a></p>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<div id="mega" role="navigation" class="grid_8 alpha">        
+	<ul id="menu">
+<li id="menu_home">
+            <a href="http://ocw.mit.edu/"><img src="../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+        </li>
+<!-- End Home Item -->        
+        <li class="selected">
+            <a href="#" class="drop">Find Courses</a><!-- Begin 5 columns Item -->
+            <div class="dropdown_5columns-a mega-courses">                    
+                <div class="col_1a">
+                    <div class="row_1a">
+                        <div class="quart">
+                            <h2 class="nav">Find courses by:</h2>
+                            <ul class="nav-bullet find_by">
+<li><a href="http://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+                            </ul>
+<ul style="margin-top: 88px;" class="nav-bullet find_by">
+<li style="font-weight: normal; font-size: 1em;"><a href="http://ocw.mit.edu/courses/">View All Courses</a></li>
+							</ul>
+</div>
+                        <div class="quart">
+                            <h2 class="nav">Collections</h2>
+                            <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                                <li><a href="http://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+                            </ul>
+</div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="row_1b">
+                        <h2 class="nav">Cross-Disciplinary Topic Lists</h2>
+                        <div class="quart">
+                        <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+                        </ul>
+</div>    
+                        <div class="quart">
+                        <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+                        </ul>
+</div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="col_1b">
+                    <h2 class="nav">Translated Courses</h2>
+                    <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/translated-courses/traditional-chinese">繁體字 / Traditional Chinese</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/spanish">Español / Spanish</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/portuguese">Português / Portuguese</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/persian">فارسی / Persian</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/turkish">Türkçe / Turkish</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/korean">(비디오)한국 / Korean</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses">More...</a></li>
+                    </ul>
+</div>
+            </div>
+        </li>
+        <li>
+            <a href="" class="drop">About</a>
+            <div class="dropdown_1column-a">
+                <div class="col_1">
+                    <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    </ul>
+<ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/about/site-statistics/">Site Stats</a></li>
+                        <li><a href="http://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>                        
+                    </ul>
+<ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/about/media-coverage/">Media Coverage</a></li>
+                        <li><a href="http://ocw.mit.edu/about/newsletter/">Newsletter</a></li>                        
+                    </ul>
+</div>
+            </div>  
+        </li>    
+        <li>
+            <a href="" class="drop">Donate</a>        
+            <div class="dropdown_1column-a">
+                    <div class="col_1">
+                        <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/donate/">Make a Donation</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+                        </ul>
+<ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+                        </ul>
+</div>
+            </div>            
+        </li>        
+        <li>
+            <a href="" class="drop">Featured Sites</a>        
+            <div class="dropdown_1column-a">
+                <div class="col_1">
+                    <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+                        <li><a href="http://ocw.mit.edu/educator/">OCW Educator</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>                        
+                    </ul>
+<ul class="nav-bullet mega-div-top">
+<li><a href="http://ocw.mit.edu/ans7870/featured/mitx-courses-on-edx.htm">MITx Courses on edX</a></li>
+                        <li><a href="http://teachingexcellence.mit.edu/">Teaching Excellence at MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/">Open Education Consortium</a></li>
+                    </ul>
+</div>
+            </div>            
+        </li>
+    </ul>
+</div>
+<div id="search" role="search" class="grid_4 omega">
+    
+    <form method="get" action="../../common/search/AdvancedSearch.htm">
+     	 <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td> 			 
+                    <td class="black"><input type="image" src="../../common/images/button_search.png" name="btnG" class="sub_button"></td>			 
+                    <td class="text2"><a href="../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+                </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->  
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</div>
+<!-- top end -->
+			
+		<div id="center">
+         <div id="grid">
+		     <div id="left-section">
+                 <div id="breadcrumb">
+                      <p>
+
+    <a href="http://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="http://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science">Electrical Engineering and Computer Science</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../contents/index.htm">Operating System Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Tools
+         
+    
+</p>
+
+                 </div>
+                 <div class="clear"></div>
+                 <div id="section_title">
+           			<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Tools
+        </span>
+    </h1>
+           	     </div>
+           	     <div class="clear"></div>
+           	     <div id="course_wrapper_section">
+           	     	 <div id="course_nav">
+           			 	
+
+
+
+<script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/Syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/lecture-notes-and-readings/index.htm">
+		                  Lecture Notes and Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/labs/index.htm">
+		                  Labs  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends -->
+</div>
+           		     <div id="course_inner_section">
+           		     	 
+	       		     	<h2 class="subhead">Tools Used in 6.828</h2> <p>If you would like to compile and run the tools on your own machine, here is the information you need. We cannot guarantee that these tools will run on your computer, but they should run on recent versions of Linux.</p> <p>It should be possible to get this development environment running under windows with the help of <a href="http://www.cygwin.com/">Cygwin</a>. Install cygwin, and be sure to install the <code>flex</code> and <code>bison</code> packages (they are under the development header).</p> <p>For an overview of useful commands in the tools used in 6.828, see the lab tools guide below.</p> <h2 class="subhead">Compiler Toolchain</h2> <p>Most modern Linuxes and BSDs have an ELF toolchain compatible with the 6.828 labs. That is, the system-standard <code>gcc</code>, <code>as</code>,<code> ld</code> and <code>objdump</code> should just work. The 6.828 lab makefile should automatically detect this. However, if your machine is in this camp and the makefile fails to detect this, you can override it by adding the following line to <code>conf/env.mk:</code></p> <pre><code>GCCPREFIX=</code></pre> <p>If you are using something other than standard x86 Linux or BSD, you will need the GNU C compiler toolchain, configured and built as a cross-compiler for the target '<code>i386-jos-elf</code>', as well as the GNU debugger, configured for the <code>i386-jos-elf</code> toolchain. You can download the specific versions we used via these links, although any recent versions of gcc, binutils, and GDB should work:</p> <ul>
+<li><a href="http://ftpmirror.gnu.org/binutils/binutils-2.21.1.tar.bz2">http://ftpmirror.gnu.org/binutils/binutils-2.21.1.tar.bz2</a></li> <li><a href="http://ftpmirror.gnu.org/gcc/gcc-4.5.1/gcc-core-4.5.1.tar.bz2">http://ftpmirror.gnu.org/gcc/gcc-4.5.1/gcc-core-4.5.1.tar.bz2</a></li> <li><a href="http://ftpmirror.gnu.org/gdb/gdb-6.8a.tar.gz">http://ftpmirror.gnu.org/gdb/gdb-6.8a.tar.gz</a></li>
+</ul>
+<p>Once you've unpacked these archives, run the following commands as root:</p> <pre><code> # cd binutils-2.21.1 # ./configure --target=i386-jos-elf --disable-nls # make # make install # cd ../gcc-4.5.1 # ./configure --target=i386-jos-elf --disable-nls --without-headers \               --with-newlib --disable-threads --disable-shared \               --disable-libmudflap --disable-libssp # make # make install # cd ../gdb-6.8 # ./configure --target=i386-jos-elf --program-prefix=i386-jos-elf- \               --disable-werror # make # make install </code></pre> <p>Then you'll have in <code>/usr/local/bin</code> a bunch of binaries with names like <code>i386-jos-elf-gcc</code>. The lab makefile should detect this toolchain and use it in preference to your machine's default toolchain. If this doesn't work, there are instructions on how to override the toolchain inside the GNU makefile in the labs.</p> <h3 class="subhead">QEMU Emulator</h3> <p><a href="http://wiki.qemu.org/Index.html">QEMU</a> is a modern and fast PC emulator.</p> <p>Unfortunately, QEMU's debugging facilities, while powerful, are somewhat immature, so we highly recommend you use our patched version of QEMU instead of the stock version that may come with your distribution. The version installed on Athena is already patched. To build your own patched version of QEMU:</p> <ol>
+<li>Clone the 6.828 QEMU git repository<br><pre><code>git clone http://pdos.csail.mit.edu/6.828/qemu.git -b 6.828-0.15</code></pre>
+</li> <li>On Linux, you may need to install the SDL development libraries to get a graphical VGA window. On Debian / Ubuntu, this is the libsdl1.2-dev package.</li> <li>
+<p>Configure the source code</p> <p>Linux: <code>./configure --disable-kvm [--prefix=PFX] [--target-list="i386-softmmu x86_64-softmmu"]</code></p> <p>OS X: <code>./configure --disable-kvm --disable-sdl [--prefix=PFX] [--target-list="i386-softmmu x86_64-softmmu"]</code></p> <p>The <code>prefix</code> argument specifies where to install QEMU; without it QEMU will install to <code>/usr/local</code> by default. The <code>target-list</code> argument simply slims down the architectures QEMU will build support for.</p>
+</li> <li>Run <code>make &amp;&amp; make install</code>
+</li> </ol>
+<h2 class="subhead">6.828 Lab Tools Guide</h2> <p>Familiarity with your environment is crucial for productive development and debugging. This page gives a brief overview of the JOS environment and useful GDB and QEMU commands. Don't take our word for it, though. Read the GDB and QEMU manuals. These are powerful tools that are worth knowing how to use. </p>
+<h2 class="subhead">Debugging Tips</h2> <h3 class="subsubhead">Kernel</h3> <p>GDB is your friend. Use the <code>qemu-gdb</code> target (or its <code>qemu-gdb-nox</code> variant) to make QEMU wait for GDB to attach. See the GDB reference below for some commands that are useful when debugging kernels.</p> <p>If you're getting unexpected interrupts, exceptions, or triple faults, you can ask QEMU to generate a detailed log of interrupts using the <code>-d</code> argument.</p> <p>To debug virtual memory issues, try the QEMU monitor commands <code>info mem</code> (for a high-level overview) or <code>info pg</code> (for lots of detail). Note that these commands only display the <i>current</i> page table.</p> <p>(Lab 4+) To debug multiple CPUs, use GDB's thread-related commands like <code>thread</code> and <code>info threads</code>.</p> <h3 class="subsubhead">User Environments (lab 3+)</h3> <p>GDB also lets you debug user environments, but there are a few things you need to watch out for, since GDB doesn't know that there's a distinction between multiple user environments, or between user and kernel.</p> <p>You can start JOS with a specific user environment using <code>make run-<i>name</i></code> (or you can edit <code>kern/init.c</code> directly). To make QEMU wait for GDB to attach, use the <code>run-<i>name</i>-gdb</code> variant.</p> <p>You can symbolically debug user code, just like you can kernel code, but you have to tell GDB which symbol table to use with the <code>symbol-file</code> command, since it can only use one symbol table at a time. The provided <code>.gdbinit</code> loads the kernel symbol table, <code>obj/kern/kernel</code>. The symbol table for a user environment is in its ELF binary, so you can load it using <code>symbol-file obj/user/<i>name</i></code>. <i>Don't</i> load symbols from any <code>.o</code> files, as those haven't been relocated by the linker (libraries are statically linked into JOS user binaries, so those symbols are already included in each user binary). Make sure you get the <i>right</i> user binary; library functions will be linked at different EIPs in different binaries and GDB won't know any better!</p> <p>(Lab 4+) Since GDB is attached to the virtual machine as a whole, it sees clock interrupts as just another control transfer. This makes it basically impossible to step through user code because a clock interrupt is virtually guaranteed the moment you let the VM run again. The <code>stepi</code> command works because it suppresses interrupts, but it only steps one assembly instruction. Breakpoints generally work, but watch out because you can hit the same EIP in a different environment (indeed, a different binary altogether!).</p> <h2 class="subhead">Reference</h2> <h3 class="subsubhead">JOS Makefile</h3> <p>The JOS GNUmakefile includes a number of phony targets for running JOS in various ways. All of these targets configure QEMU to listen for GDB connections (the *<code>-gdb</code> targets also wait for this connection). To start once QEMU is running, simply run <code>gdb</code> from your lab directory. We provide a <code>.gdbinit</code> file that automatically points GDB at QEMU, loads the kernel symbol file, and switches between 16-bit and 32-bit mode. Exiting GDB will shut down QEMU.</p> <p><code>make qemu</code></p>
+<p style="margin-left: 40px;">Build everything and start QEMU with the VGA console in a new window and the serial console in your terminal. To exit, either close the VGA window or press <code>Ctrl-c</code> or <code>Ctrl-a x</code> in your terminal.</p> <p><code>make qemu-nox</code></p>
+<p style="margin-left: 40px;">Like <code>make qemu</code>, but run with only the serial console. To exit, press <code>Ctrl-a x</code>. This is particularly useful over SSH connections to Athena dialups because the VGA window consumes a lot of bandwidth.</p> <p><code>make qemu-gdb</code></p>
+<p style="margin-left: 40px;">Like <code>make qemu</code>, but rather than passively accepting GDB connections at any time, this pauses at the first machine instruction and waits for a GDB connection.</p> <p><code>make qemu-nox-gdb</code></p>
+<p style="margin-left: 40px;">A combination of the <code>qemu-nox</code> and <code>qemu-gdb</code> targets.</p> <p><code>make run-<i>name</i></code></p>
+<p style="margin-left: 40px;">(Lab 3+) Run user program <i>name</i>. For example, <code>make run-hello</code> runs <code>user/hello.c.</code></p> <p><code>make run-<i>name</i>-nox, run-<i>name</i>-gdb, run-<i>name</i>-gdb-nox,</code></p>
+<p style="margin-left: 40px;">(Lab 3+) Variants of <code>run-<i>name</i></code> that correspond to the variants of the <code>qemu</code> target.</p> <p>The makefile also accepts a few useful variables:</p> <p><code>make V=1 ...</code></p>
+<p style="margin-left: 40px;">Verbose mode. Print out every command being executed, including arguments.</p> <p><code>make V=1 grade</code></p>
+<p style="margin-left: 40px;">Stop after any failed grade test and leave the QEMU output in <code>jos.out</code> for inspection.</p> <p><code>make QEMUEXTRA='<i>args</i>' ...</code></p>
+<p style="margin-left: 40px;">Specify additional arguments to pass to QEMU.</p> <h3 class="subsubhead">JOS Obj/</h3> <p>When building JOS, the makefile also produces some additional output files that may prove useful while debugging:</p> <p><code>obj/boot/boot.asm, obj/kern/kernel.asm, obj/user/hello.asm,</code> etc.</p>
+<p style="margin-left: 40px;">Assembly code listings for the bootloader, kernel, and user programs.</p> <p><code>obj/kern/kernel.sym, obj/user/hello.sym,</code> etc.</p>
+<p style="margin-left: 40px;">Symbol tables for the kernel and user programs.</p> <p><code>obj/boot/boot.out, obj/kern/kernel, obj/user/hello,</code> etc</p>
+<p style="margin-left: 40px;">Linked ELF images of the kernel and user programs. These contain symbol information that can be used by GDB.</p> <h3 class="subsubhead">GDB</h3> <p>See the <a href="http://sourceware.org/gdb/current/onlinedocs/gdb/">GDB manual</a> for a full guide to GDB commands. Here are some particularly useful commands for 6.828, some of which don't typically come up outside of OS development.</p> <p><code>Ctrl-c</code></p>
+<p style="margin-left: 40px;">Halt the machine and break in to GDB at the current instruction. If QEMU has multiple virtual CPUs, this halts all of them.</p> <p><code>c</code> (or <code>continue</code>)</p>
+<p style="margin-left: 40px;">Continue execution until the next breakpoint or <code>Ctrl-c</code>.</p> <p><pi>si (or <code>stepi</code>)</pi></p> <p style="margin-left: 40px;">Execute one machine instruction.</p> <p><code>b function</code> or <code>b file:line</code> (or <code>breakpoint</code>)</p> <p style="margin-left: 40px;">Set a breakpoint at the given function or line.</p> <p><code>b *<i>addr</i></code> (or <code>breakpoint</code>)</p> <p style="margin-left: 40px;">Set a breakpoint at the EIP <i>addr</i>.</p> <p><code>set print pretty</code></p> <p style="margin-left: 40px;">Enable pretty-printing of arrays and structs.</p> <p><code>info registers</code></p> <p style="margin-left: 40px;">Print the general purpose registers, <code>eip</code>, <code>eflags</code>, and the segment selectors. For a much more thorough dump of the machine register state, see QEMU's own <code>info registers</code> command.</p> <p><code>x / Nx <i>addr</i></code></p> <p style="margin-left: 40px;">Display a hex dump of <i>N</i> words starting at virtual address <i>addr</i>. If <i>N</i> is omitted, it defaults to 1. <i>addr</i> can be any expression.</p> <p><code>x / Ni addr</code></p> <p style="margin-left: 40px;">Display the <i>N</i> assembly instructions starting at <i>addr</i>. Using <code>$eip</code> as <i>addr</i> will display the instructions at the current instruction pointer.</p> <p><code>symbol-file <i>file</i></code></p> <p style="margin-left: 40px;">(Lab 3+) Switch to symbol file <i>file</i>. When GDB attaches to QEMU, it has no notion of the process boundaries within the virtual machine, so we have to tell it which symbols to use. By default, we configure GDB to use the kernel symbol file, <code>obj/kern/kernel</code>. If the machine is running user code, say <code>hello.c</code>, you can switch to the hello symbol file using <code>symbol-file obj/user/hello</code>.</p> <p>QEMU represents each virtual CPU as a thread in GDB, so you can use all of GDB's thread-related commands to view or manipulate QEMU's virtual CPUs.</p> <p><code>thread <i>n</i></code></p> <p style="margin-left: 40px;">GDB focuses on one thread (i.e., CPU) at a time. This command switches that focus to thread <i>n</i>, numbered from zero.</p> <p><code>info threads</code></p> <p style="margin-left: 40px;">List all threads (i.e., CPUs), including their state (active or halted) and what function they're in.</p> <h3 class="subsubhead">QEMU</h3> <p>QEMU includes a built-in monitor that can inspect and modify the machine state in useful ways. To enter the monitor, press <code>Ctrl-a c</code> in the terminal running QEMU. Press <code>Ctrl-a c</code> again to switch back to the serial console.</p> <p>For a complete reference to the monitor commands, see the <a href="http://wiki.qemu.org/download/qemu-doc.html#pcsys_005fmonitor">QEMU manual</a>. Here are some particularly useful commands:</p> <p><code>xp / Nx <i>paddr</i></code></p> <p style="margin-left: 40px;">Display a hex dump of <i>N</i> words starting at <i>physical</i> address <i>paddr</i>. If <i>N</i> is omitted, it defaults to 1. This is the physical memory analogue of GDB's <code>x</code> command.</p> <p><code>info registers</code></p> <p style="margin-left: 40px;">Display a full dump of the machine's internal register state. In particular, this includes the machine's <i>hidden</i> segment state for the segment selectors and the local, global, and interrupt descriptor tables, plus the task register. This hidden state is the information the virtual CPU read from the GDT / LDT when the segment selector was loaded. Here's the CS when running in the JOS kernel in lab 1 and the meaning of each field:</p> <pre style="margin-left: 40px;"><code>CS =0008 10000000 ffffffff 10cf9a00 DPL=0 CS32 [-R-]</code></pre>          <p style="margin-left: 40px;"><code>CS =0008</code></p> <p style="margin-left: 80px;">The visible part of the code selector. We're using segment 0x8. This also tells us we're referring to the global descriptor table (0x8&amp;4=0), and our CPL (current privilege level) is 0x8&amp;3=0.</p> <p style="margin-left: 40px;"><code>10000000</code></p> <p style="margin-left: 80px;">The base of this segment. Linear address = logical address + 0x10000000.</p> <p style="margin-left: 40px;"><code>ffffffff</code></p> <p style="margin-left: 80px;">The limit of this segment. Linear addresses above 0xffffffff will result in segment violation exceptions.</p> <p style="margin-left: 40px;"><code>10cf9a00</code></p> <p style="margin-left: 80px;">The raw flags of this segment, which QEMU helpfully decodes for us in the next few fields.</p> <p style="margin-left: 40px;"><code>DPL=0</code></p> <p style="margin-left: 80px;">The privilege level of this segment. Only code running with privilege level 0 can load this segment.</p> <p style="margin-left: 40px;"><code>CS32</code></p> <p style="margin-left: 80px;">This is a 32-bit code segment. Other values include <code>DS</code> for data segments (not to be confused with the DS register), and <code>LDT</code> for local descriptor tables.</p> <p style="margin-left: 40px;"><code>[-R-]</code></p> <p style="margin-left: 80px;">This segment is read-only.</p> <p><code>info mem</code></p> <p style="margin-left: 40px;">(Lab 2+) Display mapped virtual memory and permissions. For example,</p> <pre style="margin-left: 40px;"><code> ef7c0000-ef800000 00040000 urw efbf8000-efc00000 00008000 -rw </code></pre> <p style="margin-left: 40px;">tells us that the 0x00040000 bytes of memory from 0xef7c0000 to 0xef800000 are mapped read  /  write and user-accessible, while the memory from 0xefbf8000 to 0xefc00000 is mapped read / write, but only kernel-accessible.</p> <p><code>info pg</code></p> <p style="margin-left: 40px;">(Lab 2+) Display the current page table structure. The output is similar to <code>info mem</code>, but distinguishes page directory entries and page table entries and gives the permissions for each separately. Repeated PTE's and entire page tables are folded up into a single line. For example,</p> <pre style="margin-left: 40px;"><code> VPN range     Entry         Flags        Physical page [00000-003ff]  PDE[000]     -------UWP   [00200-00233]  PTE[200-233] -------U-P 00380 0037e 0037d 0037c 0037b 0037a .. [00800-00bff]  PDE[002]     ----A--UWP   [00800-00801]  PTE[000-001] ----A--U-P 0034b 00349   [00802-00802]  PTE[002]     -------U-P 00348 </code></pre> <p style="margin-left: 40px;">This shows two page directory entries, spanning virtual addresses 0x00000000 to 0x003fffff and 0x00800000 to 0x00bfffff, respectively. Both PDE's are present, writable, and user and the second PDE is also accessed. The second of these page tables maps three pages, spanning virtual addresses 0x00800000 through 0x00802fff, of which the first two are present, user, and accessed and the third is only present and user. The first of these PTE's maps physical page 0x34b.</p> <p>QEMU also takes some useful command line arguments, which can be passed into the using the QEMUEXTRA variable.</p> <p><code>make QEMUEXTRA='-d int' ...</code></p> <p style="margin-left: 40px;">Log all interrupts, along with a full register dump, to <code>qemu.log</code>. You can ignore the first two log entries, "SMM: enter" and "SMM: after RMS", as these are generated before entering the boot loader. After this, log entries look like</p> <pre style="margin-left: 40px;"><code>       4: v=30 e=0000 i=1 cpl=3 IP=001b:00800e2e pc=00800e2e SP=0023:eebfdf28 EAX=00000005 EAX=00000005 EBX=00001002 ECX=00200000 EDX=00000000 ESI=00000805 EDI=00200000 EBP=eebfdf60 ESP=eebfdf28 ... </code></pre> <p style="margin-left: 40px;">The first line describes the interrupt. The <code>4:</code> is just a log record counter. <code>v</code> gives the vector number in hex. <code>e</code> gives the error code.<code> i=1</code> indicates that this was produced by an<code> int</code> instruction (versus a hardware interrupt). The rest of the line should be self-explanatory. See info registers for a description of the register dump that follows.</p> <p style="margin-left: 40px;">Note: If you're running a pre-0.15 version of QEMU, the log will be written to <code>/tmp</code> instead of the current directory.</p>
+<p> </p>
+	                    
+
+
+	        			
+	                    
+	                    
+	                    	
+	                       
+	                    
+            		 </div>
+<!--Course_inner_section tag close -->
+           		     <div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			                
+         </div>
+<!--grid tag close --> 
+      </div>
+		
+		<div id="bottom">
+			<div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index--> <div id="bottom"><div id="grid">
+<!-- *begin footer* --> <div role="navigation sitemap" id="footer">
+<div class="grid_2 alpha" id="foot-c1">
+<h4 class="footer">Find Courses</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>     <li><a href="http://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>     <li><a href="http://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>     <li><a href="http://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>     <li><a href="http://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>     <li><a href="http://ocw.mit.edu/courses/new-courses/">New Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>     <li><a href="http://ocw.mit.edu/resources/">Supplemental Resources</a></li>     <li><a href="http://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/">View All Courses</a></li> </ul>
+</div> <div class="grid_2" id="foot-c2">
+<h4 class="footer">About</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/about/">About OpenCourseWare</a></li>     <li><a href="http://ocw.mit.edu/about/site-statistics/">Site Stats</a></li>     <li><a href="http://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>     <li><a href="http://ocw.mit.edu/about/media-coverage/">Media Coverage</a></li>     <li><a href="http://ocw.mit.edu/about/newsletter/">Newsletter</a></li>     <li><a href="http://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li> </ul>
+</div> <div class="grid_2" id="foot-c3">
+<h4 class="footer">Donate</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/donate">Make a Donation</a></li>     <li><a href="http://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>     <li><a href="http://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>     <li><a href="http://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>     <li><a href="http://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>     <li><a href="http://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li> </ul>
+</div> <div class="grid_2" id="foot-c4">
+<h4 class="footer">Featured Sites</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/high-school/">Highlights for High School</a></li>     <li><a href="http://ocw.mit.edu/educator/">OCW Educator</a></li>     <li><a href="http://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>     <li><a href="http://ocw.mit.edu/ans7870/featured/mitx-courses-on-edx.htm">MITx Courses on edX</a></li>     <li><a href="http://teachingexcellence.mit.edu/">Teaching Excellence at MIT</a></li>     <li><a href="http://www.oeconsortium.org/">Open Education Consortium</a></li> </ul>
+<h4 style="margin-top: 14px;" class="footer">Tools</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/help/">Help &amp; FAQs</a></li>     <li><a href="../../common/jsp/feedback.htm">Contact Us</a></li>     <li><a href="../../common/search/AdvancedSearch.htm">Advanced Search</a></li>     <li><a href="http://ocw.mit.edu/help/site-map/">Site Map</a></li>     <li><a href="../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>     <li><a href="http://ocw.mit.edu/help/rss/">RSS Feeds</a></li> </ul>
+</div> <div class="grid_4 omega" id="foot-c5">
+<h4 class="footer">Our Corporate Supporters</h4> <!-- HOME_CORP_LOGO_1 --> <div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+</script></div> <!-- HOME_CORP_LOGO_2 --> <div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+</script></div> <!-- HOME_CORP_LOGO_3 --> <div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+</script></div> <!-- HOME_CORP_LOGO_4 --> <div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+</script></div> <!-- HOME_CORP_LOGO_5 --> <div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+</script></div> <!-- HOME_CORP_LOGO_6 --> <div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+</script></div>
+</div> <div class="grid_12 alpha omega" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px;"><strong>MIT OPENCOURSEWARE'S 15th anniversary</strong></span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro logo and nameplate." src="../../common/images/logo_sapient.png"></a></p></div> <div itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" class="grid_12 alpha omega">
+<h4 style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;" class="footer">About <span itemprop="name">MIT OpenCourseWare</span>
+</h4> <p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">MIT OpenCourseWare makes the materials used in the teaching of almost all of MIT's subjects available on the Web, free of charge. With more than 2,200 courses available, OCW is delivering on the promise of open sharing of knowledge. <a href="http://ocw.mit.edu/about/">Learn more »</a></p>
+</div> <div style="border-top: none;" class="grid_12 alpha omega" id="foot-copy">
+<a href="http://web.mit.edu"><img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology logo and name." src="../../common/images/logo_mit.png"></a><a href="http://odl.mit.edu"><img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning logo and name." src="http://ocw.mit.edu/images/logo_odl.png"></a><a href="http://www.oeconsortium.org/"><img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium logo." src="http://ocw.mit.edu/images/logo_oec.png"></a><a itemprop="useRightsUrl" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons logo with terms BY-NC-SA." src="../../common/images/cc_by-nc-sa.png"></a> <p class="copyright">© 2001–2015<br> Massachusetts Institute of Technology</p> <p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</div>
+</div></div> <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</div>
+<!-- bottom end -->
+		
+		
+   </body>
+</html>

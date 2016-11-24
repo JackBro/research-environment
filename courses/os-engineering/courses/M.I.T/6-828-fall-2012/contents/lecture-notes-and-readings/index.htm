@@ -1,0 +1,552 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Lecture Notes and Readings | Operating System Engineering | Electrical Engineering and Computer Science | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="6-828-operating-system-engineering-fall-2012" name="WT.cg_n">
+<meta content="Lecture Notes and Readings" name="WT.cg_s">
+<meta content="This section provides the schedule of lecture topics along with the lecture notes, readings, and handouts used for each lecture." name="Description">
+<meta content="Kaashoek, Frans" name="Author">
+<meta content="operating system,OS,UNIX,virtual memory,threads,context switches,kernels,interrupts,system calls,interprocess communication,C,x86 assembly,programming,Operating Systems,Software Design and Engineering" name="keywords">
+<meta content="6.828 Operating System Engineering | Lecture Notes and Readings" name="Search_Display">
+<meta content="Operating Systems" itemprop="about">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses_new.css">
+<link href="http://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-828-operating-system-engineering-fall-2012/lecture-notes-and-readings">
+<link rel="apple-touch-icon" href="../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <div id="top">
+			<div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" role="banner" id="banner"><a href="http://ocw.mit.edu/"><img class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology" src="../../common/images/ocw_mast.png"></a></div>
+<div class="grid_6 omega" role="form toolbar" id="subscribe">
+<div class="module">
+<table class="social"><tbody><tr>
+<td class="socialbutton"><a href="http://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a href="https://plus.google.com/104567381989352550847/posts"><img alt="Click to visit our Google+ page." src="../../common/images/icon_gp.png"></a><a href="https://www.pinterest.com/mitocw/pins/"><img alt="Click to visit our Pinterest page." src="../../common/images/icon_pin.png"></a><a href="http://facebook.com/mitocw"><img alt="Click to visit our Facebook page." src="../../common/images/icon_fb.png"></a><a href="http://twitter.com/mitocw"><img alt="Click to visit our Twitter feed." src="../../common/images/icon_tw.png"></a>
+</td>
+        </tr></tbody></table>
+</div>
+<p class="helplinks"><a href="http://ocw.mit.edu/help">Help</a>   |   <a href="../../common/jsp/feedback.htm">Contact Us</a></p>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<div id="mega" role="navigation" class="grid_8 alpha">        
+	<ul id="menu">
+<li id="menu_home">
+            <a href="http://ocw.mit.edu/"><img src="../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+        </li>
+<!-- End Home Item -->        
+        <li class="selected">
+            <a href="#" class="drop">Find Courses</a><!-- Begin 5 columns Item -->
+            <div class="dropdown_5columns-a mega-courses">                    
+                <div class="col_1a">
+                    <div class="row_1a">
+                        <div class="quart">
+                            <h2 class="nav">Find courses by:</h2>
+                            <ul class="nav-bullet find_by">
+<li><a href="http://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+                            </ul>
+<ul style="margin-top: 88px;" class="nav-bullet find_by">
+<li style="font-weight: normal; font-size: 1em;"><a href="http://ocw.mit.edu/courses/">View All Courses</a></li>
+							</ul>
+</div>
+                        <div class="quart">
+                            <h2 class="nav">Collections</h2>
+                            <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                                <li><a href="http://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                                <li><a href="http://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+                            </ul>
+</div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="row_1b">
+                        <h2 class="nav">Cross-Disciplinary Topic Lists</h2>
+                        <div class="quart">
+                        <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+                        </ul>
+</div>    
+                        <div class="quart">
+                        <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                            <li><a href="http://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+                        </ul>
+</div>
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="col_1b">
+                    <h2 class="nav">Translated Courses</h2>
+                    <ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/courses/translated-courses/traditional-chinese">繁體字 / Traditional Chinese</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/spanish">Español / Spanish</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/portuguese">Português / Portuguese</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/persian">فارسی / Persian</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/turkish">Türkçe / Turkish</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses/korean">(비디오)한국 / Korean</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/translated-courses">More...</a></li>
+                    </ul>
+</div>
+            </div>
+        </li>
+        <li>
+            <a href="" class="drop">About</a>
+            <div class="dropdown_1column-a">
+                <div class="col_1">
+                    <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    </ul>
+<ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/about/site-statistics/">Site Stats</a></li>
+                        <li><a href="http://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>                        
+                    </ul>
+<ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/about/media-coverage/">Media Coverage</a></li>
+                        <li><a href="http://ocw.mit.edu/about/newsletter/">Newsletter</a></li>                        
+                    </ul>
+</div>
+            </div>  
+        </li>    
+        <li>
+            <a href="" class="drop">Donate</a>        
+            <div class="dropdown_1column-a">
+                    <div class="col_1">
+                        <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/donate/">Make a Donation</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+                            <li><a href="http://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+                        </ul>
+<ul class="nav-bullet">
+<li><a href="http://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+                        </ul>
+</div>
+            </div>            
+        </li>        
+        <li>
+            <a href="" class="drop">Featured Sites</a>        
+            <div class="dropdown_1column-a">
+                <div class="col_1">
+                    <ul class="nav-bullet mega-div-bottom">
+<li><a href="http://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+                        <li><a href="http://ocw.mit.edu/educator/">OCW Educator</a></li>
+                        <li><a href="http://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>                        
+                    </ul>
+<ul class="nav-bullet mega-div-top">
+<li><a href="http://ocw.mit.edu/ans7870/featured/mitx-courses-on-edx.htm">MITx Courses on edX</a></li>
+                        <li><a href="http://teachingexcellence.mit.edu/">Teaching Excellence at MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/">Open Education Consortium</a></li>
+                    </ul>
+</div>
+            </div>            
+        </li>
+    </ul>
+</div>
+<div id="search" role="search" class="grid_4 omega">
+    
+    <form method="get" action="../../common/search/AdvancedSearch.htm">
+     	 <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td> 			 
+                    <td class="black"><input type="image" src="../../common/images/button_search.png" name="btnG" class="sub_button"></td>			 
+                    <td class="text2"><a href="../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+                </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->  
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</div>
+<!-- top end -->
+			
+		<div id="center">
+         <div id="grid">
+		     <div id="left-section">
+                 <div id="breadcrumb">
+                      <p>
+
+    <a href="http://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="http://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science">Electrical Engineering and Computer Science</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../contents/index.htm">Operating System Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Lecture Notes and Readings
+         
+    
+</p>
+
+                 </div>
+                 <div class="clear"></div>
+                 <div id="section_title">
+           			<h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Lecture Notes and Readings
+        </span>
+    </h1>
+           	     </div>
+           	     <div class="clear"></div>
+           	     <div id="course_wrapper_section">
+           	     	 <div id="course_nav">
+           			 	
+
+
+
+<script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/Syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../contents/lecture-notes-and-readings/index.htm">
+		                  Lecture Notes and Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/labs/index.htm">
+		                  Labs  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/study-materials/index.htm">
+		                  Study Materials  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends -->
+</div>
+           		     <div id="course_inner_section">
+           		     	 
+	       		     	<p>Some of the readings require the <a href="../../contents/lecture-notes-and-readings/MIT6_828F12_xv6-sourc-rev7.pdf">xv6 code (PDF)</a>, as well as the<a href="../../contents/lecture-notes-and-readings/MIT6_828F12_xv6-book-rev7.pdf"> xv6 book (PDF - 1.3MB)</a>, which are provided courtesy of Frans Kaashoek, Robert Morris, and Russ Cox and are used here with permission.</p> <div class="maintabletemplate"><table class="tablewidth100" summary="See table caption for summary.">
+<caption class="invisible">Lecture notes and readings.</caption>      <thead><tr>
+<th scope="col">LEC #</th>             <th scope="col">LECTURE TOPICS AND NOTES</th>             <th scope="col">READINGS AND HANDOUTS</th>         </tr></thead>
+<tbody>
+<tr class="row">
+<td>1</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec1_notes.pdf">Operating Systems (PDF)</a></td>             <td>"Chapter 0: Operating System Interfaces" of xv6 book</td>         </tr>
+<tr class="alt-row">
+<td>2</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec2_notes.pdf">PC Hardware and x86 Programming (PDF)</a></td>             <td>"Appendix A: PC Hardware" and "Appendix B: The Boot Loader" of xv6 book, and the related xv6 source files</td>         </tr>
+<tr class="row">
+<td>3</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec3_notes.pdf">Overview of Major Internals, System Call Interface (PDF)</a></td>             <td>"Chapter 1: The first process" and the related xv6 source files</td>         </tr>
+<tr class="alt-row">
+<td>4</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec4_notes.pdf">Virtual Memory (PDF)</a></td>             <td>
+<p>"Chapter 2: Page Tables"</p>
+<p><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec4_handout.pdf"> Page Table Translation and Registers (PDF)</a></p>
+</td>         </tr>
+<tr class="row">
+<td>5</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec5_notes.pdf">Interrupts, Exceptions (PDF)</a></td>             <td>
+<p>"Chapter 3: Traps, interrupts, and drivers" and the related xv6 source files</p>
+<p><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec5_handout.pdf"> IDT (PDF)</a></p>
+</td>         </tr>
+<tr class="alt-row">
+<td>6</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec6_notes.pdf">Multiprocessors and Locking (PDF)</a></td>             <td>"Chapter 4: Locking" with spinlock.c and skim mp.c</td>         </tr>
+<tr class="row">
+<td>7</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec7_notes.pdf">Processes and Switching (PDF)</a></td>             <td>"Chapter 5: Scheduling" up to "Sleep and wakeup" with proc.c, setjmp.S, and sys_fork (in sysproc.c)</td>         </tr>
+<tr class="alt-row">
+<td>8</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec8_notes.pdf">Sleep &amp; Wakeup (PDF)</a></td>             <td>Read remainder of "Chapter 5: Scheduling"; read remainder of proc.c and sys_wait, sys_exit, sys_kill</td>         </tr>
+<tr class="row">
+<td>9</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec9_notes.pdf">File Systems (PDF)</a></td>             <td>"Chapter 6: File system" and bio.c, fs.c, sysfile.c, file.c, except for the logging sections</td>         </tr>
+<tr class="alt-row">
+<td>10</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec10_notes.pdf">Crash Recovery (PDF)</a></td>             <td>Read log.c and the logging sections of "Chapter 6: File system"</td>         </tr>
+<tr class="row">
+<td>11</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec11_notes.pdf">File System Performance and Fast Crash Recovery (PDF)</a></td>             <td>Tweedie, Stephen C. "<a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.307.9137">Journaling the Linux ext2fs Filesystem</a>." [Paper Presented at LinuxExpo 1998].</td>         </tr>
+<tr class="alt-row">
+<td>12</td>             <td>Project Introduction and Discussion</td>             <td> </td>         </tr>
+<tr class="row">
+<td>13</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec13_notes.pdf">OS Organization (PDF)</a></td>             <td>Engler, Dawson R., M. Frans Kaashoek, and James O'Toole Jr. "<a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.52.2893">Exokernel: An Operating System Architecture for Application-Level Resource Management</a>."</td>         </tr>
+<tr class="alt-row">
+<td>14</td>             <td>In-class Hacking Session</td>             <td> </td>         </tr>
+<tr class="row">
+<td>15</td>             <td>Project Conferences</td>             <td> </td>         </tr>
+<tr class="alt-row">
+<td>16</td>             <td>Project Conferences (cont.)</td>             <td> </td>         </tr>
+<tr class="row">
+<td>17</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec17_notes.pdf">Language / OS Co-design (PDF)</a></td>             <td>Hunt, Galen C., and James R. Larus. "<a href="http://dx.doi.org/10.1145/1243418.1243424">Singularity: Rethinking the Software Stack</a>." <em>Microsoft Research Redmond</em> 41, no. 2 (2007): 37–49.</td>         </tr>
+<tr class="alt-row">
+<td>Quiz</td>             <td>Quiz (Open Book and Notes)</td>             <td> </td>         </tr>
+<tr class="row">
+<td>18</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec18_notes.pdf">Scalable Locks (PDF)</a></td>             <td>Boyd-Wickizer, Silas, M. Frans Kaashoek, et al. "<a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.261.196">Non-Scalable Locks are Dangerous</a>."</td>         </tr>
+<tr class="alt-row">
+<td>19</td>             <td>Project Conferences</td>             <td> </td>         </tr>
+<tr class="row">
+<td>20</td>             <td>Project Conferences (cont.)</td>             <td>Boyd-Wickizer, Silas, Austin T. Clements, et al. "<a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.174.5191">An Analysis of Linux Scalability to Many Cores</a>."</td>         </tr>
+<tr class="alt-row">
+<td>21</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec21_notes.pdf">Lock-free Coordination (PDF)</a></td>             <td> </td>         </tr>
+<tr class="row">
+<td>22</td>             <td><a href="../../contents/lecture-notes-and-readings/MIT6_828F12_lec22_notes.pdf">Virtual Machines (PDF)</a></td>             <td>Adams, Keith, and Ole Agesen. "<a href="http://dx.doi.org/10.1145/1168857.1168860">A Comparison of Software and Hardware Techniques for x86 Virtualization</a>." <em>ACM Digital Library</em> 34, no. 5 (2006): 2–13.</td>         </tr>
+<tr class="alt-row">
+<td>23</td>             <td>No lecture; work on final projects</td>             <td> </td>         </tr>
+<tr class="row">
+<td>24</td>             <td>Demos in class</td>             <td> </td>         </tr>
+<tr class="alt-row">
+<td>25</td>             <td>Demos in class (cont.)</td>             <td> </td>         </tr>
+</tbody>
+</table></div>
+	                    
+
+
+	        			
+	                    
+	                    
+	                    	
+	                       
+	                    
+            		 </div>
+<!--Course_inner_section tag close -->
+           		     <div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			                
+         </div>
+<!--grid tag close --> 
+      </div>
+		
+		<div id="bottom">
+			<div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index--> <div id="bottom"><div id="grid">
+<!-- *begin footer* --> <div role="navigation sitemap" id="footer">
+<div class="grid_2 alpha" id="foot-c1">
+<h4 class="footer">Find Courses</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>     <li><a href="http://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>     <li><a href="http://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>     <li><a href="http://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>     <li><a href="http://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>     <li><a href="http://ocw.mit.edu/courses/new-courses/">New Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>     <li><a href="http://ocw.mit.edu/resources/">Supplemental Resources</a></li>     <li><a href="http://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>     <li><a href="http://ocw.mit.edu/courses/">View All Courses</a></li> </ul>
+</div> <div class="grid_2" id="foot-c2">
+<h4 class="footer">About</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/about/">About OpenCourseWare</a></li>     <li><a href="http://ocw.mit.edu/about/site-statistics/">Site Stats</a></li>     <li><a href="http://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>     <li><a href="http://ocw.mit.edu/about/media-coverage/">Media Coverage</a></li>     <li><a href="http://ocw.mit.edu/about/newsletter/">Newsletter</a></li>     <li><a href="http://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li> </ul>
+</div> <div class="grid_2" id="foot-c3">
+<h4 class="footer">Donate</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/donate">Make a Donation</a></li>     <li><a href="http://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>     <li><a href="http://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>     <li><a href="http://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>     <li><a href="http://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>     <li><a href="http://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li> </ul>
+</div> <div class="grid_2" id="foot-c4">
+<h4 class="footer">Featured Sites</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/high-school/">Highlights for High School</a></li>     <li><a href="http://ocw.mit.edu/educator/">OCW Educator</a></li>     <li><a href="http://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>     <li><a href="http://ocw.mit.edu/ans7870/featured/mitx-courses-on-edx.htm">MITx Courses on edX</a></li>     <li><a href="http://teachingexcellence.mit.edu/">Teaching Excellence at MIT</a></li>     <li><a href="http://www.oeconsortium.org/">Open Education Consortium</a></li> </ul>
+<h4 style="margin-top: 14px;" class="footer">Tools</h4> <ul class="foot-bullet">
+<li><a href="http://ocw.mit.edu/help/">Help &amp; FAQs</a></li>     <li><a href="../../common/jsp/feedback.htm">Contact Us</a></li>     <li><a href="../../common/search/AdvancedSearch.htm">Advanced Search</a></li>     <li><a href="http://ocw.mit.edu/help/site-map/">Site Map</a></li>     <li><a href="../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>     <li><a href="http://ocw.mit.edu/help/rss/">RSS Feeds</a></li> </ul>
+</div> <div class="grid_4 omega" id="foot-c5">
+<h4 class="footer">Our Corporate Supporters</h4> <!-- HOME_CORP_LOGO_1 --> <div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+</script></div> <!-- HOME_CORP_LOGO_2 --> <div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+</script></div> <!-- HOME_CORP_LOGO_3 --> <div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+</script></div> <!-- HOME_CORP_LOGO_4 --> <div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+</script></div> <!-- HOME_CORP_LOGO_5 --> <div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+</script></div> <!-- HOME_CORP_LOGO_6 --> <div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+</script></div>
+</div> <div class="grid_12 alpha omega" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px;"><strong>MIT OPENCOURSEWARE'S 15th anniversary</strong></span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro logo and nameplate." src="../../common/images/logo_sapient.png"></a></p></div> <div itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" class="grid_12 alpha omega">
+<h4 style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;" class="footer">About <span itemprop="name">MIT OpenCourseWare</span>
+</h4> <p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">MIT OpenCourseWare makes the materials used in the teaching of almost all of MIT's subjects available on the Web, free of charge. With more than 2,200 courses available, OCW is delivering on the promise of open sharing of knowledge. <a href="http://ocw.mit.edu/about/">Learn more »</a></p>
+</div> <div style="border-top: none;" class="grid_12 alpha omega" id="foot-copy">
+<a href="http://web.mit.edu"><img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology logo and name." src="../../common/images/logo_mit.png"></a><a href="http://odl.mit.edu"><img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning logo and name." src="http://ocw.mit.edu/images/logo_odl.png"></a><a href="http://www.oeconsortium.org/"><img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium logo." src="http://ocw.mit.edu/images/logo_oec.png"></a><a itemprop="useRightsUrl" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons logo with terms BY-NC-SA." src="../../common/images/cc_by-nc-sa.png"></a> <p class="copyright">© 2001–2015<br> Massachusetts Institute of Technology</p> <p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</div>
+</div></div> <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</div>
+<!-- bottom end -->
+		
+		
+   </body>
+</html>
