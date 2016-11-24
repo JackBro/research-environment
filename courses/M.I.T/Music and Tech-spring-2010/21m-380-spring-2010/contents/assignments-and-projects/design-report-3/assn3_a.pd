@@ -1,0 +1,557 @@
+#N canvas 54 7 1440 834 10;
+#X floatatom 880 409 5 0 0 0 - - -;
+#X floatatom 917 404 5 0 0 0 - - -;
+#X floatatom 880 429 5 0 0 0 - - -;
+#X floatatom 916 430 5 0 0 0 - - -;
+#X floatatom 880 449 5 0 0 0 - - -;
+#X floatatom 916 449 5 0 0 0 - - -;
+#X floatatom 880 469 5 0 0 0 - - -;
+#X floatatom 917 468 5 0 0 0 - - -;
+#X floatatom 880 489 5 0 0 0 - - -;
+#X floatatom 916 489 5 0 0 0 - - -;
+#X floatatom 952 486 5 0 0 0 - - -;
+#X text 949 412 playback speed;
+#X text 949 430 position in track;
+#X text 951 467 panning;
+#X text 983 489 phasor control;
+#X obj 884 129 bng 30 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array samplePlayerA 21905 float 2;
+#X coords 0 1 21905 -1 200 140 1;
+#X restore 882 217 graph;
+#X floatatom 1068 407 5 0 0 0 - - -;
+#X floatatom 1104 407 5 0 0 0 - - -;
+#X floatatom 1068 427 5 0 0 0 - - -;
+#X floatatom 1104 427 5 0 0 0 - - -;
+#X floatatom 1068 447 5 0 0 0 - - -;
+#X floatatom 1104 447 5 0 0 0 - - -;
+#X floatatom 1068 467 5 0 0 0 - - -;
+#X floatatom 1104 467 5 0 0 0 - - -;
+#X floatatom 1068 487 5 0 0 0 - - -;
+#X floatatom 1104 487 5 0 0 0 - - -;
+#X floatatom 1140 484 5 0 0 0 - - -;
+#X text 1137 409 playback speed;
+#X text 1137 428 position in track;
+#X text 1139 465 panning;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array samplePlayerC 475136 float 2;
+#X coords 0 1 475136 -1 200 140 1;
+#X restore 1070 215 graph;
+#X obj 1202 395 ctlin 7;
+#X obj 900 570 *~;
+#X obj 943 570 *~;
+#X obj 981 570 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7400 1;
+#X text 977 586 granular synthesis control;
+#X obj 887 27 loadbang;
+#X obj 1051 535 hip~ 800;
+#X msg 872 51 open C:/Users/yhprumkcaj/Desktop/happycatorchestra/wav/birds2.wav
+;
+#X obj 1203 457 ctlin 10;
+#X obj 1155 388 / 5;
+#X obj 1203 475 / 3;
+#X obj 956 383 ctlin 84;
+#X obj 1001 438 ctlin 5;
+#X obj 1003 461 / 3;
+#X obj 1071 510 *~;
+#X obj 1135 513 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 927 516 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 1095 512 *~;
+#X obj 873 517 *~;
+#X obj 901 521 *~;
+#X obj 883 360 granularSamplePoly4_edit_1;
+#X msg 884 184 read -resize \$1 samplePlayerA;
+#X msg 920 130 \; samplePlayerA normalize;
+#X obj 1019 389 / 5;
+#X obj 610 142 granular_purr;
+#X floatatom 633 112 5 0 0 0 - - -;
+#X floatatom 671 114 5 0 0 0 - - -;
+#X floatatom 692 95 5 0 0 0 - - -;
+#X floatatom 577 126 5 0 0 0 - - -;
+#X obj 567 102 * 1.2;
+#X obj 621 210 *~;
+#X obj 574 168 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 649 210 *~;
+#X msg 818 677 \; pd dsp 1;
+#X msg 816 721 \; pd dsp 0;
+#X text 811 654 audio on/off;
+#X obj 897 662 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 896 703 counter 0 10000;
+#X obj 896 729 / 60;
+#X floatatom 931 731 10 0 0 0 - - -;
+#X text 889 750 timer in minutes;
+#X obj 894 681 metro 1000;
+#X obj 919 661 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 937 659 reset;
+#X floatatom 764 689 5 0 0 0 - - -;
+#X text 743 666 test signal;
+#X obj 765 714 osc~ 130;
+#X obj 765 735 *~ 0.3;
+#X obj 411 222 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X floatatom 361 222 5 0 0 0 - - -;
+#X obj 248 242 27779__jerrydevore__Frank_Pur2;
+#X obj 386 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X floatatom 336 116 5 0 0 0 - - -;
+#X obj 385 72 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X floatatom 335 72 5 0 0 0 - - -;
+#X obj 385 177 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X floatatom 347 174 5 0 0 0 - - -;
+#X obj 252 147 69204__Luftrum__catspurr_2;
+#X obj 316 197 schnurrr;
+#X obj 248 91 26769__Walter_Odington__cat_purr;
+#X obj 714 689 ctlin;
+#X floatatom 713 711 5 0 0 0 - - -;
+#X floatatom 713 730 5 0 0 0 - - -;
+#X floatatom 712 750 5 0 0 0 - - -;
+#X obj 666 685 notein;
+#X floatatom 670 713 5 0 0 0 - - -;
+#X floatatom 670 732 5 0 0 0 - - -;
+#X floatatom 669 752 5 0 0 0 - - -;
+#X obj 614 676 dac~;
+#X obj 363 553 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 10400 1;
+#X obj 385 553 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 10400 1;
+#X floatatom 360 693 5 0 0 0 - - -;
+#X floatatom 398 694 5 0 0 0 - - -;
+#X text 405 582 master volume L R;
+#X obj 364 530 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 10400 1;
+#X text 496 528 master volume;
+#X obj 608 640 *~;
+#X obj 637 635 *~;
+#X text 1147 419 playback speed;
+#X text 1147 438 position in track;
+#X text 1149 475 panning;
+#X obj 1118 536 hip~ 800;
+#X msg 868 85 open C:/Users/yhprumkcaj/Desktop/happycatorchestra/wav/meow_1.wav
+;
+#X obj 1071 358 granularSamplePoly4_edit_2;
+#X obj 731 44 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array g_purr_2 200 float 3;
+#A 0 0 0 0.0142857 0.0142857 0.0142857 0.0214286 0.0285714 0.0428572
+0.0476192 0.0523811 0.057143 0.057143 0.057143 0.057143 0.057143 0.057143
+0.057143 0.0619049 0.0666669 0.0714288 0.0714288 0.0714288 0.0714288
+0.0857146 0.0857146 0.0857146 0.1 0.114286 0.114286 0.128572 0.128572
+0.128572 0.142858 0.157143 0.157143 0.185715 0.200001 0.228572 0.235715
+0.27143 0.285716 0.300001 0.328573 0.357144 0.37143 0.414288 0.457145
+0.471431 0.485716 0.500002 0.514288 0.528574 0.557145 0.571431 0.600003
+0.614289 0.628574 0.657146 0.657146 0.671432 0.671432 0.685718 0.700003
+0.714289 0.721432 0.742861 0.771432 0.785718 0.800004 0.842861 0.842861
+0.857147 0.885719 0.900005 0.900005 0.900005 0.91429 0.91429 0.91429
+0.91429 0.91429 0.91429 0.91429 0.928576 0.928576 0.928576 0.942862
+0.942862 0.942862 0.942862 0.942862 0.942862 0.942862 0.942862 0.928576
+0.928576 0.928576 0.91429 0.900005 0.900005 0.871433 0.842861 0.785718
+0.742861 0.714289 0.671432 0.628574 0.585717 0.571431 0.54286 0.514288
+0.471431 0.442859 0.400002 0.385716 0.357144 0.357144 0.342859 0.300001
+0.285716 0.285716 0.285716 0.285716 0.314287 0.328573 0.342859 0.37143
+0.414287 0.428573 0.471431 0.500002 0.54286 0.557145 0.585717 0.585717
+0.600003 0.600003 0.614289 0.628574 0.64286 0.64286 0.64286 0.64286
+0.657146 0.657146 0.657146 0.671432 0.671432 0.671432 0.671432 0.671432
+0.671432 0.671432 0.671432 0.671432 0.671432 0.671432 0.671432 0.657146
+0.64286 0.64286 0.628574 0.614289 0.600003 0.600003 0.585717 0.54286
+0.514288 0.514288 0.485716 0.457145 0.442859 0.428573 0.400002 0.385716
+0.37143 0.357145 0.328573 0.314287 0.300001 0.276192 0.252382 0.228573
+0.214287 0.214287 0.171429 0.157144 0.157144 0.142858 0.128572 0.1
+0.1 0.0857147 0.0571431 0.0428573 0.0428573 -2.79397e-008 -0.0142858
+-0.0285716 -0.0571432;
+#X coords 0 1 199 -1 200 140 1;
+#X restore 27 291 graph;
+#X obj 731 113 tabread g_purr_1;
+#X obj 285 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 313 175 5 0 0 0 - - -;
+#X obj 664 271 *~;
+#X obj 664 251 *~;
+#X obj 712 257 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 1073 131 \; samplePlayerC normalize;
+#X msg 1072 182 read -resize \$1 samplePlayerC;
+#X obj 585 -21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 608 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 586 0 metro 100;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array g_purr_1 200 float 3;
+#A 0 0 0 0.0142857 0.0142857 0.0285713 0.0357142 0.042857 0.042857
+0.0464284 0.0499998 0.0535713 0.0571427 0.0619046 0.0666664 0.0714283
+0.0714283 0.0714283 0.0714283 0.0714283 0.0714283 0.0785712 0.085714
+0.0999997 0.0999997 0.0999997 0.0999997 0.0999997 0.114285 0.114285
+0.128571 0.128571 0.133333 0.138095 0.142857 0.157142 0.157142 0.167142
+0.177142 0.187142 0.197142 0.207142 0.217142 0.227142 0.237142 0.247142
+0.257142 0.271428 0.285713 0.299999 0.314285 0.32857 0.342856 0.357142
+0.371427 0.371427 0.385713 0.399999 0.399999 0.399999 0.399999 0.399999
+0.407141 0.414284 0.42857 0.42857 0.42857 0.442856 0.442856 0.449998
+0.457141 0.471427 0.471427 0.471427 0.485713 0.485713 0.485713 0.499998
+0.514284 0.514284 0.514284 0.52857 0.542855 0.542855 0.557141 0.571427
+0.585712 0.585712 0.599998 0.607141 0.628569 0.642855 0.657141 0.685712
+0.685712 0.699998 0.714283 0.728569 0.728569 0.742855 0.75714 0.75714
+0.771426 0.799997 0.814283 0.828569 0.842854 0.842854 0.85714 0.85714
+0.871426 0.885711 0.885711 0.892854 0.899997 0.914283 0.914283 0.914283
+0.914283 0.928569 0.928569 0.928569 0.928569 0.928569 0.928569 0.928569
+0.928569 0.928569 0.928569 0.928569 0.928569 0.928569 0.928569 0.914283
+0.914283 0.899997 0.885711 0.871426 0.871426 0.871426 0.85714 0.842854
+0.842854 0.842854 0.835712 0.814283 0.814283 0.814283 0.785712 0.771426
+0.771426 0.75714 0.742855 0.728569 0.721426 0.714283 0.699998 0.699998
+0.671426 0.671426 0.642855 0.642855 0.614284 0.599998 0.585712 0.585712
+0.585712 0.557141 0.542855 0.528569 0.528569 0.528569 0.499998 0.485712
+0.471427 0.42857 0.42857 0.399998 0.399998 0.385713 0.385713 0.371427
+0.357142 0.342856 0.32857 0.314285 0.285713 0.271428 0.257142 0.228571
+0.214285 0.185714 0.185714 0.142857 0.114285 0.0857139 0.0857139 0.0714282
+0.0571426 0.0571426 0.0285712;
+#X coords 0 1 199 -1 200 140 1;
+#X restore 29 25 graph;
+#X obj 585 48 tabread g_purr_2;
+#X obj 731 138 mgScaleMinMax 30 600;
+#X obj 585 73 mgScaleMinMax 0.2 20;
+#X obj 256 330 meow_1;
+#X obj 238 310 midinoteselector;
+#X msg 236 283 41;
+#X floatatom 299 331 5 0 0 0 - - -;
+#X obj 238 332 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-258113 -258113;
+#X obj 298 353 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 371 309 midinoteselector;
+#X floatatom 430 331 5 0 0 0 - - -;
+#X obj 338 331 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-258113 -258113;
+#X obj 428 348 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 359 331 85492_meow2;
+#X msg 369 282 39;
+#X obj 371 393 midinoteselector;
+#X floatatom 444 415 5 0 0 0 - - -;
+#X obj 350 416 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-258113 -258113;
+#X obj 444 436 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 240 395 midinoteselector;
+#X floatatom 313 417 5 0 0 0 - - -;
+#X obj 219 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-258113 -258113;
+#X obj 315 440 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 238 417 85492_meow3;
+#X msg 239 374 36;
+#X obj 370 415 85492_meow4;
+#X obj 503 310 midinoteselector;
+#X floatatom 562 332 5 0 0 0 - - -;
+#X obj 470 332 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-258113 -258113;
+#X obj 560 350 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 506 393 midinoteselector;
+#X floatatom 579 415 5 0 0 0 - - -;
+#X obj 485 416 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-258113 -258113;
+#X obj 576 436 bng 15 250 50 0 empty empty empty 17 7 0 10 -4032 -1
+-1;
+#X obj 490 331 85492_meow5;
+#X obj 505 415 85492_meow6;
+#X msg 369 372 38;
+#X msg 502 283 43;
+#X msg 895 373 42;
+#X msg 504 372 46;
+#X obj 410 483 *~;
+#X obj 446 481 *~;
+#X obj 469 454 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1300 1;
+#X text 711 172 granular purr;
+#X text 313 283 purr;
+#X msg 86 720 open C:/Users/yhprumkcaj/Desktop/happycatorchestra/musicdesignreport.wav
+;
+#X msg 506 684 start;
+#X msg 476 707 stop;
+#X obj 565 743 writesf~ 2;
+#X obj 262 39 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 290 38 5 0 0 0 - - -;
+#X obj 250 213 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 278 212 5 0 0 0 - - -;
+#X obj 255 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 283 117 5 0 0 0 - - -;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array meow_1 100 float 3;
+#A 0 0 0.0142856 0.0142856 0.0285713 0.0428569 0.0428569 0.0571426
+0.0714282 0.0785711 0.0999995 0.114285 0.142856 0.142856 0.157142 0.185713
+0.199999 0.199999 0.214285 0.22857 0.242856 0.257142 0.271427 0.271427
+0.314284 0.32857 0.342856 0.371427 0.385713 0.414284 0.421427 0.442855
+0.471426 0.499998 0.542855 0.55714 0.599997 0.628568 0.65714 0.685711
+0.685711 0.714282 0.728568 0.742853 0.757139 0.771425 0.771425 0.78571
+0.799996 0.799996 0.799996 0.814282 0.814282 0.814282 0.814282 0.799996
+0.757139 0.685711 0.614283 0.55714 0.485712 0.442855 0.385712 0.299999
+0.242856 0.214285 0.157142 0.128571 0.114285 0.0857138 0.0714281 0.0642853
+0.0571425 0.0428568 0.0428568 0.0285712 0.0142855 0.0142855 -1.11759e-007
+-0.00357152 -0.00714293 -0.0107143 -0.0142858 -0.0285714 -0.0285714
+-0.0428571 -0.0428571 -0.0428571 -0.0428571 -0.0428571 -0.0428571 -0.0428571
+-0.0428571 -0.0428571 -0.0428571 -0.0428571 -0.0428571 -0.0285714 -0.0214286
+-0.0142858 -0.0142858;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 37 446 graph;
+#X obj 733 353 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 733 422 tabread meow_1;
+#X obj 733 447 mgScaleMinMax 0.2 150;
+#X obj 734 375 metro 250;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array meow_2 100 float 3;
+#A 0 0.0285709 0.0428564 0.0571419 0.0571419 0.0857128 0.114284 0.128569
+0.15714 0.171426 0.199997 0.228568 0.271424 0.31428 0.328566 0.399993
+0.44285 0.485706 0.485706 0.535705 0.585704 0.585704 0.657132 0.671417
+0.728559 0.75713 0.785701 0.814272 0.828557 0.828557 0.842843 0.842843
+0.799986 0.75713 0.699988 0.657132 0.59999 0.557134 0.471421 0.414279
+0.414279 0.414279 0.44285 0.44285 0.471421 0.471421 0.514277 0.528563
+0.557134 0.571419 0.628561 0.657132 0.671417 0.685703 0.685703 0.714273
+0.728559 0.728559 0.742844 0.742844 0.742844 0.75713 0.75713 0.75713
+0.75713 0.75713 0.728559 0.714273 0.685703 0.657132 0.628561 0.614275
+0.571419 0.528562 0.485706 0.457135 0.44285 0.471421 0.528562 0.571419
+0.59999 0.628561 0.642846 0.671417 0.728559 0.75713 0.785701 0.814271
+0.828557 0.828557 0.814271 0.771415 0.728559 0.642846 0.585704 0.414279
+0.299995 0.242853 0.185711 0.15714 -9.12696e-008;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 38 588 graph;
+#X obj 713 467 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 713 536 tabread meow_2;
+#X obj 714 489 metro 300;
+#X obj 712 561 mgScaleMinMax 0.1 100;
+#X obj 1191 548 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 1191 617 tabread meow_1;
+#X obj 1171 662 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 1171 731 tabread meow_2;
+#X obj 734 399 counter 0 99;
+#X obj 714 513 counter 0 99;
+#X obj 586 25 counter 0 199;
+#X obj 732 90 counter 0 199;
+#X obj 1172 708 counter 0 99;
+#X obj 1192 594 counter 0 99;
+#X obj 1192 570 metro 200;
+#X obj 1172 684 metro 450;
+#X obj 1170 756 mgScaleMinMax 0.1 30;
+#X obj 1191 642 mgScaleMinMax 0.2 100;
+#X obj 510 662 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 732 65 metro 90;
+#X text 844 254 purrs;
+#X text 490 471 trigger meows;
+#X text 1268 511 birds;
+#X text 929 530 meow;
+#X connect 0 0 52 1;
+#X connect 1 0 52 2;
+#X connect 2 0 52 3;
+#X connect 3 0 52 4;
+#X connect 4 0 52 5;
+#X connect 5 0 52 6;
+#X connect 6 0 52 7;
+#X connect 7 0 52 8;
+#X connect 8 0 52 9;
+#X connect 9 0 52 10;
+#X connect 10 0 52 11;
+#X connect 15 0 114 0;
+#X connect 15 0 39 0;
+#X connect 17 0 115 1;
+#X connect 18 0 115 2;
+#X connect 19 0 115 3;
+#X connect 20 0 115 4;
+#X connect 21 0 115 5;
+#X connect 22 0 115 6;
+#X connect 23 0 115 7;
+#X connect 24 0 115 8;
+#X connect 25 0 46 0;
+#X connect 25 0 115 9;
+#X connect 26 0 115 10;
+#X connect 27 0 115 11;
+#X connect 32 0 41 0;
+#X connect 33 0 108 0;
+#X connect 34 0 109 0;
+#X connect 35 0 33 1;
+#X connect 35 0 34 1;
+#X connect 37 0 114 0;
+#X connect 37 0 39 0;
+#X connect 38 0 33 0;
+#X connect 39 0 125 0;
+#X connect 40 0 42 0;
+#X connect 41 0 18 0;
+#X connect 42 0 26 0;
+#X connect 43 0 55 0;
+#X connect 44 0 45 0;
+#X connect 45 0 9 0;
+#X connect 46 0 38 0;
+#X connect 47 0 46 1;
+#X connect 47 0 49 1;
+#X connect 48 0 50 1;
+#X connect 48 0 51 1;
+#X connect 49 0 113 0;
+#X connect 50 0 33 0;
+#X connect 51 0 34 0;
+#X connect 52 0 50 0;
+#X connect 52 1 51 0;
+#X connect 53 0 52 0;
+#X connect 55 0 1 0;
+#X connect 56 0 62 0;
+#X connect 56 0 64 0;
+#X connect 57 0 56 2;
+#X connect 58 0 56 3;
+#X connect 59 0 56 4;
+#X connect 60 0 56 1;
+#X connect 61 0 60 0;
+#X connect 62 0 108 0;
+#X connect 63 0 62 1;
+#X connect 63 0 64 1;
+#X connect 64 0 109 0;
+#X connect 68 0 73 0;
+#X connect 69 0 70 0;
+#X connect 70 0 71 0;
+#X connect 73 0 69 0;
+#X connect 74 0 69 2;
+#X connect 76 0 78 0;
+#X connect 78 0 79 0;
+#X connect 80 0 82 3;
+#X connect 81 0 82 2;
+#X connect 82 0 121 0;
+#X connect 83 0 89 3;
+#X connect 84 0 89 2;
+#X connect 85 0 91 3;
+#X connect 86 0 91 2;
+#X connect 87 0 90 3;
+#X connect 88 0 90 2;
+#X connect 89 1 122 0;
+#X connect 90 0 121 0;
+#X connect 90 0 122 0;
+#X connect 91 0 121 0;
+#X connect 91 1 122 0;
+#X connect 92 0 93 0;
+#X connect 92 1 94 0;
+#X connect 92 2 95 0;
+#X connect 96 0 97 0;
+#X connect 96 1 98 0;
+#X connect 96 2 99 0;
+#X connect 101 0 103 0;
+#X connect 101 0 108 1;
+#X connect 102 0 104 0;
+#X connect 102 0 109 1;
+#X connect 106 0 101 0;
+#X connect 106 0 102 0;
+#X connect 108 0 100 0;
+#X connect 108 0 178 0;
+#X connect 109 0 100 1;
+#X connect 109 0 178 1;
+#X connect 113 0 34 0;
+#X connect 114 0 53 0;
+#X connect 115 0 46 0;
+#X connect 115 1 49 0;
+#X connect 116 0 210 0;
+#X connect 118 0 131 0;
+#X connect 119 0 90 0;
+#X connect 120 0 90 1;
+#X connect 121 0 108 0;
+#X connect 122 0 109 0;
+#X connect 123 0 122 1;
+#X connect 123 0 121 1;
+#X connect 125 0 115 0;
+#X connect 126 0 128 0;
+#X connect 127 0 56 0;
+#X connect 128 0 201 0;
+#X connect 130 0 132 0;
+#X connect 131 0 60 0;
+#X connect 132 0 57 0;
+#X connect 133 0 170 0;
+#X connect 133 1 171 0;
+#X connect 134 0 137 0;
+#X connect 134 1 136 0;
+#X connect 135 0 134 0;
+#X connect 136 0 133 1;
+#X connect 137 0 133 0;
+#X connect 138 0 133 2;
+#X connect 139 0 141 0;
+#X connect 139 1 140 0;
+#X connect 140 0 143 1;
+#X connect 141 0 143 0;
+#X connect 142 0 143 2;
+#X connect 143 0 170 0;
+#X connect 143 1 171 0;
+#X connect 144 0 139 0;
+#X connect 145 0 147 0;
+#X connect 145 1 146 0;
+#X connect 146 0 155 1;
+#X connect 147 0 155 0;
+#X connect 148 0 155 2;
+#X connect 149 0 151 0;
+#X connect 149 1 150 0;
+#X connect 150 0 153 1;
+#X connect 151 0 153 0;
+#X connect 152 0 153 2;
+#X connect 153 0 170 0;
+#X connect 153 1 171 0;
+#X connect 154 0 149 0;
+#X connect 156 0 158 0;
+#X connect 156 1 157 0;
+#X connect 157 0 164 1;
+#X connect 158 0 164 0;
+#X connect 159 0 164 2;
+#X connect 160 0 162 0;
+#X connect 160 1 161 0;
+#X connect 161 0 165 1;
+#X connect 162 0 165 0;
+#X connect 163 0 165 2;
+#X connect 164 0 170 0;
+#X connect 164 1 171 0;
+#X connect 166 0 145 0;
+#X connect 167 0 156 0;
+#X connect 169 0 160 0;
+#X connect 170 0 108 0;
+#X connect 171 0 109 0;
+#X connect 172 0 171 1;
+#X connect 172 0 170 1;
+#X connect 175 0 178 0;
+#X connect 176 0 178 0;
+#X connect 177 0 178 0;
+#X connect 179 0 91 0;
+#X connect 180 0 91 1;
+#X connect 181 0 82 0;
+#X connect 182 0 82 1;
+#X connect 183 0 89 0;
+#X connect 184 0 89 1;
+#X connect 186 0 189 0;
+#X connect 187 0 188 0;
+#X connect 188 0 1 0;
+#X connect 189 0 199 0;
+#X connect 191 0 193 0;
+#X connect 192 0 194 0;
+#X connect 193 0 200 0;
+#X connect 194 0 9 0;
+#X connect 195 0 205 0;
+#X connect 196 0 208 0;
+#X connect 197 0 206 0;
+#X connect 198 0 207 0;
+#X connect 199 0 187 0;
+#X connect 200 0 192 0;
+#X connect 201 0 130 0;
+#X connect 202 0 118 0;
+#X connect 203 0 198 0;
+#X connect 204 0 196 0;
+#X connect 205 0 204 0;
+#X connect 206 0 203 0;
+#X connect 207 0 26 0;
+#X connect 208 0 18 0;
+#X connect 209 0 176 0;
+#X connect 209 0 175 0;
+#X connect 210 0 202 0;
