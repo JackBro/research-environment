@@ -1,0 +1,87 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <Src Include="One">
+      <CatA>aaa</CatA>
+      <CatB>bbb</CatB>
+      <CatC>ccc</CatC>
+      <CatD>d01</CatD>
+      <CatE>e01</CatE>
+      <CatF>f01</CatF>
+    </Src>
+    <Src Include="Two">
+      <CatA>aaa</CatA>
+      <CatB>bbb1</CatB>
+      <CatC>ccc</CatC>
+      <CatD>d02</CatD>
+      <CatE>e02</CatE>
+    </Src>
+    <Src2 Include="Three">
+      <CatA>aaa</CatA>
+      <CatB>bbb1</CatB>
+      <CatC>ccc1</CatC>
+      <CatD>d03</CatD>
+      <CatE>e03</CatE>
+      <CatF>f01</CatF>
+    </Src2>
+    <Src2 Include="Four">
+      <CatA>aaa</CatA>
+      <CatB>bbb1</CatB>
+      <CatC>ccc1</CatC>
+      <CatD>d04</CatD>
+      <CatE>e04</CatE>
+      <CatF>f02</CatF>
+    </Src2>
+    <Src3 Include="Five">
+      <CatA>aaa</CatA>
+      <CatB>bbb</CatB>
+      <CatC>ccc2</CatC>
+      <CatD>d05</CatD>
+      <CatE>e05</CatE>
+    </Src3>
+  </ItemGroup>
+
+
+  <Target Name="Test2">
+    <Message Text="%25(Src.CatA): %(Src.CatA) %25(Src2.CatA): %(Src2.CatA)"/>
+  </Target>
+  <Target Name="Test2Target" Outputs="%(Src.CatA)%(Src2.CatA)">
+    <Message Text="%25(Src.CatA): %(Src.CatA) %25(Src2.CatA): %(Src2.CatA)"/>
+    <Message Text="%25(Src.CatA): %(Src.CatA)"/>
+    <Message Text="%25(Src2.CatA): %(Src2.CatA)"/>
+  </Target>
+  <Target Name="Test3Target" Outputs="%(Src.CatD)%(Src2.CatD)">
+    <Message Text="%25(Src.CatD): %(Src.CatD) %25(Src2.CatD): %(Src2.CatD)"/>
+    <Message Text="%25(Src.CatD): %(Src.CatD)"/>
+    <Message Text="%25(Src2.CatD): %(Src2.CatD)"/>
+  </Target>
+  
+  <Target Name="Test">
+    <Message Text="%25(Src.CatA): %(Src.CatA)"/>
+    <Message Text="---------------------------------------" />
+    <Message Text="%25(Src.CatB): %(Src.CatB)"/>
+    <Message Text="---------------------------------------" />
+    <Message Text="%25(Src.CatC): %(Src.CatC)"/>
+    <Message Text="---------------------------------------" />
+    <Message Text="%25;(Src.CatA): %(Src.CatA) %25;(Src.CatB): %(Src.CatB)"/>
+    <Message Text="---------------------------------------" />
+    <Message Text="%25;(Src.CatC): %(Src.CatC) %25;(Src.CatD): %(Src.CatD)"/>
+    <Message Text="---------------------------------------" />
+    <Message Text="%25;(Src.CatD): %(Src.CatD) %25;(Src.CatE): %(Src.CatE)"/>
+    <Message Text="---------------------------------------" />
+    <Message Text="%25;(Src.CatE): %(Src.CatE) %25;(Src.CatF): %(Src.CatF)"/>
+  </Target>
+
+  <Target Name="TargetEx" Outputs="%(Src.CatA)%(Src.CatB)">
+    <Message Text="%25;(Src.CatA): %(Src.CatA) %25;(Src.CatB): %(Src.CatB)"/>
+    <Message Text="%25(Src.Identity): %(Src.Identity)"/>
+  </Target>
+  <Target Name="TargetEx2" Outputs="%(Src.CatC)%(Src.CatD)">
+    <Message Text="%25;(Src.CatC): %(Src.CatC) %25;(Src.CatD): %(Src.CatD)"/>
+    <Message Text="%25(Src.Identity): %(Src.Identity)"/>
+  </Target>
+  <Target Name="TargetEx3" Outputs="%(Src.CatD)%(Src.CatE)">
+    <Message Text="%25;(Src.CatD): %(Src.CatD) %25;(Src.CatE): %(Src.CatE)"/>
+    <Message Text="%25(Src.Identity): %(Src.Identity)"/>
+  </Target>
+</Project>

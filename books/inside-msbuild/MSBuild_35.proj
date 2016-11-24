@@ -1,0 +1,150 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         DefaultTargets="PrintProperties" 
+         ToolsVersion="3.5">
+
+
+  <Target Name="BuildProjects">
+    <!-- These will NOT be built in parallel -->
+    <MSBuild Projects="project1.csproj" BuildInParallel="true"/>
+    <MSBuild Projects="project2.csproj" BuildInParallel="true"/>
+    <MSBuild Projects="project3.csproj" BuildInParallel="true"/>
+
+    <ItemGroup>
+      <ProjectsToBuild Include="project1.csproj"/>
+      <ProjectsToBuild Include="project2.csproj"/>
+      <ProjectsToBuild Include="project3.csproj"/>
+    </ItemGroup>
+    <!-- These will be built in parallel -->
+    <MSBuild Projects="@(ProjectsToBuild)" BuildInParallel="true"/>
+    <MSBuild Projects="project1.csproj;project2.csproj;project3.csproj" BuildInParallel="true"/>
+
+
+    <MSBuild Projects="%(ProjectsToBuild.Identity)" BuildInParallel="true"/>
+  </Target>
+  <Target Name="BuildProjects2">
+    <ItemGroup>
+      <ProjectsToBuild Include="project1.csproj"/>
+      <ProjectsToBuild Include="project2.csproj"/>
+      <ProjectsToBuild Include="project3.csproj"/>
+    </ItemGroup>
+    <!-- These will NOT be built in parallel -->
+
+    <MSBuild Projects="%(ProjectsToBuild.Identity)" BuildInParallel="true"/>
+
+    <MSBuild Projects="%(ProjectsToBuild.Identity)"
+             BuildInParallel="true"
+             Properties="OutputPath=outputRoot\%(ProjectsToBuild.Filename)"/>
+
+  </Target>
+  <Target Name="BuildProjects3">
+    <ItemGroup>
+      <ProjectsToBuild Include="project1.csproj">
+        <AdditionalProperties>
+          OutputPath=outputRoot\%(ProjectsToBuild.Filename);
+        </AdditionalProperties>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="project2.csproj">
+        <AdditionalProperties>
+          OutputPath=outputRoot\%(ProjectsToBuild.Filename);
+        </AdditionalProperties>
+      </ProjectsToBuild>
+      <ProjectsToBuild Include="project3.csproj">
+        <AdditionalProperties>
+          OutputPath=outputRoot\%(ProjectsToBuild.Filename);
+        </AdditionalProperties>
+      </ProjectsToBuild>
+    </ItemGroup>
+
+    <!-- These will be built in parallel -->
+    <MSBuild Projects="@(ProjectsToBuild)" BuildInParallel="true"/>
+  </Target>
+
+<Target Name="MSBuild20">
+  <CreateProperty Value="value one">
+    <Output PropertyName="myProp" TaskParameter="Value"/>
+  </CreateProperty>
+  <CreateItem Include="item one">
+    <Output ItemName="myItem" TaskParameter="Include"/>
+  </CreateItem>
+  <CreateItem Include="item two">
+    <Output ItemName="myItem" TaskParameter="Include"/>
+  </CreateItem>
+  <Message Text="myProp: $(myProp)"/>
+  <Message Text="item1: @(myItem)"/>
+  
+</Target>
+<Target Name="MSBuild35">
+  <ItemGroup>
+    <ApplicationDefinition Remove=""/>
+  </ItemGroup>
+  
+  
+  <PropertyGroup>
+    <prop1>value one</prop1>
+  </PropertyGroup>
+  <ItemGroup>
+    <myItem Include="item one"/>
+    <myItem Include="item two"/>
+  </ItemGroup>
+
+  <Message Text="prop1: $(myProp)"/>
+  <Message Text="myItem: @(myItem)"/>
+</Target>
+
+  <ItemGroup>
+    <Source Include="class1.cs">
+      <Type>CS</Type>
+      <Group>A1</Group>
+    </Source>
+    <Source Include="class2.vb">
+      <Type>VB</Type>
+      <Group>A2</Group>
+    </Source>
+    <Source Include="class3.vb">
+      <Type>VB</Type>
+      <Group>A2</Group>
+    </Source>
+    <Source Include="class4.cs">
+      <Type>CS</Type>
+      <Group>A2</Group>
+    </Source>
+    <Source Include="class5.vb">
+      <Type>VB</Type>
+      <Group>A1</Group>
+    </Source>
+  </ItemGroup>
+  
+  <Target Name="RemoveItemValue">
+    <Message Text="Source: @(Source)"/>
+    <!-- Remove one value -->
+    <ItemGroup>
+      <Source Remove="class2.vb"/>
+    </ItemGroup>
+    <Message Text="Source: @(Source)"/>
+  </Target>
+  <Target Name="UpdateMetadata">
+    <Message Text="Source: @(Source->'%(Identity):%(Group)')"/>
+    <ItemGroup>
+      <Source Condition="%(Group)=='A2'">
+        <Group>A3</Group>
+      </Source>
+    </ItemGroup>
+    <Message Text="Source: @(Source->'%(Identity):%(Group)')"/>
+  </Target>
+  <Target Name="AddMetadata">
+    <Message Text="Source: @(Source->'%(Identity):%(Level)')"/>
+    
+    <ItemGroup>
+      <Source Condition="%(Type)=='CS'">
+        <Level>L1</Level>
+      </Source>
+      <Source Condition="%(Type)=='VB'">
+        <Level>L2</Level>
+      </Source>
+    </ItemGroup>
+
+    <Message Text="Source: @(Source->'%(Identity):%(Level)')"/>    
+  </Target>
+  
+</Project>
+

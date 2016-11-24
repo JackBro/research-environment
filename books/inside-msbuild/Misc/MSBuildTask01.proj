@@ -1,0 +1,51 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         ToolsVersion="3.5">
+
+  <Target Name="PrintProperties">
+
+    <ItemGroup>
+      <SomeProject Include="$(MSBuildProjectFile)">
+        <!--<Targets>InternalTarget01</Targets>-->
+        <!--<Target>InternalTarget01</Target>-->
+        <Properties>prop1=prop1_value?prop2=prop2_value</Properties>
+      </SomeProject>
+    </ItemGroup>
+
+    <MSBuild Projects="@(SomeProject)"
+             Targets="InternalTarget01" />
+
+
+  </Target>
+
+  <Target Name="InternalTarget01">
+    <Message Text="Prop1: $(prop1)"/>
+    <Message Text="Prop2: $(prop2)"/>
+  </Target>
+
+
+  <Target Name="ExternalTest">
+
+    <MSBuild Projects="$(MSBuildProjectFile)"
+             Targets="Test">
+      <Output ItemName="targetResult" TaskParameter="TargetOutputs" />
+    </MSBuild>
+
+    <Message Text="targetResult: @(targetResult)"/>
+
+    <Message Text="MSBuildSourceTargetName: @(targetResult->'%(MSBuildSourceTargetName)')"/>
+    <Message Text="MSBuildSourceProjectFile: @(targetResult->'%(MSBuildSourceProjectFile)')"/>
+
+
+
+  </Target>
+
+  <ItemGroup>
+    <SomeResult Include="class1.cs"/>
+  </ItemGroup>
+
+  <Target Name="Test" Outputs="@(SomeResult)">
+    <Message Text="Test executed"/>
+  </Target>
+
+
+</Project>

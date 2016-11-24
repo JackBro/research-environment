@@ -1,0 +1,23 @@
+<!--
+  This sample demonstrates using task batching to
+  copy a set of files into a set of folders.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SourceFolder>src\</SourceFolder>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <SourceFiles Include="$(SourceFolder)*.txt"/>
+  </ItemGroup>
+
+  <Target Name="TaskBatching">
+    <!-- Transforms items into single string -->
+    <Message Text="---------------------------------------------"/>
+    <Message Text="Not batched @(SourceFiles->'%(FullPath)')"/>
+    <!-- Invokes message task per each batch -->
+    <Message Text="---------------------------------------------"/>
+    <Message Text="Batched %(SourceFiles.FullPath)"/>
+  </Target>
+</Project>

@@ -1,0 +1,76 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         DefaultTargets="Build">
+  <PropertyGroup>
+    <SourceRoot>$(MSBuildProjectDirectory)\</SourceRoot>
+    <UnitTestRoot>$(SourceRoot)</UnitTestRoot>
+    <OutDirName>bin\</OutDirName>
+    <Configuration>Debug</Configuration>
+    <NunitOutputDir>$(SourceRoot)BuildTemp\</NunitOutputDir>
+    <GenericBuildRoot>$(SourceRoot)..\BUILD\GenericBuild\</GenericBuildRoot>
+    <FxCopContribRoot>$(GenericBuildRoot)Contrib\Microsoft FxCop 1.36\</FxCopContribRoot>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <UnitTestProjects 
+      Include="$(UnitTestRoot)\Unittest.Proj1\Unittest.Proj1.csproj">
+      <ProjectName>Unittest.Proj1</ProjectName>
+    </UnitTestProjects>
+    <UnitTestProjects 
+      Include="$(UnitTestRoot)Unittest.Proj2\Unittest.Proj2.csproj">
+      <ProjectName>Unittest.Proj2</ProjectName>
+    </UnitTestProjects>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      Clean;
+      CoreBuild;
+      RunFxCop;
+    </BuildDependsOn>
+  </PropertyGroup>
+  <Target Name="Build" DependsOnTargets="$(BuildDependsOn)" />
+  <Target Name="Clean">
+    <MSBuild Projects="@(UnitTestProjects)" Targets="Clean" />
+  </Target>
+  <Target Name="CoreBuild">
+    <!-- 
+      Build the NUnit assemblies & put the 
+      assemblies in the NunitAssemblies Item -->
+    <MSBuild Projects="@(UnitTestProjects)">
+      <Output ItemName="FxCopAssemblies" 
+              TaskParameter="TargetOutputs"/>
+    </MSBuild>
+  </Target>
+
+
+  <Import
+  Project=
+    "$(GenericBuildRoot)Contrib\SDC Tasks - Release 2.1.3155.0\Microsoft.Sdc.Common.tasks"/>
+  <!-- The MSBuild Community Tasks must be imported for the nunit.targets file -->
+  <Import 
+    Project=
+    "$(GenericBuildRoot)Contrib\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+  <!-- Import the nunit.proj file here -->
+  <!--<Import 
+    Project="$(GenericBuildRoot)Build\nunit.targets"/>-->
+
+  <Import
+    Project="$(GenericBuildRoot)Build\fxcop.targets"/>
+  
+  <!-- 
+    Perform customizations to the nunit process below the import statement
+    so they are not overridden by declarations in the nunit.proj file itself.
+    -->
+  <PropertyGroup>
+    <UnitTestDependsOn>
+      CustomBeforeUnitTest;
+      $(UnitTestDependsOn);
+    </UnitTestDependsOn>
+  </PropertyGroup>
+
+  <Target Name="CustomBeforeUnitTest">
+    <Message Text="NunitAssemblies:%0a%0d@(NunitAssemblies,'%0a%0d')" 
+             Importance="high" />    
+  </Target>
+</Project>

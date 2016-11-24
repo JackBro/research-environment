@@ -1,0 +1,15 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="WriteFile" >
+  <ItemGroup>
+    <Compile Include="Form1.cs;Form1.Designer.cs;Program.cs;Properties\AssemblyInfo.cs" />
+    <DestFile Include="compileFiles.txt"/>
+  </ItemGroup>
+
+  <Target Name="WriteFile">
+    <Message Text="Writing compile items to file [@(DestFile)]" />
+    <WriteLinesToFile File="@(DestFile)"
+                      Lines="@(Compile)"
+                      Overwrite="true"
+                      />
+  </Target>
+
+</Project>

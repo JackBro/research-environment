@@ -1,0 +1,35 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         ToolsVersion="3.5">
+
+  <ItemDefinitionGroup>
+    <MyItem>
+      <!-- Default Group if not specified -->
+      <Group>A1</Group>
+    </MyItem>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <MyItem Include="Item01">
+      <Group>A1</Group>
+    </MyItem>
+    <MyItem Include="Item02"/>
+    <MyItem Include="Item03">
+      <Group>A2</Group>
+    </MyItem>
+    <MyItem Include="Item04">
+      <Group>A2</Group>
+    </MyItem>
+    <MyItem Include="Item05">
+      <Group></Group>
+    </MyItem>
+  </ItemGroup>
+
+  <Target Name="PrintMetadata">
+    <ItemGroup>
+      <MyItem Include="Item06"/>
+    </ItemGroup>
+    
+    <Message Text="@(MyItem->'%(Identity):%(Group)')"/>
+  </Target>
+</Project>
+

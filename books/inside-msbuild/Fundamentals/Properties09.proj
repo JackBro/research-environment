@@ -1,0 +1,45 @@
+<!--
+  Demonstrates dynamic properties.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+  This target will always be skipped .
+  Neither property One or Two exists but One will be inferred
+  by MSBuild.
+  -->
+  <Target Name="SetupValues" 
+          Inputs="$(MSBuildProjectFullPath)" 
+          Outputs="$(MSBuildProjectFullPath)">
+        
+    <Message Text="SetuptValues Executed!" Importance="high"/>    
+    
+    <CreateProperty Value="1111">
+      <Output PropertyName="One" TaskParameter="Value"/>
+      <!-- Property One is actually inferred by this statement. -->
+    </CreateProperty>
+    <CreateProperty Value="2222">
+      <Output PropertyName="Two" TaskParameter="ValueSetByTask"/>
+      <!-- Using ValueSetByTask we can ensure bypassing any inferring here -->
+    </CreateProperty>
+
+    <PropertyGroup>
+      <!-- 3.5 syntax: Property Three is also inferred -->
+      <Three>3333</Three>
+    </PropertyGroup>
+
+    <!-- Items are inferred too! -->
+    <ItemGroup>
+      <File Include="app.config"/>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="PrintValues" DependsOnTargets="SetupValues">
+    <Message Text="One: $(One)" />
+    <Message Text="Two: $(Two)" />
+    <Message Text="Three: $(Three)"/>
+    <Message Text="File: @(File)"/>
+  </Target>
+  
+</Project>

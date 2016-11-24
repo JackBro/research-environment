@@ -1,0 +1,23 @@
+<!--
+  TODO: Demonstrates dynamic items.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Demo">
+    <CreateItem Include="proj1.proj"
+                AdditionalMetadata="Type=demo">
+      <Output ItemName="Projects" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="proj2.proj"
+                AdditionalMetadata="Type=sample">
+      <Output ItemName="Projects" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="proj3.proj"
+                AdditionalMetadata="Type=reference">
+      <Output ItemName="Projects" TaskParameter="Include"/>
+    </CreateItem>
+
+    <Message Text="Projects: %(Projects.Identity) %(Projects.Type)"/>
+  </Target>  
+  
+</Project>

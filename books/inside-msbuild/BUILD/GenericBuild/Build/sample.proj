@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="FullBuild">
+  <!-- Temp properties -->
+  <PropertyGroup>
+    <GenBuildDebugMode>true</GenBuildDebugMode>
+    <NUnitContinueOnError>true</NUnitContinueOnError>
+    <GenericBuildInstallLoc>$(MSBuildProjectDirectory)\..\</GenericBuildInstallLoc>
+    <!-- How to make FxCop not fail the build -->
+    <IgnoreFxCopCriticalErrors>true</IgnoreFxCopCriticalErrors>
+    <IgnoreFxCopErrors>true</IgnoreFxCopErrors>
+    <IgnoreFxCopCriticalWarnings>true</IgnoreFxCopCriticalWarnings>
+    
+  </PropertyGroup>
+
+  <!-- Required Properties -->
+  <PropertyGroup>
+    <Root>$(MSBuildProjectDirectory)\..\</Root>
+    <SourceRoot>$(Root)Sample\</SourceRoot>
+    <OutputRoot>$(Root)Output_gen\</OutputRoot>
+    <ContribRoot>$(Root)Contrib\</ContribRoot>
+       
+    <RunUnittest>true</RunUnittest>
+    <RunFxCop>true</RunFxCop>
+    <!-- Required for NUnit -->
+    <NunitOutputDir>$(OutputRoot)__NUnitTemp\</NunitOutputDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AllConfigurations Include="Debug">
+      <Configuration>Debug</Configuration>
+    </AllConfigurations>
+    <AllConfigurations Include="Release">
+      <Configuration>Release</Configuration>
+    </AllConfigurations>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+    Strictly speaking we can allow MSBuild to build dependent projects but
+    it will not build with the properties we provide, because of this we
+    should declare the project in the order in which they should be built.
+    -->
+    <ProjectsToBuild Include="$(SourceRoot)ClassLibrary01\ClassLibrary01.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+
+      <BeforeTargets>CustomBeforeFullBuild</BeforeTargets>
+      <AfterTargets>CustomAfterFullBuild</AfterTargets>
+    </ProjectsToBuild>
+    <ProjectsToBuild Include="$(SourceRoot)ClassLibrary02\ClassLibrary02.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+    </ProjectsToBuild>
+    <ProjectsToBuild Include="$(SourceRoot)WebApplication1\WebApplication1.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+    </ProjectsToBuild>
+    <ProjectsToBuild Include="$(SourceRoot)WebApplication2\WebApplication2.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+    </ProjectsToBuild>
+  </ItemGroup>
+
+  <!-- UNIT TEST ========================================================================== -->
+  <ItemGroup>
+    <UnittestConfigurations Include="Debug">
+      <Configuration>Debug</Configuration>
+    </UnittestConfigurations>
+  </ItemGroup>
+  <ItemGroup>
+    <UnitTestProjects Include="$(SourceRoot)unittest.MyProject01\unittest.MyProject01.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+    </UnitTestProjects>
+    <UnitTestProjects Include="$(SourceRoot)unittest.MyProject02\unittest.MyProject02.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+    </UnitTestProjects>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <NUnitContinueOnError>true</NUnitContinueOnError>
+  </PropertyGroup>
+  <!-- UNIT TEST ========================================================================== -->
+
+
+  <ItemGroup>
+    <OtherFiles Include="$(SourceRoot)docs\**\*.txt">
+      <DestDir>docssss\</DestDir>
+    </OtherFiles>
+  </ItemGroup>
+  
+  
+  
+
+  
+  
+  
+  
+  
+  <Import Project="$(MSBuildProjectDirectory)\Sedo.Build.Common.targets"/>
+
+  <!--==================================================================================================
+    OVERRIDE TARGET DEPENDENCIES
+  ==================================================================================================-->
+  <PropertyGroup>
+    <FullBuildDependsOn>
+      SetupOutputFolders;
+      $(FullBuildDependsOn);
+    </FullBuildDependsOn>
+  </PropertyGroup>
+  
+  <Target Name="SetupOutputFolders">
+    <!-- Before the build starts these folders must exist -->
+    <MakeDir Directories="$(OutputRoot)" Condition="!Exists('$(OutputRoot)')"/>
+  </Target>
+  
+  
+  
+</Project>

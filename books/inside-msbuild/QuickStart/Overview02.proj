@@ -1,0 +1,57 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         DefaultTargets="PrintConfig">
+  
+  <PropertyGroup>
+    <Configuration>Release</Configuration>
+    
+    <OverrideConfiguration>false</OverrideConfiguration>
+    <OverrideConfiguration>true</OverrideConfiguration>
+    <Configuration Condition="'$(OverrideConfiguration)'=='true'">Debug</Configuration>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="HelloWorld.proj"/>
+  </ItemGroup>
+  
+  <Target Name="PrintConfig">
+    <CreateProperty Value="false">
+      <Output PropertyName="OverrideConfiguration" TaskParameter="Value"/>
+    </CreateProperty>
+    
+    
+    <Message Text="Configuration: $(Configuration)"/>
+    <Message Text="Content: @(Content)"/>
+    <Message Text="Content: @(Content->'%(FullPath)')"/>
+  </Target>
+
+
+  
+  <ItemGroup>
+    <!-- Recursively add all files under the src folder -->
+    <SourceFiles Include="$(MSBuildProjectDirectory)\CopyExample\src\**\*.*"/>
+    <!-- Add only the top level files -->
+    <TopFiles Include="$(MSBuildProjectDirectory)\CopyExample\src\*.*"/>
+  </ItemGroup>
+  <Target Name="PrintItems">
+    <Message Text="SourceFiles @(SourceFiles)"/>
+  </Target>
+
+  <Target Name="TaskBatching">
+    <!-- Print out the items -->
+    <Message Text="---------------------------------------------"/>
+    <Message Text="TopFiles: @(TopFiles)"/>
+    <!-- Print out the items using Fullpath metadata -->
+    <Message Text="---------------------------------------------"/>
+    <Message Text="TopFiles: @(TopFiles->'%(Fullpath)')"/>
+    <!-- Print out the items using task batching to invoke message 1 per item -->
+    <Message Text="---------------------------------------------"/>
+    <Message Text="TopFiles %(TopFiles.Fullpath)" />
+  </Target>
+
+  <Target Name="TargetBatching" Outputs="%(TopFiles.Fullpath)">
+    <Message Text="Target batching"/>
+    <Message Text="%(TopFiles.Fullpath)"/>
+  </Target>
+  
+  
+</Project>

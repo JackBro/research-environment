@@ -1,0 +1,14 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Staging</Configuration>
+  </PropertyGroup>
+
+  <Target Name="Deploy" Condition="$(Configuration)=='Debug'">
+    <Message Text="Configuration: $(Configuration)"/>
+    <Message Text="Starting deploy for a debug build"/>
+  </Target>
+  <Target Name="Deploy" Condition="$(Configuration)=='Release'">
+    <Message Text="Configuration: $(Configuration)"/>
+    <Message Text="Starting deploy for a release build"/>
+  </Target>
+</Project>

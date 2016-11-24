@@ -1,0 +1,2185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">c:\program files\microsoft fxcop 1.36\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/Examples.Loggers/Examples.Loggers.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/Examples.Tasks/Examples.Tasks.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="False" AllRulesEnabled="False" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.36">
+  <Namespaces>
+   <Namespace Name="Examples.Tasks.Java">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2008-07-23 05:36:51Z">
+      <Issue>
+       <Item>Examples.Tasks.Java</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="Examples.Tasks.JSLint">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2008-07-23 05:36:51Z">
+      <Issue>
+       <Item>Examples.Tasks.JSLint</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="MSBuildTasks">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2008-07-23 05:36:51Z">
+      <Issue>
+       <Item>MSBuildTasks</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/Examples.Loggers/Examples.Loggers.dll">
+    <Modules>
+     <Module Name="examples.loggers.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2008-07-23 05:36:51Z">
+        <Issue Name="NoStrongName">
+         <Item>'Examples.Loggers.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2008-07-23 05:36:51Z">
+        <Issue>
+         <Item>'Examples.Loggers.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Examples.Loggers">
+        <Types>
+         <Type Name="FileLoggerBase">
+          <Members>
+           <Member Name="#AddToParameters(System.String,System.String)">
+            <Messages>
+             <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Created="2008-07-23 05:36:51Z">
+              <Issue Name="IncorrectMessage">
+               <Item>'FileLoggerBase.AddToParameters(string, string)'</Item>
+               <Item>value</Item>
+               <Item>'message'</Item>
+               <Item>'ArgumentException'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'FileLoggerBase.AddToParameters(string, string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#DefiniedParameters">
+            <Messages>
+             <Message Id="Definied" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Definied</Item>
+               <Item>'FileLoggerBase.DefiniedParameters'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetParameterValue(System.String)">
+            <Messages>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'FileLoggerBase.GetParameterValue(string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#InitalizeParameters()">
+            <Messages>
+             <Message Id="Initalize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Initalize</Item>
+               <Item>'FileLoggerBase.InitalizeParameters()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'FileLoggerBase.InitalizeParameters()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessAppend(System.String)">
+            <Messages>
+             <Message Id="Str" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameter">
+               <Item>'FileLoggerBase.ProcessAppend(string)'</Item>
+               <Item>Str</Item>
+               <Item>'appendStr'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessParam(System.String,System.String)">
+            <Messages>
+             <Message Id="Param" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Param</Item>
+               <Item>'FileLoggerBase.ProcessParam(string, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'FileLoggerBase.ProcessParam(string, string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessShowSummary(System.String)">
+            <Messages>
+             <Message Id="Str" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameter">
+               <Item>'FileLoggerBase.ProcessShowSummary(string)'</Item>
+               <Item>Str</Item>
+               <Item>'summaryStr'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessVerbosity(System.String)">
+            <Messages>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'FileLoggerBase.ProcessVerbosity(string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SedoLogger">
+          <Messages>
+           <Message Id="Sedo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Sedo</Item>
+             <Item>'SedoLogger'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#_showSummary">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'SedoLogger._showSummary'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetParameterValue(System.String)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'SedoLogger.GetParameterValue(string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#InitalizeLog4net()">
+            <Messages>
+             <Message Id="net" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>net</Item>
+               <Item>'SedoLogger.InitalizeLog4net()'</Item>
+               <Item>Net</Item>
+              </Issue>
+             </Message>
+             <Message Id="Initalize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Initalize</Item>
+               <Item>'SedoLogger.InitalizeLog4net()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#InitalizeParameters()">
+            <Messages>
+             <Message Id="Initalize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Initalize</Item>
+               <Item>'SedoLogger.InitalizeParameters()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'SedoLogger.InitalizeParameters()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Log4netConfigFile">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'SedoLogger.Log4netConfigFile'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessParam(System.String,System.String)">
+            <Messages>
+             <Message Id="Param" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Param</Item>
+               <Item>'SedoLogger.ProcessParam(string, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'SedoLogger.ProcessParam(string, string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessShowSummary(System.String)">
+            <Messages>
+             <Message Id="Str" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameter">
+               <Item>'SedoLogger.ProcessShowSummary(string)'</Item>
+               <Item>Str</Item>
+               <Item>'summaryStr'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessVerbosity(System.String)">
+            <Messages>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'SedoLogger.ProcessVerbosity(string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SimpleFileLogger">
+          <Members>
+           <Member Name="#TargetFinished(System.Object,Microsoft.Build.Framework.TargetFinishedEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'SimpleFileLogger.TargetFinished(object, TargetFinishedEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TargetStarted(System.Object,Microsoft.Build.Framework.TargetStartedEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'SimpleFileLogger.TargetStarted(object, TargetStartedEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TaskFinished(System.Object,Microsoft.Build.Framework.TaskFinishedEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'SimpleFileLogger.TaskFinished(object, TaskFinishedEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TaskStarted(System.Object,Microsoft.Build.Framework.TaskStartedEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'SimpleFileLogger.TaskStarted(object, TaskStartedEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="XmlLogger">
+          <Members>
+           <Member Name="#BuildError(System.Object,Microsoft.Build.Framework.BuildErrorEventArgs)">
+            <Messages>
+             <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildError(object, BuildErrorEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildError(object, BuildErrorEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildError(object, BuildErrorEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildError(object, BuildErrorEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Created="2008-07-23 05:36:51Z">
+              <Issue Name="IsNullOrEmpty">
+               <Item>'string.Equals(string)'</Item>
+               <Item>'XmlLogger.BuildError(object, BuildErrorEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#BuildMessage(System.Object,Microsoft.Build.Framework.BuildMessageEventArgs)">
+            <Messages>
+             <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Created="2008-07-23 05:36:51Z">
+              <Issue Name="IsNullOrEmpty">
+               <Item>'string.Equals(string)'</Item>
+               <Item>'XmlLogger.BuildMessage(object, BuildMessageEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#BuildWarning(System.Object,Microsoft.Build.Framework.BuildWarningEventArgs)">
+            <Messages>
+             <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildWarning(object, BuildWarningEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildWarning(object, BuildWarningEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildWarning(object, BuildWarningEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'int.ToString()'</Item>
+               <Item>'XmlLogger.BuildWarning(object, BuildWarningEventArgs)'</Item>
+               <Item>'int.ToString(IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Created="2008-07-23 05:36:51Z">
+              <Issue Name="IsNullOrEmpty">
+               <Item>'string.Equals(string)'</Item>
+               <Item>'XmlLogger.BuildWarning(object, BuildWarningEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CreateAttribute(System.String,System.String)">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Xml">
+               <Item>'XmlLogger.CreateAttribute(string, string)'</Item>
+               <Item>'XmlAttribute'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CreateFinishedAttribute(System.DateTime)">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Xml">
+               <Item>'XmlLogger.CreateFinishedAttribute(DateTime)'</Item>
+               <Item>'XmlAttribute'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CreateMessageElement(System.String)">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Xml">
+               <Item>'XmlLogger.CreateMessageElement(string)'</Item>
+               <Item>'XmlElement'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CreateStartedAttribute(System.DateTime)">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Xml">
+               <Item>'XmlLogger.CreateStartedAttribute(DateTime)'</Item>
+               <Item>'XmlAttribute'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CustomEvent(System.Object,Microsoft.Build.Framework.CustomBuildEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'XmlLogger.CustomEvent(object, CustomBuildEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#errorList">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'XmlLogger.errorList'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetCurrentElement()">
+            <Messages>
+             <Message Id="System.Xml.XmlNode" TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Xml">
+               <Item>'XmlLogger.GetCurrentElement()'</Item>
+               <Item>'XmlElement'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2008-07-23 05:36:51Z">
+              <Issue Certainty="50">
+               <Item>'XmlLogger.GetCurrentElement()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#InitalizeEvents(Microsoft.Build.Framework.IEventSource)">
+            <Messages>
+             <Message Id="Initalize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Initalize</Item>
+               <Item>'XmlLogger.InitalizeEvents(IEventSource)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'XmlLogger.InitalizeEvents(IEventSource)'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#InitalizeXmlDoc()">
+            <Messages>
+             <Message Id="Initalize" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Initalize</Item>
+               <Item>'XmlLogger.InitalizeXmlDoc()'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'XmlLogger.InitalizeXmlDoc()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#warningList">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'XmlLogger.warningList'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/Examples.Tasks/Examples.Tasks.dll">
+    <Modules>
+     <Module Name="examples.tasks.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2008-07-23 05:36:51Z">
+        <Issue Name="NoStrongName">
+         <Item>'Examples.Tasks.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2008-07-23 05:36:51Z">
+        <Issue>
+         <Item>'Examples.Tasks.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Created="2008-07-23 05:36:51Z">
+        <Issue>
+         <Item>'Examples.Tasks.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Examples.Tasks">
+        <Types>
+         <Type Name="AspnetRegsql">
+          <Messages>
+           <Message Id="Aspnet" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Aspnet</Item>
+             <Item>'AspnetRegsql'</Item>
+            </Issue>
+           </Message>
+           <Message Id="Regsql" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Regsql</Item>
+             <Item>'AspnetRegsql'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#GenerateCommandLineCommands()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'AspnetRegsql.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SqlExportFilename">
+            <Messages>
+             <Message Id="Filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberShouldBeCompoundWord">
+               <Item>Filename</Item>
+               <Item>'AspnetRegsql.SqlExportFilename'</Item>
+               <Item>FileName</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Username">
+            <Messages>
+             <Message Id="Username" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberShouldBeCompoundWord">
+               <Item>Username</Item>
+               <Item>'AspnetRegsql.Username'</Item>
+               <Item>UserName</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ValidateParameters()">
+            <Messages>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Compare(string, string, bool, CultureInfo)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object[])" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, params object[])'</Item>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Compare(System.String,System.String,System.Boolean)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'AspnetRegsql.ValidateParameters()'</Item>
+               <Item>'string.Compare(string, string, bool)'</Item>
+               <Item>'string.Compare(string, string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="AspnetRegsqlConsts">
+          <Members>
+           <Member Name="#.cctor()">
+            <Messages>
+             <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'AspnetRegsqlConsts'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HelloWorld3">
+          <Members>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'HelloWorld3.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="HelloWorld4">
+          <Members>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'HelloWorld4.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'HelloWorld4.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MakeZipExe">
+          <Members>
+           <Member Name="#GenerateFullPathToTool()">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2008-07-23 05:36:51Z">
+              <Issue Name="TooGeneric">
+               <Item>'MakeZipExe.GenerateFullPathToTool()'</Item>
+               <Item>'ApplicationException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ValidateParameters()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'MakeZipExe.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'MakeZipExe.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Zipfile">
+            <Messages>
+             <Message Id="Zipfile" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Zipfile</Item>
+               <Item>'MakeZipExe.Zipfile'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MetadataEx">
+          <Messages>
+           <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Created="2008-07-23 05:36:51Z">
+            <Issue Name="TypeNewerVersion">
+             <Item>Ex</Item>
+             <Item>'MetadataEx'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'MetadataEx.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Move">
+          <Members>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'Move.Execute()'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+              <Issue>
+               <Item>'Move.Execute()'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'Move.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PrintDate">
+          <Members>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'PrintDate.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PyScript">
+          <Messages>
+           <Message Id="Py" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Py</Item>
+             <Item>'PyScript'</Item>
+             <Item>PY</Item>
+            </Issue>
+           </Message>
+           <Message Id="Py" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Py</Item>
+             <Item>'PyScript'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'PyScript.Execute()'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'PyScript.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ReplaceInFile">
+          <Members>
+           <Member Name="#.ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'ReplaceInFile.ReplaceInFile()'</Item>
+               <Item>'ReplaceInFile.useRegularExpressions'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'ReplaceInFile.Execute()'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'DateTime.ToString(string)'</Item>
+               <Item>'ReplaceInFile.Execute()'</Item>
+               <Item>'DateTime.ToString(string, IFormatProvider)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'ReplaceInFile.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'ReplaceInFile.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object, object)'</Item>
+               <Item>'ReplaceInFile.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Tester">
+          <Members>
+           <Member Name="#ToolName">
+            <Accessors>
+             <Accessor Name="#get_ToolName()">
+              <Messages>
+               <Message TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065" Created="2008-07-23 05:36:51Z" FixCategory="Breaking">
+                <Issue Name="PropertyGetter" Level="Warning">
+                 <Item>'Tester.ToolName.get()'</Item>
+                 <Item>'NotImplementedException'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Examples.Tasks.Java">
+        <Types>
+         <Type Name="Javac">
+          <Messages>
+           <Message Id="Javac" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Javac</Item>
+             <Item>'Javac'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'Javac.Javac()'</Item>
+               <Item>'Javac.deprecation'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'Javac.Javac()'</Item>
+               <Item>'Javac.generateDebugginInfo'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'Javac.Javac()'</Item>
+               <Item>'Javac.implicit'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'Javac.Javac()'</Item>
+               <Item>'Javac.nowarn'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'Javac.Javac()'</Item>
+               <Item>'Javac.performProcAnnotation'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+              <Issue>
+               <Item>'Javac.Javac()'</Item>
+               <Item>'Javac.verbose'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Bootclasspath">
+            <Messages>
+             <Message Id="Bootclasspath" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Bootclasspath</Item>
+               <Item>'Javac.Bootclasspath'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Classpath">
+            <Messages>
+             <Message Id="Classpath" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Classpath</Item>
+               <Item>'Javac.Classpath'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Endorseddirs">
+            <Messages>
+             <Message Id="Endorseddirs" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Endorseddirs</Item>
+               <Item>'Javac.Endorseddirs'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Extdirs">
+            <Messages>
+             <Message Id="Extdirs" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Extdirs</Item>
+               <Item>'Javac.Extdirs'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Flag">
+            <Messages>
+             <Message Id="Flag" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberNoAlternate">
+               <Item>Flag</Item>
+               <Item>'Javac.Flag'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GenerateCommandLineCommands()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'Javac.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'Javac.GenerateCommandLineCommands()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GenerateDebugginInfo">
+            <Messages>
+             <Message Id="Debuggin" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Debuggin</Item>
+               <Item>'Javac.GenerateDebugginInfo'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GenerateFullPathToTool()">
+            <Messages>
+             <Message Id="System.String.EndsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'Javac.GenerateFullPathToTool()'</Item>
+               <Item>'string.EndsWith(string)'</Item>
+               <Item>'string.EndsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetSwitchStringForItemGroup(System.String,Microsoft.Build.Framework.ITaskItem[],System.String,System.Boolean)">
+            <Messages>
+             <Message Id="Str" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameter">
+               <Item>'Javac.GetSwitchStringForItemGroup(string, ITaskItem[], string, bool)'</Item>
+               <Item>Str</Item>
+               <Item>'switchStr'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Created="2008-07-23 05:36:51Z">
+              <Issue Name="IncorrectParameterName">
+               <Item>'Javac.GetSwitchStringForItemGroup(string, ITaskItem[], string, bool)'</Item>
+               <Item>delimter</Item>
+               <Item>'paramName'</Item>
+               <Item>'ArgumentNullException'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'Javac.GetSwitchStringForItemGroup(string, ITaskItem[], string, bool)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'Javac.GetSwitchStringForItemGroup(string, ITaskItem[], string, bool)'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#JavaEnvVarName">
+            <Messages>
+             <Message Id="Env" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Env</Item>
+               <Item>'Javac.JavaEnvVarName'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Nowarn">
+            <Messages>
+             <Message Id="Nowarn" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Nowarn</Item>
+               <Item>'Javac.Nowarn'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#PrintNonStandardOptions">
+            <Messages>
+             <Message Id="NonStandard" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberShouldBeDiscreteTerm">
+               <Item>NonStandard</Item>
+               <Item>'Javac.PrintNonStandardOptions'</Item>
+               <Item>Nonstandard</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Sourcepath">
+            <Messages>
+             <Message Id="Sourcepath" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Sourcepath</Item>
+               <Item>'Javac.Sourcepath'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ValidateParameters()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'Javac.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'Javac.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'Javac.ValidateParameters()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Verbose">
+            <Accessors>
+             <Accessor Name="#set_Verbose(System.Boolean)">
+              <Messages>
+               <Message Id="value" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+                <Issue>
+                 <Item>'value'</Item>
+                 <Item>'Javac.Verbose.set(bool)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="JavacConsts">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Created="2008-07-23 05:36:51Z">
+            <Issue>
+             <Item>'JavacConsts'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="Examples.Tasks.JSLint">
+        <Types>
+         <Type Name="JavascriptErrorInfo">
+          <Messages>
+           <Message Id="Javascript" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+            <Issue Name="TypeShouldBeCompoundWord">
+             <Item>Javascript</Item>
+             <Item>'JavascriptErrorInfo'</Item>
+             <Item>JavaScript</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Filpath">
+            <Accessors>
+             <Accessor Name="#get_Filpath()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2008-07-23 05:36:51Z">
+                <Issue>
+                 <Item>'JavascriptErrorInfo.Filpath.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Filpath(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2008-07-23 05:36:51Z">
+                <Issue>
+                 <Item>'JavascriptErrorInfo.Filpath.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="JSLint">
+          <Messages>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Created="2008-07-23 05:36:51Z">
+            <Issue>
+             <Item>'JSLint'</Item>
+             <Item>Examples.Tasks.JSLint</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.cctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'JSLint.JSLint()'</Item>
+               <Item>'JSLint.extractedResourceFilename'</Item>
+               <Item>'string'</Item>
+               <Item>null</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'JSLint.JSLint()'</Item>
+               <Item>'JSLint.mStopOnFirstFailure'</Item>
+               <Item>'bool'</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#adsafe">
+            <Messages>
+             <Message Id="adsafe" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>adsafe</Item>
+               <Item>'JSLint.adsafe'</Item>
+               <Item>Adsafe</Item>
+              </Issue>
+             </Message>
+             <Message Id="adsafe" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>adsafe</Item>
+               <Item>'JSLint.adsafe'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#bitwise">
+            <Messages>
+             <Message Id="bitwise" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>bitwise</Item>
+               <Item>'JSLint.bitwise'</Item>
+               <Item>Bitwise</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#browser">
+            <Messages>
+             <Message Id="browser" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>browser</Item>
+               <Item>'JSLint.browser'</Item>
+               <Item>Browser</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#cap">
+            <Messages>
+             <Message Id="cap" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>cap</Item>
+               <Item>'JSLint.cap'</Item>
+               <Item>Cap</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#debug">
+            <Messages>
+             <Message Id="debug" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>debug</Item>
+               <Item>'JSLint.debug'</Item>
+               <Item>Debug</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#eqeqeq">
+            <Messages>
+             <Message Id="eqeqeq" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>eqeqeq</Item>
+               <Item>'JSLint.eqeqeq'</Item>
+               <Item>Eqeqeq</Item>
+              </Issue>
+             </Message>
+             <Message Id="eqeqeq" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>eqeqeq</Item>
+               <Item>'JSLint.eqeqeq'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#evil">
+            <Messages>
+             <Message Id="evil" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>evil</Item>
+               <Item>'JSLint.evil'</Item>
+               <Item>Evil</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'JSLint.Execute()'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Created="2008-07-23 05:36:51Z">
+              <Issue Name="IncorrectParameterName">
+               <Item>'JSLint.Execute()'</Item>
+               <Item>scriptPath</Item>
+               <Item>'paramName'</Item>
+               <Item>'ArgumentNullException'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'JSLint.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'JSLint.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'JSLint.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'JSLint.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.IndexOf(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'JSLint.Execute()'</Item>
+               <Item>'string.IndexOf(string)'</Item>
+               <Item>'string.IndexOf(string, StringComparison)'</Item>
+              </Issue>
+              <Issue>
+               <Item>'JSLint.Execute()'</Item>
+               <Item>'string.IndexOf(string)'</Item>
+               <Item>'string.IndexOf(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#forin">
+            <Messages>
+             <Message Id="forin" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>forin</Item>
+               <Item>'JSLint.forin'</Item>
+               <Item>Forin</Item>
+              </Issue>
+             </Message>
+             <Message Id="forin" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>forin</Item>
+               <Item>'JSLint.forin'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#fragment">
+            <Messages>
+             <Message Id="fragment" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>fragment</Item>
+               <Item>'JSLint.fragment'</Item>
+               <Item>Fragment</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetErrorsFromString(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'JSLint.GetErrorsFromString(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetJslintFile()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'JSLint.GetJslintFile()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#glovar">
+            <Messages>
+             <Message Id="glovar" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>glovar</Item>
+               <Item>'JSLint.glovar'</Item>
+               <Item>Glovar</Item>
+              </Issue>
+             </Message>
+             <Message Id="glovar" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>glovar</Item>
+               <Item>'JSLint.glovar'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#laxbreak">
+            <Messages>
+             <Message Id="laxbreak" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>laxbreak</Item>
+               <Item>'JSLint.laxbreak'</Item>
+               <Item>Laxbreak</Item>
+              </Issue>
+             </Message>
+             <Message Id="laxbreak" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>laxbreak</Item>
+               <Item>'JSLint.laxbreak'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#MergeOptions(Examples.Tasks.JSLint.JSLintOptions,Examples.Tasks.JSLint.JSLintOptions)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'JSLint.MergeOptions(JSLintOptions, JSLintOptions)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#mStopOnFirstFailure">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'JSLint.mStopOnFirstFailure'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#nomen">
+            <Messages>
+             <Message Id="nomen" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>nomen</Item>
+               <Item>'JSLint.nomen'</Item>
+               <Item>Nomen</Item>
+              </Issue>
+             </Message>
+             <Message Id="nomen" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>nomen</Item>
+               <Item>'JSLint.nomen'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#on">
+            <Messages>
+             <Message Id="on" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>on</Item>
+               <Item>'JSLint.on'</Item>
+               <Item>On</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#passfail">
+            <Messages>
+             <Message Id="passfail" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>passfail</Item>
+               <Item>'JSLint.passfail'</Item>
+               <Item>Passfail</Item>
+              </Issue>
+             </Message>
+             <Message Id="passfail" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>passfail</Item>
+               <Item>'JSLint.passfail'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#plusplus">
+            <Messages>
+             <Message Id="plusplus" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>plusplus</Item>
+               <Item>'JSLint.plusplus'</Item>
+               <Item>Plusplus</Item>
+              </Issue>
+             </Message>
+             <Message Id="plusplus" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>plusplus</Item>
+               <Item>'JSLint.plusplus'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#regexp">
+            <Messages>
+             <Message Id="regexp" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>regexp</Item>
+               <Item>'JSLint.regexp'</Item>
+               <Item>Regexp</Item>
+              </Issue>
+             </Message>
+             <Message Id="regexp" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>regexp</Item>
+               <Item>'JSLint.regexp'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#rhino">
+            <Messages>
+             <Message Id="rhino" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>rhino</Item>
+               <Item>'JSLint.rhino'</Item>
+               <Item>Rhino</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sidebar">
+            <Messages>
+             <Message Id="sidebar" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>sidebar</Item>
+               <Item>'JSLint.sidebar'</Item>
+               <Item>Sidebar</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#undef">
+            <Messages>
+             <Message Id="undef" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>undef</Item>
+               <Item>'JSLint.undef'</Item>
+               <Item>Undef</Item>
+              </Issue>
+             </Message>
+             <Message Id="undef" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>undef</Item>
+               <Item>'JSLint.undef'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#UseGoodpartsOptions">
+            <Messages>
+             <Message Id="Goodparts" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Goodparts</Item>
+               <Item>'JSLint.UseGoodpartsOptions'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#white">
+            <Messages>
+             <Message Id="white" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>white</Item>
+               <Item>'JSLint.white'</Item>
+               <Item>White</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#widget">
+            <Messages>
+             <Message Id="widget" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>widget</Item>
+               <Item>'JSLint.widget'</Item>
+               <Item>Widget</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="OptionConsts">
+          <Members>
+           <Member Name="#.cctor()">
+            <Messages>
+             <Message TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'OptionConsts'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="MSBuildTasks">
+        <Types>
+         <Type Name="Todo">
+          <Messages>
+           <Message Id="Todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Todo</Item>
+             <Item>'Todo'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.ctor(System.String,System.String)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'Todo.Todo(string, string)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+             <Message Id="todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameter">
+               <Item>'Todo.Todo(string, string)'</Item>
+               <Item>todo</Item>
+               <Item>'todoText'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Filename">
+            <Messages>
+             <Message Id="Filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberShouldBeCompoundWord">
+               <Item>Filename</Item>
+               <Item>'Todo.Filename'</Item>
+               <Item>FileName</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TodoText">
+            <Messages>
+             <Message Id="Todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Todo</Item>
+               <Item>'Todo.TodoText'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="TodoReport">
+          <Messages>
+           <Message Id="Todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+            <Issue Name="Type">
+             <Item>Todo</Item>
+             <Item>'TodoReport'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Execute()">
+            <Messages>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Created="2008-07-23 05:36:51Z">
+              <Issue Name="StringCreation">
+               <Item>'TodoReport.Execute()'</Item>
+               <Item>'string.Format(string, object)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'TodoReport.Execute()'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetAllTodosForFile(MSBuildTasks.Lang,System.String)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'TodoReport.GetAllTodosForFile(Lang, string)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'List&lt;Todo&gt;'</Item>
+               <Item>'TodoReport.GetAllTodosForFile(Lang, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Todos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Todos</Item>
+               <Item>'TodoReport.GetAllTodosForFile(Lang, string)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'TodoReport.GetAllTodosForFile(Lang, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="filename" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'filename'</Item>
+               <Item>'TodoReport.GetAllTodosForFile(Lang, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetCSharpTodos(System.String)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'TodoReport.GetCSharpTodos(string)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'List&lt;Todo&gt;'</Item>
+               <Item>'TodoReport.GetCSharpTodos(string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Todos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Todos</Item>
+               <Item>'TodoReport.GetCSharpTodos(string)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'TodoReport.GetCSharpTodos(string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object)'</Item>
+               <Item>'TodoReport.GetCSharpTodos(string)'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetTodos(System.String,System.String,System.String)">
+            <Messages>
+             <Message Id="filename" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameterShouldBeCompoundWord">
+               <Item>'TodoReport.GetTodos(string, string, string)'</Item>
+               <Item>filename</Item>
+               <Item>'filename'</Item>
+               <Item>fileName</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'List&lt;Todo&gt;'</Item>
+               <Item>'TodoReport.GetTodos(string, string, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="Todos" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Todos</Item>
+               <Item>'TodoReport.GetTodos(string, string, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="MemberParameter">
+               <Item>'TodoReport.GetTodos(string, string, string)'</Item>
+               <Item>todo</Item>
+               <Item>'todoRegex'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'TodoReport.GetTodos(string, string, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'string.Format(string, object, object)'</Item>
+               <Item>'TodoReport.GetTodos(string, string, string)'</Item>
+               <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsComment(MSBuildTasks.Lang,System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'TodoReport.IsComment(Lang, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'TodoReport.IsComment(Lang, string)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#IsTodoStart(MSBuildTasks.Lang,System.String)">
+            <Messages>
+             <Message Id="Todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Todo</Item>
+               <Item>'TodoReport.IsTodoStart(Lang, string)'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2008-07-23 05:36:51Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'TodoReport.IsTodoStart(Lang, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.String.StartsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'TodoReport.IsTodoStart(Lang, string)'</Item>
+               <Item>'string.StartsWith(string)'</Item>
+               <Item>'string.StartsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Language">
+            <Accessors>
+             <Accessor Name="#set_Language(System.String)">
+              <Messages>
+               <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Created="2008-07-23 05:36:51Z">
+                <Issue>
+                 <Item>'string.Format(string, object)'</Item>
+                 <Item>'TodoReport.Language.set(string)'</Item>
+                 <Item>'string.Format(IFormatProvider, string, params object[])'</Item>
+                </Issue>
+               </Message>
+               <Message Id="System.String.Compare(System.String,System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2008-07-23 05:36:51Z">
+                <Issue>
+                 <Item>'TodoReport.Language.set(string)'</Item>
+                 <Item>'string.Compare(string, string)'</Item>
+                 <Item>'string.Compare(string, string, StringComparison)'</Item>
+                </Issue>
+                <Issue>
+                 <Item>'TodoReport.Language.set(string)'</Item>
+                 <Item>'string.Compare(string, string)'</Item>
+                 <Item>'string.Compare(string, string, StringComparison)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#mTodoFound">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2008-07-23 05:36:51Z">
+              <Issue>
+               <Item>'TodoReport.mTodoFound'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TodoFound">
+            <Messages>
+             <Message Id="Todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Todo</Item>
+               <Item>'TodoReport.TodoFound'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TodoLines">
+            <Messages>
+             <Message Id="Todo" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2008-07-23 05:36:51Z">
+              <Issue Name="Member">
+               <Item>Todo</Item>
+               <Item>'TodoReport.TodoLines'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+    <Resolution Name="Default">{0} is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+    <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+    <Resolution Name="MemberParameterShouldBeCompoundWord">In member {0}, the discrete term '{1}' in parameter name {2} should be expressed as a compound word, '{3}'.</Resolution>
+    <Resolution Name="MemberShouldBeCompoundWord">The discrete term '{0}' in member name {1} should be expressed as a compound word, '{2}'.</Resolution>
+    <Resolution Name="MemberShouldBeDiscreteTerm">The compound word '{0}' in member name {1} exists as a discrete term. If your usage is intended to be single word, case it as '{2}' or strip the first token entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="TypeShouldBeCompoundWord">The discrete term '{0}' in type name {1} should be expressed as a compound word, '{2}'.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+    <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806">
+    <Resolution Name="StringCreation">{0} calls {1} but does not use the new string instance that the method returns. Pass the instance as an argument to another method, assign the instance to a variable, or remove the call if it is unnecessary.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+    <Resolution Name="Default">{0} initializes field {1} of type {2} to {3}. Remove this initialization because it will be done automatically by the runtime.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065">
+    <Resolution Name="PropertyGetter">{0} creates an exception of type {1}, an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+    <Resolution Name="TooGeneric">{0} creates an exception of type {1}, an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+    <Resolution Name="Type">Correct the casing of '{0}' in type name {1} by changing it to '{2}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberParameter">In method {0}, correct the spelling of '{1}' in parameter name {2} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+    <Resolution Name="TypeNewerVersion">Either replace the suffix '{0}' in type name {1} with the suggested numeric alternate '2' or provide a more meaningful suffix that distinguishes it from the type it replaces.</Resolution>
+   </Rule>
+   <Rule TypeName="InitializeReferenceTypeStaticFieldsInline" Category="Microsoft.Performance" CheckId="CA1810">
+    <Resolution Name="Default">Initialize all static fields in {0} when those fields are declared and remove the explicit static constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208">
+    <Resolution Name="IncorrectMessage">Method {0} passes parameter name '{1}' as the {2} argument to a {3} constructor. Replace this argument with a descriptive message and pass the parameter name in the correct position.</Resolution>
+    <Resolution Name="IncorrectParameterName">Method {0} passes '{1}' as the {2} argument to a {3} constructor. Replace this argument with one of the method's parameter names. Note that the provided parameter name should have the exact casing as declared on the method.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824">
+    <Resolution Name="Default">Because assembly {0} contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="MembersShouldNotExposeCertainConcreteTypes" Category="Microsoft.Design" CheckId="CA1059">
+    <Resolution Name="Xml">Modify member {0} so that it no longer exposes the concrete type {1}. Use IXPathNavigable to represent XML data sources.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
+    <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+    <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+    <Resolution Name="Default">{0} makes a call to {1} that does not explicitly provide a StringComparison. This should be replaced with a call to {2}.</Resolution>
+   </Rule>
+   <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+    <Resolution Name="IsNullOrEmpty">Replace the call to {0} in {1} with a call to 'String.IsNullOrEmpty'.</Resolution>
+   </Rule>
+   <Rule TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724">
+    <Resolution Name="Default">The type name {0} conflicts in whole or in part with the namespace name '{1}'. Change either name to eliminate the conflict.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726">
+    <Resolution Name="MemberNoAlternate">Replace the term '{0}' in member name {1} with an appropriate alternate or remove it entirely.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

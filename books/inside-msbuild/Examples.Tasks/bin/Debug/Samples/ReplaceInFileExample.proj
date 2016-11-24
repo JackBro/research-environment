@@ -1,0 +1,21 @@
+﻿<Project DefaultTargets="Demo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  
+  <UsingTask AssemblyFile="$(MSBuildProjectDirectory)\..\Examples.Tasks.dll" 
+             TaskName="ReplaceInFile"/>
+
+  <ItemGroup>
+    <SourceFile Include="ReplaceInFileSource.txt"/>
+  </ItemGroup>
+  
+  <Target Name="Demo">
+    
+    <ReplaceInFile SourceFiles="@(SourceFile)" 
+                   Pattern="[REPLACE_HERE]"
+		               Replacement="$(TEMP)">
+      <Output ItemName="NewFile" TaskParameter="ReplacedFiles"/>
+    </ReplaceInFile>
+    <Copy SourceFiles="@(NewFile)" DestinationFiles="$(MSBuildProjectDirectory)\ReplaceInFileSource.txt.replaced"/>
+    
+  </Target>
+  
+</Project>

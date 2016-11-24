@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>$(ContribRoot)MSBuildCommunityTasks\</MSBuildCommunityTasksPath>
+    <SDCTasksPath>$(ContribRoot)SDC Tasks - Release 2.1.3155.0\</SDCTasksPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildCommunityTasksPath)MSBuild.Community.Tasks.Targets"/>
+  <Import Project="$(SDCTasksPath)Microsoft.Sdc.Common.tasks"/>
+  
+  <PropertyGroup>
+    <GenBuildDebugMode Condition="'$(GenBuildDebugMode)'==''">false</GenBuildDebugMode>
+  </PropertyGroup>
+  <Target Name="ValidateBuildSettings">
+    <Error Condition="'$(Root)'==''"
+           Text="%24(Root) not defined"/>
+    <Error Condition="!Exists('$(Root)')"
+           Text="Path not found at [$(Root)]"/>
+
+    <Error Condition="'$(GenericBuildInstallLoc)'==''"
+           Text="%24(GenericBuildInstallLoc) not defined"/>
+    <Error Condition="!Exists('$(GenericBuildInstallLoc)')"
+           Text="Path not found at [$(GenericBuildInstallLoc)]"/>
+
+
+    <Error Condition="'$(SourceRoot)'==''"
+           Text="%24(SourceRoot) not defined"/>
+    <Error Condition="!Exists('$(SourceRoot)')"
+           Text="Path not found at [$(SourceRoot)]"/>
+
+    <Error Condition="'$(OutputRoot)'==''"
+           Text="%24(OutputRoot) not defined"/>
+    <Error Condition="!Exists('$(OutputRoot)')"
+           Text="Path not found at [$(OutputRoot)]"/>
+
+    <Error Condition="'$(ContribRoot)'==''"
+               Text="%24(ContribRoot) not defined"/>
+    <Error Condition="!Exists('$(ContribRoot)')"
+           Text="Path not found at [$(ContribRoot)]"/>
+
+
+    <Error Condition="'@(AllConfigurations)'==''"
+           Text="%40(AllConfigurations) not defined" />
+    <Error Condition="'%(AllConfigurations.Configuration)'==''"
+           Text="At least one value for [%25(AllConfigurations.Configuration)] not defined" />
+
+
+    <Error Condition="'@(ProjectsToBuild)'==''"
+           Text="%30(ProjectsToBuild) not defined"/>
+    <Error Condition="!Exists('%(ProjectsToBuild.Fullpath)')"
+               Text="Path not found at [%(ProjectsToBuild.Fullpath)]" />
+
+    <Error Condition="'@(OtherFiles)'!=''
+                        AND
+                       !HasTrailingSlash(%(OtherFiles.DestDir))"
+       Text="OtherFiles.DestDir should have a trailing slash."
+           />
+  </Target>
+
+  <Target Name="SetupDefaults">
+    <PropertyGroup>
+      <RunUnittest Condition="'$(RunUnittest)'==''">true</RunUnittest>
+      <RunFxCop Condition="'$(RunFxCop)'==''">true</RunFxCop>
+      <BuildInParallel Condition="$(BuildInParallel)==''">true</BuildInParallel>
+    </PropertyGroup>
+  </Target>
+  
+  <Target Name="CleanDirectoryNames">
+    <PropertyGroup>
+      <Root Condition="!HasTrailingSlash($(Root))">$(Root)\</Root>
+      <SourceRoot Condition="!HasTrailingSlash($(SourceRoot))">$(SourceRoot)\</SourceRoot>
+      <OutputRoot Condition="!HasTrailingSlash($(OutputRoot))">$(OutputRoot)\</OutputRoot>
+    </PropertyGroup>
+  </Target>
+
+
+  <Target Name="ValidateGenericNUnitSettings">
+    <Error Condition="'@(UnittestConfigurations)'==''"
+           Text="%40(UnittestConfigurations) not defined" />
+    <Error Condition="'%(UnittestConfigurations.Configuration)'==''"
+           Text="At least one value for [%25(UnittestConfigurations.Configuration)] not defined" />
+
+    <Error Condition="'@(UnitTestProjects)'==''"
+       Text="%30(UnitTestProjects) not defined"/>
+    <Error Condition="!Exists('%(UnitTestProjects.Fullpath)')"
+               Text="Path not found at [%(UnitTestProjects.Fullpath)]" />
+  </Target>
+
+
+  <!--==================================================================================================
+    BUILD
+  ==================================================================================================-->
+  <PropertyGroup>
+    <FullBuildDependsOn>
+      ValidateBuildSettings;
+      CleanDirectoryNames;
+      BeforeFullBuild;
+      CoreFullBuild;
+      AfterFullBuild;
+      CopyOtherFiles;
+    </FullBuildDependsOn>
+    <FullBuildDependsOn Condition="$(RunUnittest)==true">
+      ValidateGenericNUnitSettings;
+      $(FullBuildDependsOn);
+      UnitTest;
+    </FullBuildDependsOn>
+    <FullBuildDependsOn Condition="$(RunFxCop)==true">
+      $(FullBuildDependsOn);
+      RunFxcop;
+    </FullBuildDependsOn>    
+  </PropertyGroup>
+  <Target Name="FullBuild" DependsOnTargets="$(FullBuildDependsOn)"/>
+  <PropertyGroup>
+    <CoreFullBuildDependsOn>Build</CoreFullBuildDependsOn>
+  </PropertyGroup>
+  <Target Name="CoreFullBuild" DependsOnTargets="$(CoreFullBuildDependsOn)" />
+  <Target Name="BeforeFullBuild" />
+  <Target Name="AfterFullBuild"/>
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      ValidateBuildSettings;
+      BeforeBuild;
+      CoreBuild;
+      AfterBuild;
+    </BuildDependsOn>
+  </PropertyGroup>
+  <Target Name="Build" DependsOnTargets="$(BuildDependsOn)"/>
+ 
+  <Target Name="CoreBuild" Outputs="%(AllConfigurations.Configuration)">
+
+    <Message Condition="'$(GenBuildDebugMode)'=='true'"
+             Text="AllProjectProperties=$(AllProjectProperties)"
+             />
+    
+    <Message Condition="'$(GenBuildDebugMode)'=='true'"
+      Text="%25;(AllConfigurations.Configuration): %(AllConfigurations.Configuration)"/>
+    <!--
+    Create a temporary property that contains the lone configuration. This is needed because we
+    don't want to batch MSBuild task on both ProjectsToBuild and AllConfigurations at the same
+    time. Anywayz since this target is batched we are guaranteed
+    -->
+    <PropertyGroup>
+      <CurrentConfig>%(AllConfigurations.Configuration)</CurrentConfig>
+      <!--<__CurrentOutputPath></__CurrentOutputPath>-->
+    </PropertyGroup>
+
+    <Message Text="OutputPath: $(OutputRoot)\%(ProjectsToBuild.Filename)\$(CurrentConfig)\"/>
+    
+    <!-- Execute any targets contained in BeforeTargets if they exist -->
+    <MSBuild Projects="%(ProjectsToBuild.Identity)"
+             Properties="Configuration=$(CurrentConfig);
+                          OutputPath=$(OutputRoot)$(CurrentConfig)\%(ProjectsToBuild.Filename)\;
+                          %(ProjectsToBuild.Properties);
+                          $(AllProjectProperties);
+             "
+             BuildInParallel="$(BuildInParallel)"
+             Targets="%(ProjectsToBuild.BeforeTargets)"
+             Condition="'%(ProjectsToBuild.BeforeTargets)'!=''"
+             >
+    </MSBuild>
+    
+    <!-- Build the projects here.
+          
+    -->
+    <MSBuild Projects="%(ProjectsToBuild.Identity)"
+             Properties="Configuration=$(CurrentConfig);
+                          OutputPath=$(OutputRoot)$(CurrentConfig)\%(ProjectsToBuild.Filename)\;
+                          %(ProjectsToBuild.Properties);
+                          $(AllProjectProperties);"
+             BuildInParallel="$(BuildInParallel)"
+             >
+
+      <!-- TODO:
+      This doesn't work because the filename may have invalid characters for a property. For example '.' -->
+      <!--<Output ItemName="genBuild_%(ProjectsToBuild.Filename)_$(CurrentConfig)" TaskParameter="TargetOutputs"/>-->
+      
+      <!-- TODO:
+      Until the above is fixed do it like this: -->
+      <Output ItemName="genBuild$(CurrentConfig)" TaskParameter="TargetOutputs"/>
+    </MSBuild>
+
+    <!-- Execeute any targets contained in AfterTargets if they exist -->
+    <MSBuild Projects="%(ProjectsToBuild.Identity)"
+             Properties="Configuration=$(CurrentConfig);
+                          OutputPath=$(OutputRoot)$(CurrentConfig)\%(ProjectsToBuild.Filename)\;
+                          %(ProjectsToBuild.Properties);
+                          $(AllProjectProperties);"
+             BuildInParallel="$(BuildInParallel)"
+             Targets="%(ProjectsToBuild.BeforeTargets)"
+             Condition="'%(ProjectsToBuild.AfterTargets)'!=''"
+             >
+    </MSBuild>
+    
+    
+    <!-- TODO:
+    For now we are creating the genBuild$(CurrentConfig) item as we go because the generation
+    of genBuild_%(ProjectsToBuild.Filename)_$(CurrentConfig) doesn't work
+    -->
+    <!--
+    Created assemblies are placed in an item in the format 'Build_%(ProjectsToBuild.Filename)_$(CurrentConfig)'.
+    For example: Build_ClassLibrary02_Debug
+    -->
+    <!--<Message Condition="$(GenBuildDebugMode)==true" Text="=============================================================="/>
+    <Message Condition="$(GenBuildDebugMode)==true" Text="genBuild_%(ProjectsToBuild.Filename)_$(CurrentConfig): @(genBuild_%(ProjectsToBuild.Filename)_$(CurrentConfig))"/>
+    <Message Condition="$(GenBuildDebugMode)==true" Text="=============================================================="/
+    <CreateItem Include="@(genBuild_%(ProjectsToBuild.Filename)_$(CurrentConfig))">
+      <Output ItemName="genBuild$(CurrentConfig)" TaskParameter="Include"/>
+    </CreateItem>-->
+
+    <Message Text="CurrentConfig: $(CurrentConfig)"/>
+    <Message Text="%40(genBuildDebug): @(genBuildDebug)"/>
+    
+    <Message Condition="$(GenBuildDebugMode)==true" Text="genBuild$(CurrentConfig):%0a%0d@(genBuild$(CurrentConfig),'%0a%0d')"/>
+    <Message Condition="$(GenBuildDebugMode)==true" Text="=============================================================="/>
+  </Target>
+  <Target Name="BeforeBuild"/>
+  <Target Name="AfterBuild"/>
+
+
+
+
+  <!--==================================================================================================
+    CLEAN
+  ==================================================================================================-->
+
+  <PropertyGroup>
+    <CleanDependsOn>
+      $(CleanDependsOn);
+      BeforeClean;
+      CoreClean;
+      AfterClean;
+    </CleanDependsOn>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(RunUnittest)==true">
+    <CleanDependsOn>
+      $(CleanDependsOn);
+      CleanUnitTest;
+    </CleanDependsOn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CleanDependsOn Condition="$(RunFxCop)==true">
+      $(CleanDependsOn);
+      CleanFxCop;
+    </CleanDependsOn>
+  </PropertyGroup>
+  
+  
+  
+  <Target Name="BeforeClean"/>
+  <Target Name="AfterClean"/>
+  <Target Name="Clean" DependsOnTargets="$(CleanDependsOn)"/>
+
+
+  <Target Name="CoreClean" Outputs="%(AllConfigurations.Configuration)">
+    <!-- See note in BuildAll about this property -->
+    <PropertyGroup>
+      <CurrentConfig>%(AllConfigurations.Configuration)</CurrentConfig>
+    </PropertyGroup>
+    <MSBuild Projects="@(ProjectsToBuild)" Targets="Clean"
+             Properties="Configuration=$(CurrentConfig);
+                          OutputPath=$(OutputRoot)\%(ProjectsToBuild.Filename)\$(CurrentConfig)\"
+             BuildInParallel="$(BuildInParallel)"
+             />
+
+    <!--<MSBuild Projects="$(MSBuildProjectFullPath)"
+             Targets="CleanUnitTest"
+             BuildInParallel="$(BuildInParallel)"
+             />-->
+    <!-- TODO: Remove this -->
+    <!--<MSBuild Projects="@(ProjectsToBuild)" Targets="Clean"/>-->
+  </Target>
+
+
+  <!--==================================================================================================
+    NUnit
+  ==================================================================================================-->
+  <Target Name="BuildUnittestProjects" Outputs="%(UnittestConfigurations.Configuration)">
+    <!-- See note in BuildAll about this property -->
+    <PropertyGroup>
+      <CurrentConfig>%(UnittestConfigurations.Configuration)</CurrentConfig>
+    </PropertyGroup>
+    <MSBuild Projects="@(UnitTestProjects)"
+             Properties="Configuration=$(CurrentConfig);
+                          OutputPath=$(OutputRoot)\%(UnitTestProjects.Filename)\$(CurrentConfig)\"
+             BuildInParallel="$(BuildInParallel)"
+            >
+      <Output TaskParameter="TargetOutputs" ItemName="UnittestResult"/>
+
+    </MSBuild>
+
+  </Target>
+  <PropertyGroup>
+    <SetupNUnitPropertiesDependsOn>BuildUnittestProjects</SetupNUnitPropertiesDependsOn>
+  </PropertyGroup>
+  <Target Name="SetupNUnitProperties" DependsOnTargets="$(SetupNUnitPropertiesDependsOn)">
+    <ItemGroup>
+      <NunitAssemblies Include="@(UnittestResult)">
+        <ProjectName>%(UnittestResult.Filename)</ProjectName>
+      </NunitAssemblies>
+    </ItemGroup>
+  </Target>
+
+  <!--<Import Project="$(MSBuildProjectDirectory)\nunit.targets"/>-->
+  <Import Project="$(GenericBuildInstallLoc)build\nunit.targets"/>
+  
+  <PropertyGroup>
+    <UnitTestDependsOn Condition="$(RunUnittest)==true">
+      SetupNUnitProperties;
+      $(UnitTestDependsOn);
+    </UnitTestDependsOn>
+  </PropertyGroup>
+
+  <!--==================================================================================================
+    FxCop
+  ==================================================================================================-->  
+  
+  <!--<Import Project="$(MSBuildProjectDirectory)\fxcop.targets"/>-->
+  <Import Project="$(GenericBuildInstallLoc)build\fxcop.targets"/>
+  
+  <!-- Inject Build into FxCop dependency list. -->
+  <PropertyGroup>
+    <RunFxCopDependsOn>
+      Build;
+      $(RunFxCopDependsOn);
+    </RunFxCopDependsOn>
+    <SetupFxCopPropertiesDependsOn>
+      Build;
+      CreateFxCopAssemblyLists;
+      $(SetupFxCopPropertiesDependsOn)
+    </SetupFxCopPropertiesDependsOn>
+  </PropertyGroup>
+  <Target Name="CreateFxCopAssemblyLists">
+    <Message Text="CreateFxCopAssemblyLists" Importance="high"/>
+    <ItemGroup>
+      <FxCopAssemblies Include="@(genBuildDebug)" />
+    </ItemGroup>
+    <Message Text="FxCopAssemblies: @(FxCopAssemblies)"/>
+  </Target>
+  
+  <PropertyGroup>
+    <RebuildDependsOn>
+      BeforeFullRebuild;
+      CoreFullRebuild;
+      AfterFullRebuild;
+    </RebuildDependsOn>
+  </PropertyGroup>
+  
+  <Target Name="FullRebuild" DependsOnTargets="$(RebuildDependsOn)"/>
+  <Target Name="BeforeFullRebuild"/>
+  <Target Name="AfterFullRebuild"/>
+  <PropertyGroup>
+    <CoreFullRebuildDependsOn>
+      Clean;
+      FullBuild;
+    </CoreFullRebuildDependsOn>
+  </PropertyGroup>
+  <Target Name="CoreFullRebuild" DependsOnTargets="$(CoreFullRebuildDependsOn)"/>
+
+  <!--==================================================================================================
+    CopyOtherFiles
+  ==================================================================================================-->
+  <PropertyGroup>
+    <CopyOtherFilesDependsOn>
+      BeforeCopyOtherFiles;
+      CoreCopyOtherFiles;
+      AfterCopyOtherFiles;
+    </CopyOtherFilesDependsOn>
+  </PropertyGroup>
+  <Target Name="CopyOtherFiles" DependsOnTargets="$(CopyOtherFilesDependsOn)"/>
+  <Target Name="CoreCopyOtherFiles" Inputs="@(OtherFiles)" Outputs="@(OtherFiles->'$(OutputRoot)%(DestDir)%(Filename)%(Extension)')">
+    <Copy SourceFiles="@(OtherFiles)"
+          DestinationFiles="@(OtherFiles->'$(OutputRoot)%(DestDir)%(Filename)%(Extension)')"/>
+  </Target>
+  <Target Name="BeforeCopyOtherFiles"/>
+  <Target Name="AfterCopyOtherFiles"/>
+  
+  
+
+
+</Project>

@@ -1,0 +1,22 @@
+<!--
+  Demonstates property evaluation.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+  DefaultTargets="PrintInfo">
+
+  <PropertyGroup>
+    <PropOne>one</PropOne>
+    <PropTwo>$(PropThree)</PropTwo>
+    <PropThree>three</PropThree>
+    <PropFour>$(PropThree)</PropFour>
+  </PropertyGroup>
+
+  <Target Name="PrintInfo">
+    <Message Text="PropOne: $(PropOne)"/>
+    <Message Text="PropTwo: $(PropTwo)"/>
+    <Message Text="PropThree: $(PropThree)"/>
+    <Message Text="PropFour: $(PropFour)"/>
+  </Target>
+</Project>

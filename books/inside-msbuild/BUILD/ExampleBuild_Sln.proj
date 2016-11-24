@@ -1,0 +1,72 @@
+<!--
+  Demonstrates build solution files.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         ToolsVersion="3.5"
+         DefaultTargets="FullBuild">
+  
+  <PropertyGroup>
+    <Root>..\</Root>
+    <SourceRoot>$(Root)</SourceRoot>
+    <OutputRoot>$(Root)BUILD\BuildTemp\</OutputRoot>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <!-- define all the configurations that we should build for -->
+    <AllConfigurations Include="Debug" />
+    <AllConfigurations Include="Release" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SolutionToBuild Include="$(SourceRoot)MSBuildExamples.sln"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <FullBuildDependsOn>
+      $(FullBuildDependsOn);
+      BeforeBuild;
+      CoreBuild;
+      AfterBuild
+    </FullBuildDependsOn>
+    <FullRebuildDependsOn>
+      $(FullRebuildDependsOn);
+      BeforeRebuld;
+      Clean;
+      FullBuild;
+      AfterRebuild
+    </FullRebuildDependsOn>
+  </PropertyGroup>
+ 
+  <Target Name="FullBuild" 
+          DependsOnTargets="$(FullBuildDependsOn)"/>
+  <Target Name="BeforeBuild">
+    <!-- Get latest -->
+    <!-- Generate code -->
+  </Target>
+  <Target Name="AfterBuild">
+    <!-- Unit tests -->
+    <!-- Code Analysis -->
+  </Target>
+  
+  <Target Name="CoreBuild">
+    <MSBuild 
+      Projects="@(SolutionToBuild)" 
+      BuildInParallel="true"
+      Properties="Configuration=%(AllConfigurations.Identity)"/>
+  </Target>
+
+  <Target Name="FullRebuild" 
+          DependsOnTargets="$(FullRebuildDependsOn)"/>
+  <Target Name="Clean">
+    <!-- Clean for each configuration -->
+    <MSBuild 
+      Projects="@(SolutionToBuild)" 
+      BuildInParallel="true"
+      Properties=
+         "Configuration=%(AllConfigurations.Identity);"
+      Targets="Clean"
+             />
+  </Target>
+  
+</Project>

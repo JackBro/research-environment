@@ -1,0 +1,17 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="ReadFile" >
+  <ItemGroup>
+    <SrcFile Include="compileFiles.txt"/>
+  </ItemGroup>
+
+  <Target Name="ReadFile">
+    <Message Text="Reading compile items from file [@(SrcFile)]" />
+    <Error Text="File [@(SrcFile)] not found. Run WriteLines01.proj first!"
+           Condition="!Exists(@(SrcFile))" />
+    <ReadLinesFromFile File="@(SrcFile)">
+      <Output ItemName="Compile" TaskParameter="Lines"/>
+    </ReadLinesFromFile>
+    
+    <Message Text="Compile: @(Compile)" />
+  </Target> 
+  
+</Project>    

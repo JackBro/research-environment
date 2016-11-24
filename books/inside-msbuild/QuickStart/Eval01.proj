@@ -1,0 +1,33 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="PrintInfo">
+
+  <PropertyGroup>
+    <PropBefore>[$(Configuration)]</PropBefore>
+  </PropertyGroup>
+  <ItemGroup>
+    <ItemBefore Include="[$(Configuration)]" />
+  </ItemGroup>
+  
+  
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PropAfter>[$(Configuration)]</PropAfter>
+  </PropertyGroup>
+  <ItemGroup>
+    <ItemAfter Include="[$(Configuration)]" />
+  </ItemGroup>
+
+  <Target Name="PrintInfo">
+    <Message Text="PropBefore: $(PropBefore)"/>
+    <Message Text="ItemBefore: @(ItemBefore)"/>
+
+    <Message Text="==============================================="/>
+    
+    <Message Text="PropAfter: $(PropAfter)"/>
+    <Message Text="ItemAfter: @(ItemAfter)"/>
+    
+  </Target>
+  
+</Project>

@@ -1,0 +1,26 @@
+<!--
+  Simple example of declaring and using a property.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="All">
+
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  
+  <Target Name="PrintConfig">
+    <Message Text="Config: $(Configuration)"/>
+  </Target>
+
+  <Target Name="PrintConfig2">
+
+    <CreateProperty Value="Release">
+      <Output PropertyName="Configuration" TaskParameter="Value"/>
+    </CreateProperty>
+
+    <Message Text="Config: $(Configuration)"/>
+  </Target>
+
+  <Target Name="All" DependsOnTargets="PrintConfig;PrintConfig2"/>
+</Project>

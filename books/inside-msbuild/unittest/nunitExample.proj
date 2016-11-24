@@ -1,0 +1,31 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="UnitTest">
+
+  <Import 
+    Project=
+    "$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+  <Import
+    Project=
+    "$(MSBuildExtensionsPath)\SDC Tasks - Release 2.1.3155.0\Microsoft.Sdc.Common.tasks"/>
+  
+  <ItemGroup>
+    <UnitTestProjects 
+      Include="$(MSBuildProjectDirectory)\Unittest.Proj1\Unittest.Proj1.csproj">
+    </UnitTestProjects>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <NunitResultFile>$(MSBuildProjectDirectory)\nunit-result.xml</NunitResultFile>
+  </PropertyGroup>
+  
+  <Target Name="UnitTest">
+    <!-- Build all the projects in UnitTestProjects -->
+    <MSBuild Projects="@(UnitTestProjects)"/>
+    <!-- Execute the test cases, if any fail so will the build -->
+    <NUnit Assemblies="@(UnitTestProjects)"
+           OutputXmlFile="$(NunitResultFile)"
+           />
+    
+  </Target>
+</Project>

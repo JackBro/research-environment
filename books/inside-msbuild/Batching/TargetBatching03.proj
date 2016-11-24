@@ -1,0 +1,42 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SourceRoot>$(MSBuildProjectDirectory)\TestProjects\</SourceRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Projects Include="$(SourceRoot)TestProj1\TestProj1.csproj" />
+    <Projects Include="$(SourceRoot)TestProj1\TestProj2.csproj" />
+    <Projects Include="$(SourceRoot)TestProj1\TestProj3.csproj" />
+    
+    <Config Include="Debug configuation">
+      <Configuration>Debug</Configuration>
+    </Config>
+    <Config Include="Release configuration">
+      <Configuration>Release</Configuration>
+    </Config>
+  </ItemGroup>
+
+  
+  <Target Name="PrintInfo">
+    <Message Text="Currnet config: %(Config.Configuration)"/>
+    <Message Text=
+"%25;(Config.Configuration): %(Config.Configuration)
+%25;(Projects.FullPath):%(Projects.FullPath)" />  
+  </Target>
+  
+  <Target Name="PrintInfo2">
+    <Message Text="%25;(Config.Configuration): %(Config.Configuration)"/>
+    <Message Text="--------------------------------------------------"/>
+
+    <Message Text="%(Projects.Fullpath)"/>
+    <Message Text="--------------------------------------------------"/>
+        
+    <!-- Batch on both Config.Configuration & Projects.Fullpath -->
+    <Message Text=
+"Results:
+  %25;(Config.Configuration): %(Config.Configuration)
+  %25(Projects.Fullpath): %(Projects.Fullpath)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" />  
+  </Target>
+
+</Project>

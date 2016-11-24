@@ -1,0 +1,80 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="HelloWorld.proj"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <foo>true</foo>
+  </PropertyGroup>
+
+  <Target Name="DemoBasic01">
+    <!-- Numeric comparison -->
+    <Message Text="1==2" Condition="1==2" />
+    <Message Text="1!=2" Condition="1!=2" />
+
+    <!-- Bool comparison -->
+    <Message Text="true==true" Condition="true==true" />
+    <Message Text="true==false" Condition="true==false" />
+    <Message Text="'on'=='true'" Condition="'on'=='true'"/>
+    <Message Text="'$(foo)'=='true'" Condition="$(foo)=='true'"/>
+    <Message Text="'$(foo)'!='true'" Condition="$(foo)!='true'"/>
+    <Message Text="'!on'==false" Condition="'!on'==false"/>
+    <Message Text="!on==false" Condition="!on==false"/>
+  </Target>
+
+  <Target Name="DemoLessGreater">
+    <Message Text="1&lt;2" Condition="1&lt;2" />
+    <Message Text="!(1&lt;2)" Condition="!(1&lt;2)" />
+    <Message Text="2&lt;=2" Condition="2&lt;=2" />
+  </Target>
+
+  <Target Name="DemoBasic02">
+    <Message Text="1&lt;2" Condition="1&lt;2" />
+    <Message Text="!(1&lt;2)" Condition="!(1&lt;2)" />
+    <Message Text="2&lt;=2" Condition="2&lt;=2" />
+
+    <Message Text="5&gt;5" Condition="5&gt;5" />
+    <Message Text="5&gt;=5" Condition="5&gt;=5" />
+    <Message Text="4&gt;=5" Condition="4&gt;=5" />
+    
+    <Message Text="true and trUE" Condition="true and trUE"/>
+    <Message Text="true and false" Condition="true and false"/>
+    <Message Text="true and YeS" Condition="true and YeS"/>
+
+    <Message Text="true or false" Condition="true or false"/>
+    <Message Text="tRUe or FalSe" Condition="tRUe or FalSe" />
+  </Target>
+
+  <Target Name="DemoString01">
+    <Message Text="'str'=='str'" Condition="'str'=='str'" />
+    <Message Text="'1 '=='1'" Condition="'1 '=='1'"/> 
+    <Message Text="'2 '=='2'" Condition="'2 '==2"/>
+    <Message Text="'3'==3" Condition="'3'==3"/>
+    <Message Text="'4 '==4" Condition="'4 '==4"/>
+    <Message Text="5 ==5" Condition="5 ==5"/>
+    <Message Text="'!on'==false" Condition="'!on'==false"/>
+    <!-- %25 = % -->
+    <Message Text="'%2535'==5" Condition="'%35'==5"/>
+    <Message Text="'%2535'!=5" Condition="'%35'!=5"/>    
+  </Target>
+
+  <Target Name="DemoFunctions01">
+    <Message Text="Exists('$(MSBuildProjectFullPath)')"
+             Condition="Exists('$(MSBuildProjectFullPath)')"/>
+    <Message Text="Exists('$(MSBuildProjectDirectory)\MissingFile.txt')"
+             Condition="Exists('$(MSBuildProjectDirectory)\MissingFile.txt')"/>
+    <Message Text="!Exists('$(MSBuildProjectDirectory)\MissingFile.txt')"
+             Condition="!Exists('$(MSBuildProjectDirectory)\MissingFile.txt')"/>    
+    <!-- Functions -->
+    <Message Text="HasTrailingSlash('C:\program files\msbuild')" 
+             Condition="HasTrailingSlash('C:\program files\msbuild')"/>
+    <Message Text="HasTrailingSlash('C:\program files\msbuild\')" 
+             Condition="HasTrailingSlash('C:\program files\msbuild\')"/>
+  </Target>
+
+</Project>

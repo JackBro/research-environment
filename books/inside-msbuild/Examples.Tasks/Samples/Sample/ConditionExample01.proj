@@ -1,0 +1,16 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="script.js"/>
+    <Content Include="script.debug.js" Condition="$(Configuration)=='Debug'"/>
+  </ItemGroup>
+  
+  <Target Name="PrintContent">
+    <Message Text="Configuration: $(Configuration)"/>
+    <Message Text="Content: @(Content)"/>
+  </Target>
+  
+</Project>

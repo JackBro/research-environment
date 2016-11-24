@@ -1,0 +1,31 @@
+﻿<Project DefaultTargets="Demo" 
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask AssemblyFile="$(MSBuildProjectDirectory)\..\Examples.Tasks.dll" 
+             TaskName="HelloWorld4"/>
+  
+  <Target Name="Demo">
+    
+    <HelloWorld4 FirstName="Mike" LastName="Murphy">
+      <Output PropertyName="PropFromTask" TaskParameter="Message" />
+    </HelloWorld4>
+
+    <Message Text ="From task: $(PropFromTask)"/>
+    
+  </Target>
+
+
+  <UsingTask AssemblyFile="$(MSBuildProjectDirectory)\..\Examples.Tasks.dll"
+           TaskName="HelloWorld5"/>
+  <Target Name="Demo2">
+
+    <HelloWorld5>
+      <Output ItemName="valueFromTask" TaskParameter="Names" />
+      <Output ItemName="testValueFromTask" TaskParameter="Test" />
+    </HelloWorld5>
+    
+    <Message Text="valueFromTask: @(valueFromTask)"/>
+    <Message Text="testValueFromTask: @(testValueFromTask)"/>
+  </Target>
+  
+  
+</Project>

@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <SrcFiles Include="$(MSBuildProjectDirectory)\src2\**\Proj2\*" Exclude="$(MSBuildProjectDirectory)\src\**\.svn\**\*"></SrcFiles>
+  </ItemGroup>
+  
+  <Target Name="Demo01">
+    <Message Text="SrcFiles: @(SrcFiles)" />
+    <Message Text="================================" />
+    <Message Text="SrcFiles.Filename: @(SrcFiles->'%(Filename)%(Extension): %(RecursiveDir)')" />
+    <Message Text="================================" />
+  </Target>
+
+</Project>

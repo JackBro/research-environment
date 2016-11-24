@@ -1,0 +1,21 @@
+<!--
+  TODO: Document this
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <SourceRoot>$(MSBuildProjectDirectory)\src\</SourceRoot>
+  </PropertyGroup>
+
+  <Target Name="Build">
+    <Message Text="SrcFiles: @(SrcFiles)" />
+    <Message Text="Creating item"/>
+    <CreateItem Include="$(SourceRoot)**\*" Exclude="$(SourceRoot)**\.svn\**\*">
+      <Output ItemName="SrcFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <Message Text="SrcFiles: @(SrcFiles)" />
+    
+  </Target>
+  
+</Project>

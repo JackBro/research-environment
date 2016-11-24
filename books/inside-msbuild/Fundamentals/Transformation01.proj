@@ -1,0 +1,60 @@
+<!--
+  Transformation demonstration.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         DefaultTargets="All">
+  <ItemGroup>
+    <SrcFiles Include="src\**\*" 
+              Exclude="src\**\.svn\**\*"></SrcFiles>
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <DestFolder>copy\</DestFolder>
+  </PropertyGroup>
+
+  <!-- %40 = @ -->
+  <!-- %25 = % -->
+  <Target Name="PrintSrcFiles">
+    <Message Text="%40(SrcFiles):" 
+             Importance="high"/>
+    <Message Text="@(SrcFiles)" />
+  </Target>
+  <Target Name="Demo01">
+    <Message Text="%40(SrcFiles->'%25(Filename)'):" 
+             Importance="high"/>
+    <Message Text="@(SrcFiles->'%(Filename)')" />
+  </Target>  
+  <Target Name="Demo02">
+    <Message Text="%40(SrcFiles->'%25(Filename)%25(Extension)'):" 
+             Importance="high"/>
+    <Message Text="@(SrcFiles->'%(Filename)%(Extension)')" />
+  </Target>
+  <Target Name="Demo03">
+    <Message Text="%40(SrcFiles->'%25(Filename)%25(Extension).bak'):" 
+             Importance="high"/>
+    <Message Text="@(SrcFiles->'%(Filename)%(Extension).bak')" />
+  </Target>
+  <Target Name="Demo04">
+    <Message Text="%40(Transform01):" 
+             Importance="high"/>
+    <Message Text="@(Transform01)"/>
+    <Message Text="===== Copying files =====" 
+             Importance="high"/>
+    <Copy SourceFiles="@(SrcFiles)" DestinationFiles="@(Transform01)"/>
+  </Target>
+
+  <ItemGroup>
+    <Transform01 
+      Include="@(SrcFiles->'$(DestFolder)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </ItemGroup>
+  
+  <Target Name="All" 
+          DependsOnTargets="PrintSrcFiles;Demo01;Demo02;Demo03;Demo04"/>
+  
+</Project>
+
+
+
+
+

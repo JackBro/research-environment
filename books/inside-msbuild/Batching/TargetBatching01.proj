@@ -1,0 +1,15 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SourceFolder>$(MSBuildProjectDirectory)\src\</SourceFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SourceFiles Include="$(SourceFolder)*.txt"/>
+  </ItemGroup>
+
+  <Target Name="PrintMessage"
+          Outputs="%(SourceFiles.Fullpath)">
+    <Message Text="PrintMessage started"/>
+    <Message Text="@(SourceFiles)"/>
+  </Target>
+</Project>

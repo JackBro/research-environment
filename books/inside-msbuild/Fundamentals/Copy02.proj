@@ -1,0 +1,23 @@
+<!--
+  Copy files demonstration.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <SrcFiles Include="src\**\*.txt" Exclude="src\**\.svn\**\*"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <Dest>$(MSBuildProjectDirectory)\dest\</Dest>
+  </PropertyGroup>
+  
+  <Target Name="PrintFiles">
+    <Message Text="SrcFiles: @(SrcFiles)" />
+  </Target>
+  <Target Name="CopyFiles">
+    <Copy SourceFiles="@(SrcFiles)"
+          DestinationFiles=
+          "@(SrcFiles->'$(Dest)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+</Project>

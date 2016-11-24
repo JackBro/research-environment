@@ -1,0 +1,44 @@
+<!--
+  This sample demonstrates using task batching to
+  copy a set of files into a set of folders.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SourceFolder>src\</SourceFolder>
+    <DestFolder>dest\</DestFolder>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <SourceFiles Include="$(SourceFolder)*.txt"/>
+  <Dest Include="$(DestFolder)One"/>
+  <Dest Include="$(DestFolder)Two"/>
+  <Dest Include="$(DestFolder)Three"/>
+  <Dest Include="$(DestFolder)Four"/>
+  <Dest Include="$(DestFolder)Five"/>
+  </ItemGroup>
+
+  <Target Name="CopyAll">
+    <!-- Task batching to copy files -->
+    <Copy SourceFiles ="@(SourceFiles)" 
+          DestinationFolder="%(Dest.FullPath)" SkipUnchangedFiles="false"/>
+
+    <!-- By batching the above statement is the same as these below -->
+    <!--
+    <Copy SourceFiles="@(SourceFiles)"
+          DestinationFiles="$(DestFolder)One" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(SourceFiles)"
+          DestinationFiles="$(DestFolder)Two" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(SourceFiles)"
+          DestinationFiles="$(DestFolder)Three" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(SourceFiles)"
+          DestinationFiles="$(DestFolder)Four" SkipUnchangedFiles="false" />
+    <Copy SourceFiles="@(SourceFiles)"
+          DestinationFiles="$(DestFolder)Five" SkipUnchangedFiles="false" />
+    -->
+    
+    <!-- Task batching to print message -->
+    <Message Text="Fullpath: %(Dest.FullPath)"/>
+  </Target>
+
+</Project>

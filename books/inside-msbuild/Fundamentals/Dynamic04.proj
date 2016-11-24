@@ -1,0 +1,25 @@
+<!--
+  TODO: Document this
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <SourceRoot>$(MSBuildProjectDirectory)\src\</SourceRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <SrcFiles Include="$(SourceRoot)one.txt"/>
+  </ItemGroup>
+  
+  
+  <Target Name="Build">
+    <Message Text="SrcFiles: @(SrcFiles)" />
+    <Message Text="Appending to item"/>
+    <CreateItem Include="$(SourceRoot)two.txt">
+      <Output ItemName="SrcFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <Message Text="SrcFiles: @(SrcFiles)" />
+    
+  </Target>
+  
+</Project>

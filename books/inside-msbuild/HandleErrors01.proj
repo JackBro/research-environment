@@ -1,0 +1,22 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         DefaultTargets="Build">
+  <Target Name="Build">
+    <!-- 
+    This target simulates a target
+    which fails.
+    -->
+    <Error Text="An error occurred"/>
+
+    <OnError ExecuteTargets="HandleErrors"/>
+  </Target>
+
+  <Target Name="HandleErrors">
+
+    <Message Text="An error has occurrend and the build will fail"
+             Importance="high"/>
+    
+    <!-- Email error details -->
+    
+    <!-- Create WorkItem for fixing the build -->
+  </Target>
+</Project>

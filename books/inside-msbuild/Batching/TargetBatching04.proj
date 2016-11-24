@@ -1,0 +1,77 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SourceRoot>$(MSBuildProjectDirectory)\TestProjects\</SourceRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Projects Include="TestProj1\TestProj1.csproj" />
+    <Projects Include="TestProj1\TestProj2.csproj" />
+    <Projects Include="TestProj1\TestProj3.csproj" />
+
+    <Config Include="Debug configuation">
+      <Configuration>Debug</Configuration>
+    </Config>
+    <Config Include="Release configuration">
+      <Configuration>Release</Configuration>
+    </Config>
+  </ItemGroup>
+
+  <Target Name="PrintInfo"
+          Outputs="%(Config.Configuration)">
+    <Message Text="Currnet config: %(Config.Configuration)"/>
+    <Message Text=
+"%25;(Config.Configuration): %(Config.Configuration)
+%25;(Projects.FullPath):%(Projects.FullPath)" />
+  </Target>
+
+  <Target Name="PrintInfo2">
+    <Message Text="%25;(Config.COnfiguration): %(Config.COnfiguration)"/>
+    <Message Text="--------------------------------------------------"/>
+
+    <Message Text="%(Projects.Fullpath)"/>
+    <Message Text="--------------------------------------------------"/>
+
+    <!-- Batch on both Config.Configuration & Projects.Fullpath -->
+    <Message Text=
+"Results:
+  %25;(Config.Configuration): %(Config.Configuration)
+  %25(Projects.Fullpath): %(Projects.Fullpath)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" />
+  </Target>
+
+
+
+
+
+  <Target Name="CreateProjectConfig"
+          Outputs="%(Config.Configuration);">
+
+    <CreateProperty Value="%(Config.Configuration)">
+      <Output PropertyName="CurrentConfig" TaskParameter="Value"/>
+    </CreateProperty>
+
+    <CreateItem Include="%(Projects.FullPath)"
+                AdditionalMetadata="Config=$(CurrentConfig);Project=%(Project.FullPath)"
+                Condition="%(Projects.FullPath)!=''"
+                >
+      <Output ItemName="ProjectConfig" TaskParameter="Include"/>
+    </CreateItem>
+
+
+    <Message Text="Config.Configuration: %(Config.Configuration)"/>
+    <Message Text="(Projects.FullPath): %(Projects.FullPath)"/>
+
+  </Target>
+
+  <Target Name="BuildIt" DependsOnTargets="CreateProjectConfig">
+    <Message Text="ProjectConfig: @(ProjectConfig)" />
+    <Message Text ="ProjectConfig.Config: @(ProjectConfig->'%(Config)')"/>
+
+    <Message Text="ProjectConfig.Project: %(ProjectConfig.Project) 
+ProjectConfig.Config %(ProjectConfig.Config)"/>
+  </Target>
+
+
+
+
+</Project>

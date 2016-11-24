@@ -1,0 +1,86 @@
+<!--
+  Demonstrates dynamic properties.
+  © Copyright 2008, Sayed Ibrahim Hashimi (sayed.hashimi@gmail.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+         ToolsVersion="3.5"
+         DefaultTargets="FullBuild">
+
+  
+  <PropertyGroup>
+    <Root>$(MSBuildProjectDirectory)\..\</Root>
+    <SourceRoot>$(Root)</SourceRoot>
+    <OutputRoot>$(Root)BUILD\BuildTemp\</OutputRoot>
+    
+
+    <RunUnittest>true</RunUnittest>
+    <RunFxCop>true</RunFxCop>
+    <!-- Required for NUnit -->
+    <NunitOutputDir>$(OutputRoot)__NUnitTemp\</NunitOutputDir>
+    <GenericBuildInstallLoc>$(SourceRoot)BUILD\GenericBuild\</GenericBuildInstallLoc>
+    <ContribRoot>$(GenericBuildInstallLoc)Contrib\</ContribRoot>
+  </PropertyGroup>
+
+
+  <PropertyGroup>
+    <!--<GenericBuildInstallLoc>$(MSBuildExtensionsPath)\Sedodream\GenericBuild\</GenericBuildInstallLoc>-->
+    
+  </PropertyGroup>  
+  
+  <!-- Once full support for FxCopProjectFile is finished remove these -->
+  <PropertyGroup>
+    <IgrnoreAllFxCopErrors>true</IgrnoreAllFxCopErrors>
+    <!--<IgnoreFxCopCriticalErrors>true</IgnoreFxCopCriticalErrors>
+    <IgnoreFxCopErrors>true</IgnoreFxCopErrors>-->
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <AllConfigurations Include="Debug">
+      <Configuration>Debug</Configuration>
+    </AllConfigurations>
+    <AllConfigurations Include="Release">
+      <Configuration>Release</Configuration>
+    </AllConfigurations>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectsToBuild Include="$(SourceRoot)Examples.Loggers\Examples.Loggers.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+
+      <BeforeTargets></BeforeTargets>
+      <AfterTargets></AfterTargets>
+    </ProjectsToBuild>
+    <ProjectsToBuild Include="$(SourceRoot)Examples.Tasks\Examples.Tasks.csproj">
+
+    </ProjectsToBuild>
+  </ItemGroup>
+
+
+  <!-- UNIT TEST ========================================================================== -->
+  <ItemGroup>
+    <UnittestConfigurations Include="Debug">
+      <Configuration>Debug</Configuration>
+    </UnittestConfigurations>
+  </ItemGroup>
+  <ItemGroup>
+    <UnitTestProjects Include="$(SourceRoot)unittest.Examples.Tasks\unittest.Examples.Tasks.csproj">
+      <Targets></Targets>
+      <Properties></Properties>
+    </UnitTestProjects>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <NUnitContinueOnError>true</NUnitContinueOnError>
+  </PropertyGroup>
+  <!-- UNIT TEST ========================================================================== -->
+
+  <ItemGroup>
+    <FxCopProjectFile Include="$(SourceRoot)Build\Examples.FxCop" />
+  </ItemGroup>
+  
+  <!--<Import Project="$(GenericBuildInstallLoc)\Build\Sedo.Build.Common.targets"/>-->
+  <Import Project="$(GenericBuildInstallLoc)Build\Sedo.Build.Common.targets"/>
+  
+</Project>
