@@ -1,0 +1,258 @@
+Up to this point in our discussion, matrices have just been ways of writing done arrays
+of numbers. However, the real power of matrices comes from their algebra. Since matrices are
+a very economical way to write down the linear algebra that we encounter so often in science
+and engineering, their algebra is particularly important, because of the simplification and
+the generality that it brings. Quantum mechanics, in particular, turns out to be based completely
+on linear algebra, as we already said.
+To be able to use matrices -- as a very convenient way of writing down and working with linear
+algebra -- we need to define their various algebraic properties.
+Now, the algebra of matrices has many similarities to the algebra of ordinary numbers and variables.
+But it does have some very important and consequential differences. And these differences give a
+richness to the algebra that makes it particularly useful for describing linear physical systems.
+We are going to look at the basic processes, here, showing how those processes with matrices
+are similar to and different from our ordinary algebra. We will start with addition and subtraction
+and then move on to the particularly important process of matrix multiplication. And that
+is where matrices start to get their real power. We will end by discussing the inverse
+of a matrix, briefly.
+Now let's look at the simplest perhaps of the matrix operations, adding and subtracting
+matrices. If two matrices are the same size, that is, if they have the same numbers of
+rows and columns, we can add or subtract them simply by adding or subtracting the individual
+matrix elements. And we do this one by one, on each of the elements.
+So for example, if we have a matrix here like F, 1 and i, 2, 1 minus 3i as its elements
+and similarly, another matrix, G, with its corresponding elements, then to add the two
+of these together to get a new matrix, K, we simply add the elements in each matrix,
+one by one. So 1 plus 5 gives us a new element for K, i plus 4i, here, 2 minus 6, here, and
+1 minus 3i plus 7 plus 8i. And, of course, we can simplify that to get the result. So
+that's very straightforward.
+Now let's look at a somewhat more complicated, but very important, operation that we can
+do with matrices, which is multiplication. And we're going to start that discussion by
+taking a particular case, a simpler case, which is multiplying a vector by a matrix.
+So suppose we want to multiply this column vector, here, by a matrix. The number of rows
+in the vector, you will see here, must much the number of columns in the matrix. And this
+is a general requirement for matrix-matrix multiplication -- is this matching of the
+rows in one with the columns in the other. So you can see that the number of rows on
+the right, which is 3, matches the number of columns on the left in the matrix, here,
+which is also 3.
+So how do we do this? Well, the first thing we do is we imagine that we take this vector
+and put it sideways on top of the matrix. And then we multiply element by element.
+So we have 7 times 1, which we have here, 8 times 2, which we have here, 9 times 3,
+which we have here, and we add all of these up. And the result of that is 50. And that's
+the number we put in here.
+And this result, here, is going to be a vector. And the first element in the vector, this
+top one, here, is the result of the product of this vector with that matrix. So we can
+keep going, here. We can move down and repeat for the next row.
+We move our 7, 8, and 9 down to multiply them. 7 times 4, 8 times 5, 9 times 6, and we have
+all of these here. We add them up and get 122. And notice that we put this in the lower
+element of this vector.
+So we have 2 rows in this vector, which matches the 2 rows in the matrix. So here's our result,
+just in shorter form. The 50 and 122 is the result of multiplying this vector by this
+matrix.
+And we can also write this in an algebraic form. If we think of this result vector, here,
+as being vector d, and our input vector, here, on the right, as being vector c, and our matrix
+as being matrix A, we can write d is equal to A times c, of course. And we can also write
+this out in a summation notation.
+So the dm, here, are the elements of this vector. So there's 2 of them. So m runs 1
+and 2. The cn here are the elements of this vector, 1, 2, and 3. And you see what we're
+doing here -- we're summing over n -- cn times Amn.
+So for the first row, the m is going to be 1. So we're multiplying the elements in the
+first row, m equals 1, by their corresponding elements in the vector, Amn times cn. So this
+is Am1, Am2, Am3.
+And note that the summation in this notation is over the repeated index. So we've chosen
+to sum over n here, but see that that is also a repeated index in the sum. So this expression,
+here, is just the same as the operations that we've just done.
+Now we can keep going, here, to the more general case of multiplying a matrix by a matrix.
+So here is a matrix and another matrix. And we're multiplying this one by this one. And
+here is our result.
+The first column in this matrix, here, is the same as the vector we were just working
+with. This matrix is the same as the matrix we just worked with. So these first two elements,
+here, on the left column, are, indeed, the ones we just worked out.
+This one here, the 14, is the result of taking this vector, 1, 2, 3, laying it across the
+top, doing 1 times 1 plus 2 times 2 plus 3 times 3. And that gives you 14. And similarly,
+the 32 is 1 times 4 plus 2 times 5 plus 3 times 6.
+So you see that the results in this first column, here, are the ones that we get from
+the first column of this matrix on the right. And the ones in the second column are the
+ones that we get from the second column in the matrix on the right.
+So as we've just done, we see that what we do is we repeat our operation for each column
+in the matrix on the right, working from left to right to work from left to right in the
+result. And we write down the answers as the elements in this matrix, here, also working
+from left to right.
+Again, we can write this algebraically. Here is our result matrix-- equal to matrix B multiplying
+matrix A. We call this matrix A. This is matrix B.
+And in summation notation, we get something exactly analogous to what we just got for
+the matrix vector multiplication. We're looking here at the mp-th element of this matrix.
+So, for example, for m equals 1, p equals 1. That's this element, here.
+And we are collecting for each column, here -- we choose a specific column, column p,
+for example -- you see, we are doing the same thing as we did for our vector matrix multiplication.
+And we're summing over the repeated index, n, in the middle. So the elements with p equals
+1 are just this column of numbers here. And we're doing the same thing as we did before
+to generate this element and so on.
+A particular special case of matrix-matrix multiplication is the rather simple one of
+vector-vector products. And we're going to work with these to point out some of the things
+that happen when you take vector-vector products, which turn out to be quite interesting.
+If we take 2 vectors, like this, a column vector on the right and a row vector on the
+left, and we see, doing our matrix-vector multiplication here, with this as our matrix,
+we're going to do 4 times 1 plus 5 times 2 plus 6 times 3. But the net result of that
+is just 1 number. So this particular vector-vector product of a column vector on the right and
+a row vector on the left collapses everything to just 1 number. And this is sometimes called
+an inner product, and it's completely analogous to the geometrical vector product.
+In fact, this could actually be a geometrical vector product. If 4, 5, and 6 were the components
+in the x, y, and z directions of an actual geometrical vector, and 1, 2, and 3 were the
+components in the x, y, and z directions of another geometrical vector, then this result,
+here, would, in fact, be the dot product of these 2 geometrical vectors. The algebra's
+actually the same.
+Again, we can do this algebraically. We can have this number, here, f equal to a vector,
+in this case, a row vector and a column vector multiplied together. Note that, here, we are
+running into a slight notation problem. And I'm using ordinary letters both for numbers
+and for vectors. Later on, we'll get to a different notation called the Dirac notation
+that gets past that particular confusion.
+And then, again, we can write this in summation form, here, which turns out to be particularly
+simple. We, again, are summing over the repeated index. And the result, here, is just this
+1 number.
+In contrast, if we multiply the vectors the other way around, so we put the row vector
+over here and the column vector here, then when we multiply the 2 of these together in
+this order, we actually generate a complete matrix, here. And in this matrix, 1 times
+4 gives us this 4, here, 2 times 4 gives us this 8, here, 3 times 4 gives us this 12,
+here, and so on. And this product is sometimes called an outer product with the 2 vectors
+combining in such a way as to give us this entire matrix. It's the opposite of what happened
+with the inner product, where they combined to give us just 1 number down here.
+And again, we can write this out in algebraic form. So now we're forming a new matrix, F,
+here. And it's a product of the column vector, d, and the row vector, c. And again, this
+notation is a little insufficient, because it's not making it clear whether either of
+these is a row or column vector. But we know they are from here.
+And the net result of that is that the mpth element of this matrix is the product of the
+mth element of the column matrix times the pth element of the row matrix.
+Matrix algebra has many similar properties to the algebra of ordinary numbers and one
+very important difference. So first of all, matrix algebra, like normal algebra, is associative.
+So it does not matter where I put the parentheses, here, whether I put them around the C and
+the B or around the B and the A. That is, I could multiply C and B together and then
+have them multiply A, or I could multiply B and A together and then multiply C by that
+result. It does not matter which one of these we do.
+It also has the same kind of distributive properties that we're used to from normal
+algebra. So A times the sum of B plus C is equal to AB plus AC.
+But matrix algebra is not, in general, commutative. That is, in general, it's not the case that
+if we take 2 matrices, A and B, that the product B times A is equal to the product A times
+B. Now it is possible that for some matrices this may be true, but it's not true, in general.
+And this is easily proved with a simple example.
+For example, if we take these 2 matrices, here, and multiply them together in this order,
+we'll get the following result. But if we take the same matrices but multiply it in
+the other order, so this one is now here and that one is now here, then the answer is simply
+different. So we are proving, by example, that, in general, B times A is not equal to
+A times B.
+Whether or not any 2 specific matrices commute, that is, whether A times B is the same thing
+as B times A, turns out to have some major mathematical consequences for the 2 matrices
+and their shared properties. The fact that matrix multiplication is not, in general,
+commutative is extremely important in allowing matrices to be at the core of the way we describe
+quantum mechanics. And it has profound consequences in the physics.
+The fact that some specific matrices do commute with one another, that is, we can swap the
+order of multiplication, also has very specific consequences in the physics. We are going
+to return to these topics in our discussion of quantum mechanics.
+Multiplying a matrix by a number turns out to be very straightforward. It means, basically,
+that we must multiply every element of the matrix by that number. So for example, the
+number 2 multiplying this matrix, here, simply means we go in and multiply each element of
+the matrix by the number 2.
+Also, similarly, we can do the opposite. We can take a common factor out from every element,
+in the end multiplying the matrix by that factor instead. So if we had started out with
+what was this matrix, here, if we start out with this matrix, we can, rather obviously,
+take out the factor of 2 from all of these elements and put it out front.
+And if we want to do a formal proof, we use the summation notation. In fact, that's generally
+true. If we really want to prove things for matrices, we tend to write them out algebraically,
+using the summation notation, if we want to get a very clear result.
+So for example, we can show how to do a proof for this idea that we can separate out this
+factor from the matrix, or we can introduce it, one way or the other. We presume that
+we're going to take this matrix A, here, and have it multiply an arbitrary vector. And
+we're going to look at the vector we get as a result. And that's a way of proving things
+for some matrix or operator, here. To prove equalities of one kind or another, we can
+prove them by having them operate -- the matrix here operate on an arbitrary vector, and show
+that it works for any arbitrary vector.
+So here, for example, we've got our matrix, A, multiplying the vector, c. And we're multiplying
+the whole thing by some number, alpha. And the result of that is some vector.
+Now because these entities, here, are all just numbers, we can move this alpha in here,
+put it inside the summation. That's a normal operation with numbers. A times the sum of
+a bunch of numbers is the same as the sum of A times each number. That's really a distributive
+property.
+And consequently, we can move this alpha, here, formally inside the sum. And then if
+we want, we can put parentheses around this pair of terms inside the sum. And this, here,
+is just a number that we can call a matrix element of another matrix, Bmn.
+So this is a rather trivial proof, but I've formally proved that you can take this alpha
+that was outside the matrix and, instead, multiply every element of the matrix. So I've
+essentially proved that this works. It's a very trivial proof, but it shows the kind
+of way that we can prove things using summation notation. So formally, this matrix element
+Bmn is alpha times the matrix element Amn.
+Now in multiplying a matrix by a number, we know, of course, that number multiplication
+is commutative. So if we have some product of numbers and matrices, we can simply move
+factors around, arbitrarily, in matrix products.
+So for example, if we've got a number, alpha, and a vector, c, then alpha times A, matrix
+A, times the matrix, B, times the vector, c, means we can move this around. We can move
+the alpha around inside here. Since it was just multiplying every element of this, we
+can also take that out and put it on the other side, and so on. And we can keep on moving
+the numbers around inside here as much as we want. So alpha times A times B times c
+is the same thing as A times B times alpha times c.
+But notice, we've not moved the order of the matrices around. But we can move numbers around.
+And again, if we want to formally prove something like this, it's pretty straightforward to
+do so, using the summation notation.
+Now, something that comes up quite a lot in the algebra of matrices and linear operators,
+generally, is we often have to take the Hermitian adjoint of a product of 2 matrices. And the
+Hermitian adjoint of a product turns out to be the reversed product of the Hermitian adjoints.
+So if we had a product of 2 matrices here, A and B, and we wanted to take the Hermitian
+adjoint of that product, then it turns out that it's equal to the product of the Hermitian
+adjoint of B times the Hermitian adjoint of A.
+And again, this is something that we can prove using summation notation. So let's just do
+this as an exercise, using the summation notation.
+Let's suppose that the matrix, R, is the product of the matrices A and B, in this order, so
+that the matrix element Rmp is the sum over n of the product of the mnth element of A
+times npth element of B. So if we look at the pm element of this Hermitian adjoint of
+this product here, by definition, here, it must be the pm element of this matrix R adjoint,
+R Hermitian adjoint. And the pm-th element of R Hermitian adjoint is the complex conjugate
+of the mp-th element, and that's the definition of taking the Hermitian adjoint.
+So therefore, the pm-th element of this matrix must be the mp-th element of R complex conjugate
+of that element. And that, of course, is just Amn Bnp summed over n and complex conjugated.
+Which we can rewrite like this, because the complex conjugate of a product is the product
+of the complex conjugates. But this element, here, A star mn, would be the nm-th element
+of the matrix A dagger, A Hermitian adjoint. And similarly, the complex conjugate of the
+np-th element of B would be the pn-th element of the Hermitian adjoint of B.
+These are just numbers, so we can swap them around. And, of course, this is just the matrix
+product of B dagger times A dagger, as we have here, the pm-th element of that. So we've
+shown that the pm-th element of this matrix is the same as the pm-th element of that matrix.
+So therefore, because this is true for any choice of p and m in the matrix, we have proved
+our result, up here.
+One final topic in matrix algebra here is the inverse of a matrix. In normal algebra,
+as well as addition, subtraction, and multiplication, we have division. In matrix algebra, though,
+there is no operation of division as such.
+We do have a concept, however, that can perform some of the functions of division, which is
+taking the inverse of a matrix. With numbers, the closest analogy is the reciprocal, which
+is 1 over a number. 1 over some number is the reciprocal.
+We know that for the number 0, there is no meaningful reciprocal. 1 over 0 is not defined.
+But otherwise, division and reciprocals are meaningful and useful for numbers.
+Now, many matrices do have an inverse. But there are also many matrices that do not.
+The conditions under which matrices do or do not have inverses are quite an important
+part of the mathematics of matrices. And we will also be returning to this later.
+So let's look at the inverse of a matrix and what, specifically, we mean by that, algebraically.
+For ordinary algebra, the reciprocal or inverse of a number or variable x is simply 1 over
+x. So we might write that as x to the minus 1. Now, it's not clear what we would mean
+by 1 over a matrix, so we can't use that notation. However, we will try to make some use of a
+notation like this.
+Anyway, for ordinary numbers, this quantity, x to the minus 1 times x, is the same thing
+as x over x, and it equals 1. For a matrix then, what we say is the following. If a matrix
+does have an inverse, we'll write that as A to the minus 1. It will have the property
+-- and this is really a definition of our inverse here -- that A to the minus 1 times
+A will equal the identity matrix. So whereas x to the minus 1 times x equal the number
+1, for the matrices, we're writing something similar, that A to the minus 1, if it exists,
+times A is equal to this idea or concept that we call the identity matrix.
+And the identity matrix is the diagonal matrix. That is, a matrix with only elements down
+its diagonal and 0 everywhere else. And in the case of the identity matrix, the elements
+on the diagonal are all 1. So the identity matrix has 1's down its diagonal and 0's everywhere
+else. For example, the 3 by 3 identity matrix would look like this, here -- 1's down the
+diagonal and 0's everywhere else.
+Now when we're doing a multiplication with the identity matrix, the multiplication will
+not make any sense unless we've chosen the identity matrix to be the right size. So we
+don't even need to bother saying how large the identity matrix is, because it obviously
+has to be the one that's the right size so we can do the multiplication. So we do not
+usually bother to be explicit about what the size of the identity matrix is. But obviously,
+there are lots of different identity matrices, depending on what dimension or what size of
+matrix we're talking about.
+For any matrix, A, we can write A times I, here, is equal to A. Or we can write I times
+A is equal to A. This is really the definition of the identity matrix.
+Like the number 1 in ordinary algebra, it seems, on the face of it perhaps, that the
+identity matrix is almost a trivial idea. But, in fact, it's very important. And just
+as the number 1 is very important in ordinary algebra, so also the identity matrix is very
+important in matrix algebra.

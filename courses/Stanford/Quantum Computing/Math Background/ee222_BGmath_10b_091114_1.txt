@@ -1,0 +1,109 @@
+So let's look at how linear equations and matrices are related to one another. Suppose,
+we have the equations for two straight lines. So here's two equations for straight lines.
+A11x plus A12y equals c1.
+And here's another one, possibly with different numbers here, for the A12 and the A22, and
+the c2. You might be more used to this form for the equation of a straight line, but these
+are actually equivalent. We could write this equation here as being the same as that one,
+if we made the following choices-- this for m and this here for the c.
+Anyway, with these equivalent forms here, we will work with these ones instead, because
+they're going to relate better to our matrix ideas. And we note that we can rewrite these
+two equations here in this matrix form. So for example, if we multiply this top row here
+by this vector, we get A11x plus A12y equal to c1. And similarly, for at the lower row
+here, A21x plus A22y equals c2.
+So this matrix form here is entirely equivalent to these two equations. Or we could also write
+this in the summation form of matrix vector multiplication, if we write b1 instead of
+x, and b2 instead of y. Then we can write these two linear equations in this form, the
+summation form.
+Now, when we have linear equations in a matrix vector form here, then formally the solution,
+if it exists, is quite simple in matrix form. That is if we happen to be able to work out
+the inverse of this matrix A, we have solved the equations. So to see that, if we multiply
+both sides here by A to the minus 1 and we remember that A to the minus 1 times A by
+definition is the identity matrix, and the identity matrix times anything is just what
+we started with, then, formally then, we have the solution that is we have the intersection
+point xy of these two lines in terms of the inverse of this matrix and these two coefficients
+that we started out with. So solving linear equations and inverting a matrix are the same
+operation.
+So there's a very important attribute of a determinant. If the determinant of a matrix
+is not zero, then the matrix has an inverse. And if a matrix has an inverse, the determinant
+of the matrix is not zero. So a non-zero determinant is a necessary and sufficient condition for
+a matrix to be invertible. Hence, we see that the determinant can really help us with our
+linear algebra. So what is the determinant?
+The determinant of a matrix can be written using one of two notations. So this is one
+notation here-- determinant of A, this d-e-t. And this is the other notation, where we write
+out the matrix, essentially, in terms of its elements, but instead of square brackets,
+we have just these straight lines. And these straight lines here do not mean the modulus
+of the matrix or some other similar use we might previously made of these straight lines
+on either side.
+There are two complete formulas we could write down for calculating the determinant. Those
+two formulas are equivalent to one another. One of them is Leibniz's formula. And the
+other is Laplace's formula. There are also many numerical techniques for calculating
+determinants. And we're not going to give any of these general methods here, although,
+we will give an informal version of Leibniz's formula as we go forward here.
+So let's look at the determinant of a 2 by 2 matrix. So for our 2 by 2 matrix, which
+we can write out here like this in its determinant form, the answer to the determinant is A11A22
+minus A12A21, that is we're adding the product on the leading diagonal of these two numbers
+here and subtracting the product on the other diagonal, that is the product of these two
+numbers here.
+For a 3 by 3 matrix, it gets a little more complicated. And there are two rather different
+ways of looking at this. So for our 3 by 3 matrix, we can write the determinant with
+these two notations here. And one way of multiplying this out is shown here. So that would be A11
+times A22 times A33 minus A23 times A32. And then that term has a positive sign.
+And then the next term we would evaluate would be A12 times A21 times A33 and minus A23 times
+A31. So A12 multiplying all of this here. And we see, we're always getting a positive
+contribution and a negative contribution. And this term also has a negative sign overall.
+And finally, for our third term down here, we've got A13 times the sum of A21 times A32
+minus A22 times A31. And this term here would have a positive sign.
+If we take the expression we just were looking at and wrote it out in one line, and then
+multiplied out all of the terms in the brackets, we would see the following. We would see a
+collection of terms, each with three elements multiplied together, some with minus signs
+and some with positive signs-- there's another minus sign. Each term contains a different
+element from each row. So this term here that we're looking at which is this one up here
+contains the second element from row one, the third element from row two, and the first
+element from row three.
+And if you look at all of these different terms here, you will find they have the same
+characteristic. They contain a different element from each different row. And the elements
+in each term are never from the same column. That's kind of confusing when we look at it
+in words, but as we look at this a bit more graphically, it will become somewhat clearer
+what we're talking about.
+We do always have one element from each row and each column in each of these terms. So
+there's an element from row one here, an element from row two, an element from row three; there's
+an element from column two, there's an element from column one, there's an element from column
+three. So this suggests to us what the general form of a determinant really is. And we'll
+illustrate this with the 3 by 3 determinant again.
+So this form that we have written out here, as we said, contains every possible term with
+one element from each row, with each element being from different column. And this is a
+general property of determinants. To understand how to construct a determinant, it only remains
+for us now to find the sign of the different terms we have to put in. And again, this becomes
+clearer, when we look at it graphically.
+So to do this, what we're going to do is we're going to count the number of row swaps we
+have to make-- this also works for column swaps-- to get all the elements in the term
+onto the leading diagonal. And if that number is even, the number of these row swaps or
+columns swaps we have to do, the sign is positive, and if that number is odd, the sign is negative.
+OK so understanding that in words is really very hard, but let's look at it, as I said,
+graphically.
+So let's look at this term here, one of the terms in our chain of different terms that
+we have to add and subtract to get the determinant. So that term is the one that corresponds to
+these black numbers in our expression here. And I've made all the other elements gray
+in this diagonal.
+So if we swap this row and this row, then we find that we've managed to get all of these
+black elements on a diagonal. So we can say that in order to get this term so that all
+of the elements are lying on the diagonal, we have to perform one row swap. One is an
+odd number, so the sign of this term in the determinant is going to be negative.
+On the other hand, for this term here-- here it is before we do any row swaps-- we've got
+one of our elements here, one of them here, and one of them here-- if we swap these two
+rows around, then we get the determinant into this form, but that still does not have all
+the elements down a leading diagonal. But one more row swap, swapping these two rows
+about will achieve that for us. And here we are.
+So performing two rows swaps will end up with all of these terms that we want to multiply
+together all lying on the leading diagonal. So we had to perform two row swaps in this
+case. Two is an even number, so the sign of this term in our overall sum will be positive.
+And this is how we make up the determinant-- we consider every one of the possible ways
+in which we can choose one element from the first row, a different columns element from
+the second row, and a different columns element from the third row, and so on, if we have
+more rows in our determinant. And then we figured out the sign of each of these terms
+by figuring out the row swaps. And the answer to these rows swaps is unique, by the way.
+There are many different ways in which we can do the row swaps in order to get the answer
+sometimes, but the number of them would remain the same. And incidentally, this way of looking
+at the determinant is actually Leibniz's determinant formula. So I won't try to write it out for
+you-- it's not very clear when you write it out either. But thinking about it in this
+graphical fashion lets us see what the formula really is.

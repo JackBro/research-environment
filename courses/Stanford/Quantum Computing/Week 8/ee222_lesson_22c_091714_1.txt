@@ -1,0 +1,115 @@
+Quantum mechanical problems can often be reduced to linear algebra with operators represented
+by matrices and functions represented by vectors. Indeed, the general mathematics that we've
+set up for quantum mechanics is in exactly this form. The practical solution of some
+problems, then-- such as finding the energy eigenvalues and eigenstates-- can actually
+be reduced to a problem of finding the eigenvectors of a matrix.
+In such a matrix form, though, commonly, no exact analytic solution is known. Then we
+may have to solve it numerically for eigenvalues and eigenvectors which means we have to restrict
+the matrix to being a finite one. Mathematically, that means we're only considering a subset
+of all the possible basis functions that we could be considering for a problem like that.
+As a result, we could call an approach like this a finite matrix or a finite basis subset
+approach.
+Now, the use of finite basis subsets is quite common. Indeed, it's routine in many numerical
+calculations. But this particular approach is not normally discussed explicitly in quantum
+mechanics texts-- at least not with any specific name. However, it's so useful and so simple
+with modern numerical techniques that we're going to look at it explicitly here.
+Actually, in some analytic problems in quantum mechanics, we can also use such finite basis
+subset approaches. This approach is taken, for example, in what's called the k.p method
+of calculating bond structures and semiconductors. And this is the principal band structure method
+used for calculating optical properties in, for example, semiconductor lasers.
+The overall problem is very complicated. But we pretend that only a few of the so-called
+"bands" in the material are really important. And we solve-- essentially, exactly, and even
+analytically-- for that simplified problem.
+In general then, in a finite basis subset approach, what we are doing is saying that
+we're going to make an essentially exact solution but to a simplified version of the problem.
+Though the problem really needs a possibly infinitely large basis set for its exact solution,
+we are presuming that we only practically need to make a much smaller subset of those,
+and then solve that problem with standard techniques for finite matrices. In practice
+is such an approach, we have to choose the finite basis subset with care. And in the
+end, there's no substitute for intelligence in making that choice. This is something of
+an art.
+If we choose the form of the basis set badly-- or we make a poor choice as to what elements
+to include in our finite subset-- then we'll end up with a poor approximation to the result
+or possibly even a matrix that is ill conditioned. A very frequent choice of a starting basis
+set is to use some of the energy eigenfunctions of the unperturbed problem-- or at least those
+of a simpler, though related problem. So let's try to use such an approach here for a problem
+of an electron in a box with an applied electric field.
+So to set up our finite matrix method-- which is the same thing as our finite basis subset
+method, as we could call it-- for an electron in a well with field-- we'll need to construct
+the matrix of the Hamiltonian for the problem. Well, that's straightforward. The matrix elements
+are simply these bra operator ket products here.
+And for a simple one dimensional function here, this just reduces to some integrals.
+So we split the integral into two parts-- one with the differential operator corresponding
+to the kinetic energy, and another with the potential energy here, f times xi minus 1/2.
+In this particular case, because the wave functions are real, the complex conjugation
+makes no difference.
+In the integral for this matrix element-- which we can call Hij-- if we choose the energy
+eigenfunctions of the unperturbed problem to form our basis set-- which we've sort of
+implied here with this notation anyway-- then these eigenfunctions, we know what they are.
+And we can easily perform this whole operation analytically. The derivative is fairly straightforward.
+Second derivative of sine is going to give us minus sine with some coefficients out front.
+And the resulting integrations can also be solved analytically in this case, or you could
+simply perform them numerically.
+For our explicit example we have here, we're going to consider a field of 3 dimensionless
+units. That is, we're going to choose f equal to 3 with the first 3 energy eigenfunctions
+of the unperturbed problem as a finite basis set. That is, although in the ideal problem
+we would use an infinitely large basis set, we're only going to use the first 3 elements
+of this particular set and see how we get on with that. Then we can evaluate the matrix
+elements-- these quantities Hij-- and that gives us our Hamiltonian matrix.
+So simply calculating through with these examples here, here's our matrix. It's got the unperturbed
+energies down the diagonal you will see, and then various quantities on the off diagonal.
+Now, not surprisingly, if you look at the mathematics, these numbers are actually equal
+here. And of course, this operator-- this matrix-- is Hermitian. As we would expect,
+it's just a Hamiltonian.
+So this element here and this element here are complex conjugates of one another. Well,
+they're real numbers so that's rather trivial. But it's still true that this element is the
+complex conjugate of that one and this element is the complex conjugate of that one.
+Now, numerically, we can find the eigenvalues of this matrix. There are various computer
+techniques we could use, or if this one is simple enough, we could just do it by hand.
+And the answer to that is that there are 3 eigenvalues of this matrix-- eta 1-- .904,
+so that means the first energy level is 0.904 of our energy units, the second energy level,
+eta 2 is 4.028 of our units, and the third energy level, the third eigenvalue, is 9.068
+of our units.
+And you'll notice first of all, these are quite close to the unperturbed values-- the
+ones we would get at 0 field-- which, of course, would be 1, 4, and 9, respectively, for an
+infinitely deep well in these units. We see also that our lowest energy eigenvalue here
+has reduced from its unperturbed value. So it's 0.904 now instead of being 1.
+Incidentally, we can solve this problem exactly. The results require the use of Airy functions.
+And so we can write down the exact answers to this problem.
+The first energy level would be 0.90419-- so obviously, that's essentially the same.
+The second one would be 4.0275-- so that's obviously, actually the same. The third one
+is a bit off.
+We shouldn't actually be surprised at that. And that's in part because we only put 3 of
+these basis functions into our problem. However, we can see for the first level, this is looking
+really very good.
+The corresponding eigenvectors we can solve it numerically as well. And we get the first
+one here, the second one, and the third one. This is the one associated with the first
+energy value, this with the second, and this with the third. Incidentally, these eigenvectors
+here have been set up to be normalized. The sum of the squares of these 3 elements, for
+example, adds up to 1, and the same is true for these 3, and the same is true for these
+3.
+So explicitly then, writing out what the first eigenfunction really is, it's this function.
+So it's 0.985 times that first unperturbed eigenstate, plus 0.174, times that second
+state in our basis set, plus 0.013 times that third state. So the 0.985 is here, the 0.174,
+is here, and the 0.013 is here.
+We can plot out the wave function. Here's a comparison of the unperturbed wave functions--
+and that's just our sine in the well here, this green one before we put the field on--
+with the perturbed one that we get as a result of doing this particular calculation using
+our finite basis or finite matrix method. That's the red one here.
+We see that the electron wave function has moved to the left with field. Which makes
+sense to us because, remember, we had the slope on the potential like this so we might
+expect the electron to run down to the left. Adding more elements to this finite basis
+here really makes negligible change to this first calculated solution.
+We can look at the probability density that we get from that wave function and we find
+the same kind of thing, of course. The first one without perturbation-- the green one here--
+is just sine squared inside this particular well, and the perturbed one is just a square
+of what we were looking at before. So also, the probability density has moved to the left
+as we would expect.
+So we see with this relatively simple matrix method, we've been able to calculate a relatively
+realistic solution to our problem. We merely construct a matrix for some given field, matrix
+element by matrix element, using a finite but reasonably well-chosen basis subset. Here
+we chose the first 3 unperturbed energy eigenstates, and then asked the computer to find the eigenvalues
+and eigenfunctions of the matrix.
+Those give us our approximations to the new energy eigenstates of this problem. Now though
+this method may not be giving us as much insight into the problem, it's certainly a straightforward
+and quite general approach as a numerical method.

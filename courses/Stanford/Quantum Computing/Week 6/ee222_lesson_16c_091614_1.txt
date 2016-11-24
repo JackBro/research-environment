@@ -1,0 +1,57 @@
+We quite often come across derivative operators in quantum mechanics. For example, our simple
+Hamiltonian and Schroedinger's equation has the second spatial derivative. And the momentum
+operator has our first spatial derivative. Now, if these are operators, then we should
+be able to write them as matrices. On the face of it, this may seem a strange thing
+to do.
+First of all, though, from a fundamental point of view, we should do this for conceptual
+completeness. Secondly, in fact, in numerical calculations with derivatives, we actually
+do this all the time, even if we don't explicitly point that out. A third reason for looking
+at this matrix form of derivative operators is that it enables us to draw some conclusions
+about the mathematical nature of derivative operators. Some of which are quite surprising
+and important in quantum mechanics.
+So let's look, then, at the matrix form of derivative operators. We return to our original
+discussion of functions as vectors. We can postulate a form for the differential operator.
+So this is our postulated form of a matrix to try to represent a derivative here, d by
+dx. Why have we chosen that? Well, we presume we can do this. We're going to take the limit
+as delta x goes to 0 here, and this will match up with our idea of function as being determined
+by a set of values or a set of closely spaced points spaced by delta x.
+So if we multiply a column vector whose elements are the values of the function at all of these
+closely spaced points separated by delta x, if we look at what happens when we multiply
+this in here, then what we'll find is the resulting vector has got elements like this
+in it. But this element here is just the derivative df by dx near xi. And this one is just the
+derivative df by dx near xi plus delta x and so on.
+So indeed, this is a good representation of a derivative operator represented as a matrix.
+And again, we're taking the limit as delta x goes to 0, as we need to do in order to
+take derivatives. Hence, we do have a way of representing a derivative as a matrix.
+And this is something that we end up doing all the time when we work with the computer.
+Now, note something about this matrix. This matrix is antisymmetric in reflection about
+the diagonal. So we've got 1 over 2 delta x here, but we've got minus 1 over 2 delta
+x here. We could call that an antisymmetric reflection. And it's not Hermitian. This element
+here is not the complex conjugate of that one. This is minus that one, not the complex
+conjugate of it. In this case, since this is real, the complex conjugate of this would
+just be the same thing. But we've got a minus sign here.
+Indeed, somewhat surprisingly, this operator, d by dx, is not Hermitian. And if you just
+look at that, that might take you by surprise because Hermiticity's got something to do
+with complex conjugates. This looks a perfectly real kind of operation. And hence, we might
+not expect to run into trouble with complex conjugation. But in fact, d by dx is not a
+Hermitian operator.
+We can run through similar arguments for the second derivative operator. And if we do that,
+and we construct a corresponding matrix, we would actually find that the second derivative
+operator gives us a symmetric matrix with real elements. And hence, it is Hermitian.
+So if we didn't put together this matrix form, we might have missed this point. d by dx is
+not a Hermitian operator. But d2 by dx squared is a Hermitian operator.
+Finally, let's point out one formal point. If we are operating on a function by just
+multiplying it by another function, such as a potential for example, to generate a new
+function g of x, then this V of x is performing a role like an operator. Because it's taking
+one function and turning it into another one. It's a particularly simple version of an operator,
+but we could view it as an operator if we want to.
+And we could represent it as a diagonal matrix whose diagonal elements are simply the values
+of this function V of x at each of the different points. So it could be diagonal matrix with
+V of x1, V of x2, and so on, all the way down the diagonal. If V of x is a real, then this
+matrix is Hermitian, as required for it to be part of a Hamiltonian. So when we write
+out a Hamiltonian with, for example, our kinetic energy term minus h bar squared over 2m times
+del squared plus our potential energy term V of x or r or whatever.
+We can think of that V as being an operator also if we think of writing it in this diagonal
+form. So that whole entity becomes our Hamiltonian, and it is, indeed, the sum of two operators.
+This is only a formal point here, it doesn't make any difference to any calculation. But
+it helps straighten out a minor issue with the operator form here of the Hamiltonian.

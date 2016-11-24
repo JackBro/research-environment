@@ -1,0 +1,102 @@
+One of the most important mathematical aspects of Schroedinger's equation is that it is linear.
+Now we've talked a little bit about this concept before. But we can see explicitly here that
+Schroedinger's equation is linear. And in particular, one thing that we notice is that
+the wave function psi only appears in first order.
+That is, there's no psi squared terms, or psi cubed terms, or any other higher order
+terms anywhere in this equation. And that has the simple consequence-- almost a trivial
+one it seems-- that if psi is a solution, so also is E times psi, regardless of what
+constant E is. And as I said, this almost seems so trivial here.
+If I were to replace psi by a times psi on both sides, it obviously still solves this
+equation. If however, we had had terms of psi squared, or psi cubed, or something else--
+say on the left-hand side here somewhere-- this would not be true. If I replaced psi
+by a times psi, it would not still be a solution of this equation.
+And of course, we can see why a times psi is still a solution. It just corresponds to
+multiplying both sides of this equation by the same constant. And hence, the equation
+still solved. So as I said, this almost seems trivial, but it's actually not trivial. It's
+a very important point.
+This linearity of equations in quantum mechanics is very general and important. Quantum mechanical
+equations are linear in the quantum mechanical amplitude for which the equation is being
+solved-- here, the wave function psi. In classical systems we often use linear equations as a
+first approximation to non-linear behavior.
+For example a pendulum actually oscillates at slightly different frequencies for larger
+amplitudes. But the equation is not exactly linear in that amplitude, but as an approximation
+we can treat it as a linear equation for small amplitudes.
+In quantum mechanics though, this linearity of the equations with respect to the quantum
+mechanical amplitude is not an approximation of any kind. It's apparently an absolute property
+of such equations in quantum mechanics. This linearity allows the full use of linear algebra
+for the mathematics of quantum mechanics. And we will be progressively developing this
+mathematics as we work through some example problems here.
+One of the consequences of this linearity of Schroedinger's equation is that we can
+normalize the wave function. So let's look at this concept of normalization and how we
+do it.
+As we've already said, Born postulate that probability-- such as the probability of finding
+a particle near some point r-- would be proportional to the modulus squared of the wave function.
+So that was his postulate. And this postulate runs through all of quantum mechanics by the
+way.
+So specifically we could define P of r here as what we might call a probability in density.
+So for some very small-- typically we like to say infinitesimal volume-- d cubed r, round
+about this position r, we would be saying that the probability of finding the particle
+in that volume is P of r, d cubed r. And in that sense, P of r here, we're calling a probability
+density.
+So the sum of all such probabilities should of course be 1. So that means that if we were
+to integrate a probability density over all space, then we should get 1-- the idea being
+that the particle has to be somewhere. So the question is, can we choose psi of r in
+such a way that we can use the modulus squared-- psi of r modulus squared-- as the probability
+density, not just something that's proportional to the probability density?
+Well when we did our original solution of the equation, unless we'd been very lucky,
+our solution to that equation would not have given us psi of r in precisely the form such
+that the integral of psi squared modulus squared r, d cubed r, was equal to 1. That would have
+been unlikely, just if we had done some solution.
+So generally this integral of modulus squared of psi of r would give some other real positive
+number. And for the moment-- and for a reason that will become obvious soon-- we'll write
+that number as 1 over the modulus of a squared-- a little a, which is going to be some number,
+possibly a complex number. That is, what we're saying is, let's suppose we've done the solution
+here. And we've got some solutions to our Schroedinger equation, psi of r.
+We take the modulus of that squared. We integrate it over all space. And we get some number.
+And it's going to be a positive real number, because all of these are positive numbers--
+and also real numbers, because this is a modulus squared. And we're just going to call that
+positive real number 1 over the modulus of a, all squared.
+Now we know that if psi of r is the solution to Schroedinger's equation, so also is a times
+psi of r. This is this consequence of the linearity of Schroedinger's equation. So if
+we use the solution psi n here-- I'm going to put a subscript n on it, which is a times
+psi-- instead of the solution psi. Then the integral of the modulus squared of psi n of
+r, d cubed r, is 1.
+And then we can use this quantity-- modulus squared of psi n of r-- as the probability
+density. Psi n of r would then be called a normalized wave function. So to summarize
+normalization, we take the solution psi we've just obtained from some solution we've done
+of Schroedinger's wave equation. We integrate the modulus of psi squared of r to get some
+number that we call 1 over mod of a all squared-- but it's just a number that we've got from
+that integral.
+That gives us our a, or at least the magnitude of it. And we can then choose a new wave function,
+or normalized wave function, which is a times psi. And then when we take the integral of
+the modulus squared of that, over all the volume, we are indeed going to get 1. And
+then we can use this modulus squared of psi N of r as a probability density.
+Now we need to make a couple of technical notes on normalization. The first one is that,
+as I mentioned, we only really are setting here the magnitude of this constant a. We're
+not setting its phase by this process we've just discussed. And in fact, we are free to
+choose any phase we like for a.
+Indeed in our original solution, psi of Schroedinger's equation, we could have multiplied that by
+any e to the i theta that we liked. That's just another number by which we can multiply
+the solution of psi in this linear equation. And that will still be a solution.
+A second and more tricky technical note is that if we think of space as infinite, then
+functions like sine kx, or cos kz, or e to the ik to r, cannot be normalized in the way
+we've just been discussing. The problem is that you don't get a finite result. The integral
+just keeps on going, and it never converges to anything.
+And the mathematical technical term for this is to say that their squared modulus is not
+Lebesgue integrable. Or they are not what are called L2 functions. Now this terminology
+doesn't really concern us much here. But I want to emphasize that this difficulty is
+a mathematical one. It's not a physical one.
+It's a consequence of us having over- idealized the mathematics. We love to work with functions
+like these. They're very easy to work with. And they're solutions of other idealized equations.
+But this is a price that we are paying for using these very simple functions. We end
+up not being able to normalize them here. In any real physical problem, we are not actually
+going to run into this difficulty of normalizing wave functions. But when we set up somewhat
+idealized mathematical forms, we can run into technical difficulties.
+Now there are a few workarounds for this particular mathematical difficulty. One of them is, well,
+let's only work with finite volumes in actual problems we are going to solve. And this is
+the most common approach to solving this particular difficulty. And we will do that quite often.
+There is also another trick called normalization to a delta function. And basically what we're
+doing there is introducing another infinity to compensate for the problems we introduced
+by putting in the first one.
+This can be done. And we could go through the mathematics of that. But we won't do that
+here. We are going to try to avoid having to invoke this particular technique.

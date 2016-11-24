@@ -1,0 +1,202 @@
+So far, we've just introduced unitary operators by proving that they don't change the length
+of a vector. So we know what they don't do, but what do they do? Unitary operators do
+two things for us. First, they allow us to change coordinate systems, or more generally,
+what we would call representations.
+We could have written out a vector representing some quantum mechanical state using, say,
+an energy eigenfunction basis. Then we might decide that instead we wanted to represent
+it using some different basis. We could then use a unitary operator to change the vector
+from one basis, one coordinate system, to another.
+In ordinary geometrical space, a unitary transformation, or a unitary operator, can change this from
+one set of coordinate axes to another. For example, by rotating them. The second thing
+that unitary operators do for us in quantum mechanics, is generally, allow us to change
+the state of the quantum mechanical system.
+The state of the system, presumably, remains normalized as we do so, so the operator that
+does this change must preserve this normalization, and hence, it's a unitary operator. The operator
+that gives us a time evolution of a quantum mechanical system is also a unitary operator,
+for example. So let's look at how this mathematics works.
+So let's look at this unitary operator that is going to change the representation of some
+vector. So we suppose we have a vector, or a function, and we're going to call that f
+old here. And it's represented on some basis, psi n, and when we do that we get a set of
+expansion coefficients, c1, c2, and c3, and that will be a column vector, as usual, for
+a ket vector. These numbers are just the projections of this vector, f old, onto these orthogonal
+coordinate axes in the vector space. And those coordinate axes are labeled with these kets,
+psi 1, psi 2, psi 3.
+Suppose then, we want to represent this vector on some new set of orthogonal axes. And we'll
+label these with another Greek letter, phi. So this is phi 1, phi 2, phi 3. These are
+orthogonal axes, and these are the unit vectors, as usual, on those axes. Changing the axes,
+which is equivalent to changing the basis set of functions we're going to use, does
+not change the vector we're representing.
+We're merely changing the coordinate axes, if you like. We're not changing the vector.
+But it does change the column of numbers we're going to use to represent the vector. So it's
+the same vector, f old, we started by calling it, but we're representing it on this basis,
+the phi basis, instead of the psi basis.
+For example, suppose the original vector, f old, just happened to be, actually, the
+first basis vector in the old basis, psi 1. We could always have chosen that. It might
+seem odd to do that, but we've got good reasons for it. Then in this new representation we're
+going to choose with the phi vectors as the basis, the elements in the column of our numbers
+would be the projections of this vector, psi 1, on the various new coordinate axes, each
+of which is simply this number, the inner product of phi m with psi 1.
+So for the m-th new coordinate axis, this is the number that gives us the projection
+onto that axis, phi m. So under this coordinate transformation then, or this change of basis,
+what used to be a vector that was 1, 0, 0, and so on, because this was our f old, was
+psi 1, is now going to turn into a vector with the following numbers in it-- the following
+expansion coefficients, if you like. Simply these projections of psi 1 onto each of these
+new coordinate axes.
+We could do similar transformations for each different basis vector in our old coordinate
+system. And we get the correct transformation if we define a complete matrix made up from
+these vectors we constructed before for each of these. And the matrix elements in here
+then are simply phi i inner producted with psi j for the ij-th matrix element.
+So that's just following the same logic we just took, but going through each different
+old basis vector and expressing it in the new ones. And hence, with that, we can define
+our new column of numbers to represent any arbitrary vector here. We started out with
+some specific f old. We're going to get an f new, which will be a new column of numbers.
+So how we do that is whatever was the old vector, we operate on it with this unitary
+transform, and we get the new one. And we saw explicitly that that happened for each
+one of the basis functions of the old system being this vector here. And we're just adding
+up all of those to get the new vector over here. So this is how we transform from the
+vector expressed in the old coordinate system, to the vector expressed in the new one. We
+use this unitary transformation with these numbers, as the matrix elements, in the unitary
+matrix.
+Note incidentally, that here, f old and f new, are the same vector in our vector space.
+If you like, in a geometrical analogy, these two vectors are pointing in the same direction
+under the same length. They are the same vector. Only the representation, the coordinate axes,
+and consequently, the column of numbers we're going to use, has changed. Not the vector
+itself.
+Now we can prove that this operator we've just constructed, U, is a unitary operator.
+So we'll write the matrix multiplication in its summation form. So the matrix multiplication
+of U dagger, that's a Hermitian adjoint of our unitary operation U, times U, would be
+this product. And we're going to take the ij-th element of that.
+Well, if we write that out in the summation form, for working out matrix multiplications,
+then that just corresponds to the sum over m of u mi star u mj. This is the im-th element
+of U dagger, but the im-th element of U dagger is the complex conjugate of the mi-th element
+of u. That's why this is this element. Of course, we can work each of these out.
+We know that u mj was just phi m, psi j, and u mi was just phi m, psi i, so u mi star is
+just the complex conjugate of this number. Now, the complex conjugate of an inner product
+is the same thing as the Hermitian adjoint of an inner product, because an inner product
+is just a complex number. That's a one by one matrix.
+And for a one by one matrix, the complex conjugate and the Hermitian adjoint are the same thing.
+Also, we know, in general, that if we take an inner product and swap it around into the
+other direction here, we take the complex conjugate when we do that. Anyway, whichever
+way you want to look at it, this, with the complex conjugate, turns into this. Now we
+notice that buried in here is actually an identity operator.
+This is psi i out here. This is psi j out here. So there's nothing of these two that
+sums over m, so we can move that summation over m inside here. And that's what we've
+done in this next line. And this, of course, we recognize is just an identity operator,
+because this set of phi m's is presumably complete. An identity operator does nothing,
+so we can take it out.
+So what we're looking at is the inner product of psi i and psi j, and, of course, that's
+just the Kronecker delta, because these are orthogonal, actually, orthonormal functions.
+So that means that since we get this for every single one of the elements in this product
+here, what we have, actually, is a diagonal matrix with one down the diagonal. And that
+just means that the product of U dagger times U is equal to the identity matrix. So that
+means that U is unitary, because its Hermitian transpose, the U dagger, is behaving as its
+inverse, and that's the definition of a unitary matrix.
+Hence, any change in basis can be implemented with a unitary operator. We can also say that
+any such change in representation to a new orthonormal basis is just a unitary transform.
+Note, incidentally, that it doesn't matter which way around we do this multiplication,
+U U dagger is the same thing as the Hermitian adjoint of U dagger U, which is, therefore,
+the Hermitian adjoint of the identity operator, which is just the identity operator. So the
+mathematical order in this multiplication makes no difference.
+Now remember, that we concluded above, that a unitary transform does not change any inner
+product. We can now, therefore, also conclude that a transformation to a new orthonormal
+basis does not change any inner product. Again, this is what we would have expected from thinking
+about the inner product being like a vector dot product of two geometrical vectors.
+Of course, such an inner product does not depend on the coordinate axes-- only on the
+directions and lengths of the vectors themselves. If a unitary operator can change a vector
+from being represented on one coordinate system to another, can it do the same for operators?
+Remember, an operator, when written as a matrix, has matrix elements that depend on the basis
+we used.
+If we change to a new basis, we will obviously, then, have to change the matrix elements.
+Can the same unitary matrix that we used to change the representation of vectors-- to
+change them from a new coordinate system, for example,-- can that also be used to transform
+other operators to new coordinate systems without us having to recalculate all the matrix
+elements again?
+The answer, of course, is that it can. If we know all the matrix elements on one basis,
+we will be able to use the same unitary matrix, the one that we used to change the vectors
+to a new basis, also to change the operators to the new basis without recalculating all
+the matrix elements. Let's see how this works.
+Consider a number such as the bra vector g, some arbitrary function, and an operator A,
+and the ket vector f, and the result of this operation should not depend on the coordinate
+system. After all, this is a vector. We operate on it to change its length and its direction
+as it were, and then we take the inner product of that new vector with this one.
+It should not depend what basis we're using to represent any of these. This number should
+be the same number if these are the same vectors and this is the same operator, the operator
+that does the same thing to a given vector. So the result of this in some old coordinate
+system should be the same as in the new coordinate system.
+So, therefore, however we get to this answer here, in the new coordinate system, should
+be the same as the answer in the old coordinate system. Note that the subscripts, old and
+new, refer to the representations, not to the vectors or the operators themselves. We're
+saying the vectors are really the same vectors, and the operator is really the same operator,
+it's just the way we're writing them down that is different between this expression
+and this expression. Only the numbers that represent these vectors and this operator
+have changed. Not the vectors themselves and not the operator itself.
+Well, with our unitary operator U to go from old to new systems for vectors, we figured
+that out, we can write the following. We can take a bra vector for g new. We can turn it
+into a ket vector with a Hermitian adjoint. And then, we know how to write down that ket
+vector, g new, in terms of the old version of that ket vector. That's just U operating
+on g old.
+And similarly, the new f is just U operating on the old f, in terms of the columns of numbers.
+Well, having written this down this way, we can take the Hermitian adjoint of this product,
+which means flipping it around, so that gives us a bra vector, g old, and U dagger, from
+taking the Hermitian adjoint of this product. Now we believe that this new version should
+be the same number as this old version.
+So, therefore, we believe that this here must actually be the same as that there. Hence,
+we identify that this U dagger, A new U, must be A old. Or we can change that around. We
+can pre-multiply by U, and we can multiply by U dagger on the other side here on this
+expression, and similarly, on this one.
+So on this expression here, the U would give us U U dagger, and the U dagger over here
+would give us U U dagger. And, of course, U U dagger is just the identity operator.
+So this gives us A new. So simply rewriting that then, the operator on the new coordinate
+system is related to the operator on the old coordinate system in the following way. Incidentally,
+we can understand this.
+So now we're talking about an operator in the new coordinate system. Therefore, if we're
+coming along with a vector in the new coordinate system, and we're multiplying by the U dagger
+here, what this U dagger is doing is it's taking our vector in the new coordinate system
+and turning it into one in the old coordinate system.
+Then we operate with the operator in the old coordinate system to get a vector in the old
+coordinate system, and then we use U to transform from the old coordinate system back to the
+new coordinate system. So that's what's going on inside here. And, of course, that's just
+the same thing as operating with A in the new coordinate system. So this is how we transform
+an operator from an old coordinate system to a new one.
+We've just been looking at unitary operators that change the coordinate system, but not
+the actual vectors, or the operators. So here is our vector, here is our coordinate system,
+and we've been saying we use a unitary operator to change the coordinate system, but the vector
+itself remains the same.
+So we've been using these unitary transformations to change the way we're writing down these
+vectors or operators. But they're still the same vectors, and the operators still do the
+same things to the vectors, as they did before, rotating the vectors and stretching them essentially.
+Remember, that what an operator does to a vector is it turns it around and possibly
+stretches it or compresses it.
+And, of course, in quantum mechanics, we have to remember we have complex numbers involved
+with this. As we said before, operators that change the quantum mechanical state are also
+unitary. Why such operators arise in quantum mechanics is simple. If we're working, for
+example, with a single particle, then the sum of all of the occupation probabilities
+of all the possible states is unity.
+It's important to understand that such operators are not changing the basis set. They're actually
+changing the quantum mechanical state of the system. And hence, they're changing the vector's
+orientation in space. So operators that are changing the quantum mechanical state are
+rotating this vector.
+They're not changing the length of it, because that's staying the same, but they're rotating
+it around in some way to say we are in a different quantum mechanical state, but we're on the
+same coordinate system. As a minor mathematical confusion, there's no difference in the notation
+we use when we're using a unitary operator to change coordinate systems and when we are
+using it to change the physical state of the system.
+As far as the mathematics is concerned, these are both just unitary transformations. However,
+remember, that using a unitary operator to change a coordinate system, or basis, is a
+purely mathematical operation. There's no change in the physical state. So here's our
+physical state. We're rotating the coordinate system, but we're not changing the physical
+state with that kind of unit to the operation. Using a unitary operator to change the quantum
+mechanical state of the system is different. It's rotating the vector in Hilbert space
+while leaving the coordinate axes unchanged.
+So in thinking about a unitary operator that changes the state vector, for example, if
+our quantum mechanical state psi here, is expanded on some basis psi n, so our state
+psi is a sum over n of some expansion coefficients a n times psi n, then, of course, the sum
+of the squares of these expansion coefficients is going to be 1, because our quantum mechanical
+state, psi, was presumably normalized.
+And if the particle is to be conserved, as we go forward, then this sum of the modulus
+squared of the expansion coefficients should not change. It should be retained, as the
+quantum mechanical system evolves in time. That is really the length of this vector,
+should be retained. This here is just the square, of course, of the vector length. It's
+bra psi times ket psi, if you like. Hence, a unitary operator, which conserves length,
+will describe changes in the quantum mechanical state that conserve the particle. They conserve
+the probabilities all adding up to one.
