@@ -1,0 +1,562 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Operator Overloading | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Operator Overloading" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Operator Overloading" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/operator_overloading">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Operator Overloading
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Operator Overloading
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Operator Overloading</h2>
+<p><em>(Ref. Lippman 15.1-15.7, 15.9)</em></p>
+<p>We have already seen how functions can be overloaded in C++. We can also overload operators, such as the + operator, for classes that we write. Note that operators for built-in types may not be created or modified. A complete list of overloadable operators can be found in Lippman, Table 15.1.</p>
+<h2 class="subhead">A Complex Number Class</h2>
+<p>In this example, we have overloaded the following operators: +, *, &gt;, =, (), [] and the cast operator.</p>
+<p><strong>operator+() and operator*()</strong></p>
+<p>Let <em>a</em> and <em>b</em> be of type <em>Complex</em>. The <em>+</em> operator in the expression <em>a+b</em>, can be interpreted as</p>
+<p><em>    a.operator+(b)</em></p>
+<p>where <em>operator+()</em> is a member function of class <em>Complex</em>. We then have to write this function so that it adds the real and imaginary parts of <em>a</em> and <em>b</em> and returns the result as a new <em>Complex</em> object. Note that the function returns by value, since it has to create a temporary object for the result of the addition.</p>
+<p>Our implementation will also work for an expression like <em>a+b+c</em>. In this case, the operator will be invoked in the following order</p>
+<p>    (<em>a.operator+(b)).operator+(c)</em></p>
+<p>The member <em>operator+()</em> will also work for an expression like</p>
+<p>    <em>a + 7.0</em></p>
+<p>because we have a constructor that can create a <em>Complex</em> from a single <em>double</em>. However, the expression</p>
+<p>    <em>7.0 + a</em></p>
+<p>will not work, because <em>operator+()</em> is a member of class <em>Complex</em>, and not the built-in <em>double</em> type.</p>
+<p>To solve this problem, we can make the operator a <em>global function</em>, as we have done with <em>operator*()</em>. The expression <em>7.0 * a</em> will be interpreted as</p>
+<p>    <em>operator*(7.0, a)</em></p>
+<p>Since a global function does not automatically have access to the private data of class <em>Complex</em>, we can grant special access to <em>operator*()</em> by making it a <em>friend</em> function of class <em>Complex</em>. In general, <em>friend</em> functions and classes should be used sparingly, since they are a violation of the rule of encapsulation.</p>
+<p><b>operator&gt;()</b></p>
+<p>We have overloaded this operator to allow comparison of two <em>Complex</em> numbers, based on their magnitudes.</p>
+<p><b>operator=()</b></p>
+<p>The <em>=</em> operator is designed to work with statements like</p>
+<p>    <em>a = b;</em><br><em>    a = b = c;</em></p>
+<p>These statements respectively interpreted as</p>
+<p>    <em>a.operator=(b);</em><br>
+    <em>a.operator=(b.operator=(c));</em></p>
+<p>In this case, the operator changes the object that invokes it, and it returns a reference to this object so that the second statement will work. The keyword <em>this</em> gives us a pointer to the current object within the class definition.</p>
+<p><b>operator Point()</b></p>
+<p>This operator allows us to convert a <em>Complex</em> object to a <em>Point</em> object. It can be used in an explicit cast, like</p>
+<p>    <em>Complex a;</em><br>
+    <em>Point p;</em><br>
+    <em>p = (Point)a;</em></p>
+<p>but it could also be invoked implicitly, as in</p>
+<p>    <em>p = a;</em></p>
+<p>Hence, a great deal of caution should be used when providing user-defined type conversions in this way. An alternative way to convert from a <em>Complex</em> to a <em>Point</em> is to give the <em>Point</em> class a constructor that takes a <em>Complex</em> as an argument. However, we might not have access to the source code for the <em>Point</em> class, if it were written by someone else.</p>
+<p>Note that overloaded cast operators do not have a return type.</p>
+<p><b>operator()()</b></p>
+<p>This is the function call operator. It is invoked by a <em>Complex</em> object <em>a</em> as</p>
+<p>    a()</p>
+<p>Here we have overloaded <em>operator()()</em> to return <em>true</em> if the object has an imaginary part and <em>false</em> otherwise.</p>
+<p><b>operator[]()</b></p>
+<p>The overloaded subscript operator is useful if we wish to access fields of the object like array elements. In our example, we have made <em>a[0]</em> refer to the real part and <em>a[1]</em> refer to the imaginary part of the object.</p>
+<p><b>operator&lt;&lt;()</b></p>
+<p>The output operator cannot be overloaded as a member function because we do not have access to the <em>ostream</em> class to which the predefined object <em>cout</em> belongs. Instead, <em>operator&lt;&lt;()</em> is overloaded as a global function. We must return a reference to the <em>ostream</em> class so that the output operator can be concatenated. For example,</p>
+<p>    <em>cout &lt;&lt; a &lt;&lt; b;</em></p>
+<p>will be invoked as</p>
+<p>    <em>operator&lt;&lt;((operator&lt;&lt;(cout, a),b)</em><br>
+ </p>
+<p><em><strong>complex.h</strong></em></p>
+<p><em>// Interface for class Complex.</em><br><em>#ifndef _COMPLEX_H_</em><br><em>#define _COMPLEX_H_</em></p>
+<p><em>#include &lt;iostream.h&gt;</em><br><em>#include "point.h"</em></p>
+<p><em>#ifndef DEBUG_PRINT</em><br><em>#ifdef _DEBUG</em><br><em>#define DEBUG_PRINT(str)  cout &lt;&lt; str &lt;&lt; endl;</em><br><em>#else</em><br><em>#define DEBUG_PRINT(str)</em><br><em>#endif</em><br><em>#endif</em></p>
+<p><em>class Complex {</em><br><em>        private:</em><br><em>    double mdReal;</em><br><em>    double mdImag;</em></p>
+<p><em>        public:</em><br><em>    // This combines three constructors in one. Here we have used an initialization list to initialize</em><br><em>    // the private data, instead of using assignment statements in the body of the constructor.</em><br><em>    Complex(double dReal=0.0, double dImag=0.0) : mdReal(dReal), mdImag(dImag) {</em><br><em>        DEBUG_PRINT("In Complex::Complex(double dReal, double dImag)")</em><br><em>    }</em></p>
+<p><em>    // The copy constructor.</em><br><em>    Complex(const Complex&amp; c);</em><br><em>    ~Complex() {</em><br><em>        DEBUG_PRINT("In Complex::~Complex()")</em><br><em>    }</em><br><em>    void print();</em></p>
+<p><em>    // Overloaded member operators.</em><br><em>    Complex operator+(const Complex&amp; c) const;      // Overloaded + operator.</em><br><em>    int operator&gt;(const Complex&amp; c) const;                // Overloaded &gt; operator.</em><br><em>    Complex&amp; operator=(const Complex&amp; c);           // Overloaded = operator.</em><br><em>    operator Point() const;                  // Overloaded cast-to-Point operator.</em><br><em>    bool operator()(void) const;          // Overloaded function call operator.</em><br><em>    double&amp; operator[](int i);              // Overloaded subscript operator.</em></p>
+<p><em>    // Overloaded global operators. We make these operators friends of class</em><br><em>    // Complex, so that they will have direct access to the private data.</em><br><em>    friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const Complex&amp; c);       // Overloaded output operator.</em><br><em>    friend Complex operator*(const Complex&amp; c, const Complex&amp; d);   // Overloaded * operator.</em><br><em>};</em><br><em>#endif    // _COMPLEX_H_</em><br>
+ </p>
+<p><em><strong>complex.C</strong></em></p>
+<p><em>// Implementation for class Complex.</em><br><em>#include "complex.h"</em><br><em>#include &lt;stdlib.h&gt;</em></p>
+<p><em>// Definition of copy constructor.</em><br><em>Complex::Complex(const Complex&amp; c) {</em><br><em>    DEBUG_PRINT("In Complex::Complex(const Complex&amp; c)")</em><br><em>    mdReal = c.mdReal;</em><br><em>    mdImag = c.mdImag;</em><br><em>}</em></p>
+<p><em>// Definition of overloaded + operator.</em><br><em>Complex Complex::operator+(const Complex&amp; c) const {</em><br><em>    DEBUG_PRINT("In Complex Complex::operator+(const Complex&amp; c) const")</em><br><em>    return Complex(mdReal + c.mdReal, mdImag + c.mdImag);</em><br><em>}</em><br>
+ </p>
+<p><em>// Definition of overloaded &gt; operator.</em><br><em>int Complex::operator&gt;(const Complex&amp; c) const {</em><br><em>    double sqr1 = mdReal * mdReal + mdImag * mdImag;</em><br><em>    double sqr2 = c.mdReal * c.mdReal + c.mdImag * c.mdImag;</em></p>
+<p><em>    DEBUG_PRINT("In int Complex::operator&gt;(const Complex&amp; c) const")</em><br><em>    return (sqr1 &gt; sqr2);</em><br><em>}</em><br>
+ </p>
+<p><em>// Definition of overloaded assignment operator.</em><br><em>Complex&amp; Complex::operator=(const Complex&amp; c) {</em><br><em>    DEBUG_PRINT("In Complex&amp; Complex::operator=(const Complex&amp; c)")</em><br><em>    mdReal = c.mdReal;</em><br><em>    mdImag = c.mdImag;</em><br><em>    return *this;</em><br><em>}</em><br>
+ </p>
+<p><em>// Definition of overloaded cast-to-Point operator. This converts a Complex object to a Point object.</em><br><em>Complex::operator Point() const {</em><br><em>    float fX, fY;</em></p>
+<p><em>    DEBUG_PRINT("In Complex::operator Point() const")</em><br><em>    // Our Point class uses floats instead of doubles. In this case, we make a conscious decision</em><br><em>    // to accept a loss in precision by converting the doubles to floats. Be careful when doing this!</em><br><em>    fX = (float)mdReal;</em><br><em>    fY = (float)mdImag;</em></p>
+<p><em>    return Point(fX, fY);</em><br><em>}</em></p>
+<p><em>// Definition of overloaded function call operator. We have defined this operator to allow us to test</em><br><em>// whether a number is complex or real.</em><br><em>bool Complex::operator()(void) const {</em><br><em>    DEBUG_PRINT("In bool Complex::operator()(void) const")</em><br><em>    if (mdImag == 0.0)</em><br><em>        return false;     // Number is real.</em><br><em>    else</em><br><em>        return true;      // Number is complex.</em><br><em>}</em></p>
+<p><em>// Definition of overloaded subscript operator. We have defined this operator to allow access to</em><br><em>// the real and imaginary parts of the object.</em><br><em>double&amp; Complex::operator[](int i) {</em><br><em>    DEBUG_PRINT("In double&amp; Complex::operator[](int)")</em><br><em>    switch(i) {</em><br><em>            case 0:</em><br><em>        return mdReal;</em></p>
+<p><em>            case 1:</em><br><em>        return mdImag;</em></p>
+<p><em>            default:</em><br><em>        cerr &lt;&lt; "Index out of bounds" &lt;&lt; endl;</em><br><em>        exit(0);                           // A function in the C standard library.</em><br><em>    }</em><br><em>}</em></p>
+<p><em>// Definition of a print function.</em><br><em>void Complex::print() {</em><br><em>    cout &lt;&lt; mdReal &lt;&lt; " + j" &lt;&lt; mdImag &lt;&lt; endl;</em><br><em>}</em></p>
+<p><em>// Definition of overloaded output operator. Note that this is a global function. We can</em><br><em>// access the private data of the Complex object c because the operator is a friend function.</em><br><em>ostream&amp; operator&lt;&lt;(ostream&amp; os, const Complex&amp; c) {</em><br><em>    DEBUG_PRINT("In ostream&amp; operator&lt;&lt;(ostream&amp;, const Complex&amp;)")</em><br><em>    cout &lt;&lt; c.mdReal &lt;&lt; " + j" &lt;&lt; c.mdImag;</em><br><em>    return os;</em><br><em>}</em></p>
+<p><em>// Definition of overloaded * operator. By making this operator a global function, we can</em><br><em>// handle statements such as a = 7 * b, where a and b are Complex objects.</em><br><em>Complex operator*(const Complex&amp; c, const Complex&amp; d) {</em><br><em>    DEBUG_PRINT("In Complex operator*(const Complex&amp; c, const Complex&amp; d)")</em><br><em>    double dReal = c.mdReal*d.mdReal - c.mdImag*d.mdImag;</em><br><em>    double dImag = c.mdReal*d.mdImag + c.mdImag*d.mdReal;</em><br><em>    return Complex(dReal, dImag);</em><br><em>}</em><br>
+ </p>
+<p><em><strong>complex_test.C</strong></em></p>
+<p><em>#include "complex.h"</em></p>
+<p><em>void main() {</em><br><em>    Complex a;</em><br><em>    Complex b;</em><br><em>    Complex *c;</em><br><em>    Complex d;</em></p>
+<p><em>    // Use of constructors and the overloaded operator=().</em><br><em>    a = (Complex)2.0;                 // Same as a = Complex(2.0);</em><br><em>    b = Complex(3.0, 4.0);</em><br><em>    c = new Complex(5.0, 6.0);</em></p>
+<p><em>    // Use of the overloaded operator+().</em><br><em>    d = a + b;                              // Same as d = a.operator+(b);</em><br><em>    d.print();</em></p>
+<p><em>    d = a + b + *c;                      // Same as d = (a.operator+(b)).operator+(*c);</em><br><em>    d.print();</em></p>
+<p><em>    // Use of the overloaded operator&gt;().</em><br><em>    if (b &gt; a)</em><br><em>        cout &lt;&lt; "b &gt; a" &lt;&lt; endl;</em><br><em>    else</em><br><em>        cout &lt;&lt; "b &lt;= a" &lt;&lt; endl;</em></p>
+<p><em>    // Use of cast-to-Point operator. This will convert a Complex object to a Point object.</em><br><em>    // An alternative way to handle the type conversion is to give the Point class a constructor</em><br><em>    // that takes a Complex object as an argument.</em><br><em>    Point p;</em><br><em>    p = (Point)b;</em><br><em>    p.print();</em></p>
+<p><em>    // Use of the overloaded operator()().</em><br><em>    if (a() == true)</em><br><em>        cout &lt;&lt; "a is a complex number" &lt;&lt; endl;</em><br><em>    else</em><br><em>        cout &lt;&lt; "a is a real number" &lt;&lt; endl;</em></p>
+<p><em>    // Use of the overloaded operator[](). This will change the imaginary part of a.</em><br><em>    a[1] = 8.0;</em><br><em>    a.print();</em></p>
+<p><em>    // Use of the overloaded global operator&lt;&lt;().</em><br><em>    cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;</em></p>
+<p><em>    // User of the overloaded global operator*(). The double literal constant will be passed as the</em><br><em>    // first argument to operator*() and it will be converted to a Complex object using the Complex</em><br><em>    // constructor.  This statement would not be legal if the operator were a member function.</em><br><em>    d = 7.0 * b;</em></p>
+<p><em>    cout &lt;&lt; "d = " &lt;&lt; d &lt;&lt; endl;</em><br><em>}</em></p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Multithreading | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Multithreading" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Multithreading" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/multithreading">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Multithreading
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Multithreading
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Topics</h2>
+<ol>
+<li><a href="#1">Threads, Processes and Multitasking</a></li>
+<li><a href="#2">How to Create Threads</a></li>
+<li><a href="#3">The LifeCycle of a Thread</a></li>
+<li><a href="#4">Animations</a></li>
+</ol>
+<h2 class="subhead">
+<a id="1" name="1"></a>1. Threads, Processes and Multitasking</h2>
+<p><em>Multitasking</em> is the ability of a computer's operating system to run several programs (or <em>processes</em>) concurrently on a single CPU. This is done by switching from one program to another fast enough to create the appearance that all programs are executing simultaneously. There are two types of multitasking:</p>
+<p><em>Preemptive multitasking.</em> In preemptive multitasking, the operating system decides how to allocate CPU time slices to each program. At the end of a time slice, the currently active program is <em>forced</em> to yield control to the operating system, whether it wants to or not. Examples of operating systems that support premptive multitasking are Unix®, Windows® 95/98, Windows® NT and the planned release of Mac® OS X.</p>
+<p><em>Cooperative multitasking.</em> In cooperative multitasking, each program controls how much CPU time it needs. This means that a program must cooperate in yielding control to other programs, or else it will hog the CPU. Examples of operating systems that support cooperative multitasking are Windows® 3.1 and Mac® OS 8.5.</p>
+<p><em>Multithreading</em> extends the concept of multitasking by allowing individual programs to perform several tasks concurrently. Each task is referred to as a <em>thread</em> and it represents a separate flow of control. Multithreading can be very useful in practical applications. For example, if a web page is taking too long to load in a web browser, the user should be able interrupt the loading of the page by clicking on the stop button. The user interface can be kept responsive to the user by using a separate thread for the network activity needed to load the page.</p>
+<p>What then is the difference then between a <em>process</em> and a <em>thread</em>? The answer is that each process has its own set of variables, whereas threads share the same data and system resources. A multithreaded program must therefore be very careful about the way that threads access and modify data, or else unpredictable behavior may occur.</p>
+<h2 class="subhead">
+<a id="2" name="2"></a>2. How to Create Threads</h2>
+<p><em>(Ref. <a href="http://java.sun.com/developer/codesamples/thrds.html">Java® Tutorial</a>)</em></p>
+<p>We can create a new thread using the <em>Thread</em> class provided in the <em>java.lang</em> package. There are two ways to use the <em>Thread</em> class.</p>
+<ul>
+<li>By creating a subclass of <em>Thread</em>.</li>
+<li>By writing a class that implements the <em>Runnable</em> interface.</li>
+</ul>
+<h2 class="subhead"></h2>
+<h2 class="subhead">Subclassing the <em>Thread</em> class</h2>
+<p>In this approach, we create a subclass of the <em>Thread</em> class. The <em>Thread</em> class has a method named <em>run()</em>, which we can override in our subclass. Our implementation of the <em>run()</em> method must contain all code that is to be executed within the thread.</p>
+<p><em>class MyClass extends Thread {</em><br><em>    // ...</em></p>
+<p><em>    public void run() {</em><br><em>        // All code to be executed within the thread goes here.</em><br><em>    }</em><br><em>}</em><br>
+ </p>
+<p>We can create a new thread by instantiating our class, and we run it by calling the <em>start()</em> method that we inherited from class <em>Thread</em>.</p>
+<p><em>MyClass a = new MyClass();</em><br><em>a.start();</em></p>
+<p>This approach for creating a thread works fine from a technical standpoint. Conceptually, however, it does not make that much sense to say that <em>MyClass</em> "is a" <em>Thread</em>. All that we are really interested in doing is to provide a <em>run()</em> method that the <em>Thread</em> class can execute. The next approach is geared to do exactly this.</p>
+<h2 class="subhead">Implementing the <em>Runnable</em> Interface</h2>
+<p>In this approach, we write a class that implements the <em>Runnable</em> interface. The <em>Runnable</em> interface requires us to implement a single method named <em>run()</em>, within which we place all code that is to be executed within the thread.</p>
+<p><em>class MyClass implements Runnable {</em><br><em>    // ...</em></p>
+<p><em>    public void run() {</em><br><em>        // All code to be executed within the thread goes here.</em><br><em>    }</em><br><em>}</em><br>
+ </p>
+<p>We can create a new thread by creating a <em>Thread</em> object from an object of type <em>MyClass</em>. We run the thread by calling the <em>Thread</em> object's <em>start()</em> method.</p>
+<p><em>MyClass a = new MyClass;</em><br><em>Thread t = new Thread(a);</em><br><em>t.start();</em></p>
+<h2 class="subhead">
+<a id="3" name="3"></a>3. The LifeCycle of a Thread</h2>
+<p><em>(Ref. <a href="http://java.sun.com/developer/codesamples/thrds.html">Java® Tutorial</a>)</em></p>
+<p>A thread can be in one of four states during its lifetime:</p>
+<ul>
+<li>
+<em>new</em> - A new thread is one that has been created (using the <em>new</em> operator), but has not yet been started.</li>
+<li>
+<em>runnable</em> - A thread becomes runnable once its <em>start()</em> method has been invoked. This means that the code in the <em>run()</em> method can execute whenever the thread receives CPU time from the operating system.</li>
+<li>
+<em>blocked</em> - A thread can become blocked if one of the following events occurs:
+<ul>
+<li>The thread's <em>sleep()</em> method is invoked. In this case, the thread remains blocked until the specified number of milliseconds elapses.</li>
+<li>The thread calls the <em>wait()</em> method of an object. In this case, the thread remains blocked until either the object's <em>notify()</em> method or its <em>notifyAll()</em> method is called from another thread. The calls to <em>wait()</em>, <em>notify()</em> and <em>notifyAll()</em> are typically found within <em>synchronized</em> methods of the object.</li>
+<li>The thread has blocked on an input/output operation. In this case, the thread remains blocked until the i/o operation has completed.<br><br>
+</li>
+</ul>
+</li>
+<li>
+<em>dead</em> - A thread typically dies when the <em>run()</em> method has finished executing.</li>
+</ul>
+<p>Note: The following methods in the <em>java.lang.Thread</em> class should no longer be used, since they can lead to unpredicable behavior: <em>stop()</em>, <em>suspend()</em> and <em>resume()</em>.</p>
+<p>The following example illustrates various thread states. The <em>main</em> thread in our program creates a new thread, <em>Thread-0</em>. It then starts <em>Thread-0</em>, thereby making <em>Thread-0</em> runnable so that it prints out an integer every 500 milliseconds. We call the <em>sleep()</em> method to enforce the 500 millisecond delay between printing two consecutive integers. In the meantime, the <em>main</em> thread proceeds to print out an integer every second only. The output from the program shows that the two threads are running in parallel. When the <em>main</em> thread finishes its <em>for</em> loop, it stops <em>Thread-0</em>.</p>
+<p>We maintain a variable, <em>myThread</em>, which initially references <em>Thread-0</em>. This variable is polled by the <em>run()</em> method to make sure that it is still referencing <em>Thread-0</em>. All we have to do to stop the thread is to set <em>myThread</em> to <em>null</em>. This will cause the <em>run()</em> method to terminate normally.</p>
+<p><em>class MyClass implements Runnable {</em><br><em>    int i;</em><br><em>    Thread myThread;</em></p>
+<p><em>    public MyClass() {</em><br><em>        i = 0;</em><br><em>    }</em></p>
+<p><em>    // This will terminate the run() method.</em><br><em>    public void stop() {</em><br><em>        myThread = null;</em><br><em>    }</em></p>
+<p><em>    // The run() method simply prints out a sequence of integers, one every half second.</em><br><em>    public void run() {</em><br><em>        // Get a handle on the thread that we are running in.</em><br><em>        myThread = Thread.currentThread();</em></p>
+<p><em>        // Keep going as long as myThread is the same as the current thread.</em><br><em>        while (Thread.currentThread() == myThread) {</em><br><em>            System.out.println(Thread.currentThread().getName() + ": " + i);</em><br><em>            i++;</em></p>
+<p><em>            try {</em><br><em>                Thread.sleep(500); // Tell the thread to sleep for half a second.</em><br><em>            }</em><br><em>            catch (InterruptedException e) {}</em><br><em>        }</em><br><em>    }</em><br><em>}</em><br>
+ </p>
+<p><em>class Threadtest {</em><br><em>    public static void main(String[] args) {</em><br><em>        MyClass a = new MyClass();</em><br><em>        Thread t = new Thread(a);</em></p>
+<p><em>        // Start another thread.  This thread will run in parallel to the main thread.</em><br><em>        System.out.println(Thread.currentThread().getName() + ": Starting a separate thread");</em><br><em>        t.start();</em></p>
+<p><em>        // The main thread proceeds to print out a sequence of integers of its own, one every second.</em><br><em>        for (int i = 0; i &lt; 6; i++) {</em><br><em>            System.out.println(Thread.currentThread().getName() + ": " + i);</em><br><em>            // Tell the main thread to sleep for a second.</em><br><em>            try {</em><br><em>                Thread.sleep(1000);</em><br><em>            }</em><br><em>            catch (InterruptedException e) {}</em><br><em>        }</em></p>
+<p><em>        // Stop the parallel thread.  We do this by setting myThread to null in our runnable object.</em><br><em>        System.out.println(Thread.currentThread().getName() + ": Stopping the thread");</em><br><em>        a.stop();</em><br><em>    }</em><br><em>}</em></p>
+<h2 class="subhead">
+<a id="4" name="4"></a>4. Animations</h2>
+<p>Here is an example of a simple animation. We have used a separate thread to control the motion of a ball on the screen.</p>
+<p><em><strong>anim.html</strong></em></p>
+<p><em>&lt;HTML&gt;</em><br><em>&lt;BODY&gt;</em><br><em>&lt;APPLET CODE="Animation.class" WIDTH=300 HEIGHT=400&gt;</em><br><em>&lt;/APPLET&gt;</em><br><em>&lt;/BODY&gt;</em><br>
+ </p>
+<p><em><strong>Animation.java</strong></em></p>
+<p><em>import java.awt.*;</em><br><em>import java.awt.event.*;</em><br><em>import javax.swing.*;</em></p>
+<p><em> public class Animation extends JApplet implements Runnable, ActionListener {</em><br><em>    int miFrameNumber = -1;</em><br><em>    int miTimeStep;</em><br><em>    Thread mAnimationThread;</em><br><em>    boolean mbIsPaused = false;</em><br><em>    Button mButton;</em><br><em>    Point mCenter;</em><br><em>    int miRadius;</em><br><em>    int miDX, miDY;</em></p>
+<p><em>    public void init() {</em><br><em>        // Make the animation run at 20 frames per second.  We do this by</em><br><em>        // setting the timestep to 50ms.</em><br><em>        miTimeStep = 50;</em></p>
+<p><em>        // Initialize the parameters of the circle.</em><br><em>        mCenter = new Point(getSize().width/2, getSize().height/2);</em><br><em>        miRadius = 15;</em><br><em>        miDX = 4;  // X offset per timestep.</em><br><em>        miDY = 3;  // Y offset per timestep.</em></p>
+<p><em>        // Create a button to start and stop the animation.</em><br><em>        mButton = new Button("Stop");</em><br><em>        getContentPane().add(mButton, "North");</em><br><em>        mButton.addActionListener(this);</em></p>
+<p><em>        // Create a JPanel subclass and add it to the JApplet.  All drawing</em><br><em>        // will be done here, do we must write the paintComponent() method.</em><br><em>        // Note that the anonymous class has access to the private data of</em><br><em>        // class Animation, because it is defined locally.</em><br><em>        getContentPane().add(new JPanel() {</em><br><em>            public void paintComponent(Graphics g) {</em><br><em>                // Paint the background.</em><br><em>                super.paintComponent(g);</em></p>
+<p><em>                // Display the frame number.</em><br><em>                g.drawString("Frame " + miFrameNumber, getSize().width/2 - 40,</em><br><em>                                    getSize().height - 15);</em></p>
+<p><em>                // Draw the circle.</em><br><em>                g.setColor(Color.red);</em><br><em>                g.fillOval(mCenter.x-miRadius, mCenter.y-miRadius, 2*miRadius,</em><br><em>                              2*miRadius);</em><br><em>            }</em><br><em>        }, "Center");</em><br><em>    }</em></p>
+<p><em>    public void start() {</em><br><em>        if (mbIsPaused) {</em><br><em>            // Don't do anything.  The animation has been paused.</em><br><em>        } else {</em><br><em>            // Start animating.</em><br><em>            if (mAnimationThread == null) {</em><br><em>                mAnimationThread = new Thread(this);</em><br><em>            }</em><br><em>            mAnimationThread.start();</em><br><em>        }</em><br><em>    }</em></p>
+<p><em>    public void stop() {</em><br><em>        // Stop the animating thread by setting the mAnimationThread variable</em><br><em>        // to null.  This will cause the thread to break out of the while loop,</em><br><em>        // so that the run() method terminates naturally.</em><br><em>        mAnimationThread = null;</em><br><em>    }</em></p>
+<p><em>    public void actionPerformed(ActionEvent e) {</em><br><em>        if (mbIsPaused) {</em><br><em>            mbIsPaused = false;</em><br><em>            mButton.setLabel("Stop");</em><br><em>            start();</em><br><em>        } else {</em><br><em>            mbIsPaused = true;</em><br><em>            mButton.setLabel("Start");</em><br><em>            stop();</em><br><em>        }</em><br><em>    }</em></p>
+<p><em>    public void run() {</em><br><em>        // Just to be nice, lower this thread's priority so it can't</em><br><em>        // interfere with other processing going on.</em><br><em>        Thread.currentThread().setPriority(Thread.MIN_PRIORITY);</em></p>
+<p><em>        // Remember the starting time.</em><br><em>        long startTime = System.currentTimeMillis();</em></p>
+<p><em>        // Remember which thread we are.</em><br><em>        Thread currentThread = Thread.currentThread();</em></p>
+<p><em>        // This is the animation loop.</em><br><em>        while (currentThread == mAnimationThread) {</em><br><em>            // Advance the animation frame.</em><br><em>            miFrameNumber++;</em></p>
+<p><em>            // Update the position of the circle.</em><br><em>            move();</em></p>
+<p><em>            // Draw the next frame.</em><br><em>            repaint();</em></p>
+<p><em>            // Delay depending on how far we are behind.</em><br><em>            try {</em><br><em>                startTime += miTimeStep;</em><br><em>                Thread.sleep(Math.max(0,</em><br><em>                             startTime-System.currentTimeMillis()));</em><br><em>            }</em><br><em>            catch (InterruptedException e) {</em><br><em>                break;</em><br><em>            }</em><br><em>        }</em><br><em>    }</em></p>
+<p><em>    // Update the position of the circle.</em><br><em>    void move() {</em><br><em>        mCenter.x += miDX;</em><br><em>        if (mCenter.x - miRadius &lt; 0 ||</em><br><em>            mCenter.x + miRadius &gt; getSize().width) {</em><br><em>            miDX = -miDX;</em><br><em>            mCenter.x += 2*miDX;</em><br><em>        }</em></p>
+<p><em>        mCenter.y += miDY;</em><br><em>        if (mCenter.y - miRadius &lt; 0 ||</em><br><em>            mCenter.y + miRadius &gt; getSize().height) {</em><br><em>            miDY = -miDY;</em><br><em>            mCenter.y += 2*miDY;</em><br><em>        }</em><br><em>    }</em><br><em>}</em></p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

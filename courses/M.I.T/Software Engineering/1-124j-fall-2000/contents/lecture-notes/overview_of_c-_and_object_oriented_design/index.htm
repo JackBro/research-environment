@@ -1,0 +1,736 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Overview of C++ and Object-Oriented Design | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Overview of C++ and Object-Oriented Design" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Overview of C++ and Object-Oriented Design" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/overview_of_c-_and_object_oriented_design">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Overview of C++ and Object-Oriented Design
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Overview of C++ and Object-Oriented Design
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Contents </h2>
+<ol>
+<li><a href="#1">Object-Oriented Design vs Procedural Design</a></li>
+<li><a href="#2">The HelloWorld Procedure and the HelloWorld Object</a></li>
+<li><a href="#3">C++ Data Types</a></li>
+<li><a href="#4">Expressions</a></li>
+<li><a href="#5">Coding Style</a></li>
+</ol>
+<h2 class="subhead">
+<a id="1" name="1"></a>1. Object-Oriented Design vs Procedural Design</h2>
+<p>Many of you will already be familiar with one or more procedural languages. Examples of such languages are FORTRAN 77, Pascal and C. In the procedural programming paradigm, one focuses on the decomposition of software into various <em>functional components</em>. In other words, the program is organized into a collection of functions, (also known as procedures or subroutines), which will be executed in a defined order to produce the desired result.</p>
+<p>By contrast, object-based programming focuses on the organization of software into a collection of components, called <em>objects</em>, that group together</p>
+<ol type="a">
+<li>Related items of data, known as <em>properties</em>.</li>
+<li>Operations that are to be performed on the data, which are known as <em>methods</em>.</li>
+</ol>
+<p>In other words, an object is a model of a real world concept, which posesses both state and behavior.<br>
+Programming languages that allow us to create objects are said to support <em>abstract data types</em>. Examples of such languages are CLU, Ada, Modula-2.</p>
+<p>The object-oriented programming paradigm goes a step beyond abstract data types by adding two new features: inheritance and polymorphism. We will talk about these ideas in depth later, but for now it will be sufficient to say that their purpose is to facilitate the management of objects that have similar characteristics. For example, squares, triangles and circles are all instances of shapes. Their common properties are that they all have a centroid and an area. Their common method might be that they all need to be displayed on the screen of a computer. Examples of languages that support the object-oriented paradigm are C++, Java® and Smalltalk.</p>
+<h2 class="subhead">
+<a id="2" name="2"></a>2. The <em>HelloWorld</em> Procedure and the <em>HelloWorld</em> Object</h2>
+<p>Let's take a look two simple programs that print out the string, <em>Hello World!</em></p>
+<p><strong>The <em>HelloWorld</em> Procedure</strong></p>
+<p>Here is the procedural version of the program, written in C. The first statement is a preprocessor directive that tells the compiler to include the contents of the header file <em>stdio.h</em>. We include this file because it declares the existence of the built-in function, <em>printf()</em>. Every C program must have a top-level function named <em>main()</em>, which provides the entry point to the program. </p>
+<p><em>#include &lt;stdio.h&gt;</em></p>
+<p><em>/* The HelloWorld procedure definition. */<br>
+void HelloWorld() {<br>
+    printf("Hello World!\n");<br>
+}<br>
+ </em></p>
+<p><em>/* The main program. */<br>
+int main() {<br>
+    HelloWorld();               /* Execute the HelloWorld procedure. */<br>
+    return 0;                      /* Indicates successful completion of the program. */<br>
+}</em></p>
+<p><strong>The <em>HelloWorld</em> Object</strong></p>
+<p>Here is the object-based version of the program, written in C++. We have created a new data type, <em>HelloWorld</em>, that is capable of printing out the words we want. In C++, the keyword <em>class</em> is used to declare a new data type. Our class has three publicly accessible methods, <em>HelloWorld()</em>, <em>~HelloWorld()</em> and <em>print()</em>. The first two methods have special significance and they are respectively known as a constructor and the destructor. The constructor has the same name as the class. It is an initialization method that will be automatically invoked whenever we create a <em>HelloWorld</em> object. The destructor also has the same name as the class, but with a ~ prefix. It is a finalization method that will be automatically invoked whenever a <em>HelloWorld</em> object is destroyed. In our class, the <em>print()</em> method is the only one that actually does anything useful.</p>
+<p>It is important to understand the distinction between a class and an object. A class is merely a template for creating one or more objects. Our main program creates a single object named <em>a</em> based on the class definition that we have provided. We then send the object a "print" message by selecting and invoking the <em>print()</em> method using the <b>.</b> operator. We are able to access the <em>print()</em> method in <em>main()</em> because we have made it a <em>public</em> member function of the class.<br>
+ </p>
+<p><em>#include &lt;stdio.h&gt;</em></p>
+<p><em>// The HelloWorld class definition.<br>
+class HelloWorld {<br>
+        public:<br>
+    HelloWorld() {}            // Constructor.<br>
+    ~HelloWorld() {}          // Destructor.<br>
+    void print() {<br>
+        printf("Hello World!\n");<br>
+    }<br>
+};                                      // Note that a semicolon is required here.<br>
+ </em></p>
+<p><em>// The main progam.<br>
+int main() {<br>
+    HelloWorld a;           // Create a HelloWorld object.<br>
+    a.print();                  // Send a "print" message to the object.<br>
+    return 0;<br>
+}</em></p>
+<p><strong>C++ as a Superset of C</strong></p>
+<p>Although C++ is generally thought of as an object-oriented language, it does support the procedural progamming paradigm as well. In fact, C++ supports all the features of C in addition to providing new features of its own. For example, a C++ program may include C-style comments that use the <em>/* */</em> delimiters as well C++-style comments that use the <em>//</em> syntax.</p>
+<p><em>/* C-style comments are also allowed in C++. */</em></p>
+<p><em>// Alternative comment syntax that is only allowed in C++.</em></p>
+<h2 class="subhead">
+<a id="3" name="3"></a>3. C++ Data Types</h2>
+<p><strong>Built-in Data Types</strong></p>
+<p>(<em>Ref. Lippman 3.1, 3.2</em>)</p>
+<p>C++ built-in data types are similar to those found in C. The basic built-in types include</p>
+<ul>
+<li>A boolean type: <em>bool</em> (only available in Standard C++).</li>
+<li>Character types: <em>char</em>, <em>unsigned char</em> and <em>wchar_t</em> (<em>wchar_t</em> supports wide characters and is only available in Standard C++).</li>
+<li>Integer types: <em>short</em> (or <em>short int</em>), <em>int</em> (or <em>long int</em>), <em>unsigned short</em> and <em>unsigned int</em>.</li>
+<li>Floating point types: <em>float</em>, <em>double</em> and <em>long double</em>.</li>
+</ul>
+<p>Not all computing platforms agree on the actual size of the built-in data types, but the following table indicates the typical sizes on a 32-bit platform:<br>
+ </p>
+<div class="maintabletemplate">
+<table class="tablewidth50" summary="See table caption for summary.">
+<caption class="invisible">Grading information.</caption>
+<thead><tr>
+<th id="col1" scope="col">BUILT-IN DATA TYPE</th>
+<th id="col2" scope="col">SIZE IN BYTES</th>
+</tr></thead>
+<tr class="row">
+<td>char, unsigned char</td>
+<td>1</td>
+</tr>
+<tr class="alt-row">
+<td>short, unsigned short</td>
+<td>2</td>
+</tr>
+<tr class="row">
+<td>wchar_t, bool,<br>
+int, unsigned int, float </td>
+<td>4</td>
+</tr>
+<tr class="alt-row">
+<td>double</td>
+<td>8</td>
+</tr>
+<tr class="row">
+<td>long double</td>
+<td>8 or 16</td>
+</tr>
+</table>
+</div>
+<br><p>A literal constant is a constant value of some type. Examples of literal constants are<br>
+ </p>
+<div class="maintabletemplate">
+<table class="tablewidth50" summary="See table caption for summary.">
+<caption class="invisible">Grading information.</caption>
+<thead>
+<tr></tr>
+<tr class="tableheader">
+<th id="col1" scope="col">DATA TYPE</th>
+<th id="col2" scope="col">LITERAL CONSTANT</th>
+</tr>
+</thead>
+<tr class="row">
+<td>char</td>
+<td>'a', '7'</td>
+</tr>
+<tr class="alt-row">
+<td>wchar_t</td>
+<td>L'a', L'7'</td>
+</tr>
+<tr class="row">
+<td>bool</td>
+<td>true, false</td>
+</tr>
+<tr class="alt-row">
+<td>long int</td>
+<td>8L, 8l</td>
+</tr>
+<tr class="row">
+<td>unsigned long int</td>
+<td>8UL, 8ul</td>
+</tr>
+<tr class="alt-row">
+<td>float</td>
+<td>2.718F, 2.718f</td>
+</tr>
+<tr class="row">
+<td>double</td>
+<td>2.718, 1e-3</td>
+</tr>
+<tr class="alt-row">
+<td>long double</td>
+<td>2.718L, 2.718l</td>
+</tr>
+</table>
+</div>
+<br><p>Note that there is no built-in data type for strings. Strings can be represented as character arrays or by using the <em>string</em> type provided in the Standard C++ library. A string literal constant is of the form</p>
+<p><em>"Hello World!"</em></p>
+<p><strong>User-defined Data Types</strong></p>
+<p>We have already seen how we can define new data types by writing a <em>class</em>, and for the most part we will use classes. However, C++ also provides extended support for C-style structures. For example, C++ allows member functions to be packaged in a <em>struct</em> in addition to member data. The most significant difference between a <em>class</em> and a <em>struct</em> is that by default, the members of a class are <em>private</em>, whereas the members of a struct are <em>public</em>.</p>
+<p><em>struct date {<br>
+    int day;<br>
+    int month;<br>
+    int year;<br>
+    void set_date(int d, int m, int y);    // Member functions only allowed in C++.<br>
+};</em></p>
+<p><em>int main() {<br>
+    struct date a;   /* C-style definition. */<br>
+    date a;            // Allowable C++ definition.<br>
+}</em> </p>
+<p><strong>Pointer Types</strong></p>
+<p>(<em>Ref. Lippman 3.3</em>)</p>
+<p>Pointer variables (or pointers) are a powerful concept that allow us to manipulate objects by their memory address rather than by their name. It is important to understand pointers clearly since they are used extensively in this course and in real world software.</p>
+<p>A pointer must convey two pieces of information, both of which are necessary to access the object that it points to:</p>
+<ol type="a">
+<li>the memory address of the object</li>
+<li>the type of the object</li>
+</ol>
+<p>The following example illustrates the use of a pointer to an object of type <em>double</em>. The pointer is defined by the statement</p>
+<p><em>double *p;</em></p>
+<p><em>p</em> can now hold the memory address of a double object, such as <em>d</em>. We obtain the address of <em>d</em> by applying the <em>address of</em> operator, <em>&amp;d</em>, and we then store it in <em>p</em>. Now that <em>p</em> contains a valid address, we can refer to the object <em>d</em> by applying the <em>dereference</em> operator, <em>*p</em>. Notice that we have used <em>*</em> in two different contexts, with different meanings in each case. The meaning of <em>&amp;</em> also depends on the context in which it is used.</p>
+<p><em>#include &lt;stdio.h&gt;</em></p>
+<p><em>int main() {<br>
+    double d;         // An double object.<br>
+    double *p;       // A variable that is a pointer to an double.</em></p>
+<p><em>    p = &amp;d;          // Take the memory address of d and store it in p.</em></p>
+<p><em>    d = 7.0;          // Store a double precision number in d.<br>
+    printf("The value of the object d is %lf\n", d);<br>
+    printf("The value of the object that p points to is %lf\n", *p);<br>
+    printf("The address of the object that p points to is %u\n", p);<br>
+}<br></em> <br>
+Here is the output from a trial run:</p>
+<p>The value of the object d is 7.000000<br>
+The value of the object that p points to is 7.000000<br>
+The address of the object that p points to is 4026528296</p>
+<p><strong>Reference Types</strong></p>
+<p>(<em>Ref. Lippman 3.6</em>)</p>
+<p>As an added convenience, C++ provides reference types, which are an alternative way to use the functionality that pointers provide. A reference is just a nickname for existing storage.</p>
+<p>The following example defines an integer object, <em>i</em>, and then it defines a reference variable, <em>r</em>, by the statement</p>
+<p><em>int&amp; r = i;</em></p>
+<p>Be careful not to confuse this use of <em>&amp;</em> with the <em>address of</em> operator. Also note that, unlike a pointer, a reference must be initialized at the time it is defined.</p>
+<p><em>#include &lt;stdio.h&gt;</em></p>
+<p><em>int main() {<br>
+    int i = 0;<br>
+    int&amp; r = i;    // Create a reference to i.</em></p>
+<p><em>    i++;<br>
+    printf("r = %d\n", r);<br>
+}</em></p>
+<p><strong>Explicit Type Conversion</strong></p>
+<p>(<em>Ref. Lippman 4.14</em>)</p>
+<p>Explicit type conversion can be performed using a <em>cast</em> operator. The following code shows three alternative ways to explicitly convert an <em>int</em> to a <em>float</em>.</p>
+<p><em>int main() {<br>
+    int a;<br>
+    float b;</em></p>
+<p><em>    a = 3;<br>
+    b = (float)a;                           /* C-style cast operator. */<br>
+    b = float(a);                          // Alternative type conversion notation allowed in C++.<br>
+    b = static_cast&lt;float&gt;(a);    // A second alternative, allowed only in Standard C++.<br>
+}</em></p>
+<p><strong><em>const</em> Keyword</strong></p>
+<p>(<em>Ref. Lippman 3.5</em>)</p>
+<p>The <em>const</em> keyword is used to designate storage whose contents cannot be changed. A <em>const</em> object must be initialized at the time it is defined.</p>
+<p>const int i = 10;    /* Allowed both in C and C++. */<br>
+const int j;            /* This is illegal. */</p>
+<p><strong>Variable Definitions</strong></p>
+<p>In C++, variable definitions may occur practically anywhere within a code block. A code block refers to any chunk of code that lies within a pair of scope delimiters, <em>{}</em>. For example, the following C program requires <em>i</em> and <em>j</em> to be defined at the top of the <em>main()</em> function.</p>
+<p><em>#include &lt;stdio.h&gt;</em></p>
+<p><em>int main() {<br>
+    int i, j;    /* C requires variable definitions to be at the top of a code block. */</em></p>
+<p><em>    for (i = 0; i &lt; 5; i++) {<br>
+         printf("Done with C\n");<br>
+    }<br>
+    j = 10;<br>
+}</em></p>
+<p>In the C++ version of the program, we can define the variables <em>i</em> and <em>j</em> when they are first used.</p>
+<p><em>#include &lt;stdio.h&gt;</em></p>
+<p><em>int main() {<br>
+    for (int i = 0; i &lt; 5; i++) {         // In Standard C++, i is available anywhere within the for loop.<br>
+        printf("Still learning C++\n");<br>
+     }<br>
+    int j = 10;<br>
+}</em></p>
+<h2 class="subhead">
+<a id="4" name="4"></a>4. Expressions</h2>
+<p>(<em>Ref. Lippman 4.1-4.5, 4.7, 4.8, 4.13, 4.14</em>)</p>
+<p><strong>Operator Precedence</strong></p>
+<p>An expression consists of one or more operands and a set of operations to be applied to them. The order in which operators are applied to operands is determined by operator precedence. For example, the expression</p>
+<p><em>1 + 4 * 3 / 2 == 7 &amp;&amp; !0</em></p>
+<p>is evaluated as</p>
+<p><em>((1 + ((4 * 3) / 2)) == 7) &amp;&amp; (!0)</em></p>
+<p>Note that the right hand side of the logical <em>AND</em> operator is only evaluated if the left hand side evaluates to <em>true</em>. (For a table of operator precedence, see <em>Lippman, Table 4.4</em>.)</p>
+<p><strong>Arithmetic Conversions</strong></p>
+<p>The evaluation of arithmetic expressions follows two general guidelines:</p>
+<ol type="a">
+<li>Wherever necessary, types are promoted to a wider type in order to prevent the loss of precision.</li>
+<li>Integral types (these are the various boolean, character and integer types) are promoted to the <em>int</em> data type prior to evaluation of the expression.</li>
+</ol>
+<h2 class="subhead">
+<a id="5" name="5"></a>5. Coding Style</h2>
+<p>Coding styles tend to vary from one individual to another. While you are free to develop your own style, it is important to make your code consistent and readable. Software organizations frequently try to enforce consistency by developing a set of coding guidelines for programmers.</p>
+<p>Here is an example of an inconsistent coding style. The curly braces in the two <em>for</em> loops are aligned differently. The second style is usually preferred because it is more compact and it avoids excessive indentation.<br>
+ </p>
+<p><em>#include &lt;stdio.h&gt;</em></p>
+<p><em>int main() {<br>
+    int i;</em></p>
+<p><em>   for (i = 0; i &lt; 5; i++)<br>
+       {<br>
+            printf("This convention aligns the curly braces.\n");<br>
+       }</em></p>
+<p><em>    for (i =0; i &lt; 5; i++) {<br>
+        printf("This is a more compact convention which aligns ");<br>
+        printf("the closing brace with the for statement.\n");<br>
+    }<br>
+}</em></p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

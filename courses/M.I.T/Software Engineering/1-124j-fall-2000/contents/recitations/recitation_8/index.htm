@@ -1,0 +1,503 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Recitation 8 | Recitations | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Recitation 8" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Recitation 8" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/recitations/recitation_8">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/recitations/index.htm">Recitations</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Recitation 8
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Recitation 8
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">These notes were prepared by <a href="mailto:komodromos@ucy.ac.cy">Petros Komodromos</a>.<br><br> Topics</h2> <ol>
+<li><strong><a href="#1">Exceptions</a></strong></li> <li><strong><a href="#2">Threads</a> </strong></li> <li><strong><a href="#3">I/O</a> </strong></li> <li><strong><a href="#4">Introduction to Java® GUI and Swing</a> </strong></li> </ol>
+<h2 class="subhead">
+<a id="1" name="1"></a>1. Exceptions</h2> <p>Java® provides ways to manage <em>exceptions</em>, i.e. errors that may occur during the execution of a program that disrupt the normal flow of instructions. When an unexpected error condition happens during runtime a Java program "<em>throws</em>" an exception. This can avoid the premature termination of the program, which in some cases is not necessary. A function that detects an error throws an exception, which can be caught by an <em>exception handler</em>. The exception object contains information about the exception, e.g. its type and the state of the program when the error had occurred.</p> <p>The runtime system tries to find some code to handle the error, i.e. an <em>exception handler</em>. The exception causes a search through the call stack to find an appropriate handler to handle the exception. The Java® runtime system searches backwards through the call stack to find any methods that are interested in handling a particular exception. The corresponding, or the default, exception handler catches the exception and may throw a new exception or attempt to handle the exception. If the runtime system, after an exhaustive search of all the methods on the call stack, cannot find an encompassing exception handler the exception is caught by a default exception handler. The latter, usually, prints information about the thrown exception, e.g. where it was thrown, and, then, the runtime system, and, consequently, the Java® program, terminate. An exception handler can catch an exception based on its group or general type by specifying any of the exception's superclasses in the catch statement.</p> <p>An exception in Java® is an object which is a subclass of the class <em>Throwable</em>, and, in most cases, it is derived by the class <em>Exception</em>, which is a subclass of <em>Throwable</em>. The <em>Throwable</em>  class is the superclass of all errors and exceptions in the Java® language. Only objects that are instances of this class, or of one of its subclasses, can be <em>thrown</em> by the Java® VM, or by a Java® <em>throw</em> statement.</p> <p>In Java®, exceptions are managed by first trying something in a <em>try{....}</em> compound block. The code that might throw an exception is placed in a <em>try</em> block. If an error occurs in that block an exception is thrown. Then, a <em>catch{.....} block</em> is used to catch any exception that is thrown. Zero or more <em>catch</em> blocks may follow the try block. The code that may provide the action that must be taken in the case of a certain exception occurs is provided in a <em>catch</em> block that follows the <em>try</em> block. Each <em>catch</em> block specifies the type of exception it can catch. Only the <em>Throwable</em> class or one of its subclasses can be the argument type in a <em>catch</em> clause. An optional <em>finally {....}</em> block, which follows the last <em>catch</em> block or the try block when there are no <em>catch</em> blocks, provides code that is executed in any case, i.e. regardless whether an exception occurs or not.</p> <p><strong>Example</strong></p> <p><em>class Exceptions1</em><br><em>{</em><br><em>      public static void main(String args[])</em><br><em>      {</em><br><em>         double d[] = new double[4];</em><br><em>         for(int j=0 ; j&lt;d.length ; j++)</em><br><em>            d[j] = j*7.15 + 2.19 ;</em></p> <p><em>         for(int j=0 ; j&lt;=d.length ; j++)</em><br><em>            {</em><br><em>              try{</em><br><em>                    System.out.print( "  d[" + j + "] / " + j + " = ");</em><br><em>                    if(j==0)</em><br><em>                    &amp; #160;  throw new DivideByZeroException();</em><br><em>                    System.out.println(d[j]/j);</em><br><em>                 }</em><br><em>              catch(ArrayIndexOutOfBoundsException e)</em><br><em>                 {</em><br><em>                    System.out.println("Exception: " + e.getMessage());</em><br><em>                    System.out.print("e.printStackTrace(): ");</em><br><em>                    e.printStackTrace();</em><br><em>                 }</em><br><em>              catch(DivideByZeroException e)</em><br><em>                 {</em><br><em>                    System.out.println("Exception: " + e.getMessage());</em><br><em>                 }</em><br><em>              finally</em><br><em>                 {</em><br><em>                    System.out.println("Inside finally()\n");</em><br><em>                 }</em><br><em>             }</em></p> <p><em>          System.out.println( "\n  Program exiting \n");</em><br><em>      }</em><br><em>}</em></p> <p><em>class DivideByZeroException extends ArithmeticException</em><br><em>{</em><br><em>    DivideByZeroException()</em><br><em>    {</em><br><em>      super("Trying to divide by zero");</em><br><em>    }</em><br><em>}</em><br>  </p> <p><strong><em>Output:</em></strong></p> <p><em>  d[0] / 0 = Exception: Trying to divide by zero</em><br><em>Inside finally()</em></p> <p><em>  d[1] / 1 = 9.34</em><br><em>Inside finally()</em></p> <p><em>  d[2] / 2 = 8.245000000000001</em><br><em>Inside finally()</em></p> <p><em>  d[3] / 3 = 7.880000000000002</em><br><em>Inside finally()</em></p> <p><em>  d[4] / 4 = Exception: null</em><br><em>e.printStackTrace(): java.lang.ArrayIndexOutOfBoundsException</em><br><em>        at Exceptions1.main(Compiled Code)</em><br><em>Inside finally()</em></p> <p><em>  Program exiting</em><br>  </p> <p>A <em>checked exception</em> requires the specification of the way that the exception should be handled. If a function may result in a <em>checked exception</em>, this must be defined using the keyword <em>throws</em> at the definition of the class, after its name. A method can only throw checked exceptions that have been specified in its declaration. Java® requires that a method should either catch, or specify all checked exceptions that can be thrown within the scope of that method.</p> <p><em>Unchecked exceptions</em> are of type <em>RuntimeException</em>, <em>Error</em>, or subclasses of them, and can be thrown anywhere without the need to specify the possibility of such exceptions to be thrown. Classes <em>Exception</em> and <em>Error</em> are subclasses of the class <em>Throwable</em><em>,</em> as shown in the following figure, which was adapted from Sun's Java® Tutorial. Class <em>RuntimeException</em> is a subclass of the class <em>Exception</em>.</p> <p><img border="0" alt="Unchecked exceptions." src="../../../contents/recitations/8object.gif"></p> <p>Any method (i.e. function) that may produce a non-RuntimeException should declare the type of exception that it can produce using the <em>throws</em> keyword, or that exception should be caught in a <em>try/catch</em> block in the method. The basic error type is class <em>Exception</em>, although there are more specific types of exceptions. When a checked exception occurs, the <em>throw</em> keyword may used to actually create the <em>Exception</em> object and either an exception handler should catch and handle the exception, or the function exits. Java® uses the "termination model of exception", since control cannot return to the <em>throw point,</em> when an exception is thrown.</p> <p>Code that may produce an exception is placed within the try block of a <em>try-catch</em> statement. If the code within the <em>try</em> block fails, the code within a corresponding <em>catch</em> block, if exists, is executed. When an exception is thrown the control goes out of the <em>try</em> block and searches the <em>catch</em> blocks to find an appropriate handler. If the code succeeds, then control passes to the next statement following the <em>try-catch</em> statement or to the finally block. In the presence of a <em>finally</em> block, the latter is also executed irrespectively of whether an exception has occurred. If no exception handler is found for an exception, the search continues in the enclosing try block and a Java® application terminates if no exception handler is eventually found.</p> <p>Class <em>Error</em>  is, also, provided in Java® to be used for serious problems that should not be caught. The <em>Error</em> class is a subclass of the <em>Throwable</em> class. <em>RuntimeExceptions</em> should be dealt directly rather than throw an exception.</p> <p>The main advantages of using exception handling are that regular code is separated from error handling code making the code much more readable. Also, error types can be grouped together, and the errors can propagate up the call stack to find a proper exception handler.</p> <p>However, use of exception handling for purposes other than error handling should be avoided since it can cause a performance overhead. Exception handling should be used only when a method is unable to detect and process an error and, thus, it throws an exception under an exceptional situation, instead of processing it locally. You should avoid using exception-handling for purposes other than error handling. The latter reduces clarity but also results in an execution time overhead imposed by the exception handling code. However, when an exception does not occur there is almost no execution overhead.</p> <p>An exception handler can do several things such as try to recover and resume execution, rethrow an exception, throw a different type of exception. As soon as the exception handler begins execution the <em>try</em> block has expired, and control is in a different scope. If an exception occurs in a handler, it may be processed only by code outside the <em>try</em> block in which the original exception had been thrown. Similarly, a rethrown exception can be caught only by an exception handler after the next enclosing <em>try</em> block.</p> <p>A subclass class overridden method can have in its <em>throws list</em> only the same with, or a subset of, its superclass's method throws list.</p> <h2 class="subhead">
+<a id="2" name="2"></a>2. Threads</h2> <p>A <em>threat</em> is a single sequence of steps executed one at a time, i.e. a sequential flow of control, running within a program and taking advantage of the resources allocated for that program and its environment.</p> <p><em>Multithreading</em> allows to a program to perform several tasks, i.e. to use more than one flow of control, concurrently. All threads of a multithreading Java® program share the same data and system resources, running at the same time and performing different tasks. Since most computers have only one CPU, threads share the CPU with other threads.</p> <p>Threats can be used by one of the following ways:</p> <p>By providing a subclass of the <em>Thread</em> class</p> <p>By providing a class that implements the <em>Runnable</em> interface.</p> <p><br>  1. Providing a subclass of the <em>Thread</em> class:</p> <p>We need to provide a subclass of the <em>Thread</em> class. This subclass should override the <em>run()</em> method of class <em>Thread</em>. The latter must contain all code that is to be executed within the thread. An instance of the subclass can then be allocated and started.</p> <p><em>class MyThreadClass extends Thread</em><br><em>{</em></p> <p><em>    public void run()</em><br><em>    {</em><br><em>        // Code to be executed within the thread</em><br><em>    }</em></p> <p><em>}</em><br>  </p> <p>Then, we can create a new thread by instantiating a subclass of the <em>Thread</em> class. Then, we can configure the thread, e.g. by setting its initial priority, name, etc. Finally, we can run it, by calling the <em>start()</em> method that is inherited from the class <em>Thread,</em> which invokes the new thread's <em>run()</em> method.</p> <blockquote> <p><em>MyThreadClass x = new MyThreadClass();</em><br><em>x.start();</em></p> </blockquote> <p>However, using this approach is not possible when we need to extend some other class, since Java® does not allow multiple inheritance.</p> <p><strong>Example</strong></p> <p><em>class MyThreadClass extends Thread</em><br><em>{</em><br><em>    String name;</em></p> <p><em>    MyThreadClass(String str)</em><br><em>      {</em><br><em>         name = str;</em><br><em>      }</em></p> <p><em>    public void run()</em><br><em>    {</em><br><em>         for(int i=0; i&lt;5;i++)</em><br><em>            {</em><br><em>               System.out.println("Thread: " + name);</em><br><em>               try</em><br><em>                 {</em><br><em>                    Thread.sleep((int) (Math.random()*1000));</em><br><em>                 }</em><br><em>               catch(InterruptedException e)</em><br><em>                 {</em><br><em>                    System.out.println("Catch: " + getName());</em><br><em>                 }</em><br><em>            }</em><br><em>    }</em></p> <p><em>}</em></p> <p><em>class ThreadExample1</em><br><em>{</em><br><em>    public static void main(String args[])</em><br><em>      {</em><br><em>          MyThreadClass  th1 = new MyThreadClass("Thread-1");</em><br><em>          MyThreadClass  th2 = new MyThreadClass("Thread-2");</em><br><em>          MyThreadClass  th3 = new MyThreadClass("Thread-3");</em><br>  </p> <p><em>          th3.start();</em><br><em>          th1.start();</em><br><em>          th2.start();</em></p> <p><em>      }</em><br><em>}</em></p> <p><em>Output: </em>   &gt; java ThreadExample1</p> <blockquote> <p><em>Thread: Thread-3</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-2</em></p> </blockquote> <p><br> 2. Implementing the Runnable Interface</p> <p>The other way to create a thread is to declare a class that implements the <em>Runnable</em> interface. The <em>Runnable</em> interface requires the implementation of the <em>run()</em> method, in which all code that is to be executed within the thread should be placed. An instance of the class can then be allocated. Finally, a <em>Thread</em> object can be created passing as an argument the object of the class that implements the <em>Runnable</em> interface, and, then start the thread.</p> <p><em>class MyRunnableClass implements Runnable</em><br><em>{</em></p> <p><em>    public void run()</em><br><em>    {</em><br><em>        //  Code to be executed within the thread</em><br><em>    }</em></p> <p><em>}</em></p> <p>A new thread can by created by creating a <em>Thread</em> object using an object of type <em>MyRunnableClass</em>, and, then, by calling the <em>start()</em> method, of the <em>Threat</em> class, which runs the thread.</p> <blockquote> <p><em>MyRunnableClass x = new MyRunnableClass();</em><br><em>Thread t = new Thread(x);</em><br><em>t.start();</em></p> </blockquote> <p><strong>Example</strong></p> <p><em>class MyRunnableClass implements Runnable</em><br><em>{</em><br><em>    String name;</em></p> <p><em>    MyRunnableClass(String str)</em><br><em>      {</em><br><em>         name = str;</em><br><em>      }</em></p> <p><em>    public void run()</em><br><em>    {</em><br><em>         for(int i=0; i&lt;5;i++)</em><br><em>            {</em><br><em>               System.out.println("Thread: " + name);</em><br><em>               try</em><br><em>                 {</em><br><em>                    Thread.sleep((int) (Math.random()*1000));</em><br><em>                 }</em><br><em>               catch(InterruptedException e)</em><br><em>                 {</em><br><em>                    System.out.println("InterruptedException in " + name + " thread.");</em><br><em>                 }</em><br><em>            }</em><br><em>    }</em></p> <p><em>}</em></p> <p><em>class ThreadExample2</em><br><em>{</em><br><em>    public static void main(String args[])</em><br><em>      {</em><br><em>          MyRunnableClass  r1 = new MyRunnableClass("Thread-1");</em><br><em>          MyRunnableClass  r2 = new MyRunnableClass("Thread-2");</em><br><em>          MyRunnableClass  r3 = new MyRunnableClass("Thread-3");</em></p> <p><em>          Thread th1 = new Thread(r1);</em><br><em>          Thread th2 = new Thread(r2);</em><br><em>          Thread th3 = new Thread(r3);</em></p> <p><em>          th3.start();</em><br><em>          th1.start();</em><br><em>          th2.start();</em></p> <p><em>      }</em><br><em>}</em><br>  </p> <p><em>Output:</em>      &gt; java ThreadExample2</p> <blockquote> <p><em>Thread: Thread-3</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-1</em></p> </blockquote> <p>States of a thread during its lifetime:</p> <p><em>New</em>: A new thread is one that has been created, i.e. using the new operator, but has not yet been started.</p> <p><em>Runnable (ready state)</em>: A thread becomes runnable once its <em>start()</em> method has been invoked, which means that the code in the <em>run()</em> method can execute whenever the thread receives CPU time from the operating system. A threat that had been set to sleep and the time interval has expired, a thread which was waiting and has been notified, a thread that had been suspended and it has been resumed, and a thread that had been blocked by an I/O request and the I/O has been completed are also in a runnable state.</p> <p><em>Not Runnable (blocked state)</em>: A thread can become not runnable if: the thread's <em>sleep()</em> method is invoked (in which case, the thread remains blocked for a specified number of milliseconds, giving a chance to lower-priority threads to run); the thread's <em>suspend()</em> method is invoked (in which case, the thread remains blocked until its <em>resume()</em> method is invoked); the thread calls the <em>wait()</em> method of an object (in which case, the thread remains blocked until either the object's <em>notify()</em> method or its <em>notifyAll()</em> method is called from another thread); the thread has blocked on an I/O operation (in which case the thread remains blocked until the I/O operation has been completed)</p> <p><em>Dead</em>: A thread can die either because the <em>run()</em> method has finished executing, i.e. has terminated, or because the thread's <em>stop()</em> method has been called. The latter should be avoided because it throws a <em>ThreadDeath</em> which is a subclass of <em>Error</em>.</p> <p>The following diagram shows the possible life cycle of a thread:</p> <p><img width="600" height="566" border="0" alt="The possible life cycle of a thread." src="../../../contents/recitations/threadStates.gif"></p> <p>Note that the methods <em>stop(), suspend()</em>, and <em>resume()</em> have been <em>deprecated</em>, and, therefore, should be avoided to manage threads. Instead of using the <em>stop()</em> method, someone can modify some variable to indicate that the target thread should stop running. The target thread should check this variable regularly, and return from its run method as soon as this variable indicates that it is to stop running. A variable indicating the desired state of the thread can be used to specify whether it should be active or suspended, in order to avoid the <em>suspend()</em>, and <em>resume()</em> methods. When the desired state is suspended, the thread can wait using the <em>wait()</em> method. When the thread is resumed, the target thread is notified using the <em>notify()</em> method.</p> <p>The <em>wait</em>() method makes a thread wait until some condition is satisfied. Actually <em>wait()</em> not only pauses the corresponding tread but also releases the lock on the object, which allows other threads to invoke synchronized code on that object. The notification methods <em>notify</em>() and <em>notifyAll</em>() can be used to inform waiting threads that there was some change that might have caused the satisfaction of that condition. Almost always the <em>notifyAll</em>() method is used to wake up all waiting threads, while <em>notify</em>() picks one of the waiting threads and wakes it up. Notifications affect only threads that have been waiting ahead of the notification, i.e. the <em>wait</em>() has been executed before the occurrence of the notification. The wait and notify methods can be invoked only from <em>synchronized</em> code, either directly or indirectly (through another method called from the <em>synchronized</em> code).</p> <p>Typically <em>wait()</em> is used as follows. Note that the condition test should always be in a loop.</p> <blockquote> <p><em>synchronized  returnType functionName()</em><br><em>  {</em><br><em>        while(!condition)</em><br><em>                wait();</em><br><em>         statements to be executed when the condition is true</em><br><em>        notifyAll();</em><br><em>  }</em></p> </blockquote> <p><br> The normal and cleanest way to end a thread's life is having the <em>run()</em> method return.</p> <p>Method <em>interrupt</em>() can be used to interrupt a thread execution.</p> <p>Every thread has a <em>priority,</em> which is a number between <em>Thread.MIN_Priority</em> and <em>Thread.MAX_Priority</em>. Threads with higher priority are executed in preference to threads with lower priority. When code running in some thread creates a new <em>Thread</em> object, the new thread has its priority initially set equal to the priority of the creating thread.</p> <p>When multiple threads are runnable (i.e. ready to be executed), the runtime system chooses the runnable thread with the highest priority for execution. Only when that thread stops, yields, or becomes not runnable for some reason a lower priority thread will start executing.</p> <p>Java® platforms that support time-slicing allow each thread of equal priority to run by providing to all threads a limited amount of the processor's time. On Java® platforms that do not support time-slicing a thread of a given priority runs to completion or until a higher (but not equal) priority thread becomes runnable. Method <em>yield</em>(), which is useful only on non-time-slicing systems, allows threads of the same priority to run.</p> <p>Execution of multiple threads in some order is called <em>scheduling</em>. This is supported by  a very simple, deterministic scheduling algorithm (fixed priority scheduling) of the Java® runtime. This algorithm schedules threads based on their priority relative to other runnable threads. The Java® scheduler keeps the highest priority thread running at all times, and when time-slicing is supported allows equal high-priority threads to execute by giving slices of the processor time to them in sequence. In general, it is good practice to have the continuously running part of a program, or  threads that do frequent and continual updates set to MIN_PRIORITY to avoid blocking other threads.</p> <p>Threads on multiprocessor machines utilize the multiple processors. A number of the highest-priority threads equal to the number of the available processors execute.</p> <p>Someone can set and get the name of a threat using the functions <em>setName()</em> and <em>getName()</em>, respectively, of the <em>Threat</em> class. The priority can be set and got using the methods set and get methods of the <em>Thread</em> class.</p> <p>The thread object of the currently running thread can be obtained using the <em>currentThread()</em> method of the <em>Thread</em> class.</p> <p><strong>Example</strong></p> <p><em>class MyRunnableClass implements Runnable</em><br><em>{</em><br><em>    String name;</em></p> <p><em>    MyRunnableClass(String str)</em><br><em>      {</em><br><em>         name = str;</em><br><em>      }</em></p> <p><em>    public void run()</em><br><em>    {</em><br><em>         for(int i=0; i&lt;5;i++)</em><br><em>            {</em><br><em>               System.out.println("Thread: " + name);</em><br><em>               try</em><br><em>                 {</em><br><em>                    Thread.sleep((int) (Math.random()*3));</em><br><em>                 }</em><br><em>               catch(InterruptedException e)</em><br><em>                 {</em><br><em>                    System.out.println("InterruptedException in " + name + " thread.");</em><br><em>                 }</em><br><em>            }</em><br><em>    }</em></p> <p><em>}</em></p> <p><em>class ThreadExample3</em><br><em>{</em><br><em>    public static void main(String args[])</em><br><em>      {</em><br><em>          MyRunnableClass  r1 = new MyRunnableClass("Thread-1");</em><br><em>          MyRunnableClass  r2 = new MyRunnableClass("Thread-2");</em><br><em>          MyRunnableClass  r3 = new MyRunnableClass("Thread-3");</em></p> <p><em>          Thread th1 = new Thread(r1);</em><br><em>          Thread th2 = new Thread(r2);</em><br><em>          Thread th3 = new Thread(r3);</em></p> <p><em>          th2.setPriority(10);</em><br><em>          th3.setPriority(1);</em></p> <p><em>          System.out.println(" th1 priority: " + th1.getPriority());</em><br><em>          System.out.println(" th2 priority: " + th2.getPriority());</em><br><em>          System.out.println(" th3 priority: " + th3.getPriority() + "\n");</em></p> <p><em>          th3.start();</em><br><em>          th1.start();</em><br><em>          th2.start();</em></p> <p><em>      }</em><br><em>}</em></p> <p><em>Output:</em>     &gt; java ThreadExample3</p> <blockquote>
+<em> th1 priority: 5</em><br><em> th2 priority: 10</em><br><em> th3 priority: 1</em> <blockquote> <p><em>Thread: Thread-2</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-2</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-1</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-3</em><br><em>Thread: Thread-3</em></p> </blockquote>
+</blockquote> <p>Java®'s garbage collector runs as a low-priority thread when processor time is available and when there are no higher-priority runnable threads.</p> <p>Each thread may or may not be marked as a <em>daemon</em>. A daemon thread is a thread that runs in the background (when the processor is available) for the benefit of other threads. An example of a daemon thread is the garbage collector. When code running in some thread creates a new <em>Thread</em> object, the new thread is a <em>daemon</em> thread if and only if the creating thread is a <em>daemon</em>. Daemon threads do not prevent a program from terminating, since the program exits when only daemon threads remain in it. The Java® VM exits when the only threads running are all daemon threads. The function <em>setDaemon(boolean on)</em> can be used, before the thread is started, to mark a thread as a daemon thread or a user thread. If the argument to the <em>setDaemon(boolean on)</em> is true, the thread is marked as a daemon thread.</p> <p>A s<em>elfish thread</em> is a thread that never voluntarily gives up the control of the CPU, continuing running until either the thread's run() method terminates, or until the thread is preempted by a higher priority thread. Time-slicing systems do not allow to a selfish thread to keep the control when there are other multiple runnable threads of equal priority, allowing the other threads to run.</p> <p>In particular, someone should never rely on time-sharing and should write well behaved threads that periodically give up, voluntarily, the control of the CPU, giving to other threads an opportunity to run.</p> <p><em>Race hazard</em>, or <em>race condition</em>, is the situation in which two or more threads can modify the same data in a way that the data can be corrupted by inconsistent changes.</p> <p><em>Starvation</em> is an indefinite postponement of the execution of lower-priority threads due to higher-priority threads which do not give them the chance to run. Starvation occurs when one (or more threads) in a program cannot progress because it is blocked from gaining access to a certain resource.</p> <p><em>Deadlock</em> is the worst case of starvation, which occurs when two or more threads are waiting on a condition that cannot be satisfied, e.g. when two (or more) threads are each waiting for the action of the other(s). Race conditions can arise from multiple, asynchronously executing threads that are trying to access a single object (data) at the same time which may result on a wrong result and inconsistencies. Synchronization can be used to avoid such race problems.</p> <p>When several concurrent threads are competing for resources, <em>starvation</em> and <em>deadlock</em> should be prevented. Each thread should get enough access to limited resource in order to reasonably progress without causing problems to the other threads or corrupting common data.</p> <p><em>Synchronization</em></p> <p>In some cases separate, concurrently running threads share data in a way that they must take into account the state of other threads. An example of such a case is the so-called <em>producer/consumer</em> scenario in which the "producer" thread generates data that are consumed by a "consumer" thread.</p> <p>In such cases, problems can be avoided using <em>synchronization,</em> which allows a thread to lock an object and in case of another thread trying to invoke a synchronized method on the same object, the second thread will be blocked until the object is unlocked from the first thread. A lock is associated with every object that has <em>synchronized code</em>.</p> <p><em>Critical code sections</em> are code segments (e.g. a method) within a program that access the same data (e.g. object) from separate but concurrent threads. In the Java® language, the <em>synchronized</em> keyword is used to identify a critical section. Whenever a synchronized method of a class is invoked, the associated object is locked by that method. A synchronized method cannot be called on the same object until the object is unlocked, i.e. another thread cannot invoke a <em>synchronized</em> method on that object until the lock is released. When a synchronized method is invoked on an object it obtains its lock, not allowing any other thread to invoke any synchronized method until it releases the lock. A thread can voluntarily call <em>wait()</em>, which releases the lock and the processor, and wait in a queue while other threads are able to obtain the lock and invoke <em>synchronized</em> code. The methods <em>notify</em>() and <em>notifyAll()</em><em> </em> can be used to signal to waiting threads to become ready again and attempt to obtain the lock. If waiting threads are not notified the threads will wait forever causing a deadlock.</p> <p>Java® locks are <em>reentrant</em>, i.e. it is allowed to a thread to re-acquire a lock that it already holds. This avoids problems in which arise when a thread calls from a synchronized method of an object another synchronized method of the same object, which could lead into deadlock.</p> <p>Static methods can also be <em>synchronized</em>. In that case a "class lock" for the corresponding class is used, which does not allow two threads to execute <em>synchronized</em> static methods on the same class at the same time.</p> <p>A <em>synchronized statement</em> is an alternative, in some cases, way to execute synchronized code that locks the object so that no <em>synchronized</em> method can be invoked on that object, since it is locked.<br>  </p> <blockquote> <p><em>     synchronized(objectTobeLocked)</em><br><em>       {</em><br><em>           statements</em><br><em>       }</em></p> </blockquote> <h2 class="subhead">Thread Group</h2> <p>In Java® every Thread object is a member of a thread group, which allows to handle multiple threads, which belong in the same thread group, as a group. The <em>ThreadGroup</em> class is used to implement thread groups and allow to deal with the threads in a thread group as a group.</p> <p>The Java® runtime system creates a ThreadGroup by default, named <em>main</em>, as soon as a Java® application starts. A newly created thread is placed in the same group with the thread group in which the thread that created it belongs. Therefore, unless specified otherwise, all new threads that are created become members of the main thread group by default. In an applet a newly created thread may belong to some other than main thread group depending on the browser. A thread cannot change thread group after its creation.</p> <p>A <em>ThreadGroup</em>  can contain any number of threads, which usually, however, are related in some way, and even other ThreadGroup objects. The top-most ThreadGroup in a Java® application is the ThreadGroup named <em>main</em>, which is the default thread group.</p> <p>Method <em>activeCount</em>() gives the number of active threads in a thread group plus those in all its child thread groups. The <em>ThreadGroup</em> class provides a variety of methods to manage, and operate <em>ThreadGroup</em> objects and the <em>Thread</em> objects that are members of those thread groups.<br>  </p> <h2 class="subhead">
+<a id="3" name="3"> </a> 3. I/O</h2> <p>The <strong><em>System</em></strong> class, which is a final class and has private constructors (i.e. not allowing its extension), provides several useful class variables and methods. For example <em>System.out</em> is a <em>PrintStream</em> object that implements the standard output stream, and <em>System.getProperty(String key)</em> is a static method that returns the system property indicated by the specified key.</p> <p>The <strong><em>System</em></strong> class provides:</p> <ul>
+<li>
+<em>in</em>: the standard input stream to read input data (static <em>InputStream</em> object)</li> <li>
+<em>out</em>: the standard output stream to output results (static <em>PrintStream</em> object)</li> <li>
+<em>err</em>: the standard error stream to display error messages (static <em>PrintStream</em> object)</li> </ul>
+<p>Both standard output and error, which are derived from the <em>PrintStream</em> class, can invoke one of the <em>PrintStream's</em> methods <em>print()</em>, <em>println()</em>, and <em>write()</em> to print text to the stream. The latter method, which is not that common is used to write non-ASCII data, i.e. to write bytes to the stream.</p> <p>The <em>java</em>.io package provides a collection of stream classes that support reading from and writing to an external destination. The provided classes operate on either characters or byte data types.<br><br> The abstract superclasses for character streams in <em>java</em>.io are the <em>Reader</em> (abstract class for reading character streams) and the <em>Writer</em> (abstract class for writing to character streams) classes, which partially provide the functionality for the characters reader and writer stream classes, respectively. <em>[The following inserted figures have been adapted from the on-line <a href="http://java.sun.com/docs/books/tutorial/">Java® Tutorial</a> of SUN]</em></p> <p><img border="0" alt="Reading character streams." src="../../../contents/recitations/23reader.gif"></p> <p><img border="0" alt="Writing character streams." src="../../../contents/recitations/24writer.gif"></p> <p>In general, readers and writers should be preferred to read and write information since they can handle any character in the Unicode character set because they use 16-bits per character.</p> <p>Similarly, the abstract superclasses for byte streams in <em>java.io</em> are the <em>InputStream</em> (abstract class for reading byte streams) and the <em>OutputStream</em> (abstract class for writing to byte streams) classes.</p> <p><img border="0" alt="Input stream." src="../../../contents/recitations/25inputs.gif"></p> <p><img border="0" alt="Output stream." src="../../../contents/recitations/26outputs.gif"></p> <p><em>Reader</em> and <em>InputStream</em> provide methods for reading characters and bytes, respectively. They also provide methods for marking a location in the stream, skipping input, and resetting the current position. Similarly, <em>Writer</em> and <em>OutputStream</em> provide methods for writing characters and bytes, respectively.</p> <p>All readers, input streams, writers, and output streams are automatically opened upon the creation of the corresponding objects. Although they are eligible to be closed by the garbage collector, as soon as they are not referenced in any way, they can be explicitly closed by calling their <em>close()</em> method.</p> <p>The above stream classes can be categorized into two groups: one that deals with reading and writing data, and another that performs some kind of operation on the data while reading and writing. The former are the ones shown with gray color in the above figures, while the latter are the ones shown in white.</p> <p>A useful class provided by the <em>java.io</em> package is the <em>StreamTokenizer</em> class. A <em>StreamTokenizer</em> object can be created using as argument to its constructor call an <em>InputStreamReader</em> object. Then, the <em>StreamTokenizer</em> object may be used on an input stream to parses it into tokens, which it reads one at a time.</p> <h2 class="subhead">
+<a id="4" name="4"> </a> <a href="http://java.sun.com/docs/books/tutorial/uiswing/TOC.html">4. Introduction to Java® GUI and Swing</a>
+</h2> <p><em><a href="http://java.sun.com/products/jfc/index.html">Java® Foundation Classes</a><a href="http://java.sun.com/products/jfc/index.html">(JFC)</a></em> provide features to facilitate the development of Graphical User Interfaces (<em>GUI</em>s). Among other, JFC provides <em><strong>Swing</strong></em><em><strong>,</strong></em> which includes several <a href="http://www.javadesktop.org/rollups/components/">components</a> that can be used for the development of GUIs, support for a choice on the look and feel that a program uses, and provides <a href="http://java.sun.com/docs/books/tutorial/2d/index.html"><em>Java®2D</em></a> for high quality 2D graphics. Finally, swing allows the specification which look and feel a program should use. This is done with the <em>setLookAndFeel()</em> method of the <em>UIManager</em> class. <em><strong>Swing</strong></em> is built on top of the <em>AWT</em> (Abstract Window Toolkit) using the AWT infrastructure. However, <strong><em>Swing</em></strong> provides its own graphical user interface (GUI) components, many of which have a close relation or correspondence to the <em>AWT</em> components. Essentially, <strong><em>Swing</em></strong> is an extension and improvement to the <em>AWT</em>.</p> <p>JFC 1.1 (with Swing API 1.1) is built into <em>JDK 1.2</em><em>.</em> The latest JFC development is the JFC/Swing portion of JDK 1.3, which is code-named <em>Kestrel</em> and it was released this year.</p> <p>The Swing API is provided in the following Swing packages:</p> <ul>
+<li> <em>javax.swing</em>   (the main swing package)</li> <li> <em>javax.swing.border</em>
+</li> <li><em> javax.swing.colorchooser</em></li> <li><em> javax.swing.event</em></li> <li><em> javax.swing.filechooser</em></li> <li><em> javax.swing.plaf</em></li> <li><em> javax.swing.plaf.basic</em></li> <li><em> javax.swing.plaf.metal</em></li> <li><em> javax.swing.plaf.multi</em></li> <li><em> javax.swing.table</em></li> <li><em> javax.swing.text</em></li> <li><em> javax.swing.text.html</em></li> <li><em> javax.swing.text.html.parser</em></li> <li><em> javax.swing.text.rtf</em></li> <li><em> javax.swing.tree</em></li> <li><em> javax.swing.undo</em></li> </ul>
+<p>The <em>AWT</em> (Abstract Window Toolkit) was first used to develop GUI's in Java®, and provided the foundation on which the JFC and swing were built. The main difference between <em>AWT</em> and <em>Swing</em> is that the components of the latter are implemented without any native code. Because of this, swing components are called lightweight, while AWT components, which use native code, are called heavyweight components. Lightweight components are drawn entirely using Java®, while heavyweight components use native peers. Actually, <em>AWT</em> 1.1 also introduced some lightweight components, while earlier versions were based solely on heavyweight components. <em>Swing</em> components, in general, have much more capabilities than the AWT corresponding ones. For instance some Swing components (such as labels and buttons) can display icons, while the corresponding AWT components cannot. <em>Swing</em> provides a number of additional components that were not provided by AWT.</p> <p><em>Swing</em> provides several standard components (e.g. buttons, checkbuttons, radiobuttons, menus, lists, labels, and text areas) to create a program's GUI using one or more containers (e.g. frames, dialogs, windows and tool bars). Most Swing components that begin with J, except the top-level containers, are subclasses of the <em>JComponent</em> class. The letter J is used to differentiate the actual extra user interface classes provided by Swing from the support classes that it provides. Swing components inherit many features from the <em>JComponent</em> class, such as a configurable look and feel, borders, and tool tips, as well as many methods. In addition, some Swing components can display images on them. The <em>JComponent</em> class extends the <em>Container</em> class (provides support for adding and laying out components), which itself extends the <em>Component</em> class (provides support for  painting, events, layout etc.). <em>JComponent</em> is the base class for almost all lightweight J components. Therefore, all swing lightweight components (derived from the <em>JComponent</em> class) are subclasses of the <em>Container</em> class of <em>AWT</em>.</p> <p>The following article, by Bill Harlan, provides some useful information about <a href="http://www.billharlan.com/papers/Improving_Swing_Performance.html"><strong><em>Improving Swing Performance.</em></strong></a></p> <h2 class="subhead">Containers</h2> <p>Every program with a <em>Swing</em> GUI contains at least one top-level Swing container, i.e., in general, an instance of a <em>JApplet</em>, <em>JFrame</em>, or <em>JDialog</em>, which enables the painting and event handling of the Swing components. The <em>JApplet</em>, <em>JFrame</em>, or <em>JDialog</em>, are considered top-level containers because they are used to provide an area in which the other containers and components can appear. Other containers, such as the <em>JPanel</em>, are used to facilitate the positioning and sizing of other containers and components. Between a top-level container and an intermediate container, a content pane (<em>JRootPane</em>), which is also an intermediate container, is indirectly provided. The content pane contains all of visible components of its GUI, except a menu bar. One of the <em>add()</em> methods of a container can be used to add a component to it. The component to be added is used as argument to the add method. In some cases another argument, which has to do with the layout, is used with the <em>add()</em> method.</p> <p>Besides the <em>top-level</em> containers (<em>JApplet</em>, <em>JFrame</em>, <em>JDialog</em>, and <em>JWindow)</em> there are <em>special-purpose</em> containers (such as the <em>JInternalFrame</em>, <em>JLayeredPane</em>, and <em>JRootPane</em>) that are used for special purposes, and <em>general-purpose</em> containers (such as <em>JPanel</em>, <em>JScroll Pane</em>, <em>JSplitPane</em>, <em>JTabbedPane</em>, and <em>JToolBar</em>) that are used for other any general purpose.</p> <p>The <em>JApplet</em> and <em>JFrame</em> classes should be used to implement Swing applets or applications, respectively. Both <em>JApplet</em> and <em>JFrame</em> classes are containers that contain an instance of the <em>JRootPane</em> class. The latter contains the content pane, which is a container, that contains all the components contained in the applet or application. Therefore, components should be added and layout managers should be set to the content pane.</p> <h2 class="subhead">Atomic Components</h2> <p>There are many atomic components (i.e. components that exist as self-sufficient entities and not to hold other Swing components). Atomic components can be grouped into 3 categories:</p> <ul>
+<li>
+<em>Basic Controls</em>, which are components that can primarily be used to get input from the user (such as <em>JSlider</em><em>, </em> <em>JTextField</em><em>, </em> <em>JButton</em><em>, </em> <em>JComboBox</em><em>, </em> <em>JList</em><em>,</em> and <em>JMenu</em>)</li> <li>
+<em>Uneditable Information Displays,</em> which are used to display information to the user (such as <em>JProgressBar</em>, <em>JLabel</em><em>,</em>and <em>JToolTip</em>)</li> <li>
+<em>Editable Displays of Formatted Information</em>, which are components that can be used to display formatted information that can be editable by the user (such as <em>JColorChooser</em><em>, </em> <em>JTextComponent</em><em>, </em> <em>JFileChooser</em><em>, </em> <em>JTable</em>, and <em>JTree</em>)</li> </ul>
+<h2 class="subhead">Applets and Applications</h2> <p><em>Swing applets</em> use the <em>JApplet</em> class which is a subclass of the <em>AWT</em><em> </em> <em>Applet</em> class and implements the <em>Accessible</em> and <em>RootPaneContainer</em> interfaces. The following simple example shows an applet with a single component a <em>JLabel</em><em>.</em> The <em>BorderLayout</em> manager is used by the <em>JApplet</em> for its content pane (which is used in both Swing applets and applications), in contrast to the <em>FlowLayout</em> manager used by the <em>Applet</em> class.<br>  </p> <blockquote> <p>SwingApplet1.java</p> </blockquote>
+<blockquote>
+<em>import java.awt.*;</em><br><em>import javax.swing.*;</em> <p> </p> <p><em>public class SwingApplet1 extends JApplet</em><br><em>{</em><br><em>   public void init()</em><br><em>     {</em><br><em>      Icon icon = new ImageIcon("1.124.gif", "1.124 GIF");</em><br><em>      JLabel label = new JLabel(" Test", icon, SwingConstants.CENTER);</em><br><em>      getContentPane().add(label);</em><br><em>   }</em><br><em>}</em></p> </blockquote> <p><br> The above applet can be executed using an html file like the following:</p> <blockquote> <p>SwingApplet1.html</p> </blockquote>
+<blockquote>
+<em>&lt;html&gt;</em><br><em>&lt;head&gt;</em><br><em>   &lt;title&gt;JApplet Example # 1&lt;/title&gt;</em><br><em>&lt;/head&gt;</em><br><em>&lt;body&gt;</em> <p> </p> <p><em>&lt;center&gt;</em><br><em>&lt;h2&gt;</em><br><em>&lt;u&gt;JApplet Example # 1&lt;/u&gt;&lt;/h2&gt;</em><br><em>&lt;hr&gt;&lt;applet code="SwingApplet1.class" WIDTH="486" HEIGHT="94"&gt;&lt;/applet&gt;</em><br><em>&lt;hr&gt;&lt;/center&gt;</em></p> <p><em>&lt;p&gt;&lt;br&gt;</em><br><em>&lt;/body&gt;</em><br><em>&lt;/html&gt;</em></p> </blockquote> <p>Then, appletviewer (using the command: <em>appletviewer SwingApplet1.html</em>) displays the following window:</p> <p><img border="0" alt="Applet viewer." src="../../../contents/recitations/applet1.gif"></p> <p>Similarly, the <em>JFrame</em> class can be used to create a <em>Swing application</em> similar to the above applet. The <em>JFrame</em> class is a subclass of the <em>AWT</em>   <em>Frame</em> class and implements the <em>Accessible</em><em>,</em> <em>WindowConstants</em><em>,</em> and <em>RootPaneContainer</em> interfaces. It uses the <em>BorderLayout</em> manager for its content pane. The source code is presented below:</p> <blockquote> <p>SwingApplication1.java</p> </blockquote> <blockquote>
+<p><em>import java.awt.*;</em><br><em>import javax.swing.*;</em><br><em>import java.awt.event.*;</em></p> <p> </p> <p><em>public class SwingApplication1 extends JFrame</em><br><em>{</em></p> <p><em>   public SwingApplication1()</em><br><em>    {</em><br><em>      super("Swing Application");</em><br><em>      Icon icon = new ImageIcon("1.124.gif", "1.124 GIF");</em><br><em>      JLabel label = new JLabel(" Test", icon, SwingConstants.CENTER);</em><br><em>      getContentPane().add(label);</em><br><em>    }</em><br>  </p> <p><em>   public static void main(String args[])</em><br><em>    {</em><br><em>      final JFrame jfr = new SwingApplication1();</em></p> <p><em>      jfr.setBounds(100,50,500,150);</em><br><em>      jfr.setVisible(true);</em></p> <p><em>      jfr.setDefaultCloseOperation(DISPOSE_ON_CLOSE);</em></p> <p><em>      jfr.addWindowListener(new WindowAdapter()</em><br><em>                    &amp; #160;       {</em><br><em>                    &amp; #160;              public void windowClosed(WindowEvent e)</em><br><em>                    &amp; #160;                   {</em><br><em>                    &amp; #160;                     ; System.exit(0);</em><br><em>                    &amp; #160;                   }</em><br><em>                    &amp; #160;            }              );</em><br><em>    }</em></p> <p><em>}</em></p> </blockquote> <p>As any Java® application, a <em>main()</em> method must be provided. In <em>main()</em> a <em>JFrame</em> is instantiated, sized, and made visible. The default close operation is set to <em>DISPOSE_ON_CLOSE</em> (to dispose any native resources when the window is closed), and a window listener is added in order to exit the application as soon as the frame is closed.</p> <p>Running the Java® interpreter (using <em>java</em> <em>SwingApplication1)</em> will execute the program and give the following window:</p> <p><img border="0" alt="Swing application." src="../../../contents/recitations/application1.gif"></p> <p>Often, the source code file can be written in a way that it can be used both as an applet and an application. The above example is rewritten in way to facilitate such a use. The source code is provided below:</p> <blockquote> <p>AppletApplication1.java</p> <p><em>import java.awt.*;</em><br><em>import javax.swing.*;</em><br><em>import java.awt.event.*;</em></p> <p><em>public class AppletApplication1 extends JApplet</em><br><em>{</em></p> <p><em>   public void init()</em><br><em>    {</em><br><em>      Icon icon = new ImageIcon("1.124.gif", "1.124 GIF");</em><br><em>      JLabel label = new JLabel(" Test", icon, SwingConstants.CENTER);</em><br><em>      getContentPane().add(label);</em><br><em>    }</em><br>  </p> <p><em>   public static void main(String args[])</em><br><em>    {</em><br><em>      final JFrame myFrame = new SwingApplication1();</em><br><em>      JApplet myApplet = new AppletApplication1();</em><br><em>      myApplet.init();</em></p> <p><em>      myFrame.setContentPane(myApplet.getContentPane());</em><br><em>      myFrame.setBounds(100,50,500,150);</em><br><em>      myFrame.setVisible(true);</em></p> <p><em>      myFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);</em></p> <p><em>      myFrame.addWindowListener(new WindowAdapter()</em><br><em>                    &amp; #160;          {</em><br><em>                    &amp; #160;             public void windowClosed(WindowEvent e)</em><br><em>                    &amp; #160;                  {</em><br><em>                    &amp; #160;                     ; System.exit(0);</em><br><em>                    &amp; #160;                  }</em><br><em>                    &amp; #160;          }                    );</em><br><em>    }</em></p> <p><em>}</em></p> </blockquote> <h2 class="subhead">Mixing AWT and Swing</h2> <p>Attention should be given when <a href="http://java.sun.com/products/jfc/tsc/swingdoc-archive/mixing.html">mixing AWT and Swing</a> components, since when lightweight components overlap with heavyweight components, the heavyweight components are always painted on top. In general, it should <a href="http://java.sun.com/products/jfc/tsc/swingdoc-archive/mixing.html">mixing AWT and Swing</a> components should not be mixed whenever possible. The "depth" at which components are displayed in a container is represented by the Z-order. The latter is determined by the order with which each component is added to the container, i.e. the first component to be added to a container has the highest Z-order which means that it is displayed in front of all other components added to that container. When lightweight and heavyweight components are mixed, the lightweight components, which need to reside in a heavyweight container, have the same Z-order of their container, and within it the order of each of the lightweight components is determined by the order in which they are added to the container. Note, that whenever a container is extended and the <em>paint()</em> method is overridden, the superclass <em>paint()</em> method should be explicitly invoked using <em>super.paint()</em> to force drawing of the lightweight components.</p> <p>When <em>Swing</em> popup menus, which are lightweight, are mixed with a heavyweight component, the latter overlaps the former. This can be avoided by forcing the popup menus to be heavyweight using the method <em>setLightWeightPopupEnabled</em>() of the <em>JPopupMenu</em> class. A similar problem happens with a <em>JScrollPane</em> instance when any heavyweight components to it. Because there is no option of setting the <em>JScrollPane</em> as a heavyweight, the <em>AWT</em> ScrollPane can be used instead, which works fine with both lightweight and heavyweight components. Finally, heavyweight components should be avoided (i.e. not be added) to <em>Swing</em> internal frames, i.e. to a <em>JInternalFrame</em> instance.</p> <h2 class="subhead">Layout Managers</h2> <p>Layout managers (such as the <em>BorderLayout</em><em>, </em> <em>BoxLayout</em><em>,</em> <em>GridLayout</em><em>, </em> <em>FlowLayout</em><em>, </em> <em>CardLayout</em><em>, </em> <em>GridBagLayout</em>) are used to determine the size and position of the components that are contained in a container. Each container is provided a default layout manager, which, however, can be changed using the <em>setLayout</em>() method and as an argument a newly created instance of the preferred layout manager. The minimum, preferred, and maximum sizes of a component can also be specified to the layout manager, as well as the preferred alignment.</p> <h2 class="subhead">Painting System</h2> <p>The <em>AWT</em> painting system controls the painting of a Swing GUI, starting with the highest component that needs to be repainted and going down the hierarchy of containers, using the event-dispatching thread. The painting of swing components occurs whenever necessary. Swing uses double buffering to improve the efficiency and quality of the provided GUI. During painting, each component paints itself before any of the components that it contains. A Swing top-level container is painted on-screen using one of the methods: <em>setVisible(true)</em>, <em>show()</em>, or <em>pack()</em>. Painting starts with the highest component that needs to be repainted and moving down the containment hierarchy, i.e. each component paints itself before any of the components it contains.</p> <p>Swing performs, by default, double-buffered to ensure smoothness and avoid flushing. Double buffering is essentially implemented by an offscreen buffer in which all painting takes place, and then it is flushed to the screen.</p> <h2 class="subhead">Event Handling</h2> <p>The event handling features of the Swing (and AWT) components allow to a Java® program to respond to external events, such as the interaction of the user with the GUI. Events are handled by event handlers that are registered with event sources. Any <em>Swing</em> component can be notified for the occurrence of any event simply by implement the corresponding interface and registering it as an event listener on a relevant event source. The latter is usually component, e.g. a button. for each event there is a corresponding object which provides all the relevant information. An event handler is implemented by:</p> <ul>
+<li>either     <ul>
+<li>implementing the corresponding listener interface, or</li> <li>extending a class that implements that interface</li> </ul>
+</li> <li>implement the method in the listener (interface or subclass)</li> <li>adding that kind of listener to a component</li> </ul>
+<p>Sometimes, anonymous inner classes are used to keep the code clearer and the event handler closer to the point where it is registered. The event-handling code executes in the event-dispatching thread (single thread) ensuring that each event handler will execute in sequence allowing a previous event handler finish executing before the next one starts execution. Therefore, the code in the event handlers should be either very short and quick to execute, or another thread should be initiated to execute the code, in order to not harm the performance of the program. Otherwise, painting, which also executes on the event-dispatching thread, will not occur while an event is being handled.</p> <h2 class="subhead">Threads</h2> <p><em>Swing</em>, in general, is not thread safe, because a <em>Swing</em> component can be accessed by only one thread at a time, which, in general, is the <em>event-dispatching thread</em>. Because Swing is not thread safe, Swing components, in general, should be accessed only from the event-dispatching thread. The <em>event-dispatching thread</em> is the thread that invokes callback methods (e.g. <em>paint()</em> and <em>update()</em> functions) and event handler methods. Swing has been designed to be not thread safe in order to avoid the overhead of multithreading (e.g. obtaining and releasing locks) and to simplify the subclassing of its component. It is not allowed to access Swing components from any thread other than the event-dispatching thread.</p> <p>However, some <em>Swing</em> components support multithread access. Actually after the realization of a <em>Swing</em> component code that might affect or depend on the state of that component should be executed in the event-dispatching thread. Realization of a component means after the component is available for painting on screen, after it is painted or become ready to be painted using one of the methods: <em>setVisible(true)</em>, <em>show()</em>, or <em>pack().</em></p> <p>The access only through the <em>event-dispatching thread</em> is not required in the following cases:</p> <ul>
+<li>when dealing with thread safe methods (as specified in the <em>Swing</em> API documentation) to construct and show a GUI in the main thread of  an application, as long as  no components have been realized in the current runtime environment</li> <li>constructing and manipulating the GUI in an applet's <em>init()</em> method, as long as the components have not been made visible, i.e. the method <em>show()</em> or <em>setVisible(true)</em> has never been called on the actual applet object</li> <li>methods <em>repaint()</em> and <em>revalidate()</em> are safe to call from any thread</li> </ul>
+<p>In general, Swing it is not safe to access Swing components from any thread other than the event-dispatching thread. However, there are times that it is preferable to update Swing components from another thread, or perform time-consuming operations on a separate thread, and not use the <em>event-dispatching thread</em>. In those cases, <em>Swing</em> provides the methods <em>invokeLater</em>() and <em>invokeAndWait</em>() in the <em>SwingUtilities</em> class, which can be used to queue a runnable object on the event dispatch thread. They essentially allow a block of code from another thread to be invoked and executed by the event-dispatching thread. Both methods can be used to access Swing components from a thread other than the event-dispatching thread. Method <em>invokeLater()</em> queues the runnable object and returns immediately, while <em>invok eAndWait()</em> waits until the runnable object's <em>run()</em> method has started before returning. Only the <em>invokeLater</em>() (and not <em>invokeAndWait</em>()) method can be called from the event dispatching thread.</p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

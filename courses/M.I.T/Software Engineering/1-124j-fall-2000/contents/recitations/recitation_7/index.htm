@@ -1,0 +1,653 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Recitation 7 | Recitations | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Recitation 7" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Recitation 7" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/recitations/recitation_7">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/recitations/index.htm">Recitations</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Recitation 7
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Recitation 7
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">These notes were prepared by <a href="mailto:komodromos@ucy.ac.cy">Petros Komodromos</a>.<br><br>
+Topics</h2>
+<ol>
+<li>
+<a href="#1">Sun Java® Studio Standard 5</a> </li>
+<li>
+<a href="#2">Inheritance</a> </li>
+<li><a href="#3">Controlling access to class members</a></li>
+<li><a href="#4">Strings</a></li>
+<li>
+<a href="#5">Packages</a> </li>
+<li>
+<a href="#6">Interfaces</a> </li>
+<li>
+<a href="#7">Nested classes and interfaces</a> </li>
+<li>
+<a href="#8">Garbage Collection</a> </li>
+<li>
+<a href="#9">Applets</a> </li>
+</ol>
+<h2 class="subhead">
+<a id="1" name="1"></a>1. Sun Java Studio Standard 5</h2>
+<p>Sun Java® Studio Standard 5 is an integrated Java® development environment (IDE) that provides visual design, editing, compilation, debugging, and deployment of Java® software. It is itself written entirely in Java® and is from the Sun's Java® web site: <a target="_blank" href="http://wwws.sun.com/software/sundev/jde/index.html">Sun Java® Studio Standard 5 update 1</a>. If you prefer to use a free IDE and only require J2SE and web application development capabilities then use the open source IDE <a target="_blank" href="http://www.netbeans.org">NetBeans</a>.</p>
+<h2 class="subhead">
+<a id="2" name="2"></a>2. Inheritance</h2>
+<p>A class (called <em>subclass</em>) can inherit the behavior of another class (called <em>superclass</em>). This is called <em>inheritance</em> and it is essential for Object Oriented Programming (OOP)<em>,</em> allowing the extension of existing classes. A class is extended using the keyword <em>extends</em> following the name of the new class (i.e. the subclass) and before the name of the superclass.</p>
+<blockquote>
+<p>          e.g.: <em>class Pixel extends Point</em></p>
+</blockquote>
+<p>A subclass object can be used in any function that an object of its superclass is expected. Note, that the converse i.e. using a superclass where a subclass is expected is, in general, false. This feature enables <em>polymorphism</em>, another important characteristic of OOP, which allows a different function to be called depending on the actual object that is associated with the function call. <em>Polymorphism</em> is a Greek word which means that it allows many (poly) forms or shapes (morphes). An object in Java® can be polymorphic, i.e. have various different forms and this is possible due to the fact that a subclass can be used wherever a superclass is legal and the <em>late binding</em> feature of Java®. With late binding the compiler does not associate the function call with a certain function during compilation, but delays that decision until execution (i.e. running)  time. In contrast, with <em>static binding</em> the decision of which function to be invoked is decided at compile time.</p>
+<p>Although when calling a function the decision of which function of a class to call depends on the actual class of the object, when accessing a data field of an object the decision is according to the type of the reference to the object.</p>
+<p>Although a subclass object can be assigned to a superclass object, i.e. to a variable that may refer to a superclass, the converse is not allowable unless an explicit <em>casting</em> is used. The syntax for casting between two objects is the similar to the casting from one primitive data type to another. In order to avoid illegal castings the <em>instanceof</em> operator may be used to verify the data type of the object prior to any casting. Casting of objects is allowable only between objects within an inheritance hierarchy. If an object has been assigned to a reference to its superclass, then to be able to use the objects (i.e. the subclass' functions) it is required to cast it back to the subclass.</p>
+<p>An implicit reference, named <em>super</em>, is available and references to members of the superclass of the class of the object that invoked a function. It is similar to the <em>this</em> reference.</p>
+<p>Subclasses can add other member and class data, or member or class functions. Data fields of a subclass can hide data fields of a superclass if they are given the same name. Then, although the data fields of the superclass exist they can be accessed only indirectly. Similarly, a subclass can inherit and use, or override, the methods provided in its superclasses. Member functions of the superclass can be overridden by new implementations provided in the subclass. However, a subclass cannot override superclass functions that have been declared as <em>final</em> or <em>static</em> (i.e. class functions). It can only override accessible non-static functions. A subclass must override functions that are declared as <em>abstract</em> in the superclass or the subclass must be abstract itself.</p>
+<p>A subclass function with a name the same as a superclass function may have different parameters, according to function overloading. However, a subclass function with the same signature with a superclass function must also have the same return type, in order to hide the superclass' function. The overriding function must have the same signature (name and parameters) and the same return type with the function it overrides. Which function is called depends on the actual object and its class that is referenced by the object reference and not by the class of the reference to the object itself.</p>
+<p>The overriding function can have a different access specifier but only if it allows more access than the one of the superclass function that overrides. It can have also different throws specified but not a throw clause that has not been declared by the superclass function or an exception type that is not a subtype of the exceptions specified in the superclass. The hidden variables and overridden functions of a superclass can be accessed using the <em>super</em> keyword.</p>
+<p>Inheritance Example</p>
+<blockquote>
+<p><em>class Point</em><br><em>{</em><br><em>  private double x, y;</em></p>
+<p><em>  Point()</em><br><em>  {</em><br><em>    System.out.println(" In default constructor of Point class");</em><br><em>    x = y = 100.0;</em><br><em>  }</em><br><em>  Point(double x, double y)</em><br><em>  {</em><br><em>    System.out.println(" In constructor Point(double x, double y)");</em><br><em>    this.x = x;</em><br><em>    this.y = y;</em><br><em>  }</em></p>
+<p><em>  public void set(double x, double y)</em><br><em>  {</em><br><em>    System.out.println(" In set method of Point");</em><br><em>    this.x = x;</em><br><em>    this.y = y;</em><br><em>  }</em></p>
+<p><em>  public String toString()</em><br><em>  {</em><br><em>    System.out.print(" In toString method of Point class");</em><br><em>    return ("x = " + x + "    y = " + y);</em><br><em>  }</em><br><em>}</em><br>
+ </p>
+<p><em>class Pixel extends Point</em><br><em>{</em><br><em>  private int color;</em></p>
+<p><em>  Pixel()</em><br><em>  {</em><br><em>     System.out.println(" In default constructor of Pixel class");</em><br><em>     color = 111111111;</em><br><em>  }</em><br><em>  Pixel(double x, double y, int color)</em><br><em>  {</em><br><em>     super(x,y);</em><br><em>     System.out.println(" In  Pixel(double x, double y, int color) ");</em><br><em>     this.color = color;</em><br><em>  }</em></p>
+<p><em>  public void set(double x, double y, int color)</em><br><em>  {</em><br><em>    System.out.println(" In set of Pixel class calling Point's set");</em><br><em>    super.set(x,y);</em><br><em>    this.color = color;</em><br><em>  }</em></p>
+<p><em> public String toString()</em><br><em>  {</em><br><em>    System.out.print(" In toString method of Pixel class");</em><br><em>    return ("color = " + color );</em><br><em>  }</em><br><em>}</em></p>
+<p><em>class introInheritance</em><br><em>{</em><br><em>  public static void main(String args[])</em><br><em>  {</em><br><em>     Pixel p1;</em><br><em>     p1 = new Pixel();</em><br><em>     p1.set(1.11, 0.22, 100111010);</em><br><em>     System.out.println();</em></p>
+<p><em>    Point p2 = new Point(200,25.7);</em><br><em>    Pixel p3 = new Pixel(3.33,9.6,111000111);</em><br><em>    Point p4 = new Pixel();</em><br><em>    System.out.println();</em></p>
+<p><em>    System.out.println("\n p1: " + p1);</em><br><em>    System.out.println("\n p2: " + p2);</em><br><em>    System.out.println("\n p3: " + p3);</em><br><em>    System.out.println("\n p4: " + p4);</em><br><em>    System.out.println();</em><br><em>  }</em><br><em>}</em></p>
+</blockquote>
+<p><br><em><strong> Output:</strong></em></p>
+<blockquote>
+<p><em> In default constructor of Point class</em><br><em> In default constructor of Pixel class</em><br><em> In set of Pixel class calling Point's set</em><br><em> In set method of Point</em></p>
+<p><em> In constructor Point(double x, double y)</em><br><em> In constructor Point(double x, double y)</em><br><em> In  Pixel(double x, double y, int color)</em><br><em> In default constructor of Point class</em><br><em> In default constructor of Pixel class</em></p>
+<p><em> In toString method of Pixel class</em><br><em> p1: color = 100111010</em><br><em> In toString method of Point class</em><br><em> p2: x = 200.0    y = 25.7</em><br><em> In toString method of Pixel class</em><br><em> p3: color = 111000111</em><br><em> In toString method of Pixel class</em><br><em> p4: color = 111111111</em><br>
+ </p>
+</blockquote>
+<p>Java® does not allow multiple inheritance. All classes in Java® are subclasses of the class Object, which is defined in the package java.lang. Even if no inheritance is used, i.e. no extension, the class is considered to be a subclass of the Object class. Variables of  class Object can be used to refer to any reference data type, object or array. The functions toString(), equals(), clone(), and finalize() are functions of the class <em>Object</em> that are often overridden by the subclasses. The toString() method returns a string representation  of the object. The clone() method is used to make a field-by-field copy of one object to a new one which is returned by the method. The equals() method is used to compare two objects for equality according to a selected equality test. Finally, the finalize() method can be used to clean up resources that may have been allocated from the object before it is garbage collected. Another useful function is the getClass(), which, however, cannot be overridden since it is a final function. This function returns the runtime class of the object, an instance of Class, which can be then query for various information. The class Class provides various useful functions.</p>
+<p><em>Object Wrappers</em></p>
+<p>Java® provides <em>object wrappers</em> which are subclasses of the Object class that are counterparts of the primitive data types and allow the conversion of a primitive data type variable to an object.</p>
+<p>The wrapper classes which are the Boolean, Character, Byte, Double, Float, Integer, Long, Short and Void, are final classes that are useful when doing <em>generic programming</em>. The wrapper classes provide several useful functions.</p>
+<h2 class="subhead">3. <a id="3" name="3"></a>Controlling Access to Class Members</h2>
+<p>Java® provides, as C++ does, an access control mechanism which restricts the access to member data and functions of a class. In Java® the <em>access level</em> is specified for each individual member of the class. There are 3 different access specifiers which may be used to specify one of the 4 access levels. The <em>access specifiers</em> (or <em>access control modifiers</em>) are the <em>private</em>, <em>protected</em>, <em>public</em> and <em>package</em> which are specified as follows:</p>
+<div class="maintabletemplate">
+<table class="tablewidth75" summary="See table caption for summary.">
+<caption class="invisible">Grading information.</caption>
+<thead><tr>
+<th id="col1" scope="col">ACCESS SPECIFIER</th>
+<th id="col2" scope="col">ACCESS LEVEL</th>
+<th id="col3" scope="col">ACCESSIBLE IN CLASS</th>
+<th id="col4" scope="col">ACCESSIBLE IN SUBCLASS</th>
+<th id="col5" scope="col">ACCESSIBLE IN PACKAGE</th>
+<th id="col6" scope="col">ACCESSIBLE IN WORLD</th>
+</tr></thead>
+<tbody>
+<tr class="row">
+<td>private</td>
+<td>private</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="alt-row">
+<td>protected</td>
+<td>protected</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="row">
+<td>public</td>
+<td>public</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="alt-row">
+<td>none</td>
+<td>package</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A <em>private</em> member of a class is accessible only within the class itself. Instances of the same class have access to each other's private members. The keyword <em>private</em> is used to specify a private member.</p>
+<p>A <em>protected</em> member of a class allows access for and can be inherited by only the class itself, its subclasses, and classes defined in the same package. A protected member (data or function) can be accessed using a reference variable that can be either a reference to the class itself or to one of its subclasses. Protected static data and functions of a class can be accessed in any of its subclasses as well as by any class in the same package. The keyword <em>protected</em> is used to specify a protected member.</p>
+<p>A <em>package</em> member is accessible from and is inheritable by all classes in the same package as the class. This is the default access level used when no access specifier is used.</p>
+<p>Finally, a <em>public</em> member is accessible from all classes and is inherited by any subclass. It is specified using the keyword <em>public</em>.</p>
+<p>Therefore, a subclass inherits the members of its superclass that are protected and public, as well as the members without access specifier, i.e. the package members, as long as  the subclass is in the same package with the superclass. However, subclass member variables hide the superclass members variables with the same name, and subclass member functions override the corresponding ones in the superclass. The keyword <em>super</em> can be used to refer to hidden variables and overridden functions of the superclass.</p>
+<h2 class="subhead">4. <a id="4" name="4"></a>Strings</h2>
+<p>The String class can be used to deal with strings, i.e. a sequence of characters. This class provides several functionalities that can be used on strings. It provides a concatenation operator "+", and a shorthand operator "+=". In addition, it provides a <em>length()</em> method to obtain the number of the characters in the string. A method, named <em>equals()</em> is also available to compare two strings whether they have the same contents.</p>
+<p>When concatenating any primitive data type value with a string it is always converted to a string. For objects a special function named toString() which is inherited from the Object class can be overridden to provide this facility.</p>
+<p>String objects are only readable. Their contents cannot be modified, i.e. they are immutable. When a concatenation, or assignment is done, what actually happened is that a new String object is created and referenced. Java® provides another class, named <em>StringBuffer</em> which can be used to store and modify a set of characters.</p>
+<h2 class="subhead">Example with Strings</h2>
+<blockquote>
+<p><em> class introStrings</em><br><em>{</em><br><em>  public static void main(String args[])</em><br><em>  {</em><br><em>    String course = new String();</em><br><em>    double number = 1.124;</em><br><em>    String title[] = new String[3];</em></p>
+<p><em>    title[0] = "Computer" + "-";</em><br><em>    title[1] = "Aided";</em><br><em>    title[2] = " Engineering";</em></p>
+<p><em>    course = number + ": ";</em><br><em>    for(int i=0 ; i&lt;title.length ; i++)</em><br><em>      course += title[i];</em><br><em>    System.out.println(course);</em><br><em>  }</em><br><em>}</em><br>
+ </p>
+</blockquote>
+<p><em><strong> Output:</strong></em></p>
+<blockquote>
+<p><em>1.124: Computer-Aided Engineering</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="5" name="5"></a>5. Packages</h2>
+<p>A <em>package</em> essentially defines a certain namespace, allowing functions in different packages to use same names. A package is used to group together a collection of related classes and interfaces.</p>
+<p>Every class in Java® belongs to a package, either the one specified at the top in a package statement or the default package. Everything in the java.lang package is by default imported in any Java® program, and therefore, it does not need to be imported.</p>
+<p>A package is created by using a package statement in the java® source code file. The statement is the keyword package followed by the name of the package. Then, everything defined after that point is considered to belong to that package. When a Java® source code file is compiled the resulting class file(s) is (are) created in the directory specified by the package statement. An extra option to the javac compiler (javac -d &lt;directory&gt; &lt;myProgram.java&gt;) can be used to specify where to create all subdirectories according to the package statement. To enable the use of any new packages it may be necessary to properly setup the CLASSPATH environment variable. The latter variable indicates where to search for user-developed packages.</p>
+<p>The classes defined in a package can be used in a program using an import statement. This statement consists of the keyword import followed by the name of the package to be inserted. The import statement specifies to the Java® compiler the location of the classes enabling the use of shorter names for each imported class. No import statements are required if the class files that are used in a Java® program are in the same directory that the class that uses them is located.</p>
+<p>A class for which a package name has not been specified belongs to the default package. The default package is without a name and it is always imported by default.</p>
+<p>The Core Java® API provides a collection of packages that can be used.</p>
+<h2 class="subhead">6<a id="6" name="6"></a>. Interfaces</h2>
+<p><em>Interfaces</em> are similar to classes, but they contain only declarations of methods. An interface declares sets of constants and functions, without providing implementations for any of them. They are used to declare methods that should be supported by a class without, however, to actually implement these functions. In particular, interfaces may contain public abstract methods and public final static data.</p>
+<p>Any class that implements an interface must provide the actual implementation for any functions that have been declared in the interface. Such a class is said to implement the interface. If even one function is left unimplemented the class is considered to be abstract.</p>
+<p>A class is specified to implement an interface using the keyword <em>implements</em>. A class can implement more than one interfaces, although it cannot extent more than one class. However, a class that implements an interface must provide implementations for all of the functions of the interface.</p>
+<p>In addition interfaces can be extended using the keyword <em>extends</em>.</p>
+<p> Example with Interfaces</p>
+<blockquote>
+<p><em> interface Geometry</em><br><em>{</em><br><em>  public void print();</em><br><em>}</em></p>
+<p><em>class Point implements Geometry</em><br><em>{</em><br><em>  private double x, y;</em></p>
+<p><em>  Point()</em><br><em>  {</em><br><em>    x = y = 100.0;</em><br><em>  }</em><br><em>  Point(double x, double y)</em><br><em>  {</em><br><em>    this.x = x;</em><br><em>    this.y = y;</em><br><em>  }</em></p>
+<p><em>  public void print()</em><br><em>  {</em><br><em>    System.out.print(" x = " + x + "   y = " + y );</em><br><em>  }</em><br><em>}</em><br>
+ </p>
+<p><em>class introInterfaces</em><br><em>{</em><br><em>  public static void main(String args[])</em><br><em>  {</em><br><em>    Point p1;</em><br><em>    p1 = new Point();</em><br><em>    Point p2 = new Point(2.2, 0.44);</em></p>
+<p><em>    System.out.print("\n p1: ");</em><br><em>    p1.print();</em><br><em>    System.out.print("\n p2: ");</em><br><em>    p2.print();</em><br><em>    System.out.println();</em><br><em>  }</em><br><em>}</em></p>
+</blockquote>
+<p><br><strong><em>Output:</em></strong></p>
+<blockquote>
+<p><em> p1:  x = 100.0   y = 100.0</em><br><em> p2:  x = 2.2   y = 0.44</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="7" name="7"></a>7. Nested Classes and Nested Interfaces</h2>
+<p>A nested class is a class defined within another class. Similarly Java® allows nested interfaces, i.e. interfaces which are members of another interface.</p>
+<p>The simplest nested class is a static nested class which is a class with a name provided inside another class with the specifier static used at its declaration. Since it is a member of the class the access level can be set using the access specifiers. Outside the class someone refers to the nested class by the name of the class in which it is nesting followed by a dot and the name of the nested class.</p>
+<p>A non-static nested class is called an inner class and it is associated with a particular instance of the class rather than the entire class. When an object of an inner class is created an enclosing object, of the "outer" class is, in general, associated with that object. Inner classes cannot have static members. A local inner class is an inner class that is not a member of a class but it is defined in a function of a class and, therefore, it is local to the function.</p>
+<p>A nested class, non-static nested or inner class, can use any member of its enclosing class without the need for qualification and with access to all members, including the private ones. However, a static nested class can access only the static members of the enclosing class, since it is not associated with any particular object.</p>
+<p>In some cases, e.g. handling AWT events, there is no reason for naming an inner class. In those cases, an anonymous class is preferable to be used if the class is only for a single use. An anonymous class is an inner class without a name that is defined at the point where it is needed rather somewhere within the class with a name.</p>
+<p>Nested interfaces can only be static since an interface cannot have an implementation.</p>
+<h2 class="subhead">8. <a id="8" name="8"></a>Garbage Collection</h2>
+<p>Java® provides a <em>garbage collector</em> which takes care of dynamic memory deallocation. As soon as Java® objects become unreferrenced the corresponding memory may automatically reclaim it. The garbage collector periodically destroys any unused object in dynamic memory, typically only when running out of memory. In Java® there is no need of explicit dynamic memory release and, therefore, the danger of memory leak is reduced.</p>
+<p>A mark-sweep algorithm is used by the garbage collector. First, the dynamic memory is scanned for referenced objects and then all remaining objects are treated as garbage. Any object that is not referenced in any way is eligible for garbage collection. An object that is only referenced by objects that are also unreferrenced is considered unreferrenced and is eligible for garbage collection. An object is considered unreferrenced when any references that used to refer to it have changed, referring to another object or to null, or if there has been a return from a function in which the local references used to refer to the object. However, a memory leak is still possible when references are kept to objects that are no longer needed.</p>
+<p>Prior to the actual memory deallocation of memory for an object, the object's <strong>finalizer</strong>, i.e. a function named <em>finalize</em>, is invoked. This process know as finalization, allows the object to perform a cleanup of any associated system resources. It is typically used to reclaim external resources that have been allocated, e.g. to make sure that files that have been opened are properly closed. The finalize() function is inherited from the Object class and can be overridden. It is allowable to use <em>try-catch</em> in a finalize function to handle exceptions that may result from function calls within its body. In general, the last thing that a <em>finalize()</em> method should do is to call <em>super.finalize()</em> to give the superclass the chance to finalize itself, since the superclass finalize is overridden.</p>
+<p>The garbage collection may be performed at any time and in any order according to efficiency considerations of the garbage collector. However, it is possible to explicitly request finalization and garbage collection using the System.runFinalization() and System.gc() commands, respectively.</p>
+<h2 class="subhead">
+<a id="9" name="9"></a>9. Applets</h2>
+<p>An applet inherits functionalities that allow it to run in a Java®-enabled browser. Although applets do not need to implement a main method, every applet has to implement at least one of the <em>init</em>, <em>start</em>, or <em>paint</em> methods that inherits from its superclass. For AWT, the class Applet that is provided in the package java.applet of the Application Programming Interface (API) is inherited by any applet. For Swing applets the class JApplet is inherited by any applet. Class JApplet extends the AWT Applet class and implements the Accessible and RootPaneContainer interfaces.</p>
+<p>A <strong>Java® applet</strong> is based on a set of conventions and functionalities that are inherited allowing it to be executed in an appletviewer or any Java® enabled browser. An <em>html</em> file needs to be used so as to load the class from a Java® enabled browser, or using the appletviewer provided with the Java® Development Kit (JDK). The class file of an applet can be loaded and interpreted in any Java® enabled browser, or the appletviewer, using an <em>html</em> file. The <em>html</em> code is used to specify at least the location and the dimensions of the applet to be loaded. When a Java®-enabled browser, or the appletviewer, encounters an &lt;APPLET&gt; tag, it reserves a display area according to the specified width and height for the applet, loads the bytecodes for the specified subclass of <strong>Applet</strong>, then, creates an instance of that subclass. Finally, it calls the applets <em>init()</em> and <em>start()</em> methods. The execution of the applet can be customized using the options that the &lt;APPLET&gt; tag provides. When the applet needs to use a class, the browser, first,  tries to find the class on the host that's running the browser, and if it cannot find, it searches for it in the same place from where the Applet subclass bytecode came from in order to create that applet's instance.</p>
+<p>An AWT applet inherits, since it <em>extends</em> it, the <strong>Applet</strong> class provided by the java.applet package of the Java® Core API. The <strong>Applet</strong> class extends the AWT (Abstarct Window Toolkit) Panel class, which itself extends the Container class (which provides the ability to include other components and using a layout manager to control the size and position of those components). The latter extends the Component class (which provides the drawing and handling events capabilities). <em>Swing applets</em> extend the JApplet class, which is a subclass of the AWT Applet class and implements the Accessible and RootPaneContainer interfaces.</p>
+<p>As soon as an applet (i.e. an instance of an Applet subclass) is loaded, that instance of the <em>Applet</em> subclass is created, the applet initializes itself (i.e. method <em>init()</em> is called), and starts running (i.e. method <em>start()</em> is invoked). If the user leaves from the page with an applet, or icognify the window that contains an applet, the applet has the chance to stop itself. In case of returning to that page, or opening the icognified window, the applet can start itself again. Upon quitting a browser that shows an applet, or in general unloading an applet, the applet has the chance to stop itself (i.e. call the method <em>stop())</em> and do final cleanup (i.e. call the method <em>destroy()</em>).<br><br>
+It is preferable to put the code for initialization of an object of an <em>Applet</em> subclass in the <em>init()</em> method instead of using a constructor, which, in general, should be avoided. The code to be executed by an applet after its initialization should be put in the <em>start()</em> method. The code to stop that execution should be provided in the <em>stop()</em> method.</p>
+<p>The main display method of an applet is the<em>paint()</em><em> </em> method which is inherited by the <em>Panel</em> class and can be overridden. This method is invoked when the applet needs to draw itself to the screen. Method <em>update()</em> can also be overridden to improve the quality and performance of the drawing.</p>
+<p>Any Applet subclass must provide at least one of the <em>init()</em>, <em>start()</em>, and <em>paint()</em> methods.</p>
+<p>In general, due to <strong><em>security</em></strong> considerations, an applet cannot read and write files, or start any program on the host that's executing it. It, also, cannot make network connections except to the host from where it was loaded and it cannot read certain system properties. On the other hand, applets have some additional capabilities that are not available to applications. The <em>Applet</em> API enables an applet to load data files specified relative to the URL of the applet or the page in which the applet is running, force the browser to display a document, find and communicate with other applets running in the same page, play sounds, etc.</p>
+<p>Since the <em>Applet</em> class is a subclass of the <em>Panel</em> class, which provides drawing and event-handling capabilities, it is easy to create a GUI (graphical interface), or, in general, to use graphical compontents. An applet does not have to create a window to display itself in, since it can display itself within the browser window.</p>
+<p>An applet can have its own threads allowing it to create and use its own threads to perform time-consuming tasks. In most cases, a browser, in which an applet is loaded, allocates a thread, or a thread group, for the applet. The drawing methods of an applet (i.e. <em>paint()</em> and <em>update()</em>) are called from the AWT drawing thread.</p>
+<p>When implementing <strong><em>Swing</em></strong> applets, the <em>JApplet</em> class should be used instead of the <em>Applet</em> class in order to avoid problems due to mixing of <em>AWT</em> and <strong><em>Swing</em></strong> components. Similarly, when implementing Swing applications the <em>JFrame</em> should be used instead of the <em>Frame</em> class.</p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

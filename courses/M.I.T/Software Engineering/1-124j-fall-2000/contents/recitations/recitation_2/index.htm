@@ -1,0 +1,794 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Recitation 2 | Recitations | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Recitation 2" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Recitation 2" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/recitations/recitation_2">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/recitations/index.htm">Recitations</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Recitation 2
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Recitation 2
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><a id="1. Functions:" name="1"></a>
+<h2 class="subhead">These notes were prepared by <a href="mailto:komodromos@ucy.ac.cy">Petros Komodromos</a>.</h2>
+<h2 class="subhead">Contents</h2>
+<ol>
+<li><a href="#1">Functions: declarations, definitions, and, invocations</a></li>
+<li>
+<a href="#2">Inline Functions</a> </li>
+<li><a href="#3">Function Overloading</a></li>
+<li>
+<a href="#4">Recursion</a> </li>
+<li><a href="#5">Scope and Extent of Variables</a></li>
+<li><a href="#6">References</a></li>
+<li>
+<a href="#7">Pointers</a> </li>
+<li><a href="#8">Function call by value, References and Pointers</a></li>
+<li><a href="#9">Pointers to functions</a></li>
+<li><a href="#10">1-D Arrays</a></li>
+<li><a href="#11">Strings as arrays of char</a></li>
+<li><a href="#12">Arrays of pointers</a></li>
+<li><a href="#13">2-D and higher dimensions arrays</a></li>
+<li><a href="#14">Return by reference functions</a></li>
+<li><a href="#15">Dynamic memory allocation</a></li>
+<li><a href="#16">The sizeof operator</a></li>
+<li><a href="#17">Data structures</a></li>
+<li><a href="#18">Introduction to classes and objects</a></li>
+</ol>
+<p><a id="#1" name="#1">
+<h2 class="subhead">1. Functions</h2>
+</a></p>
+<p>A <strong>function</strong> is a block of code which performs specific tasks and can be called from another point of our program. After the execution of all statements of a function, control returns to the point from where the function was initially invoked, and the next executable statement is executed. With functions we can organize components of a program into sub-units using procedural abstraction. This allow us to break a complex problem into several small subproblems that can be handled easier by separate blocks of code.</p>
+<p><em><strong>main()</strong></em> is a special function that is invoked whenever the program is executed. Upon its return the execution of the program is terminated. It typically returns an <em>int</em>, which by convention is equal to zero when there are no problems. In contrast, a nonzero value indicates an error.</p>
+<p><em>The following three steps are required to use a function:</em></p>
+<p><strong>(i) Function declaration or prototype (optional):</strong> It informs the compiler that the specified function exists and that its definition appears somewhere else in one of the source code files. In particular, it specifies its name, and parameters. By providing information about certain characteristics of the function, before invocation statements, the compiler is able to make checks for possible inconsistencies in function calls.</p>
+<p>The function declaration specifies the function name, which should follow basic naming restrictions, the number and data types of the arguments to be passed to the function and the data type of the returned value. The keyword <em>void</em> is used when the function does not return a value or/and has no arguments. It is also allowable to use empty parameter list, i.e. empty parentheses, but according to the Standard C++, the return type must be explicitly specified.</p>
+<p>The name and the data type of the parameters of a function constitute the function <em>signature</em> which uniquely identifies the function.</p>
+<p>The declaration is optional if the definition appears before any function call. However, it is a good practice to always provide function declarations. They should preferably be provided in a header file, which can be included whenever it is necessary. A function can be declared multiple times in a program, and, therefore, a header file with declarations can be included several times as well.</p>
+<p>            <em>returnType functionName(param1Type param1Name, param2Type,.....);</em></p>
+<p>The return type of a function can be any data type, either built-in or user-defined. It is useful, although optional, to provide the names of the arguments for documentation purposes. A function can return a single value, which can also be a data structure, or an object, when it returns back at the invocation point. If no value is returned then the return type of the function should be defined as <em>void</em>.<br><br>
+                                    e.g:   <em>int fun1(double, int);</em><br><em>                                             void fun2( double x, double y);</em><br><em>                                             float fun3(void);</em></p>
+<p><strong>(ii) Function definition:</strong> The function definition consists of the <strong><em>function definition header</em></strong> and the <strong><em>body of the function definition</em></strong>. Although the definition header looks like the declaration, the names of the local parameters are required. Inside the function body the provided statements are executed. More specifically, a function definition consists of 4 parts:</p>
+<p>a return type</p>
+<p>a function name</p>
+<p>an argument list</p>
+<p> the function body</p>
+<p>A function declaration is similar to the header of the function definition, providing the return type, name, and parameter list of the function. The function definition must appear once, except in the case of an inline function, providing the body of the function enclosed in curly braces.</p>
+<p>When passed-by-value is used, the parameter names are associated with the values passed during function invocation, and they are actually local variables whose memory is released upon exiting the function. When a return statement is encountered control returns to the point from where the function was invoked.</p>
+<p><em>     returnType functionName(par1Type par1Name,  par2Type par2Name, .....)</em><br><em>                {</em><br><em>                     function body</em><br><em>                }</em></p>
+<p>e.g:     <em>void fun2(float x, double yy)</em><br><em>                  {</em><br><em>                     cout &lt;&lt; "\n x+y = " &lt;&lt; x+yy;</em><br><em>                  }</em><br>
+ </p>
+<p><strong>(iii) Function calling (or, function invocation):</strong> A function is invoked by writing its name followed by the appropriate arguments separated by commas and enclosed in parentheses:<br>
+   <br>
+        <em>function_name(arg1, arg2);</em></p>
+<p>If the data types of the arguments are not the same with the corresponding data types of the parameters of the function then, either an implicit conversion is done, if possible, or a compile-time error occurs. In case of an implicit conversion in which accuracy may be lost, e.g. converting a double to an int, a warning should be issued during compilation.</p>
+<p>Functions work with copies of the arguments when they are called-by-value (i.e. without using references). Upon entering the function memory is temporarily allocated in order to store the passed values. After the function has been executed, the control returns to the calling function and the values of the local variables and parameters that are called-by-value are lost, since the corresponding memory is no longer reserved. The only exception is when we deal with a static local variable.</p>
+<p><strong><em>/* Example on functions */</em></strong><br><em>    #include &lt;iostream.h&gt;</em><br><em>    #include &lt;stdio.h&gt;</em><br><em>    double get_max(double x , double y);</em><br><em>    void print_max(double x , double y);</em></p>
+<p><em>    main()</em><br><em>    {</em><br><em>      double x=11, y=22 ;</em></p>
+<p><em>      cout &lt;&lt; "\n Max = " &lt;&lt; get_max(x,y) &lt;&lt; endl;</em><br><em>      print_max(x,y);</em><br><em>    }</em></p>
+<p><em>    double get_max(double x , double y)</em><br><em>    {</em><br><em>      if(x&gt;y)</em><br><em>        return x;</em><br><em>      else</em><br><em>        return y;</em><br><em>    }</em></p>
+<p><em>    void print_max(double x , double y)</em><br><em>    {</em><br><em>      if(x&gt;y)</em><br><em>        cout &lt;&lt; " Max = " &lt;&lt; x &lt;&lt; endl;</em><br><em>     else</em><br><em>        cout &lt;&lt; " Max = " &lt;&lt; y &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><strong>Output</strong><br><em><br>
+ Max = 22</em><br><em> Max = 22</em><br>
+ <br>
+ </p>
+<h2 class="subhead">Default Arguments of a Function</h2>
+<p>Some, or all, arguments of a function can be specified and used in case only some, or no, arguments, respectively, have been provided at the function call. Whenever less than the total number of expected arguments are provided, the specified defaults values are used for the corresponding right-most arguments, i.e. the provided values by the function call are used for the left-most parameters and the remaining parameters on the right take their specified default values. Therefore, all parameters without default values must appear first in the parameter list.</p>
+<p><strong><em>/* Exaple on default arguments to a function */</em></strong><br><em>    void fun(double a=11.1, int b=22, double c=7.6);</em></p>
+<p><em>    int main(void)</em><br><em>    {</em></p>
+<p><em>      fun();</em><br><em>      fun(34.9);</em><br><em>      fun(5.6, 3);</em><br><em>      fun(12.4, 3, 19.5);</em></p>
+<p><em>      return EXIT_SUCCESS;</em><br><em>    }</em></p>
+<p><em>    void fun(double a, int b, double c)</em><br><em>    {</em><br><em>      cout &lt;&lt; " a = " &lt;&lt; a &lt;&lt; "   b = " &lt;&lt; b &lt;&lt;"   c = " &lt;&lt; c &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><strong>Output</strong><em><br>
+ a = 11.1   b = 22   c = 7.6</em><br><em> a = 34.9   b = 22   c = 7.6</em><br><em> a = 5.6    b = 3    c = 7.6</em><br><em> a = 12.4   b = 3    c = 19.5</em></p>
+<a id="2." name="2"></a>
+<h2 class="subhead">2. Inline Functions</h2>
+<p>Using functions saves memory space because all the calls to a particular function execute the same code, which is provided only once. However, there is an overhead due to the extra time required to jump to the point that the instructions of that function are provided and then return back to the invocation point. In some cases, where very small functions are used repeatedly, it may be more efficient to have the code incorporated at the point of the function call instead of actually calling the function, so as to avoid the associated overhead. <strong><em>Inline functions</em></strong> can be used for this purpose. An inline function is a regular function with a suggestion to the compiler to insert the instructions at the points where the function is called.</p>
+<p>A definition of a function as inline suggests to the compiler to expand the body of the function at all points where it is invoked. An inline function is expanded by the compiler during the compilation phase and not by the preprocessor (during macro substitutions). This is useful for very short functions which may result in a computational overhead whenever they are called. Inline functions eliminate the overhead of function calls while allowing the usage of procedural abstraction.</p>
+<p>A function is defined as inline using the keyword <strong><em>“inline”</em></strong> before its header. The <em>inline</em> directive should be specified in the function definition, rather than in its declaration.<br><br>
+e.g.:<br><em>           inline max(double x, double y)</em><br><em>                            {</em><br><em>                                     ........   //  statements</em><br><em>                            }</em></p>
+<p>The compiler may, or may not, expand the function at its invocation points to avoid this overhead. However, it is necessary that the compiler sees the function definition, and not just the declaration, before it encounters the first function call, so as to be able to expand it there.</p>
+<p>A disadvantage of inline functions is that if an inline function is modified, then all the source code files that use that function should be recompiled. This is necessary because, if the compiler follows the inline suggestion, the body of an inline function is expanded at any point where the function is called. In contrast, a non-inline function is invoked during run-time. Also, the inline function must be defined in every file that it is used, with identical definitions. an alternative way to avoid having multiple copies of the same function definition is to have the function definition in one file which can be included in all source code files that make use of the inline function.</p>
+<a id="3." name="3"></a>
+<h2 class="subhead">3. Function Overloading</h2>
+<p>C++ allows <strong><em>function overloading</em></strong>, i.e. having several functions with the same name, in the same scope, as long as they have different signatures. The compiler can distinguish which one to actually invoke based on the data types of the parameter list of each one, which should be different, and the provided arguments. The only overhead from using overloaded functions is during compilation, i.e. there is no effect during run time.</p>
+<p>The signature of a function is considered to be its name and parameters, specifically their number and data types. The return type of a function is <strong>not</strong> considered part of a function signature. When an overloaded function is called, the compiler selects the matching function among those with the same name using the data types of the provided arguments. The process in which a function is selected among a set of overloaded functions is called <strong><em>function overload resolution.</em></strong> The latter process follows certain rules based on the arguments provided at a function call. Briefly, the function overload resolution process first identifies all candidate functions, i.e. all visible functions with the same name. Candidate functions are selected based on the argument data types at the function call and considering possible conversions. Finally, the best matching function, if any, is selected among the remaining candidates based on how good the required conversions are.</p>
+<p><strong><em>/* Example on function overloading */</em></strong><br><em><br>
+    int <strong>min</strong>(const int x, const int y) ;</em><br><em>    double <strong>min</strong>(const double x, const double y) ;</em><br><em>    main()</em><br><em>    {</em><br><em>      int x,y,m;</em><br><em>      x=3;</em><br><em>      y=7;</em><br><em>      cout &lt;&lt; "\n min(x,y) = " &lt;&lt; min(x,y) &lt;&lt; endl;</em></p>
+<p><em>      double z=4.5, w=2.34 ;</em><br><em>      cout &lt;&lt; " min(z,w) = " &lt;&lt;  min(z,w) &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><em>    int <strong>min</strong>(const int x1, const int x2)</em><br><em>    {</em><br><em>      if(x1&lt;x2)</em><br><em>        return x1;</em><br><em>      else</em><br><em>        return x2;</em><br><em>    }</em></p>
+<p><em>    double <strong>min</strong>(const double x1, const double x2)</em><br><em>    {</em><br><em>      if(x1&lt;x2)</em><br><em>        return x1;</em><br><em>      else</em><br><em>        return x2;</em><br><em>    }</em></p>
+<p><strong>Output</strong><br><em><br>
+ min(x,y) = 3         </em>         // int min(const int x1, const int x2) has been called<br><em> min(z,w) = 2.34      </em>      // double min(const double x1, const double x2) has been called</p>
+<a id="4." name="4"></a>
+<h2 class="subhead">4. Recursion</h2>
+<p>An algorithm can have an iterative formulation, a recursive function, or both formulations combined. A function is said to be <strong><em>recursive</em></strong> if it calls itself. Each time that a function calls itself a new set of local variables is created. This set is independent of any other local variables created in previous calls, assuming that all calls are by value and no static local variables are used.</p>
+<p>Typically a recursive function involves a recursive call to itself with a smaller problem to solve. This is the ‘divide-and-conquer’ approach which decomposes a problem into smaller ones with similar characteristics with the original problem. A recursive function should have, at its beginning, a base case that is tested to determine whether the recursive calls should be terminated.</p>
+<p>The following two functions can be used to compute the factorial of a number. First, an iterative version is provided, followed by a recursive one.</p>
+<p>  <em>int factorialIterative(int n)           </em>     <strong>// iterative version</strong><br><em>        {</em><br><em>              int result=1;</em><br><em>              while(n&gt;1)</em><br><em>                  result *= n--;</em><br><em>             return result;</em><br><em>       }</em><br>
+ </p>
+<p><em>  int factorialRecursive(int n)                    </em> <strong>// recursive version</strong><br><em>      {</em><br><em>          if(n==0)</em><br><em>             return 1;</em><br><em>          return  n*factorial_Recursive(n-1);</em><br><em>      }</em></p>
+<a id="5" name="5"></a>
+<h2 class="subhead">5. Scope and Extent of Variables</h2>
+<p>The <strong><em>scope</em></strong> of a variable is where in the program the variable is accessible and therefore it can be used, i.e. the scope defines where the variable can be used, or assigned. In general, variables are accessible only in the block in which they are declared. In C++ there are 3 different scopes: the <em>local</em> scope, the <em>namespace</em> scope, and the <em>class</em> scope.</p>
+<p>A variable defined inside a function is a <strong><em>local (or automatic) variable</em></strong>. The scope of a variable that is defined in a compound block inside a function is limited inside that block. Local scopes can be nested. However, the parameters of a function have local scope and cannot be redeclared inside the function's local scope, or inside any other nested local scopes in the function.</p>
+<p>An entity that is defined outside any function or class definition has a namespace scope. User-defined namespaces can be defined using namespace definition, as we will see in a later recitation. For now we will consider only the global scope, which is a specific case of the namespace scope. In particular, the <em>global</em> <em>scope</em> is the outermost scope of a program. A <strong><em>global variable</em></strong> (or function) is a variable defined outside of all functions.</p>
+<p>The <strong>scope</strong> of a global variable is <strong><em>universal,</em></strong> since it is accessible by all statements after its declaration or definition. In contrast, the scope of a local variable is <strong><em>local</em></strong> since it is accessible only inside the function in which it has been declared.</p>
+<p>A global entity (i.e. variable, object, function) can be declared several times in the source-code files of program, while only one definition can appear. The only exception is inline functions that can have several definitions, identical however, one at each source code file. A global variable can be declared many times using the keyword <em>extern</em> to indicate that somewhere else (in another source code file) that variable is defined. Only one variable definition must be provided and it is only then that memory is allocated for the variable. If a global variable is not initialized at its definition it is automatically initialized to zero.</p>
+<p>In addition, in C++, the user defined data types (classes) allow us to specify certain permissions for the access of data members of the objects we define using the classes we develop.</p>
+<p>The <strong><em>extent</em></strong> or lifetime of a variable is the duration for which memory is reserved for it. The memory allocated for parameters and local variables is in general reclaimed upon returning from the function, and therefore, they have <strong><em>dynamic extent</em></strong>. In contrast, the global variables have <strong><em>static extent</em></strong> since the memory allocated for them is never reallocated. Local variables can also have static extent if the keyword static is used when they are defined.</p>
+<p>There are 4 <strong>storage classes:</strong></p>
+<p><strong>Automatic:</strong> Local variables, or objects, are local variables with dynamic extent, unless they have been defined as static. Memory is allocated for automatic variables and objects from the run-time stack upon entering the function and is automatically deallocated, i.e. released, upon exiting the function. If an automatic variable is not initialized then its value is unspecified since the allocated memory contains random information.<br>
+ </p>
+<p><strong>Externa<u>l:</u></strong> Global variables which, unless they have been defined as static, are accessible from any part of the code, i.e. in any file as long as either the global variable definition (and this can occur only once), or a declaration using the keyword extern (this can occur several times) is provided.<br>
+ </p>
+<p><strong>Static:</strong> Both local and global variables can be defined static using the static keyword. However, static local and static global variables are different.<br><br><strong><em>Static local variables</em></strong> are initialized once, have extent, i.e. lifetime, throughout the program, but their scope, i.e. visibility, is limited to the function in which they are defined. Defining a local variable as static results in having static extent for that variable, i.e. the allocated memory for that variable is reserved until the termination of the program. Memory for a static local variable is allocated only once at the first time the function is entered and the memory with the currently stored value is retained and can be used during the next entry. An uninitialized static local variable is by default initialized to zero.<br><strong><em><br>
+Static global variables</em></strong>, or functions, are global variables, or functions, that are not accessible outside the file they are defined, i.e. their use is restricted only within the file they are defined.<br>
+ </p>
+<p><strong>Register:</strong> This storage class is similar with automatic with the only difference that it is suggested to the compiler to keep these particular variables in some registers in CPU so as to save time when these variables are frequently used, e.g. frequently used variable in a loop. An automatic variable can be declared to have register storage using the register keyword, e.g.: <em>register int i;</em></p>
+<p><strong>Access of variables:</strong> A name resolution process determines, during compile time, to which particular entity, i.e. location in memory, a particular name (of a variable, function, object, etc.) refers, considering the provided name and the scope in which it is used.</p>
+<p><em> </em> Global Variables:<em>     variableName  </em> or <em>   :: variableName</em><br><em> </em> Local Variables: <em>      variableName</em><br><em> </em> Object Member Variables: <em>  object.variableName</em> or<em>   point_obj -&gt; variableName</em><br><em>                                                                    </em> or<em>            this -&gt; variableName</em></p>
+<p>If inside a function a local variable has the same name with a global variable, then the local variable hides the global. In C++ we can access the global variable using the <em>scope resolution operator</em> <em>::var,</em> access the global <em>var</em> variable.</p>
+<p><strong><em>    /* Example on scope and extent of variables */</em></strong><br><em>    #include &lt;iostream.h&gt;</em><br><em>    extern double  y;               //  external variable (defined in another file)</em><br><em>    static double x=25.5;      //  static global variable</em><br><em>    void fun(double x);</em></p>
+<p><em>    int main()</em><br><em>    {</em><br><em>      int x=3;                                 // local variable</em><br><em>      fun(x);</em><br><em>      fun(::x);</em><br><em>      fun(x);</em><br><em>    }</em></p>
+<p><em>    static void fun(double x)</em><br><em>    {</em><br><em>      static int s=0;             //  static local variable</em><br><em>      int n=0;                    //  automatic (dynamic local) variable</em></p>
+<p><em>      cout &lt;&lt; " n = " &lt;&lt; n &lt;&lt; "\t s =" &lt;&lt; s</em><br><em>             &lt;&lt;  "\t x = " &lt;&lt; x &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><strong>Output</strong><br><em><br>
+ n = 0   s =0       x = 3</em><br><em> n = 0   s =0       x = 25.5</em><br><em> n = 0   s =0       x = 3</em></p>
+<a id="6." name="6"></a>
+<h2 class="subhead">6. References</h2>
+<p>A <strong><em>reference</em></strong> serves as an alias (i.e. a nickname) for the variable or object with which it has been initialized. A reference is defined using an address-of operator (&amp;) after the data type. References are typically used when a function is called, as an alternative to pointers, in order to be able to work on the actual variables that are used as arguments when calling the function, rather than with their values.</p>
+<p>When a parameter of a function is defined to be a reference then that variable is said to be <strong><em>passed-by-reference</em></strong>, rather than by value. Since all operations on a reference are actually applied to the variable that it refers, the only way to assign a variable to a reference is during its definition, i.e. a reference is assigned a variable to which it refers during its definition. It is also possible to have a reference to a pointer as shown in the following section example.</p>
+<p> e.g:             <em>double x=15.75, &amp;rx= x;</em>       //   <em>rx</em> is a reference to a double<br>
+                    <em>rx += 20;       </em>                           //   x becomes equal to 35.75</p>
+<h2 class="subhead">
+<a id="7" name="7"></a>7. Pointers</h2>
+<p>A <strong><em>Pointer</em></strong> variable is used to hold an memory location address. Every pointer has an associated data type that specifies the data type of the variable, or, in general, object, to which the pointer can point. Since pointers are variables that are used to store addresses of other variables, they must be defined before being used. A pointer is declared as a pointer to a particular type using the <em>dereference operator</em> (*) between the data type and the name of the pointer. Using the address stored by the pointer, the variable stored in that address can be indirectly manipulated.</p>
+<p>e.g.:     <em>double *px, *py, x, z *pz ;           int  j, *pj, k ;</em></p>
+<p>The memory storage allocated for a pointer is the size necessary to hold a memory address (usually an <em>int</em>). The address of a variable (i.e. the location in memory where it is stored) can be obtained using the <em>address-of operator</em> (&amp;), e.g. <em>&amp;x</em> gives the address (i.e. the memory location) where the variable (here <em>x</em>) is stored. A pointer can be assigned the value 0 or NULL to indicate that it points nowhere. However, it is not allowed to assign to a pointer an address that is used to store a different data type variable.</p>
+<p>The address of a variable is stored in a pointer using the address-of operator, by an assignment such as: px =&amp;x;. The value which is stored in an address pointed to by a pointer can be accessed using the <em>dereference operator</em> (*). The value of a pointer is the address that it points to. Dereferencing a pointer gives the value which is stored at the memory location stored as the value of the pointer.</p>
+<p> e.g.   <em>    double *px, x;</em><br><em>              px = &amp;x ;</em><br><em>             *px = 25.5 ;    </em> // this is equivalent to assigning x=25.5</p>
+<p>Pointers can be used in arithmetic, assignment, and comparison expressions. An integral value can be added to, or subtracted from, a pointer. According to the rules of <strong><em>pointer arithmetic</em></strong>, when adding (or subtracting) a value from a pointer, the new address memory that is assigned to the pointer is equal to the current memory address plus (or minus) the amount of memory required to store that particular data type whose address is stored by the pointer times the value that is added (or subtracted). A pointer can be incremented, decremented, or subtracted from another pointer. However, two pointers cannot be added, and, pointer multiplication and division are not allowed.</p>
+<p>A special pointer that can be used to store any type of pointer is called a <em>pointer-to-void</em>, and can be defined using the keyword <em>void</em> as the data type. However, no actual manipulation of the contents of the address pointed to by a pointer to void can be performed directly. Since a pointer-to-void does not provide any data type information concerning the data stored in the memory at which it points, an explicit cast is required to specify the data type of the data stored there.</p>
+<p>      <em>double x=10.75, *px=&amp;x;</em><br><em>      void *vp = &amp;x;</em></p>
+<p><em>      cout &lt;&lt; "\n x = " &lt;&lt; x ;</em><br><em>      cout &lt;&lt; "\n *px = " &lt;&lt; *px ;</em><br><em>      //  cout &lt;&lt; "\n *vp = " &lt;&lt; *vp ;                                      </em> //    &lt;-------   Wrong!<br><em>      cout &lt;&lt; "\n *vp = " &lt;&lt; *(static_cast &lt;double*&gt;(vp)) ;  </em> // ok</p>
+<p>The following example demonstrates the use of both references and pointers:</p>
+<p><strong><em>    /* Example on references and pointers*/</em></strong><br><em>    #include &lt;iostream.h&gt;</em><br><em>    #include &lt;stdlib.h&gt;</em></p>
+<p><em>    int main(void)</em><br><em>    {</em><br><em>      int i=5,  &amp;ri = i ;              //  integer and reference to an integer</em><br><em>      double x=24.5, *px=&amp;x, *&amp;rpx=px; // double, pointer and a reference to pointer to a double</em></p>
+<p><em>      ri++;</em><br><em>     *px += 100;</em><br><em>      *rpx += 1000;</em></p>
+<p><em>      cout &lt;&lt; "\n i = " &lt;&lt; i &lt;&lt; "\t ri = " &lt;&lt; ri;</em><br><em>      cout &lt;&lt; "\n x = " &lt;&lt; x &lt;&lt; "\t *px = " &lt;&lt; *px</em><br><em>             &lt;&lt; "\t *rpx = " &lt;&lt; *rpx  &lt;&lt; endl;</em></p>
+<p><em>      return EXIT_SUCCESS;</em><br><em>    }</em><br>
+ </p>
+<p><strong>Output</strong><br><em><br>
+ i = 6   ri = 6</em><br><em> x = 1124.5      *px = 1124.5    *rpx = 1124.5</em></p>
+<a id="8." name="8"></a>
+<h2 class="subhead">8. Function Call by Value, by Reference and Using Pointers</h2>
+<p>Pointers and references provide ways to overcome the problems associated with the call-by-value. Often we need to change the values of variables within a function call and this is impossible using directly the <em>call-by-value</em> which passes only copies of the values of the provided parameters. These copies are lost upon exiting the function and only one value can be returned by the function. In addition, large user-defined objects are often passed as arguments to a function. In those cases, using <em>call-by-value</em> requires memory allocation and copying of the passing arguments to the corresponding parameters which can be too costly both in computational time and memory space. Finally, in some cases, we may need to return more than one value from a function.</p>
+<p>Therefore, in many cases calling a function by-value does not help much. There are two alternative approaches, either using a <em>call-by-reference</em>, or sending with <em>call-by-value</em> the address of the objects that we want to pass as arguments and operate on them indirectly using pointers.</p>
+<p>We can change variables in the function by passing them by reference in which case the local variables are aliases to the actual variable. To pass an argument by reference we need to declare this by using an <em>address-of-operator</em> (<strong>&amp;</strong>) after the data type of the passing by reference argument. The function is then <strong><em>called by reference</em></strong>. When an argument is sent by reference, it means that an alias to the argument is used in the function to access the actual variable in the calling function. Then, all changes that take place are actually done on the variable that is used as an argument when the function was invoked. A reference serves as an alias for the object with which the function was called and is initialized once upon entering the function, i.e. a parameter that serves as a reference cannot refer to different variables or objects. In cases where we want to pass a large object, that we do not want to change, by-reference, in order to save the overhead from making a local copy to the function parameter, we can define the reference to be a <em>const</em> so as to prevent any accidental modifications of it.</p>
+<p>An alternative way is to use<strong><em>pointers</em></strong> and pass the <em>address</em> of the variables which allows us to access the variables indirectly and change the values stored at those locations. This is indicated by an <strong>*</strong> operator after the data type of the argument that is passed as an address, since it is actually a pointer. Using addresses of variables as arguments to functions we can access indirectly and change the values of some variables of the calling function. In addition, memory needs to be allocated only for the pointer and not for the entire object, saving the time and space overhead of copying the arguments to the function parameters. In C++ an array is always passed by a pointer to its first element, i.e. it is never passed by value</p>
+<p>The following example demonstrates the use of call by-value, by-reference and using pointers.</p>
+<p><strong><em>    /* Example for call-by-value, call-by-reference and using pointers */</em></strong><br><em>    #include &lt;iostream.h&gt;</em><br><em>    void fun(double x, double &amp;y, double *z);</em></p>
+<p><em>    int main()</em><br><em>    {</em><br><em>      double x=11.1, y=22.2, z=33.3;</em><br><em>      fun(x,y,&amp;z);</em><br><em>      cout &lt;&lt; "\n x = " &lt;&lt; x &lt;&lt; "\t y = "</em><br><em>             &lt;&lt; y &lt;&lt; "\t z = " &lt;&lt; z &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><em>    void fun(double x, double &amp;y, double *z)</em><br><em>    {</em><br><em>      x *= 2;</em><br><em>      y *= 2;        // using call by reference</em><br><em>      *z *= 2;       // using pointer to access the actual variable</em><br><em>      cout &lt;&lt; "\n x = " &lt;&lt; x &lt;&lt; "\t y = " &lt;&lt; y &lt;&lt; "\t z = " &lt;&lt; *z &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><strong>Output</strong><br><em><br>
+ x = 22.2        y = 44.4        z = 66.6</em><br><em> x = 11.1        y = 44.4        z = 66.6</em></p>
+<a id="9." name="9"></a>
+<h2 class="subhead">9. Pointers to Functions</h2>
+<p>The name of a function is actually the address of the function in memory. A pointer to a function can be used as an argument to a function to allow us to selectively invoke one out of several different functions, depending on the name of the function we use as argument. To use a pointer to a function we need to declare it in the declaration and definition of the function, i.e. specify that the function accepts as an argument a pointer to another function. A pointer to function is defined using the function’s type, which consists of its return type and parameter list. For example, the following declaration declares that the function <em>fun()</em> has 3 arguments: an <em>int</em>, a pointer to a function that itself returns a <em>double</em> and has a <em>float</em> and an <em>int</em> as arguments, and a <em>float</em>.</p>
+<p><em>    double fun(int i, double (*f) (double, int), float);</em></p>
+<p>A function name, in general, gives a pointer to that function, although an address-of-operator can also be used to get (explicitly) the same. A pointer to a function can also be initialized, or assigned a value. When calling the function to which the pointer points to, the pointer’s name, either by itself or dereferenced, can be used.</p>
+<p>An example of a pointer to a function is presented below. The function <em>compute()</em> has 3 arguments: a pointer to a function, and 2 integers. The name of any function that returns a <em>double</em> and has two doubles as arguments can be provided in the function call of <em>compute()</em>. The provided function is then used inside the <em>compute()</em> function whenever <em>f()</em> is used.</p>
+<p><strong>    /<em>* Example of Pointers to functions */</em></strong><br><em>    #include &lt;iostream.h&gt;   // pointers to a functions</em><br><em>    double adding(double x, double y);</em><br><em>    double subtracting(double x, double y);</em><br><em>    double compute(double (*f)(double,double), int i, int j);</em></p>
+<p><em>    int main()</em><br><em>    {</em><br><em>      int x=7, y=3;</em><br><em>      cout &lt;&lt; "\n compute(adding,x,y) = " &lt;&lt; compute(adding,x,y) &lt;&lt; endl;</em><br><em>      cout &lt;&lt; " compute(subtracting,x,y) = "</em><br><em>             &lt;&lt;  compute(subtracting,x,y) &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><em>    double  compute(double (*f)(double,double), int i, int j)</em><br><em>    {</em><br><em>      return f(0.5*i,j);            // The following is equally valid:  return (*f)(0.5*i,j);</em><br><em>    }</em></p>
+<p><em>    double adding(double x, double y)</em><br><em>    {</em><br><em>      return x+y;</em><br><em>    }</em></p>
+<p><em>    double subtracting(double x, double y)</em><br><em>    {</em><br><em>      return x-y;</em><br><em>    }</em></p>
+<p><strong>Output</strong><br><em><br>
+ compute(adding,x,y) = 6.5</em><br><em> compute(subtracting,x,y) = 0.5</em></p>
+<a id="10." name="10"></a>
+<h2 class="subhead">10. 1-D Arrays</h2>
+<p>An array is used to store a set of values, or objects, of the same (either built-in or user- defined) data type, in one entity. An individual element of the array, i.e. a member of this set, can be accessed using the array’s name and an index which should be a value, or an expression, of integral type. The individual objects of an array are accessed by their position in the array using indexing with the index beginning from 0. Therefore, the last element of an n-size array has index equal to n-1. An array is defined using a pair of square brackets as shown below:</p>
+<p><em>        &lt;data_type&gt; &lt;array_name&gt; [size];</em></p>
+<p>The dimension of the array, at the array definition, must be a constant expression, i.e. to be known during compilation, except in the case in which all elements of the array are explicitly initialized at the definition. If less elements of an array are initialized, according to the provided size during definition, the remaining elements are initialized to zero, e.g.:</p>
+<p><em>         double x[5];         </em>                 // an array of 5 doubles is defined<br><em>         int y[]={ 3 , 56,  4, 6 };</em>        // an array of 4 int<br><em>         float z[6] = { 0. }; </em>                // all 6 float members are set to 0.<br><em>         int h[7]={ 13 , 26,  42 };    </em> // an array of 4 int</p>
+<p>When an array is defined, the appropriate amount of consecutive memory is allocated. Memory is also allocated for a constant pointer that is associated with the name of the array and which stores the beginning address of the memory allocated for the array. Therefore, the array name is itself a constant pointer that stores the address of the first element of the array, i.e. the address of memory where the first element is stored, e.g. <em>x</em> is equal to <em>&amp;x[0]</em>. The name of an array is a constant pointer because it cannot be assigned a different address. Since the name of an array is a pointer, an individual element of an array can be alternatively accessed using pointer arithmetic, instead of using the index notation. In essence, the index notation <em>mat[i]</em> is equivalent to <em>*(mat+i)</em>.</p>
+<p>You should be particularly careful not to exceed the range of an array since the compiler does not make such checks. However, in most cases memory is wasted when using arrays since we often allocate much more memory that we will probably ever need. Dynamic memory allocation can be used to avoid this waste of memory by allocating dynamically during execution the exact required memory, e.g.:</p>
+<p> <em>     double x[5];</em><br><em>       x[0]= 5;</em><br><em>       x[3] = x[0]+23;</em></p>
+<p><img alt="Example on references, pointers and arrays." border="0" src="../../../contents/recitations/rec2a.jpg"></p>
+<p><strong><em>  /* Example on references, pointers and arrays */</em></strong></p>
+<p><em>    #include &lt;iostream.h&gt;</em><br><em>    #include &lt;stdio.h&gt;</em></p>
+<p><em>    main()</em><br><em>    {</em><br><em>      double x=11.1 , *px;</em><br><em>      double &amp;rx = x;</em></p>
+<p><em>      cout &lt;&lt; "\n x = " &lt;&lt; x &lt;&lt; endl;</em><br><em>      cout &lt;&lt; " rx = " &lt;&lt; rx &lt;&lt; endl;</em></p>
+<p><em>      rx = 33.3;</em><br><em>      cout &lt;&lt; "\n x = " &lt;&lt; x &lt;&lt; endl;</em><br><em>      cout &lt;&lt; " rx = " &lt;&lt; rx &lt;&lt; endl;</em></p>
+<p><em>      px = &amp;x;</em></p>
+<p><em>      ios::sync_with_stdio();</em><br><em>      printf( "\n px = %p \n" , px );</em><br><em>      ios::sync_with_stdio();</em><br><em>      cout &lt;&lt; " *px = " &lt;&lt; *px &lt;&lt; endl;</em></p>
+<p><em>      *px = 44.4;</em><br><em>      cout &lt;&lt; "\n x = " &lt;&lt; x &lt;&lt; endl;</em><br><em>      cout &lt;&lt; " *px = " &lt;&lt; *px &lt;&lt; endl;</em></p>
+<p><em>      double mat[] = { 10 , 20 , 30};</em><br><em>      px = mat ;</em><br><em>      cout &lt;&lt; "\n mat[0] = " &lt;&lt; mat[0] &lt;&lt; endl;</em><br><em>      cout &lt;&lt; "\n px = " &lt;&lt; *px++ &lt;&lt; endl;</em><br><em>      cout &lt;&lt; " px = " &lt;&lt; *px &lt;&lt; endl;</em><br><em>      cout &lt;&lt; "\n px[1] = *(px+1) = " &lt;&lt; *(px+1) &lt;&lt; endl;</em><br><em>      cout &lt;&lt; " mat[2] = *(mat+2) = " &lt;&lt; *(mat+2) &lt;&lt; endl;</em><br><em>    }</em></p>
+<p><strong>Output</strong><br><em><br>
+ x = 11.1</em><br><em> rx = 11.1</em></p>
+<p><em> x = 33.3</em><br><em> rx = 33.3</em></p>
+<p><em> px = 7fffae20</em><br><em> *px = 33.3</em></p>
+<p><em> x = 44.4</em><br><em>*px = 44.4</em></p>
+<p><em> mat[0] = 10</em><br><em> px = 10</em><br><em> px = 20</em></p>
+<p><em> px[1] = *(px+1) = 30</em><br><em> mat[2] = *(mat+2) = 30</em></p>
+<a id="11." name="11"></a>
+<h2 class="subhead">11. Strings as Arrays of char</h2>
+<p>In C++ there are two string representations: the traditional way of an array of characters, and, the newer standard C++ string class. For now, we consider the former string representation.</p>
+<p>The string is stored as an array of <em>char</em> with a special character at the end <strong>’\0’</strong>, which is called the <em>terminator character</em>, since it is used to indicate the end of the string. Therefore, memory space for an extra character must be provided to be able to store the terminator character.</p>
+<p>Several library functions that can be used to manipulate strings are provided by the Standard C-library. To use them, the cstring header file, which contains their declarations, must first be included. The most commonly used are the following:</p>
+<p><em>strcpy(char str1[] , char str2[])</em>: <strong>strcpy</strong> copies the contents of <em>str2</em> (including the terminator character) into str1</p>
+<p> <em>strcmp(char str1[] , char str2[])</em>: <strong>strcmp</strong> compares the two strings alphabetically, returning zero if they are exactly the same, otherwise a nonzero value</p>
+<p> <em>strlen(char str1[])</em>: <strong>strlen</strong> counts the number of characters in the string (not including the terminator character)</p>
+<p>Although an array of strings can be initialized using the string notation (i.e. a literal enclosed in double quotes), it is not possible to assign a string to an array of char after its definition. A C-standard library need to be used to make this copying, e.g.:</p>
+<p><em>    char s1[] = "MIT" , char s2[4] ;</em><br><em>    strcpy (s2,"MIT");</em><br><em>    char str3[] = { ‘M‘ , ‘I‘ , ‘T‘ , ‘\0‘ };</em></p>
+<p>The following example demonstrates how a string can be defined, initialized or assigned a literal string, how can be modified, etc.</p>
+<p><strong><em>    /* Example for strings as arrays of char */</em></strong><br><em>    #include &lt;iostream.h&gt;</em><br><em>    #include &lt;cstring&gt;</em></p>
+<p><em>    int main(void)</em><br><em>    {</em><br><em>      char str1[] = "test" ;</em><br><em>      const char *str2 = "Test" ;</em><br><em>      char str3[50] ;</em><br>
+ </p>
+<p><em>      cout &lt;&lt; "str1 and str2 are " ;</em><br><em>      strcmp(str1,str2) ? cout &lt;&lt; "different" &lt;&lt; endl : cout &lt;&lt; "the same" &lt;&lt; endl;</em></p>
+<p><em>      cout &lt;&lt; "\n str1 = " &lt;&lt; str1 &lt;&lt; endl ;</em><br><em>      cout &lt;&lt; " str2 = " &lt;&lt; str2 &lt;&lt; endl ;</em></p>
+<p><em>      strcpy(str3,str1);</em><br><em>      strcat(str3,str2);</em></p>
+<p><em>      cout &lt;&lt; "\n str3 = " &lt;&lt; str3 &lt;&lt; endl ;</em><br><em>      str3[0] = 'T';</em><br><em>      cout &lt;&lt; " str3 = " &lt;&lt; str3 &lt;&lt; "\t length = "</em><br><em>             &lt;&lt; strlen(str3) &lt;&lt; endl ;</em><br><em>      return 1;</em><br><em>    }</em><br>
+ </p>
+<p><strong><em>Output</em></strong></p>
+<p><em>str1 and str2 are different</em></p>
+<p><em> str1 = test</em><br><em> str2 = Test</em></p>
+<p><em> str3 = testTest</em><br><em> str3 = TestTest         length = 8</em></p>
+<a id="13. Arrays of" name="12"></a>
+<h2 class="subhead">12. Arrays of Pointers</h2>
+<p>Since pointers are variables we can have arrays of pointers. Such arrays are often used to store the location in memory of a collection of data with the same type. Each element of an array of pointers is a pointer which can be used to point to a memory location.</p>
+<p>   e.g.:     <em>double *pd[100]; </em>     //   <em>pd</em> is an array of 100 pointers to doubles<br>
+              <em>char *pc[20]; </em>           //   <em>pc</em> is an array of 100 pointers to char</p>
+<h2 class="subhead">
+<a id="12_" name="13"></a>13. 2-D and Higher Dimensions Arrays</h2>
+<p>Multidimensional arrays (of any dimension) can be defined using additional brackets, one for each dimension. A multidimensional array can be initialized similarly to a 1-D array, with the option to use nested curly braces to group the data along the different dimensions (e.g. rows).</p>
+<blockquote>
+<p><em>double mat2[6][3];</em><br><em>double mat3[5][3][2];</em><br><em>double m[][] = { {3 , 6.2 , 0.5} , { 23.7 , 0.75 , 4.8 } };</em><br><em>double m[3][10] = { {4.5} , {13.7} };</em></p>
+</blockquote>
+<p>Although it is natural to think a 2-D array having a rectangular 2-D form, the elements of arrays (of any dimension) in C++ are actually stored in a contiguous memory location. The following graph shows how a 2-D array is stored. The top graph shows the virtual representation of a 2-D array, while the bottom one shows how actually it is stored in memory:</p>
+<p><img alt="Graphs showing how a 2-D array is stored." border="0" src="../../../contents/recitations/rec2b.jpg"></p>
+<p>Therefore, the following expressions are exactly equivalent to <strong>m[i][j]</strong>:</p>
+<blockquote>
+<p><strong> *(m[i]+j)</strong><br><strong>(*(m+i))[j]</strong><br><strong>*((*(m+i))+j)</strong><br><strong>*(&amp;m[0][0]+WIDTH_SIZE*i+j)</strong></p>
+</blockquote>
+<blockquote>
+<strong><em>/* Example for 2-D arrays */</em></strong><br><em>#include &lt;iostream.h&gt;</em><br><em>#include &lt;stdlib.h&gt;</em><br><em>#include &lt;iomanip.h&gt;</em><br><em>#define ROW_SIZE 4</em><br><em>#define COL_SIZE 7</em> <blockquote>
+<p><em>int main()</em><br><em>{</em><br><em>  double m[ROW_SIZE][COL_SIZE] = { { 4.5 , 0.45 } ,</em><br><em>                                     { 13.7 , 67.3 , 17.7 } , { 2.6 } };</em><br><em>  int i,j;</em></p>
+<p><em>  for(i=0;i&lt;ROW_SIZE;i++)</em><br><em>    {</em><br><em>         cout &lt;&lt; endl;</em><br><em>         for(j=0;j&lt;COL_SIZE;j++)</em><br><em>         cout &lt;&lt; "  " &lt;&lt; setw(5) &lt;&lt; m[i][j];</em><br><em>    }</em><br><em>  return EXIT_SUCCESS;</em><br><em>}</em><br>
+ <br>
+ <br>
+ </p>
+</blockquote>
+</blockquote>
+<p><strong>Output<br></strong><br><em>     4.5     0.45   0      0      0      0      0</em><br><em>   13.7   67.3   17.7  0      0      0      0</em><br><em>    2.6      0      0      0      0      0      0</em><br><em>      0      0      0      0      0      0      0</em></p>
+<a id="14. Return by reference" name="14"></a>
+<h2 class="subhead">14. Return by Reference Functions</h2>
+<p>A function can either return nothing, in which case it is declared as <em>void</em> and a return statement is optional, or return a value. In the latter case the default is to return a value by-value, i.e. a copy of the value that is returned is passed to the function from where the terminating function was called. However, there are some cases that it is preferable to <em>return a value by-reference,</em> or using pointers. For example, it may be useful to return a reference to an object or variable so as to be able to manipulate it, or it may be more efficient to pass by reference, or using a pointer, a large user-defined object to avoid the overhead due to copying it.</p>
+<p>When a function <em>returns by-reference</em>, i.e. returns a reference to a variable or object, the function call can be placed in the LHS of an assignment statement. However, a variable, or object, with local scope cannot be returned by-reference, since the memory allocated for it is released upon exiting the function.</p>
+<p>The following example shows one such a case, in which a reference to a specific element of an array is returned.</p>
+<blockquote>
+<strong><em>/* Example on return by reference */</em></strong><br><em>double &amp; fun(int i, double *x);</em><br><em>void main(void);</em>
+<p><em>void main(void)</em><br><em>{</em><br><em>  double x[10]={0};</em><br><em>  fun(3,x) = 57.6;</em><br><em>  cout &lt;&lt; "\n x[5] = " &lt;&lt; x[5] &lt;&lt; endl;</em><br><em>  cout &lt;&lt; "x[6] = " &lt;&lt; x[6] &lt;&lt; endl;</em><br><em>}</em></p>
+</blockquote>
+<blockquote>
+<em>double &amp; fun(int i, double *x)</em><br><em>{</em><br><em>  return x[2*i];</em><br><em>}</em>
+</blockquote>
+<p><br><strong>Output<br></strong><br><em> x[5] = 0</em><br><em> x[6] = 57.6</em></p>
+<a id="15." name="15"></a>
+<h2 class="subhead">15. Dynamic Memory Allocation</h2>
+<p>Memory can be obtained dynamically from the system, in particular from a pool of free memory named the free store (or heap), after the program has been compiled, i.e. during execution, using the <strong><em>new</em></strong> operator. This operator can be used to allocate sufficient memory for one or more variables of any data type (standard or user-defined), i.e. for a single variable, or object, or an array of variables, or objects.</p>
+<p>Memory is allocated dynamically using the operator <strong><em>new</em></strong> followed by a type specifier and in the case of an array followed by the array size inside brackets. In the case of a single variable an initial value can also be provided within parentheses. The new expression returns the address of the beginning of the allocated memory and can be stored in a pointer in order to access that memory indirectly. If the dynamic memory allocation is not successful a NULL (i.e. a 0 value) is returned by the operator <em>new</em>. The following statements allocate memory for one <em>float</em> and an <em>int</em>, and the address of that memory location is returned and then assigned to the pointer <em>pf</em> and <em>pi</em>, respectively. Dynamically allocated memory, if not explicitly initialized, is uninitialized with random contents.</p>
+<p><em>    float *pf = new float;</em> // allocate memory for a float<br><em>    int *pi = new int(37);</em> // allocate memory for an int and assign an initial value to it</p>
+<p>Similarly, the following statement allocates contiguous memory for a <em>size</em> number of doubles and then the address of the beginning of that memory is returned and assigned to the pointer pd. The size does not have to be a constant, i.e. known at compilation, but can be specified during execution of the program according to the program demands. However, there is no way to initialize the members of a dynamically allocated array.</p>
+<p><em>     double *pd = new double[size];</em></p>
+<p>In contrast, to allocate memory for an array of doubles the size must be known prior to compilation, i.e. the size should be a constant. In the following definition of an array the name of the array is a constant pointer, since it cannot point anywhere else, while in the previous example <em>pd</em> can be used to store any memory address where a double is stored.</p>
+<p><em>     double mat[50];</em></p>
+<p>Multidimensional arrays can also be dynamically allocated using a <em>new</em> expression. However, only the left-most dimension can be specified at run-time. The other dimensions need to be defined at compilation time, i.e. to have a constant size, e.g.:</p>
+<p>    <em>double (*pmat)[100] = new double [size][100];    </em> // <em>size</em> does not need to be a constant</p>
+<p>The allocation and release of memory for variables for which memory is statically allocated is done automatically by the compiler. Memory of local variables is automatically released upon exiting the function, unless they are defined as static, and that memory can be used for other purposes. However, dynamically allocated memory is not released upon exiting a function and care must be taken to avoid losing the address of that memory, resulting in a <strong><em>memory leak</em></strong>. <strong>Dynamic allocation and deallocation of memory is a programer's responsibility.</strong> When memory that is allocated dynamically is not needed any more, it should be released using the <strong><em>delete</em></strong> operator as shown in the following example which is based on the previous one:</p>
+<blockquote>
+<em>delete ps;</em><br><em>delete [] pd;</em>
+</blockquote>
+<p>The brackets are required when the pointer points to consecutive memory of a dynamically allocated array, in order to release all memory that has been allocated earlier. Only memory that has been dynamically allocated (i.e. using the new operator) can be released using the <em>delete</em> operator.</p>
+<p>Its a good practice to set the value of a dangling pointer, a pointer that refers to invalid memory, such as a pointer that was used to point to a released memory, to NULL (or 0). Then, we avoid the error of trying to read or write to an already released memory location. However, it is not wrong to apply the <em>delete</em> expression to a pointer that is set to 0, because a test is performed before actually applying the delete operator on the pointer. Therefore, there is no reason to check whether the pointer is set to 0. The delete operator should not be applied twice to the same memory location, e.g. by mistake when having two pointers store the same memory location, because it may lead to corruption of data that have already been stored after the first release of the memory.</p>
+<p>If the available memory from the program's free store is exhausted, than an exception is thrown, and as we'll see later there are ways to rationally handle such exceptions.</p>
+<h2 class="subhead">
+<a id="16" name="16"></a>16. The sizeof Operator</h2>
+<p>The <strong><em>sizeof</em></strong> operator gives the size in bytes of a variable, a built-in data type, or a user-defined data structure, or a class, it can be used to determine the number of bytes that are required to store a certain object.<br><br>
+  e.g:<br><em>         int i, mat[10];   double d; </em>      //  On an athena SGI or SUN workstation:<br>
+ <em>        sizeof(char);  </em>                         //   returns 1 (byte)<br>
+         <em>sizeof(int);  sizeof i;   </em>              //   returns 4 (bytes)<br>
+         <em>sizeof d ;  </em>                               //   returns 4<br><em>         sizeof mat;      </em>                        //   returns 40</p>
+<a id="17." name="17"></a>
+<h2 class="subhead">17. Data Structures</h2>
+<p>A <strong><em>data</em></strong> <strong><em>structure</em></strong> is very similar to a class and it is not often used in C++, since more features are provided by a class. A structure can be used to store as a single entity several different variables not necessarily of the same data type. Structures in C++ have some extra features from the structures in C, such as access restriction capabilities, member functions and operator overloading.</p>
+<p>A data structure is defined using the keyword <em>struct</em>, followed by the name of the structure and then its body where it is defined. Then, to define an instance of the data structure we can use its name directly (the <em>struct</em> keyword is not required as in C). To access a member of a data structure the dot or the arrow operator are used depending on whether we have the actual data structure instance or a pointer to it.</p>
+<p>Structures can be passed to a function as any other variable, i.e. by value, by reference, or, using pointers. Because data structures are large in size, pass by value is typically not preferred, in order to avoid the copy overhead.</p>
+<blockquote>
+<strong><em>/* Example on data structures */</em></strong><br><em>struct point</em><br><em>{</em><br><em>  double x;</em><br><em>  double y;</em><br><em>};</em><br><em>typedef struct point Point;  // the typedef is not necessary in C++</em>
+<p><em>int main()</em><br><em>{</em><br><em>  Point p;          //  p is a data structure point</em><br><em>  point *pp;               // pp is pointer to a  point data structure</em></p>
+<p><em>  p.x = 3.2;                // using the dot operator</em><br><em>  pp = &amp;p;</em><br><em>  pp -&gt; y = 7.5;            // using the arrow operator</em></p>
+<p><em>  cout &lt;&lt; "\n x = " &lt;&lt; pp-&gt;x &lt;&lt; "\t y = " &lt;&lt; (&amp;p) -&gt; y &lt;&lt; endl;</em><br><em>  struct point p2 = {4.7 , 9.2};    //   A data structure instance can be intialized using</em><br><em>  pp = &amp;p2;                             // comma separated values enclosed in curly braces</em><br><em>  cout &lt;&lt; " x = " &lt;&lt; pp-&gt;x &lt;&lt;  " y = " &lt;&lt; p2. y &lt;&lt; endl;</em><br><em>}</em></p>
+</blockquote>
+<p><strong>Output<br></strong><br><em> x = 3.2         y = 7.5</em><br><em> x = 4.7         y = 9.2</em></p>
+<p><strong>Note:</strong> The <em>typedef</em> allow us to assign a name for a specific data type, built-in or user defined, and then, use it as a type specifier. In the above example, <em>struct point p</em> and <em>Point p</em> are exactly equivalent, since the following <em>typedef</em> has been defined: <em>typedef struct point Point;</em> The <em>typedef</em> keyword is followed by a data type and an identifier that we want to specify as alias to that data type.</p>
+<a id="18." name="18"></a>
+<h2 class="subhead">18. Introduction to Classes and Objects</h2>
+<p>A <strong><em>class</em></strong> is a user defined specification that encapsulates in a single entity both data and functions that can operate on them. An object is an instance of a class and the class/object relation is similar to the built-in data type/variable relation.</p>
+<p>A class is defined using the keyword <em>class</em> followed by the name of the class. A class typically has<strong><em>data members</em></strong>, which contain the data that is stored using the class; <strong><em>member functions</em></strong>, which are functions that operate on these data; <strong><em>constructors</em></strong>, that are member functions with a name the same as the class name and are executed upon a creation of an instance of the class in order to make the proper initialization; <strong><em>destructors</em></strong>, that are used when an instance of a class goes out of scope; and many other features such as operator<strong><em>overloading</em></strong>, declarations of <strong><em>friend functions</em></strong>, etc.</p>
+<p>The following simple example demonstrates the use of a <em>Point</em> class with some of the most basic features of a class.</p>
+<blockquote>
+<strong><em>/* Example on  classes and objects */</em></strong><br><em>class Point</em><br><em>{</em><br><em>private:</em><br><em>  double x,y;</em>
+<p><em>public:</em><br><em>  Point();</em><br><em>  Point(double x, double y);</em><br><em>  void print();</em><br><em>};</em></p>
+<p><em>Point::Point()</em><br><em>{</em><br><em>  cout &lt;&lt; " In   Point() default constructor " &lt;&lt; endl ;</em><br><em>  x = 0.0 ;</em><br><em>  y = 0.0 ;</em><br><em>}</em></p>
+<p><em>Point::Point(double xx, double yy)</em><br><em>{</em><br><em>  cout &lt;&lt; " In   Point(double,double)  constructor " &lt;&lt; endl ;</em><br><em>  x = xx ;</em><br><em>  y = yy ;</em><br><em>}</em></p>
+<p><em>void Point::print()</em><br><em>{</em><br><em>  cout &lt;&lt; " (x,y) = (" &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; ")"  ;</em><br><em>}</em><br>
+ </p>
+<p><em>int main ( )</em><br><em>{</em></p>
+<p><em>  Point p1;</em><br><em>  Point p2(17,45.75);</em></p>
+<p><em>  cout &lt;&lt; "\n Point P1: " ;</em><br><em>  p1.print();</em></p>
+<p><em>  cout &lt;&lt; "\n Point P2: " ;</em><br><em>  p2.print();</em></p>
+<p><em>  return EXIT_SUCCESS ;</em><br><em>}</em></p>
+</blockquote>
+<p><br><strong>Output<br></strong><br><em> In   Point() default constructor</em><br><em> In   Point(double,double)  constructor</em></p>
+<p><em> Point P1:  (x,y) = (0,0)</em><br><em> Point P2:  (x,y) = (17,45.75)</em></p>
+<p> </p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

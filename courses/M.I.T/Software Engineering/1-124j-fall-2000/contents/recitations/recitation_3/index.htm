@@ -1,0 +1,773 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Recitation 3 | Recitations | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Recitation 3" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Recitation 3" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/recitations/recitation_3">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/recitations/index.htm">Recitations</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Recitation 3
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Recitation 3
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">These notes were prepared by <a href="mailto:komodromos@ucy.ac.cy">Petros Komodromos</a>.<br><br>
+Topics</h2>
+<ol>
+<li><a href="#1">Classes and Objects</a></li>
+<li>
+<a href="#2">Classes: member variables &amp; member functions</a> </li>
+<li><a href="#3">Classes: constructors &amp; destructor</a></li>
+<li><a href="#4">Constructor header initialization</a></li>
+<li><a href="#5">Copy constructors</a></li>
+<li>
+<a href="#6">Member variables &amp; functions protection: private, protected &amp; public</a> </li>
+<li><a href="#7">Static class data and class functions</a></li>
+<li><a href="#8">Class scope</a></li>
+<li><a href="#9">Pointers to class members</a></li>
+<li><a href="#10">Operator overloading</a></li>
+<li><a href="#11">Friend functions</a></li>
+<li><a href="#12">Type conversions</a></li>
+</ol>
+<h2 class="subhead">1<a id="1" name="1"></a>. Classes and Objects</h2>
+<p>A <strong><em>class</em></strong> is a user-defined data type with which we can define not only <em>data members</em> (or data members), but also <em>member functions</em> to manipulate these data. It is essentially an aggregate of data elements and a set of operations to manipulate them.</p>
+<p>The <strong><em>definition</em></strong> of a class consists of the <em>class head</em> (the keyword <em>class</em> and the class tag name, i.e. the class name) and the <em>class body</em> enclosed by braces { }; and terminated by a semicolon. The class body contains the member variables, and the definitions or/and declarations of the member functions. The access levels of the class members can be  specified in the class body by placing declarations in certain parts of the class body.</p>
+<p>The definition of a class should be provided in every source code files that uses the class. A class definition is allowable to appear many times in a program as long as it is identical in each case. Since the definition should be exactly the same, its preferable to have a class definition in a header files that is included whenever necessary, in order to avoid inconsistencies due to different definitions of the same class.</p>
+<p>A class <strong><em>declaration</em></strong> is the class header followed by a semicolon. It can be  used to inform the compiler that a certain class is defined somewhere in the program.</p>
+<blockquote>
+<p><em>class MyComplex;           </em> //                 Class declaration</p>
+<p><em>class MyComplex   </em> // class head      <em>         </em>      Class definition<br><em>{                       </em> // class body<br><em>public:</em><br><em>    double real;                     </em> //  member variables<br><em>    double imaginary;</em></p>
+<p><em>    MyComplex()                      </em>   // default constructor definition<br><em>      {</em><br><em>         real = 0.0 ;</em><br><em>         imaginary = 0.0;</em><br><em>      }</em></p>
+<p><em>    MyComplex(double r, double i)   </em>   // <strong>inline,</strong> since its definition is provided<br><em>       {</em><br><em>           real=r;</em><br><em>           imaginary=i;</em><br><em>       }</em></p>
+<p><em>    ~MyComplex()                     </em> //  Destructor definition<br><em>      {</em><br><em>        .......</em><br><em>      }</em></p>
+<p><em>    double get_real(void);     </em> //  Member function prototype<br><em>    void print(void);                 </em>   //  Member function prototype<br><em>    void set_real(double)          </em> //  Member function definition<br><em>       {</em><br><em>         ...............</em><br><em>       }</em><br><em>};</em></p>
+<p><em>double MyComplex:: get_real(void)   </em> // Externally defined member function<br><em>  {</em><br><em>    ..........</em><br><em>  }</em></p>
+<p><em>void MyComplex::print(void)</em><br><em>  {</em><br><em>    ..........</em><br><em>  }</em></p>
+</blockquote>
+<h2 class="subhead">Definition of an Object</h2>
+<p>An object is defined using the class’ name, in the same way a built-in data type is used to define a variable of that data type. The keyword <strong><em>class</em></strong> can optionally be used before the name of the class. Memory, sufficient to store the data members of an object, is allocated as soon as an object is defined.</p>
+<p> e.g.:</p>
+<blockquote>
+<p><em>         MyComplex x;</em><br><em>         double d;</em><br><em>         MyComplex y(3,2.5);</em><br><em>         class MyComplex t,r;</em></p>
+</blockquote>
+<p> </p>
+<h2 class="subhead">Access of an Object</h2>
+<p> </p>
+<p>A publicly declared data member, or a member function, of an object can be accessed using the <em>dot operator</em> (.)</p>
+<blockquote>
+<p>   <em>x.real = 12;</em><br><em>   y.imaginary = 2.5;</em></p>
+</blockquote>
+<p>To access a member data or function of an object using a pointer to that object, the <em>arrow operator</em> (-&gt;) can be used instead. Alternatively, the pointer can be dereferenced and then the <em>dot operator</em> can be applied on the dereferenced pointer.</p>
+<blockquote>
+<p><em>MyComplex *px ;</em><br><em>px = &amp;x ;</em><br><em>px -&gt;real =24.5;</em><br><em>(*px).real =24.5;</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="2" name="2"></a>2. Classes: Data Members and Member Functions</h2>
+<p>The class body typically contains the class data members and the member functions. It may also contain constructors, a destructor, friend function declarations, operator overloadings, etc. Data members are the variables in which the state of each instance (i.e. object) of a class is stored, while member functions are used to specify the behavior of any instance of the class.</p>
+<p><strong>Data members (or member variables)</strong> of a class are usually defined in the private part of the class definition in order to restrict access to them. Data members can be of any build-in, or user-defined, data type. A class cannot have data members of its own type, although it may have pointers or references to such data type objects.</p>
+<p>A <strong>member function</strong> is a class specific function which is declared, or defined, in the body of the class definition, and it is always associated with a certain object, i.e. a specific instance of the class, the one that has been used to call the function. A member function can be invoked using one of the class-member selector, the dot operator (.) for objects (i.e. instances of that class), or the arrow operator (-&gt;) for pointers to objects.</p>
+<blockquote>
+<p>classObject.memberFunctionName(arguments) ;<br>
+pointerToClassObject  -&gt;   memberFunctionName(arguments) ;</p>
+</blockquote>
+<p><em><br>
+  e.g., from the previous example:</em></p>
+<blockquote>
+<p><em>MyComplex x, *px ;</em><br><em>double y ;</em><br><em>y = x.get_real() ;</em><br><em>px = &amp;x;</em><br><em>px -&gt; get_real() ;</em><br><em>(*px).get_imaginary();</em></p>
+</blockquote>
+<p>Whenever a member function is called, a special parameter, named <strong>this</strong>, is implicitly used. Actually, whenever a (non-static) member function is invoked a pointer to that class type that points to the object that is used to invoke the function, is implicitly passed as an argument (behind the scenes) to the member function. The member function has an additional parameter, a pointer to that class data type, named <strong>this</strong>. The parameter <strong>“this”</strong> is a pointer to the object which was used to invoke the function. Therefore, this special parameter can be used as any other pointer to access explicitly a member variable, or function, of the object, e.g.:</p>
+<blockquote>
+<p><em>this -&gt; member_variable    </em>       or     <em>     this -&gt; member_function(....)</em></p>
+</blockquote>
+<p>Thus, the actual object with which the member function is invoked can be obtained by dereferencing this special pointer, i.e. by using *this. This special pointer can be used to resolve name conflicts, e.g. when an argument has the same name as the data members of the class. Pointer this can also be used to return the object with which the member function has been invoked. Finally, this can be used to check whether the object that was used to invoke a member function is the same with an argument passed to the member function by comparing this with the address of the object passed as parameter, e.g. when copying one object to another.</p>
+<p>Data members and member functions of a class can be accessed from inside a member function that has been invoked with a certain object of that class without the need to use the dot or the arrow operator. The object pointed by this is the one with which the member function is invoked.</p>
+<p>A member function can be <strong>overloaded</strong>, as any other regular function. The compiler uses the signature of the alternative member functions and the data type of the passed arguments to select the proper function to invoke. The constructors of a class are typically overloaded considering all possible arguments that can be used during the definition of an object of the class.</p>
+<p>An <strong>externally defined member functions</strong> can be defined outside the class, as long as its declaration has been provided in the class body. The function definition consists of the header and the body of the definition. The header is similar to the function declaration (prototype) with the only difference the specification that defines to which class the member function belongs. This is indicated by providing the class name followed by the class scope resolution operator after the return data type, i.e. before the name, of the member function.</p>
+<blockquote>
+<p><em>returnDataType    className :: memberFunctionName(arguments)</em><br><em>{</em><br><em> .........</em><br><em>}</em></p>
+</blockquote>
+<p>A member function that is defined within the body of the class definition (i.e. not externally), is automatically considered to be an inline function. Functions defined outside the class body, that are small and frequently called, can be declared as <strong>inline</strong> to save the overhead due to the function call. The declaration of a function to be inline can be done either in the function declaration inside the class body, in the header of the class definition, or both. However, the definitions of externally defined functions declared as inline should be placed into a header file that can be included in every source code file that invokes that function.</p>
+<p>Typically the member data of a class are defined in its <strong>private</strong> part which provides restrictions on the accessibility of them, by allowing only to the members of this class to access it, supporting information hiding. Most member functions are defined in the <strong>public</strong> part of the class, providing a public interface to the private part.</p>
+<p>A class may also have another class as one of its member, and the latter class is called a <strong>nested</strong> <strong>class</strong>. In general, a nested class and its enclosing class follow the usual access privileges, i.e. they do not have access to the private members of each other.</p>
+<p>Finally, a class can be defined within a function body, i.e. having a local scope. However, the members of a local class cannot be defined outside the class definition, and static members are not allowable since they require a definition outside the body of the class definition which is impossible.</p>
+<h2 class="subhead">
+<a id="3" name="3"></a>3. Classes: Constructors &amp; Destructor</h2>
+<p><strong>Constructors</strong> and <strong>destructors</strong> are special member functions that are automatically, i.e. implicitly, invoked when an object is created, i.e. when defined, or destroyed, i.e. going out of scope. It is allowable to define within curly braces values to which the member data of an object should be initialized as long as the members are public, e.g.: Point p = { 3 ,1.5}. However, with the exception of specific applications that need to initialize huge number of data members with constant values, it is preferable to use constructors to explicitly define the desired initializations while retaining the data hiding and encapsulation of C++.</p>
+<p>A <strong>constructor</strong> is automatically called whenever a new class object is created allowing the explicit initialization of the member data upon the creation of the object. The name of a constructor is the same as the name of the class. A constructor should not have a return type specified, not even void, although it does not return anything. A constructor is used for initialization, assignment of certain values, that may be implicitly passed to it as arguments, type conversion, and dynamic memory management. You may have many constructors as long as they have different signatures, i.e. with different arguments so that the compiler can distinguish among them which one to call. It is preferable to provide a default constructor, rather than let the compiler to implicitly define and use one. This is necessary when having pointers as data members, since the constructor that is implicitly employed by the compiler probably cannot do the correct dynamic memory allocation and copying.</p>
+<p>The <strong>default constructor</strong> is a constructor that does not necessarily requires arguments when it is invoked. It is called automatically whenever a new object is created without providing arguments at the definition. You can also use a constructor with parameters as the default constructor by assigning default values to its parameters, which allows its invocation without using any arguments. However, if constructors, but not a default one, are defined, it is not allowable to define an object without specifying the required arguments so as to invoke the one of the existing (and non-default) constructors. Therefore, it is preferable to always define a default constructor if any other constructor is defined.</p>
+<blockquote>
+<p><em><strong>/* Example on constructors */</strong></em></p>
+<p><em>class MyComplex</em><br><em>{</em><br><em>public:</em><br><em>  double real;</em><br><em>  double imaginary;</em></p>
+<p> </p>
+<p><em>  MyComplex()                                  </em>    // default constructor<br><em>  {</em><br><em>    real = 0.0 ;</em><br><em>    imaginary = 0.0;</em><br><em>  }</em></p>
+<p><em>  MyComplex(double real, double imaginary)</em><br><em>  {</em><br><em>    this-&gt;real = real;</em><br><em>    MyComplex::imaginary = imaginary;</em><br><em>  }</em></p>
+<p><em>  MyComplex(const MyComplex &amp;c)                    </em> // copy constructor<br><em>  {</em><br><em>    real = c.real ;</em><br><em>    imaginary = c.imaginary ;</em><br><em>  }</em><br><em>};</em></p>
+<p><em>int main()</em><br><em>{</em><br><em>  MyComplex x;</em><br><em>  cout &lt;&lt; "\n x = " &lt;&lt; x.real &lt;&lt; " + "</em><br><em>          &lt;&lt; x.imaginary &lt;&lt; " i " &lt;&lt; endl ;</em></p>
+<p><em>   x.real = 15.5;</em><br><em>   x.imaginary = 2.5;</em><br><em>   cout &lt;&lt; " x = " &lt;&lt; x.real &lt;&lt; " + "</em><br><em>           &lt;&lt; x.imaginary &lt;&lt; " i " &lt;&lt; endl ;</em></p>
+<p><em>   double r=3.3;</em><br><em>   double i=7.5;</em><br><em>   MyComplex y(r,i);</em><br><em>   cout &lt;&lt; " y = " &lt;&lt; y.real &lt;&lt; " + "</em><br><em>           &lt;&lt; y.imaginary &lt;&lt; " i " &lt;&lt; endl ;</em></p>
+<p><em>   MyComplex z(x);</em><br><em>   cout &lt;&lt; " z = " &lt;&lt; z.real &lt;&lt; " + "</em><br><em>           &lt;&lt; z.imaginary &lt;&lt; " i " &lt;&lt; endl ;</em><br><em> }</em></p>
+<p><em><strong>Output</strong><br></em><em><br>
+ x = 0 + 0 i</em><br><em> x = 15.5 + 2.5 i</em><br><em> y = 3.3 + 7.5 i</em><br><em> z = 15.5 + 2.5 i</em><br>
+ </p>
+</blockquote>
+<p>A constructor can be invoked using any of the following two forms to define an object:</p>
+<blockquote>
+<p><em>MyComplex c(7.3, 0.65);</em><br><em>MyComplex c = MyComplex(7.3, 0.65);</em></p>
+</blockquote>
+<p>Any constructor, as well as the destructor, can also be defined as inline to avoid the overhead of the function call, when it is defined outside the class. A constructor cannot be defined using the const keyword to consider the object pointed by the pointer this as constant, because the const property of an object is set after the constructor returns and the object is completely initialized.</p>
+<p>Typically, the constructors are defined in the public section of a class definition. However, in some cases a constructor may be declared as a private member to prevent the definition of an object of that class using specific data type parameters as arguments (or no arguments for the default), or to forbid, in general, the use of objects of that class.</p>
+<p>A constructor with a single parameter can serve as a conversion function, and the compiler can implicitly invoke such a constructor to convert a data type variable to the constructor’s class. To avoid the implicit use of a constructor as conversion function, we can declare an explicit conversion rule.</p>
+<p>An array of objects can be defined and initialized using the following form. With this statement an array of 3 objects is defined. Each of them is initialized using the provided values and the corresponding constructor, i.e. the MyComplex(double real, double imaginary) constructor.</p>
+<blockquote>
+<p>MyComplex mat[]= { MyComplex(3,5), MyComplex(7,1), MyComplex(2,4) };</p>
+</blockquote>
+<p>Another special member function in C++ is the <strong>destructor</strong>, which has the name of the class preceded by a tilde (~). The destructor is used for cleanup that may be required whenever an object goes out of scope and before, the memory allocated for it, is released, or, when the delete operator is used to free memory dynamically allocated for an object. The destructor is used to free resources allocated by the constructor, such as release dynamically allocated memory, close files, etc. However, many classes do not need a destructor, because no resources need to be deallocated, and no special actions need to be performed when an object is "destroyed".</p>
+<p>The destructor is automatically called whenever an object is destroyed, either because of going out of scope, or because its dynamically allocated memory is released using the delete operator. Memory dynamically allocated for an object of a class can be reallocated (i.e. release) using the <strong>delete</strong> operator which invokes the corresponding destructor. Release of dynamically allocated memory, typically allocated earlier by a constructor, is done in the destructor using the operator delete (or delete[]) in order to avoid <strong>memory leaks</strong>. To release memory dynamically allocated for an array of objects (built-in or user defined) the brackets are required to ensure that the entire memory is released and all necessary calls to the class destructor have been made. The destructor of an object can be explicitly invoked without necessarily releasing dynamically allocated memory by calling the destructor using the pointer to the object, the arrow operator and the destructor name, i.e. the class name following a tilde.</p>
+<p>It is illegal to specify a return type, including void, for the destructor of a class, as well as to specify any parameters. Therefore, there can be only one destructor per class.</p>
+<p>When a function is called passing an object by value, a temporary object with a copy of the object is created using the copy constructor and allocating temporarily memory to store the object parameter. Similarly, when an object of a class is returned by value from a function, the copy constructor is implicitly invoked to allocate the necessary memory and initialize the object's data, member according to the object returned by the function.</p>
+<h2 class="subhead">
+<a id="4" name="4"></a>4. Constructor Header Initialization</h2>
+<p>An alternative way to initialize the data members of an object is using <strong>header initialization</strong>, which is a comma separated list of data members with the desired initial values in the constructor's definition. It is also known as <strong>member initialization list</strong>. The header initialization is achieved by using a colon after the header of a constructor followed by a comma separated list of the data members to be initialized and the value to which each of them is to be initialized inside parentheses. Typically, the parameters that are passed as arguments to the constructor are used to provide values for the data members. Using a member initialization list is considered to be an initialization, while initializing the members inside the constructor’s body is considered to be an assignment.</p>
+<p>The header initialization is preferred, in cases of user defined data members considering performance, relative to assignment, since the latter involves extra calls to constructors. The use of header initialization is necessary when a constant member data must be initialized, since a const data type is not allowable to appear on the LHS of an assignment, i.e. it is illegal to initialize a const in a constructor’s body. In addition, a reference data member can also be initialized only using a member initialization list, since it cannot appear of the LHS of an assignment.</p>
+<p>The following example demonstrates the use of a constructor header initialization.</p>
+<blockquote>
+<p><em>class MyComplex</em><br><em>{</em><br><em>private:</em><br><em>  double real;</em><br><em>  double imaginary;</em></p>
+<p><em>public:</em><br><em>  MyComplex(double re=0, double im=0) <strong>: real(re), imaginary(im) {  }</strong></em><br><em>  void print(void);</em><br><em>};</em><br><em>void MyComplex::print(void)</em><br><em>{</em><br><em>   cout &lt;&lt; real &lt;&lt; " + " &lt;&lt; imaginary &lt;&lt; " i " ;</em><br><em>}</em></p>
+<p><em>int main()</em><br><em>{</em><br><em>  MyComplex x, y(7, 2.1);</em><br><em>  cout &lt;&lt; "\n x = " ;     x.print() ;</em><br><em>  cout &lt;&lt; "\n y = " ;     y.print() ;</em><br><em>}</em></p>
+<p><em><strong>Output<br></strong><br></em><em> x = 0 + 0 i</em><br><em> y = 7 + 2.1 i</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="5" name="5"></a>5. Copy Constructors</h2>
+<p>A <strong>copy constructor</strong> is a constructor with one parameter, an object of the same class of which the constructor belongs passed by reference. It is used whenever an object is explicitly initialized with another object of the same class as argument. It is also used whenever an object is passed as an argument to a function, or, when an object of the class is returned from a function by value. Finally, the copy constructor can also be used when an object is assigned using the assignment operator another object, when the assignment operator is not explicitly overloaded, or when the assignment operator is used to initialize an object at its definition.</p>
+<p>If a copy constructor is not provided a default member wise initialization takes place, which in some cases may not be the proper action, e.g. when having pointers as data members, to take.</p>
+<blockquote>
+<p><em>MyComplex(const MyComplex &amp;c)              </em> // copy constructor<br><em>  {</em><br><em>    real = c.real ;</em><br><em>    imaginary = c.imaginary ;</em><br><em>  }</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="6" name="6"></a>6. Member Variables and Functions Protection: Private, Protected, and Public</h2>
+<p>You can specify different access privileges to specific member data and functions by selectively defining them in the private, protected, or public parts of the class definition. These sections, i.e.the private, protected, and public parts, are specified using the corresponding <strong>access specifiers </strong> keywords private, protected and public.</p>
+<p>The member variables and functions declared, or defined, in the <strong>public part</strong> of a class are accessible by everywhere within the program without any limitation. Usually the member data of a class are defined in the private (or protected) part and member functions to access them are defined in the public part of the class.</p>
+<p>The member variables and functions declared, or defined, in the<strong>private part</strong> of the class definition can be accessed only by member functions defined in the same class and by friend functions of the class. Member functions declared, or defined, in the private part of the class definition, i.e. private member functions, can be invoked only by member functions of the class, or by friend functions to the class, similarly as the data members.</p>
+<p>Finally, the member variables and functions in the <strong>protected part</strong> are accessible only by member functions defined in the member class, or in subclasses of that class, and any friend functions of the class.</p>
+<p>Member functions of a class have access to variables and functions defined in any part, private, protected or public, of the class. Typically all data of a class, i.e. its member variables, are defined in its private or protected parts to restrict access to them which provides <strong>information hiding</strong>. The member functions, which represent the behavior of the class that should be accessible to the user of the class, are typically defined in its public section providing a <strong>public interface</strong> of the class.</p>
+<p>There can be any number of labeled with the access specifiers, i.e. public, protected and private, sections. The access level that is specified remains the same until a new access specifier is encountered. The default access level is private, in case no access specifier is specified.</p>
+<p>An object that is passed by reference to a member function of a class, using another object to invoke the function, can be protected against modification by declaring the corresponding parameter as const, e.g.:<br><br>
+                    MyComplex(const MyComplex &amp;c);</p>
+<p>The object that is used to invoke the member function, i.e. the object pointed by this, can be protected by declaring is as const. This is specified after the parameter list and before the body of the member function in the definition of a function, e.g.:<br>
+                   double get_real(void) const { ............  }<br>
+If the function is externally defined, it must also be specified as const after the parameter list and before the semicolon in the function declaration, e.g.:<br>
+                   double get_real(void) const;<br>
+An object declared as const is considered constant after its initialization, i.e. by a constructor, is finished and ends up when its deletion, i.e. using a destructor, starts. Therefore, constructors and destructors, which are never defined as const member functions, can be invoked by a constant object. In contrast, a non-const member function cannot be invoked by a const object.</p>
+<p>Modifying the last example by putting the member variables in the private part, we no longer have access to them from outside of the class. Therefore, we must provide functions that can read their values and functions and modify their values. With these member functions which are defined in the public part of the class definition we have indirect access to the private member data.</p>
+<blockquote>
+<p><em><strong></strong></em><em>/* Example on member variables &amp; functions protection  */</em><br><em>class MyComplex</em><br><em>{</em><br><em>private:                                                  // private part</em><br><em>  double real;</em><br><em>  double imaginary;</em></p>
+<p><em>public:                                                    // public part</em><br><em>  MyComplex()        // default constructor</em><br><em>  {</em><br><em>    real = 0.0 ;</em><br><em>    imaginary = 0.0;</em><br><em>  }</em></p>
+<p><em>  MyComplex(double r, double i) : real(r), imaginary(i)       // header intialization</em><br><em>  {</em><br><em>  }</em></p>
+<p><em>  MyComplex(const MyComplex &amp;c)            // copy constructor</em><br><em>  {</em><br><em>    real = c.real ;</em><br><em>    imaginary = c.imaginary ;</em><br><em>  }</em></p>
+<p><em>  ~MyComplex()</em><br><em>  {</em><br><em>    //    cout &lt;&lt;  "\nAn object has been detroyed" &lt;&lt; endl;</em><br><em>  }</em></p>
+<p><em>  double <strong>get_real</strong>(void) const ;</em><br><em>  double <strong>get_imaginary</strong>(void) const;</em><br><em>  void <strong>set_real(</strong>double);</em><br><em>  void <strong>set_imaginary</strong>(double);</em><br><em>};</em><br>
+ </p>
+<p><em><strong></strong></em><em>// Member functions defined outside the body of the class definition</em><br><em>double <strong>MyComplex::get_real</strong>(void) const</em><br><em>{</em><br><em>  return real;</em><br><em>}</em></p>
+<p><em>double <strong>MyComplex::get_imaginary</strong>(void) const</em><br><em>{</em><br><em>  return imaginary;</em><br><em>}</em></p>
+<p><em>void <strong>MyComplex::set_real</strong>(double real)</em><br><em>{</em><br><em>  this -&gt; real = real ;</em><br><em>}</em></p>
+<p><em>void <strong>MyComplex::set_imaginary</strong>(double im)</em><br><em>{</em><br><em>  imaginary = im;</em><br><em>}</em></p>
+<p><em>int main()</em><br><em>{</em><br><em>  MyComplex x;</em><br><em>  cout &lt;&lt; "\n x = " &lt;&lt; <strong>x.get_real</strong>()</em><br><em>       &lt;&lt; " + " &lt;&lt; <strong>x.get_imaginary</strong>()</em><br><em>       &lt;&lt; " i " &lt;&lt; endl ;</em></p>
+<p><em>   double r=3.3;</em><br><em>   double i=7.5;</em></p>
+<p><em>   MyComplex y(r,i);</em><br><em>   cout &lt;&lt; " x = " &lt;&lt; <strong>y.get_real</strong>()</em><br><em>        &lt;&lt; " + " &lt;&lt; <strong>y.get_imaginary</strong>()</em><br><em>        &lt;&lt; " i " &lt;&lt; endl ;</em><br><em>   return EXIT_SUCCESS;</em><br><em>}</em></p>
+<p><em><strong>Output<br></strong><br></em><em> x = 0 + 0 i</em><br>
+ <em>x = 3.3 + 7.5 i</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="7" name="7"></a>7. Static Class Data and Class Functions</h2>
+<p>If a data member of a class is defined using the keyword <strong>static</strong> before its data type, then memory is allocated for only one such element for the entire class, irrespectively of the number of instances (i.e. objects) of that class. The lifetime (i.e. the extent) of this static data is the entire program and there is only one such a variable shared by all objects of the class. A <strong>static class data</strong> is typically used to store information common to all objects of a class and to avoid unnecessary duplication of information.</p>
+<p>Memory space is allocated for each static class variable only once even if there are no objects of that class. Not only member data i.e. variables, but also member functions can be defined as <strong>static</strong>. The latter are used to manipulate the former. A function is declared as static in the class body, i.e. at its declaration, and not at its definition.</p>
+<p>A static class member, data or function, can be accessed using an object and the dot, operator, or a pointer to an object and the arrow operator. In addition, it can be accessed using the class name followed by the class scope resolution operator (::).</p>
+<p>Because the pointer this is not associated with function calls to a static member function, it is a compile time error to attempt to access directly non-static members of the class from a static function.</p>
+<p>The access levels and constraints of a static class member, data or function, are the same as those of non-static members. The only exception is when a static variable is initialized. Then, the access level is relaxed to allow the initialization, as shown in the following example.</p>
+<p>A static class member is defined and initialized outside the class definition, as any other non-member global variable, i.e. outside of any function. The definition of a static member should appear only once in a program and, therefore, it should not be placed in a header file.</p>
+<p>Someone could alternatively use a regular global variable to store information that refers to the entire class and not to individual objects. However, the use of static class members should be preferred since it provides all advantages of object-oriented programming, namely information hiding, data encapsulation, physical and direct correspondence and association of the specific information with the class, etc.</p>
+<p>Because there is only one instance (one copy) of a static member data of a class, a static member data can be of the same type as the class itself.</p>
+<p>The following example shows how a static class variable and function are defined and used.</p>
+<blockquote>
+<p><em><strong>/*  Example on static class data and functions */</strong><br></em><em>class Employee</em><br><em>{</em><br><em>private:</em><br><em>  char *first_name ;</em><br><em>  char *last_name ;</em><br><em>  double salary ;</em><br><em>  int social_security ;</em><br><em>  <strong>static</strong> int employeesNumber;                </em> <strong>// static class data declaration</strong></p>
+<p><em>public:</em><br><em>   Employee(char *first="None",char *last="None", double sal=0.0, int soc=0)</em><br><em>  {</em><br><em>    first_name = new char[strlen(first)+1] ;</em><br><em>    last_name = new char[strlen(last)+1] ;</em><br><em>    strcpy(first_name,first) ;</em><br><em>    strcpy(last_name,last) ;</em><br><em>    salary = sal ;</em><br><em>    social_security = soc ;</em><br><em>    employeesNumber++;</em><br><em>  }</em><br><em>   ......</em><br><em>  <strong>static</strong> void printEmployeesNumber(void);</em><br><strong>      // static class function declaration</strong><br><em>}</em></p>
+<p><em><strong>void Employee::printEmployeesNumber(void)   </strong> // static class function definition</em><br><em>{</em><br><em>  cout &lt;&lt; "\n Number of employees: " &lt;&lt;  employeesNumber;</em><br><em>}</em><br>
+ </p>
+<p><em><strong></strong></em><em>int  Employee::employeesNumber=0;</em><br><strong><em>     </em> // static class data definition and intialization</strong></p>
+<p><em>int main ( )</em><br><em>{</em><br><em>  <strong>Employee::printEmployeesNumber();</strong></em></p>
+<p><em>  Employee a;</em><br><em> <strong>a.printEmployeesNumber();</strong></em></p>
+<p><em>  char first_name[20]="Bugs";</em><br><em>  char last_name[30]="Bunny";</em><br><em>  double salary=100000 ;</em><br><em>  int social_security=103038 ;</em><br><em>  Employee b(first_name,last_name,salary,social_security);</em><br><em>  <strong>b.</strong><strong>printEmployeesNumber();</strong></em><br><em>}</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="8" name="8"></a>8. Class Scope</h2>
+<p>The member data and functions of a class are considered to belong in the corresponding class scope. Inside the <strong>class scope</strong>, in general, there is no need to specify the class that a member belongs so as to access it. The body of a class definition, the code that follows the name of an externally defined member function up to the end of the body of its definition, and the code following the name of a static member at its definition up to the semicolon are all considered to be in class scope. However, outside class scope the access operators, i.e. the dot and arrow operators, and the class scope resolution operator must be used to specify the class scope in which the member belongs.</p>
+<p>When an identifier, i.e. a variable or function name, is used in a class definition, first the declarations of the already declared members are considered, and if no member matches the name the declarations in the namespace scope (e.g. the global scope) located before the class definition are considered.  When an identifier is used in a member function of a class the resolution of the name starts with the local scope declarations, e.g. local variables and function parameters, then if nothing is found, it continues with declarations of all members of the class. Finally, if the name is still not resolved the declarations that appear in the namespace scope are also considered.</p>
+<blockquote>
+<p><em><strong>/* Example on class scope */</strong><br></em><em>class MyClass</em><br><em>{</em><br><em>public:</em><br><em>  int number;</em><br><em>};</em></p>
+<p><em>int number = 33;</em></p>
+<p><em>void main()</em><br><em>{</em><br><em>  MyClass n;</em><br><em>  n.number=22;</em><br><em>  int number = 11;</em></p>
+<p><em>  cout &lt;&lt; "\n number = " &lt;&lt; <strong>number</strong> ;</em><br><em>  cout &lt;&lt; "\n n.number = " &lt;&lt; <strong>n.number</strong> ;</em><br><em>  cout &lt;&lt; "\n ::number = " &lt;&lt; <strong>::number</strong>&lt;&lt; endl;</em><br><em>}</em></p>
+<p><em><strong>Output<br></strong><br></em><em> number = 11</em><br><em> n.number = 22</em><br><em> ::number = 33</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="9" name="9"></a>9. Pointers to Class Members</h2>
+<p>Member data can also be accessed using <strong>pointers</strong> to specific member data. To define a pointer to a member data of a class the name of the class followed by the class scope resolution operator must be used between the data type of the variable to which the pointers may point and the dereference operator (*). Then, the pointer can be assigned the address of a specific member data of the class using the address-of operator (&amp;) followed by the class name, the class scope resolution operator and the specific member data name. Having defined a pointer to a specific data member of a class, the pointer can be dereferenced and used with any instance ,i.e. object, of the class, as shown in the following example. Therefore, a specific object should be used when using a pointer to a data member.</p>
+<p>Similarly a <strong>pointer to a member function</strong> can be defined. Again it is necessary to provide the class type whose member is the function, in addition to the return type and the number and type of the parameters of the function.</p>
+<p>Note that pointers to static member data and functions should be defined as regular pointers to variables and functions, i.e. without specifying the class. No association with a specific object when accessing a member data needs to be resolved, and no this pointer is associated with static member functions calls.</p>
+<blockquote>
+<p><em><strong>/* Example on the use of pointers to class objects */</strong><br></em><em>class MyComplex {</em><br><em>public:</em><br><em>  double real, imaginary;</em><br><em>  void print()  {  cout &lt;&lt; real &lt;&lt; " + " &lt;&lt; imaginary &lt;&lt; "i ";   }</em><br><em>};</em></p>
+<p><em>void main()</em><br><em>{</em><br><em>  MyComplex x, y, *py=&amp;y ;</em><br><em>  <strong>double MyComplex:: *pd; </strong>   </em> // pointer to a double data member<br><em>  <strong>void (MyComplex::*pf)()=0;</strong><strong> </strong>  </em> // pointer to a member function</p>
+<p><em>  <strong>pd = &amp;MyComplex::real;</strong></em><br><strong><em>  x.*pd</em></strong> <em>= 1.1;</em><br><strong><em>  y.*pd</em></strong> <em>= -22.4;</em><br><strong><em>  pd = &amp;MyComplex::imaginary;</em></strong><br><em>  <strong>x.*pd</strong> = 0.3;</em><br><em>  <strong>y.*pd</strong> = 44.5;</em><br><em>  cout &lt;&lt; "\n x = " &lt;&lt; x.real &lt;&lt; " + " &lt;&lt; x.*pd &lt;&lt; " i " ;</em><br><em>  cout &lt;&lt; "\n y = " &lt;&lt; y.real &lt;&lt; " + " &lt;&lt; y.*pd &lt;&lt; " i " &lt;&lt; endl;</em></p>
+<p><em>  <strong>pf = &amp;MyComplex::print;</strong></em><br><em>  cout &lt;&lt; "\n\n x = " ;</em><br><em> <strong>  (x.*pf)();</strong></em><br><em>  cout &lt;&lt; "\n y = " ;</em><br><em>  <strong>((*py).*pf)();</strong></em><br><em>  cout &lt;&lt; "\n y = " ;</em><br><em>   <strong>(py-&gt;*pf)()</strong><strong>;</strong></em><br><em>}</em></p>
+<p><em><strong>Output:</strong><br></em><em> x = 1.1 + 0.3 i</em><br><em> y = -22.4 + 44.5 i</em></p>
+<p><em> x = 1.1 + 0.3i</em><br><em> y = -22.4 + 44.5i</em><br><em> y = -22.4 + 44.5i</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="10" name="10"></a>10. Operator Overloading</h2>
+<p>C++ allows us to define new definitions for operators to be used with user-defined data types, i.e. objects. This is feature is called <strong>operator overloading</strong> and allows us to give to normal operators additional meaning when they are applied to user defined data types.</p>
+<p>All operators can be overloaded except the following ones in double quotes: ".", ".*", "::", "?:", and "sizeof". The subscript [ ], function call ( ) and arrow access -&gt;, operators can be overloaded only as member functions. An operator overloading function needs to be either a member function of a class, or have a class object as parameter, except when the overloaded operator is new, delete, or delete[].</p>
+<p>To overload an operator we need to define a member function with the keyword <strong>operator</strong> followed by the operator that is overloaded, instead of a name for the member function. This declaration syntax informs the compiler that this member function should be called whenever the particular operator is encountered next to an object of this class as operand. A member function that is overloading an operator can also be overloaded as a function, having the same operator overloading function in several forms, as long as each of them has a unique signature, i.e. differs in its parameters from all others. The compiler distinguishes among overloaded operators by looking at the operator and the data types of its operands. The precedence and associativity of operators is retained when overloaded. It is not possible to define additional operators for the built-in data types. Also it is not possible to change the arity of an operator, e.g. use a unary operator as a binary and vice versa, unless its one of the four operators that have both a unary and a binary form, (+), (-), (*), and (&amp;).</p>
+<p>Member functions that overload operators require one less argument than the number of the operands used on the operator, since the one operand is the object whose member function is invoked, i.e. *this.</p>
+<p>The following example demonstrates the definition and use of an <strong>overloaded operator</strong>. A unary operator (++) and a binary operator (+) are defined and whenever either of these is encountered together with an object in an expression, the corresponding member function is invoked.</p>
+<blockquote>
+<p><em><strong>/* Example on operator overloading */</strong></em></p>
+</blockquote>
+<blockquote>
+<em>class MyComplex</em><br><em>{</em><br><em>  .......</em><br><em>  void <strong>operator ++</strong>(void);                           // member function declarations</em><br><em>  Complex <strong>operator +</strong>(const MyComplex &amp;c);</em><br><em>};</em>
+<p> </p>
+<p><em>void MyComplex::<strong>operator ++</strong>(void)</em><br><em>{</em><br><em>  ++real;</em><br><em>}</em><br><em>                                                         // member function definitions</em></p>
+<p><em>Complex MyComplex::<strong>operator +</strong>(const MyComplex &amp; c)</em><br><em>{</em><br><em>  MyComplex sum;</em><br><em>  sum.real = real <strong>+</strong> c.real;</em><br><em>  sum.imaginary = imaginary + c.imaginary;</em><br><em>  return sum;</em><br><em>}</em></p>
+<p><em>main()</em><br><em>         {</em><br><em>          MyComplex x,y(5,2.4);</em><br><em>          MyComplex z = <strong>++</strong>x <strong>+</strong> y;</em><br><em>        }</em></p>
+</blockquote>
+<p><br>
+Although the <strong>input and output operators</strong> are usually overloaded as <strong>friend functions</strong>, an alternative way is to define it as a non-friend operator overloading function and provide proper get and set member functions that can be called from inside the overloaded operator functions.</p>
+<blockquote>
+<p><em>ostream&amp; operator &lt;&lt; (ostream &amp;o, const MyComplex &amp;c)</em><br><em>{</em><br><em>       o &lt;&lt; c.get_real() &lt;&lt; " + " &lt;&lt; c.get_imaginary() &lt;&lt; " i " ;</em><br><em>  return o;</em><br><em>}</em></p>
+<p><em>int main()</em><br><em>             {</em><br><em>               MyComplex x;</em><br><em>                ....</em><br><em>               cout &lt;&lt; " x = " &lt;&lt; x &lt;&lt;  endl;</em><br><em>           }</em></p>
+</blockquote>
+<p><br>
+An alternative way to access an operator overloading member function is to use its actual name which consists of the keyword operator followed by the specific operator that is overloaded. For example the member function that overloaded the operators ++ and +, in the previous example can also be accessed as follows.</p>
+<blockquote>
+<p><em>int main()</em><br><em>             {</em><br><em>             MyComplex x,y(5 , 2.4);</em><br><em>             MyComplex z ;</em><br><em>             x.operator++( );</em><br><em>             z = x.operator+(y);</em><br><em>             cout &lt;&lt; "\n x = " &lt;&lt; x &lt;&lt;  " y = " &lt;&lt; y &lt;&lt;  " z = " &lt;&lt; z;</em><br><em>          }</em></p>
+</blockquote>
+<p>If no assignment operator is overloaded, a one-by-one member copy is performed by default using a compiler-provided assignment operator that is implicitly invoked. However, there are some cases in which such a "shallow" copy is not our intention, e.g. when there are pointer data members pointing to dynamically allocated memory. In those cases, an assignment operator can be used to make a "deep" copy, i.e. instead of copying pointer values, resulting in pointer data members of two objects to point to the same memory location, memory is dynamically allocated and the contents in the memory pointed by the source-object pointer is copied at the memory location pointed by the corresponding pointer of the other object (the target one).</p>
+<p>When an initialization of an object is done at its definition using an object of the same class, even if there is an assignment operator overloading available, the <strong>copy constructor</strong> is used, instead, to initialize the object.</p>
+<p>Postfix and prefix versions of <strong>increment (++) and decrement (--) operators</strong> can be overloaded. The methods that overload the postfix operators have an additional integer parameter that is used to distinguish them from the prefix versions, i.e. the postfix form is defined as binary operator with an auxiliary extra operand of type int. The prefix version can be invoked using ++x, or x.operator++(), in the operator or method form respectively. The postfix version, operator++(int), can be invoked using x++, or x.operator++(0), (any number can be used as parameter).</p>
+<p>The memory management operators <strong>new, new[], delete,</strong> or<strong>delete[],</strong> can also be overloaded to achieve specific memory management requirements. The overloaded <strong>new</strong> operator should return a type pointer to void and have its first parameter of type size_t, (size_t is a typedef defined in the header file cstddef).</p>
+<blockquote>
+<p><em>e.g:.    </em><em>void * operator new (size_t s) { ......... }</em></p>
+</blockquote>
+<p>The <strong>delete</strong> operator should return void and have a parameter of type void* which points to the memory that is to be released.</p>
+<blockquote>
+<p><em>e.g.:  </em><em>   void operator delete (void * p) { ......... }</em></p>
+</blockquote>
+<p>In both cases other parameters of any type are optional. If the new and delete operators are overloaded, they are automatically invoked every time the operators are used, instead of the provided standard ones. The global new and delete operators can still be selectively called by using the global scope resolution operator,</p>
+<blockquote>
+<p><em>e.g </em><em>MyComplex *pc = ::new MyComplex and ::delete pc.</em></p>
+</blockquote>
+<p>Similarly the array versions <strong>new[]</strong> and <strong>delete []</strong> can be overloaded and used.</p>
+<h2 class="subhead">
+<a id="11" name="11"></a>11. Friend Functions</h2>
+<p>A <strong>friend function</strong> is not a member function of a class, but a function that is granted special access privileges to all member data and functions of a class. This is achieved by declaring the function in the class body using the keyword <strong>friend</strong> which gives unlimited access to that function, even to the private part of the class. A friend declaration may appear in any section of the class definition without any effect in which, private, protected, or public, part it appears.</p>
+<p>A <strong>friend function</strong> can be a member function of another class, or even all the member functions of another class. One case where friend functions are useful is when a function needs to have access to two or more unrelated classes. In addition, friend functions allow more flexible operator overloadings, since the object of the class is passed as an argument and the function its not an object's member function.</p>
+<p>For example if we overload the + operator as a member function of MyComplex class then we can add two objects of this class c1+c2, and an object of this class and a number, e.g. c1+4.5, assuming for the latter case that a convert constructor is available to be used to convert the number to a MyComplex object. An overloaded operator of a class is considered and may be invoked only if an instance of the class (i.e. an object) appears to the left of the operator. However, the addition 4.5+c1 is not valid because operator+ is a member function of the class of c1. Using a friend function to overload the operator+ both c1+4.5 and 4.5+c1 are valid because in both cases the convertion constructor of MyComplex is invoked to convert it, if necessary, to a MyComplex object. However, in the latter case we need to provide a way to make the conversion from a double to an object of our class.</p>
+<p><strong>Input and output overloaded operators</strong> are typically defined to be friend functions in order to have access to the data members of the class.</p>
+<p>The following example shows a use of two friend functions, of which the one is overloading the input operator:</p>
+<blockquote>
+<p><em><strong>/* Example on friend functions */</strong><br></em><em>class MyComplex</em><br><em>{</em><br><em>private:</em><br><em>       double real, imaginary;</em><br><em>      ........</em><br><em>    <strong>friend</strong> void printMyComplex(const MyComplex &amp;c);</em><br><em>    <strong>friend</strong> istream&amp; operator &gt;&gt; (istream &amp;i, MyComplex &amp;c);</em><br><em>};</em></p>
+<p><em>void printMyComplex(const MyComplex &amp;c)</em><br><em>   // a friend function has unlimited access</em><br><em>{</em><br><em>   cout &lt;&lt; c.real &lt;&lt; " + " &lt;&lt; c.imaginary &lt;&lt; " i " ;</em><br><em>}</em></p>
+<p><em>istream&amp; operator &gt;&gt; (istream &amp;i, MyComplex &amp;c)</em><br><em>{</em><br><em>  cout &lt;&lt; "\n Please give the real part: " ;</em><br><em>  i &gt;&gt; c.<strong>real</strong> ;                                                // access to private members</em><br><em>  cout &lt;&lt; "\n   and the imaginary part: " ;</em><br><em>  i &gt;&gt; c.<strong>imaginary</strong> ;                                               // access to private members</em><br><em>  return i;</em><br><em>}</em></p>
+<p><em>int main()</em><br><em>{</em><br><em>  MyComplex x;</em><br><em>  cin &gt;&gt;x;</em><br><em>  printMyComplex(x) ;</em><br><em>}</em></p>
+</blockquote>
+<p>A function may be declared as friend for more than one classes. Also a member function of a class may be declared as friend for another class. In addition, a whole class, i.e. all its member functions, may be declared as friend for another class, which grants access to all member functions of the friend class to all member data and functions, even those defined in the private part, of the other class.</p>
+<blockquote>
+<p><em>class Point</em><br><em>{</em><br><em>   ........</em><br><em>   friend Design::draw();  </em> // the member function draw() of<br>
+                                           // the  Design class is declared friend<br><em>   friend Spline;       </em>    // the Spline class, i.e. all its member<br><em>};</em>                                 //  functions,  is declared friend</p>
+</blockquote>
+<p>There are cases in which overloading an operator needs to be done using a friend rather than a member function. For example, if the multiplication operator (*) is overloaded using a member function, in particular using a set of overloaded member functions with the same name to allow the multiplication with any possible data type, i.e. an int, double, a MyComplex, etc. Then, although the multiplication of a MyComplex number with a different data type value is allowable when the latter is on the right of the operator, the case of having the Mycomplex on the right is not allowable. For that case a friend function can be used as shown in the next example.</p>
+<blockquote>
+<p><em>class MyComplex</em><br><em>{</em><br><em>   .........</em><br><em>   <strong>friend</strong> MyComplex operator+(double d, const MyComplex &amp;c);</em><br><em>};</em></p>
+<p><em>MyComplex operator+(double d, const MyComplex &amp;c)</em><br><em>{</em><br><em>  MyComplex sum;</em><br><em>  sum.real = d + c.real;</em><br><em>  sum.imaginary = c.imaginary;</em><br><em>  return sum;</em><br><em>}</em></p>
+<p><em>int main()</em><br><em>             {</em><br><em>               MyComplex x(3,1.5), y;</em><br><em>               y = 17.5 + x;</em><br><em>            }</em></p>
+</blockquote>
+<h2 class="subhead">
+<a id="12" name="12"></a>12. Type Conversions</h2>
+<p><strong>Implicit type conversions</strong> are performed when different built-in data types occurred in mixed expressions. The rules that govern these conversions are specified by the language as we have seen in an earlier recitation. C++ allows the definition of <strong>conversion rules</strong> for user-defined data types that can be used when conversions from one data type to another are required.</p>
+<p>Member functions can be defined and used to achieve certain conversions when objects are used as operands to operators (either built-in or overloaded), or as arguments to functions. These functions are implicitly invoked by the compiler whenever necessary to handle conversions.</p>
+<p>Even when no explicit conversions are provided the compiler tries to use constructors that are related with the conversion that has to be performed, e.g. by assigning to a user-defined data type object of the constructor’s class a different data type. By default a constructor with one parameter may be used by the compiler for a type conversion, as a conversion function. The following example shows how a constructor is employed to make a type conversion from a built-in data type to a user defined, i.e. a class type.</p>
+<blockquote>
+<p><em><strong>/* Example on the use of a convert constructor */</strong><br></em><em>class LengthFT</em><br><em>{</em><br><em>public:</em><br><em>  int feet;</em><br><em>  double inches;</em></p>
+<p><em>  LengthFT(double d)                 <strong>// convert constructor</strong></em><br><em>  {</em><br><em>    cout &lt;&lt; "\n Using the convert constructor" ;</em><br><em>    feet = (d*100/2.54)/12;</em><br><em>    inches =  d*100/2.54 - 12*feet ;</em><br><em>  }</em><br><em>};</em></p>
+<p><em>int main()</em><br><em>{</em><br><em>  LengthFT x;</em><br><em>  double distance = 0.65;</em></p>
+<p><em>  x = (LengthFT)1.45; </em> <strong>//  Type casting (conversion) using the convert constructor</strong><br><em>  cout &lt;&lt; "\n x = " &lt;&lt; x.feet &lt;&lt; " - " &lt;&lt; setprecision(3) &lt;&lt; x.inches &lt;&lt; "'" &lt;&lt; endl;</em></p>
+<p><em>  x = distance;      </em> <strong>//  Implicit type conversion using the convert constructor</strong><br><em>  cout &lt;&lt; "\n Distance (m) = " &lt;&lt; distance &lt;&lt; endl ;</em><br><em>  cout &lt;&lt; " x = " &lt;&lt; x.feet &lt;&lt; " - " &lt;&lt; x.inches &lt;&lt; "'\n" &lt;&lt; flush;</em></p>
+<p><em>  return EXIT_SUCCESS;</em><br><em>}</em></p>
+<p><em><strong>Output<br></strong><br></em><em> Using the convert constructor</em><br><em> x = 4 - 9.09"</em></p>
+<p><em> Using the convert constructor</em><br><em> Distance (m) = 0.65</em><br><em> x = 2 - 1.59"</em></p>
+</blockquote>
+<p>In addition, operator overloading functions may also be used to handle different data types. An <strong>explicit conversion rule</strong> can be defined using a <strong>conversion function</strong>. A conversion function can be used to define how a conversion between a user-defined data type and another data type, user-defined or built-in, should be performed. A type conversion function is defined using the keyword operator followed by the data type name. Although a (converted) value is returned the function declaration and definition should not specify a return data type. Also a parameter list should not be defined. A conversion function can be invoked by an explicit cast, or when a mixed expression is encounter and conversions are necessary to be performed.</p>
+<p>The following example shows a very simple case where a conversion function is defined in the class LengthFT to convert a LengthFT object to a double (in this case considering only its real part. The class LengthFT is used to represent a length in feet-inches form and whenever appears in a mixed expression we want to convert it to a double and express the length in meters.</p>
+<blockquote>
+<p><em><strong>/* Example on conversion functions using explicit conversion*/</strong><br></em><em>class LengthFT</em><br><em>{</em><br><em>public:</em><br><em>  int feet;</em><br><em>  double inches;</em><br><em>  LengthFT(int f=0, double i=0)</em><br><em>  {</em><br><em>    feet = f;</em><br><em>    inches = i;</em><br><em>  }</em><br><em>  operator double();</em><br><em>};</em></p>
+<p><em>LengthFT::operator double()</em><br><em>{</em><br><em>  return 0.0254*(feet*12+inches);</em><br><em>}</em></p>
+<p><em>int main()</em><br><em>{</em><br><em>  LengthFT x(6,3);</em><br><em>  double distance=4.2;</em></p>
+<p><em>  cout &lt;&lt; "\n x = " &lt;&lt; x.feet &lt;&lt; " - " &lt;&lt; x.inches &lt;&lt; "'" &lt;&lt; endl;</em><br><em>  <strong>distance += x</strong>;                            </em> <strong>// the member function LengthFT::operator</strong> <em>double() is called</em><br><em>  cout &lt;&lt; " Distance [m] = " &lt;&lt; distance &lt;&lt; endl ;</em><br><em>  cout &lt;&lt; " x [m] = " &lt;&lt; <strong>x</strong> &lt;&lt; endl ;</em><br><em>                </em> <strong>     //  LengthFT::operator double() is called</strong></p>
+<p><em>  return EXIT_SUCCESS;</em><br><em>}</em></p>
+<p><em><strong>Output<br></strong><br></em><em> x = 6 - 3"</em><br><em> Distance [m] = 6.105</em><br><em> x [m] = 1.905</em></p>
+</blockquote>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

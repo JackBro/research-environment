@@ -1,0 +1,548 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Inheritance | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Inheritance" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Inheritance" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/inheritance">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Inheritance
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Inheritance
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Inheritance, Polymorphism and Virtual Functions</h2>
+<p><em>(Ref. Lippman 2.4, 17.1-17.6)</em></p>
+<p>Inheritance allows us to specialize the behavior of a class. For example, we might write a <em>Shape</em> class, which provides basic functionality for managing 2D shapes. Our <em>Shape</em> class has member variables for the centroid and area. We may then specialize the <em>Shape</em> class to provide functionality for a particular shape, such as a circle. To do this, we write a class called <em>Circle</em>, which inherits the properties and methods of <em>Shape.</em></p>
+<p><em>    class Circle : public Shape {</em><br><em>        ...</em><br><em>    };</em></p>
+<p>The <em>Circle</em> class adds a new member variable for the radius. Now, when we create a <em>Circle</em> object, it will have centroid and area variables (the <em>Shape</em> part) in addition to the radius variable (the <em>Circle</em> part). The <em>Circle</em> object can also call methods associated with class <em>Shape</em>, such as <em>get_Centroid()</em>. We refer to the <em>Shape</em> class as the base class and we refer to the <em>Circle</em> class as the derived class.</p>
+<p>Members of class <em>Shape</em> that are <em>private</em> (e.g. <em>mCentroid</em>) cannot be directly accessed from within the <em>Circle</em> class definition. However, they can be accessed indirectly through the <em>Shape</em> class's <em>public</em> interface (e.g. <em>get_Centroid()</em>). If we wish to allow class <em>Circle</em> to directly access members of class <em>Shape</em>, those members should be made <em>protected</em> (e.g. <em>mfArea</em>). To the outside world, i.e. in <em>main()</em>, <em>protected</em> members behave in exactly the same way as <em>private</em> members.</p>
+<p>It is possible to use a base class pointer to address a derived class object, e.g.</p>
+<p><em>    Circle *pc</em><br><em>    Shape *ps;</em></p>
+<p><em>    pc = new Circle();</em><br><em>    ps = pc;</em></p>
+<p>This feature is known as <em>polymorphism</em>. We can use the <em>Shape</em> pointer to access those methods of the <em>Circle</em> object that are inherited from <em>Shape.  e.g.</em></p>
+<p>    <em>ps-&gt;get_Centroid()</em></p>
+<p>The <em>Circle</em> class can also override functions that it inherits from the <em>Shape</em> class, as in the case of <em>print()</em>. To make this work, we must declare <em>print()</em> as a <em>virtual</em> function in class Shape. Then, when we use the <em>Shape</em> pointer to access the <em>print()</em> function, as in</p>
+<p>    <em>ps-&gt;print();</em></p>
+<p>we will invoke the <em>print()</em> function in the underlying <em>Circle</em> object. In the example below, we have used an array of <em>Shape</em> pointers, <em>sa,</em> to store a heterogeneous collection of <em>Circle</em> and <em>Rectangle</em> objects. In the code fragment</p>
+<p><em>    for (i = 0; i &lt; num_shapes; i++) {</em><br><em>        sa[i]-&gt;print();    // This will call either Circle::print() or Rectangle::print(), as appropriate.</em><br><em>    }</em></p>
+<p>the decision to call the <em>print()</em> function in class <em>Circle</em> or the one in class <em>Rectangle</em> must be made at run-time. The mechanism by which virtual function calls are resolved is known as <em>dynamic binding</em>.</p>
+<p>The implementation of the <em>print()</em> function in class <em>Shape</em> serves as a default implementation, which will be used if the derived class chooses not to provide an overiding implementation. It is possible, however, for the <em>Shape</em> class to require all derived classes to provide an overriding implementation, as in the case of <em>draw()</em>. The <em>draw()</em> function is known as a <em>pure virtual function</em>, because it does not have an implementation in class <em>Shape</em>. Pure virtual functions have a declaration of the form</p>
+<p><em>    virtual void draw() = 0;</em></p>
+<p>Since we have not implemented <em>draw()</em> in class <em>Shape</em>, the class is incomplete and we cannot actually create <em>Shape</em> objects. The <em>Shape</em> class is therefore said to be an <em>abstract</em> base class.</p>
+<p>We must take care when deleting the objects stored in the array of <em>Shape</em> pointers. In the code fragment</p>
+<p><em>    for (i = 0; i &lt; num_shapes; i++)</em><br><em>        delete sa[i];  // This will call either Circle::~Circle() or Rectangle::~Rectangle(), as appropriate,</em><br><em>                              // before calling Shape::~Shape().</em></p>
+<p>we have called <em>delete</em> on <em>sa[i]</em>, which is a <em>Shape</em> pointer, even though the object that it points to is really a <em>Circle</em> or a <em>Rectangle</em>. To ensure that the appropriate <em>Circle</em> or <em>Rectangle</em> destructor is called, we must make the <em>Shape</em> destructor a <em>virtual destructor</em>.<br>
+ </p>
+<p><em><strong>shape.h</strong></em></p>
+<p><em>#ifndef _SHAPE_H_</em><br><em>#define _SHAPE_H_</em></p>
+<p><em>#include &lt;iostream.h&gt;</em><br><em>#include "point.h"</em></p>
+<p><em>#ifndef DEBUG_PRINT</em><br><em>#ifdef _DEBUG</em><br><em>#define DEBUG_PRINT(str) cout &lt;&lt; str &lt;&lt; endl;</em><br><em>#else</em><br><em>#define DEBUG_PRINT(str)</em><br><em>#endif</em><br><em>#endif</em></p>
+<p><em>class Shape {</em><br><em>    // The private members of the Shape class are only accessible within</em><br><em>    // the definition of class Shape. They are not accessible within</em><br><em>    // the definitions of classes derived from the Shape class, e.g. Circle,</em><br><em>    // or within main().</em><br><em>        private:</em><br><em>    Point mCentroid;</em></p>
+<p><em>    // The protected members of the Shape class are accessible within the</em><br><em>    // definition of class Shape. They are also accessible within the</em><br><em>    // definitions of classes derived immediately from the Shape class, e.g.</em><br><em>    // Circle. However, they are not accessible within main().</em><br><em>        protected:</em><br><em>    float mfArea;</em></p>
+<p><em>    // The public members of the Shape class are accessible everywhere i.e. in</em><br><em>    // the Shape class definition, in derived class definitions and in main().</em><br><em>        public:</em><br><em>    Shape(float fX, float fY);</em><br><em>    virtual ~Shape();               // A virtual destructor.</em><br><em>    virtual void print();           // A virtual function.</em><br><em>    virtual void draw() = 0;    // A pure virtual function.</em><br><em>    const Point&amp; get_centroid() {</em><br><em>        return mCentroid;</em><br><em>    }</em><br><em>};</em></p>
+<p><em>#endif</em><br>
+ </p>
+<p><em><strong>shape.C</strong></em></p>
+<p><em>#include "shape.h"</em></p>
+<p><em>Shape::Shape(float fX, float fY) : mCentroid(fX, fY) {</em><br><em>    // We must use an initialization list to initialize mCentroid.</em><br><em>    // Here in the body of the constructor would be too late.</em><br><em>    DEBUG_PRINT("In constructor Shape::Shape(float, float)")</em><br><em>}</em></p>
+<p><em>Shape::~Shape() {</em><br><em>    DEBUG_PRINT("In destructor Shape::~Shape()")</em><br><em>}</em></p>
+<p><em>void Shape::print() {</em><br><em>    DEBUG_PRINT("In Shape::print()")</em><br><em>    cout &lt;&lt; "Centroid: ";</em><br><em>    mCentroid.print();</em><br><em>    cout &lt;&lt; "Area = " &lt;&lt; mfArea &lt;&lt; endl;</em><br><em>}</em><br>
+ </p>
+<p><em><strong>circle.h</strong></em></p>
+<p><em>#ifndef _CIRCLE_H_</em><br><em>#define _CIRCLE_H_</em></p>
+<p><em>#include "shape.h"</em></p>
+<p><em>class Circle : public Shape {</em><br><em>        private:</em><br><em>    float mfRadius;</em></p>
+<p><em>        public:</em><br><em>    Circle(float fX=0, float fY=0, float fRadius=0);</em><br><em>    ~Circle();</em><br><em>    void print();</em><br><em>    void draw();</em><br><em>};</em></p>
+<p><em>#endif</em><br>
+ </p>
+<p><em><strong>circle.C</strong></em></p>
+<p><em>#include "circle.h"</em><br><em>#define PI 3.1415926536</em></p>
+<p><em>Circle::Circle(float fX, float fY, float fRadius) : Shape(fX, fY) {</em><br><em>    // We must use an initialization list to initialize the Shape part of the Circle object.</em><br><em>    DEBUG_PRINT("In constructor Circle::Circle(float, float, float)")</em><br><em>    mfRadius = fRadius;</em><br><em>    mfArea = PI * fRadius * fRadius;  // mfArea is a protected member of class Shape.</em><br><em>}</em></p>
+<p><em>Circle::~Circle() {</em><br><em>    DEBUG_PRINT("In destructor Circle::~Circle()")</em><br><em>}</em></p>
+<p><em>void Circle::print() {</em><br><em>    DEBUG_PRINT("In Circle::print()")</em><br><em>    cout &lt;&lt; "Circle Radius: " &lt;&lt; mfRadius &lt;&lt; endl;</em></p>
+<p><em>    // If we want to print out the Shape part of the Circle object as well,</em><br><em>    // we could call the base class print function like this:</em><br><em>    Shape::print();</em><br><em>}</em></p>
+<p><em>void Circle::draw() {</em><br><em>    // Assume that this draws the circle.</em><br><em>    DEBUG_PRINT("In Circle::draw()")</em><br><em>}</em><br>
+ </p>
+<p><em><strong>rectangle.h</strong></em></p>
+<p><em>#ifndef _RECTANGLE_H_</em><br><em>#define _RECTANGLE_H_</em></p>
+<p><em>#include "shape.h"</em></p>
+<p><em>class Rectangle : public Shape {</em><br><em>        private:</em><br><em>    float mfWidth, mfHeight;</em></p>
+<p><em>        public:</em><br><em>    Rectangle(float fX=0, float fY=0, float fWidth=1, float fHeight=1);</em><br><em>    ~Rectangle();</em><br><em>    void print();</em><br><em>    void draw();</em><br><em>};</em></p>
+<p><em>#endif</em><br>
+ </p>
+<p><em><strong>rectangle.C</strong></em></p>
+<p><em>#include "rectangle.h"</em></p>
+<p><em>Rectangle::Rectangle(float fX, float fY, float fWidth, float fHeight)  : Shape(fX, fY) {</em><br><em>    // We must use an initialization list to initialize the Shape part of the Rectangle object.</em><br><em>    DEBUG_PRINT("In constructor Rectangle::Rectangle(float, float, float, float)")</em><br><em>    mfWidth = fWidth;</em><br><em>    mfHeight = fHeight;</em><br><em>    mfArea = fWidth * fHeight;  // mfArea is a protected member of class Shape.</em><br><em>}</em></p>
+<p><em>Rectangle::~Rectangle() {</em><br><em>    DEBUG_PRINT("In destructor Rectangle::~Rectangle()")</em><br><em>}</em></p>
+<p><em>void Rectangle::print() {</em><br><em>    DEBUG_PRINT("In Rectangle::print()")</em><br><em>    cout &lt;&lt; "Rectangle Width: " &lt;&lt; mfWidth &lt;&lt; " Height: " &lt;&lt; mfHeight &lt;&lt; endl;</em></p>
+<p><em>    // If we want to print out the Shape part of the Rectangle object as well,</em><br><em>    // we could call the base class print function like this:</em><br><em>    Shape::print();</em><br><em>}</em></p>
+<p><em>void Rectangle::draw() {</em><br><em>    // Assume that this draws the rectangle.</em><br><em>    DEBUG_PRINT("In Rectangle::draw()")</em><br><em>}</em><br>
+ </p>
+<p><em><strong>myprog.C</strong></em></p>
+<p><em>#include "shape.h"</em><br><em>#include "circle.h"</em><br><em>#include "rectangle.h"</em></p>
+<p><em>int main() {</em><br><em>    const int num_shapes = 5;</em><br><em>    int i;</em></p>
+<p><em>    // Create an automatic Circle object.</em><br><em>    Circle c;</em></p>
+<p><em>    // We cannot instantiate a Shape object because the Shape class has a pure virtual function</em><br><em>    // i.e. a virtual function without a definition within class Shape. Class Shape is therefore said</em><br><em>    // to be an abstract base class.</em><br><em>    // Shape s;  // This is not allowed.</em></p>
+<p><em>    // We are allowed to have Shape pointers, however.</em><br><em>    Shape *sa[num_shapes];      // Create an array of Shape pointers.</em></p>
+<p><em>    // C++ allows us to use a base class pointer to point to a derived class object. This is known</em><br><em>    // as polymorphism. We can thus store a heterogeneous collection of Circles and Rectangles</em><br><em>    // using the array of Shape pointers.</em><br><em>    sa[0] = new Circle(2,3,1);</em><br><em>    sa[1] = new Rectangle(0,2,2,3);</em><br><em>    sa[2] = new Circle(7,6,3);</em><br><em>    sa[3] = new Circle(0,2,2);</em><br><em>    sa[4] = new Rectangle(4,3,1,1);</em><br>
+ </p>
+<p><em>    // Print out all of the objects. We have made the print function virtual</em><br><em>    // in class shape. This means that it can be overridden by print functions</em><br><em>    // with a similar signature that are specific to the derived classes. If</em><br><em>    // a derived class does not provide an implementation of print, then the</em><br><em>    // Shape::print function will be called by default.</em><br><em>    for (i = 0; i &lt; num_shapes; i++) {</em><br><em>        sa[i]-&gt;print();    // This will call either Circle::print() or Rectangle::print(), as appropriate.</em><br><em>    }</em></p>
+<p><em>    // Delete the objects. Note that we have called delete on Shape pointers,</em><br><em>    // even though the objects that we created using new were derived class</em><br><em>    // objects. To ensure that the appropriate destructor for the derived</em><br><em>    // object is called, we must make the Shape destructor virtual.</em><br><em>    for (i = 0; i &lt; num_shapes; i++)</em><br><em>        delete sa[i];  // This will call either Circle::~Circle() or Rectangle::~Rectangle(), as appropriate,</em><br><em>                              // before calling Shape::~Shape().</em></p>
+<p><em>    return 0;</em><br><em>}</em></p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

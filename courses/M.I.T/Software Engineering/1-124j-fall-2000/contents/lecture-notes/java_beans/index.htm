@@ -1,0 +1,549 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Java Beans | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Java Beans" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Java Beans" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/java_beans">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Java Beans
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Java Beans
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Topics</h2>
+<ol>
+<li><a href="#Intro">Introduction</a></li>
+    <li><a href="#Bean">The BeanBox</a></li>
+    <li><a href="#Java">Creating a Java® Bean</a></li>
+    <li><a href="#Support">Support for Properties and Events</a></li>
+</ol>
+<h2 class="subhead">Related Links</h2>
+<p><a href="http://java.sun.com/docs/books/tutorial/javabeans/index.html" target="_blank">Java® Beans trail in the Java® Tutorial</a>- a good introduction to Java® Beans.<br><a href="http://olddocs.cs.cf.ac.uk/notes/html/615/node2.html" target="_blank">Java® Beans Development Kit (BDK)</a>- provides a basic development support tool (called the BeanBox) as well as several examples of Java® Bean components. This link also provides links to various commercial development environments for Java® Beans.<br><a href="http://java.sun.com/j2se/1.3/docs/api/java/beans/package-summary.html" target="_blank">Java® Beans API</a>- various interfaces, classes and exception types that you will encounter when developing Java® Beans.</p>
+<h2 class="subhead">
+<a id="Intro" name="Intro"></a>1. Introduction</h2>
+<p>A Java® Bean is a reusable software component that can be manipulated visually in an application builder tool. The idea is that one can start with a collection of such components, and quickly wire them together to form complex programs without actually writing any new code.</p>
+<p>Software components must, in general, adopt standard techniques for interacting with the rest of the world. For example, all GUI components inherit the java.awt.Component class, which means that one can rely on them to have certain standard methods like <em>paint()</em>, <em>setSize()</em>, etc. Java® Beans are not actually required to inherit a particular base class or implement a particular interface. However, they do provide support for some or all of the following key features:</p>
+<ul>
+<li>Support for <em>introspection</em>. Introspection is the process by which an application builder discovers the properties, methods and events that are associated with a Java® Bean. </li>
+    <li>Support for <em>properties</em>. These are basically member variables that control the appearance or behavior of the Java® Bean. </li>
+    <li>Support for <em>customization</em> of the appearance and behavior of a Java® Bean.</li>
+    <li>Support for <em>events</em>. This is a mechanism by which Java® Beans can communicate with one another.</li>
+    <li>Support for <em>persistent storage</em>. Persistence refers to the abilility to save the current state of an object, so that it can be restored at a later time.</li>
+</ul>
+<h2 class="subhead">
+<a id="Bean" name="Bean"></a>2. The BeanBox</h2>
+<p>This is a basic tool that Sun provides for testing Java® Beans. To run the BeanBox, your computer needs to have access to a <a href="http://www.ecst.csuchico.edu/~amk/foo/advjava/notes/beans/BDK/">BDK</a> installation. To run the BeanBox, go to the <em>beans/beanbox</em> subdirectory and then type <em>run</em>. This will bring up three windows:</p>
+<ul>
+<li>The ToolBox window gives you a palette of sample Java® Beans to choose from.</li>
+    <li>The BeanBox window is a container within which you can visually wire beans together.</li>
+    <li>The Properties window allows you to edit the properties of the currently selected Java® Bean.</li>
+</ul>
+<p>Try a simple example: choose <em>Juggler</em> bean from the ToolBox and drop an instance in the BeanBox window. Also create two instances of <em>OurButton</em>. Edit the labels of the buttons to read <em>start</em> and <em>stop</em> using the Properties window. Now wire the start button to the juggler as follows. Select the start button, then go to Edit | Events | action | actionPerformed. Connect the rubber band to the juggler. You will now see an EventTargetDialog box with a list of <em>Juggler</em> methods that could be invoked when the start button is pressed (these are the methods that either take an ActionEvent as an argument or have no arguments at all.) Choose <em>startJuggling</em> as the target method and press OK. The BeanBox now generates an adaptor class to wire the start button to the juggler. Wire the stop button to the juggler's <em>stopJuggling</em> method in a similar manner.</p>
+<p>Now that the program has been designed, you can run it within the BeanBox. Simply press the start button to start juggling and press the stop button to stop juggling. If you wish, you can turn your program into an applet by choosing File | MakeApplet in the BeanBox. This will automatically generate a complete set of files for the applet, which can be run in the appletviewer. (Do not expect current versions of Netscape® and Internet Explorer to work with this applet.)</p>
+<p>Let's take a closer look at how the BeanBox works. On start up, it scans the directory <em>beans/jars</em> for files with the .jar extension that contain Java® Beans. These beans are displayed in the ToolBox window, from where they can be selected and dropped into the BeanBox window. Next, we edited the labels of the two instances of <em>OurButton</em>. The BeanBox determined that <em>OurButton</em> has a member named <em>label</em> by looking for setter and getter methods that follow standard naming conventions called <em>design patterns</em>. If you look at the source code in <em>beans\demo\sunw\demo\buttons\OurButton.java</em>, you will see that OurButton has two methods named</p>
+<p>     <em>public void setLabel(String newLabel) {</em><br><em>         ...</em><br><em>     }</em></p>
+<p>     <em>public String getLabel() {</em><br><em>         ...</em><br><em>     }</em></p>
+<p>Design patterns are an implicit technique by which builder tools can introspect a Java® Bean. There is also an explicit technique for exposing properties, methods and events. This involves writing a bean information class, which implements the <em>BeanInfo</em> interface.</p>
+<p>When we wired the start button to the juggler, the BeanBox set up the juggler to respond to action events generated by the start button. The BeanBox again used design patterns to determine the type of events that can be generated by an <em>OurButton</em> object. The following design patterns indicate that <em>OurButton</em> is capable of firing <em>ActionEvents</em>.</p>
+<p><em>     public synchronized void addActionListener(ActionListener l) {</em><br><em>         ...</em><br><em>     }</em></p>
+<p><em>     public synchronized void removeActionListener(ActionListener l) {</em><br><em>         ...</em><br><em>     }</em></p>
+<p>By choosing Edit | Events | action | actionPerformed to connect the start button to the juggler, we were really registering an <em>ActionListener</em> with the start button. The <em>Juggler</em> bean itself is does not implement the <em>ActionListener</em> interface. Instead the BeanBox generated an event hookup adaptor, which implements <em>ActionListener</em> and simply calls the juggler's <em>startJuggling</em> method in its <em>actionPerformed</em> method:</p>
+<p><em>    // Automatically generated event hookup file.</em></p>
+<p><em>     package tmp.sunw.beanbox;</em><br><em>     import sunw.demo.juggler.Juggler;</em><br><em>     import java.awt.event.ActionListener;</em><br><em>     import java.awt.event.ActionEvent;</em></p>
+<p><em>     public class ___Hookup_1474c0159e implements</em><br><em>           java.awt.event.ActionListener, java.io.Serializable {</em></p>
+<p><em>         public void setTarget(sunw.demo.juggler.Juggler t) {</em><br><em>             target = t;</em><br><em>         }</em></p>
+<p><em>         public void actionPerformed(java.awt.event.ActionEvent arg0) {</em><br><em>             target.startJuggling(arg0);</em><br><em>         }</em></p>
+<p><em>         private sunw.demo.juggler.Juggler target;</em><br><em>    }</em></p>
+<p>A similar event hookup adaptor was generated when we wired the stop button to the juggler's <em>stopJuggling</em> method.</p>
+<p>Why not make <em>Juggler</em> implement the <em>ActionListener</em> interface directly? This is mainly a matter of convenience. Suppose that <em>Juggler</em> implemented <em>ActionListener</em> and that it was registered to receive <em>ActionEvent</em>s from both the start button and the stop button. Then the <em>Juggler</em>'s <em>actionPerformed</em> method would need to examine incoming events to determine the event source, before it could know whether to call <em>startJuggling</em> or <em>stopJuggling</em>.</p>
+<h2 class="subhead">
+<a id="Java" name="Java"></a>3. Creating a Java® Bean</h2>
+<p>This example illustrates how to create a simple Java® Bean. Java Bean classes must be made serializable so that they support persistent storage. To make use of the default serialization capabilities in Java®, the class needs to implement the <em>Serializable</em> interface or inherit a class that implements the <em>Serializable</em> interface. Note that the <em>Serializable</em> interface does not have any methods. It just serves as a flag to say that the designer has tested the class to make sure it works with default serialization. Here is the code:</p>
+<p><em><strong>    SimpleBean.java</strong></em></p>
+<p><em>    import java.awt.*;</em><br><em>    import java.io.Serializable;</em></p>
+<p><em>    public class SimpleBean extends Canvas implements Serializable {</em><br><em>        //Constructor sets inherited properties</em><br><em>        public SimpleBean() {</em><br><em>            setSize(60,40);</em><br><em>            setBackground(Color.red);</em><br><em>         }</em><br><em>    }</em></p>
+<p>Since this class extends a GUI component, <em>java.awt.Canvas</em>, it will be a visible Java® Bean. Java® Beans may also be invisible.</p>
+<p>Now the Java® Bean must be compiled and packaged into a JAR file. First run the compiler:</p>
+<p>    <em>javac SimpleBean.java</em></p>
+<p>Then create a manifest file</p>
+<p><strong>    <em>manifest.tmp</em></strong></p>
+<p>    <em>Name: SimpleBean.class</em><br><em>    Java-Bean: True</em></p>
+<p>Finally create the JAR file:</p>
+<p>    <em>jar cfmv SimpleBean.jar manifest.tmp SimpleBean.class</em></p>
+<p>The JAR file can now be placed in the <em>beans/jars</em> so that the BeanBox will find it on startup, or it can be loaded subsequently by choosing File | LoadJar.</p>
+<h2 class="subhead">
+<a id="Support" name="Support"></a>4.  Support for Properties and Events</h2>
+<p>This example builds on the SimpleBean class. It illustrates how to add customizable properties to a Java® Bean and how to generate and receive property change events.</p>
+<p><strong>    <em>SimpleBean.java</em></strong></p>
+<p>    <em>import java.awt.*;</em><br><em>    import java.io.Serializable;</em><br><em>    import java.beans.*;</em></p>
+<p><em>    public class SimpleBean extends Canvas implements Serializable,</em><br><em>        java.beans.PropertyChangeListener {</em></p>
+<p><em>        // Constructor sets inherited properties</em><br><em>        public SimpleBean() {</em><br><em>            setSize(60,40);</em><br><em>            setBackground(Color.red);</em><br><em>        }</em></p>
+<p><em>        // This section illustrates how to add customizable properties to the Java Bean.  The names</em><br><em>        // of the property setter and getter methods must follow specific design patterns that allow</em><br><em>        // the BeanBox (or builder tool) to determine the name of the property variable upon</em><br><em>        // introspection.</em></p>
+<p><em>        private Color beanColor = Color.green;</em></p>
+<p><em>        public void setBeanColor(Color newColor) {</em><br><em>            Color oldColor = beanColor;</em><br><em>            beanColor = newColor;</em><br><em>            repaint();</em></p>
+<p><em>            // This relates to bound property support (see below).</em><br><em>            changes.firePropertyChange("beanColor", oldColor, newColor);</em><br><em>        }</em></p>
+<p><em>        public Color getBeanColor() {</em><br><em>            return beanColor;</em><br><em>        }</em></p>
+<p><em>        public void paint(Graphics g) {</em><br><em>            g.setColor(beanColor);</em><br><em>            g.fillRect(20,5,20,30);</em><br><em>        }</em></p>
+<p><em>        // This section illustrates how to implement bound property support.  Bound property</em><br><em>        // support allows other objects to respond when a property change occurs in this Java</em><br><em>        // Bean.  Remember that each property setter method must fire a property change event,</em><br><em>        // so that registered listeners can be properly notified.  The addPropertyChangeListener</em><br><em>        // and removePropertyChangeListener methods follow design patterns that indicate the</em><br><em>        // ability of this Java Bean to generate property change events.  As it happens, these</em><br><em>        // methods overide methods of the same names, which are inherited through java.awt.Canvas.</em></p>
+<p><em>        private PropertyChangeSupport changes = new PropertyChangeSupport(this);</em></p>
+<p><em>        public void addPropertyChangeListener(PropertyChangeListener l) {</em><br><em>            changes.addPropertyChangeListener(l);</em><br><em>        }</em></p>
+<p><em>        public void removePropertyChangeListener(PropertyChangeListener l) {</em><br><em>            changes.removePropertyChangeListener(l);</em><br><em>        }</em></p>
+<p><em>        // This section illustrates how to implement a bound property listener, which will allow this</em><br><em>        // Java Bean to register itself to receive property change events fired by other objects.</em><br><em>        // Registration simply involves making a call to the other object's addPropertyChangeListener</em><br><em>        // method with this Java Bean as the argument.  If you are using the BeanBox, however, you</em><br><em>        // will typically use the event hookup adaptor mechanism to receive the events.  In this case,</em><br><em>        // you can set the target method to be the propertyChange method.  (Another word about the</em><br><em>        // BeanBox: the Edit | bind property option is a useful way to make a property change in one</em><br><em>        // object automatically trigger a property change in another object.  In this case, the BeanBox</em><br><em>        // will invoke the correct property setter using code in sunw/beanbox/PropertyHookup.java.</em><br><em>        // An adaptor class will not be generated in this case.)</em></p>
+<p><em>        public void propertyChange(PropertyChangeEvent evt) {</em><br><em>            String propertyName = evt.getPropertyName();</em><br><em>            System.out.println("Received property change event " + propertyName);</em><br><em>        }</em><br><em>    }</em></p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

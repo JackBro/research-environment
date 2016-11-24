@@ -1,0 +1,633 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Sorting | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Sorting" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Sorting" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/sorting">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Sorting
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Sorting
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Topics</h2>
+<ol>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Performance">Performance Criteria</a></li>
+<li><a href="#Selection">Selection Sort</a></li>
+<li><a href="#Insertion">Insertion Sort</a></li>
+<li><a href="#Shell">Shell Sort</a></li>
+<li><a href="#Quick">Quicksort</a></li>
+<li><a href="#Algorithm">Choosing a Sorting Algorithm</a></li>
+</ol>
+<h2 class="subhead">Interesting Links</h2>
+<p>Animated demonstrations of the algorithms can be viewed at the following sites:</p>
+<ul>
+<li>
+<a href="http://www.cs.ubc.ca/spider/harrison/Java/sorting-demo.html">Java® Sorting Programs</a><a href="http://www.cs.ubc.ca/spider/harrison/Java/sorting-demo.html"></a>
+</li>
+<li>More Java® Sorting Animations</li>
+</ul>
+<h2 class="subhead">
+<a id="Introduction" name="Introduction"></a>1. Introduction</h2>
+<p>Sorting techniques have a wide variety of applications. Computer-Aided Engineering systems often use sorting algorithms to help reason about geometric objects, process numerical data, rearrange lists, etc. In general, therefore, we will be interested in sorting a set of <em>records</em> containing <em>keys</em>, so that the keys are ordered according to some well defined ordering rule, such as numerical or alphabetical order. Often, the keys will form only a small part of the record. In such cases, it will usually be more efficient to sort a list of keys without physically rearranging the records.</p>
+<h2 class="subhead">
+<a id="Performance" name="Performance"></a>2. Performance Criteria</h2>
+<p>There are several criteria to be used in evaluating a sorting algorithm:</p>
+<ul>
+<li>
+<em>Running time</em>. Typically, an elementary sorting algorithm requires <em>O(N<sup>2</sup>)</em> steps to sort <em>N</em> randomly arranged items. More sophisticated sorting algorithms require <em>O(N log N)</em> steps on average. Algorithms differ in the constant that appears in front of the <em>N<sup>2</sup></em> or <em>N log N</em>. Furthermore, some sorting algorithms are more sensitive to the nature of the input than others. Quicksort, for example, requires <em>O(N log N)</em> time in the average case, but requires <em>O(N<sup>2</sup>)</em> time in the worst case. </li>
+<li>
+<em>Memory requirements</em>. The amount of extra memory required by a sorting algorithm is also an important consideration. <em>In place</em> sorting algorithms are the most memory efficient, since they require practically no additional memory. <em>Linked list</em> representations require an additional <em>N</em> words of memory for a list of pointers. Still other algorithms require sufficent memory for another copy of the input array. These are the most inefficient in terms of memory usage. </li>
+<li>
+<em>Stability</em>. This is the ability of a sorting algorithm to preserve the relative order of equal keys in a file.</li>
+</ul>
+<p>Examples of elementary sorting algorithms are: selection sort, insertion sort, shell sort and bubble sort. Examples of sophisticated sorting algorithms are quicksort, radix sort, heapsort and mergesort. We will consider a selection of these algorithms which have widespread use. In the algorithms given below, we assume that the array to be sorted is stored in the memory locations <em>a[1],a[2],...,a[N]</em>. The memory location <em>a[0]</em> is reserved for special keys called <em>sentinels</em>, which are described below.</p>
+<h2 class="subhead">
+<a id="Selection" name="Selection"></a>3. Selection Sort</h2>
+<p>This "brute force'' method is one of the simplest sorting algorithms.</p>
+<h2 class="subhead">Approach</h2>
+<ul>
+<li>Find the smallest element in the array and exchange it with the element in the first position.</li>
+<li>Find the second smallest element in the array and exchange it with the element in the second position.</li>
+<li>Continue this process until done.</li>
+</ul>
+<p>Here is the code for selection sort:</p>
+<p><strong>Selection.cpp</strong></p>
+<p><em>#include "Selection.h"     // Typedefs ItemType.</em></p>
+<p><em>inline void swap(ItemType a[], int i, int j) {</em><br><em>    ItemType t = a[i];</em><br><em>    a[i] = a[j];</em><br><em>    a[j] = t;</em><br><em>}</em></p>
+<p><em>void selection(ItemType a[], int N) {</em><br><em>    int i, j, min;</em></p>
+<p><em>    for (i = 1; i &lt; N; i++) {</em><br><em>        min = i;</em><br><em>        for (j = i+1; j &lt;= N; j++)</em><br><em>            if (a[j] &lt; a[min])</em><br><em>                min = j;</em><br><em>        swap(a,min,i);</em><br><em>    }</em><br><em>}</em></p>
+<p>Selection sort is easy to implement; there is little that can go wrong with it. However, the method requires <em>O(N<sup>2</sup>)</em> comparisons and so it should only be used on small files. There is an important exception to this rule. When sorting files with large records and small keys, the cost of exchanging records controls the running time. In such cases, selection sort requires <em>O(N</em>) time since the number of exchanges is at most <em>N</em>.</p>
+<h2 class="subhead">
+<a id="Insertion" name="Insertion"></a>4. Insertion Sort</h2>
+<p>This is another simple sorting algorithm, which is based on the principle used by card players to sort their cards.</p>
+<h2 class="subhead">Approach</h2>
+<ul>
+<li>Choose the second element in the array and place it in order with respect to the first element.</li>
+<li>Choose the third element in the array and place it in order with respect to the first two elements.</li>
+<li>Continue this process until done.</li>
+</ul>
+<p>Insertion of an element among those previously considered consists of moving larger elements one position to the right and then inserting the element into the vacated position.</p>
+<p>Here is the code for insertion sort:</p>
+<p><strong>Insertion.cpp</strong></p>
+<p><em>#include "Insertion.h"         // Typedefs ItemType.</em></p>
+<p><em>void insertion(ItemType a[], int N) {</em><br><em>    int i, j;</em><br><em>    ItemType v;</em></p>
+<p><em>    for (i = 2; i &lt;= N; i++) {</em><br><em>        v = a[i];</em><br><em>        j = i;</em><br><em>        while (a[j-1] &gt; v) {</em><br><em>            a[j] = a[j-1];</em><br><em>            j--;</em><br><em>        }</em><br><em>       a[j] = v;</em><br><em>    }</em><br><em>}</em></p>
+<p>It is important to note that there is no test in the while loop to prevent the index <em>j</em> from running out of bounds. This could happen if <em>v</em> is smaller than <em>a[1],a[2],...,a[i-1]</em>. To remedy this situation, we place a <em>sentinel</em> key in <em>a[0]</em>, making it at least as small as the smallest element in the array. The use of a sentinel is more efficient than performing a test of the form <em>while (j &gt; 1 &amp;&amp;  a[j-1] &gt; v)</em>. Insertion sort is an <em>O(N<sup>2</sup>)</em> method both in the average case and in the worst case. For this reason, it is most effectively used on files with roughly <em>N &lt; 20</em>. However, in the special case of an almost sorted file, insertion sort requires only <em>linear</em> time.</p>
+<h2 class="subhead">
+<a id="Shell" name="Shell"></a>5. Shell Sort</h2>
+<p>This is a simple, but powerful, extension of insertion sort, which gains speed by allowing exchanges of <em>non-adjacent</em> elements.</p>
+<h2 class="subhead">Definition</h2>
+<p>An <em>h-sorted</em> file is one with the property that taking every <em>h</em>th element (starting anywhere) yields a sorted file.</p>
+<h2 class="subhead">Approach</h2>
+<ul>
+<li>Choose an initial large step size, <em>h<sub>K</sub></em>, and use insertion sort to produce an <em>h<sub>K</sub></em>-sorted file.</li>
+<li>Choose a smaller step size, <em>h<sub>K-1</sub></em>, and use insertion sort to produce an <em>h<sub>K-1</sub></em>-sorted file, using the <em>h<sub>K</sub></em>-sorted file as input.</li>
+<li>Continue this process until done. The last stage uses insertion sort, with a step size <em>h<sub>1</sub> = 1</em>, to produce a sorted file.</li>
+</ul>
+<p>Each stage in the sorting process brings the elements closer to their final positions. The method derives its efficiency from the fact that insertion sort is able to exploit the order present in a partially sorted input file; input files with more order to them require a smaller number of exchanges. It is important to choose a good sequence of increments. A commonly used sequence is <em>(3<sup>K</sup>-1)/2,...,121,40,13,4,1</em>, which is obtained from the recurrence <em>h<sub>k</sub> = 3 h<sub>k+1</sub>+1</em>. Note that the sequence obtained by taking powers of 2 leads to bad performance because elements in odd positions are not compared with elements in even positions until the end.</p>
+<p>Here is the complete code for shell sort:</p>
+<p><strong>Shell.cpp</strong></p>
+<p><em>#include "Shell.h"         // Typedefs ItemType.</em></p>
+<p><em>void shell(ItemType a[], int N) {</em><br><em>    int i, j, h;</em><br><em>    ItemType v;</em></p>
+<p><em>    for (h = 1; h &lt; = N/9; h = 3*h+1);</em></p>
+<p><em>    for (; h &gt; 0; h /= 3)</em><br><em>        for (i = h+1; i &lt;= N; i++) {</em><br><em>            v = a[i];</em><br><em>            j = i;</em><br><em>            while (j &gt; h &amp;&amp; a[j-h] &gt; v) {</em><br><em>                a[j] = a[j-h];</em><br><em>                j -= h;</em><br><em>            }</em><br><em>            a[j] = v;</em><br><em>        }</em><br><em>}</em></p>
+<p>Shell sort requires <em>O(N<sup>3/2</sup>)</em> operations in the worst case, which means that it can be quite effectively used even for moderately large files (say <em>N &lt; 5000</em>).</p>
+<h2 class="subhead">
+<a id="Quick" name="Quick"></a>6. Quicksort</h2>
+<p>This <em>divide and conquer</em> algorithm is, in the average case, the fastest known sorting algorithm for large values of <em>N</em>. Quicksort is a good general purpose method in that it can be used in a variety of situations. However, some care is required in its implementation. Since the algorithm is based on recursion, we assume that the array (or subarray) to be sorted is stored in the memory locations <em>a[left],a[left+1],...,a[right]</em>. In order to sort the full array, we simply initialize the algorithm with <em>left = 1</em> and <em>right = N</em>.</p>
+<h2 class="subhead">Approach</h2>
+<ul>
+<li>Partition the subarray <em>a[left],a[left+1],...,a[right]</em> into two parts, such that
+<ul>
+<li>element <em>a[i]</em> is in its final place in the array for some <em>i</em> in the interval <em>[left,right]</em>.</li>
+<li>none of the elements in <em>a[left],a[left+1],...,a[i-1]</em> are greater than <em>a[i]</em>.</li>
+<li>none of the elements in <em>a[i+1],a[i+2],...,a[right]</em> are less than <em>a[i]</em>.<br><br>
+</li>
+</ul>
+</li>
+<li>Recursively partition the two subarrays, <em>a[left],a[left+1],...,a[i-1]</em> and <em>a[i+1],a[i+2],...,a[right]</em>, until the entire array is sorted.</li>
+</ul>
+How to partition the subarray <em>a[left],a[left+1],...,a[right]</em>:
+<ul>
+<li>Choose <em>a[right]</em> to be the element that will go into its final position.</li>
+<li>Scan from the left end of the subarray until an element greater than <em>a[right]</em> is found.</li>
+<li>Scan from the right end of the subarray until an element less than <em>a[right]</em> is found.</li>
+<li>Exchange the two elements which stopped the scans.</li>
+<li>Continue the scans in this way. Thus, all the elements to the left of the left scan pointer will be less than <em>a[right]</em> and all the elements to the right of the right scan pointer will be greater than <em>a[right]</em>.</li>
+<li>When the scan pointers cross we will have two new subarrays, one with elements less than <em>a[right]</em> and the other with elements greater than <em>a[right]</em>. We may now put <em>a[right]</em> in its final place by exchanging it with the <em>leftmost</em> element in the right subarray.</li>
+</ul>
+Here is the complete code for quicksort:
+<p><strong>Quicksort.cpp</strong></p>
+<p><em>// inline void swap() is the same as for selection sort.</em></p>
+<p><em>void quicksort(ItemType a[], int left, int right) {</em><br><em>    int i, j;</em><br><em>    ItemType v;</em></p>
+<p><em>    if (right &gt; left) {</em><br><em>        v = a[right];</em><br><em>        i = left - 1;</em><br><em>        j = right;</em><br><em>        for (;;) {</em><br><em>            while (a[++i] &lt; v);</em><br><em>            while (a[--j] &gt; v);</em><br><em>            if (i &gt;= j) break;</em><br><em>            swap(a,i,j);</em><br><em>        }</em><br><em>        swap(a,i,right);</em><br><em>        quicksort(a,left,i-1);</em><br><em>        quicksort(a,i+1,right);</em><br><em>    }</em><br><em>}</em></p>
+<p>Note that this code requires a sentinel key in <em>a[0]</em> to stop the right-to-left scan in case the partitioning element is the smallest element in the file. Quicksort requires <em>O(N log N)</em> operations in the average case. However, its worst case performance is O(N<sup>2</sup>), which occurs in the case of an already sorted file! There are a number of improvements which can be made to the basic quicksort algorithm.<br>
+ </p>
+<ul>
+<li>Using the <em>median of three</em> partitioning method makes the worst case far less probable, and it eliminates the need for sentinels. The basic idea is as follows. Choose three elements, <em>a[left]</em>, <em>a[middle]</em> and <em>a[right]</em>, from the left, middle and right of the array. Sort them (by direct comparison) so that the median of the three is in <em>a[middle]</em> and the largest is in <em>a[right]</em>. Now exchange <em>a[middle]</em> with <em>a[right-1]</em>. Finally, we run the partitioning algorithm on the subarray <em>a[left+1],a[left+2],...,a[right-2]</em> with <em>a[right-1]</em> as the partitioning element.</li>
+<li>Another improvement is to <em>remove recursion</em> from the algorithm by using an explicit stack. The basic idea is as follows. After partitioning, push the larger subfile onto the stack. The smaller subfile is processed immediately by simply resetting the parameters <em>left</em> and <em>right</em> (this is known as <em>end-recursion removal</em>). With the explicit stack implementation, the maximum stack size is about <em>log<sub>2</sub> N</em>. On the other hand, with the recursive implementation, the underlying stack could be as large as <em>N</em>.</li>
+<li>A third improvement is to use a cutoff to insertion sort whenever small subarrays are encountered. This is because insertion sort, albeit an <em>O(N<sup>2</sup>)</em> algorithm, has a sufficiently small constant in front of the <em>N<sup>2</sup></em> to be more efficient than quicksort for small <em>N</em>. A suitable value for the cutoff subarray size would be approximately in the range <em>5  ~ 25</em>.</li>
+</ul>
+<h2 class="subhead">
+<a id="Algorithm" name="Algorithm"></a>7. Choosing a Sorting Algorithm</h2>
+<p>Table 1 summarizes the performance characteristics of some common sorting algorithms. Shell sort is usually a good starting choice for moderately large files <em>N &lt; 5000</em>, since it is easily implemented. Bubble sort, which is included in Table 1 for comparison purposes only, is generally best avoided. Insertion sort requires linear time for <em>almost sorted</em> files, while selection sort requires linear time for files with large records and small keys. Insertion sort and selection sort should otherwise be limited to small files. Quicksort is the method to use for very large sorting problems. However, its performance may be significantly affected by subtle implementation errors. Furthermore, quicksort performs badly if the file is already sorted. Another possible disadvantage is that quicksort is not stable i.e. it does not preserve the relative order of equal keys. All of the above sorting algorithms are in-place methods. Quicksort requires a small amount of additional memory for the auxiliary stack. There are a few other sorting methods which we have not considered. Heapsort requires <em>O(N log N)</em> steps both in the average case and the worst case, but it is about twice as slow as quicksort on average. Mergesort is another <em>O(N log N)</em> algorithm in the average and worst cases. Mergesort is the method of choice for sorting <em>linked lists</em>, where sequential access is required.</p>
+<p>Table 1: Approximate running times for various sorting algorithms</p>
+<div class="maintabletemplate">
+<table class="tablewidth50" summary="See table caption for summary.">
+<caption class="invisible">Grading information.</caption>
+<thead><tr>
+<th id="col1" scope="col">METHOD</th>
+<th id="col2" scope="col"># COMPARISONS - AVERAGE CASE</th>
+<th id="col3" scope="col"># COMPARISONS - WORST CASE</th>
+<th id="col4" scope="col"># EXCHANGES - AVERAGE CASE</th>
+<th id="col5" scope="col"># EXCHANGES - WORST CASE</th>
+</tr></thead>
+<tbody><tr class="row">
+<td>Selection sort<br>
+Insertion sort<br>
+Bubble sort<br>
+Shell sort<br>
+Quicksort</td>
+<td>N<sup>2</sup>/2<br>
+N<sup>2</sup>/4<br>
+N<sup>2</sup>/2<br>
+~N<sup>.1.25</sup><br>
+2 N ln N <br>
+(1.38 N log<sub>2</sub> N)</td>
+<td>N<sup>2</sup>/2<br>
+N<sup>2</sup>/2<br>
+N<sup>2</sup>/2<br>
+N<sup>3/2</sup><br>
+N<sup>2</sup>/2</td>
+<td>N<br>
+N<sup>2</sup>/8<br>
+N<sup>2</sup>/2<br>
+?<br>
+N</td>
+<td>N<br>
+N<sup>2</sup>/4<br>
+N<sup>2</sup>/2<br>
+?<br>
+N</td>
+</tr></tbody>
+</table>
+</div>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

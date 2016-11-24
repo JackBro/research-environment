@@ -1,0 +1,731 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Programming in Java | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Programming in Java" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Programming in Java" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/programming_in_java">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Programming in Java
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Programming in Java
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Topics</h2>
+<ol>
+<li><a href="#1">Introduction</a></li>
+<li><a href="#2">Online Java® Resources</a></li>
+<li><a href="#3">Applications and Applets</a></li>
+<li><a href="#4">Java® Basics</a></li>
+</ol>
+<h2 class="subhead"></h2>
+<h2 class="subhead">
+<a id="1" name="1"></a>1. Introduction</h2>
+<p>Java® is an object-oriented programming language that resembles C++ in many respects. One of the major differences is that Java® programs are intended to be architecture-neutral i.e. a Java® program should, in theory, be able to run on a Unix® workstation, a PC or a Macintosh® <em>without recompilation.</em> In C++, we compiled our programs into machine-dependent <em>object code</em> that was linked to produce an executable. By contrast, Java® programs are compiled into machine-independent <em>byte code</em>. The compiled program is then run within a Java® interpreter, which is responsible for executing the byte code instructions. The Java® interpreter is typically referred to as the <em>Java® Virtual Machine</em>, and it must be present on each computer that runs the program.<br>
+ </p>
+<table><tbody>
+<tr>
+<td>
+<p> </p>
+</td>
+<td align="middle">
+<p>Java® compiler</p>
+</td>
+<td>
+<p> </p>
+</td>
+<td align="middle">
+<p>Java® interpreter</p>
+</td>
+<td>
+<p> </p>
+</td>
+</tr>
+<tr>
+<td align="middle">
+<p><em>myprog.java</em></p>
+</td>
+<td align="middle">
+<p>--------------&gt;</p>
+</td>
+<td align="middle">
+<p><em>myprog.class</em></p>
+</td>
+<td align="middle">
+<p>----------------&gt;</p>
+</td>
+<td align="middle">
+<p>Program output</p>
+</td>
+</tr>
+<tr>
+<td>
+<p> </p>
+</td>
+<td align="middle">
+<p><em>javac</em></p>
+</td>
+<td>
+<p> </p>
+</td>
+<td align="middle">
+<p><em>java</em><br><em>appletviewer</em><br><em>netscape</em></p>
+</td>
+<td>
+<p> </p>
+</td>
+</tr>
+</tbody></table>
+<p>Follow this link to see Sun Microsystems' overview: <a href="http://java.sun.com/docs/books/tutorial/getStarted/intro/definition.html" target="_blank">About the Java® Technology</a></p>
+<p>It takes time to learn everything about Java® and it is important to set your expectations accordingly. There are two main challenges:</p>
+<ul>
+<li>Learning the basic syntax of the language.</li>
+<li>Gaining familiarity with the libraries of reusable software components that are available to Java® programmers, especially the commonly used parts of the Java® Core API (Application Programming Interface).</li>
+</ul>
+<p>In the lectures that follow, we will attempt to familiarize you with the basic syntax, and point out the syntactic and semantic differences between Java® and C++. We will also introduce you to some of the more important class libraries. The Java® API is well documented and you should quickly learn how to navigate the online documentation to find the classes that you need.</p>
+<p>The Java® language is still evolving. We will be using the Java® 2 platform, which is also known as the Java® Development Kit (JDK). The latest release is Java® 2 version 1.3. Be prepared to encounter bugs in the implementation of the language from time to time. This includes inconsistencies across hardware platforms. Also note that the latest version of Java® is not supported by the Netscape® browser.</p>
+<h2 class="subhead">
+<a id="2" name="2"></a>2. Online Java® Resources</h2>
+<p>Here is an online Java® tutorial.</p>
+<ul>
+<li>
+<a href="http://java.sun.com/docs/books/tutorial/" target="_blank">Java® tutorial</a><br>
+</li>
+</ul>
+<h2 class="subhead">
+<a id="3" name="3"></a>3. Applications and Applets</h2>
+<p>An <em>application</em> is a stand-alone program that executes independently of a browser. It is usually launched from the command line, using the command line interpreter, <em>java</em>.</p>
+<p>An <em>applet</em> is a program that can be embedded in an HTML page. The program can be run by loading the page into a Java®-enabled browser. The JDK includes a tool, called <em>appletviewer</em>, that can also be used to view applets.</p>
+<p>A Java® program can be designed to function</p>
+<ul>
+<li>as an application</li>
+<li>as an applet</li>
+<li>both as an application and as an applet</li>
+</ul>
+<h2 class="subhead">The Hello World Application</h2>
+<p>Here is an example of a simple Java® application. We make our program an application by writing a class, <em>HelloWorldApp</em>, that contains a function named <em>main()</em>. We can compile our program by typing</p>
+<p><em>    javac HelloWorld.java</em></p>
+<p>This will produce a file named <em>HelloWorldApp.class</em>.</p>
+<p>We can run the program as application by typing</p>
+<p><em>   java HelloWorldApp</em></p>
+<p>The command line interpreter looks for a function named <em>main()</em> in the <em>HelloWorldApp</em> class and then executes it.</p>
+<p><em>Points to Note</em></p>
+<p>The <em>.class</em> file gets its name from the name of the class and not the name of the source file. In this example we deliberately gave the source file a different name, but in practice, we will place each class in a separate file with the same name. This convention becomes important when we want to write a class that is publicly accessible.<br>
+ </p>
+<p>Global functions are not allowed in Java®. This is why we placed our <em>main()</em> function inside our class. We must make our <em>main()</em> function <em>static</em>, since it should not be associated with a particular object, and we must also make it <em>public</em>, since it is the entry point to our program.</p>
+<p><strong>HelloWorld.java</strong></p>
+<p><em>class HelloWorldApp {</em><br><em>    public static void main(String[] args) {</em><br><em>        System.out.println("Hello World!");</em><br><em>    }</em><br><em>}</em></p>
+<h2 class="subhead">The Hello World Applet
+</h2>
+<p>Here is an example of a simple Java® applet. We make our program an applet by writing a class, <em>HelloWorld</em>, that inherits the <em>JApplet</em> class provided in the Java® Swing API. The <em>extends</em> keyword declares that class <em>HelloWorld</em> inherits class <em>JApplet</em>. Before we can refer to the <em>JApplet</em> class, we must declare its existence using the <em>import</em> keyword. Here we have imported the <em>JApplet</em> class, which belongs to the <em>javax.swing</em> package, and we have also imported the <em>Graphics</em> class, which belongs to the <em>java.awt</em> package.</p>
+<p>The <em>JApplet</em> class possesses a method named <em>paint()</em>, which it inherits from one of its superclasses. Our <em>HelloWorld</em> class inherits this <em>paint()</em> method when it inherits the <em>JApplet</em> class. The purpose of <em>paint()</em> is to draw the contents of the applet. Unfortunately, the default <em>paint()</em> method that we inherit cannot do anything useful since it has no way of knowing what we want to draw. We must therefore <em>override</em> the default <em>paint()</em> in our <em>HelloWorld</em> class. (Note that while C++ requires the use of the <em>virtual</em> keyword to indicate function overriding, Java® does not require us to inform the compiler that overriding will take place.)</p>
+<p>The <em>paint()</em> method receives as an argument a <em>Graphics</em> object, which contains information about where and how we can draw. In this example, we choose to draw the text "Hello World!" at coordinates (50,25) by calling the <em>drawString</em> method.</p>
+<p>We can compile our program by typing</p>
+<p>    <em>javac HelloWorld.java</em></p>
+<p>This produces a file named <em>HelloWorld.class</em>. We now embed our applet in an HTML file, <em>Hello.html</em>, and we can run it by typing</p>
+<p>    <em>appletviewer Hello.html</em></p>
+<p>We can also view Hello.html in a Java®-enabled browser.<br>
+ </p>
+<p><strong>HelloWorld.java</strong></p>
+<p><em>import javax.swing.JApplet;</em><br><em>import java.awt.Graphics;</em></p>
+<p><em>public class HelloWorld extends JApplet {</em><br><em>    public void paint(Graphics g) {</em><br><em>        g.drawString("Hello world!", 50, 25);</em><br><em>    }</em><br><em>}</em><br>
+ </p>
+<p><strong>Hello.html</strong></p>
+<p><em>&lt;HTML&gt;</em><br><em>&lt;HEAD&gt;</em><br><em>&lt;TITLE&gt; A Simple Program &lt;/TITLE&gt;</em><br><em>&lt;/HEAD&gt;</em></p>
+<p><em>&lt;BODY&gt;</em><br><em>Here is the output of my program:</em><br><em>&lt;APPLET CODE="HelloWorld.class" WIDTH=150 HEIGHT=25&gt;</em><br><em>&lt;/APPLET&gt;</em><br><em>&lt;/BODY&gt;</em><br><em>&lt;/HTML&gt;</em> </p>
+<h2 class="subhead">
+<a id="4" name="4"></a>4. Java Basics</h2>
+<p><em>Java Data Types</em></p>
+<p>Java® has two main categories of data types: <em>primitive</em> data types and <em>reference</em> data types. Java® does not support the notion of pointers.</p>
+<p>Here is a list of primitive data types.</p>
+<div class="maintabletemplate">
+<table class="tablewidth50" summary="See table caption for summary.">
+<caption class="invisible">Grading information.</caption>
+<thead><tr>
+<th id="col1" scope="col">PRIMITIVE DATA TYPE</th>
+<th id="col2" scope="col">SIZE IN BYTES / FORMAT</th>
+</tr></thead>
+<tbody>
+<tr class="row">
+<td>byte</td>
+<td>1</td>
+</tr>
+<tr class="alt-row">
+<td>char, short</td>
+<td>2</td>
+</tr>
+<tr class="row">
+<td>int, float </td>
+<td>4</td>
+</tr>
+<tr class="alt-row">
+<td><span class="tablecopy">long, double</span></td>
+<td>8</td>
+</tr>
+<tr class="row">
+<td>boolean</td>
+<td>true or false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br><p>Reference data types include arrays and classes. Here is an example of a Line class.</p>
+<p><strong>Line.java</strong></p>
+<p><em>class Line {</em></p>
+<p><em>    private int miX1, miX2, miY1, miY2;</em></p>
+<p><em>    public Line() {</em><br><em>        miX1 = miX2 = miY1 = miY2 = 0;</em><br><em>    }</em></p>
+<p><em>    public Line(int iX1, int iX2, int iY1, int iY2) {</em><br><em>        miX1 = iX1;</em><br><em>        miX2 = iX2;</em><br><em>        miY1 = iY1;</em><br><em>        miY2 = iY2;</em><br><em>    }</em><br><em>}</em></p>
+<h2 class="subhead">Creating Objects - Constructors</h2>
+<p>In Java®, objects of user defined data types must be dynamically created. In the following example, the first statement declares a <em>Line</em> object, but does not actually create it. The second statement uses the <em>new</em> operator to actually create the object. Note the subtle differences between Java® and C++.</p>
+<p><em>Line line;                        // Declaration of object (does not create object.)</em><br><em>line = new Line();            // Instantiation of object.</em></p>
+<h2 class="subhead">Garbage Collection and Finalization</h2>
+<p>The Java® runtime system provides a <em>garbage collector</em>, which periodically destroys any unused objects in dynamic memory. The Java® garbage collector uses a <em>mark-sweep</em> algorithm. The dynamic memory is first scanned for referenced objects and then all remaining objects are treated as garbage. Prior to deleting an object, the garbage collector will call the object's <em>finalizer,</em> which allows the object to perform an orderly cleanup of any associated system resources, such as open files.</p>
+<p>Finalization and garbarge collection happen asynchronously in the background. It is also possible to force these tasks to occur using the <em>System.runFinalization()</em> and <em>System.gc()</em> commands.</p>
+<p>A finalizer has the form</p>
+<p><em>    protected void finalize() throws Throwable {</em><br><em>           ...</em><br><em>          // Clean up code for this class here.</em><br><em>          ...</em><br><em>         super.finalize();  // Call the superclass's finalizer (if provided.)</em><br><em>   }</em></p>
+<h2 class="subhead">Inheritance</h2>
+<p>As indicated above, the <em>extends</em> keyword allows us to write classes that inherit the properties and methods of another class.</p>
+<p><em>    class SubClassName extends SuperClassName {</em><br><em>        ...</em><br><em>    }</em></p>
+<p>If a superclass name is not specified, the superclass is assumed to be <em>java.lang.Object</em>. Also, note that each class can have only one immediate superclass i.e. Java® does not support multiple inheritance.</p>
+<h2 class="subhead">Packages</h2>
+<p>A package is a group of related classes or interfaces. Each package defines its own namespace. Thus, two different packages may contain classes with the same name.</p>
+<p>We can create a package by placing a <em>package</em> statement at the top of every source file that defines a class belonging to the package. We may later use the classes in the package by placing an <em>import</em> statement at the top of the source file that needs to access the classes in the package.<br>
+ </p>
+<p><strong>graphics/Line.java</strong> (Path of the file is relative to the CLASSPATH environment variable.)</p>
+<p><em> package graphics;       // Class Line belongs to package graphics.</em></p>
+<p><em> public class Line {      // The public class modifier makes this class accessible outside the package.</em><br><em>     ...</em><br><em>}</em></p>
+<p><strong>MyTest.java</strong></p>
+<p><em>import graphics.*;     // Provides access to all public classes in package graphics.</em></p>
+<p><em>class MyTest {</em><br><em>    public static void main(String[] args) {</em><br><em>         Line line;</em><br><em>         graphics.Line line2;   // Can be used for conflict resolution if two packages have a Line class.</em><br><em>         line = new Line(0,0,3,4);</em><br><em>         line2 = new Line();</em><br><em>    }</em><br><em>}</em><br>
+ </p>
+<p>If a package name is not specified for a class, then the class belongs to the default package. The default package has no name and it is always imported.</p>
+<p>Here are a few of the core Java® packages:</p>
+<ul>
+<li>java.lang            - core Java® language.</li>
+<li>java.io               - input/output streams.</li>
+<li>java.util             - utility classes, e.g. Stack, Vector, Hashtable, Oberserver/Observable.</li>
+<li>java.net             - networking classes.</li>
+<li>java.security      - security classes.</li>
+<li>javax.swing       - Swing Graphical User Interface (GUI) components (the new preferred way).</li>
+<li>java.awt            - Abstract Window Toolkit GUI components (the old way).</li>
+<li>java.awt.image  - image processing.</li>
+</ul>
+<h2 class="subhead">Member Access Specifiers</h2>
+<p>There are four types of member access levels: <em>private</em>, <em>protected</em>, <em>public</em> and <em>package</em>. Note that, unlike C++, we must specify access levels on a per-member basis.</p>
+<p><em>class Access {</em><br><em>    private privateMethod();                      // Access level is "private".</em><br><em>    protected protectedMethod();               // Access level is "protected".</em><br><em>    public publicMethod();                        // Access level is "public".</em><br><em>    packageMethod();                               // Access level is "package".</em><br><em>}</em></p>
+<div class="maintabletemplate">
+<table class="tablewidth50" summary="See table caption for summary.">
+<caption class="invisible">Grading information.</caption>
+<thead><tr>
+<th id="col1" scope="col">ACCESS SPECIFIER</th>
+<th id="col2" scope="col">ACCESSIBLE BY CLASS DEFINITION</th>
+<th id="col3" scope="col">ACCESSIBLE BY SUBCLASS DEFINITION</th>
+<th id="col4" scope="col">ACCESSIBLE BY REST OF PACKAGE</th>
+<th id="col5" scope="col">ACCESSIBLE BY REST OF WORLD</th>
+</tr></thead>
+<tbody>
+<tr class="row">
+<td>private</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr class="alt-row">
+<td>protected</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr class="row">
+<td>public</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr class="alt-row">
+<td>none i.e. package<br>
+</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br><h2 class="subhead">Instance and Class members</h2>
+<p>As in C++, we can have instance members or class members. A class member is declared using the <em>static</em> keyword.</p>
+<p><em>class MyPoint {</em><br><em>    int x;</em><br><em>    int y;</em><br><em>    static int x_origin;</em><br><em>    static int y_origin;</em><br><em>}</em></p>
+<p>In this example, every object has its own <em>x</em> member, however, all objects share a single <em>x_origin</em> member. </p>
+<h2 class="subhead">Constant Members</h2>
+<p>A <em>final</em> variable is one whose value cannot be changed e.g.</p>
+<p><em>class Avo {</em><br><em>       final double AVOGADRO = 6.023e23;</em><br><em>}</em></p>
+<h2 class="subhead">Class Modifiers</h2>
+<p>We have already seen some examples of member modifiers, such as <em>public</em> and <em>private</em>. Java® also allows us to specify class modifiers.</p>
+<ul>
+<li>A <em>public</em> class is one which can be used by objects outside the current package e.g. <em>package graphics;       // Class Line belongs to package graphics.</em>
+<div>
+<p><em>public class Line {      // The public class modifier makes this class accessible outside the package.</em><br><em>     ...</em><br><em>}</em><br>
+ </p>
+</div>
+</li>
+<li>An <em>abstract</em> class is one which cannot be instantiated, and must be subclassed instead. An abstract class may contain abstract methods i.e. methods with no implementation, however, it may also provide default implementations for other methods.  e.g.
+<p><br><em>abstract class GraphicObject {</em><br><em>        int x, y;</em><br><em>        ...</em><br><em>        void moveTo(int newX, int newY) {</em><br><em>           ...</em><br><em>        }</em><br><em>       abstract void draw();  //  This means that the class must be made abstract.</em><br><em>}</em></p>
+<p><em>class Circle extends GraphicObject {</em><br><em>       void draw() {</em><br><em>            ...</em><br><em>       }</em><br><em>}</em><br>
+ </p>
+</li>
+<li>A <em>final</em> class is one which cannot be subclassed. This may be required for security or design reasons. e.g.
+<p><br><em>final class String {</em><br><em>     ...</em><br><em>}</em></p>
+<p>It is also possible to make individual methods final.</p>
+</li>
+</ul></main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

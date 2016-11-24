@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Physical Simulation | Lecture Notes | Foundations of Software Engineering | Civil and Environmental Engineering | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="1-124j-foundations-of-software-engineering-fall-2000" name="WT.cg_n">
+<meta content="Physical Simulation" name="WT.cg_s">
+<meta content="" name="Description">
+<meta content="Amaratunga, Kevin" name="Author">
+<meta content="modern software development,engineering and information technology,component-based software,C#,.NET,data structures,algorithms for modeling,analysis,visualization,basic problem-solving techniques,web services,management and maintenance of software,sorting,searching,algorithms,numerical simulation techniques,image processing,computational geometry,finite element methods,network methods,e-business applications,classes,objects,inheritance,virtual functions,abstract classes,polymorphism,Java applications,applets,Abstract Windowing Toolkit,Graphics,Threads,Java,C++,information technology,engineering,modeling algorithms,basic problem-solving,software management,software maintenance,searching algorithms,numerical simulation,object oriented programming,1.124J,2.159J,13.470J,1.124,2.159,13.470,Software Design and Engineering" name="keywords">
+<meta content="1.124J Foundations of Software Engineering | Physical Simulation" name="Search_Display">
+<meta content="Software Design and Engineering" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/physical_simulation">
+<link rel="apple-touch-icon" href="../../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/civil-and-environmental-engineering">Civil and Environmental Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/index.htm">Foundations of Software Engineering</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../../contents/lecture-notes/index.htm">Lecture Notes</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Physical Simulation
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Physical Simulation
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/assignments/index.htm">
+		                  Assignments  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Physical Simulation Example</h2>
+<p>The following example shows how you might integrate a numerical simulation with a Java® animation. Here, we have considered a simple spring-mass-damper system of the form</p>
+<p>    d<sup>2</sup>x/dt<sup>2</sup> + 2xw<sub>0</sub>dx/dt + w<sub>0</sub><sup>2</sup> x = 0</p>
+<p>and computed the solution numerically using an explicit Forward Euler time-stepping scheme. Try increasing the size of the time step and notice that the simulation becomes unstable when the growth factors become larger than 1. When using explicit time integration, we must therefore choose our time step to be smaller than the critical time step.</p>
+<p>Now try using an implicit Backward Euler time-stepping scheme. In this case, the simulation remains stable even for large time steps because the growth factors are always smaller than 1. You may also wish to determine the exact solution to the differential equation and compare it to the numerical solution.</p>
+<p><em>import java.awt.*;</em><br><em>import java.awt.event.*;</em><br><em>import javax.swing.*;</em></p>
+<p><em>class Vec2D {</em><br><em>    private float[] vec;</em></p>
+<p><em>    public Vec2D(float fX, float fV) {</em><br><em>        vec = new float[2];</em><br><em>        vec[0] = fX;</em><br><em>        vec[1] = fV;</em><br><em>    }</em></p>
+<p><em>    public void translate(float fDx) {</em><br><em>        vec[0] += fDx;</em><br><em>    }</em></p>
+<p><em>    public void setPos(float fX) {</em><br><em>        vec[0] = fX;</em><br><em>    }</em></p>
+<p><em>    public void setVel(float fV) {</em><br><em>        vec[1] = fV;</em><br><em>    }</em></p>
+<p><em>    public float getPos() {</em><br><em>        return vec[0];</em><br><em>    }</em></p>
+<p><em>    public float getVel() {</em><br><em>        return vec[1];</em><br><em>    }</em><br><em>}</em></p>
+<p><em>class Matrix2D {</em><br><em>    private float[][] mat;</em></p>
+<p><em>    public Matrix2D(float a11, float a12, float a21, float a22) {</em><br><em>        mat = new float[2][2];</em><br><em>        mat[0][0] = a11;</em><br><em>        mat[0][1] = a12;</em><br><em>        mat[1][0] = a21;</em><br><em>        mat[1][1] = a22;</em><br><em>    }</em></p>
+<p><em>    public void multiply(Vec2D vec) {</em><br><em>        float fX = mat[0][0] * vec.getPos() + mat[0][1] * vec.getVel();</em><br><em>        float fV = mat[1][0] * vec.getPos() + mat[1][1] * vec.getVel();</em><br><em>       vec.setPos(fX);</em><br><em>       vec.setVel(fV);</em><br><em>    }</em></p>
+<p><em>    public void invert() {</em><br><em>        float det = mat[0][0]*mat[1][1]-mat[0][1]*mat[1][0];</em><br><em>        float tmp = mat[0][0];</em><br><em>       mat[0][0] = mat[1][1] / det;</em><br><em>       mat[1][1] = tmp / det;</em><br><em>       mat[0][1] = -mat[0][1] / det;</em><br><em>       mat[1][0] = -mat[1][0] / det;</em><br><em>    }</em><br><em>}</em></p>
+<p><em>class Ball {</em><br><em>    Vec2D mXState;  // x position and velocity.</em><br><em>    Vec2D mYState;  // y position and velocity.</em><br><em>    Matrix2D mMatrix;</em><br><em>    int miRadius;</em><br><em>    int miWindowWidth, miWindowHeight;</em></p>
+<p><em>    public Ball(int iRadius, int iW, int iH) {</em><br><em>        miRadius = iRadius;</em><br><em>        mXState = new Vec2D(0.0f, 0.0f);</em><br><em>        mYState = new Vec2D(0.0f, 0.0f);</em><br><em>        miWindowWidth = iW;</em><br><em>        miWindowHeight = iH;</em><br><em>    }</em></p>
+<p><em>    public void setPosition(float fXPos, float fYPos) {</em><br><em>        mXState.setPos(fXPos);</em><br><em>        mYState.setPos(fYPos);</em><br><em>    }</em></p>
+<p><em>    public void setVelocity(float fXVel, float fYVel) {</em><br><em>        mXState.setVel(fXVel);</em><br><em>        mYState.setVel(fYVel);</em><br><em>    }</em></p>
+<p><em>    public void setParams(float fXi, float fW0, float fDt, boolean explicit) {</em><br><em>        float fReal1 = 0.0f, fImag1 = 0.0f;  // First eigenvalue.</em><br><em>        float fReal2 = 0.0f, fImag2 = 0.0f;  // Second eigenvalue.</em><br><em>        float G1, G2;  // Growth factors.</em></p>
+<p><em>        // Determine the eigenvalues.</em><br><em>        if (fXi &lt; 1.0f) {</em><br><em>            fReal1 = fReal2 = -fW0*fXi;</em><br><em>            fImag1 = (float)(fW0*Math.sqrt(1-fXi*fXi));</em><br><em>            fImag2 = -fImag1;</em><br><em>            System.out.println("System is underdamped.");</em><br><em>            System.out.println("Eigenvalues are: " + fReal1 + " +/- " + fImag1 + "i");</em><br><em>        }</em><br><em>        else {</em><br><em>            fReal1 = -fW0*(fXi + (float)Math.sqrt(fXi*fXi-1));</em><br><em>            fReal2 = -fW0*(fXi - (float)Math.sqrt(fXi*fXi-1));</em><br><em>            System.out.println("System is overdamped or critically damped.");</em><br><em>            System.out.println("Eigenvalues are: " + fReal1 + " and " + fReal2 + "i");</em><br><em>        }</em></p>
+<p><em>        if (explicit) {</em><br><em>            // Forward Euler.</em><br><em>            mMatrix = new Matrix2D(1.0f, fDt, -fW0*fW0*fDt, 1-2*fXi*fW0*fDt);</em></p>
+<p><em>           G1 = (float)Math.sqrt(Math.pow(1+fReal1*fDt,2.0) + Math.pow(fImag1*fDt,2.0));</em><br><em>           G2 = (float)Math.sqrt(Math.pow(1+fReal2*fDt,2.0) + Math.pow(fImag2*fDt,2.0));</em><br><em>        }</em><br><em>        else {</em><br><em>            // Backward Euler.</em><br><em>            mMatrix = new Matrix2D(1.0f, -fDt, fW0*fW0*fDt, 1+2*fXi*fW0*fDt);</em><br><em>            mMatrix.invert();</em></p>
+<p><em>            G1 = (float)(1.0/Math.sqrt(Math.pow(1-fReal1*fDt,2.0) + Math.pow(fImag1*fDt,2.0)));</em><br><em>            G2 = (float)(1.0/Math.sqrt(Math.pow(1-fReal2*fDt,2.0) + Math.pow(fImag2*fDt,2.0)));</em><br><em>        }</em><br><em>        System.out.println("Growth factors are " + G1 + " and " + G2);</em><br><em>    }</em></p>
+<p><em>    public int getXPos() {</em><br><em>        return (int)mXState.getPos();</em><br><em>    }</em></p>
+<p><em>    public int getYPos() {</em><br><em>        return (int)mYState.getPos();</em><br><em>    }</em></p>
+<p><em>    public void draw(Graphics g) {</em><br><em>        g.setColor(Color.red);</em><br><em>        g.fillOval(miWindowWidth/2+(int)mXState.getPos()-miRadius,</em><br><em>                        miWindowHeight/2+(int)mYState.getPos()-miRadius,</em><br><em>                        2*miRadius, 2*miRadius);</em><br><em>    }</em></p>
+<p><em>    // Update the position of the ball.</em><br><em>    void move() {</em><br><em>        mMatrix.multiply(mYState);</em><br><em>    }</em><br><em>}</em></p>
+<p><em>public class Animation extends JApplet implements Runnable, ActionListener {</em><br><em>    int miFrameNumber = 0;</em><br><em>    int miTimeStep;</em><br><em>    Thread mAnimationThread;</em><br><em>    boolean mbIsPaused = false;</em><br><em>    Button mButton;</em><br><em>    Ball ball;</em></p>
+<p><em>    public void init() {</em><br><em>        // Time step in milliseconds.</em><br><em>        miTimeStep = 20; // Try changing this to (a) 50 ms and (b) 60 ms.</em></p>
+<p><em>        // Initialize the parameters of the ball.  The parameters refer to the</em><br><em>        // differential equation:  d^2 x/dt^2 + 2 xi w0 dx/dt + w0^2 x = 0</em></p>
+<p><em>        int iRadius = 15;</em><br><em>        float fXPos = 0.0f;      // Initial x displacement</em><br><em>        float fYPos = 100.0f;    // Initial y displacement</em><br><em>        float fXVel = 0.0f;      // Initial x velocity</em><br><em>        float fYVel = 0.0f;      // Initial y velocity</em><br><em>        float fXi = 0.05f;       // xi</em><br><em>        float fW0 = 2.0f;        // w0</em><br><em>        boolean explicit = true; // true: forward Euler, false: backward Euler</em></p>
+<p><em>        ball = new Ball(iRadius, getSize().width, getSize().height);</em><br><em>        ball.setPosition(fXPos, fYPos);</em><br><em>        ball.setVelocity(fXVel, fYVel);</em><br><em>        ball.setParams(fXi, fW0, miTimeStep/1000.0f, explicit);</em></p>
+<p><em>        // Create a button to start and stop the animation.</em><br><em>        mButton = new Button("Stop");</em><br><em>        getContentPane().add(mButton, "North");</em><br><em>        mButton.addActionListener(this);</em></p>
+<p><em>        // Create a JPanel subclass and add it to the JApplet.  All drawing</em><br><em>        // will be done here, do we must write the paintComponent() method.</em><br><em>        // Note that the anonymous class has access to the private data of</em><br><em>        // class Animation, because it is defined locally.</em><br><em>        getContentPane().add(new JPanel() {</em><br><em>            public void paintComponent(Graphics g) {</em><br><em>                // Paint the background.</em><br><em>                super.paintComponent(g);</em></p>
+<p><em>                // Display the frame number.</em><br><em>                g.drawString("Frame " + miFrameNumber, getSize().width/2 - 40,</em><br><em>                                      getSize().height - 15);</em></p>
+<p><em>                // Draw the rubber band.</em><br><em>                g.drawLine(getSize().width/2, 0,</em><br><em>                getSize().width/2+ball.getXPos(),</em><br><em>                getSize().height/2+ball.getYPos());</em></p>
+<p><em>                // Draw the ball.</em><br><em>                ball.draw(g);</em><br><em>            }</em><br><em>        }, "Center");</em><br><em>    }</em></p>
+<p><em>    public void start() {</em><br><em>        if (mbIsPaused) {</em><br><em>            // Don't do anything.  The animation has been paused.</em><br><em>        } else {</em><br><em>            // Start animating.</em><br><em>            if (mAnimationThread == null) {</em><br><em>                mAnimationThread = new Thread(this);</em><br><em>            }</em><br><em>            mAnimationThread.start();</em><br><em>        }</em><br><em>    }</em></p>
+<p><em>    public void stop() {</em><br><em>        // Stop the animating thread by setting the mAnimationThread variable</em><br><em>        // to null.  This will cause the thread to break out of the while loop,</em><br><em>        // so that the run() method terminates naturally.</em><br><em>        mAnimationThread = null;</em><br><em>    }</em></p>
+<p><em>    public void actionPerformed(ActionEvent e) {</em><br><em>        if (mbIsPaused) {</em><br><em>            mbIsPaused = false;</em><br><em>            mButton.setLabel("Stop");</em><br><em>            start();</em><br><em>        } else {</em><br><em>            mbIsPaused = true;</em><br><em>            mButton.setLabel("Start");</em><br><em>            stop();</em><br><em>        }</em><br><em>    }</em></p>
+<p><em>    public void run() {</em><br><em>        // Just to be nice, lower this thread's priority so it can't</em><br><em>        // interfere with other processing going on.</em><br><em>        Thread.currentThread().setPriority(Thread.MIN_PRIORITY);</em></p>
+<p><em>        // Remember the starting time.</em><br><em>        long startTime = System.currentTimeMillis();</em></p>
+<p><em>        // Remember which thread we are.</em><br><em>        Thread currentThread = Thread.currentThread();</em></p>
+<p><em>        // This is the animation loop.</em><br><em>        while (currentThread == mAnimationThread) {</em><br><em>            // Draw the next frame.</em><br><em>            repaint();</em></p>
+<p><em>            // Advance the animation frame.</em><br><em>            miFrameNumber++;</em></p>
+<p><em>            // Update the position of the ball.</em><br><em>            ball.move();</em></p>
+<p><em>            // Delay depending on how far we are behind.</em><br><em>            try {</em><br><em>                startTime += miTimeStep;</em><br><em>                Thread.sleep(Math.max(0,</em><br><em>                             startTime-System.currentTimeMillis()));</em><br><em>            }</em><br><em>            catch (InterruptedException e) {</em><br><em>                break;</em><br><em>            }</em><br><em>        }</em><br><em>    }</em><br><em>}</em></p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>
