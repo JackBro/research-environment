@@ -1,0 +1,18 @@
+MAJORCOMP=msripv6
+MINORCOMP=ipsec
+
+TARGETNAME=ipsec
+TARGETPATH=obj
+TARGETTYPE=UMAPPL_NOLIB
+
+INCLUDES=..\inc
+
+SOURCES= ipsec.c
+
+UMTYPE=console
+UMAPPL=ipsec
+UMBASE=0x01000000
+
+UMLIBS= \
+    ..\wship6\obj\*\$(DDKBUILDENV)\wship6.lib \
+    $(MSSDK)\lib\ws2_32.lib

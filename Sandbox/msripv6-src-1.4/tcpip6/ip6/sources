@@ -1,0 +1,34 @@
+NT_UP=0
+
+MAJORCOMP=msripv6
+MINORCOMP=tcpip6
+
+TARGETNAME=ip6
+TARGETTYPE=LIBRARY
+TARGETPATH=obj
+TARGETLIBS=
+
+INCLUDES=..\common;..\inc;..\..\inc;$(BASEDIR)\src\network\inc;..\algrthms
+
+C_DEFINES=$(C_DEFINES) -DNT -D_NTDRIVER_ -D_PNP_POWER -DSECFLTR
+
+MSC_WARNING_LEVEL=/W3 /WX
+
+SOURCES=        \
+    ntip.c      \
+    ntirp.c     \
+    ntreg.c     \
+    init.c      \
+    loopback.c  \
+    send.c      \
+    receive.c   \
+    lan.c       \
+    prototab.c  \
+    icmp.c      \
+    mld.c       \
+    neighbor.c  \
+    route.c     \
+    subr.c      \
+    tunnel.c    \
+    security.c  \
+    mobile.c

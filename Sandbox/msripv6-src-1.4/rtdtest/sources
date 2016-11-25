@@ -1,0 +1,19 @@
+MAJORCOMP=msripv6
+MINORCOMP=rtdtest
+
+TARGETNAME=rtdtest
+TARGETPATH=obj
+TARGETTYPE=UMAPPL_NOLIB
+
+INCLUDES=..\inc
+
+SOURCES= rtdtest.cpp ipv6.c
+
+UMTYPE=console
+UMAPPL=rtdtest
+UMBASE=0x01000000
+
+UMLIBS= \
+    $(TARGETPATH)\*\ipv6.obj \
+    ..\wship6\obj\*\$(DDKBUILDENV)\wship6.lib \
+    $(MSSDK)\lib\ws2_32.lib

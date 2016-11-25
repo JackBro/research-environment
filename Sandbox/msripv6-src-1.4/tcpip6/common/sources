@@ -1,0 +1,29 @@
+NT_UP=0
+
+MAJORCOMP=msripv6
+MINORCOMP=tcpip6
+
+TARGETNAME=tcpip6
+TARGETTYPE=EXPORT_DRIVER
+
+TARGETPATH=obj
+TARGETLIBS=$(BASEDIR)\lib\*\$(DDKBUILDENV)\tdi.lib \
+           $(BASEDIR)\lib\*\$(DDKBUILDENV)\ndis.lib \
+           ..\ip6\obj\*\$(DDKBUILDENV)\ip6.lib \
+           ..\algrthms\obj\*\$(DDKBUILDENV)\algrthms.lib \
+           ..\udp\obj\*\$(DDKBUILDENV)\udp.lib \
+           ..\tcp\obj\*\$(DDKBUILDENV)\tcp.lib
+INCLUDES=..\common;..\ip6;..\udp;..\tcp;..\inc;..\..\inc;$(BASEDIR)\src\network\inc
+
+C_DEFINES=$(C_DEFINES) -DNT -D_NTDRIVER_ -D_PNP_POWER
+
+MSC_WARNING_LEVEL=/W3 /WX
+
+SOURCES= \
+    tcpip6.rc \
+    addr.c \
+    info.c \
+    init.c \
+    ntdisp.c \
+    ntinit.c \
+    transprt.c

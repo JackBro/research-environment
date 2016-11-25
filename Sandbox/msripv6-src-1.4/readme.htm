@@ -1,0 +1,416 @@
+<HTML>
+<HEAD>
+<TITLE>Microsoft Research IPv6 Release</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<P>
+<H1>Microsoft Research IPv6 Release 1.4</H1>
+<P>
+<font size="+1"><B>January 13, 2000</B></font>
+<font size="-1">(Check
+<a href="http://www.research.microsoft.com/msripv6/ReadMe.htm">here</a>
+for the latest version.)</font>
+
+<P>
+The information in this file applies to both the source and binary-only
+distributions of this release.
+
+<P>
+<H3>New for Release 1.4</H3>
+The most pervasive change we've made with this release adds full support
+for scoped addresses throughout the stack.
+This improvement is made visible at user level by the addition of new
+scope-aware APIs (e.g. getaddrinfo, getnameinfo) as recommended by the
+IETF in RFC 2553.
+As an example of these, we have updated the ttcp demonstration program
+to be protocol independent.
+We've also implemented Nordmark's site-prefixes draft, which allows
+site-local addresses to be placed in the DNS.
+We support multi-sited nodes.
+<P>
+<I>Note that since these API changes included the addition of a new
+field to the IPv6 socket address structure, <B>binaries from previous
+releases will not work with this one.</B> If you have your own
+applications, they must be recompiled. The new
+<CODE>sin6_scope_id</CODE> field must be initialized; the best way to
+do this is to set the entire sockaddr structure to zero before use:
+<CODE>memset(&sin6, 0, sizeof(struct sockaddr_sin6))</CODE>.</I>
+<P>
+Our syntax for a literal IPv6 address with scope-id is "scope-id/address".
+For example, 5/fe80::260:8ff:fe16:6e15 where 5 is an interface index
+because it's a link-local address. getaddrinfo parses this syntax.
+<P>
+Another major stack improvement is Plug and Play and Power Management
+support for Windows 2000.  USB and PCMCIA network interfaces can now
+be added to or removed from the system on the fly and the stack will
+reconfigure itself accordingly.  Similarly, you can disconnect and
+reconnect network links or hibernate and resume your system and the
+MSR IPv6 stack will do the right thing.  You can even dynamically
+unload and reload the stack without rebooting.
+<P>
+There is a new 6to4cfg program that automates 6to4 configuration.
+6to4cfg makes it <EM>very</EM> easy to setup a 6to4 gateway router
+and connect your site to the 6bone via 6to4. See our
+<a href="docs/6to4.htm">6to4 documentation</a>.
+<P>
+There are plenty of minor improvements and fixes.
+We've improved our support for multicast (MLD) and anycast.
+We've implemented the UDP lite proposal.
+And we've fixed some problems with our existing correspondent node support
+(for mobile IP) and the Network Address and Protocol Translator.
+<P>
+We've reorganized our header files so that you can build
+user-level applications that use IPv6 without needing the SDK or DDK.
+Our own source tree still requires the SDK and DDK.
+<P>
+<H3>Upgrading</H3>
+If you currently have a previous release installed, uninstall it before
+installing this one.
+<P>
+To uninstall on NT 4, go to the Control Panel's "Network"
+applet (an alternative way to do this is to right-click on "Network
+Neighborhood" and select "Properties") and select the "Protocols" tab.
+Select the IPv6 Protocol from the list and click "Remove".
+<P>
+To uninstall on Windows 2000, go to the Control Panel's "Network Connections"
+panel (an alternative way to do this is to right-click on "My Network Places"
+and select "Properties") and right-click on the "Local Area Connection".
+Choose "Properties".  Go to the "General" tab.
+Select the IPv6 Protocol and then click on "Uninstall".
+Note that the user interface for Windows 2000 differs slightly from beta to
+beta, so these instructions are approximate.
+
+<P>
+<H3>System Requirements</H3>
+Most of our testing has been performed on Windows 2000 and Windows NT 4.0 with Service
+Pack 3 or later installed.
+Our implementation <I>should</I> work on NT 4.0 at any Service Pack level;
+however, we haven't tested all cases.
+For those who are members of the Windows 2000 Beta program, we also work on
+Windows 2000 build 1773 or later (this includes all the release candidates and beta versions <I>except</I> Beta 1).
+The same binaries that run on NT 4.0 also run on Windows 2000; only the
+installation changes.
+<P>
+If you plan to run our stack on an existing NT 4.0 system, we recommend that
+you update it to the latest Service Pack level.
+Service Pack updates are available for free download from
+<a href="http://support.microsoft.com/Support/NTServer/Content/ServicePacks/default.asp" target=_top>
+http://support.microsoft.com/Support/NTServer/Content/ServicePacks/default.asp</a>.
+<P>
+The binary form of this release is only available for the Intel x86
+architecture, which is also the only NT-supported platform we've
+tested on.
+<P>
+We currently have support for Ethernet and FDDI interfaces.
+Any Ethernet or FDDI card that is supported by NT 4.0 should work
+with our release, however, we've only tested about a dozen Ethernet cards
+and one FDDI card.
+<P>
+[If you have the binary-only distribution, you can skip down to
+<a href="#Installation">Installation</a>]
+
+<P>
+<H3>Building</H3>
+The build environment for the source distribution is that provided by the
+Microsoft Windows NT Version 4.0 Device Driver Kit (DDK), which in turn
+requires a machine with Windows NT 4.0, the Platform Software Development Kit
+(SDK) for Win32 and Visual C++ 5.0 (or an equivalent 32-bit C compiler)
+installed.
+<P>
+If you do not have some of these tools and wish to acquire them, you will need
+to join Microsoft's Developer Network (MSDN) at the Professional
+Subscription level or greater.  Please see
+<a href="http://msdn.microsoft.com/developer/default.htm" target=_top>
+http://msdn.microsoft.com/developer/default.htm</a>
+for more information.  Educational institutions may be eligible for special
+academic prices, please see your local academic reseller for pricing and
+availability.
+<P>
+Most of our development has occurred on machines running NT 4.0 w/ SP3 or
+later, Visual C++ 5.0 or 6.0, Platform SDK of Oct '97, and the NT DDK
+Version 4.0.  Having precisely these same versions of the compiler and SDK
+shouldn't be necessary; however, we haven't done extensive
+testing of other configurations.
+<P>
+Assuming you have the DDK build environment set up correctly (test by building
+one or more of the samples included in the DDK), building our entire tree can
+be accomplished simply by running "build" in the msripv6 directory.
+To build just a single component, cd to that component's directory and
+run build there.
+For example, to build the core IPv6 stack, run build in the
+<CODE> msripv6\tcpip6</CODE> directory.
+The resulting binary is <CODE>tcpip6.sys</CODE>.
+<P>
+(Build likes to complain about include files that don't end with a blank
+line and include files it can't find directly.
+You can ignore these messages)
+
+<P>
+<H3>Creating an Install Kit</H3>
+Once you have successfully built the tree as described above, you can package
+up an IPv6 install kit for easy installation of the associated parts.
+To do this, go to the <CODE>kit</CODE> subdirectory of msripv6.  Run the
+<CODE>mkkit.cmd</CODE> script with the path to an existing directory in
+which to place the completed kit as an argument (for example,
+"<CODE>mkkit C:\Ipv6Kit</CODE>").
+
+<P>
+<a name="Installation"></a>
+<H3>Installation on NT 4.0</H3>
+The same procedure is used to install either our binary distribution or a
+version you built yourself from our source distribution.
+Start the Control Panel's "Network" applet (an alternative
+way to do this is to right-click on "Network Neighborhood" and
+select "Properties") and select the "Protocols" tab.
+Click the "Add..." button and then "Have Disk...".
+When it asks you for a disk, give it the full pathname to where you downloaded
+our binary distribution kit (or where you placed the kit you created yourself
+-- in the example above, this was "<CODE>C:\IPv6Kit</CODE>").
+IPv6 should now install itself.
+<P>
+The above install procedure will copy the files from the install kit into the
+appropriate places and add entries to the system registry for IPv6
+configuration.
+If you later modify IPv6 components, you can replace just the
+affected file or files without having to uninstall/install IPv6 again.
+The protocol stack itself (<CODE>tcpip6.sys</CODE>) is installed in your
+<CODE>%SystemRoot%\system32\drivers</CODE> directory.
+The Winsock helper dynamically linked library for the INET6 address family
+(<CODE>wship6.dll</CODE>) and all the user apps and utilities
+(<CODE>ipv6.exe</CODE>, <CODE>ping6.exe</CODE>, <CODE>tracert6.exe</CODE>,
+<CODE>ttcp.exe</CODE>, etc) live in the <CODE>%SystemRoot%\system32</CODE>
+directory.
+
+<P>
+<H3>Installation on Windows 2000</H3>
+The same procedure is used to install either our binary distribution or a
+version you built yourself from our source distribution.
+Note that the user interface for Windows 2000 differs slightly from beta to
+beta, so these instructions are approximate.
+<P>
+Go to the Control Panel's "Network Connections" panel (an alternative way
+to do this is to right-click on "My Network Places" and select "Properties")
+and right-click on the "Local Area Connection".
+Choose "Properties".  Go to the "General" tab.  Click on "Add".
+Choose "Protocol" and click on "Add".  Click on "Have Disk...".
+When it asks you for a disk, give it the full pathname to where you downloaded
+our binary distribution kit (or where you placed the kit you created yourself
+-- in the example above, this was "<CODE>C:\IPv6Kit</CODE>").
+IPv6 should now install itself.
+<P>
+Note that unlike NT 4, you do not have to reboot at this point.
+IPv6 starts immediately once installed.
+<P>
+The above install procedure will copy the files from the install kit into the
+appropriate places and add entries to the system registry for IPv6
+configuration.
+If you later modify IPv6 components, you can replace just the
+affected file or files without having to uninstall/install IPv6 again.
+The protocol stack itself (<CODE>tcpip6.sys</CODE>) is installed in your
+<CODE>%SystemRoot%\system32\drivers</CODE> directory.
+The Winsock helper dynamically linked library for the INET6 address family
+(<CODE>wship6.dll</CODE>) and all the user apps and utilities
+(<CODE>ipv6.exe</CODE>, <CODE>ping6.exe</CODE>, <CODE>tracert6.exe</CODE>,
+<CODE>ttcp.exe</CODE>, etc) live in the <CODE>%SystemRoot%\system32</CODE>
+directory.
+
+<P>
+<H3>Configuration</H3>
+Our implementation supports stateless address autoconfiguration.
+In the common case, you won't need to perform any manual configuration.
+At boot time, a link-local address will automatically be assigned to each
+network interface.
+Global addresses will be assigned based upon receipt of router advertisements.
+The default IPSec policy is to allow all traffic to bypass authentication
+checks.
+<P>
+Some manual configuration is required for more advanced features.
+We have extra information files describing these
+in the <CODE>docs</CODE> subdirectory of the distribution tree.
+In particular, we have pages describing how to set up a 
+<a href="docs/6bone.htm">connection to the 6bone</a> or a 
+<a href="docs/6to4.htm">6to4 gateway</a>, the use of the
+<a href="docs/config.htm">ipv6 command</a> to configure interfaces, addresses,
+and routing,
+and how to <a href="docs/ipsec/readme.htm">configure IP security</a>.
+
+<P>
+<H3>Utilities</H3>
+We wrote a utility (<CODE>ipv6.exe</CODE>) to retrieve and display various
+types of information from the stack.
+You can use this to view the state of interfaces, the neighbor cache,
+binding cache, destination cache (called the route cache in our
+implementation), and the route table.
+This utility can also be used to manually configure interfaces,
+addresses and route table entries.
+<P>
+There are also two separate utilities (<CODE>ipsecgui.exe</CODE> and
+<CODE>ipsec.exe</CODE>) for configuring IPSec policies and associations.
+<P>
+Also included with this release are ping6, tracert6, and ttcp.
+These work similarly to their v4 counterparts and are installed into
+<CODE>%SystemRoot%\system32</CODE> by the above installation procedure.
+The ttcp utility now supports IPv4 as well.
+We also include mldtest and testsend in the binary distribution, but they
+are not installed anywhere by default.
+<P>
+Implementers may be interested in our hrdtest utility, which generates packets
+with various combinations (both legal and not) of IPv6 extension headers.
+
+<P>
+<H3>Example Applications</H3>
+We've made available (via a separate download file) a version of the
+freely available NcFTP client which we've ported to run on our stack.
+Please note that this code is <I>not</I> covered by our license, but rather
+the author's copyright (as given in the file
+"<CODE>COPYRIGHT.h</CODE>" of the NcFTP download).
+Also included in the NcFTP download is the pdcurses (public domain curses)
+package which is needed to build NcFTP (and is also not covered by our
+license).
+For more information about building/running NcFTP with our stack, see the
+<CODE>readme.msr</CODE> file included in the NcFTP download.
+<P>
+We've also made available (via a separate download file) a version of
+the freely available Fnord! web sever which we've ported to run on our
+stack.
+Please note that this code is <I>not</I> covered by our license, but rather
+the GNU Public License (as given in the file
+"<CODE>license.txt</CODE>" of the Fnord download).
+For more inforation about building/running Fnord! with our stack, see the
+<CODE>readme.msr</CODE> file included in the Fnord download.
+<P>
+We hope to increase the number of example applications for use with our stack
+over time.  We also accept donations.  If you have any freely redistributable
+(in both source and binary form) network applications of general interest that
+can run on our stack, please let us know.
+
+<P>
+<H3>Enabling IPv6 Capability for Microsoft Internet Explorer</H3>
+We include a binary of <CODE>wininet.dll</CODE> for NT 4.0 that makes
+IE 4.01 SP1 cognizant of IPv6.
+In our very brief testing, it appeared to work with IE 5 as well.
+<P>
+One caveat is that changing your existing <CODE>wininet.dll</CODE> to
+our version may break something else; we haven't tested this as
+extensively as the real product.
+In fact, we've only tested basic web browsing with http and ftp URLS.
+We recommend you save your existing version in case you need to back out
+of this change.
+We only have a modified <CODE>wininet.dll</CODE> for NT 4.0 at the moment;
+this will not work on Windows 2000.
+<P>
+To install, rename your existing <CODE>wininet.dll</CODE> to something else
+(e.g. <CODE>wininet.old</CODE>) and copy our <CODE>wininet.dll</CODE> to
+<CODE>%SystemRoot%\system32\wininet.dll</CODE> and reboot.  The rename step
+is important since you can't overwrite an in-use dll.
+<P>
+Note you also need the fixes to <CODE>afd.sys</CODE> and (on pre-SP4 systems)
+<CODE>msafd.dll</CODE> mentioned below for this to work.
+<P>
+Internet Explorer understands the RFC 2732 syntax for embedding IPv6 literal
+addresses in URLs. For example, http://[2002:836b:4179::836b:4179] as well as
+http://ipv6.research.microsoft.com. However, Internet Explorer does not
+yet support the use of scope-ids with embedded IPv6 literal addresses.
+<P>
+<H3>Fixes for NT 4.0</H3>
+The following are problems with NT 4.0 that were only exposed by running IPv6.
+We include binaries with our release that fix these problems.
+We don't want to get in the business of tracking all fixes to NT,
+however, so most of our binaries are at the base level of NT 4.0 (i.e. no
+Service Packs installed).
+Some Service Packs also include new versions of some or all of these binaries,
+which presumably fix other problems (and not these).
+In other words, if you already have one or more Service Packs installed,
+installing these binaries may break something else.
+For this reason, these binaries are not installed automatically along with
+IPv6 and instead must be installed by hand.
+You get to decide if the fix is worth the risk.
+<P>
+The good news it that most of these problems have since been fixed in
+Service Pack 4 (and later) for NT 4.0 and in Windows 2000.
+<P>
+There is protocol specific code in <CODE>afd.sys</CODE> to which we had to
+add an IPv6 case.
+Rename your existing version to something else and copy our
+<CODE>afd.sys</CODE> (for NT 4.0 with SP3 or less) or <CODE>afd.sp4</CODE>
+(for NT 4.0 SP4 or later) to <CODE>%SystemRoot%\system32\drivers\afd.sys</CODE>
+and reboot. <I>This is fixed in Windows 2000.</I>
+<P>
+The Winsock getsockname call on AF_INET6 sockets triggers a bug in
+<CODE>msafd.dll</CODE> related to the longer addresses.
+If you decide you wish to fix this (see warning above), rename your existing
+<CODE>%SystemRoot%\System32\msafd.dll</CODE> to something else and replace it
+with the one we've included in this release.
+This fix is required for most ftp clients to work properly.
+<I>This is fixed in SP4 (and later) and in Windows 2000.</I>
+<P>
+The nslookup utility will incorrectly print the results of a AAAA record query
+(some parts of the address are byte-swapped).
+If you decide you wish to fix this (see warning above), replace your existing
+<CODE>%SystemRoot%\System32\nslookup.exe</CODE> with the one we've included
+in this release.
+<I>This is fixed in SP4 (and later) and in Windows 2000.</I>
+
+<P>
+<H3>Known Issues with our Stack</H3>
+Most of the Ethernet interface cards we have tried "just worked".
+In two cases, however, we had to update the drivers to the latest versions
+available in order to get them to work with our code (we suspect they had
+problems with multicast that weren't tickled by the IPv4 stack).
+If you experience an immediate crash upon booting with the IPv6 stack
+installed, check with your card's manufacturer to ensure that you have
+the latest driver.
+<P>
+Our IPv6 TCP implementation doesn't have all the post-NT 4.0 fixes and
+improvements that Microsoft has since shipped in the Service Packs
+and in Windows 2000.
+<P>
+If you are configuring a router that should forward packets
+to/from 6to4, configured tunnels, or automatic tunnels,
+then you must enable forwarding on all 6over4 interfaces.
+<P>
+There is a bug in Windows 2000 name resolution that causes the following
+problem. If your machine has a v6 address in the DNS, and you try to
+look it up on the machine itself (eg lookup "aname" while running on aname),
+then the IPv6 name resolution will fail. (The problem has to do with Netbios
+name resolution getting in the way.) Qualifying the name (for example
+using "aname.acompany.com") works around the bug.
+<P>
+Our DNS resolver code understands A and AAAA records but not A6 records. The
+resolver only uses IPv4 packets to communicate with DNS servers; it
+can not run over IPv6 even when it is looking up AAAA records. We do
+not support Dynamic DNS updates.
+<P>
+<H3>Mailing List</H3>
+We have set up a mailing list for interested parties to use in
+exchanging information regarding their experiences working with our
+implementation.  We will also be making interim announcements
+regarding the state of our implementation to this list.  To join, send
+an email message to <a href="mailto:listserv@list.research.microsoft.com">
+listserv@list.research.microsoft.com</a> containing the text<BR>
+<DIR><CODE>subscribe msripv6-users <I>yourfirstname yourlastname</I></CODE></DIR>
+
+<P>
+<H3>Daily Code Drops</H3>
+We make a daily code drop available to those developers who want more
+timely source updates.
+Naturally, these drops aren't as polished as our quasi-quarterly releases.
+If this is something that interests you, drop us a line at the email
+address below.
+
+<P>
+<H3>Bug Reports/Feedback</H3>
+We welcome bug reports and other feedback, especially interoperability reports
+with other IPv6 implementations.
+Please send email on such subjects to
+<a href="mailto:msripv6-bugs@list.research.microsoft.com">
+msripv6-bugs@list.research.microsoft.com</a>.
+
+<P>
+<H3>Contact Info</H3>
+Should you wish to contact us for any reason besides the above mentioned
+bug reports/feedback, please send email to
+<a href="mailto:msripv6@microsoft.com">msripv6@microsoft.com</a>
+or write Microsoft Research, One Microsoft Way, Redmond, WA 98052-6399.
+</BODY>
+</HTML>

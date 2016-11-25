@@ -1,0 +1,18 @@
+MAJORCOMP=msripv6
+MINORCOMP=igmptest
+
+TARGETNAME=igmptest
+TARGETPATH=obj
+TARGETTYPE=UMAPPL_NOLIB
+
+SOURCES=igmptest.c
+
+INCLUDES=..\inc;$(BASEDIR)\src\network\inc;$(MSSDK)\include
+
+UMTYPE=console
+UMAPPL=igmptest
+UMBASE=0x01000000
+
+UMLIBS= \
+    ..\wship6\obj\*\$(DDKBUILDENV)\wship6.lib \
+    $(MSSDK)\lib\ws2_32.lib

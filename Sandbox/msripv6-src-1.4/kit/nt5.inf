@@ -1,0 +1,119 @@
+; Copyright (c) 1985-2000 Microsoft Corporation
+;
+; Installation file for Windows NT 5.
+
+[Version]
+    Signature   = "$Windows NT$"
+    Class       = NetTrans
+    ClassGUID   = {4d36e975-e325-11ce-bfc1-08002be10318}
+    Provider    = Microsoft
+
+[Manufacturer]
+    Microsoft = ProtocolsSection
+
+[ProtocolsSection]
+    %MSR_TCPIP6.DisplayName% = MSR_TCPIP6.Install, MSR_TCPIP6
+
+[MSR_TCPIP6.Install]
+    Characteristics = 0x00
+    AddReg          = Registry.MSR_TCPIP6.Install
+    CopyFiles       = MSR_TCPIP6.Files.sys, MSR_TCPIP6.Files.drv
+
+[Registry.MSR_TCPIP6.Install]
+; Class Information
+    HKR, Ndi, HelpText,   0, %MSR_TCPIP6.HelpText%
+    HKR, Ndi, Service,    0, "Tcpip6"
+    HKR, Ndi, CoServices, %FLG_ADDREG_TYPE_MULTI_SZ%, "Tcpip6"
+
+; Interfaces
+    HKR, Ndi\Interfaces, UpperRange, 0, "tdi"
+    HKR, Ndi\Interfaces, LowerRange, 0, "ndis5"
+
+;=====================================
+; MSR IPv6 Interface and Service Install
+;=====================================
+
+; Service install
+[MSR_TCPIP6.Install.Services]
+    AddService      = Tcpip6,    0, Install.AddService.TCPIP6,    AddEventLog
+
+; Install Tcpip6 service
+[Install.AddService.TCPIP6]
+    DisplayName     = %MSR_TCPIP6.TCPIP6.ServiceDescription%
+    ServiceType     = 1 ;SERVICE_KERNEL_DRIVER
+    StartType       = 2 ;SERVICE_AUTO_START
+    ErrorControl    = 1 ;SERVICE_ERROR_NORMAL
+    ServiceBinary   = %12%\tcpip6.sys
+    LoadOrderGroup  = PNP_TDI
+    AddReg          = Registry.Service.TCPIP6
+
+; Install Winsock dependency
+[MSR_TCPIP6.Install.Winsock]
+    AddSock     = Install.Tcpip6Winsock
+
+[Install.Tcpip6Winsock]
+    TransportService    = Tcpip6
+    HelperDllName       = "%SystemRoot%\System32\wship6.dll"
+    MaxSockAddrLength   = 0x1c
+    MinSockAddrLength   = 0x1c
+
+[Registry.Service.TCPIP6]
+    HKR, , "TextModeFlags", 0x10001, 0x0001
+
+;====================================
+; TCP/IP6 Interface and Service Remove
+;====================================
+
+[MSR_TCPIP6.Install.Remove]
+;nothing
+
+[MSR_TCPIP6.Install.Remove.Services]
+    DelService = Tcpip6
+
+[MSR_TCPIP6.Install.Remove.Winsock]
+    DelSock = Remove.Tcpip6Winsock
+
+[Remove.Tcpip6Winsock]
+    TransportService=Tcpip6
+
+
+
+[MSR_TCPIP6.Files.sys]
+    wship6.dll
+    ipv6.exe
+    ping6.exe
+    tracert6.exe
+    ttcp.exe
+	ipsec.exe
+	ipsecgui.exe
+    6to4cfg.exe
+
+[MSR_TCPIP6.Files.drv]
+    tcpip6.sys
+
+[DestinationDirs]
+    MSR_TCPIP6.Files.sys              = 11 ; %WINDIR%\SYSTEM32
+    MSR_TCPIP6.Files.drv              = 12 ; %WINDIR%\SYSTEM32\DRIVERS
+
+
+;****************************************************************************
+; [Event Log] sections.
+;****************************************************************************
+[AddEventLog]
+AddReg = AddEventLog.AddReg
+
+[AddEventLog.AddReg]
+    HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\netevent.dll"
+    HKR,,TypesSupported,0x00010001,7
+
+
+[Strings]
+MSR_TCPIP6.DisplayName = "MSR IPv6 Protocol"
+MSR_TCPIP6.HelpText    = "Transmission Control Protocol/Internet Protocol version 6. The next-generation version of the default wide area network protocol that provides communication across diverse interconnected networks."
+MSR_TCPIP6.TCPIP6.ServiceDescription   = "MSR IPv6 Protocol Driver"
+
+; AddReg flags
+FLG_ADDREG_TYPE_EXPAND_SZ   = 0x00020000
+FLG_ADDREG_TYPE_MULTI_SZ    = 0x00010000
+FLG_ADDREG_TYPE_DWORD       = 0x00010001
+FLG_ADDREG_KEYONLY          = 0x00000010

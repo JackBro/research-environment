@@ -1,0 +1,26 @@
+TARGETNAME=wship6
+TARGETPATH=obj
+TARGETTYPE=DYNLINK
+
+TARGETLIBS=$(MSSDK)\lib\ws2_32.lib      \
+           $(MSSDK)\lib\wsock32.lib     \
+           $(MSSDK)\lib\user32.lib      \
+           $(MSSDK)\lib\kernel32.lib
+
+DLLENTRY=DllInitialize
+
+INCLUDES=..\inc;$(BASEDIR)\src\network\inc;$(BASEDIR)\src\network\streams\inc
+
+SOURCES= \
+    wship6.c    \
+    addr.c      \
+    error.c     \
+    name.c      \
+    aton.c      \
+    ntoa.c
+
+DLLLIBOBJECTS= \
+    obj\$(TARGET_DIRECTORY)\addr.obj
+
+UMTYPE=console
+DLLBASE=0x4c200000

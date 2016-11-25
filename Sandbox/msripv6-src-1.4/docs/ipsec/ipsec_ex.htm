@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title> </title>
+</head>
+
+<body background="..\bg.jpg" bgcolor="#FFFFFF">
+
+<p align="center"><font color="#000000" size="5"><strong>IPSec
+Example</strong></font><img src="ipsec_ex.gif" width="959"
+height="719"></p>
+
+<p><font size="3">Two NT machines, Hornet and Zealand, are
+connected on the same link (global prefix = 3ffe:1a01:4:b::/64).
+To communicate using IPSec, the SPD and SAD of each machine must
+have the correct policies and associations. </font></p>
+
+<p><font size="3">Click here to see Hornet&#146;s </font><a
+href="h_ex_sp.txt"><font size="3">SPD</font></a><font size="3">
+and </font><a href="h_ex_sa.txt"><font size="3">SAD</font></a><font
+size="3">. </font></p>
+
+<p><font size="3">Click here to see the Zealand&#146;s </font><a
+href="z_ex_sp.txt"><font size="3">SPD</font></a><font size="3">
+and </font><a href="z_ex_sa.txt"><font size="3">SAD</font></a><font
+size="3">. </font></p>
+
+<p><font size="3">The key files are the private keys. Simple
+strings are used here (</font><a href="ZeaHor.key"><font size="3">ZeaHor.key</font></a><font
+size="3"> </font><a href="HorZea.key"><font size="3">HorZea.key</font></a><font
+size="3"> </font><a href="keyloop.key"><font size="3">keyloop.key</font></a><font
+size="3">). The key must be enclosed in quotes as the example
+keys show. Note quotes cannot be used as a key symbol.</font></p>
+
+<p><font size="3">Both machines have loopback policies and
+associations, which can be used for testing, when only one
+machine is available. As the figure above illustrates, HTTP
+traffic is protected with AH and ESP transport mode. All other
+traffic, is protected by ESP transport mode.</font></p>
+
+<p><font size="3">To add policies and associations to the kernel,
+first type: <b>ipsec c &lt;filename&gt; </b>(filename has no
+extensions). This creates &quot;filename.spd&quot; and
+&quot;filename.sad&quot; in the current directory. The only
+policy is the default that allows all traffic. No SAs yet exist
+in the SAD file. To view the current SPD and SAD, type: <b>ipsec
+sp</b> or <b>ipsec sa</b> </font></p>
+
+<p><font size="3">Add the policies to the *.spd file and the
+associations to the *.sad file following the example SPD and SAD.
+Also, add the key files to the same directory as the *.spd and
+*.sad files. Type: <b>ipsec a &lt;filename&gt;</b> to add the
+policies and associations to the kernel. Only new entries are
+added to the kernel. So, the default SP entry (#1) is not
+modified. &quot;New&quot; just means the index number of the SP
+or SA entry is greater than the highest current SP or SA entry
+that is in the kernel. </font></p>
+
+<p><font size="3">The SPD is ordered from most specific to most
+general. Most specific entries are ones with selectors defined to
+specific values. A selector has three possible values: wildcard
+(*), range (?-?), or specific (?). Looking at Hornet&#146;s </font><a
+href="h_ex_sp.txt"><font size="3">SPD</font></a><font size="3">,
+SP entry 4 is more specific than 3 due to the <strong>Protocol</strong>
+selector being set to <strong>TCP</strong>. </font></p>
+
+<p><font size="3">Nesting of IPSec is shown in SP entry 5. Here
+the <strong>SABundleIndex</strong> is <strong>4</strong>
+indicating that first SP entry 5 is applied and then SP entry 4.
+SP entry 4 is never used alone due to SP entry 5 having the exact
+same selectors.</font></p>
+
+<p><font size="3">An SA entry is an instantiation of an SP entry.
+Looking at the SP entries, the selectors have an indicator for
+&quot;take from policy (-)&quot; or &quot;take from packet
+(+).&quot; This means that the SA entry selectors are either
+taken from the policy selectors or taken from the packet that
+caused the SA to be created. The example uses &quot;take from
+policy&quot; for simplicity and because manual keys are used.
+When the SA selector is determined by the policy, the SAs
+selector value is <strong>POLICY</strong>. A &quot;take from
+packet&quot; indicator could be used instead to cause a more
+specific SA meaning the SP could have many SAs. </font></p>
+
+<p><font size="3">For more information on the SP and SA entries
+look at the other examples.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

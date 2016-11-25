@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Configuring 6bone Connectivity with MSR IPv6</TITLE>
+</HEAD>
+
+<BODY bgcolor="#FFFFFF">
+<H1>Configuring 6bone Connectivity with MSR IPv6</H1>
+<P>
+<font size="+1"><B>January 13, 2000</B></font>
+<font size="-1">(Check
+<a href="http://www.research.microsoft.com/msripv6/docs/6bone.htm">here</a>
+for the latest version.)</font>
+</P>
+
+<P>Actually, the best way to connect to the 6bone is to configure 6to4
+and use MSR's 6to4 relay router.
+See our <a href="6to4.htm">6to4 documentation</a>.</P>
+
+<P>Another approach is to use a "tunnel broker" service. The tunnel
+broker will create a tunnel for you and give you a script that
+automates your configuration.
+See <a href="http://www.freenet6.net">www.freenet6.net</a>.
+</P>
+
+<P>Using either 6to4 or a tunnel broker,
+you can ping other machines on the 6bone. For example,
+<DIR><CODE>
+ping6 6bone-gw.ipv6.sics.se<BR>
+ping6 sipper.ipv6.zk3-x.dec.com<BR>
+ping6 www.6bone.net<BR>
+ping6 carmen.ipv6.cselt.it<BR>
+ping6 ipv6.research.microsoft.com
+</CODE></DIR>
+The <a href="http://www.ipv6.org">ipv6.org</a> web site has a list of
+<a href="http://www.ipv6.org/v6-www.html">IPv6-accessible web sites</a>.
+Also, the 6bone registry contains the names of other 6bone machines.
+</P>
+
+<P>Note that many 6bone sites may be inaccessible. The 6bone is
+notoriously flaky. If you experience connectivity problems, the
+<CODE>tracert6 -d</CODE> command may be helpful. (The <CODE>-d</CODE>
+argument says not to perform reverse-DNS lookup on the resulting
+addresses.)  Report problems with 6bone connectivity to the 6bone
+mailing list, <a href="mailto:6bone@isi.edu">6bone@isi.edu</a>.
+</P>
+
+<P>If you want to connect to the 6bone the hard way,
+the first thing you need is for someone already on the 6bone to
+setup a tunnel for you. You need to find a contact person for a 6bone
+site topologically near you, and ask them. The only way I know to do
+this is by perusing the 6bone registry. See
+<A HREF="http://www.6bone.net/6bone_hookup.html">
+http://www.6bone.net/6bone_hookup.html</A>
+and <A HREF="ftp://whois.6bone.net/6bone/6bone.db.gz">
+ftp://whois.6bone.net/6bone/6bone.db.gz</A>. If
+you do connect to the 6bone, then you should create the appropriate
+entries in the 6bone registry to describe your connection. See
+<A HREF="http://www.6bone.net/RIPE-registry.html">
+http://www.6bone.net/RIPE-registry.html</A>.
+</P>
+
+<P>Once you have a tunnel, there are three things you will know:
+<OL TYPE="a">
+<LI>The IPv4 address of the 6bone node to which you are connecting.</LI>
+<LI>The IPv4 address of your node, which you are connecting to the 6bone.
+Your 6bone contact needs to know this, so he can setup the tunnel to you.</LI>
+<LI>The IPv6 address prefix that your 6bone connection has given you.</LI>
+</OL></P>
+
+<P>So to make this concrete, we have a machine connected to the 6bone
+via NWNET. I am using the following values:
+<OL TYPE="a">
+<LI><CODE>192.220.249.249</CODE> - the IPv4 address of the machine at NWNET.</LI>
+<LI><CODE>131.107.65.121</CODE> - the IPv4 address of my 6bone machine here
+at Microsoft Research.</LI>
+<LI><CODE>3ffe:a00:6::/48</CODE> - the address prefix assigned to Microsoft Research
+by NWNET.</LI>
+</OL></P>
+
+<P>(Note if you tried to use these values, you could set up a tunnel
+to NWNET, but they wouldn't have a tunnel back to you and so it
+wouldn't work. You need to get your own values from your own 6bone
+contact.)</P>
+
+<P>From the address prefix, you derive an IPv6 address to assign to
+your machine. It's pretty much up to you how you do that, but I
+like to use the IPv4 address as the interface identifier for
+tunnels. So continuing the example, my IPv6 address is
+<CODE>3ffe:a00:6::131.107.65.121</CODE>, which can also be written as
+<CODE>3ffe:a00:6::836b:4179</CODE>.</P>
+
+<P>Once you have these values, you can use the ipv6.exe command
+to create a configured tunnel and connect to the 6bone.
+This requires two commands:</P>
+
+<P><CODE>ipv6 rtu ::/0 2/::192.220.249.249 pub life 1800
+</CODE></P>
+
+<DIR>
+<P>The <CODE>ipv6 rtu</CODE> command performs a routing table update operation. It can be used to add, remove, or update a route. In this case it is establishing a default route to the 6bone.</P>
+
+<P>The <CODE>::/0</CODE> argument is the route's prefix - the zero-length prefix means it is a default route.</P>
+
+<P>The <CODE>2/::192.220.249.249</CODE> argument specifies the
+next-hop neighbor for this prefix. It says to forward packets that
+match the prefix to address <CODE>::192.220.249.249</CODE> using
+interface #2. Interface #2 is the "pseudo-interface" used for
+configured and automatic tunneling. Forwarding a packet to
+<CODE>::192.220.249.249</CODE> causes it to be encapsulated with a v4
+header and sent to <CODE>192.220.249.249</CODE>.</P>
+
+<P>The <CODE>pub</CODE> argument makes this a published route. This is
+only relevant for routers, so unless/until routing is enabled it has
+no effect. Similarly, the 30 minute lifetime is only relevant if
+routing is enabled.</P>
+</DIR>
+
+<P><CODE>ipv6 adu 2/3ffe:a00:6::131.107.65.121
+</CODE></P>
+
+<DIR>
+<P>The <CODE>ipv6 adu</CODE> command performs an address update operation. It can be used to add, remove, or update an address on an interface. In this case it is configuring the machine's 6bone address.</P>
+
+<P>The <CODE>2/3ffe:a00:6::131.107.65.121</CODE> argument specifies the interface and the address. It says to configure address <CODE>3ffe:a00:6::131.107.65.121</CODE> on interface #2.</P>
+</DIR>
+
+<P>To verify that these commands had the desired effect, try <CODE>ipv6 if 2</CODE> to examine the addresses assigned to interface #2, and try <CODE>ipv6 rt</CODE> to examine the routing table.</P>
+
+<P>See our <a href="config.htm">configuration documentation</a>
+for more information about ipv6.exe.</P>
+
+</BODY>
+</HTML>

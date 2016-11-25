@@ -1,0 +1,22 @@
+TARGETNAME=tcpip6
+TARGETPATH=obj
+TARGETTYPE=DYNLINK
+
+TARGETLIBS=$(MSSDK)\lib\parser.lib      \
+           $(MSSDK)\lib\nmapi.lib
+
+# We need cdecl (-Gd) by default because the definition of BuildINIPath
+# in inilib.h does not have an explicitly specified call type.
+386_STDCALL=0
+
+DLLENTRY=DllMain
+
+SOURCES= \
+    tcpip6.c    \
+    ip6.c       \
+    ip6tbls.c   \
+    icmp6.c     \
+    icmp6tbl.c
+
+UMTYPE=console
+DLLBASE=0x10000000

@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title> </title>
+</head>
+
+<body background="../bg.jpg" bgcolor="#FFFFFF">
+
+<p align="center"><font color="#000000" size="5"><strong>IPSec
+Security Gateway Example</strong></font><img src="ipsec_sg.gif"
+width="959" height="719"></p>
+
+<p>&nbsp;</p>
+
+<p>First, Zealand needs to be configured as a gateway. Do the
+following commands on Zealand:</p>
+
+<ol>
+    <li>ipv6 rtu 3ffe:1a01:4:1::/64 6 life 7200 pub</li>
+    <li>ipv6 rtu 3ffe:1a01:4:2::/64 5 life 7200 pub</li>
+    <li>ipv6 ifc 6 forw adv</li>
+    <li>ipv6 ifc 5 forw adv</li>
+</ol>
+
+<p>Command 1 and 2 create the two prefixes on the different
+interfaces. Note your interfaces may not be 5 and 6. Use the
+Ethernet interfaces of the gateway. Command 3 and 4 make the
+interfaces advertising and forwarding. After executing the above
+commands, Zealand forwards traffic from one subnet to the other.
+Hornet can ping6 Alcuin.</p>
+
+<p>Alcuin and Hornet now have prefix configured for their
+Ethernet interfaces and routes. Hornet has the following routes
+in the routing table (ipv6 rt):</p>
+
+<ol>
+    <li>3ffe:1a01:4:2::/64 -&gt; 4 pref 1 (lifetime &lt;less than
+        7200s&gt;)</li>
+    <li>3ffe:1a01:4:1::/64 -&gt; 4/fe80::2a0:c9ff:fe77:cb83 pref
+        16 (lifetime &lt;less than 7200s&gt;)</li>
+</ol>
+
+<p>Route 1 says, &quot;for anything to this prefix it is on
+link.&quot; Route 2 says, &quot;for anything to this prefix send
+to the link-local address of Zealand.&quot; Zealand then forwards
+the packet to the other side. </p>
+
+<p>Now that Zealand is configured as a forwarding security
+gateway, add the following IPSec configurations:</p>
+
+<dl>
+    <dd>Alcuin <a href="a_sg_sp.txt">SPD</a> and <a
+        href="a_sg_sa.txt">SAD</a>.</dd>
+    <dd>Hornet <a href="h_sg_sp.txt">SPD</a> and <a
+        href="h_sg_sa.txt">SAD</a>.</dd>
+    <dd>Zealand <a href="z_sg_sp.txt">SPD</a> and <a
+        href="z_sg_sa.txt">SAD</a>.</dd>
+    <dd>Keys: <a href="AlcZea.key">AlcZea.key</a>, <a
+        href="ZeaAlc.key">ZeaAlc.key</a>, <a href="AlcHor.key">AlcHor.key</a>,
+        <a href="HorAlc.key">HorAlc.key</a> </dd>
+</dl>
+
+<p>To stop Zealand from acting as a gateway, first disable
+forwarding and advertising with the following commands on
+Zealand:</p>
+
+<ol>
+    <li>ipv6 ifc 6 -forw -adv</li>
+    <li>ipv6 ifc 5 -forw -adv</li>
+</ol>
+
+<p>The machines still have routes and prefixes configured due to
+the previous router advertisements. It is not necessary to remove
+them since they will timeout. But, you can remove them as
+follows.</p>
+
+<p>To remove the routes from Zealand do the following commands on
+Zealand:</p>
+
+<ol>
+    <li>ipv6 rtu 3ffe:1a01:4:1::/64 6 life 0 </li>
+    <li>ipv6 rtu 3ffe:1a01:4:2::/64 5 life 0 </li>
+</ol>
+
+<p>To remove the prefixes from Zealand do the following commands
+on Zealand:</p>
+
+<ol>
+    <li>ipv6 adu 6/3ffe:1a01:4:1:2e0:b8ff:fe11:169d life 0</li>
+    <li>ipv6 adu 5/3ffe:1a01:4:2:2a0:c9ff:fe77:cb83 life 0</li>
+</ol>
+
+<p>The prefixes and routes will still be configure on Alcuin and
+Hornet and are removed by doing the same commands shown for
+Zealand. </p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+</body>
+</html>

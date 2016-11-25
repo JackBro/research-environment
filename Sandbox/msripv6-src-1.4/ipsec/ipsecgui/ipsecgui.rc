@@ -1,0 +1,273 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\IPSecConfig.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\ipsecgui.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About IPSecConfig"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "IPSecConfig Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 1999-2000",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_IPSECCONFIG_DIALOG DIALOGEX 0, 0, 295, 281
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "IPSecConfig"
+MENU IDR_MENU1
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_DEVICETYPE_COMBO,10,20,84,44,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Device Type",IDC_STATIC,10,10,42,8
+    PUSHBUTTON      "Configure",IDC_CONFIGURE_BUTTON,110,255,63,17
+    COMBOBOX        IDC_IPSECMODE_COMBO,10,58,84,44,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "IPSec Mode",IDC_STATIC,10,50,40,8
+    COMBOBOX        IDC_IPSECPROTO_COMBO,105,58,84,44,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "IPSec Protocol",IDC_STATIC,105,50,48,8
+    LTEXT           "Remote IP Address",IDC_STATIC,10,90,62,8
+    LTEXT           "Local IP Address",IDC_STATIC,11,119,54,8
+    COMBOBOX        IDC_RMTPORT_COMBO,105,130,84,44,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Remote Port",IDC_STATIC,105,119,40,8
+    COMBOBOX        IDC_LCLPORT_COMBO,105,155,84,44,CBS_DROPDOWN | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Local Port",IDC_STATIC,105,147,33,8
+    COMBOBOX        IDC_PROTOCOL_COMBO,105,100,84,63,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Protocol",IDC_STATIC,106,90,27,8
+    COMBOBOX        IDC_AUTHALG_COMBO,200,58,84,62,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Authentication Algorithm",IDC_STATIC,200,50,77,8
+    LTEXT           "Remote Tunnel IP",IDC_STATIC,200,90,58,8
+    EDITTEXT        IDC_RMTTUNNELIP_EDIT,200,100,84,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_IPSECACTION_COMBO,105,20,84,44,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "IPSec Action",IDC_STATIC,105,10,42,8
+    LTEXT           "IPSec Interface",IDC_STATIC,200,10,50,8
+    EDITTEXT        IDC_IPSECINTERFACE_EDIT,200,20,85,12,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,0,0,295,40
+    GROUPBOX        "",IDC_STATIC,0,40,295,40
+    GROUPBOX        "SP Selectors",IDC_STATIC,0,80,295,95
+    EDITTEXT        IDC_REMOTEIP_EDIT,10,100,84,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LOCALIP_EDIT,10,130,84,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REMOTEKEYFILE_EDIT,200,195,84,12,ES_AUTOHSCROLL
+    LTEXT           "Remote Key File",IDC_STATIC,201,185,52,8
+    EDITTEXT        IDC_LCLSAADDR_EDIT,10,225,84,12,ES_AUTOHSCROLL
+    LTEXT           "Local SA Address",IDC_STATIC,10,215,57,8
+    EDITTEXT        IDC_RMTSAADDR_EDIT,10,195,84,12,ES_AUTOHSCROLL
+    LTEXT           "Remote SA Address",IDC_STATIC,10,185,64,8
+    GROUPBOX        "SA Info",IDC_STATIC,0,175,295,70
+    EDITTEXT        IDC_LOCALSPI_EDIT,105,225,84,12,ES_AUTOHSCROLL
+    LTEXT           "Local SPI",IDC_STATIC,105,215,32,8
+    EDITTEXT        IDC_REMOTESPI_EDIT,105,195,84,12,ES_AUTOHSCROLL
+    LTEXT           "Remote SPI",IDC_STATIC,105,185,39,8
+    EDITTEXT        IDC_LOCALKEYFILE_EDIT,200,225,84,12,ES_AUTOHSCROLL
+    LTEXT           "Local Key File",IDC_STATIC,200,215,45,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "IPSecConfig MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "IPSecConfig\0"
+            VALUE "LegalCopyright", "Copyright (C) 1999-2000\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "IPSecConfig.EXE\0"
+            VALUE "ProductName", "IPSecConfig Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_IPSECCONFIG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 287
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 276
+        HORZGUIDE, 112
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About",                      ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About IPSecConfig..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\ipsecgui.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

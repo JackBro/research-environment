@@ -1,0 +1,287 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Configuring 6to4 Connectivity with MSR IPv6</TITLE>
+</HEAD>
+
+<BODY bgcolor="#FFFFFF">
+<H1>Configuring 6to4 Connectivity with MSR IPv6</H1>
+<P>
+<font size="+1"><B>January 13, 2000</B></font>
+<font size="-1">(Check
+<a href="http://www.research.microsoft.com/msripv6/docs/6to4.htm">here</a>
+for the latest version.)</font>
+</P>
+
+<P>Carpenter/Moore's 6to4 is a method for connecting IPv6 sites over
+the existing IPv4 Internet infrastructure. It uses a special address
+prefix to give isolated IPv6 sites their own IPv6 address space. 6to4
+is like a "pseudo-ISP" providing IPv6 connectivity. You can use 6to4
+to communicate directly with other 6to4 sites.  You can also use a
+6to4 relay to communicate with 6bone sites.
+</P>
+
+<P>The main requirement for using 6to4 is that you need one globally
+routable IPv4 address for your site. Your site consists of a
+collection of IPv6 machines (some running MSR IPv6, perhaps some running other
+IPv6 implementations) that you manage, probably all directly
+connected via ethernet or Carpenter/Jung 6-over-4.
+The globally routable IPv4 address must be
+assigned to one of your machines running MSR IPv6. This machine will
+be your 6to4 gateway.
+</P>
+
+<P>If you have an address like <CODE>10.x.y.z</CODE>,
+or with prefix <CODE>10/8</CODE>, <CODE>172.16/12</CODE>,
+<CODE>192.168/16</CODE>, or <CODE>169.254/16</CODE>, then it is not
+globally routable. Otherwise it probably is globally routable.
+See the <a href="#Debugging">Debugging section</a> in this document
+for more help in determining whether your ISP connection will support 6to4.
+</P>
+
+<H2>6to4cfg.exe</H2>
+
+<P>The 6to4cfg.exe command automates 6to4 configuration.
+It automatically discovers your globally routable IPv4 address
+and creates a 6to4 prefix. It will either
+perform the configuration directly, or it can write out a configuration
+script that you can inspect and run later.
+</P>
+
+<P>The basic 6to4cfg.exe command syntax is
+<CODE>6to4cfg [options] [filename]</CODE>.
+In more detail:
+</P>
+
+<DL>
+<DT><CODE>6to4cfg [filename]</CODE>
+<DD>If you specify a file name,
+the configuration script is written to the file.
+The configuration script uses the ipv6.exe command.
+<DD>You can specify <CODE>con</CODE> for the filename
+to write the configuration script to console output.
+This is useful for seeing what 6to4cfg.exe will do
+without actually doing it.
+<DD>If you do not specify a file name,
+6to4cfg.exe directly updates your machine's IPv6 configuration.
+
+<DT><CODE>6to4cfg -r</CODE>
+<DD>Become a 6to4 gateway router for your local network.
+This will enable routing on all your interfaces and assign subnet prefixes.
+
+<DT><CODE>6to4cfg -s</CODE>
+<DD>Enables site-local addressing inside your 6to4 site.
+Only meaningful when used in conjunction with <CODE>-r</CODE>.
+
+<DT><CODE>6to4cfg -u</CODE>
+<DD>Specifies that the 6to4 configuration should be reversed.
+So <CODE>6to4cfg -u</CODE> undoes the effect of <CODE>6to4cfg</CODE>,
+<CODE>6to4cfg -r -u</CODE> undoes the effect of <CODE>6to4cfg -r</CODE>, etc.
+
+<DT><CODE>6to4cfg -R v4-addr</CODE>
+<DD>Specifies the IPv4 address of a 6to4 relay router.
+The default address is <CODE>131.107.65.121</CODE>,
+which is the 6to4 relay router operated by Microsoft Research.
+</DL>
+
+<H2>Manual 6to4 Configuration</H2>
+
+<P>To make this concrete, in this example the globally routable
+address of the 6to4 gateway is <CODE>172.31.42.239</CODE>.
+Of course, you will need your own globally routable IPv4 address to use 6to4.
+</P>
+
+<P>The 32-bit globally routable IPv4 address is combined with the
+16-bit prefix <CODE>2002::/16</CODE> to form a 48-bit IPv6 address
+prefix for your site. In this example, the 6to4 site prefix is
+<CODE>2002:ac1f:2aef::/48</CODE>. Note that <CODE>ac1f:2aef</CODE> is
+the hexadecimal encoding of <CODE>172.31.42.239</CODE>. (Of course, you will
+use a different prefix based on your own globally routable IPv4 address.)
+Using the 6to4 site prefix, you can assign addresses and subnet prefixes
+inside your site.
+</P>
+
+<P>This example assumes that you use subnet 0 for manually configuring
+a 6to4 address on your 6to4 gateway machine and that you use subnet 1
+for automatically configuring addresses on your ethernet.
+But other choices are possible.
+</P>
+
+<P>First, use the ipv6.exe command to enable 6to4 on your 6to4 gateway
+machine:<P>
+
+<P><CODE>ipv6 rtu 2002::/16 2</CODE></P>
+
+<DIR>
+<P>The <CODE>ipv6 rtu</CODE> command performs a routing table update
+operation. It can be used to add, remove, or update a route. In this
+case it is enabling 6to4.</P>
+
+<P>The <CODE>2002::/16</CODE> argument is the route's prefix - it
+specifies the special 6to4 prefix.</P>
+
+<P>The <CODE>2</CODE> argument specifies the on-link interface for
+this prefix. Interface #2 is the "pseudo-interface" used for
+configured tunnels, automatic tunneling, and 6to4. When an IPv6
+destination address matches the <CODE>2002::/16</CODE> prefix, the
+32 bits that follow the prefix in the destination address are
+extracted to form an IPv4 destination address. The packet is
+encapsulated with an IPv4 header and sent to the IPv4 destination
+address.
+</P>
+</DIR>
+
+<P>Second, configure a 6to4 address on your 6to4 gateway machine:</P>
+
+<P><CODE>ipv6 adu 2/2002:ac1f:2aef::ac1f:2aef</CODE></P>
+
+<DIR>
+<P>The <CODE>ipv6 adu</CODE> command performs an address update
+operation. It can be used to add, remove, or update an address on an
+interface. In this case it is configuring the machine's 6to4
+address.</P>
+
+<P>The <CODE>2/2002:ac1f:2aef::ac1f:2aef</CODE> argument specifies the
+interface and the address. It says to configure address
+<CODE>2002:ac1f:2aef::ac1f:2aef</CODE> on interface #2. The address is
+created using the site prefix <CODE>2002:ac1f:2aef::/48</CODE>, plus
+subnet 0 to give a subnet prefix <CODE>2002:ac1f:2aef::/64</CODE>,
+plus a 64-bit interface identifier. Our convention is to use the
+machine's IPv4 address for the interface identifer for addresses
+assigned to interface #2. In your usage, <CODE>ac1f:2aef</CODE>
+should be replaced by the hexadecimal encoding of your own
+globally routable IPv4 address.
+</P>
+</DIR>
+
+<P>The above two commands are sufficient to allow communication with
+other 6to4 sites. For example, trying pinging the MSR 6to4 site:
+</P>
+
+<DIR>
+<P><CODE>ping6 2002:836b:4179::836b:4179</CODE></P>
+</DIR>
+
+<P>
+To enable communication with the 6bone, you must
+create a default configured tunnel to a 6to4 relay. You can use MSR's
+6to4 relay router, <CODE>131.107.65.121</CODE>:
+</P>
+
+<P><CODE>ipv6 rtu ::/0 2/::131.107.65.121 pub life 1800
+</CODE></P>
+
+<DIR>
+<P>The <CODE>ipv6 rtu</CODE> command performs a routing table update
+operation. In this case it is establishing a default route to the 6to4
+relay.</P>
+
+<P>The <CODE>::/0</CODE> argument is the route's prefix - the zero-length prefix means it is a default route.</P>
+
+<P>The <CODE>2/::131.107.65.121</CODE> argument specifies the next-hop
+neighbor for this prefix. It says to forward packets that match the
+prefix to address <CODE>::131.107.65.121</CODE> using interface
+#2. Forwarding a packet to <CODE>::131.107.65.121</CODE> on interface
+#2 causes it to be encapsulated with a v4 header and sent to
+<CODE>131.107.65.121</CODE>.</P>
+
+<P>The <CODE>pub</CODE> argument makes this a published route. This is
+only relevant for routers, so unless/until routing is enabled it has
+no effect. Similarly, the 30 minute lifetime is only relevant if
+routing is enabled.</P>
+</DIR>
+
+<P>Now you should be able to access 6bone sites as well as 6to4
+sites. Use the following command to test this:
+</P>
+
+<DIR>
+<P><CODE>ping6 3ffe:1cff:0:f5::1</CODE></P>
+</DIR>
+
+<P>See our <a href="6bone.htm">6bone instructions</a>
+for a list of other 6bone sites.
+</P>
+
+<P>The final step is to enable routing on your 6to4 gateway. This
+example assumes that interface #3 on your gateway machine is an ethernet
+interface and interface #4 is a 6-over-4 interface. Your machine may
+number its interfaces differently. The following two commands assign
+subnet prefixes to the two links. The subnet prefixes are derived from
+the site's 6to4 prefix <CODE>2002:ac1f:2aef::/48</CODE>:
+</P>
+
+<P><CODE>
+ipv6 rtu 2002:ac1f:2aef:1::/64 3 pub life 1800<BR>
+ipv6 rtu 2002:ac1f:2aef:2::/64 4 pub life 1800
+</CODE></P>
+
+<DIR>
+<P>Here the <CODE>ipv6 rtu</CODE> command specifies that the prefix
+<CODE>2002:ac1f:2aef:1::/64</CODE> is on-link to interface #3. It is
+configuring the first subnet prefix on the ethernet interface. The
+route is published with a lifetime of 30 minutes.</P>
+
+<P>Similarly, the <CODE>2002:ac1f:2aef:2::/64</CODE> prefix is
+configured on the 6-over-4 interface.</P>
+</DIR>
+
+<P>Finally, the next three commands enable the 6to4 gateway machine to be
+a router:</P>
+
+<P><CODE>
+ipv6 ifc 2 forw<BR>
+ipv6 ifc 3 forw adv<BR>
+ipv6 ifc 4 forw adv
+</CODE><P>
+
+<DIR>
+<P>The <CODE>ipv6 ifc</CODE> command controls attributes of an interface. A router both forwards packets and sends Router Advertisements. In the MSR IPv6 implementation, these are separately controlled per-interface attributes.</P>
+
+<P>Interface #2 does not need to be advertising because it is a
+pseudo-interface.</P>
+
+<P>If your machine has more interfaces (for example, interfaces 5 and 6)
+then they should also be configured to be forwarding and advertising.
+</P>
+</DIR>
+
+<P>As a result of these commands, MSR IPv6 will automatically
+configure addresses on interfaces #3 and #4 using the respective
+subnet prefixes. The two interfaces will start sending Router
+Advertisements at approximately 3-10 minute intervals.</P>
+
+<P>Hosts receiving these Router Advertisements will automatically
+configure themselves with a default route and a 6to4 address derived
+from their link's subnet prefix. They will have communication to 
+other 6to4 sites and the 6bone via the gateway machine.</P>
+
+<P>See our <a href="config.htm">configuration documentation</a>
+for more information about ipv6.exe.</P>
+
+<H2><a name="Debugging">Debugging</a></H2>
+
+<P>If you're having problems, try the following steps.
+</P>
+
+<P>First, check your IPv4 connectivity to the 6to4 relay router:
+<BR><CODE>ping 131.107.65.121</CODE>
+<BR>If this fails, then you do not have global internet connectivity.
+</P>
+
+<P>Next, check IPv6 encapsulation by using automatic tunneling:
+<BR><CODE>ping6 ::131.107.65.121</CODE>
+<BR>If this fails, then you might have a firewall or NAT (network
+address translator) between you and the internet. If this works,
+then your internet connection can support 6to4.
+</P>
+
+<P>Finally, check the output of <CODE>ipv6 rt</CODE>. You should see
+a route  <CODE>2002::/16 -> 2</CODE>.
+Check the output of <CODE>ipv6 if 2</CODE>.
+You should see a preferred address with a <CODE>2002::/16</CODE> prefix.
+</P>
+
+</BODY>
+</HTML>

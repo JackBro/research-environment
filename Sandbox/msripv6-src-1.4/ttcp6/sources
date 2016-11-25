@@ -1,0 +1,19 @@
+MAJORCOMP=msripv6
+MINORCOMP=ttcp6
+
+TARGETNAME=ttcp6
+TARGETPATH=obj
+TARGETTYPE=UMAPPL_NOLIB
+
+INCLUDES=..\inc
+
+SOURCES= ttcp6.c
+
+UMTYPE=console
+UMAPPL=ttcp6
+UMBASE=0x01000000
+
+UMLIBS= \
+    ..\wship6\obj\*\$(DDKBUILDENV)\wship6.lib \
+    $(MSSDK)\lib\mswsock.lib \
+    $(MSSDK)\lib\ws2_32.lib

@@ -1,0 +1,323 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>The SPD and SA List (manual keys) are created before IPsec traffic is processed</title>
+</head>
+
+<body background="..\bg.jpg">
+
+<p align="center"><font size="4"><b>IPsec Databases</b></font></p>
+
+<p><font size="2"></font>&nbsp;</p>
+
+<p><font size="2">Figure 1 shows the traffic flow for this
+example. Table 1 is the Security Policy Database (SPD) and Table
+2 to Security Association Database (SAD). </font></p>
+
+<p align="center"><font size="2"><img src="Image12.gif"
+width="671" height="502">Figure 1</font></p>
+
+<p><font size="2"></font>&nbsp;</p>
+
+<p><font size="2"></font>&nbsp;</p>
+
+<p align="center"><font size="2">H3 &#150; Security Policy
+Database (SPD)*</font></p>
+<div align="center"><center>
+
+<table border="1" cellpadding="7" cellspacing="1" width="758">
+    <tr>
+        <td valign="top" width="8%"><font size="2">Policy</font></td>
+        <td valign="top" width="9%"><font size="2">Remote Addr</font></td>
+        <td valign="top" width="9%"><font size="2">Local Addr</font></td>
+        <td valign="top" width="9%"><font size="2">Trans Protocol</font></td>
+        <td valign="top" width="9%"><font size="2">Remote Port</font></td>
+        <td valign="top" width="9%"><font size="2">Local Port</font></td>
+        <td valign="top" width="13%"><font size="2">IPsec Spec</font><p><font
+        size="2">(proto, mode, dst IP)</font></p>
+        </td>
+        <td valign="top" width="8%"><font size="2">SA Bundle Ptr</font></td>
+        <td valign="top" width="8%"><font size="2">Dir. Flag</font></td>
+        <td valign="top" width="10%"><font size="2">Outbound SA
+        Ptr</font></td>
+        <td valign="top" width="10%"><font size="2">Inbound SA
+        Ptr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="8%"><font size="2">1</font></td>
+        <td valign="top" width="9%"><font size="2">Net2 </font><p><font
+        size="2">(packet)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">H3</font></td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">* </font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="13%"><font size="2">AH, Trans </font></td>
+        <td valign="top" width="8%"><font size="2">2</font></td>
+        <td valign="top" width="8%"><font size="2">Bi</font></td>
+        <td valign="top" width="10%"><font size="2">2</font></td>
+        <td valign="top" width="10%"><font size="2">8</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="8%"><font size="2">2</font></td>
+        <td valign="top" width="9%"><font size="2">Net2 </font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">H3</font></td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(packet)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">* </font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="13%"><font size="2">ESP,
+        GWTunnel, SG2</font></td>
+        <td valign="top" width="8%"><font size="2">Null</font></td>
+        <td valign="top" width="8%"><font size="2">Bi</font></td>
+        <td valign="top" width="10%"><font size="2">1</font></td>
+        <td valign="top" width="10%"><font size="2">7</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="8%"><font size="2">3</font></td>
+        <td valign="top" width="9%"><font size="2">H4</font></td>
+        <td valign="top" width="9%"><font size="2">H3</font></td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">* </font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="13%"><font size="2">AH, Trans</font></td>
+        <td valign="top" width="8%"><font size="2">4</font></td>
+        <td valign="top" width="8%"><font size="2">Bi</font></td>
+        <td valign="top" width="10%"><font size="2">4</font></td>
+        <td valign="top" width="10%"><font size="2">10</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="8%"><font size="2">4</font></td>
+        <td valign="top" width="9%"><font size="2">H4</font></td>
+        <td valign="top" width="9%"><font size="2">H3</font></td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">* </font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="9%"><font size="2">*</font><p><font
+        size="2">(policy)</font></p>
+        </td>
+        <td valign="top" width="13%"><font size="2">ESP, Tunnel</font></td>
+        <td valign="top" width="8%"><font size="2">Null</font></td>
+        <td valign="top" width="8%"><font size="2">Bi</font></td>
+        <td valign="top" width="10%"><font size="2">5</font></td>
+        <td valign="top" width="10%"><font size="2">11</font></td>
+    </tr>
+</table>
+</center></div>
+
+<p align="center"><font size="2">Table 1</font></p>
+
+<p align="center"><font size="2">H3 &#150; Security Association
+Database (SAD)</font></p>
+<div align="center"><center>
+
+<table border="1" cellpadding="7" cellspacing="1" width="518">
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">SAD
+        Entry</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">SPI</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">Dst
+        IP Addr</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">Selectors</font><p><font
+        size="2">(dst addr, src addr, proto, dst prt, src prt)</font></p>
+        </td>
+        <td valign="top" width="15%" height="15"><font size="2">Chained
+        SA Ptr</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Direction
+        Flag</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">SP
+        Ptr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">1</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">300</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">SG2</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">Net2,
+        H3, TCP, *, * </font></td>
+        <td valign="top" width="15%" height="15"><font size="2">6</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Outbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">2</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">2</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">500</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H2-a</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H2-a,
+        H3, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">3</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Outbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">3</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">600</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H2-b</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H2-b,
+        H3, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Outbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">4</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">700</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H4</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H4,
+        H3, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Outbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">3</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">5</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">710</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H4</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H4,
+        H3, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Outbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">4</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">6</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">400</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">SG2</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">Net2,
+        H3, UDP, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Outbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">2</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">7</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">301</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H3</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H3,
+        Net2, TCP, *, * </font></td>
+        <td valign="top" width="15%" height="15"><font size="2">12</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Inbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">2</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">8</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">501</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H3</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H3,
+        H2-a, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">9</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Inbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">9</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">601</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H3</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H3,
+        H2-b, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Inbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">10</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">701</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H3</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H3,
+        H4, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Inbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">3</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">11</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">711</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H3</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H3,
+        H4, *, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Inbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">4</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="15"><font size="2">12</font></td>
+        <td valign="top" width="9%" height="15"><font size="2">401</font></td>
+        <td valign="top" width="13%" height="15"><font size="2">H3</font></td>
+        <td valign="top" width="28%" height="15"><font size="2">H3,
+        Net2, UDP, *, *</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Null</font></td>
+        <td valign="top" width="15%" height="15"><font size="2">Inbound</font></td>
+        <td valign="top" width="11%" height="15"><font size="2">2</font></td>
+    </tr>
+</table>
+</center></div>
+
+<p align="center"><font size="2">Table 2</font></p>
+
+<p><font size="2">The SPD is searched for a policy that matches
+traffic destined to H2-a. Policy 1 is found to match. A SAD entry
+already exist since this is the manual key case. In the IKE case,
+a SA negotiation is started. When the SAs are established, the
+SAD entry is linked to the SPD. &quot;Outbound SA Ptr&quot; in
+Policy 1 points to SA 2. The IPsec processing specified in the SA
+is performed. A check is made to see if more IPsec needs to be
+done. SPD entry 1 has the &quot;SA Bundle Ptr&quot; set to 2.
+This indicates that nested IPsec is performed as specified in
+Policy 2. From Policy 2, the &quot;Outbound SA Ptr&quot; is found
+and IPsec performed. Since this is the last IPsec for this packet
+(&quot;SA Bundle Ptr&quot; in Policy 2 is &quot;Null&quot;), the
+packet is sent to the network. </font></p>
+
+<p><font size="2">When the H3 receives traffic from H2-a, the SAD
+is consulted for a match to the inbound traffic. The SPI/Dst IP
+Addr/Protocol are used to find the correct SA. For the outer
+tunnel ESP IP header, SAD entry 7 is found. The &quot;SP
+Ptr&quot; is used to verify the protocol. After IPsec is
+performed for ESP, the SA for AH is found to be SAD entry 501.
+Again, IPsec is performed. The packet is passed to the transport
+layer. Here, the IPsec processing is verified by searching the
+SPD for a match; or, if the SA info is cached in the socket, a
+check against the cached info is done . The match for the AH
+portion is Policy 1. &quot;Bundle Ptr&quot; indicates the ESP
+portion is Policy 2. Both the policies match and the packet is
+allowed to proceed with normal processing. </font></p>
+
+<p><font size="2">Note, the same policies are used for inbound
+and outbound traffic due to the &quot;Dir. Flag&quot; (Direction
+Flag) set to &quot;Bi&quot; (Bi-directional). Also, the ESP
+Tunnel (Policy 2) contains the &quot;packet&quot; parameter in
+the &quot;Trans Protocol&quot; selector. The SAD entry used is
+different depending on the transport protocol of the packet. In
+the above example, TCP was the protocol.</font></p>
+
+<p><font size="2">If traffic is to H2-b instead of H2-a, the same
+policies match but different SAD entries are used. For the AH
+Transport, SAD entry 3 is used for outbound and SAD entry 9 for
+inbound traffic. The same ESP Tunnel is used if the transport
+protocol is TCP. For UDP, different SAD entries are used. </font></p>
+</body>
+</html>

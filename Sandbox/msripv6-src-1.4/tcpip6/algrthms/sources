@@ -1,0 +1,23 @@
+NT_UP=0
+
+MAJORCOMP=msripv6
+MINORCOMP=tcpip6
+
+TARGETNAME=algrthms
+TARGETTYPE=LIBRARY
+TARGETPATH=obj
+TARGETLIBS=
+
+INCLUDES=..\common;..\ip6;..\inc;..\..\inc;$(BASEDIR)\src\network\inc
+
+C_DEFINES=$(C_DEFINES) -DNT -D_NTDRIVER_ -D_PNP_POWER -DSECFLTR
+
+MSC_WARNING_LEVEL=/W3 /WX
+
+SOURCES=       \
+    null.c     \
+    md5.c      \
+    hmacmd5.c  \
+    sha1.c     \
+    hmacsha1.c \
+    algrthms.c

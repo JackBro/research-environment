@@ -1,0 +1,21 @@
+MAJORCOMP=msripv6
+MINORCOMP=tracert6
+
+TARGETNAME=tracert6
+TARGETPATH=obj
+TARGETTYPE=UMAPPL_NOLIB
+
+INCLUDES=..\inc
+
+C_DEFINES=-DNT
+
+SOURCES=        \
+    tracert6.c
+
+UMTYPE=console
+UMAPPL=tracert6
+UMBASE=0x01000000
+
+UMLIBS= \
+    ..\wship6\obj\*\$(DDKBUILDENV)\wship6.lib \
+    $(MSSDK)\lib\ws2_32.lib

@@ -1,0 +1,20 @@
+MAJORCOMP=msripv6
+MINORCOMP=6to4cfg
+
+TARGETNAME=6to4cfg
+TARGETPATH=obj
+TARGETTYPE=UMAPPL_NOLIB
+
+INCLUDES=..\inc
+
+SOURCES = 6to4cfg.c echo.c ipv6.c
+
+UMTYPE=console
+UMAPPL=6to4cfg
+UMBASE=0x01000000
+
+UMLIBS= \
+    $(TARGETPATH)\*\echo.obj \
+    $(TARGETPATH)\*\ipv6.obj \
+    ..\wship6\obj\*\$(DDKBUILDENV)\wship6.lib \
+    $(MSSDK)\lib\ws2_32.lib

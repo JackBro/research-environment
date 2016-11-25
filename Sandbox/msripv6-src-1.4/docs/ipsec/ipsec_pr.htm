@@ -1,0 +1,1819 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Ipsec Processing</title>
+</head>
+
+<body background="..\bg.jpg">
+
+<p align="center"><font size="5"><b>IPsec Processing</b></font></p>
+
+<p><font size="2">This document is based on the initial IPsec
+design meeting between Microsoft Research Ipv6 group (MSRIPv6)
+and Information Sciences Institute (ISI-East) held September
+23-24, 1998. The purpose of the design meeting was clarification
+of the IP Security Architecture Draft and discussion of the Ipv6
+implementation of IPsec.</font></p>
+
+<p><font size="2">To understand IPsec, a somewhat real-world
+example is used. Figure 1 shows the network topology used for the
+example. IPv4 addresses are used for simplification. Two Class C
+subnets, Net1 (10.2/16) and Net2 (15.4/16), are connected to the
+Internet through security gateways SG1 and SG2, respectively. A
+remote host, H3, is connected through a dialup connection to the
+Internet. </font></p>
+
+<p align="center"><font size="2"><img src="Image8.gif"
+width="572" height="428"></font></p>
+
+<p align="center"><font size="2">Figure 1</font></p>
+
+<p><font size="2">Before discussing IPsec traffic, the
+definitions of the Security Policy Database (SPD), Security
+Association List (SA List), and Security Association Database
+(SAD) are in order. First, the SPD, shown in Table 1, is an order
+list of rules with selectors used to match the traffic being
+processed to a policy. The &quot;Bundle Spec&quot; specifies what
+IPsec processing is performed. The &quot;Action&quot; indicates
+whether IPsec is done or not. The &quot;First SADPtr&quot; points
+to the first SAD, referred to as SA bundle in the Security
+Architecture Draft. Two SPDs exist for each IPsec interface. In
+the case of hosts, there is one outbound and one inbound SPD. </font></p>
+
+<p><font size="2"><b>SPD</b>
+|------------------------------------selectors---------------------------------------|</font></p>
+
+<table border="1" cellpadding="2" width="652">
+    <tr>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">Policy Num</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Bundle Spec</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Action</font></td>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">First SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">order list</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard </font></p>
+        <p><font size="2" face="Arial">(policy or packet)</font></p>
+        </td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard</font></p>
+        <p><font size="2" face="Arial">(policy or packet)</font></p>
+        </td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard</font></p>
+        <p><font size="2" face="Arial">(policy or packet)</font></p>
+        </td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard</font></p>
+        <p><font size="2" face="Arial">(policy or packet)</font></p>
+        </td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard</font></p>
+        <p><font size="2" face="Arial">(policy or packet)</font></p>
+        </td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPsec mode and protocol pair</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">do IPsec processing, bypass IPsec, or
+        discard </font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">pointer to SAD entry</font></td>
+    </tr>
+</table>
+
+<p align="center"><font size="2">Table 1</font></p>
+
+<p><font size="2">Next, the SAD shown in Table 2 is comprised of
+the same selectors as the SPD. The first SAD is pointed to from
+the SPD. An inbound and outbound SAD exists like the SPDs. A SAD
+entry can be created during traffic processing. The SPD selector
+entries have an indicator to specify how the SAD entry is
+created. The indicator is &quot;packet&quot; or
+&quot;policy.&quot; Policy means the SAD selector value matches
+the SPD selector value. Packet means the selector value is taken
+from the actual packet during traffic processing. Later examples
+show the creation of SADs. The &quot;SAPtr&quot; points to the
+SA(s) used for the traffic processing. The &quot;Next
+SADPtr&quot; is the next entry in the SA bundle. If the
+&quot;packet&quot; indicator is used in one of the SPD selectors,
+the &quot;Next SADPtr&quot; will most likely point to another
+entry instead of Null. Multiple SAD entries are called SA
+bundles.</font></p>
+
+<p><font size="2"><b>SAD</b></font></p>
+<div align="center"><center>
+
+<table border="1" cellpadding="2" cellspacing="1" width="576">
+    <tr>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Memory Location</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">SAPtr</font></td>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Next SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">location of the SAD entry</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard</font></p>
+        </td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard </font></p>
+        </td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard </font></p>
+        </td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard </font></p>
+        </td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">single value,</font><p><font size="2"
+        face="Arial">range, or</font></p>
+        <p><font size="2" face="Arial">wildcard </font></p>
+        </td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">pointer to SA(s)</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">pointer to next SAD in the bundle</font></td>
+    </tr>
+</table>
+</center></div>
+
+<p align="center"><font size="2">Table 2</font></p>
+
+<p><font size="2">Lastly, the SA List shown in Table 3 is how two
+devices communicate the relevant IPsec information. The
+&quot;SPI&quot; is a unique 32-bit number specified by the
+receiver of IPsec traffic. For example when sending traffic to
+H1-a, the sending entity uses the SPI supplied by H1-a (to talk
+to me securely use this SPI). The &quot;Dst IP Addr&quot; is the
+destination IP address of the IPsec receiver. The
+&quot;Proto&quot; is the IPsec protocol (AH or ESP). The
+&quot;Mode&quot; is tunnel or transport. The &quot;Security
+FunctionPtr&quot; is the algorithm used to do authentication or
+encryption/decryption. The SAD points to the SA used for the
+specific SAD entry. Again, two SA Lists exist for inbound and
+outbound. </font></p>
+
+<p><font size="2"><b>SA List</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="441">
+    <tr>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Memory Location</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">SPI</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Dst IP Addr</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Proto</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Mode</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Security FunctionPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">location of the SAD entry</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">32-bit number </font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">IP address</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH or ESP</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">tunnel or transport</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">pointer to algorithm which contains the key,
+        etc.</font></td>
+    </tr>
+</table>
+
+<p align="center"><font size="2">Table 3</font></p>
+
+<p><font size="2">The three databases (tables) discussed above
+are consulted to decide how to handle inbound and outbound
+traffic. Figure 2 shows the relationships of the tables to each
+other. The SPD points to the first entry in the SAD for the
+policy. The first SAD entry points to the next SAD entry and so
+forth. Note a SAD entry points to another SAD entry if one of the
+selectors in the SPD is a range or wildcard with the packet
+deciding the SAD entry. For example, if the SPD entry for
+destination IP address was a range, Net1, and the traffic was
+sent to multiple hosts within Net1. For every new host, a new SAD
+entry is created and pointed to by the previous entry. </font></p>
+
+<p><font size="2">The SAD entry points to one or more SAs in the
+SA List. From Figure 2, SAs can be shared by different SAD
+entries. SA1 is shared by SAD entries 1-1 and 1-3. SA3 is shared
+by SAD entries 2-1 and 1-2. The SA sharing is discussed later. </font></p>
+
+<p align="center"><font size="2"><img src="Image11.gif"
+width="603" height="452">Figure 2</font></p>
+
+<p><font size="2">Now that the databases (data structures)
+involved for IPsec have been discussed, the traffic examples are
+presented. Figure 3, illustrates the traffic flow for the
+examples. H2-a sends traffic to H1-a. H2-a also sends traffic to
+H3. H2-b sends traffic to H3. The SPD, SAD, and SA List are shown
+for each network device that participates in the traffic flow. </font></p>
+
+<p align="center"><font size="2"><img src="Image10.gif"
+width="597" height="448">Figure 3</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><b>H2-a (15.4.5.4) Outbound</b></p>
+
+<p><font size="2">The first example discusses traffic from H2-a
+to H1-a shown as the red arrows in Figure 3. The SPD is checked
+for a policy matching traffic destined for H1-a (10.2.3.4). Two
+policies exist in the SPD for traffic to H1-a. The first, Policy
+1, is for TCP traffic. The second, Policy 2, is for any traffic
+destined to Net1 (10.2/16) with the packet determining the SAD
+entry selector, denoted by &quot;(packet)&quot; in the &quot;Dst
+IP Addr&quot; field. The SPD is ordered with the more specific
+policy before a more general case as shown by Policy 1 coming
+before Policy 2. Policy 1 has &quot;TCP&quot; value in the
+&quot;Trans Proto&quot; field while Policy 2 has the
+&quot;*&quot; wildcard.</font></p>
+
+<p><font size="2"><b>SPD </b></font></p>
+
+<table border="1" cellpadding="2" width="652">
+    <tr>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">Policy Num</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Bundle Spec</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Action</font></td>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">First SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">TCP</font></td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Tunnel AH</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">4</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">10.2/16 (packet)</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Trans AH</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">Trans AH</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="17"><font size="2"
+        face="Arial">2</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Last</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27">&nbsp;</td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">DISCARD</font></td>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+</table>
+
+<p><font size="2">Looking at the SAD entries, Policy 1 points to
+SAD Entry 4. SAD Entry 4 denotes the memory location of the SAD
+entry and is not an ordered list. Policy 2 points to SAD Entry 1.
+The &quot;Next SADPtr&quot; of SAD Entry 1 points to SAD Entry 3
+with the destination address of H1-b (10.2.3.12). Since the
+&quot;Dst IP Addr&quot; selector of Policy 1 has the
+&quot;packet&quot; indicator set, a new SAD entry is created for
+each new destination address with the network ID 10.2/16. To use
+the same SAD for all the hosts on Net1, Policy 2 could have the
+&quot;policy&quot; indicator set in the &quot;Dst IP Addr&quot;
+selector field. </font></p>
+
+<p><font size="2"><b>SAD</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="576">
+    <tr>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">SAPtr</font></td>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Next SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">3</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2.3.12</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">TCP</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p><font size="2">The last data structure is the SA List. The SA
+List shown in the example does not contain all the information
+that is in the implementation. The relevant fields are shown. The
+SAD entry &quot;SAPtr&quot; field points to the SA in the SA List
+that is used for the SAD entry. Internet Key Exchange (IKE) is
+used to negotiate SAs; but, since the MSRIPv6 IPsec
+implementation uses manual keying, the SA must already exist. The
+SA is made up of the SPI/Dst IP Addr/Mode. If tunnel
+&quot;Mode&quot; is used, the destination IP address is the
+address of the outer tunnel. For host-to-host communication, the
+inner and outer IP addresses are usually the same. </font></p>
+
+<p><font size="2">SA Entry 1 is used to communicate to H1-a. SA
+Entry 4 is also used to communicate with H1-a except the SA is
+for TCP traffic. In the case of SPD Policy 2, a SAD entry is
+created when there is a new destination IP address in Net1. The
+SA List is searched and the SA found. Then, SAD Entry 4 points to
+SA Entry 4. If SPD Policy 2 had the &quot;policy&quot; indicator
+set, SAD Entry 4 would not be needed.</font></p>
+
+<p><font size="2"><b>SA List</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="441">
+    <tr>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Memory Location</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">SPI</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Dst IP Addr</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Proto</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Mode</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Security</font><p><font size="2"
+        face="Arial">FunctionPtr</font></p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">500</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH function</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">600</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.12</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH function</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">500</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH function</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">1200</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Tunnel</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH function</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p><font size="2">Once the correct SPD entry, SAD entry, and SA
+are found, the packet is authenticated with the security function
+pointed to by &quot;Security FunctionPtr&quot; in the SA entry.
+After the all the IPsec processing is finished, the packet is
+sent to the network. The next network device to receive the
+traffic is SG2.</font></p>
+
+<p><b>SG2 (15.4.5.1) Outbound</b></p>
+
+<p><font size="2">SG2 is a security gateway intercepting all
+traffic bound for the Internet. The SPD is check for a policy
+matching traffic destined for 10.2.3.4. Policy 2 is found. The
+SAD entry is checked to find the SA. The packet is encrypted and
+a new IP header is added with destination address SG1 and source
+address SG2. The packet is sent to the Internet.</font></p>
+
+<p><font size="2"><b>SPD </b></font></p>
+
+<table border="1" cellpadding="2" width="652">
+    <tr>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">Policy Num</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Bundle Spec</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Action</font></td>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">First SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="9%" height="34">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">10.2/16 </font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">15.4/16</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Tunnel ESP</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">15.4/16</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">Tunnel ESP</font></td>
+        <td valign="top" width="12%" height="17"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="17"><font size="2"
+        face="Arial">2</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Last</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27">&nbsp;</td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">DISCARD</font></td>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SAD</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="576">
+    <tr>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">SAPtr</font></td>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Next SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2/16</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">15.4/16</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">15.4/16</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="10%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="10%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SA List</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="441">
+    <tr>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">SPI</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Dst IP Addr</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Proto</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Mode</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Security FunctionPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">1300</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.1</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">ESP</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Tunnel</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">ESP function</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">400</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">ESP</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Tunnel</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">ESP function</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p><b>SG1 (10.2.3.1) Inbound</b></p>
+
+<p><font size="2">The last two network devices did outbound IPsec
+processing. SG1 performs inbound processing. The packet is
+received on the Internet interface of SG1. The SA List is
+searched using the triple SPI/Dst IP Addr/Proto. A SA is found
+that matches the inbound packet&#146;s selectors. The packet is
+decrypted with the function pointed to in the SA. Since SG1 is
+not the final destination of the packet, the packet must be
+forwarded. However before forwarding, the SPD is checked to make
+sure the correct IPsec processing was performed. The SPD is
+searched to find a policy that matches the packet. Policy 2
+matches. The SAD entry is check to verify IPsec processing. The
+right IPsec was done so the packet is forwarded. </font></p>
+
+<p><font size="2"><b>SPD </b></font></p>
+
+<table border="1" cellpadding="2" width="652">
+    <tr>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">Policy Num</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Bundle Spec</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Action</font></td>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">First SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="9%" height="34">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">10.2/16 </font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">15.4/16</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Tunnel ESP</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Last</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27">&nbsp;</td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">DISCARD</font></td>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SAD</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="576">
+    <tr>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">SAPtr</font></td>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Next SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2/16</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">15.4/16</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="10%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="10%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="10%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SA List</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="441">
+    <tr>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">SPI</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Dst IP Addr</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Proto</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Mode</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Security FunctionPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">1300</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.1</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">ESP</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Tunnel</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">ESP function</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><b>H1-a (10.2.3.4) Inbound</b></p>
+
+<p><font size="2">H1-a receives the packet and does the same
+processing as mentioned in SG1. The packet is destined for H1-a
+so the IPsec processing is verified before the packet&#146;s data
+is sent to the application. Remember two policies exist for
+traffic sent from H2-a to H1-a. So, the first policy that matches
+may not be the correct policy. For example if the traffic was
+TCP, the policy is Policy 1. If the traffic was not TCP, Policy 2
+should have been used. </font></p>
+
+<p><font size="2">There is the case that H2-a sent TCP traffic to
+H1-a using the &quot;wrong&quot; SA. The &quot;wrong&quot; SA
+means H2-a probably didn&#146;t have the policy denoting TCP in
+the outbound SPD. The SAD entries are checked to find the SA. The
+SA performed is checked against the SA for the specific SAD
+entry. When a match is found, the traffic is passed to the
+application. If a match is not found, the traffic is dropped. </font></p>
+
+<p><font size="2"><b>SPD </b></font></p>
+
+<table border="1" cellpadding="2" width="652">
+    <tr>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">Policy Num</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Bundle Spec</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Action</font></td>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">First SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">TCP</font></td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34">&nbsp;</td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Tunnel AH</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">4</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">10.2/16 (packet)</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Trans AH</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Last</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27">&nbsp;</td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">DISCARD</font></td>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SAD</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="576">
+    <tr>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">SAPtr</font></td>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Next SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">3</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="10%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2.3.12</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">TCP</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SA List</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="441">
+    <tr>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">SPI</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Dst IP Addr</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Proto</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Mode</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Security FunctionPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">500</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">600</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.12</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">1200</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">10.2.3.4</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Tunnel</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><b>H3 (128.10.2.37) Inbound</b></p>
+
+<p><font size="2">The above example illustrates two hosts using
+IPsec while protected by security gateways. The hosts use AH
+Transport and the security gateways use ESP Tunnel. The next
+example is a mobile host doing both AH Transport and ESP Tunnel.
+From Figure 3, H2-a sends traffic to H3 in AH Transport mode
+(shown with blue arrows). H2-a and SG2 do the same processing
+that was discussed in the previous example. </font></p>
+
+<p><font size="2">When the packet arrives at H3, the SA is found
+using the triple SPI/Dst IP Addr/Proto. The first IPsec
+processing is the ESP Tunnel mode. After the decryption, the
+packet is recognized to be for H3 and the second IPsec processing
+is done. The SA for authentication is found and the packet is
+authenticated. The SPD verification requires that both of the SAs
+used be checked. Using the selectors, the first match is found in
+the SPD. The SAD entry is check to see if the SAs performed match
+the SAs in the SAD. For example, the traffic from H2-a to H3
+looks as follows when it reaches H3:</font></p>
+
+<p><font size="2">ESP_Tunnel_AH_Transport</font></p>
+
+<p><font size="2">The SA order in the SAD entry must match the
+order of the packet processing. If the first policy does not
+match, the SPD check is continued. After the packet is verified,
+it is passed up the stack. Again if the policy verification
+fails, the packet is dropped. </font></p>
+
+<p><font size="2">H3 also receives traffic from H2-b (denoted by
+the yellow arrows in Figure 3). H2-b and H3 do AH Transport. SG2
+and H3 do ESP Tunnel. The ESP Tunnel SA is the same as the one
+used for traffic from H2-a to H3. In essence, the SAD entries
+share a SA as evident by the &quot;SAPtr&quot; field of SAD entry
+1 and 2.</font></p>
+
+<p><font size="2"><b>SPD </b></font></p>
+
+<table border="1" cellpadding="2" width="652">
+    <tr>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">Policy Num</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Bundle Spec</font></td>
+        <td valign="top" width="12%" height="35"><font size="2"
+        face="Arial">Action</font></td>
+        <td valign="top" width="9%" height="35"><font size="2"
+        face="Arial">First SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">15.4.5.4</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">TCP</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Trans AH</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">3</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">15.4/16</font><p><font size="2" face="Arial">(packet)</font></p>
+        </td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">Tunnel ESP/Trans AH</font></td>
+        <td valign="top" width="12%" height="34"><font size="2"
+        face="Arial">IPSEC</font></td>
+        <td valign="top" width="9%" height="34"><font size="2"
+        face="Arial">1</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="12%" height="17">&nbsp;</td>
+        <td valign="top" width="9%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Last</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="12%" height="27">&nbsp;</td>
+        <td valign="top" width="12%" height="27"><font size="2"
+        face="Arial">DISCARD</font></td>
+        <td valign="top" width="9%" height="27"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SAD</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="576">
+    <tr>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dest IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src IP Addr</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Trans Proto</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Dst Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Src Port</font></td>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">SAPtr</font></td>
+        <td valign="top" width="10%" height="18"><font size="2"
+        face="Arial">Next SADPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">15.4.5.4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1, 2</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">2</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">15.4.5.6</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">5, 2</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">15.4.5.4</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">TCP</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">*</font></td>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">Null</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="13%" height="17">&nbsp;</td>
+        <td valign="top" width="10%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="13%" height="18">&nbsp;</td>
+        <td valign="top" width="10%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p><font size="2"><b>SA List</b></font></p>
+
+<table border="1" cellpadding="2" cellspacing="1" width="441">
+    <tr>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">Location</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">SPI</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Dst IP Addr</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Proto</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Mode</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Security FunctionPtr</font></td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">1</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">500</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">2</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">400</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">ESP</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Tunnel</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">3</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="17"><font size="2"
+        face="Arial">4</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">1200</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="17"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="17">&nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top" width="13%" height="18"><font size="2"
+        face="Arial">5</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">800</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">128.10.2.37</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">AH</font></td>
+        <td valign="top" width="17%" height="18"><font size="2"
+        face="Arial">Trans</font></td>
+        <td valign="top" width="17%" height="18">&nbsp;</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p><b>Conclusion</b></p>
+
+<p><font size="2">The discussion was based on the interpretation
+of the IP Security Architecture Draft. The MSRIPv6 group and
+ISI-East are gathering more information and this document will be
+revised as necessary. </font></p>
+</body>
+</html>

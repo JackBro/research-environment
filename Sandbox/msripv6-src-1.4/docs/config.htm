@@ -1,0 +1,388 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Configuring MSR IPv6</TITLE>
+</HEAD>
+
+<BODY bgcolor="#FFFFFF">
+<H1>Configuring MSR IPv6</H1>
+<P>
+<font size="+1"><B>January 13, 2000</B></font>
+<font size="-1">(Check
+<a href="http://www.research.microsoft.com/msripv6/docs/config.htm">here</a>
+for the latest version.)</font>
+</P>
+
+<P>See our <a href="6bone.htm">6bone</a> and <a href="6to4.htm">6to4</a>
+documentation for specific examples of configuring MSR IPv6.
+</P>
+
+<P>Configuration changes are <EM>not</EM> permanent.
+They are lost if you reboot or
+restart the IPv6 stack. To work around this, put your configuration
+changes in a command script (.cmd file) that you can run after boot.
+</P>
+
+<H2>net.exe</H2>
+<P>The net.exe command can be used to stop and start the IPv6 stack.
+Restarting the IPv6 stack causes it to reinitialize exactly
+as if the machine were rebooting. Note that interface numbers
+may change when the stack reinitializes.
+</P>
+
+<P>The net.exe command has numerous subcommands. Each subcommand has its
+own set of arguments and options. Only a few are directly relevant to IPv6.
+</P>
+
+<DL>
+<DT><CODE>net stop tcpip6</CODE>
+<DD>Stops the IPv6 stack and unloads it (removes it from memory).
+This will fail if there are any open IPv6 sockets.
+
+<DT><CODE>net start tcpip6</CODE>
+<DD>Starts the IPv6 stack if it was stopped.
+If a new tcpip6.sys driver file is present in the
+%windir%\system32\drivers directory,
+the new driver file gets used.
+</DL>
+
+<H2>ipv6.exe</H2>
+
+<P>This section documents the ipv6.exe command. With the exception of
+IPsec, all MSR IPv6 configuration is done via the ipv6.exe
+command. Among other things, it is used for querying and configuring
+interfaces, addresses, and routes.
+</P>
+
+<P>The ipv6.exe command has numerous subcommands. Each subcommand has its
+own set of arguments and options.
+</P>
+
+<DL>
+<DT><CODE>ipv6 if [if#]</CODE>
+<DD>Displays information about interfaces. If an interface number is
+specified, displays information only about that interface. Otherwise
+displays information about all interfaces. The output includes the
+interface's link-layer address and the list of IPv6 addresses assigned
+to the interface. It includes the interface's current MTU and the "true"
+or maximum MTU that the interface can support.
+<DD>Interface #1 is a pseudo-interface used for loopback. Interface #2
+is a pseudo-interface used for configured tunneling, automatic
+tunneling, and 6to4 tunneling. Other interfaces are numbered
+sequentially in the order in which they are created. This order will
+vary from machine to machine.
+<DD>If the link-layer address is of the form aa-bb-cc-dd-ee-ff, then
+it is an Ethernet or FDDI interface. If the link-layer address is of the form
+a.b.c.d, then it is a Carpenter/Jung 6-over-4 interface.
+<DD>The two pseudo-interfaces do not use
+any aspect of Neighbor Discovery.
+
+<DT><CODE>ipv6 ifc if# [forwards] [advertises] [-forwards] [-advertises] [mtu #bytes] [site site-identifier]</CODE>
+<DD>Control attributes of the interface. Interfaces may be forwarding,
+in which case they forward packets whose destination address is not
+assigned to the interface. Interfaces may be advertising, in which
+case they send Router Advertisements. These are independently
+controllable attributes. An interface either sends Router
+Solicitations and receives Router Advertisements, or receives Router
+Solicitations and sends Router Advertisements.
+<DD>Because the two pseudo-interfaces do not use Neighbor Discovery,
+they can not be configured to send Router Advertisements.
+<DD><CODE>forwards</CODE> may be abbreviated as <CODE>forw</CODE>.
+<DD><CODE>advertises</CODE> may be abbreviated as <CODE>adv</CODE>.
+<DD>Can also set the MTU for the interface. The new MTU must be less than or equal to the link's maximum or "true" MTU (as reported by <CODE>ipv6 if</CODE>) and greater than or equal to the minimum IPv6 MTU (1280 bytes).
+<DD>Can also change the site-identifier for an interface.
+Site identifiers are used in the <CODE>sin6_scope_id</CODE> field
+with site-local addresses.
+
+<DT><CODE>ipv6 ifd if#</CODE>
+<DD>Deletes an interface. The loopback and tunnel pseudo-interfaces
+can not be deleted.
+
+<DT><CODE>ipv6 nc [if# [address]]</CODE>
+<DD>Displays the contents of the Neighbor Cache. If an interface
+number is specified, displays only the contents of that interface's
+cache. Otherwise displays the contents of all interface's caches. If
+an interface is specified, one may further specify an IPv6 address
+and then only that one Neighbor Cache Entry is displayed.
+<DD>For each Neighbor Cache Entry, displays the interface, the IPv6
+address, the link-layer address, and the reachability state.
+
+<DT><CODE>ipv6 ncf [if# [address]]</CODE>
+<DD>Flushes the specified Neighbor Cache Entries.
+Only Neighbor Cache Entries without references will be purged.
+Because Route Cache Entries hold references to Neighbor Cache
+Entries, it works best to flush the route cache first.
+Routing table entries can also hold references to Neighbor Cache
+Entries.
+
+<DT><CODE>ipv6 rc [if# address]</CODE>
+<DD>Displays the contents of the Route Cache. The Route Cache is the
+MSR IPv6 implementation's name for the Destination Cache. If an
+interface and address is specified, displays the Route Cache Entry for
+the reaching the address via the interface. Otherwise displays all Route
+Cache Entries.
+<DD>For each Route Cache Entry, displays the IPv6 address and the current
+next-hop interface and neighbor address. Also displays the preferred
+source address for use with this destination, the current path MTU
+for reaching this destination via the interface, and whether
+this is an "interface-specific" Route Cache Entry. Also displays if
+there is a Care-Of Address (for mobility) for this destination address.
+<DD>A destination address can have multiple Route Cache Entries, up
+to one for each outgoing interface. However, a destination address can
+have at most one Route Cache Entry that is not
+"interface-specific". An "interface-specific" Route Cache Entry is
+only used if the application explicitly specifies that outgoing interface.
+
+<DT><CODE>ipv6 rcf [if# [address]]</CODE>
+<DD>Flushes the specified Route Cache Entries.
+
+<DT><CODE>ipv6 bc</CODE>
+<DD>Displays the contents of the Binding Cache. The Binding Cache
+holds bindings between Home Addresses and Care-Of Addresses for Mobile
+IPv6.
+<DD>For each binding, displays the home address, the care-of address,
+and the binding sequence number and lifetime.
+
+<DT><CODE>ipv6 adu if#/address [lifetime VL[/PL]] [anycast] [unicast]</CODE>
+<DD>Adds or removes a unicast or anycast address assignment on an interface.
+Defaults to unicast unless <CODE>anycast</CODE> is specified.
+<DD>If the lifetime is not specified, it is infinite. If only a valid
+lifetime is specified, then the preferred lifetime is equal to the
+valid lifetime. A lifetime of <CODE>infinite</CODE> may be specified,
+or a value in seconds. The preferred lifetime must be less than or equal to the
+valid lifetime. Specifying a lifetime of zero causes the address to be removed.
+<DD><CODE>lifetime</CODE> may be abbreviated as <CODE>life</CODE>.
+<DD>For anycast addresses, the only valid lifetime values
+are zero and infinite.
+
+<DT><CODE>ipv6 spt</CODE>
+<DD>Displays the current contents of the site prefix table.
+<DD>For each site prefix, displays the prefix, the interface to which
+the site prefix applies, and the prefix lifetime in seconds.
+<DD>Site prefixes are normally auto-configured from Router
+Advertisements. They are used in getaddrinfo and getipnodebyname to
+filter out inappropriate site-local addresses.
+
+<DT><CODE>ipv6 spu prefix if# [lifetime L]</CODE>
+<DD>Adds, removes, or updates a prefix in the site prefix table.
+<DD>The prefix and interface number are not optional. The site prefix
+prefix lifetime (specified in seconds) defaults to infinite if not
+specified. Specifying a lifetime of zero causes the site prefix to be deleted.
+<DD>Not needed for normal configuration of hosts or routers.
+
+<DT><CODE>ipv6 rt</CODE>
+<DD>Displays the current contents of the routing table.
+<DD>For each routing table entry, displays the route prefix, either an
+on-link interface or a next-hop neighbor on an interface, a preference
+value (smaller is more preferred), and a lifetime in seconds.
+<DD>Routing table entries may also have publish and aging
+attributes. The default is for them to age (meaning the lifetime
+actually counts down, instead of remaining constant) and to not be
+published (meaning they are not used in constructing Router Advertisements).
+<DD>On hosts, routing table entries are normally auto-configured from
+Router Advertisements.
+
+<DT><CODE>ipv6 rtu prefix if#[/nexthop] [lifetime L] [preference P]
+[publish] [age] [spl site-prefix-length]</CODE>
+<DD>Adds or removes a route in the routing table. The route prefix is
+not optional. The prefix can either be on-link to a specified
+interface or it can have next-hop, specified with a neighbor address
+on an interface. The route can have a lifetime in seconds (defaults to
+infinite) and a preference (defaults to zero, or most
+preferred). Specifying a lifetime of zero causes the route to be
+deleted.
+<DD>If the route is specified as published (meaning it will be used in
+constructing Router Advertisements), then by default it does not
+age. The route's lifetime does not count down, so it is effectively
+infinite, but the value does get used in Router Advertisements.
+Optionally, a route can specified as a published route that also ages.
+A non-published route by default always ages.
+<DD>The optional <CODE>spl</CODE> suboption can be used to specify a
+site prefix length associated with the route. The site prefix length
+is used only when sending Router Advertisements.
+<DD><CODE>lifetime</CODE> may be abbreviated as <CODE>life</CODE>.
+<DD><CODE>preference</CODE> may be abbreviated as <CODE>pref</CODE>.
+<DD><CODE>publish</CODE> may be abbreviated as <CODE>pub</CODE>.
+</DL>
+
+<H2>Discussion</H2>
+
+<H3>Router Advertisements</H3>
+
+<P>The content of Router Advertisements is automatically derived
+from the published routes in the routing table. Non-published routes
+are used for routing but are completely ignored when constructing
+Router Advertisments.
+</P>
+
+<P>Router Advertisements always contain a Source Link-Layer Address
+option and an MTU option. The value for the MTU option is taken from
+the sending interface's current link MTU. This value can be changed
+with the <CODE>ipv6 ifc mtu</CODE> command.
+</P>
+
+<P>The Router Advertisement will have a non-zero
+Router Lifetime only if there is a published default route. A default
+route is a route for the zero-length prefix.
+</P>
+
+<P>Published on-link routes result in Prefix Information Options in
+Router Advertisements. If the on-link prefix has 64 bits, then the
+Prefix Information option has both the L and A bits set, so hosts
+receiving it will auto-configure addresses.
+</P>
+
+<P>An interface that sends Router Advertisements will also
+autoconfigure addresses for itself based on the Prefix Information
+Options that it sends.
+</P>
+
+<P>It is normally best to have a finite non-aging lifetime on all
+published routes, like 30 minutes. Then if you decide to retract a
+route, just change the route to have an aging lifetime. The route will
+age over the course of a few Router Advertisements and then disappear
+from both the router and any hosts receiving the Router
+Advertisements.
+</P>
+
+<P>Routes that hosts learn from Router Advertisements are not
+published and do age. Similarly, addresses autoconfigured from Router
+Advertisements do age.
+</P>
+
+<H3>Site Prefixes</H3>
+
+<P>The <CODE>ipv6 rtu</CODE> command allows published on-link prefixes
+to also be configured with a site prefix length. If specified, the site prefix
+length is put into a Prefix Information option in Router
+Advertisements. For example,
+<DIR><CODE>
+ipv6 rtu 2002:836b:4179:2::/64 4 pub life 1800 spl 48
+</CODE></DIR>
+specifies a prefix that is on-link to interface #4. The prefix is
+published, meaning that it is included in Router Advertisements if
+interface #4 is an advertising interface. The lifetime in the Prefix
+Information option is 1800 seconds or 30 minutes.
+The Site Prefix Length in the Prefix Information option is 48.
+</P>
+
+<P>The receipt of a Prefix Information Option that specifies a site
+prefix causes an entry to be created in the Site Prefix Table. The
+<CODE>ipv6 spt</CODE> command displays the Site Prefix Table. The Site
+Prefix Table is used to remove inappropriate site-local addresses from
+the addresses returned by the <CODE>getaddrinfo</CODE> and
+<CODE>getipnodebyname</CODE> APIs.
+</P>
+
+<P>See the Internet Draft <a
+href="ftp://ftp.isi.edu/internet-drafts/draft-ietf-ipngwg-site-prefixes-03.txt">Site prefixes in Neighbor Discovery</a>
+for more information about site prefixes and site-local addressing.
+</P>
+
+<H3>Link-Local and Site-Local Addresses</H3>
+
+<P>Link-local and site-local addresses are called scoped addresses.
+The API supports the <CODE>sin6_scope_id</CODE> field
+in <CODE>struct sockaddr_in6</CODE> for use with scoped addresses.
+</P>
+
+<P>For link-local addresses (<CODE>fe80::/10</CODE> prefix),
+the <CODE>sin6_scope_id</CODE> field in the socket address
+is an interface number.
+</P>
+
+<P>For site-local addresses (<CODE>fec0::/10</CODE> prefix),
+the <CODE>sin6_scope_id</CODE> field in the socket address
+is a site identifier. The <CODE>ipv6 ifc site</CODE> command
+will change the site identifier associated with an interface.
+By default, interfaces are associated with site identifier 1.
+</P>
+
+<P>For all other addresses, the <CODE>sin6_scope_id</CODE> field
+must be zero.
+</P>
+
+<P>If you are sending or connecting to a scoped address,
+then <CODE>sin6_scope_id</CODE> may be left unspecified (zero).
+If you are binding to a scoped address, then <CODE>sin6_scope_id</CODE>
+must be non-zero and specify a valid interface number or site identifier.
+</P>
+
+<P>If you are sending or connecting to a scoped address
+and have not specified <CODE>sin6_scope_id</CODE>,
+then the scoped address is ambiguous. To resolve the ambiguity,
+the IPv6 stack first checks if you've bound the socket
+to a source address. If so, the bound source address resolves
+the ambiguity by supplying an interface number or site identifier.
+</P>
+
+<P>If you are sending or connecting to a scoped address
+and have not specified <CODE>sin6_scope_id</CODE> and
+not bound a source address, then the IPv6 stack looks
+in the routing table. For example,
+<DIR>
+<CODE>ipv6 rtu fe80::/10 3</CODE>
+</DIR>
+specifies that link-local addresses by default be treated as on-link
+to interface #3.
+</P>
+
+<P>If you have not specified <CODE>sin6_scope_id</CODE>,
+you have not bound a source address, and you have not specified
+a route for link-local addresses,
+then as a last resort the IPv6 stack will try Neighbor Discovery
+to resolve a link-local address via each of your interfaces in turn
+until it finds a neighboring node that has the link-local address.
+When Neighbor Discovery times out (this takes several seconds),
+it will move on to the next interface for the next packet that you send.
+</P>
+
+<H3>Multicast Destination Addresses</H3>
+
+<P>When sending to a multicast destination address, MSR IPv6 normally
+requires that the application have specified an outgoing interface. It
+can do this with the IPV6_MULTICAST_IF socket option.
+</P>
+
+<P>It is also possible and often convenient to specify a default
+interface for a specific multicast address, an entire multicast
+address scope, or all multicast addresses. This is done with a route
+that makes the multicast prefix be on-link to the desired outgoing
+interface. For example,
+<DIR>
+<CODE>ipv6 rtu ff02::5/128 3</CODE><BR>
+<CODE>ipv6 rtu ff0e::/16 3</CODE><BR>
+<CODE>ipv6 rtu ff00::/8 3</CODE>
+</DIR>
+</P>
+
+<H3>Automatic Tunneling and 6to4</H3>
+
+<P>Automatic tunneling with v4-compatible addresses and 6to4 both work
+the same way, via a route for a prefix that is on-link to interface
+#2. The 32 bits following the prefix are extracted and used as a v4
+destination address for the encapsulated packet.
+</P>
+
+<P>Automatic tunneling uses the <CODE>::/96</CODE> prefix. It is enabled
+by default. It can be disabled by removing the route for
+<CODE>::/96</CODE>.
+</P>
+
+<P>6to4 uses the <CODE>2002::/16</CODE> prefix. It is not enabled by default.
+</P>
+
+<H3>Forwarding Tunneled Packets</H3>
+
+<P>There is a limitation in the code that receives encapsulated
+(tunneled) packets and demultiplexes them to a specific interface. If
+you want to forward tunneled packets received via a configured tunnel,
+then it is necessary to enable forwarding on any 6-over-4 interfaces
+as well as interface #2. Just enabling forwarding on interface #2 will
+not work. Of course, normally when configuring a router you would in
+any case enable forwarding on all interfaces except loopback.
+</P>
+
+</BODY>
+</HTML>
